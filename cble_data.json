@@ -5466,7 +5466,21 @@
       "note": "0.5 inch is standard static submergence of the bubble cap so the vapor can bubble through",
       "resolved": false,
       "date_logged": "2026-09-21T18:46:28"
+    },
+    {
+      "id": "1790016703284700",
+      "exam_id": "179000978718785",
+      "exam_source": "D2_S1",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 83,
+      "question": "1 kg of gas occupies a volume of 0.4 m³ at a pressure of100 kN/m². The gas is compressed isothermally to a pressureof 450 kN/m². Determine the change in entropy of the gasduring the compression. Assume R = 300 J/kg-K.",
+      "your_answer": "D. -0.19 kJ/kg-K",
+      "correct_answer": "C. -0.45 kJ/kg-K",
+      "category": "Forgot a Concept (Knew It Before)",
+      "note": "dS = -R ln ( P2/P1 ), negative since compressed \nand since ln(V2/V1) = ln(P1/P2)",
+      "resolved": false,
+      "date_logged": "2026-09-21T18:51:43"
     }
   ],
-  "updated_at": "2026-09-21T18:46:33"
+  "updated_at": "2026-09-21T18:51:49"
 }
