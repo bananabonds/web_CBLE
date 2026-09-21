@@ -5396,7 +5396,21 @@
       "note": "dU=dH+d(PV), psia ft3 -> ft lbf by multiplying to 144 in2/ft2 then to BTU = 778.16 lbf ft",
       "resolved": true,
       "date_logged": "2026-09-21T18:27:24"
+    },
+    {
+      "id": "1790015515844868",
+      "exam_id": "179000978718785",
+      "exam_source": "D2_S1",
+      "source_list": "D2_L8_Equipment_Plant_Design",
+      "reference_no": 42,
+      "question": "Equivalent diameter for heat transfer calculation for a duct of square cross section having each side as 'd' will be",
+      "your_answer": "D. sqrt 2d",
+      "correct_answer": "A. d",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Hydraulic diameter = 4 * cross section/ perimeter, perimeter of square= 4d, area = d^2. Hence, 4 * d^2 / 4d = d",
+      "resolved": false,
+      "date_logged": "2026-09-21T18:31:55"
     }
   ],
-  "updated_at": "2026-09-21T18:27:30"
+  "updated_at": "2026-09-21T18:32:01"
 }
