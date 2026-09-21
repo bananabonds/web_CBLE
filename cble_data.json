@@ -2322,7 +2322,21 @@
       "note": "BOD5 = Lo(1-e^-kt), then to calculate mix use matbal: Qw*Cw + Qr+Cr = (Qw+Qr) * Cmix",
       "resolved": true,
       "date_logged": "2026-09-21T12:07:57"
+    },
+    {
+      "id": "178999274276366",
+      "exam_id": "1789982956801386",
+      "exam_source": "D1_S1",
+      "source_list": "D1_L3_Analytical_Chemistry",
+      "reference_no": 17,
+      "question": "A 0.045 M solution of benzoic acid has a pH of 2.78. Calculate its pKa.",
+      "your_answer": "B. 2.15",
+      "correct_answer": "D. 4.2",
+      "category": "Formula / Equation Error",
+      "note": "Get H+ = x, Ka = x^2 / [benzoic acid] - x",
+      "resolved": true,
+      "date_logged": "2026-09-21T12:12:22"
     }
   ],
-  "updated_at": "2026-09-21T12:08:02"
+  "updated_at": "2026-09-21T12:12:27"
 }
