@@ -2308,7 +2308,21 @@
       "note": "Get mols of HCl = mols NH3, then divide by 4.373 then simply multiply to the total solute",
       "resolved": true,
       "date_logged": "2026-09-21T11:55:36"
+    },
+    {
+      "id": "1789992477180128",
+      "exam_id": "1789982956801386",
+      "exam_source": "D1_S1",
+      "source_list": "D1_L2_Environmental_EngSci",
+      "reference_no": 24,
+      "question": "For numbers 24 to 25: The town of Aveta discharges 17,360 m3/day of treated wastewater into the Tefnet Creek. The treated wastewater has a BOD5 of 12 mg/L and a BOD decay constant, k, of 0.12 dayu22121 at 20u00b0C. Tefnet Creek has a flow rate of 0.43 m3/s and an ultimate BOD, Lo, of 5.0 mg/L. The DO of the river is 6.5 mg/L and the DO of the wastewater is 1.0 mg/L. Compute the DO and initial ultimate BOD, Lo, after mixing.",
+      "your_answer": "B. 3.36 and 11 mg/L",
+      "correct_answer": "A. 4.75 and 12 mg/L",
+      "category": "Formula / Equation Error",
+      "note": "BOD5 = Lo(1-e^-kt), then to calculate mix use matbal: Qw*Cw + Qr+Cr = (Qw+Qr) * Cmix",
+      "resolved": true,
+      "date_logged": "2026-09-21T12:07:57"
     }
   ],
-  "updated_at": "2026-09-21T11:55:54"
+  "updated_at": "2026-09-21T12:08:02"
 }
