@@ -1239,6 +1239,15 @@
       "pct": 98,
       "date": "2026-09-21T07:50:47",
       "time_used_seconds": 340.5
+    },
+    {
+      "id": "1789982956801386",
+      "source": "D1_S1",
+      "score": 35,
+      "total": 50,
+      "pct": 70,
+      "date": "2026-09-21T09:29:16",
+      "time_used_seconds": 1050.5
     }
   ],
   "exam_details": [
@@ -1748,8 +1757,515 @@
           "correct_answer": "D. 10.773"
         }
       ]
+    },
+    {
+      "exam_id": "1789982956801386",
+      "source": "D1_S1",
+      "date": "2026-09-21T09:29:16",
+      "items": [
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 100,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which gas has the highest global warming potential (GWP)?",
+          "your_answer": "C. CH4",
+          "correct_answer": "D. SF6"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 34,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "The energy for vacancy formation in copper is 0.9 eV/atom. The atomic weight and density at 1000 °C are 63.5 g/mol and 8.4 g/cm³, respectively. Determine the equilibrium number of vacancies per cubic meter for Cu at the given temperature.",
+          "your_answer": "C. 2.2x10²⁵ atoms/m³",
+          "correct_answer": "C. 2.2x10²⁵ atoms/m³"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 25,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A 10.231 g sample of window cleaner containing ammonia was diluted with 39.466 g of water. Then 4.373 g of solution were titrated with 14.22 mL of 0.1063 M HCl to reach a bromocresol green endpoint. Find the weight % of NH₃ (17.031) in the cleaner.",
+          "your_answer": "C. 5.33%",
+          "correct_answer": "B. 2.85%"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 24,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "For numbers 24 to 25: The town of Aveta discharges 17,360 m3/day of treated wastewater into the Tefnet Creek. The treated wastewater has a BOD5 of 12 mg/L and a BOD decay constant, k, of 0.12 dayu22121 at 20u00b0C. Tefnet Creek has a flow rate of 0.43 m3/s and an ultimate BOD, Lo, of 5.0 mg/L. The DO of the river is 6.5 mg/L and the DO of the wastewater is 1.0 mg/L. Compute the DO and initial ultimate BOD, Lo, after mixing.",
+          "your_answer": "B. 3.36 and 11 mg/L",
+          "correct_answer": "A. 4.75 and 12 mg/L"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 56,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following physical properties pertains to a chemicals ability to combust without aid of an ignition source at a certain temperature?",
+          "your_answer": "D. Auto-ignition temperature",
+          "correct_answer": "D. Auto-ignition temperature"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 100,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Which of the following reagents would be best for reducing an ester to an aldehyde?",
+          "your_answer": "D. diisobutylaluminum hydride (DIBAH) in toluene at -78 °C",
+          "correct_answer": "D. diisobutylaluminum hydride (DIBAH) in toluene at -78 °C"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 17,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "A 0.045 M solution of benzoic acid has a pH of 2.78. Calculate its pKa.",
+          "your_answer": "B. 2.15",
+          "correct_answer": "D. 4.2"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "How many grams of B(OH)₃ (61.83) should be used to make 2 L of 0.05 M solution?",
+          "your_answer": "B. 6.18 g",
+          "correct_answer": "B. 6.18 g"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 63,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "What is toxicity equivalence factor?",
+          "your_answer": "D. Ratio of the toxicity of a chemical to that of source",
+          "correct_answer": "A. Ratio of the toxicity of a chemical to that of another structurally related chemical (or index compound) chosen as a reference"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 46,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is/are optically inactive?",
+          "your_answer": "D. all the above",
+          "correct_answer": "D. all the above"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 94,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "When alcohol is added to carboxylic acid in the presence of catalyst, it becomes:",
+          "your_answer": "B. ester",
+          "correct_answer": "B. ester"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 31,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A water contains 100.0 mg/L CO3u00b2u207b and 75.0 mg/L HCO3u207b at a pH of 10 (T = 25u00b0C). Calculate the exact alkalinity in mg/L as CaCO3. Approximate the alkalinity by ignoring the appropriate chemical species.",
+          "your_answer": "A. 225",
+          "correct_answer": "C. 233"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 28,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "The Miller index of a plane that cuts the x, y, and z axes at 1, 1, 1 units respectively is:",
+          "your_answer": "A. [1 1 1]",
+          "correct_answer": "A. [1 1 1]"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 48,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Process whereby coarse matter (suspended or floating) of a certain size can be strained out of flowing water with the aid of bars, fine wires or rocks.",
+          "your_answer": "A. screening",
+          "correct_answer": "A. screening"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 23,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Given that K_sp for AgCl is 1.8x10⁻¹⁰, what is the molar solubility of AgCl in 0.1 M NaCl?",
+          "your_answer": "A. 1.8x10⁻⁹ M",
+          "correct_answer": "A. 1.8x10⁻⁹ M"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 40,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "(R)-2-pentanol and (S)-2-pentanol are different with respect to their:",
+          "your_answer": "B. direction of rotation of plane-polarized light.",
+          "correct_answer": "B. direction of rotation of plane-polarized light."
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "You are given 90 mL of 0.6 M of the weak base NH₃ (K_b = 1.8×10⁻⁵), and 1 M of the strong acid titrant HCl. What is the pH after 50 mL of acid is added?",
+          "your_answer": "C. 8.16",
+          "correct_answer": "C. 8.16"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the functional group of CH₃CH₂COCH₃?",
+          "your_answer": "B. ketone",
+          "correct_answer": "B. ketone"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 8,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Based on the degree of unsaturation, the compound C₁₁H₉NO₃ can have which of the following structural features?",
+          "your_answer": "B. 1 rings and 5 double bonds",
+          "correct_answer": "C. 2 triple bonds and 4 double bonds"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 41,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Consider a cylindrical specimen of some hypothetical metal alloy that has a diameter of 10.0 mm. A tensile force of 1500 N produces an elastic reduction in diameter of 6.7 x 10⁻⁴ mm. Compute the elastic modulus of this alloy, given that Poisson’s ratio is 0.35.",
+          "your_answer": "C. 250 GPa",
+          "correct_answer": "D. 100 GPa"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which type of bonding explains the conductivity of metals?",
+          "your_answer": "B. Metallic",
+          "correct_answer": "B. Metallic"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Imagine a spill occurs in a confined space which sections of the SDS would be most helpful in developing an appropriate response plan?",
+          "your_answer": "B. Section 6",
+          "correct_answer": "B. Section 6"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 27,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is not a physical characteristic of wastewater?",
+          "your_answer": "C. color",
+          "correct_answer": "D. hardness"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 24,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Which of the following energy conversion devices is the least effective (with the lowest energy conversion and highest energy waste)?",
+          "your_answer": "A. Steam turbines",
+          "correct_answer": "B. Incandescent bulbs"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 113,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "This is a [4+2] concerted cycloaddition between a conjugated diene and a substituted alkene to form substituted cyclohexene ring.",
+          "your_answer": "A. Diels-Alder reaction",
+          "correct_answer": "A. Diels-Alder reaction"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 64,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the most common approach used to assess skin exposure to & contaminant?",
+          "your_answer": "C. using pad or dosimeters to determine the amount of contaminant deposited on the skin",
+          "correct_answer": "C. using pad or dosimeters to determine the amount of contaminant deposited on the skin"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 106,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Which of the following gases is not included in the Kyoto Protocolu2019s \"basket of six\" GHGs?",
+          "your_answer": "B. NH3",
+          "correct_answer": "B. NH3"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 44,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "The pure (+) enantiomer of a compound has a specific rotation of +50°. A solution with a concentration of 0.04 g/mL in a 1-dm cell has a specific rotation of +40°. What is the observed rotation α of the solution?",
+          "your_answer": "D. +1.6°",
+          "correct_answer": "D. +1.6°"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 49,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Which class of extinguisher would be best used for electrical equipment like appliances, power tools, and electrical wiring?",
+          "your_answer": "C. Class C extinguisher",
+          "correct_answer": "C. Class C extinguisher"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 21,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "How many grams of Na₂CO₃ (105.99) should be mixed with 5 g of NaHCO₃ (84.01) to produce 100 mL of buffer with pH 10? pKa₁ = 6.351, pKa₂ = 10.329.",
+          "your_answer": "A. 2.96 g",
+          "correct_answer": "A. 2.96 g"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 48,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "A compound with a molecular mass of 292.16 g/mol was dissolved in a 5 mL volumetric flask. A 1 mL aliquot was withdrawn, placed in a 10 mL volumetric flask, and diluted to the mark. The absorbance at 340 nm was 0.427 in a 1 cm cuvet. The molar absorptivity at 340 nm is ε = 6130/M-cm. How many mg of compound were used to make the 5 mL solution?",
+          "your_answer": "A. 1.02 mg",
+          "correct_answer": "A. 1.02 mg"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 41,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following may be separated by ordinary physical methods?",
+          "your_answer": "B. cis-2-bromo-2-butene and trans-2-bromo-2-butene",
+          "correct_answer": "B. cis-2-bromo-2-butene and trans-2-bromo-2-butene"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 33,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "In passive solar heating; the goal is to absorb heat from the Sun during the and release it during the night Which material would be better for this application: one with high heat capacity or one with a low heat capacity? day",
+          "your_answer": "A. Material with high heat capacity",
+          "correct_answer": "A. Material with high heat capacity"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Marie Curie dissolved 0.09192 g of RaCl₂ and treated with excess AgNO₃ to precipitate 0.0889 g of AgCl. In her time, the atomic mass of Ag was known to be 107.8 and that of Cl was 35.4. Find the atomic mass of Ra from these values.",
+          "your_answer": "C. 225.3",
+          "correct_answer": "C. 225.3"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 43,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What does the \"oxidizing\" symbol on a chemical container indicate?",
+          "your_answer": "D. The chemical can cause or enhance combustion of other substances",
+          "correct_answer": "D. The chemical can cause or enhance combustion of other substances"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 58,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "The main advantage of resin transfer molding over hand lay-up is:",
+          "your_answer": "D. simpler mold design",
+          "correct_answer": "B. better control of fiber volume fraction"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which type of solid lacks long-range order?",
+          "your_answer": "A. amorphous solid",
+          "correct_answer": "A. amorphous solid"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 69,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Which hydrocarbon has a vapor density of 29 relative to hydrogen?",
+          "your_answer": "C. Pentene",
+          "correct_answer": "D. Butane"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 54,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "What is the primary reinforcement material in carbon fiber composites?",
+          "your_answer": "C. epoxy resin",
+          "correct_answer": "B. carbon fibers"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 85,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A wastewater treatment plant treats 50,000 mu00b3/day with an influent BOD of 250 mg/L and an effluent BOD of 30 mg/L. What is the daily BOD load removed (kg)?",
+          "your_answer": "C. 12,000 kg",
+          "correct_answer": "B. 11,000 kg"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 91,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Which of the following environmental issues is most directly linked to the increase in CO2 concentration in the atmosphere?",
+          "your_answer": "B. Ocean acidification",
+          "correct_answer": "B. Ocean acidification"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 50,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Stainless steel resists corrosion mainly because of the presence of:",
+          "your_answer": "C. chromium",
+          "correct_answer": "C. chromium"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Determine the molarity of a solution prepared in the laboratory by dissolving 12.7 g of HCl in sufficient water to make 1 L of solution.",
+          "your_answer": "B. 0.3484 M",
+          "correct_answer": "B. 0.3484 M"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A 30% solution of phosphoric acid (97.9956) has a specific gravity of 1.18. What is its normality as an acid assuming partial neutralization to HPO₄²⁻?",
+          "your_answer": "B. 7.22 N",
+          "correct_answer": "B. 7.22 N"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 102,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Photochemical smog is typically formed in:",
+          "your_answer": "C. Urban centers under high sunlight",
+          "correct_answer": "C. Urban centers under high sunlight"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 47,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What would immediately be used if your clothing caught fire or if a large chemical spill had occurred on your clothing?",
+          "your_answer": "B. Safety shower",
+          "correct_answer": "B. Safety shower"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 107,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "What is the major organic product of the reaction between benzene and isobutyl chloride in the presence of AlCl₃?",
+          "your_answer": "B. isobutylbenzene",
+          "correct_answer": "A. tert-butylbenzene"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 71,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following describes a pyrophoric substance?",
+          "your_answer": "B. Spontaneously ignites in air",
+          "correct_answer": "B. Spontaneously ignites in air"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The unique three-dimensional arrangement of lattice points are known as ______, the combination of crystal structure and crystal system.",
+          "your_answer": "B. Bravais lattice",
+          "correct_answer": "B. Bravais lattice"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A test bottle containing just seeded dilution water has its DO level drop by 1 mg/L in a five-day test. A 300 ml BOD bottle filled with 15 ml of wastewater and the rest seeded dilution water experiences a drop of 7.2 mg/L in the same time period. What would be the five-day BOD of the waste?",
+          "your_answer": "A. 125 mg/L",
+          "correct_answer": "A. 125 mg/L"
+        }
+      ]
     }
   ],
   "mistake_log": [],
-  "updated_at": "2026-09-21T08:34:07"
+  "updated_at": "2026-09-21T09:29:17"
 }
