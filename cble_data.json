@@ -1,0 +1,623 @@
+{
+  "local_banks": {},
+  "sample_sets": [
+    {
+      "id": "1789974873791954",
+      "name": "CT_PRAC1",
+      "created_at": "2026-09-21T07:14:33",
+      "composition": {
+        "CT_Inorganic_Chemistry": 10,
+        "CT_Organic_Chemistry": 10,
+        "CT_Chemical_Safety": 10,
+        "CT_Analytic_Chemistry": 10,
+        "CT_Quality_Control_Assurance": 10
+      },
+      "questions": [
+        {
+          "text": "What is the value of the universal gas constant in psia-ft3/lbmol-R ",
+          "options": [
+            "A. 8.314",
+            "B. 1.986",
+            "C. 0.0821",
+            "D. 10.773"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 1
+        },
+        {
+          "text": "Which of the following is arranged in order of increasing boiling point? ",
+          "options": [
+            "A. 2-methylbutane < n-pentane < butanone < butanol",
+            "B. n-pentane < 2-methylbutane < butanone < butanol",
+            "C. 2-methylbutane < n-pentane < butanol < butanone",
+            "D. n-pentane < 2-methylbutane < butanol < butanone"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 40
+        },
+        {
+          "text": "Which of the following statements is/are true? I. Dry ashing is primarily for proximate composition and for some types of specific mineral analyses. II. Wet ashing is done as a preparation for the analysis of certain minerals III. Microwave systems are now available for both dry and wet ashing to speed the process ",
+          "options": [
+            "A. I only",
+            "B. I and II",
+            "C. II and III",
+            "D. I, II, and III"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Chemical_Safety",
+          "_source_index": 19
+        },
+        {
+          "text": "What is the correct molecular formula for the given hydrocarbon? --=-=-=",
+          "options": [
+            "A. C7H8",
+            "B. C7H14",
+            "C. C8H14",
+            "D. C8H12"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 3
+        },
+        {
+          "text": "All of the following reactions convert alkenes to alcohols except? ",
+          "options": [
+            "A. Halohydrin formation",
+            "B. Hydroboration-oxidation",
+            "C. Addition polymerization",
+            "D. Oxymercuration-demercuration"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 17
+        },
+        {
+          "text": "Among the ortho, meta, and para isomers of xylene, which has the highest boiling point? ",
+          "options": [
+            "A. o-xylene",
+            "B. p-xylene",
+            "C. m-xylene",
+            "D. All have the same boiling point"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 20
+        },
+        {
+          "text": "Method of passing the sample through a metal or plastic mesh of a uniform cross-sectional area to separate particles into uniform sizes. ",
+          "options": [
+            "A. Sieving",
+            "B. Milling",
+            "C. Pulverizing",
+            "D. Macerating"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Analytic_Chemistry",
+          "_source_index": 46
+        },
+        {
+          "text": "Laboratory chemical hoods are best placed in a location that is ",
+          "options": [
+            "A. Near the aisle for ease of access",
+            "B. Near the windows and doors",
+            "C. Away from air diffuser",
+            "D. None of the above"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Chemical_Safety",
+          "_source_index": 7
+        },
+        {
+          "text": "It is a laboratory quality control activity that is used to verify that an instrument works correctly on a day-to-day basis. ",
+          "options": [
+            "A. Spiking",
+            "B. Blank analysis",
+            "C. System suitability checking",
+            "D. Reference material analysis"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 13
+        },
+        {
+          "text": "This quality system standard is a general requirement for the competence of testing and calibration laboratories ",
+          "options": [
+            "A. GLP",
+            "B. GMP",
+            "C. ISO9001",
+            "D. ISO/IEC 17025"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 2
+        },
+        {
+          "text": "A type of blank that is commonly used with techniques such as spectrophotometry to zero the instrument before measuring test samples and other blanks. ",
+          "options": [
+            "A. Reagent blank",
+            "B. Method blank",
+            "C. Trip blank",
+            "D. Field blank"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 11
+        },
+        {
+          "text": "Which of the following are characteristics of a QC sample? ",
+          "options": [
+            "A. Similar in composition to the types of samples normally examined",
+            "B. Must be stable",
+            "C. Must be available in large quantities",
+            "D. All of the above"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 12
+        },
+        {
+          "text": "What is the molar mass of an unknown gas is 1.60 g of that gas occupies a volume of 2.24 L at STP? ",
+          "options": [
+            "A. 16.0 g/mol",
+            "B. 25.1 g/mol",
+            "C. 50.2 g/mol",
+            "D. 81.9 g/mol"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 38
+        },
+        {
+          "text": "Which of the following observation/s will require a process to stop immediately? I. Results lie outside action limits. II. 3 consecutive measurements on one side of the central limit. III. 7 consecutive measurements create an increasing trend. IV. Values are within warning limits ",
+          "options": [
+            "A. I only",
+            "B. I and III",
+            "C. I, II, and IV",
+            "D. I, III, and IV"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 7
+        },
+        {
+          "text": "Which of the following is/are true about quality assurance? I. QA is a set of activities for ensuring quality in the process by which products are developed II. QA is a corrective tool and product oriented. ",
+          "options": [
+            "A. I only",
+            "B. II only",
+            "C. Both I and II",
+            "D. None of these"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 4
+        },
+        {
+          "text": "Which of these may be separated by ordinary physical methods? ",
+          "options": [
+            "A. (R)-2-bromobutane and (S)-2-bromobutane",
+            "B. (R)-3-bromo-1-butene and (S)-3-bromo-1-butene",
+            "C. cis-2-bromo-2-butene and trans-2-bromo-2-butene",
+            "D. (2R,3S)-1,2-dibromobutane and (2S,3R)-1,2-dibromobutane"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 8
+        },
+        {
+          "text": "Which of the following is expected to have the lowest heat of vaporization? ",
+          "options": [
+            "A. water",
+            "B. pentane",
+            "C. butanone",
+            "D. methylbutane"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 32
+        },
+        {
+          "text": "What are the product(s) for the reaction between HNO3 and NH4OH? ",
+          "options": [
+            "A. HNO2 and H2O",
+            "B. NH2OH and H2O",
+            "C. NH4NO3 and H2O",
+            "D. No reaction"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Analytic_Chemistry",
+          "_source_index": 8
+        },
+        {
+          "text": "The area surrounding a safety shower or eyewash ",
+          "options": [
+            "A. Can be used to store boxes if they can be removed quickly",
+            "B. Must remain clear of all items at all costs",
+            "C. Is typically marked with yellow and black floor tape to keep it clear",
+            "D. Both b and c"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Chemical_Safety",
+          "_source_index": 5
+        },
+        {
+          "text": "A material, sufficiently homogenous and stable with respect to one or more specified property values, which has been established to be for its intended use in a measurement process ",
+          "options": [
+            "A. Chemical standards",
+            "B. Certified Reference Materials (CRM)",
+            "C. Reference Materials (RM)",
+            "D. Certified standards"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 9
+        },
+        {
+          "text": "Possible sources of contamination during sample preparation include ",
+          "options": [
+            "A. Reagents",
+            "B. Glassware from previous experiment",
+            "C. Equipment from previous experiment",
+            "D. All of the above"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Analytic_Chemistry",
+          "_source_index": 44
+        },
+        {
+          "text": "Which of the following can change the value of the equilibrium constant? ",
+          "options": [
+            "A. Addition of a catalyst",
+            "B. Change in temperature",
+            "C. Change in concentration",
+            "D. Change in pressure or volume"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 48
+        },
+        {
+          "text": "Dehydration of an alcohol yields alan ",
+          "options": [
+            "A. Alkene",
+            "B. Alkyne",
+            "C. Aldehyde",
+            "D. Ketone"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 33
+        },
+        {
+          "text": "Aromatic compounds undergo substitution reactions instead of addition reactions because ",
+          "options": [
+            "A. The benzene ring is electron rich",
+            "B. The hydrogens of benzene are relatively loosely bound",
+            "C. The benzene ring is sterically crowded hence only substitution can occur",
+            "D. The integrity of the benzene ring and the stable aromatic 𝜋 system remains intact"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 21
+        },
+        {
+          "text": "How many grams of NaOH (40 g/mol) is needed ato prepare 500 mL of 0.500 N solution of NaOH? ",
+          "options": [
+            "A. 4.00 g",
+            "B. 5.00 g",
+            "C. 10.0 g",
+            "D. 10.3g"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Analytic_Chemistry",
+          "_source_index": 1
+        },
+        {
+          "text": "At this concentration, the mixture of flammable liquids is considered too lean to burn ",
+          "options": [
+            "A. At lower explosion limit",
+            "B. Below lower explosion limit",
+            "C. Above upper explosion limit",
+            "D. Between upper and lower explosion limit"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Chemical_Safety",
+          "_source_index": 22
+        },
+        {
+          "text": "The total volume of an average adult lungs when expanded is about 6L. Calculate the pressure of oxygen inhaled if 0.05 mol of oxygen is needed to fully fill a pair of average adult lungs at a normal body temperature of 37oC. ",
+          "options": [
+            "A. 0.024 atm",
+            "B. 2.586 atm",
+            "C. 0.212 atm",
+            "D. 1.214 atm"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 46
+        },
+        {
+          "text": "The pressure at STP (standard temperature and pressure) of the atmosphere at sea level is? ",
+          "options": [
+            "A. 1 atm",
+            "B. 760 mmHg",
+            "C. 760 torr",
+            "D. All of the above"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 37
+        },
+        {
+          "text": "Which of the following compounds below will react most rapidly with water? ",
+          "options": [
+            "A. Acetonitrile",
+            "B. Acetyl chloride",
+            "C. Acetamide",
+            "D. Methyl acetate"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 48
+        },
+        {
+          "text": "A series of reference standard solutions that have known and accurate pH values at different temperatures and are used for pH meter calibration. ",
+          "options": [
+            "A. Buffer solutions",
+            "B. QC solutions",
+            "C. pH solutions",
+            "D. None of these"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 8
+        },
+        {
+          "text": "Determine the volumes of the liquids in the graduated cylinder The Instrument: A clear glass tube with dark brown measurement lines and numbers.The Scale: Numbers increase downward, showing 19, 20, and 21.The Liquid: A bright yellow solution fills the tube from the bottom up to the 20 mark.The Meniscus: A distinct, dark, downward-curving line marks the top of the liquid surface, resting precisely at the 20.00 mL line.The Surface: A few small, clear liquid droplets are scattered on the inner glass wall above the liquid level.",
+          "options": [
+            "A. 20.1 mL",
+            "B. 20.2 mL",
+            "C. 20.0 mL",
+            "D. 21.0 mL"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Analytic_Chemistry",
+          "_source_index": 37
+        },
+        {
+          "text": "Process in which all of the modifications made into a laboratory activity are documented ",
+          "options": [
+            "A. Management review",
+            "B. Audit trail",
+            "C. Accreditation",
+            "D. Quality manual"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 1
+        },
+        {
+          "text": "Which of the following is produced from addition of Cl2 to 1-butene? ",
+          "options": [
+            "A. CH3CH3CCl2CH3",
+            "B. CH3CH2CH2CHCl2",
+            "C. CH3CH2CHClCH2Cl",
+            "D. ClCH2CH2CH2CH2Cl"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 15
+        },
+        {
+          "text": "Chemical grade commonly used for low-grade applications such as cleaning and qualitative testing ",
+          "options": [
+            "A. USP grade",
+            "B. NF grade",
+            "C. Technical grade",
+            "D. Laboratory grade"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Analytic_Chemistry",
+          "_source_index": 28
+        },
+        {
+          "text": "Which of the following is a primary safety concern when handling chemicals in the laboratory? ",
+          "options": [
+            "A. Proper storage",
+            "B. Labeling of containers",
+            "C. Personal protective equipment",
+            "D. All of the above"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Chemical_Safety",
+          "_source_index": 0
+        },
+        {
+          "text": "Which of the following is true for a 19/22 stopper? ",
+          "options": [
+            "A. Radius = 19 mm, height = 22 mm",
+            "B. Radius = 22 mm, height = 19 mm",
+            "C. Diameter = 19 mm, height = 22 mm",
+            "D. Diameter = 22 mm, height = 19 mm"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Analytic_Chemistry",
+          "_source_index": 41
+        },
+        {
+          "text": "Elements or molecules that have more protons than electrons are called ",
+          "options": [
+            "A. cations",
+            "B. anions",
+            "C. isotope",
+            "D. allotrope"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 15
+        },
+        {
+          "text": "A reactive part of the quality management system that is concerned on the quality of the product, especially those materials that are soon to be released to the customer ",
+          "options": [
+            "A. Quality assurance",
+            "B. Quality control",
+            "C. Quality audit",
+            "D. Quality evaluation"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 14
+        },
+        {
+          "text": "In the decomposition and dissolution of solids during sample preparation, which of the following is expensive and often the last resort? ",
+          "options": [
+            "A. Fusion technique",
+            "B. Simple dissolution",
+            "C. Acid treatment using oxidation",
+            "D. Dissolution using ultrasound and solvent"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Chemical_Safety",
+          "_source_index": 20
+        },
+        {
+          "text": "The part of an electrochemical cell that maintains electrical neutrality ",
+          "options": [
+            "A. Anode",
+            "B. Salt bridge",
+            "C. Cathode",
+            "D. Voltmeter"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Analytic_Chemistry",
+          "_source_index": 18
+        },
+        {
+          "text": "What is the name of (NH4)2C03? ",
+          "options": [
+            "A. Ammonium carbonate",
+            "B. Diammonium carbonate",
+            "C. Ammonium carbon trioxide",
+            "D. Nitrogen hydride carbonate"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 21
+        },
+        {
+          "text": "This type of toxins in the chemical laboratory may potentially cause allergies or allergic-like reactions ",
+          "options": [
+            "A. Allergen",
+            "B. Corrosive substances",
+            "C. Sensitizer",
+            "D. Asphyxiants"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Chemical_Safety",
+          "_source_index": 35
+        },
+        {
+          "text": "Which of the following is not suitable safety attire when handling large volume of corrosive liquid? ",
+          "options": [
+            "A. Lab coat",
+            "B. Chemical resistant gloves",
+            "C. General safety glasses",
+            "D. Closed toe shoes"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Chemical_Safety",
+          "_source_index": 6
+        },
+        {
+          "text": "Sample preparation technique used prior to instrumental analysis of metals. ",
+          "options": [
+            "A. Sieving",
+            "B. Clean-up",
+            "C. Acid digestion",
+            "D. Liquid-liquid extraction"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Analytic_Chemistry",
+          "_source_index": 49
+        },
+        {
+          "text": "This is used to remove trace amounts of water in organic solutions. This can be added to the pooled organic layers before the removal of the organic solvent ",
+          "options": [
+            "A. Drying agent",
+            "B. Boiling stone",
+            "C. Seed crystal",
+            "D. None of the above"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 55
+        },
+        {
+          "text": "A student needs to transfer his precipitant from the beaker to the filter paper. Which of the following would be the best procedure in order to ensure a quantitative transfer of precipitate? ",
+          "options": [
+            "A. Most of the supernatant liquid is decanted then bulk of precipitate is transferred to filter paper through a stirring rod, then the beaker is washed with large volumes of wash solution.",
+            "B. Most of the supernatant liquid is decanted then bulk of precipitate is transferred to filter paper through a stirring rod, then the beaker is washed several times with small volumes of wash solution.",
+            "C. Solution is shaken, then immediately filtered; beaker is washed with big volumes of wash solution",
+            "D. None of the above"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Analytic_Chemistry",
+          "_source_index": 38
+        },
+        {
+          "text": "It refers to the production of irreversible damage to the skin namely, visible necrosis through the epidermis and into the dermis occurring after exposure to a substance or mixture ",
+          "options": [
+            "A. Skin allergy",
+            "B. Skin corrosion",
+            "C. Skin irritation",
+            "D. Skin damage"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Chemical_Safety",
+          "_source_index": 34
+        },
+        {
+          "text": "Consider the combustion of butane C4H10 + O2 → CO2 + H2O. 5 mol of butane are reacted with excess O2. Calculate the mol of CO2 formed. ",
+          "options": [
+            "A. 1.25 mol",
+            "B. 2.5 mol",
+            "C. 12.5 mol",
+            "D. 20 mol"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 43
+        },
+        {
+          "text": "Heating solid sodium carbonate in a closed vessel establishes the following equilibrium 2𝑁𝑎𝐻𝐶𝑂3 𝑠 ⇄ 𝑁𝑎2𝐶𝑂3 𝑠 + 𝐻2𝑂 𝑔 + 𝐶𝑂2(𝑔) Will the reaction shift to the left, right, or no change if the following changes are done at constant temperature: I. Addition of catalyst II. Some CO2 were removed from the system III. The pressure of the system was increased ",
+          "options": [
+            "A. Left, right, left",
+            "B. No change, right; right",
+            "C. Right, right, no change",
+            "D. No change, right} left"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 47
+        },
+        {
+          "text": "Which of the following is/are good practice/s when using lab chemical hood? I. Place chemical sources and apparatus at least 6 cm behind the face II. Scrubbers must be installed especially when the lab is dealing with highly toxic vapors. III. Avoid opening and closing the sash rapidly IV. Store odoriferous materials inside the chemical hood to prevent personnel from inhaling toxic vapors ",
+          "options": [
+            "A. I and II",
+            "B. I, II, and III",
+            "C. II, III, and IV",
+            "D. II and III"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Chemical_Safety",
+          "_source_index": 8
+        }
+      ]
+    }
+  ],
+  "test_history": [],
+  "exam_details": [],
+  "mistake_log": [],
+  "updated_at": "2026-09-21T07:33:01"
+}
