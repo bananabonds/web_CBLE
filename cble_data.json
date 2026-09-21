@@ -1228,6 +1228,630 @@
           "_source_index": 10
         }
       ]
+    },
+    {
+      "id": "1789997865666699",
+      "name": "D3_S1",
+      "created_at": "2026-09-21T13:37:45",
+      "composition": {
+        "D3_L12_EngineeringEconomics": 4,
+        "D3_L13_EngineeringDataAnalysis": 4,
+        "D3_L7_Differential_Calculus": 3,
+        "D3_L1_ChE_Laws": 3,
+        "D3_L5_Geometry": 3,
+        "D3_L8_Integral_Calculus": 3,
+        "D3_L2_Process_Control_Analysis": 3,
+        "D3_L6_AnalyticGeometry": 3,
+        "D3_L9_CPI": 3,
+        "D3_L14_Physics": 4,
+        "D3_L11_Differential_Equations": 4,
+        "D3_L15_Engineering_Mechanics": 3,
+        "D3_L3_Algebra": 3,
+        "D3_L10_ProcessSafety": 4,
+        "D3_L4_Trigonometry": 3
+      },
+      "questions": [
+        {
+          "text": "Jojo bought a 2nd hand DVD player and then sold it to Rowace at a profit of 40%. Rowace then sold the DVD player to Kat at a profit of 20%. If Kat paid 2856 more than it cost Jojo, how much did Jojo pay for the unit?",
+          "options": [
+            "A. P4200",
+            "B. P4000",
+            "C. P4500",
+            "D. P3900"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 32
+        },
+        {
+          "text": "If there are 6 persons, in how many ways can they sit at a round table if two of them always want to be next to each other, while another 2 of them don't want to be next to one another?",
+          "options": [
+            "A. 72",
+            "B. 144",
+            "C. 12",
+            "D. 24"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 8
+        },
+        {
+          "text": "The location in which the graph changes its concavity is called the:",
+          "options": [
+            "A. critical points",
+            "B. relative extrema",
+            "C. inflection point",
+            "D. global extrema"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 32
+        },
+        {
+          "text": "Any person who, in the course of trade or business, sells barters, exchanges, leases goods or properties, renders services, and any person who imports goods shall be subjected to  ",
+          "options": [
+            "A. excise tax",
+            "B. estimated tax",
+            "C. income tax",
+            "D. VAT"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 109
+        },
+        {
+          "text": "Given a cyclic quadrilateral whose sides are 4 cm, 5 cm, 8 cm, and 11 cm. Its area is:",
+          "options": [
+            "A. 40.25 sq. cm.",
+            "B. 48.65 sq. cm.",
+            "C. 50.25 sq. cm.",
+            "D. 60.25 sq. cm."
+          ],
+          "correct": 0,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 21
+        },
+        {
+          "text": "What is the Laplace transform of sinh(2t)?",
+          "options": [
+            "A. 2/(s²-2)",
+            "B. 2/(s²-4)",
+            "C. s/(s²-2)",
+            "D. s/(s²-4)"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 55
+        },
+        {
+          "text": "This type of control loop measures the disturbance variables to limit the deviation in the output variables by preemptively adjusting the manipulated variable. ",
+          "options": [
+            "A. Feedback control",
+            "B. Computer control",
+            "C. Feedforward control",
+            "D. Response control"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 34
+        },
+        {
+          "text": "[Situation 6: C(x) = 10000 + 90x - 0.05x²] What is the marginal cost of 500 tanks?",
+          "options": [
+            "A. $39.95",
+            "B. $40",
+            "C. $40.05",
+            "D. $40.10"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 76
+        },
+        {
+          "text": "The equation of a line that intercepts the x-axis at x = 4 and the y-axis at y = -6 is,",
+          "options": [
+            "A. 3x + 2y = 12",
+            "B. 2x u2013 3y = 12",
+            "C. 3x u2013 2y = 12",
+            "D. 2x u2013 3y = 12"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 12
+        },
+        {
+          "text": "The first American car tire made from synthetic rubber used which material?",
+          "options": [
+            "A. Polyethene",
+            "B. Polystyrene",
+            "C. Neoprene",
+            "D. Isopropanol"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 15
+        },
+        {
+          "text": " The Stockholm Convention is a global treaty that aims to protect the environment and human health from these hazards. ",
+          "options": [
+            "A. greenhouse gases",
+            "B. hexavalent chromium",
+            "C. heavy metals",
+            "D. persistent organic pollutants"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 78
+        },
+        {
+          "text": "Determine the electric flux for a Gaussian surface that contains 100 million (1 x 10^8) electrons.",
+          "options": [
+            "A. 1.8 Nm²/C²",
+            "B. 2.8 Nm²/C²",
+            "C. 3.8 Nm²/C²",
+            "D. 4.8 Nm²/C²"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 60
+        },
+        {
+          "text": " In project management; \"R & D\" stands for: ",
+          "options": [
+            "A. Retail Distribution",
+            "B. Repair and Develop",
+            "C. Research and Development",
+            "D. Reduce and Deduce"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 123
+        },
+        {
+          "text": "Suppose that an object initially having a temperature of 20° is placed in a large temperature controlled room of 80° and one hour later the object has a temperature of 35°. What will its temperature be after three hours?",
+          "options": [
+            "A. 51.93°",
+            "B. 52.64°",
+            "C. 53.76°",
+            "D. 54.69°"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 44
+        },
+        {
+          "text": "Find the median of the following scores: 73, 62, 60, 58, 70, 60, 90, 66, 51, 85.",
+          "options": [
+            "A. 66",
+            "B. 62",
+            "C. 60",
+            "D. 64"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 55
+        },
+        {
+          "text": "A horizontal truss spans three 10 m panels (total 30 m) between a pin support at A (far left) and a roller support at F (far right), with top-chord joints A, B, D, F and bottom-chord joints C, E. A diagonal member near B makes a 20° angle with the horizontal. A 60 kN downward load is applied at joint B and an 80 kN downward load is applied at joint D (both on the top chord). What is the force acting on member BE?",
+          "options": [
+            "A. 19.5kN, compression",
+            "B. 19.5kN, tension",
+            "C. 183.15kN, compression",
+            "D. 183.15kN, tension"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 25
+        },
+        {
+          "text": "Given f(x) = 3x^2 - x + 10 and g(x) = 1 - 20x, find (f o g)(x).",
+          "options": [
+            "A. 100x - 1200x^2 - 12",
+            "B. 12x^2 + 100x + 1200",
+            "C. 12x^2 - 100x + 1200",
+            "D. 1200x^2 - 100x + 12"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 35
+        },
+        {
+          "text": "Consider instead the following fourth-order ODE found in the denominator of a transfer function with zero initial conditions: yʺʺ + 9yʺ + 26ÿ+ 24ẏ = 1 Which correctly identifies the qualitative nature of the time-domain solution y(t)? ",
+          "options": [
+            "A. y(t) oscillates indefinitely because the denominator is 4th order",
+            "B. y(t) consists of a constant (steady-state) term plus three decaying exponentials; with no oscillation",
+            "C. y(t) grows unboundedly over time because one of the denominator roots is at s = 0",
+            "D. y(t) contains a sinusoidal component because the coefficient 26 in the denominator polynomial is even-numbered"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 18
+        },
+        {
+          "text": "The disadvantage of conventional feedback control is the large time lag between the disturbance and the deviation observed in the set point. This can be resolved by using cascade control, which measures the __________ to anticipate a possible deviation in the main variable. ",
+          "options": [
+            "A. Primary measurement point",
+            "B. Secondary measurement point",
+            "C. Set point",
+            "D. Forecast point"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 43
+        },
+        {
+          "text": "A block weighing 500 kN rests on a ramp inclined at 25° with the horizontal. What is the force tending to move the block down the ramp?",
+          "options": [
+            "A. 121 kN",
+            "B. 265 kN",
+            "C. 211 kN",
+            "D. 450 kN"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 7
+        },
+        {
+          "text": "The index of refraction of benzene is 1.80. The critical angle for total internal reflection, at a benzene-air interface, is about:",
+          "options": [
+            "A. 20 deg",
+            "B. 14 deg",
+            "C. 34 deg",
+            "D. 90 deg"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 37
+        },
+        {
+          "text": "The image produced by a convex mirror of an erect object in front of the mirror is always:",
+          "options": [
+            "A. virtual, erect and larger than the object",
+            "B. virtual, erect and smaller than the object",
+            "C. real, erect and larger than the object",
+            "D. real, erect and smaller than the object"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 41
+        },
+        {
+          "text": "An operator is using a nitrogen utility hose connected to a process vessel to purge the system before maintenance. The operator finishes and leaves the hose connected while attending to other tasks nearby. What is the hazard?",
+          "options": [
+            "A. The hose may kink and restrict the nitrogen supply",
+            "B. Process material at higher pressure could flow back into the nitrogen utility system",
+            "C. Nitrogen is heavier than air and could create an asphyxiation hazard at ground level",
+            "D. The hose coupling could vibrate due to pressure cycling"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 38
+        },
+        {
+          "text": "The equation 25x^2 + 16y^2 u2013 150x + 128y + 81 = 0 has its center at?",
+          "options": [
+            "A. (3, -4)",
+            "B. (3, 4)",
+            "C. (4, -3)",
+            "D. (3, 5)"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 34
+        },
+        {
+          "text": "A vertical pole 8 ft tall casts a shadow 5 ft long on level ground. Find the angle which the rays of the sun make with the horizontal.",
+          "options": [
+            "A. 32u00b0",
+            "B. 58u00b0",
+            "C. 39u00b0",
+            "D. 51u00b0"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 17
+        },
+        {
+          "text": "An asset has a 1st cost of P22,000, an estimated life of 30 years. Using the double declining balance method, determine the book value after 6 years.",
+          "options": [
+            "A. P14,542.44",
+            "B. P14,500.00",
+            "C. P14,600.00",
+            "D. P14,400.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 63
+        },
+        {
+          "text": "A cylinder is circumscribed about a right prism having a square base one meter on an edge. The volume of the cylinder is 6.283 cu. m. Compute its altitude.",
+          "options": [
+            "A. 3",
+            "B. 4",
+            "C. 5",
+            "D. 6"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 26
+        },
+        {
+          "text": "If sin A = 3/5 and A lies on the 2nd quadrant, while cosine B = 7/25 lies on the first quadrant, find the numerical value of sin (A + B).",
+          "options": [
+            "A. -3/5",
+            "B. 3/5",
+            "C. 117/125",
+            "D. -117/125"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 23
+        },
+        {
+          "text": "Evaluate: lim(x→4) (x²-16)/(2-√x)",
+          "options": [
+            "A. 8",
+            "B. -16",
+            "C. 24",
+            "D. -32"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 2
+        },
+        {
+          "text": "A rubber ball of mass 0.25 kg is dropped from a height of 10 m. If the coefficient of restitution is 0.56, how high is the ball's second rebound?",
+          "options": [
+            "A. 1.97 m",
+            "B. 3.13 m",
+            "C. 0.98 m",
+            "D. 5.60 m"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 19
+        },
+        {
+          "text": "Most easily and cheaply available fibrous raw material for paper manufacture available in India is bamboo. The yield of pulp produced from fibrous raw material by mechanical process is about __________ percent.",
+          "options": [
+            "A. 75",
+            "B. > 30",
+            "C. < 10",
+            "D. 50"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 118
+        },
+        {
+          "text": "The _____ reports the number of fatalities based on 1000 employees working their entire lifetime. The employees are assumed to work a total of 50 years.",
+          "options": [
+            "A. FAR",
+            "B. OSHA incident rate",
+            "C. Fatality Rate",
+            "D. None of above"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 25
+        },
+        {
+          "text": "Determine the volume generated by rotating the curve 9x² + 4y² = 36 about the line 3x + 4y = 20.",
+          "options": [
+            "A. 274.8",
+            "B. 413.8",
+            "C. 374.5",
+            "D. 473.7"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 43
+        },
+        {
+          "text": "The perimeter of a sector is 9 units and its radius is 3 units. What is the area of the sector?",
+          "options": [
+            "A. 5",
+            "B. 6.5",
+            "C. 4.5",
+            "D. 7"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 25
+        },
+        {
+          "text": "_____________ is the lowest temperature that the vapors of a material will ignite when exposed to an ignition source.",
+          "options": [
+            "A. Flash point",
+            "B. Autoignition temp.",
+            "C. Fire point",
+            "D. Inerting"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 44
+        },
+        {
+          "text": "Suppose 4 machines in a machine shop are used to produce the same part. However, each of the 4 machines takes 2.5, 2.0, 1.5 and 6.0 minutes to make one part, respectively. What is the average rate of speed?",
+          "options": [
+            "A. 2",
+            "B. 2.59",
+            "C. 2.31",
+            "D. 3"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 28
+        },
+        {
+          "text": "A ball is thrown with an initial velocity of 20 m/s at an angle of 30° above the horizontal. Find the maximum horizontal range.",
+          "options": [
+            "A. 25.3 m",
+            "B. 30.3 m",
+            "C. 35.3 m",
+            "D. 40.3 m"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 61
+        },
+        {
+          "text": "Which of these gives the lowest effective rate of interest?",
+          "options": [
+            "A. 12.35% compounded annually",
+            "B. 11.90% compounded semi-annually",
+            "C. 12.20% compounded quarterly",
+            "D. 11.60% compounded monthly"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 39
+        },
+        {
+          "text": "Traditionally, there have been two figures or variables used to measure company-wide safety performance. Which of the following describe these two measures?",
+          "options": [
+            "A. duration, frequency",
+            "B. frequency, severity",
+            "C. probability, duration",
+            "D. frequency, duration"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 77
+        },
+        {
+          "text": "What is the Laplace transform of sin(2t)/t?",
+          "options": [
+            "A. arcsin(a/s)",
+            "B. arcsin(s/a)",
+            "C. arctan(a/s)",
+            "D. arctan(s/a)"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 63
+        },
+        {
+          "text": "A businessman invests in a medium scale business which cost him P100,000. The net annual return is estimated at P30,000 for each of the next 10 years. Compute the benefit cost ratio if the annual rate of interest is 20%.",
+          "options": [
+            "A. 1.06",
+            "B. 1.16",
+            "C. 1.26",
+            "D. 1.36"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 85
+        },
+        {
+          "text": "Which of the following equations is an exact DE?",
+          "options": [
+            "A. (x² + 1) dx – xy dy = 0",
+            "B. x dy + (3x – 2y) dx = 0",
+            "C. 2xy dx + (2 + x²) dy = 0",
+            "D. x²y dy – y dx = 0"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 11
+        },
+        {
+          "text": "Which of the following is equivalent to 15C15 + 16C15 + 17C15 + ... + 2023C15?",
+          "options": [
+            "A. 2024C15",
+            "B. 2023C16",
+            "C. 2024C16",
+            "D. 2023C15"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 14
+        },
+        {
+          "text": "The numbers 28, x+2, 112... form a geometric progression. What is the 15th term of the sequence?",
+          "options": [
+            "A. 143369",
+            "B. 286721",
+            "C. 458752",
+            "D. 573442"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 23
+        },
+        {
+          "text": "3x^2 + 2x u2013 5y + 7 = 0. Determine the curve.",
+          "options": [
+            "A. Parabola",
+            "B. Ellipse",
+            "C. Circle",
+            "D. Hyperbola"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 29
+        },
+        {
+          "text": "In primitive days, __________ was manufactured by Leblanc Process.",
+          "options": [
+            "A. Alum",
+            "B. Soda ash",
+            "C. Washing soda",
+            "D. Calcium carbide"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 35
+        },
+        {
+          "text": "Determine the particular solution of the differential equation: y'' − 4y' − 12y = 3e^(5t)",
+          "options": [
+            "A. (7/3)e^5t",
+            "B. (-7/3)e^5t",
+            "C. (3/7)e^5t",
+            "D. (-3/7)e^5t"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 37
+        },
+        {
+          "text": "Which of the following is the triangle inequality for an acute triangle?",
+          "options": [
+            "A. a^2 + b^2 = c^2",
+            "B. c^2 < a^2 + b^2",
+            "C. c^2 > a^2 + b^2",
+            "D. a^2 < b^2 + c^2"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 5
+        },
+        {
+          "text": "In a tank are 100 liters of brine containing 50 kg total of dissolved salt. Pure water is allowed to run into the tank at the rate of 3 liters a minute. Brine runs out of the tank at the rate of 2 liters a minute. The instantaneous concentration in the tank is kept uniform by stirring. How much salt is in the tank at the end of one hour?",
+          "options": [
+            "A. 15.45 kg",
+            "B. 19.53 kg",
+            "C. 12.62 kg",
+            "D. 20.62 kg"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 47
+        },
+        {
+          "text": "In which sampling method is the population divided into clusters, and then all members from randomly selected clusters are sampled?",
+          "options": [
+            "A. Simple random sampling",
+            "B. Systematic sampling",
+            "C. Stratified sampling",
+            "D. Cluster sampling"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 64
+        }
+      ]
     }
   ],
   "test_history": [
@@ -2492,5 +3116,5 @@
       "date_logged": "2026-09-21T13:35:41"
     }
   ],
-  "updated_at": "2026-09-21T13:35:47"
+  "updated_at": "2026-09-21T13:37:50"
 }
