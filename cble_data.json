@@ -2294,7 +2294,21 @@
       "note": "CO2 is the baseline of GWP, GWP = 1, SF6 = 23500-23900",
       "resolved": true,
       "date_logged": "2026-09-21T10:06:25"
+    },
+    {
+      "id": "1789991718365729",
+      "exam_id": "1789982956801386",
+      "exam_source": "D1_S1",
+      "source_list": "D1_L3_Analytical_Chemistry",
+      "reference_no": 25,
+      "question": "A 10.231 g sample of window cleaner containing ammonia was diluted with 39.466 g of water. Then 4.373 g of solution were titrated with 14.22 mL of 0.1063 M HCl to reach a bromocresol green endpoint. Find the weight % of NH₃ (17.031) in the cleaner.",
+      "your_answer": "C. 5.33%",
+      "correct_answer": "B. 2.85%",
+      "category": "Formula / Equation Error",
+      "note": "Get mols of HCl = mols NH3, then divide by 4.373 then simply multiply to the total solution (solute + solvent)",
+      "resolved": true,
+      "date_logged": "2026-09-21T11:55:18"
     }
   ],
-  "updated_at": "2026-09-21T10:06:30"
+  "updated_at": "2026-09-21T11:55:30"
 }
