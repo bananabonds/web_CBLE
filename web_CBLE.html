@@ -1,0 +1,2551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>CBLE Simulator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E3A8A;
+  --navy-dark:#152a63;
+  --ink:#111827;
+  --sub:#4B5563;
+  --paper:#F3F4F6;
+  --card:#FFFFFF;
+  --line:#E1E4E9;
+  --amber:#F59E0B;
+  --amber-ink:#7A4A05;
+  --green:#166534;
+  --green-bg:#DCFCE7;
+  --red:#DC2626;
+  --red-bg:#FEE2E2;
+  --violet:#5B21B6;
+  --violet-bg:#EDE9FE;
+  --radius:10px;
+  font-size:16px;
+}
+*{box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;
+  -webkit-tap-highlight-color:transparent;
+  overscroll-behavior-y:none;
+}
+.mono{font-family:"IBM Plex Mono",monospace;}
+button{font-family:inherit;}
+h1,h2,h3{margin:0;font-weight:600;}
+p{margin:0;}
+::selection{background:#c7d6f7;}
+
+/* ---------- App bar ---------- */
+#appbar{
+  position:sticky;top:0;z-index:40;
+  background:var(--navy);
+  color:#fff;
+  padding:calc(10px + env(safe-area-inset-top)) 14px 10px;
+  display:flex;align-items:center;gap:10px;
+}
+#appbar .title{font-weight:700;font-size:1.05rem;letter-spacing:.2px;flex:1;}
+#appbar .sub{font-size:.72rem;color:#C7D2FE;font-family:"IBM Plex Mono",monospace;}
+#appbar button.icon-btn{
+  background:rgba(255,255,255,.12);color:#fff;border:none;border-radius:8px;
+  width:38px;height:38px;font-size:1.1rem;display:flex;align-items:center;justify-content:center;
+}
+#appbar button.icon-btn:active{background:rgba(255,255,255,.28);}
+
+/* ---------- Tab strip ---------- */
+#tabstrip{
+  position:sticky;top:calc(58px + env(safe-area-inset-top));z-index:39;
+  display:flex;gap:6px;overflow-x:auto;
+  background:var(--card);
+  border-bottom:1px solid var(--line);
+  padding:8px 10px;
+  -webkit-overflow-scrolling:touch;
+}
+#tabstrip::-webkit-scrollbar{display:none;}
+.tabchip{
+  flex:none;border:1px solid var(--line);background:var(--paper);color:var(--sub);
+  padding:7px 13px;border-radius:999px;font-size:.82rem;font-weight:600;white-space:nowrap;
+}
+.tabchip.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+
+main{padding:14px 14px 90px;max-width:720px;margin:0 auto;}
+.panel{display:none;}
+.panel.active{display:block;animation:fadeIn .15s ease-out;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(3px);}to{opacity:1;transform:none;}}
+
+/* ---------- Cards / sections ---------- */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px;margin-bottom:12px;
+}
+.card > h3{font-size:.78rem;text-transform:none;color:var(--navy);margin-bottom:10px;
+  border-bottom:1px solid var(--line);padding-bottom:8px;font-weight:700;}
+.card > h3 .count{color:var(--sub);font-weight:500;}
+.hint{font-size:.78rem;color:var(--sub);line-height:1.45;}
+.row{display:flex;align-items:center;gap:8px;}
+.row.wrap{flex-wrap:wrap;}
+.spacer{flex:1;}
+label.field-label{display:block;font-size:.78rem;font-weight:600;color:var(--sub);margin:10px 0 4px;}
+input[type=text],input[type=number],select,textarea{
+  width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 10px;
+  font-size:.95rem;font-family:inherit;background:#fff;color:var(--ink);
+}
+textarea{resize:vertical;}
+input[type=checkbox]{width:17px;height:17px;}
+
+button.btn{
+  border:none;border-radius:8px;padding:10px 14px;font-size:.88rem;font-weight:700;
+  background:var(--paper);color:var(--ink);border:1px solid var(--line);
+}
+button.btn:active{filter:brightness(.96);}
+button.btn.primary{background:var(--navy);color:#fff;border-color:var(--navy);}
+button.btn.success{background:var(--green);color:#fff;border-color:var(--green);}
+button.btn.danger{background:#fff;color:var(--red);border-color:#F3C6C6;}
+button.btn.violet{background:var(--violet-bg);color:var(--violet);border-color:#DDD6FE;}
+button.btn.block{width:100%;}
+button.btn:disabled{opacity:.45;}
+button.link{background:none;border:none;color:var(--navy);font-weight:600;font-size:.82rem;padding:4px 0;}
+
+.list-item{
+  border:1px solid var(--line);border-radius:8px;padding:10px 11px;margin-bottom:8px;
+  background:#fff;
+}
+.list-item .top-row{display:flex;justify-content:space-between;gap:8px;align-items:baseline;}
+.list-item .name{font-weight:600;font-size:.9rem;}
+.list-item .meta{font-size:.74rem;color:var(--sub);font-family:"IBM Plex Mono",monospace;}
+.list-item.selectable{cursor:pointer;}
+.list-item.selected{border-color:var(--navy);box-shadow:0 0 0 1px var(--navy) inset;background:#EEF2FF;}
+
+.progress-track{height:6px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:6px;}
+.progress-fill{height:100%;background:var(--navy);}
+
+.empty-state{padding:22px 10px;text-align:center;color:var(--sub);font-size:.85rem;}
+
+/* bar chart rows */
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:.76rem;}
+.bar-row .lbl{width:120px;flex:none;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.bar-track{flex:1;height:16px;background:var(--paper);border-radius:4px;overflow:hidden;}
+.bar-fill{height:100%;}
+.bar-val{width:56px;flex:none;text-align:right;font-family:"IBM Plex Mono",monospace;}
+
+/* ---------- Modal / overlay ---------- */
+.overlay{
+  position:fixed;inset:0;background:var(--paper);z-index:100;
+  display:flex;flex-direction:column;
+  animation:slideUp .18s ease-out;
+}
+@keyframes slideUp{from{transform:translateY(12px);opacity:0;}to{transform:none;opacity:1;}}
+.overlay.hidden{display:none;}
+.sheet{
+  position:fixed;inset:0;background:rgba(17,24,39,.5);z-index:110;
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.sheet.hidden{display:none;}
+.sheet-inner{
+  background:#fff;border-radius:16px 16px 0 0;width:100%;max-width:720px;
+  max-height:88vh;overflow-y:auto;padding:16px 16px calc(20px + env(safe-area-inset-bottom));
+}
+.sheet-inner h2{font-size:1rem;margin-bottom:12px;color:var(--navy);}
+
+/* ---------- Exam screen ---------- */
+#examOverlay{background:var(--paper);}
+.app-header-bar{
+  background:var(--navy);color:#fff;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+}
+.app-header-bar .exam-title{font-size:.82rem;font-weight:600;line-height:1.25;}
+.app-header-bar .timer{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:1rem;color:#FCA5A5;flex:none;}
+.app-body{flex:1;overflow-y:auto;padding:14px 14px 8px;max-width:720px;margin:0 auto;width:100%;}
+#qBox{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:12px;}
+#qBox .qnum{color:var(--navy);font-weight:700;font-size:.78rem;font-family:"IBM Plex Mono",monospace;margin-bottom:6px;}
+#qBox .qtext{font-size:1rem;line-height:1.5;white-space:pre-wrap;}
+#optionsBox{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:12px;}
+.option-row{
+  display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-bottom:1px solid var(--line);
+}
+.option-row:last-child{border-bottom:none;}
+.option-row input{margin-top:3px;width:18px;height:18px;flex:none;}
+.option-row label{font-size:.92rem;line-height:1.45;flex:1;}
+.option-row.chosen{background:#EEF2FF;}
+#confBox{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;margin-bottom:12px;}
+#confBox h4{font-size:.74rem;color:var(--sub);font-weight:700;margin-bottom:8px;}
+.conf-choices{display:flex;gap:6px;flex-wrap:wrap;}
+.conf-chip{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 11px;font-size:.74rem;font-weight:600;color:var(--sub);}
+.conf-chip.active{background:var(--violet);border-color:var(--violet);color:#fff;}
+
+#examStatus{text-align:center;font-size:.76rem;color:var(--sub);font-family:"IBM Plex Mono",monospace;padding:4px 0 10px;}
+
+#examActionBar{
+  position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);
+  padding:8px 10px calc(8px + env(safe-area-inset-bottom));
+  display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;
+}
+#examActionBar button{padding:10px 4px;font-size:.72rem;border-radius:8px;font-weight:700;border:1px solid var(--line);background:var(--paper);}
+#examActionBar button.flagged{background:var(--amber);color:#fff;border-color:var(--amber);}
+#examActionBar button.has-notes{background:var(--violet-bg);color:var(--violet);}
+#examActionBar button.submit{background:var(--red);color:#fff;border-color:var(--red);}
+.app-footer-row{
+  display:flex;gap:6px;padding:0 10px 8px;
+}
+.app-footer-row button{flex:1;padding:9px;border-radius:8px;font-weight:700;font-size:.8rem;border:1px solid var(--line);background:var(--paper);}
+.app-footer-row button:disabled{opacity:.4;}
+
+/* question matrix sheet */
+#matrixGrid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:6px;}
+.mbtn{
+  aspect-ratio:1;border-radius:6px;border:1px solid var(--line);background:var(--paper);
+  font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:.78rem;color:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+}
+.mbtn.answered{background:#10B981;border-color:#10B981;color:#fff;}
+.mbtn.flagged{background:var(--amber);border-color:var(--amber);color:#fff;}
+.mbtn.current{outline:2px solid var(--navy);outline-offset:1px;}
+.legend{display:flex;gap:14px;font-size:.72rem;color:var(--sub);margin-top:12px;flex-wrap:wrap;}
+.legend span{display:inline-flex;align-items:center;gap:5px;}
+.dot{width:10px;height:10px;border-radius:3px;display:inline-block;}
+
+/* notes popup */
+#notesCanvas{border:1px solid var(--line);border-radius:8px;width:100%;touch-action:none;background:#fff;display:block;}
+
+/* report */
+#reportOverlay .summary{background:var(--navy);color:#fff;padding:16px;border-radius:var(--radius);margin-bottom:10px;}
+#reportOverlay .summary .score{font-size:1.4rem;font-weight:700;}
+#reportOverlay .summary .status{font-size:.85rem;color:#C7D2FE;margin-top:2px;}
+.report-item{background:#fff;border:1px solid var(--line);border-radius:8px;padding:11px 12px;margin-bottom:9px;}
+.report-item .tagrow{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;font-size:.68rem;}
+.tag{border-radius:999px;padding:3px 8px;font-weight:700;}
+.tag.correct{background:var(--green-bg);color:var(--green);}
+.tag.wrong{background:var(--red-bg);color:var(--red);}
+.tag.flag{background:#FEF3C7;color:var(--amber-ink);}
+.tag.neutral{background:var(--paper);color:var(--sub);}
+.report-item .qtext{font-size:.86rem;margin-bottom:6px;line-height:1.4;}
+.report-item .ans-line{font-size:.8rem;margin-bottom:2px;}
+.report-item .ans-line b{font-weight:700;}
+.report-item .ans-line.wrong-ans{color:var(--red);}
+.report-item .ans-line.right-ans{color:var(--green);}
+
+/* toast */
+#toast{
+  position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:.82rem;
+  z-index:300;opacity:0;pointer-events:none;transition:all .18s ease-out;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+@media (min-width:600px){
+  #matrixGrid{grid-template-columns:repeat(8,1fr);}
+}
+@media print{
+  body.printing-notes > *:not(#printNotesRoot){display:none !important;}
+  body.printing-notes #printNotesRoot{display:block !important;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ WORKBENCH SHELL ============ -->
+<div id="workbenchShell">
+  <div id="appbar">
+    <div>
+      <div class="title">CBLE Simulator</div>
+      <div class="sub" id="syncStatus">bank not loaded</div>
+    </div>
+    <div class="spacer"></div>
+    <button class="icon-btn" id="btnSettings" title="Data & settings">&#9881;</button>
+  </div>
+
+  <div id="tabstrip">
+    <button class="tabchip active" data-tab="builder">Sample Builder</button>
+    <button class="tabchip" data-tab="saved">Saved Samples</button>
+    <button class="tabchip" data-tab="history">Test History</button>
+    <button class="tabchip" data-tab="analysis">Study Priority</button>
+    <button class="tabchip" data-tab="mistakes">Mistake Log</button>
+    <button class="tabchip" data-tab="editor">Local Banks</button>
+  </div>
+
+  <main>
+    <!-- ---- Tab: Sample Builder ---- -->
+    <section class="panel active" id="panel-builder">
+      <div class="card">
+        <h3>Available Lists <span class="count" id="listsCount"></span></h3>
+        <div class="row wrap" style="margin-bottom:8px;">
+          <button class="btn" id="btnSelectAllLists">Select All</button>
+          <button class="btn" id="btnClearLists">Clear</button>
+          <button class="btn" id="btnRefreshLists">Refresh</button>
+        </div>
+        <div id="listsContainer"></div>
+      </div>
+
+      <div class="card">
+        <h3>Even Sampling Settings</h3>
+        <label class="field-label">Total questions to sample</label>
+        <input type="number" id="totalCountInput" value="50" min="1">
+        <label class="row" style="margin-top:10px;font-size:.82rem;color:var(--sub);">
+          <input type="checkbox" id="preferUnusedInput" checked>
+          <span>Prioritize questions not yet included in any saved sample</span>
+        </label>
+        <button class="btn primary block" id="btnGenerateSample" style="margin-top:12px;">Generate Sample &#9654;</button>
+      </div>
+
+      <div class="card">
+        <h3>Preview</h3>
+        <pre class="mono hint" id="previewBox" style="white-space:pre-wrap;">Nothing generated yet.</pre>
+      </div>
+
+      <div class="card">
+        <label class="field-label">Sample name</label>
+        <input type="text" id="sampleNameInput" placeholder="Sample_20260101_120000">
+        <div class="row" style="margin-top:10px;">
+          <button class="btn block" id="btnSaveSample">Save Sample</button>
+        </div>
+        <button class="btn success block" id="btnStartFromBuilder" style="margin-top:8px;">Start Exam With This Sample &#9654;</button>
+      </div>
+    </section>
+
+    <!-- ---- Tab: Saved Samples ---- -->
+    <section class="panel" id="panel-saved">
+      <div class="card">
+        <h3>Previously Saved Samples <span class="count" id="savedCount"></span></h3>
+        <div id="savedContainer"></div>
+      </div>
+      <div class="card">
+        <div class="row wrap">
+          <button class="btn success" id="btnStartFromSaved">Start Exam &#9654;</button>
+          <button class="btn" id="btnViewComposition">View Composition</button>
+          <button class="btn danger" id="btnDeleteSaved">Delete Selected</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- Tab: Test History ---- -->
+    <section class="panel" id="panel-history">
+      <div class="card">
+        <h3>Tests Taken <span class="count" id="historyCount"></span></h3>
+        <div id="historyContainer"></div>
+      </div>
+      <div class="card">
+        <div class="row wrap">
+          <button class="btn" id="btnRefreshHistory">Refresh</button>
+          <button class="btn danger" id="btnClearHistory">Clear History</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- Tab: Study Priority Analysis ---- -->
+    <section class="panel" id="panel-analysis">
+      <div class="card">
+        <h3>Study Priority Ranking (most urgent first)</h3>
+        <p class="hint" style="margin-bottom:10px;">Ranking uses a confidence-weighted score, not raw accuracy: a correct guess counts for less than a correct answer you were sure about, and a confident wrong answer counts against you more than an uncertain one.</p>
+        <div id="rankTable"></div>
+      </div>
+      <div class="card">
+        <h3>Priority Overview</h3>
+        <div id="priorityBars"></div>
+      </div>
+      <div class="card">
+        <h3>Progression Over Samples</h3>
+        <select id="progressionSubjectSelect" style="margin-bottom:10px;"></select>
+        <div id="progressionChart"></div>
+      </div>
+      <div class="card">
+        <h3>Full Analysis</h3>
+        <pre class="mono hint" id="analysisText" style="white-space:pre-wrap;max-height:280px;overflow:auto;"></pre>
+        <div class="row" style="margin-top:10px;">
+          <button class="btn" id="btnRefreshAnalysis">Refresh Analysis</button>
+          <button class="btn" id="btnCopyAnalysis">&#128203; Copy</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- Tab: Mistake Log ---- -->
+    <section class="panel" id="panel-mistakes">
+      <div class="card">
+        <h3>Select a Test to Review</h3>
+        <select id="mistakeExamSelect"></select>
+        <div id="mistakesContainer" style="margin-top:10px;"></div>
+      </div>
+      <div class="card" id="mistakeEditCard">
+        <h3>Log / Edit This Mistake</h3>
+        <p class="hint" id="mistakeQuestionLbl">Tap a mistake above to log it.</p>
+        <label class="field-label">Category</label>
+        <input list="mistakeCategoryList" id="mistakeCategoryInput" placeholder="Pick or type a category">
+        <datalist id="mistakeCategoryList"></datalist>
+        <label class="row" style="margin-top:10px;">
+          <input type="checkbox" id="mistakeResolvedInput">
+          <span style="font-size:.85rem;">Resolved / mastered since</span>
+        </label>
+        <label class="field-label">What went wrong, and how will you fix it?</label>
+        <textarea id="mistakeNoteInput" rows="4"></textarea>
+        <div class="row" style="margin-top:10px;">
+          <button class="btn primary" id="btnSaveMistake">Save Mistake Log</button>
+          <button class="btn danger" id="btnDeleteMistake">Delete Log</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="row wrap" style="margin-bottom:8px;">
+          <h3 style="border:none;padding:0;flex:1;">All Logged Mistakes</h3>
+        </div>
+        <label class="row" style="margin-bottom:10px;">
+          <input type="checkbox" id="mistakeUnresolvedOnly">
+          <span style="font-size:.82rem;">Show unresolved only</span>
+        </label>
+        <div id="allMistakesContainer"></div>
+        <button class="btn link" id="btnCopyMistakeInsights">&#128203; Copy Insights to Clipboard</button>
+      </div>
+      <div class="card">
+        <h3>Mistake Categories (most frequent first)</h3>
+        <div id="mistakeCategoryBars"></div>
+      </div>
+    </section>
+
+    <!-- ---- Tab: Local Bank Editor ---- -->
+    <section class="panel" id="panel-editor">
+      <div class="card">
+        <h3>Bank name</h3>
+        <input list="editorBankList" id="editorBankInput" placeholder="My Local Bank">
+        <datalist id="editorBankList"></datalist>
+        <div class="row" style="margin-top:10px;">
+          <button class="btn" id="btnLoadEditorBank">Load</button>
+          <button class="btn" id="btnNewEditorBank">New / Clear</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Questions in This Bank <span class="count" id="editorCount"></span></h3>
+        <div id="editorContainer"></div>
+      </div>
+      <div class="card">
+        <div class="row wrap">
+          <button class="btn violet" id="btnAddQuestion">+ Add Question</button>
+          <button class="btn primary" id="btnSaveEditorBank">Save Bank</button>
+          <button class="btn danger" id="btnDeleteEditorBank">Delete Bank</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Duration + start bar -->
+  <div class="sheet hidden" id="durationSheet">
+    <div class="sheet-inner">
+      <h2>Exam Duration</h2>
+      <select id="durationSelect" style="margin-bottom:10px;">
+        <option>1 Hour</option>
+        <option>1.5 Hours</option>
+        <option>2 Hours</option>
+        <option selected>3 Hours (Default)</option>
+        <option>4 Hours</option>
+        <option>Custom</option>
+      </select>
+      <div id="customMinutesRow" style="display:none;">
+        <label class="field-label">Custom minutes</label>
+        <input type="number" id="customMinutesInput" value="180" min="1">
+      </div>
+      <div class="row" style="margin-top:14px;">
+        <button class="btn block" id="btnCancelDuration">Cancel</button>
+        <button class="btn primary block" id="btnConfirmDuration">Start Exam &#9654;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Settings / Data sheet ============ -->
+<div class="sheet hidden" id="settingsSheet">
+  <div class="sheet-inner">
+    <h2>Data &amp; Settings</h2>
+    <p class="hint" id="settingsSyncLine" style="margin-bottom:10px;"></p>
+    <button class="btn block" id="btnRefreshBank">Refresh Question Bank</button>
+
+    <div style="height:16px;"></div>
+    <h2 style="font-size:.92rem;">GitHub Sync</h2>
+    <p class="hint" id="githubSyncLine" style="margin:6px 0 10px;">Not connected.</p>
+    <p class="hint" style="margin-bottom:10px;">Your data (banks, samples, history, analysis, mistake log) will be
+      read from and written to one JSON file in a GitHub repo of your choosing, so it survives losing this phone
+      or clearing Chrome's site data. The token below is stored only in this browser and used only to call
+      GitHub's API directly from this page.</p>
+    <label class="field-label">Repo owner (your GitHub username)</label>
+    <input type="text" id="ghOwnerInput" placeholder="e.g. jdoe">
+    <label class="field-label">Repo name</label>
+    <input type="text" id="ghRepoInput" placeholder="e.g. cble-data">
+    <label class="field-label">Branch</label>
+    <input type="text" id="ghBranchInput" placeholder="main" value="main">
+    <label class="field-label">File path in the repo</label>
+    <input type="text" id="ghPathInput" placeholder="cble_data.json" value="cble_data.json">
+    <label class="field-label">Fine-grained Personal Access Token (Contents: Read and write, scoped to this one repo)</label>
+    <input type="password" id="ghTokenInput" placeholder="github_pat_\u2026">
+    <div class="row" style="margin-top:10px;">
+      <button class="btn primary" id="btnSaveGithubConfig">Save &amp; Test Connection</button>
+      <button class="btn" id="btnSyncNow">Sync Now</button>
+    </div>
+    <button class="btn danger block" id="btnDisconnectGithub" style="margin-top:8px;">Disconnect GitHub</button>
+
+    <div style="height:16px;"></div>
+    <button class="btn block" id="btnExportAll">Export All Data (backup .json)</button>
+    <div style="height:8px;"></div>
+    <button class="btn block" id="btnImportAll">Import Data From Backup</button>
+    <input type="file" id="importFileInput" accept="application/json" style="display:none;">
+    <div style="height:8px;"></div>
+    <button class="btn danger block" id="btnClearAllData">Erase All Local Data</button>
+    <div style="height:14px;"></div>
+    <button class="btn block" id="btnCloseSettings">Close</button>
+  </div>
+</div>
+
+<!-- Resume in-progress exam prompt -->
+<div class="sheet hidden" id="resumeExamSheet">
+  <div class="sheet-inner">
+    <h2>Resume Exam?</h2>
+    <p class="hint" id="resumeExamInfo" style="margin-bottom:14px;"></p>
+    <div class="row">
+      <button class="btn danger block" id="btnDiscardResume">Discard</button>
+      <button class="btn primary block" id="btnConfirmResume">Resume Exam</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ EXAM OVERLAY ============ -->
+<div class="overlay hidden" id="examOverlay">
+  <div class="app-header-bar">
+    <div class="exam-title" id="examTitle">BOARD OF CHEMICAL ENGINEERING &mdash; CBLE SIMULATION</div>
+    <div class="timer" id="examTimer">03:00:00</div>
+  </div>
+  <div class="app-body" id="examBody">
+    <div id="qBox">
+      <div class="qnum" id="qNum">Question 1</div>
+      <div class="qtext" id="qText"></div>
+    </div>
+    <div id="optionsBox"></div>
+    <div id="confBox">
+      <h4>Confidence in Your Answer</h4>
+      <div class="conf-choices" id="confChoices"></div>
+    </div>
+    <div id="examStatus"></div>
+  </div>
+  <div class="app-footer-row">
+    <button id="btnPrevQ">&#9664; Previous</button>
+    <button id="btnMatrix">Questions</button>
+    <button id="btnNextQ">Next &#9654;</button>
+  </div>
+  <div id="examActionBar">
+    <button id="btnFlagQ">&#127987; Flag</button>
+    <button id="btnNotesQ">&#128221; Notes</button>
+    <button id="btnExitExam">&#8592; Exit</button>
+    <button class="submit" id="btnSubmitExam">Submit</button>
+  </div>
+</div>
+
+<!-- Question matrix sheet -->
+<div class="sheet hidden" id="matrixSheet">
+  <div class="sheet-inner">
+    <div class="row">
+      <h2 style="flex:1;">Question Matrix</h2>
+      <button class="link" id="btnCloseMatrix">Close</button>
+    </div>
+    <div id="matrixGrid"></div>
+    <div class="legend">
+      <span><i class="dot" style="background:#E5E7EB;"></i>Unanswered</span>
+      <span><i class="dot" style="background:#10B981;"></i>Answered</span>
+      <span><i class="dot" style="background:var(--amber);"></i>Flagged</span>
+    </div>
+  </div>
+</div>
+
+<!-- Notes sheet -->
+<div class="sheet hidden" id="notesSheet">
+  <div class="sheet-inner">
+    <h2 id="notesTitle">Notes &mdash; Question 1</h2>
+    <label class="field-label">Explain your reasoning</label>
+    <textarea id="notesTextInput" rows="4"></textarea>
+    <label class="field-label">Sketch / diagram (draw with your finger)</label>
+    <canvas id="notesCanvas" width="700" height="260"></canvas>
+    <div class="row" style="margin-top:8px;">
+      <button class="btn danger" id="btnClearSketch">Clear Drawing</button>
+      <div class="spacer"></div>
+      <button class="btn primary" id="btnSaveNotes">Save &amp; Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Submit confirmation sheet -->
+<div class="sheet hidden" id="submitSheet">
+  <div class="sheet-inner">
+    <h2>Confirm Submit</h2>
+    <p class="hint" id="submitConfirmText" style="margin-bottom:14px;">Are you sure you want to submit and end the exam?</p>
+    <div class="row">
+      <button class="btn block" id="btnCancelSubmit">Cancel</button>
+      <button class="btn primary block" id="btnConfirmSubmit">Submit Exam</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ REPORT OVERLAY ============ -->
+<div class="overlay hidden" id="reportOverlay">
+  <div class="app-header-bar">
+    <div class="exam-title">ChELE Diagnostic Correction Report</div>
+  </div>
+  <div class="app-body" id="reportBody" style="padding-top:14px;">
+    <div class="summary">
+      <div class="score" id="reportScore">0/0</div>
+      <div class="status" id="reportStatus">FAILED</div>
+    </div>
+    <div class="row wrap" style="margin-bottom:12px;">
+      <button class="btn" id="btnToggleSort">Sort: Wrong Answers First &#8597;</button>
+      <button class="btn" id="btnCopyReport">&#128203; Copy Report</button>
+      <button class="btn" id="btnExportCsv">&#128202; Export CSV</button>
+      <button class="btn violet" id="btnPrintNotes">&#128221; Print Notes</button>
+    </div>
+    <div id="reportItems"></div>
+  </div>
+  <div class="app-footer-row" style="padding-top:8px;">
+    <button class="btn primary block" id="btnBackToWorkbench" style="flex:1;">&#8592; Back to Workbench</button>
+  </div>
+</div>
+
+<!-- Print-only notes view, built on demand -->
+<div id="printNotesRoot" style="display:none;"></div>
+
+<!-- ============ Question entry modal (Local Bank Editor) ============ -->
+<div class="sheet hidden" id="questionSheet">
+  <div class="sheet-inner">
+    <h2 id="questionSheetTitle">Add Question</h2>
+    <label class="field-label">Question text</label>
+    <textarea id="qeText" rows="4"></textarea>
+    <label class="field-label">Answer options (select the correct one)</label>
+    <div id="qeOptions"></div>
+    <div class="row" style="margin-top:14px;">
+      <button class="btn block" id="btnCancelQuestion">Cancel</button>
+      <button class="btn primary block" id="btnSubmitQuestion">Save Question</button>
+    </div>
+  </div>
+</div>
+
+<!-- View composition modal -->
+<div class="sheet hidden" id="compositionSheet">
+  <div class="sheet-inner">
+    <h2 id="compositionTitle">Composition</h2>
+    <pre class="mono hint" id="compositionBody" style="white-space:pre-wrap;"></pre>
+    <button class="btn block" id="btnCloseComposition" style="margin-top:12px;">Close</button>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+"use strict";
+/* =====================================================================
+   CBLE Simulator -- standalone mobile port
+   Data lives entirely in this browser's localStorage. No server, no
+   GitHub commits. The only network call is a one-time (per refresh)
+   fetch of the remote question bank; everything else works offline.
+   ===================================================================== */
+
+const DATABASE_URL = "https://raw.githubusercontent.com/bananabonds/streamlit_proj/refs/heads/main/ARCLectureBank.py";
+
+const CONFIDENCE_LEVELS = ["Guess", "Slightly Confident", "Confident", "Sure I'm Right"];
+const CONFIDENCE_WEIGHTS = { "Guess": 0.25, "Slightly Confident": 0.5, "Confident": 0.75, "Sure I'm Right": 1.0 };
+const DEFAULT_CONFIDENCE_WEIGHT = 0.5;
+const MISTAKE_CATEGORIES = [
+  "Conceptual Misunderstanding", "Careless / Computational Error", "Misread the Question",
+  "Formula / Equation Error", "Unfamiliar Topic (Never Studied)", "Forgot a Concept (Knew It Before)",
+  "Time Pressure / Rushed", "Other"
+];
+
+const KEYS = {
+  banks: "cble.localBanks",
+  samples: "cble.sampleSets",
+  history: "cble.testHistory",
+  details: "cble.examDetails",
+  mistakes: "cble.mistakeLog",
+  topics: "cble.topicsCache",
+  githubConfig: "cble.githubConfig",
+  examProgress: "cble.examProgress",
+};
+
+/* ---------------------------------------------------------------------
+   Generic storage helpers (mirrors load_json_file / save_json_file)
+   --------------------------------------------------------------------- */
+function loadJson(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    if (raw === null) return fallback;
+    return JSON.parse(raw);
+  } catch (e) {
+    return fallback;
+  }
+}
+function saveJson(key, data) {
+  try {
+    localStorage.setItem(key, JSON.stringify(data));
+    return true;
+  } catch (e) {
+    console.error("Storage write failed", e);
+    toast("Couldn't save -- storage may be full.");
+    return false;
+  }
+}
+function uid() { return `${Date.now()}${Math.floor(Math.random() * 1000)}`; }
+function nowIso() { return new Date().toISOString().slice(0, 19); }
+function todayStamp() {
+  const d = new Date();
+  const pad = n => String(n).padStart(2, "0");
+  return `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}_${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`;
+}
+
+/* ---------------------------------------------------------------------
+   tag_source / local banks / merged lists  (1:1 with the .py functions)
+   --------------------------------------------------------------------- */
+function tagSource(questions, listName) {
+  return questions.map((q, idx) => Object.assign({}, q, { _source_list: listName, _source_index: idx }));
+}
+
+function loadLocalBanksRaw() { return loadJson(KEYS.banks, {}); }
+function loadLocalBanks() {
+  const raw = loadLocalBanksRaw();
+  const tagged = {};
+  for (const name of Object.keys(raw)) tagged[name] = tagSource(raw[name], `[Local] ${name}`);
+  return tagged;
+}
+function saveLocalBank(bankName, questions) {
+  const raw = loadLocalBanksRaw();
+  raw[bankName] = questions.map(q => ({ text: q.text, options: q.options.slice(), correct: q.correct }));
+  saveJson(KEYS.banks, raw);
+  scheduleGithubSync();
+}
+function deleteLocalBank(bankName) {
+  const raw = loadLocalBanksRaw();
+  if (bankName in raw) { delete raw[bankName]; saveJson(KEYS.banks, raw); scheduleGithubSync(); }
+}
+
+let _topicCache = null; // in-memory per session, mirrors _topic_cache
+function getRemoteTopics() {
+  if (_topicCache) return _topicCache;
+  const cached = loadJson(KEYS.topics, null);
+  return cached ? cached.topics : {};
+}
+function getAllLists() {
+  const merged = {};
+  const remote = getRemoteTopics();
+  for (const name of Object.keys(remote)) merged[name] = remote[name];
+  const local = loadLocalBanks();
+  for (const name of Object.keys(local)) merged[`[Local] ${name}`] = local[name];
+  return merged;
+}
+
+function getUsedIndicesByList() {
+  const sampleSets = loadJson(KEYS.samples, []);
+  const used = {};
+  for (const s of sampleSets) {
+    for (const q of (s.questions || [])) {
+      const ln = q._source_list, idx = q._source_index;
+      if (ln === undefined || idx === undefined) continue;
+      if (!used[ln]) used[ln] = new Set();
+      used[ln].add(idx);
+    }
+  }
+  return used;
+}
+
+function computeCoverage(allLists) {
+  const usedByList = getUsedIndicesByList();
+  const coverage = {};
+  for (const name of Object.keys(allLists)) {
+    const total = allLists[name].length;
+    const used = (usedByList[name] || new Set()).size;
+    const pct = total ? (used / total * 100.0) : 0.0;
+    coverage[name] = { used, total, pct };
+  }
+  return coverage;
+}
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+function sampleWithoutReplacement(arr, want) {
+  return shuffle(arr).slice(0, want);
+}
+
+function evenSample(allLists, selectedNames, totalCount, preferUnused = true) {
+  selectedNames = selectedNames.filter(n => allLists[n] && allLists[n].length);
+  const nLists = selectedNames.length;
+  if (nLists === 0 || totalCount <= 0) return [];
+
+  const usedByList = getUsedIndicesByList();
+  const base = Math.floor(totalCount / nLists);
+  const rem = totalCount % nLists;
+  const counts = {};
+  selectedNames.forEach((name, i) => { counts[name] = base + (i < rem ? 1 : 0); });
+
+  let result = [];
+  for (const name of selectedNames) {
+    const pool = allLists[name] || [];
+    const want = Math.min(counts[name] || 0, pool.length);
+    if (want <= 0) continue;
+    let chosen;
+    if (preferUnused) {
+      const usedIdx = usedByList[name] || new Set();
+      const unused = pool.filter(q => !usedIdx.has(q._source_index));
+      const seen = pool.filter(q => usedIdx.has(q._source_index));
+      chosen = shuffle(unused).concat(shuffle(seen)).slice(0, want);
+    } else {
+      chosen = sampleWithoutReplacement(pool, want);
+    }
+    result = result.concat(chosen);
+  }
+  return shuffle(result);
+}
+
+function saveSampleSet(name, composition, questions) {
+  const sets = loadJson(KEYS.samples, []);
+  const record = { id: uid(), name, created_at: nowIso(), composition, questions };
+  sets.push(record);
+  saveJson(KEYS.samples, sets);
+  scheduleGithubSync();
+  return record;
+}
+function deleteSampleSet(id) {
+  let sets = loadJson(KEYS.samples, []);
+  sets = sets.filter(s => s.id !== id);
+  saveJson(KEYS.samples, sets);
+  scheduleGithubSync();
+}
+
+function saveTestHistory(sourceName, score, total, timeUsedSeconds) {
+  const history = loadJson(KEYS.history, []);
+  const pct = total ? Math.round((score / total * 100.0) * 10) / 10 : 0.0;
+  const record = {
+    id: uid(), source: sourceName, score, total, pct,
+    date: nowIso(), time_used_seconds: Math.round(timeUsedSeconds * 10) / 10,
+  };
+  history.push(record);
+  saveJson(KEYS.history, history);
+  return record;
+}
+function saveExamDetails(examId, sourceName, date, items) {
+  const details = loadJson(KEYS.details, []);
+  details.push({ exam_id: examId, source: sourceName, date, items });
+  saveJson(KEYS.details, details);
+  scheduleGithubSync(true); // finishing an exam is a natural checkpoint -- sync right away
+}
+
+/* ---------------------------------------------------------------------
+   Study Priority Analysis -- exact port of compute_subject_analysis
+   --------------------------------------------------------------------- */
+function computeSubjectAnalysis() {
+  const details = loadJson(KEYS.details, []);
+  const detailsSorted = details.slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+
+  const overallAcc = {};
+  const progression = {};
+
+  for (const d of detailsSorted) {
+    const perSubjectThisExam = {};
+    for (const item of (d.items || [])) {
+      const subj = item.source_list || "Unknown";
+      (perSubjectThisExam[subj] = perSubjectThisExam[subj] || []).push(item);
+    }
+    for (const subj of Object.keys(perSubjectThisExam)) {
+      const items = perSubjectThisExam[subj];
+      const answered = items.filter(it => it.is_answered);
+      const nAnswered = answered.length;
+      const nCorrect = answered.filter(it => it.is_correct).length;
+      const accuracyPct = nAnswered ? (nCorrect / nAnswered * 100.0) : null;
+
+      const weightedScores = [];
+      let overconfidentWrong = 0;
+      for (const it of answered) {
+        const w = CONFIDENCE_WEIGHTS[it.confidence] !== undefined ? CONFIDENCE_WEIGHTS[it.confidence] : DEFAULT_CONFIDENCE_WEIGHT;
+        if (it.is_correct) {
+          weightedScores.push(w);
+        } else {
+          weightedScores.push(-w);
+          if (it.confidence === "Confident" || it.confidence === "Sure I'm Right") overconfidentWrong++;
+        }
+      }
+      let weightedPct = null;
+      if (weightedScores.length) {
+        const avg = weightedScores.reduce((a, b) => a + b, 0) / weightedScores.length;
+        weightedPct = (avg + 1.0) / 2.0 * 100.0;
+      }
+
+      (progression[subj] = progression[subj] || []).push({
+        exam_source: d.source, date: d.date, n_questions: items.length,
+        n_answered: nAnswered, accuracy_pct: accuracyPct, weighted_pct: weightedPct,
+        overconfident_wrong: overconfidentWrong,
+      });
+
+      const acc = overallAcc[subj] = overallAcc[subj] || {
+        total_answered: 0, total_correct: 0, weighted_sum: 0.0, weighted_n: 0,
+        overconfident_wrong: 0, n_exams: 0,
+      };
+      acc.total_answered += nAnswered;
+      acc.total_correct += nCorrect;
+      acc.weighted_sum += weightedScores.reduce((a, b) => a + b, 0);
+      acc.weighted_n += weightedScores.length;
+      acc.overconfident_wrong += overconfidentWrong;
+      acc.n_exams += 1;
+    }
+  }
+
+  const overall = {};
+  for (const subj of Object.keys(overallAcc)) {
+    const acc = overallAcc[subj];
+    const accuracyPct = acc.total_answered ? (acc.total_correct / acc.total_answered * 100.0) : 0.0;
+    const weightedPct = acc.weighted_n ? (((acc.weighted_sum / acc.weighted_n) + 1.0) / 2.0 * 100.0) : 0.0;
+    overall[subj] = {
+      accuracy_pct: accuracyPct, weighted_pct: weightedPct,
+      total_answered: acc.total_answered, total_correct: acc.total_correct,
+      overconfident_wrong: acc.overconfident_wrong, n_exams: acc.n_exams,
+    };
+  }
+  return { overall, progression };
+}
+
+/* ---------------------------------------------------------------------
+   Mistake log
+   --------------------------------------------------------------------- */
+function loadMistakeLog() { return loadJson(KEYS.mistakes, []); }
+function mistakeKey(examId, sourceList, referenceNo) { return `${examId}::${sourceList}::${referenceNo}`; }
+
+function getExamMistakes(examId) {
+  const details = loadJson(KEYS.details, []);
+  const d = details.find(d => d.exam_id === examId);
+  if (!d) return [];
+  return (d.items || []).filter(it => !it.is_correct);
+}
+
+function saveMistakeEntry(examId, examSource, sourceList, referenceNo, question, yourAnswer, correctAnswer, category, note, resolved) {
+  const log = loadMistakeLog();
+  const key = mistakeKey(examId, sourceList, referenceNo);
+  const now = nowIso();
+  for (const entry of log) {
+    if (mistakeKey(entry.exam_id, entry.source_list, entry.reference_no) === key) {
+      Object.assign(entry, { category, note, resolved, date_logged: now, question, your_answer: yourAnswer, correct_answer: correctAnswer, exam_source: examSource });
+      saveJson(KEYS.mistakes, log);
+      scheduleGithubSync();
+      return entry;
+    }
+  }
+  const record = {
+    id: uid(), exam_id: examId, exam_source: examSource, source_list: sourceList, reference_no: referenceNo,
+    question, your_answer: yourAnswer, correct_answer: correctAnswer, category, note, resolved, date_logged: now,
+  };
+  log.push(record);
+  saveJson(KEYS.mistakes, log);
+  scheduleGithubSync();
+  return record;
+}
+function deleteMistakeEntry(entryId) {
+  let log = loadMistakeLog();
+  log = log.filter(e => e.id !== entryId);
+  saveJson(KEYS.mistakes, log);
+  scheduleGithubSync();
+}
+function computeMistakeInsights() {
+  const log = loadMistakeLog();
+  const catCounts = {}, catUnresolved = {}, subjCounts = {};
+  for (const e of log) {
+    const cat = e.category || "Uncategorized";
+    catCounts[cat] = (catCounts[cat] || 0) + 1;
+    if (!e.resolved) catUnresolved[cat] = (catUnresolved[cat] || 0) + 1;
+    const subj = e.source_list || "Unknown";
+    subjCounts[subj] = (subjCounts[subj] || 0) + 1;
+  }
+  const byCategory = Object.entries(catCounts).sort((a, b) => b[1] - a[1])
+    .map(([cat, cnt]) => [cat, cnt, catUnresolved[cat] || 0]);
+  const bySubject = Object.entries(subjCounts).sort((a, b) => b[1] - a[1]);
+  return { byCategory, bySubject };
+}
+
+/* ---------------------------------------------------------------------
+   GitHub Sync -- optional durable store. Everything above this still
+   works purely from localStorage; when a repo/token is configured, every
+   save-worthy action schedules a debounced pull-merge-push cycle against
+   one JSON file in that repo via the Contents API. Merge is by record id
+   (union, local wins on conflict) so a second device doesn't clobber data.
+   --------------------------------------------------------------------- */
+function getGithubConfig() { return loadJson(KEYS.githubConfig, null); }
+function saveGithubConfigRaw(cfg) { saveJson(KEYS.githubConfig, cfg); }
+function githubConfigured() { const c = getGithubConfig(); return !!(c && c.owner && c.repo && c.token); }
+
+function b64EncodeUnicode(str) {
+  return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (_, p1) => String.fromCharCode(parseInt(p1, 16))));
+}
+function b64DecodeUnicode(str) {
+  const clean = str.replace(/\n/g, "");
+  return decodeURIComponent(atob(clean).split("").map(c => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2)).join(""));
+}
+
+async function githubGetFile() {
+  const c = getGithubConfig();
+  const url = `https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${c.path.split("/").map(encodeURIComponent).join("/")}?ref=${encodeURIComponent(c.branch || "main")}`;
+  const res = await fetch(url, {
+    headers: { "Authorization": `Bearer ${c.token}`, "Accept": "application/vnd.github+json" },
+    cache: "no-store",
+  });
+  if (res.status === 404) return { data: null, sha: null };
+  if (!res.ok) throw new Error(`GET ${res.status} ${(await res.text().catch(() => "")).slice(0, 150)}`);
+  const json = await res.json();
+  const text = b64DecodeUnicode(json.content);
+  let data;
+  try { data = JSON.parse(text); } catch (e) { throw new Error("Remote file isn't valid JSON -- check the path/branch."); }
+  return { data, sha: json.sha };
+}
+async function githubPutFile(dataObj, sha) {
+  const c = getGithubConfig();
+  const url = `https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${c.path.split("/").map(encodeURIComponent).join("/")}`;
+  const body = {
+    message: `CBLE data sync ${nowIso()}`,
+    content: b64EncodeUnicode(JSON.stringify(dataObj, null, 2)),
+    branch: c.branch || "main",
+  };
+  if (sha) body.sha = sha;
+  const res = await fetch(url, {
+    method: "PUT",
+    headers: { "Authorization": `Bearer ${c.token}`, "Accept": "application/vnd.github+json", "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(`PUT ${res.status} ${(await res.text().catch(() => "")).slice(0, 200)}`);
+  const json = await res.json();
+  return json.content.sha;
+}
+
+function buildLocalSnapshot() {
+  return {
+    local_banks: loadJson(KEYS.banks, {}),
+    sample_sets: loadJson(KEYS.samples, []),
+    test_history: loadJson(KEYS.history, []),
+    exam_details: loadJson(KEYS.details, []),
+    mistake_log: loadJson(KEYS.mistakes, []),
+    updated_at: nowIso(),
+  };
+}
+function applySnapshotToLocal(snap) {
+  if (!snap) return;
+  if (snap.local_banks) saveJson(KEYS.banks, snap.local_banks);
+  if (snap.sample_sets) saveJson(KEYS.samples, snap.sample_sets);
+  if (snap.test_history) saveJson(KEYS.history, snap.test_history);
+  if (snap.exam_details) saveJson(KEYS.details, snap.exam_details);
+  if (snap.mistake_log) saveJson(KEYS.mistakes, snap.mistake_log);
+}
+function mergeById(remoteArr, localArr, idKey) {
+  const map = new Map();
+  for (const r of (remoteArr || [])) map.set(r[idKey], r);
+  for (const l of (localArr || [])) map.set(l[idKey], l); // local wins on same-id conflict
+  return Array.from(map.values());
+}
+function mergeSnapshots(remote, local) {
+  return {
+    local_banks: Object.assign({}, (remote && remote.local_banks) || {}, local.local_banks || {}),
+    sample_sets: mergeById(remote && remote.sample_sets, local.sample_sets, "id"),
+    test_history: mergeById(remote && remote.test_history, local.test_history, "id"),
+    exam_details: mergeById(remote && remote.exam_details, local.exam_details, "exam_id"),
+    mistake_log: mergeById(remote && remote.mistake_log, local.mistake_log, "id"),
+    updated_at: nowIso(),
+  };
+}
+
+let githubSyncTimer = null;
+let githubSyncInProgress = false;
+function scheduleGithubSync(immediate) {
+  if (!githubConfigured()) return;
+  clearTimeout(githubSyncTimer);
+  if (immediate) { runGithubSync(); return; }
+  githubSyncTimer = setTimeout(runGithubSync, 4000);
+}
+async function runGithubSync() {
+  if (!githubConfigured() || githubSyncInProgress) return;
+  githubSyncInProgress = true;
+  setGithubStatus("Syncing\u2026");
+  try {
+    const { data: remoteData, sha: remoteSha } = await githubGetFile();
+    const merged = mergeSnapshots(remoteData, buildLocalSnapshot());
+    applySnapshotToLocal(merged);
+    await githubPutFile(merged, remoteSha);
+    setGithubStatus(`Synced \u00b7 ${new Date().toLocaleTimeString()}`);
+    if (typeof refreshListsDisplay === "function") refreshListsDisplay();
+  } catch (e) {
+    console.error("GitHub sync failed:", e);
+    setGithubStatus(`Sync failed: ${e.message}`);
+  } finally {
+    githubSyncInProgress = false;
+  }
+}
+function setGithubStatus(text) {
+  const el1 = document.getElementById("githubSyncLine");
+  if (!el1) return;
+  const c = getGithubConfig();
+  el1.textContent = c ? `${c.owner}/${c.repo} (${c.branch || "main"}) \u2014 ${text}` : "Not connected.";
+}
+
+
+/* ---------------------------------------------------------------------
+   OCR / scrape cleanup -- exact port of clean_ocr_text / clean_question_bank
+   --------------------------------------------------------------------- */
+function cleanOcrText(text) {
+  if (typeof text !== "string" || !text) return text;
+  text = text.replace(/(\w)-\s*\n\s*(\w)/g, "$1$2");
+  const MARKER = "\u0000";
+  text = text.replace(/\n\s*\n/g, MARKER);
+  text = text.replace(/\s+/g, " ");
+  text = text.split(MARKER).join("\n\n");
+  text = text.replace(/([.,;:!?])(?=[A-Za-z])/g, "$1 ");
+  text = text.replace(/([a-z]{2,})([A-Z][a-z]{2,})/g, "$1 $2");
+  text = text.replace(/(\d)([A-Z][a-z]{2,})/g, "$1 $2");
+  text = text.replace(/ {2,}/g, " ");
+  return text.trim();
+}
+function cleanQuestionBank(questions) {
+  return questions.map(q => {
+    const q2 = Object.assign({}, q);
+    if ("text" in q2) q2.text = cleanOcrText(q2.text);
+    if ("options" in q2) q2.options = q2.options.map(cleanOcrText);
+    return q2;
+  });
+}
+
+/* ---------------------------------------------------------------------
+   Remote question bank: fetch + best-effort Python-literal parser.
+   The upstream file is a plain .py module of top-level assignments like
+     TopicName = [ {"text": "...", "options": [...], "correct": 0}, ... ]
+   Since a browser can't exec Python, this walks the source as tokens and
+   evaluates only literal expressions (strings/numbers/bools/None/lists/
+   dicts/tuples) -- exactly the subset that kind of file actually needs.
+   --------------------------------------------------------------------- */
+function parsePythonModule(src) {
+  const tokens = [];
+  let i = 0;
+  const n = src.length;
+  const isIdentStart = c => /[A-Za-z_]/.test(c);
+  const isIdentChar = c => /[A-Za-z0-9_]/.test(c);
+
+  while (i < n) {
+    const c = src[i];
+    if (c === "#") { while (i < n && src[i] !== "\n") i++; continue; }
+    if (c === "\n") { tokens.push({ t: "NL" }); i++; continue; }
+    if (/\s/.test(c)) { i++; continue; }
+    if (c === "\\" && src[i + 1] === "\n") { i += 2; continue; }
+
+    // optional string prefix (r, u, b, f, rb, br, rf, fr -- case-insensitive)
+    let prefixEnd = i, prefix = "";
+    while (prefixEnd < n && /[A-Za-z]/.test(src[prefixEnd]) && prefix.length < 2) { prefix += src[prefixEnd]; prefixEnd++; }
+    const isStrPrefix = /^(r|u|b|f|rb|br|rf|fr)$/i.test(prefix) && (src[prefixEnd] === '"' || src[prefixEnd] === "'");
+    const quoteStart = isStrPrefix ? prefixEnd : i;
+
+    if (src[quoteStart] === '"' || src[quoteStart] === "'") {
+      const quote = src[quoteStart];
+      const triple = src[quoteStart + 1] === quote && src[quoteStart + 2] === quote;
+      let p = quoteStart + (triple ? 3 : 1);
+      let out = "";
+      while (p < n) {
+        if (triple) {
+          if (src[p] === quote && src[p + 1] === quote && src[p + 2] === quote) { p += 3; break; }
+        } else {
+          if (src[p] === quote) { p++; break; }
+        }
+        if (src[p] === "\\") {
+          const esc = src[p + 1];
+          const map = { n: "\n", t: "\t", r: "\r", "\\": "\\", "'": "'", '"': '"', "0": "\0" };
+          if (esc === "\n") { p += 2; }
+          else if (esc in map) { out += map[esc]; p += 2; }
+          else { out += esc; p += 2; }
+          continue;
+        }
+        out += src[p]; p++;
+      }
+      tokens.push({ t: "STR", v: out });
+      i = p;
+      continue;
+    }
+
+    if (isIdentStart(c)) {
+      let start = i;
+      while (i < n && isIdentChar(src[i])) i++;
+      tokens.push({ t: "NAME", v: src.slice(start, i) });
+      continue;
+    }
+    if (/[0-9]/.test(c)) {
+      let start = i;
+      while (i < n && /[0-9.eE+\-]/.test(src[i])) i++;
+      tokens.push({ t: "NUM", v: parseFloat(src.slice(start, i)) });
+      continue;
+    }
+    if (c === "-" && /[0-9]/.test(src[i + 1] || "")) {
+      let start = i; i++;
+      while (i < n && /[0-9.eE+\-]/.test(src[i])) i++;
+      tokens.push({ t: "NUM", v: parseFloat(src.slice(start, i)) });
+      continue;
+    }
+    if ("{}[]():,+".includes(c)) { tokens.push({ t: c }); i++; continue; }
+    if (c === "=" && src[i + 1] !== "=") { tokens.push({ t: "=" }); i++; continue; }
+    i++; // skip anything else (operators/punctuation we don't need at literal level)
+  }
+  tokens.push({ t: "EOF" });
+
+  let p = 0;
+  const peek = () => tokens[p];
+  const next = () => tokens[p++];
+  const skipNL = () => { while (peek().t === "NL") p++; };
+
+  function parseValue() {
+    skipNL();
+    const tok = peek();
+    if (tok.t === "STR") {
+      next();
+      let val = tok.v;
+      while (true) {
+        skipNL();
+        if (peek().t === "+") { const save = p; next(); skipNL(); if (peek().t === "STR") { val += next().v; continue; } p = save; break; }
+        if (peek().t === "STR") { val += next().v; continue; }
+        break;
+      }
+      return val;
+    }
+    if (tok.t === "NUM") { next(); return tok.v; }
+    if (tok.t === "NAME") {
+      next();
+      if (tok.v === "True") return true;
+      if (tok.v === "False") return false;
+      if (tok.v === "None") return null;
+      return tok.v;
+    }
+    if (tok.t === "[") {
+      next();
+      const arr = [];
+      skipNL();
+      while (peek().t !== "]" && peek().t !== "EOF") {
+        arr.push(parseValue());
+        skipNL();
+        if (peek().t === ",") { next(); skipNL(); }
+      }
+      if (peek().t === "]") next();
+      return arr;
+    }
+    if (tok.t === "(") {
+      next();
+      const arr = [];
+      skipNL();
+      while (peek().t !== ")" && peek().t !== "EOF") {
+        arr.push(parseValue());
+        skipNL();
+        if (peek().t === ",") { next(); skipNL(); }
+      }
+      if (peek().t === ")") next();
+      return arr.length === 1 ? arr[0] : arr;
+    }
+    if (tok.t === "{") {
+      next();
+      const obj = {};
+      skipNL();
+      while (peek().t !== "}" && peek().t !== "EOF") {
+        const key = parseValue();
+        skipNL();
+        if (peek().t === ":") next();
+        skipNL();
+        const val = parseValue();
+        obj[key] = val;
+        skipNL();
+        if (peek().t === ",") { next(); skipNL(); }
+      }
+      if (peek().t === "}") next();
+      return obj;
+    }
+    next();
+    return null;
+  }
+
+  const namespace = {};
+  while (true) {
+    skipNL();
+    if (peek().t === "EOF") break;
+    if (peek().t === "NAME") {
+      const savedP = p;
+      const nameTok = next();
+      skipNL();
+      if (peek().t === "=") {
+        next();
+        const value = parseValue();
+        namespace[nameTok.v] = value;
+        while (peek().t !== "NL" && peek().t !== "EOF") p++;
+        continue;
+      } else {
+        p = savedP + 1;
+        continue;
+      }
+    }
+    p++;
+  }
+  return namespace;
+}
+
+async function fetchAllTopicsFromNetwork() {
+  const res = await fetch(DATABASE_URL, { cache: "no-store" });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const raw = await res.text();
+  const namespace = parsePythonModule(raw);
+  const topics = {};
+  for (const key of Object.keys(namespace)) {
+    if (key.startsWith("__")) continue;
+    const value = namespace[key];
+    if (Array.isArray(value) && value.length && value.every(item =>
+      item && typeof item === "object" && "text" in item && "options" in item && "correct" in item
+    )) {
+      topics[key] = tagSource(value, key);
+    }
+  }
+  if (Object.keys(topics).length === 0) {
+    throw new Error("Parsed the file but found no question lists matching the expected shape.");
+  }
+  return topics;
+}
+
+async function refreshQuestionBank(showToasts = true) {
+  setSyncStatus("Loading question bank\u2026");
+  try {
+    const topics = await fetchAllTopicsFromNetwork();
+    _topicCache = topics;
+    saveJson(KEYS.topics, { topics, fetchedAt: nowIso() });
+    setSyncStatus(`Bank synced \u00b7 ${Object.keys(topics).length} list(s) \u00b7 ${new Date().toLocaleString()}`);
+    if (showToasts) toast("Question bank refreshed.");
+    return true;
+  } catch (e) {
+    console.error("Could not fetch topics:", e);
+    const cached = loadJson(KEYS.topics, null);
+    if (cached) {
+      setSyncStatus(`Offline \u2014 using bank cached ${new Date(cached.fetchedAt).toLocaleString()}`);
+    } else {
+      setSyncStatus("Could not load the question bank (offline, and nothing cached yet)");
+    }
+    if (showToasts) toast(`Couldn't reach the question bank: ${e.message}`);
+    return false;
+  }
+}
+
+/* =====================================================================
+   Small UI helpers
+   ===================================================================== */
+function $(id) { return document.getElementById(id); }
+function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; }
+function esc(s) { const d = document.createElement("div"); d.textContent = (s === null || s === undefined) ? "" : String(s); return d.innerHTML; }
+function fmtDuration(seconds) {
+  seconds = Math.round(seconds || 0);
+  const hrs = Math.floor(seconds / 3600), mins = Math.floor((seconds % 3600) / 60), secs = seconds % 60;
+  const pad = n => String(n).padStart(2, "0");
+  if (hrs > 0) return `${pad(hrs)}:${pad(mins)}:${pad(secs)}`;
+  return `${pad(mins)}:${pad(secs)}`;
+}
+let toastTimer = null;
+function toast(msg, ms = 2200) {
+  const t = $("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), ms);
+}
+function setSyncStatus(text) {
+  $("syncStatus").textContent = text;
+  const cached = loadJson(KEYS.topics, null);
+  $("settingsSyncLine").textContent = cached
+    ? `Question bank last synced ${new Date(cached.fetchedAt).toLocaleString()} \u00b7 ${Object.keys(cached.topics).length} remote list(s).`
+    : "Question bank hasn't been synced yet -- needs one online session.";
+}
+function confirmDialog(message) { return window.confirm(message); }
+
+/* =====================================================================
+   Tab navigation
+   ===================================================================== */
+const TAB_REFRESH = {
+  builder: refreshListsDisplay,
+  saved: refreshSavedSamplesList,
+  history: refreshHistoryList,
+  analysis: refreshAnalysis,
+  mistakes: refreshMistakeLogTab,
+  editor: refreshEditorBankChoices,
+};
+function switchTab(name) {
+  document.querySelectorAll(".tabchip").forEach(b => b.classList.toggle("active", b.dataset.tab === name));
+  document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === `panel-${name}`));
+  if (TAB_REFRESH[name]) TAB_REFRESH[name]();
+}
+document.querySelectorAll(".tabchip").forEach(btn => btn.addEventListener("click", () => switchTab(btn.dataset.tab)));
+
+/* =====================================================================
+   Settings / backup sheet
+   ===================================================================== */
+function openSheet(id) { $(id).classList.remove("hidden"); }
+function closeSheet(id) { $(id).classList.add("hidden"); }
+
+$("btnSettings").addEventListener("click", () => {
+  setSyncStatus($("syncStatus").textContent);
+  const c = getGithubConfig();
+  $("ghOwnerInput").value = c ? c.owner || "" : "";
+  $("ghRepoInput").value = c ? c.repo || "" : "";
+  $("ghBranchInput").value = c ? (c.branch || "main") : "main";
+  $("ghPathInput").value = c ? (c.path || "cble_data.json") : "cble_data.json";
+  $("ghTokenInput").value = c ? c.token || "" : "";
+  setGithubStatus(githubConfigured() ? "connected, not yet synced this session" : "not connected");
+  openSheet("settingsSheet");
+});
+$("btnCloseSettings").addEventListener("click", () => closeSheet("settingsSheet"));
+$("btnRefreshBank").addEventListener("click", () => refreshQuestionBank(true));
+
+$("btnSaveGithubConfig").addEventListener("click", async () => {
+  const owner = $("ghOwnerInput").value.trim();
+  const repo = $("ghRepoInput").value.trim();
+  const branch = $("ghBranchInput").value.trim() || "main";
+  const path = $("ghPathInput").value.trim() || "cble_data.json";
+  const token = $("ghTokenInput").value.trim();
+  if (!owner || !repo || !token) { toast("Fill in owner, repo, and a token at minimum."); return; }
+  saveGithubConfigRaw({ owner, repo, branch, path, token });
+  setGithubStatus("Testing connection\u2026");
+  try {
+    const { data, sha } = await githubGetFile();
+    if (data === null) {
+      // File doesn't exist yet in the repo -- create it from whatever's local right now.
+      const snap = buildLocalSnapshot();
+      await githubPutFile(snap, null);
+      setGithubStatus("Connected \u2014 created the data file with your current local data.");
+      toast("GitHub connected. Initial data file created.");
+    } else {
+      setGithubStatus("Connected \u2014 pulling and merging now\u2026");
+      await runGithubSync();
+      toast("GitHub connected and synced.");
+    }
+  } catch (e) {
+    console.error(e);
+    setGithubStatus(`Connection failed: ${e.message}`);
+    toast(`Couldn't connect: ${e.message}`);
+  }
+});
+$("btnSyncNow").addEventListener("click", () => {
+  if (!githubConfigured()) { toast("Save your GitHub settings first."); return; }
+  scheduleGithubSync(true);
+});
+$("btnDisconnectGithub").addEventListener("click", () => {
+  if (!confirmDialog("Disconnect GitHub sync? Your local data stays put -- this only removes the saved repo/token from this browser.")) return;
+  localStorage.removeItem(KEYS.githubConfig);
+  $("ghOwnerInput").value = ""; $("ghRepoInput").value = ""; $("ghTokenInput").value = "";
+  setGithubStatus("Not connected.");
+  toast("GitHub disconnected.");
+});
+
+$("btnExportAll").addEventListener("click", () => {
+  const backup = {
+    exported_at: nowIso(),
+    local_banks: loadJson(KEYS.banks, {}),
+    sample_sets: loadJson(KEYS.samples, []),
+    test_history: loadJson(KEYS.history, []),
+    exam_details: loadJson(KEYS.details, []),
+    mistake_log: loadJson(KEYS.mistakes, []),
+  };
+  const blob = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `cble_backup_${todayStamp()}.json`;
+  document.body.appendChild(a); a.click(); a.remove();
+  toast("Backup downloaded.");
+});
+
+$("btnImportAll").addEventListener("click", () => $("importFileInput").click());
+$("importFileInput").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(reader.result);
+      if (data.local_banks) saveJson(KEYS.banks, data.local_banks);
+      if (data.sample_sets) saveJson(KEYS.samples, data.sample_sets);
+      if (data.test_history) saveJson(KEYS.history, data.test_history);
+      if (data.exam_details) saveJson(KEYS.details, data.exam_details);
+      if (data.mistake_log) saveJson(KEYS.mistakes, data.mistake_log);
+      toast("Backup imported.");
+      closeSheet("settingsSheet");
+      refreshListsDisplay();
+      scheduleGithubSync(true);
+    } catch (err) {
+      toast("That file doesn't look like a valid backup.");
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = "";
+});
+
+$("btnClearAllData").addEventListener("click", () => {
+  const note = githubConfigured() ? " GitHub is left untouched -- this only clears this browser's copy." : "";
+  if (!confirmDialog(`Erase ALL locally saved data -- local banks, saved samples, test history, analysis data, and the mistake log? This cannot be undone.${note}`)) return;
+  [KEYS.banks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes].forEach(k => localStorage.removeItem(k));
+  toast("All local data erased.");
+  closeSheet("settingsSheet");
+  refreshListsDisplay();
+});
+
+/* =====================================================================
+   Tab 1: Sample Builder
+   ===================================================================== */
+let allLists = {};
+let listNamesOrder = [];
+let selectedListNames = new Set();
+let generatedQuestions = [];
+let generatedComposition = {};
+
+function refreshListsDisplay() {
+  allLists = getAllLists();
+  const coverage = computeCoverage(allLists);
+  listNamesOrder = Object.keys(allLists).sort();
+  $("listsCount").textContent = `(${listNamesOrder.length})`;
+
+  const box = $("listsContainer");
+  box.innerHTML = "";
+  if (listNamesOrder.length === 0) {
+    box.appendChild(el("div", "empty-state", "No question lists yet. Sync the question bank (gear icon) or add a Local Bank."));
+  }
+  for (const name of listNamesOrder) {
+    const cov = coverage[name];
+    const item = el("div", "list-item selectable" + (selectedListNames.has(name) ? " selected" : ""));
+    item.innerHTML = `
+      <div class="top-row"><span class="name">${esc(name)}</span></div>
+      <div class="meta">Total ${cov.total} &middot; Sampled so far ${cov.used}/${cov.total} (${cov.pct.toFixed(1)}%)</div>
+      <div class="progress-track"><div class="progress-fill" style="width:${cov.pct}%;"></div></div>`;
+    item.addEventListener("click", () => {
+      if (selectedListNames.has(name)) selectedListNames.delete(name); else selectedListNames.add(name);
+      item.classList.toggle("selected");
+    });
+    box.appendChild(item);
+  }
+  if (document.getElementById("panel-saved").classList.contains("active") || true) refreshSavedSamplesListQuiet();
+  refreshEditorBankChoicesQuiet();
+}
+
+$("btnSelectAllLists").addEventListener("click", () => {
+  selectedListNames = new Set(listNamesOrder);
+  refreshListsDisplay();
+});
+$("btnClearLists").addEventListener("click", () => {
+  selectedListNames.clear();
+  refreshListsDisplay();
+});
+$("btnRefreshLists").addEventListener("click", refreshListsDisplay);
+
+$("btnGenerateSample").addEventListener("click", () => {
+  if (selectedListNames.size === 0) { toast("Select at least one list to sample from."); return; }
+  const totalCount = parseInt($("totalCountInput").value, 10);
+  if (!totalCount || totalCount <= 0) { toast("Enter a positive whole number of questions."); return; }
+
+  const questions = evenSample(allLists, Array.from(selectedListNames), totalCount, $("preferUnusedInput").checked);
+  generatedQuestions = questions;
+  const comp = {};
+  for (const q of questions) { const k = q._source_list || "?"; comp[k] = (comp[k] || 0) + 1; }
+  generatedComposition = comp;
+
+  let preview = `Generated ${questions.length} question(s):\n\n`;
+  for (const name of Object.keys(comp).sort()) preview += `  ${name}: ${comp[name]}\n`;
+  $("previewBox").textContent = preview;
+
+  if (!$("sampleNameInput").value.trim()) $("sampleNameInput").value = `Sample_${todayStamp()}`;
+});
+
+$("btnSaveSample").addEventListener("click", () => {
+  if (!generatedQuestions.length) { toast("Generate a sample first."); return; }
+  const name = $("sampleNameInput").value.trim();
+  if (!name) { toast("Give this sample a name."); return; }
+  saveSampleSet(name, generatedComposition, generatedQuestions);
+  toast(`Sample '${name}' saved locally.`);
+  refreshListsDisplay();
+});
+
+$("btnStartFromBuilder").addEventListener("click", () => {
+  if (!generatedQuestions.length) { toast("Generate a sample first."); return; }
+  const label = $("sampleNameInput").value.trim() || "Custom Sample";
+  requestStartExam(label, generatedQuestions.slice());
+});
+
+/* =====================================================================
+   Tab 2: Saved Samples
+   ===================================================================== */
+let savedSets = [];
+let selectedSavedId = null;
+
+function refreshSavedSamplesListQuiet() { savedSets = loadJson(KEYS.samples, []); }
+function refreshSavedSamplesList() {
+  savedSets = loadJson(KEYS.samples, []);
+  const ordered = savedSets.slice().sort((a, b) => (b.created_at || "").localeCompare(a.created_at || ""));
+  $("savedCount").textContent = `(${ordered.length})`;
+  const box = $("savedContainer");
+  box.innerHTML = "";
+  if (!ordered.length) { box.appendChild(el("div", "empty-state", "No saved samples yet -- build one in Sample Builder.")); return; }
+  for (const s of ordered) {
+    const item = el("div", "list-item selectable" + (s.id === selectedSavedId ? " selected" : ""));
+    item.innerHTML = `<div class="top-row"><span class="name">${esc(s.name || "(unnamed)")}</span></div>
+      <div class="meta">${(s.questions || []).length} questions &middot; saved ${esc(s.created_at || "")}</div>`;
+    item.addEventListener("click", () => { selectedSavedId = s.id; refreshSavedSamplesList(); });
+    box.appendChild(item);
+  }
+}
+function getSelectedSavedSet() { return savedSets.find(s => s.id === selectedSavedId) || null; }
+
+$("btnStartFromSaved").addEventListener("click", () => {
+  const s = getSelectedSavedSet();
+  if (!s) { toast("Select a saved sample first."); return; }
+  requestStartExam(s.name || "Saved Sample", (s.questions || []).slice());
+});
+$("btnViewComposition").addEventListener("click", () => {
+  const s = getSelectedSavedSet();
+  if (!s) { toast("Select a saved sample first."); return; }
+  $("compositionTitle").textContent = `Composition of '${s.name}'`;
+  const comp = s.composition || {};
+  $("compositionBody").textContent = Object.keys(comp).sort().map(k => `${k}: ${comp[k]}`).join("\n") || "(no data)";
+  openSheet("compositionSheet");
+});
+$("btnCloseComposition").addEventListener("click", () => closeSheet("compositionSheet"));
+$("btnDeleteSaved").addEventListener("click", () => {
+  const s = getSelectedSavedSet();
+  if (!s) { toast("Select a saved sample first."); return; }
+  if (!confirmDialog(`Delete saved sample '${s.name}'? This cannot be undone.`)) return;
+  deleteSampleSet(s.id);
+  selectedSavedId = null;
+  refreshSavedSamplesList();
+  refreshListsDisplay();
+});
+
+/* =====================================================================
+   Tab 3: Test History
+   ===================================================================== */
+function refreshHistoryList() {
+  const history = loadJson(KEYS.history, []);
+  const ordered = history.slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  $("historyCount").textContent = `(${ordered.length})`;
+  const box = $("historyContainer");
+  box.innerHTML = "";
+  if (!ordered.length) { box.appendChild(el("div", "empty-state", "No tests taken yet.")); return; }
+  for (const h of ordered) {
+    const item = el("div", "list-item");
+    item.innerHTML = `<div class="top-row"><span class="name">${esc(h.source || "")}</span><span class="meta">${esc(h.date || "")}</span></div>
+      <div class="meta">Score ${h.score}/${h.total} (${h.pct}%) &middot; Time used ${fmtDuration(h.time_used_seconds)}</div>`;
+    box.appendChild(item);
+  }
+}
+$("btnRefreshHistory").addEventListener("click", refreshHistoryList);
+$("btnClearHistory").addEventListener("click", () => {
+  if (!confirmDialog("Clear all locally saved test history? This also clears the data behind Study Priority Analysis. This cannot be undone.")) return;
+  saveJson(KEYS.history, []);
+  saveJson(KEYS.details, []);
+  refreshHistoryList();
+});
+
+/* =====================================================================
+   Tab 4: Study Priority Analysis
+   ===================================================================== */
+let analysisOverall = {}, analysisProgression = {};
+function refreshAnalysis() {
+  const { overall, progression } = computeSubjectAnalysis();
+  analysisOverall = overall; analysisProgression = progression;
+  const ranked = Object.entries(overall).sort((a, b) => (a[1].weighted_pct - b[1].weighted_pct) || (b[1].overconfident_wrong - a[1].overconfident_wrong));
+
+  const rankBox = $("rankTable");
+  rankBox.innerHTML = "";
+  if (!ranked.length) {
+    rankBox.appendChild(el("div", "empty-state", "No exam data yet -- take an exam to see priority rankings here."));
+  } else {
+    ranked.forEach(([subj, stats], i) => {
+      const item = el("div", "list-item");
+      item.innerHTML = `<div class="top-row"><span class="name">#${i + 1} ${esc(subj)}</span><span class="meta">${stats.weighted_pct.toFixed(1)}% priority</span></div>
+        <div class="meta">Raw accuracy ${stats.accuracy_pct.toFixed(1)}% &middot; Overconfident misses ${stats.overconfident_wrong} &middot; Answered ${stats.total_answered} &middot; Exams ${stats.n_exams}</div>`;
+      rankBox.appendChild(item);
+    });
+  }
+
+  const barBox = $("priorityBars");
+  barBox.innerHTML = "";
+  for (const [subj, stats] of ranked) {
+    const pct = stats.weighted_pct;
+    const color = pct < 40 ? "var(--red)" : (pct < 70 ? "var(--amber)" : "var(--green)");
+    const row = el("div", "bar-row");
+    row.innerHTML = `<div class="lbl">${esc(subj)}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.max(2, pct)}%;background:${color};"></div></div><div class="bar-val">${pct.toFixed(0)}%</div>`;
+    barBox.appendChild(row);
+  }
+  if (!ranked.length) barBox.appendChild(el("div", "empty-state", "No data yet."));
+
+  const subjects = Object.keys(progression).sort();
+  const sel = $("progressionSubjectSelect");
+  const prevVal = sel.value;
+  sel.innerHTML = subjects.map(s => `<option value="${esc(s)}">${esc(s)}</option>`).join("");
+  if (subjects.includes(prevVal)) sel.value = prevVal;
+  drawProgressionChart();
+  renderAnalysisText(ranked, progression);
+}
+$("progressionSubjectSelect").addEventListener("change", drawProgressionChart);
+
+function drawProgressionChart() {
+  const subj = $("progressionSubjectSelect").value;
+  const series = analysisProgression[subj] || [];
+  const box = $("progressionChart");
+  box.innerHTML = "";
+  if (!series.length) { box.appendChild(el("div", "empty-state", "No progression data for this subject yet.")); return; }
+  series.forEach((entry, i) => {
+    const acc = entry.accuracy_pct, w = entry.weighted_pct;
+    const row = el("div", "bar-row");
+    row.innerHTML = `<div class="lbl">S${i + 1}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${acc != null ? acc : 0}%;background:var(--navy);"></div></div>
+      <div class="bar-val">${acc != null ? acc.toFixed(0) + "%" : "n/a"}</div>`;
+    box.appendChild(row);
+    const row2 = el("div", "bar-row");
+    row2.innerHTML = `<div class="lbl" style="color:var(--violet);">weighted</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${w != null ? w : 0}%;background:var(--violet);"></div></div>
+      <div class="bar-val">${w != null ? w.toFixed(0) + "%" : "n/a"}</div>`;
+    box.appendChild(row2);
+  });
+}
+
+function renderAnalysisText(ranked, progression) {
+  const lines = [];
+  const sep = "=".repeat(60), sub = "-".repeat(60);
+  lines.push(sep, "STUDY PRIORITY ANALYSIS", sep);
+  lines.push(`Generated:          ${new Date().toLocaleString()}`);
+  lines.push(`Subjects with data: ${ranked.length}`, "");
+  lines.push(sub);
+  for (const [rank, [subj, stats]] of ranked.map((r, i) => [i + 1, r])) {
+    lines.push(`${rank}. ${subj} -- Priority ${stats.weighted_pct.toFixed(1)}% | RawAcc ${stats.accuracy_pct.toFixed(1)}% | Overconfident ${stats.overconfident_wrong} | Answered ${stats.total_answered} | Exams ${stats.n_exams}`);
+  }
+  lines.push("", sep, "PROGRESSION PER SUBJECT", sep);
+  const subjects = Object.keys(progression).sort();
+  if (subjects.length) {
+    for (const subj of subjects) {
+      const parts = progression[subj].map((entry, i) => entry.accuracy_pct != null ? `S${i + 1}: ${entry.accuracy_pct.toFixed(1)}%` : `S${i + 1}: n/a`);
+      lines.push(`${subj}: ` + parts.join(" -> "));
+    }
+  } else {
+    lines.push("(no exams taken yet)");
+  }
+  const text = lines.join("\n");
+  $("analysisText").textContent = text;
+  window._analysisReportStr = text;
+}
+$("btnRefreshAnalysis").addEventListener("click", refreshAnalysis);
+$("btnCopyAnalysis").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(window._analysisReportStr || ""); toast("Copied to clipboard."); }
+  catch (e) { toast("Couldn't access clipboard."); }
+});
+
+/* =====================================================================
+   Tab 5: Mistake Log
+   ===================================================================== */
+let mistakeExamOptions = [];
+let currentExamMistakes = [];
+let selectedMistakeRow = null;
+
+$("mistakeCategoryList").innerHTML = MISTAKE_CATEGORIES.map(c => `<option value="${esc(c)}">`).join("");
+
+function refreshMistakeLogTab() {
+  const history = loadJson(KEYS.history, []);
+  mistakeExamOptions = history.slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  const sel = $("mistakeExamSelect");
+  sel.innerHTML = mistakeExamOptions.map((h, i) =>
+    `<option value="${i}">${esc(h.date || "")} | ${esc(h.source || "")} | ${h.score}/${h.total}</option>`).join("");
+  onLoadExamMistakes();
+  refreshAllMistakesTree();
+  drawMistakeCategoryChart();
+}
+$("mistakeExamSelect").addEventListener("change", onLoadExamMistakes);
+
+function onLoadExamMistakes() {
+  currentExamMistakes = [];
+  selectedMistakeRow = null;
+  $("mistakeQuestionLbl").textContent = "Tap a mistake above to log it.";
+  const box = $("mistakesContainer");
+  box.innerHTML = "";
+  const selIdx = $("mistakeExamSelect").value;
+  if (selIdx === "" || selIdx === undefined || !mistakeExamOptions.length) {
+    box.appendChild(el("div", "empty-state", "No tests taken yet."));
+    return;
+  }
+  const examRecord = mistakeExamOptions[parseInt(selIdx, 10)];
+  if (!examRecord) return;
+  const examId = examRecord.id;
+  const mistakes = getExamMistakes(examId);
+  const loggedByKey = {};
+  for (const e of loadMistakeLog()) if (e.exam_id === examId) loggedByKey[`${e.source_list}::${e.reference_no}`] = e;
+
+  for (const it of mistakes) {
+    const key = `${it.source_list}::${it.reference_no}`;
+    currentExamMistakes.push({
+      exam_id: examId, exam_source: examRecord.source, source_list: it.source_list, reference_no: it.reference_no,
+      question: it.question || "", your_answer: it.your_answer || "", correct_answer: it.correct_answer || "",
+      logged_entry: loggedByKey[key] || null,
+    });
+  }
+
+  if (!currentExamMistakes.length) {
+    box.appendChild(el("div", "empty-state", "No mistakes in this test \u2014 nice work."));
+    return;
+  }
+  currentExamMistakes.forEach((row, idx) => {
+    const entry = row.logged_entry;
+    const item = el("div", "list-item selectable");
+    item.innerHTML = `<div class="top-row"><span class="name">Ref #${esc(row.reference_no)} &middot; ${esc(row.source_list)}</span>
+        <span class="meta">${entry ? "Logged" : "Not logged"}</span></div>
+      <div class="meta">Your answer: ${esc((row.your_answer || "").slice(0, 60))}</div>
+      <div class="meta">Correct: ${esc((row.correct_answer || "").slice(0, 60))}</div>
+      ${entry ? `<div class="meta">Category: ${esc(entry.category)}</div>` : ""}`;
+    item.addEventListener("click", () => selectMistakeRow(idx));
+    box.appendChild(item);
+  });
+}
+
+function selectMistakeRow(idx) {
+  const row = currentExamMistakes[idx];
+  if (!row) return;
+  selectedMistakeRow = row;
+  const qPreview = row.question || "(question text unavailable \u2014 this exam was taken before question text started being saved)";
+  $("mistakeQuestionLbl").textContent =
+    `Ref #${row.reference_no} (${row.source_list}): ${qPreview}\nYour answer: ${row.your_answer || "(none)"} | Correct answer: ${row.correct_answer || "(unknown)"}`;
+  const entry = row.logged_entry;
+  $("mistakeCategoryInput").value = entry ? entry.category : "";
+  $("mistakeResolvedInput").checked = entry ? !!entry.resolved : false;
+  $("mistakeNoteInput").value = entry ? (entry.note || "") : "";
+}
+
+$("btnSaveMistake").addEventListener("click", () => {
+  const row = selectedMistakeRow;
+  if (!row) { toast("Tap a mistake above first."); return; }
+  const category = $("mistakeCategoryInput").value.trim();
+  if (!category) { toast("Choose or type a category for this mistake."); return; }
+  const note = $("mistakeNoteInput").value.trim();
+  saveMistakeEntry(row.exam_id, row.exam_source, row.source_list, row.reference_no, row.question,
+    row.your_answer, row.correct_answer, category, note, $("mistakeResolvedInput").checked);
+  onLoadExamMistakes();
+  refreshAllMistakesTree();
+  drawMistakeCategoryChart();
+  toast("Mistake logged.");
+});
+$("btnDeleteMistake").addEventListener("click", () => {
+  const row = selectedMistakeRow;
+  if (!row || !row.logged_entry) { toast("This mistake hasn't been logged yet."); return; }
+  if (!confirmDialog("Delete this mistake's log entry?")) return;
+  deleteMistakeEntry(row.logged_entry.id);
+  onLoadExamMistakes();
+  refreshAllMistakesTree();
+  drawMistakeCategoryChart();
+});
+$("mistakeUnresolvedOnly").addEventListener("change", refreshAllMistakesTree);
+
+function refreshAllMistakesTree() {
+  let log = loadMistakeLog();
+  if ($("mistakeUnresolvedOnly").checked) log = log.filter(e => !e.resolved);
+  const bySubject = {};
+  for (const e of log) (bySubject[e.source_list || "Unknown"] = bySubject[e.source_list || "Unknown"] || []).push(e);
+  const subjectOrder = Object.entries(bySubject).sort((a, b) => b[1].length - a[1].length);
+
+  const box = $("allMistakesContainer");
+  box.innerHTML = "";
+  if (!subjectOrder.length) { box.appendChild(el("div", "empty-state", "No mistakes logged yet.")); return; }
+  for (const [subject, entries] of subjectOrder) {
+    const sorted = entries.slice().sort((a, b) => (b.date_logged || "").localeCompare(a.date_logged || ""));
+    const unresolved = sorted.filter(e => !e.resolved).length;
+    const group = el("div", "card", "");
+    group.style.padding = "10px 12px";
+    group.style.marginBottom = "10px";
+    group.innerHTML = `<div class="row" style="margin-bottom:8px;"><b style="font-size:.85rem;">${esc(subject)}</b>
+      <span class="meta" style="margin-left:6px;">(${sorted.length} mistake${sorted.length === 1 ? "" : "s"}, ${unresolved} open)</span></div>`;
+    for (const e of sorted) {
+      const line = el("div", "list-item");
+      line.style.marginBottom = "6px";
+      line.innerHTML = `<div class="top-row"><span class="name">Ref #${esc(e.reference_no)} &middot; ${esc(e.category || "")}</span>
+          <span class="meta">${e.resolved ? "Resolved" : "Open"}</span></div>
+        <div class="meta">${esc(e.exam_source || "")} &middot; logged ${esc(e.date_logged || "")}</div>
+        ${e.note ? `<div class="meta">${esc((e.note || "").slice(0, 90))}</div>` : ""}`;
+      group.appendChild(line);
+    }
+    box.appendChild(group);
+  }
+}
+
+function drawMistakeCategoryChart() {
+  const { byCategory } = computeMistakeInsights();
+  const box = $("mistakeCategoryBars");
+  box.innerHTML = "";
+  if (!byCategory.length) { box.appendChild(el("div", "empty-state", "No mistakes logged yet.")); return; }
+  const maxCount = Math.max(...byCategory.map(([, cnt]) => cnt));
+  for (const [cat, cnt, unresolved] of byCategory) {
+    const color = unresolved === cnt ? "var(--red)" : (unresolved > 0 ? "var(--amber)" : "var(--green)");
+    const pct = (cnt / maxCount) * 100;
+    const row = el("div", "bar-row");
+    row.innerHTML = `<div class="lbl">${esc(cat)}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.max(3, pct)}%;background:${color};"></div></div><div class="bar-val">${cnt} (${unresolved})</div>`;
+    box.appendChild(row);
+  }
+}
+
+$("btnCopyMistakeInsights").addEventListener("click", async () => {
+  const { byCategory, bySubject } = computeMistakeInsights();
+  const log = loadMistakeLog();
+  const lines = [];
+  const sep = "=".repeat(60);
+  lines.push(sep, "MISTAKE LOG -- ACTIONABLE INSIGHTS", sep);
+  lines.push(`Generated: ${new Date().toLocaleString()}`, `Total mistakes logged: ${log.length}`, "");
+  lines.push("By category (most frequent first):");
+  for (const [cat, cnt, unresolved] of byCategory) lines.push(`  - ${cat}: ${cnt} total, ${unresolved} still unresolved`);
+  lines.push("", "By subject:");
+  for (const [subj, cnt] of bySubject) lines.push(`  - ${subj}: ${cnt}`);
+  lines.push("", "-".repeat(60), "INDIVIDUAL ENTRIES (most recently logged first)", "-".repeat(60));
+  for (const e of log.slice().sort((a, b) => (b.date_logged || "").localeCompare(a.date_logged || ""))) {
+    const status = e.resolved ? "RESOLVED" : "OPEN";
+    lines.push(`[${status}] ${e.source_list} #${e.reference_no} -- ${e.category} (from ${e.exam_source}, logged ${e.date_logged})`);
+    if (e.question) lines.push(`    Q: ${e.question}`);
+    if (e.note) lines.push(`    Fix: ${e.note}`);
+    lines.push("");
+  }
+  try { await navigator.clipboard.writeText(lines.join("\n")); toast("Mistake log insights copied."); }
+  catch (e) { toast("Couldn't access clipboard."); }
+});
+
+/* =====================================================================
+   Tab 6: Local Bank Editor
+   ===================================================================== */
+let editorQuestions = [];
+
+function refreshEditorBankChoicesQuiet() {
+  const raw = loadJson(KEYS.banks, {});
+  $("editorBankList").innerHTML = Object.keys(raw).sort().map(n => `<option value="${esc(n)}">`).join("");
+}
+function refreshEditorBankChoices() { refreshEditorBankChoicesQuiet(); }
+
+$("btnNewEditorBank").addEventListener("click", () => {
+  $("editorBankInput").value = "";
+  editorQuestions = [];
+  refreshEditorListbox();
+});
+$("btnLoadEditorBank").addEventListener("click", () => {
+  const name = $("editorBankInput").value.trim();
+  if (!name) { toast("Type or pick a bank name to load."); return; }
+  const raw = loadJson(KEYS.banks, {});
+  editorQuestions = (raw[name] || []).map(q => Object.assign({}, q));
+  refreshEditorListbox();
+});
+function refreshEditorListbox() {
+  $("editorCount").textContent = `(${editorQuestions.length})`;
+  const box = $("editorContainer");
+  box.innerHTML = "";
+  if (!editorQuestions.length) { box.appendChild(el("div", "empty-state", "No questions in this bank yet.")); return; }
+  editorQuestions.forEach((q, i) => {
+    const item = el("div", "list-item");
+    item.innerHTML = `<div class="top-row"><span class="name">${i + 1}.</span>
+        <button class="btn danger" style="padding:4px 9px;font-size:.72rem;" data-i="${i}">Delete</button></div>
+      <div class="meta">${esc((q.text || "").slice(0, 90).replace(/\n/g, " "))}</div>`;
+    item.querySelector("button").addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      editorQuestions.splice(i, 1);
+      refreshEditorListbox();
+    });
+    box.appendChild(item);
+  });
+}
+$("btnAddQuestion").addEventListener("click", () => openQuestionEntry());
+$("btnSaveEditorBank").addEventListener("click", () => {
+  const name = $("editorBankInput").value.trim();
+  if (!name) { toast("Give this local bank a name."); return; }
+  if (!editorQuestions.length) { toast("Add at least one question first."); return; }
+  saveLocalBank(name, editorQuestions);
+  toast(`Local bank '${name}' saved with ${editorQuestions.length} question(s).`);
+  refreshEditorBankChoices();
+  refreshListsDisplay();
+});
+$("btnDeleteEditorBank").addEventListener("click", () => {
+  const name = $("editorBankInput").value.trim();
+  if (!name) return;
+  if (!confirmDialog(`Delete local bank '${name}'? This cannot be undone.`)) return;
+  deleteLocalBank(name);
+  $("editorBankInput").value = "";
+  editorQuestions = [];
+  refreshEditorListbox();
+  refreshEditorBankChoices();
+  refreshListsDisplay();
+});
+
+/* Question entry modal */
+function openQuestionEntry() {
+  $("questionSheetTitle").textContent = "Add Question";
+  $("qeText").value = "";
+  const optsBox = $("qeOptions");
+  optsBox.innerHTML = "";
+  const letters = ["A", "B", "C", "D"];
+  letters.forEach((letter, i) => {
+    const row = el("div", "row", "");
+    row.style.marginBottom = "8px";
+    row.innerHTML = `<input type="radio" name="qeCorrect" value="${i}" ${i === 0 ? "checked" : ""}>
+      <b style="width:16px;">${letter}.</b>
+      <input type="text" class="qe-opt-input" data-i="${i}" placeholder="Option ${letter}">`;
+    optsBox.appendChild(row);
+  });
+  openSheet("questionSheet");
+}
+$("btnCancelQuestion").addEventListener("click", () => closeSheet("questionSheet"));
+$("btnSubmitQuestion").addEventListener("click", () => {
+  const text = $("qeText").value.trim();
+  const inputs = Array.from(document.querySelectorAll(".qe-opt-input"));
+  const options = inputs.map(inp => inp.value.trim());
+  if (!text) { toast("Enter the question text."); return; }
+  if (options.some(o => !o)) { toast("Fill in all four answer options."); return; }
+  const correctRadio = document.querySelector('input[name="qeCorrect"]:checked');
+  const correct = correctRadio ? parseInt(correctRadio.value, 10) : 0;
+  editorQuestions.push({ text, options, correct });
+  refreshEditorListbox();
+  closeSheet("questionSheet");
+});
+
+/* =====================================================================
+   Duration picker -> Exam launch
+   ===================================================================== */
+const DURATION_PRESETS = {
+  "1 Hour": 3600, "1.5 Hours": 5400, "2 Hours": 7200,
+  "3 Hours (Default)": 10800, "4 Hours": 14400, "Custom": null,
+};
+let pendingExamLabel = null, pendingExamQuestions = null;
+
+function requestStartExam(label, questions) {
+  if (!questions || !questions.length) { toast("There are no questions to start an exam with."); return; }
+  pendingExamLabel = label;
+  pendingExamQuestions = questions;
+  openSheet("durationSheet");
+}
+$("durationSelect").addEventListener("change", () => {
+  $("customMinutesRow").style.display = $("durationSelect").value === "Custom" ? "block" : "none";
+});
+$("btnCancelDuration").addEventListener("click", () => closeSheet("durationSheet"));
+$("btnConfirmDuration").addEventListener("click", () => {
+  let seconds;
+  const choice = $("durationSelect").value;
+  if (choice === "Custom") {
+    const minutes = parseInt($("customMinutesInput").value, 10);
+    if (!minutes || minutes <= 0) { toast("Enter a valid positive number of minutes."); return; }
+    seconds = minutes * 60;
+  } else {
+    seconds = DURATION_PRESETS[choice];
+  }
+  closeSheet("durationSheet");
+  startExam(pendingExamLabel, pendingExamQuestions, seconds);
+});
+
+/* =====================================================================
+   Exam engine (mirrors CBLESimulator)
+   ===================================================================== */
+const Exam = {
+  topic: "", questions: [], totalQuestions: 0,
+  currentIndex: 0, userAnswers: {}, flagged: {}, confidence: {},
+  noteTexts: {}, noteImages: {}, // noteImages[i] = dataURL or null
+  questionTimes: {}, questionStartTime: null,
+  timeLeft: 0, timerHandle: null,
+  sortByWrongFirst: false, allItemsReport: [], score: 0,
+};
+
+/* ---------------------------------------------------------------------
+   In-progress autosave -- separate from GitHub sync on purpose. This has
+   to survive an accidental refresh/close instantly, so it writes to
+   localStorage directly (no network, no debounce) on every discrete
+   action, plus a periodic tick while the timer runs.
+   --------------------------------------------------------------------- */
+function persistExamProgress() {
+  if (!Exam.totalQuestions) return;
+  saveJson(KEYS.examProgress, {
+    topic: Exam.topic, questions: Exam.questions, currentIndex: Exam.currentIndex,
+    userAnswers: Exam.userAnswers, flagged: Exam.flagged, confidence: Exam.confidence,
+    noteTexts: Exam.noteTexts, noteImages: Exam.noteImages, questionTimes: Exam.questionTimes,
+    timeLeft: Exam.timeLeft, savedAt: nowIso(),
+  });
+}
+function clearExamProgress() { localStorage.removeItem(KEYS.examProgress); }
+
+function resumeExamFromProgress(snap) {
+  Exam.topic = snap.topic;
+  Exam.questions = snap.questions;
+  Exam.totalQuestions = snap.questions.length;
+  Exam.currentIndex = Math.min(snap.currentIndex || 0, Exam.totalQuestions - 1);
+  Exam.userAnswers = snap.userAnswers || {};
+  Exam.flagged = snap.flagged || {};
+  Exam.confidence = snap.confidence || {};
+  Exam.noteTexts = snap.noteTexts || {};
+  Exam.noteImages = snap.noteImages || {};
+  Exam.questionTimes = snap.questionTimes || {};
+  Exam.timeLeft = snap.timeLeft;
+  Exam.questionStartTime = null;
+
+  $("examTitle").textContent = `CBLE SIMULATION \u2014 ${Exam.topic}`;
+  buildConfidenceChoices();
+  openOverlay("examOverlay");
+  loadQuestion();
+  if (Exam.timerHandle) clearInterval(Exam.timerHandle);
+  Exam.timerHandle = setInterval(tickTimer, 1000);
+  updateTimerLabel();
+}
+
+function checkForExamToResume() {
+  const snap = loadJson(KEYS.examProgress, null);
+  if (!snap || !snap.questions || !snap.questions.length) return;
+  const answered = Object.values(snap.userAnswers || {}).filter(a => a !== null).length;
+  $("resumeExamInfo").textContent =
+    `You have an exam in progress: '${snap.topic}' \u2014 ${answered}/${snap.questions.length} answered, ` +
+    `${fmtDuration(snap.timeLeft)} left on the clock (saved ${new Date(snap.savedAt).toLocaleString()}).`;
+  openSheet("resumeExamSheet");
+}
+$("btnConfirmResume").addEventListener("click", () => {
+  const snap = loadJson(KEYS.examProgress, null);
+  closeSheet("resumeExamSheet");
+  if (snap) resumeExamFromProgress(snap);
+});
+$("btnDiscardResume").addEventListener("click", () => {
+  if (!confirmDialog("Discard this in-progress exam? It will not be scored or saved to Test History.")) return;
+  clearExamProgress();
+  closeSheet("resumeExamSheet");
+});
+
+function startExam(label, questions, durationSeconds) {
+  const cleaned = cleanQuestionBank(questions.slice());
+  Exam.topic = label;
+  Exam.questions = shuffle(cleaned);
+  Exam.totalQuestions = Exam.questions.length;
+  Exam.currentIndex = 0;
+  Exam.userAnswers = {}; Exam.flagged = {}; Exam.confidence = {};
+  Exam.noteTexts = {}; Exam.noteImages = {}; Exam.questionTimes = {};
+  for (let i = 0; i < Exam.totalQuestions; i++) {
+    Exam.userAnswers[i] = null; Exam.flagged[i] = false; Exam.confidence[i] = null;
+    Exam.noteTexts[i] = ""; Exam.noteImages[i] = null; Exam.questionTimes[i] = 0;
+  }
+  Exam.questionStartTime = null;
+  Exam.timeLeft = durationSeconds;
+
+  $("examTitle").textContent = `CBLE SIMULATION \u2014 ${label}`;
+  document.querySelectorAll("#confChoices").forEach(() => {});
+  buildConfidenceChoices();
+  openOverlay("examOverlay");
+  loadQuestion();
+  if (Exam.timerHandle) clearInterval(Exam.timerHandle);
+  Exam.timerHandle = setInterval(tickTimer, 1000);
+  updateTimerLabel();
+  persistExamProgress();
+}
+
+function openOverlay(id) { $(id).classList.remove("hidden"); window.scrollTo(0, 0); }
+function closeOverlay(id) { $(id).classList.add("hidden"); }
+
+function buildConfidenceChoices() {
+  const box = $("confChoices");
+  box.innerHTML = "";
+  for (const level of CONFIDENCE_LEVELS) {
+    const chip = el("button", "conf-chip", esc(level));
+    chip.dataset.level = level;
+    chip.addEventListener("click", () => {
+      Exam.confidence[Exam.currentIndex] = level;
+      refreshConfidenceChips();
+      persistExamProgress();
+    });
+    box.appendChild(chip);
+  }
+}
+function refreshConfidenceChips() {
+  const current = Exam.confidence[Exam.currentIndex];
+  document.querySelectorAll(".conf-chip").forEach(c => c.classList.toggle("active", c.dataset.level === current));
+}
+
+function bankElapsedTime() {
+  if (Exam.questionStartTime !== null) {
+    const elapsed = (Date.now() - Exam.questionStartTime) / 1000;
+    Exam.questionTimes[Exam.currentIndex] += elapsed;
+  }
+  Exam.questionStartTime = null;
+}
+
+function loadQuestion() {
+  const q = Exam.questions[Exam.currentIndex];
+  $("qNum").textContent = `Question ${Exam.currentIndex + 1} of ${Exam.totalQuestions}`;
+  $("qText").textContent = q.text;
+
+  const optsBox = $("optionsBox");
+  optsBox.innerHTML = "";
+  const saved = Exam.userAnswers[Exam.currentIndex];
+  q.options.forEach((opt, i) => {
+    const row = el("div", "option-row" + (saved === i ? " chosen" : ""));
+    const inputId = `opt_${i}`;
+    row.innerHTML = `<input type="radio" name="examOption" id="${inputId}" value="${i}" ${saved === i ? "checked" : ""}>
+      <label for="${inputId}">${esc(opt)}</label>`;
+    row.addEventListener("click", () => selectOption(i));
+    optsBox.appendChild(row);
+  });
+
+  refreshConfidenceChips();
+
+  $("btnFlagQ").classList.toggle("flagged", !!Exam.flagged[Exam.currentIndex]);
+  updateNotesButtonIndicator();
+  refreshMatrixAndStatus();
+
+  $("btnPrevQ").disabled = Exam.currentIndex === 0;
+  $("btnNextQ").disabled = Exam.currentIndex === Exam.totalQuestions - 1;
+
+  Exam.questionStartTime = Date.now();
+  persistExamProgress();
+}
+function selectOption(i) {
+  Exam.userAnswers[Exam.currentIndex] = i;
+  loadQuestion();
+}
+
+function updateNotesButtonIndicator() {
+  const hasNotes = !!(Exam.noteTexts[Exam.currentIndex] || "").trim() || !!Exam.noteImages[Exam.currentIndex];
+  $("btnNotesQ").classList.toggle("has-notes", hasNotes);
+  $("btnNotesQ").innerHTML = hasNotes ? "&#128221; Notes \u2713" : "&#128221; Notes";
+}
+
+function refreshMatrixAndStatus() {
+  let answered = 0, flaggedCount = 0;
+  for (let i = 0; i < Exam.totalQuestions; i++) {
+    if (Exam.userAnswers[i] !== null) answered++;
+    if (Exam.flagged[i]) flaggedCount++;
+  }
+  const remaining = Exam.totalQuestions - answered;
+  $("examStatus").textContent = `Answered: ${answered}  |  Flagged: ${flaggedCount}  |  Unanswered Remaining: ${remaining}`;
+  buildMatrixGrid();
+}
+function buildMatrixGrid() {
+  const grid = $("matrixGrid");
+  grid.innerHTML = "";
+  for (let i = 0; i < Exam.totalQuestions; i++) {
+    const btn = el("button", "mbtn", String(i + 1));
+    if (Exam.flagged[i]) btn.classList.add("flagged");
+    else if (Exam.userAnswers[i] !== null) btn.classList.add("answered");
+    if (i === Exam.currentIndex) btn.classList.add("current");
+    btn.addEventListener("click", () => { jumpToQuestion(i); closeSheet("matrixSheet"); });
+    grid.appendChild(btn);
+  }
+}
+$("btnMatrix").addEventListener("click", () => { buildMatrixGrid(); openSheet("matrixSheet"); });
+$("btnCloseMatrix").addEventListener("click", () => closeSheet("matrixSheet"));
+
+function jumpToQuestion(i) { bankElapsedTime(); Exam.currentIndex = i; loadQuestion(); }
+$("btnNextQ").addEventListener("click", () => { if (Exam.currentIndex < Exam.totalQuestions - 1) { bankElapsedTime(); Exam.currentIndex++; loadQuestion(); } });
+$("btnPrevQ").addEventListener("click", () => { if (Exam.currentIndex > 0) { bankElapsedTime(); Exam.currentIndex--; loadQuestion(); } });
+
+$("btnFlagQ").addEventListener("click", () => {
+  Exam.flagged[Exam.currentIndex] = !Exam.flagged[Exam.currentIndex];
+  $("btnFlagQ").classList.toggle("flagged", Exam.flagged[Exam.currentIndex]);
+  refreshMatrixAndStatus();
+  persistExamProgress();
+});
+
+let _timerTickCount = 0;
+function tickTimer() {
+  if (Exam.timeLeft > 0) {
+    Exam.timeLeft--;
+    updateTimerLabel();
+    if (++_timerTickCount % 10 === 0) persistExamProgress(); // keep the countdown reasonably fresh across a refresh
+  } else {
+    clearInterval(Exam.timerHandle);
+    showReport();
+  }
+}
+function updateTimerLabel() { $("examTimer").textContent = fmtDuration(Exam.timeLeft); }
+
+$("btnExitExam").addEventListener("click", () => {
+  if (!confirmDialog("Exit for now? Your answers, flags, and notes are saved automatically -- reopening the app will offer to resume this exact attempt. It just won't be scored or added to Test History until you Submit.")) return;
+  clearInterval(Exam.timerHandle);
+  persistExamProgress();
+  closeOverlay("examOverlay");
+});
+
+$("btnSubmitExam").addEventListener("click", () => {
+  const unanswered = Object.values(Exam.userAnswers).filter(a => a === null).length;
+  $("submitConfirmText").textContent = unanswered > 0
+    ? `You still have ${unanswered} unanswered question(s). Are you sure you want to submit and end the exam?`
+    : "Are you sure you want to submit and end the exam?";
+  openSheet("submitSheet");
+});
+$("btnCancelSubmit").addEventListener("click", () => closeSheet("submitSheet"));
+$("btnConfirmSubmit").addEventListener("click", () => { closeSheet("submitSheet"); clearInterval(Exam.timerHandle); showReport(); });
+
+/* ---------------------------------------------------------------------
+   Notes popup -- typed explanation + finger-drawn sketch on a canvas
+   --------------------------------------------------------------------- */
+let notesCtx = null, notesDrawing = false, notesLast = null;
+function openNotesPopup() {
+  const idx = Exam.currentIndex;
+  $("notesTitle").textContent = `Notes \u2014 Question ${idx + 1}`;
+  $("notesTextInput").value = Exam.noteTexts[idx] || "";
+  const canvas = $("notesCanvas");
+  notesCtx = canvas.getContext("2d");
+  notesCtx.clearRect(0, 0, canvas.width, canvas.height);
+  notesCtx.fillStyle = "#fff";
+  notesCtx.fillRect(0, 0, canvas.width, canvas.height);
+  if (Exam.noteImages[idx]) {
+    const img = new Image();
+    img.onload = () => notesCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    img.src = Exam.noteImages[idx];
+  }
+  openSheet("notesSheet");
+}
+$("btnNotesQ").addEventListener("click", openNotesPopup);
+
+function canvasPoint(evt) {
+  const canvas = $("notesCanvas");
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width, scaleY = canvas.height / rect.height;
+  const p = evt.touches ? evt.touches[0] : evt;
+  return { x: (p.clientX - rect.left) * scaleX, y: (p.clientY - rect.top) * scaleY };
+}
+function notesPointerDown(evt) {
+  evt.preventDefault();
+  notesDrawing = true;
+  notesLast = canvasPoint(evt);
+}
+function notesPointerMove(evt) {
+  if (!notesDrawing) return;
+  evt.preventDefault();
+  const p = canvasPoint(evt);
+  notesCtx.strokeStyle = "#000"; notesCtx.lineWidth = 2.2; notesCtx.lineCap = "round"; notesCtx.lineJoin = "round";
+  notesCtx.beginPath();
+  notesCtx.moveTo(notesLast.x, notesLast.y);
+  notesCtx.lineTo(p.x, p.y);
+  notesCtx.stroke();
+  notesLast = p;
+}
+function notesPointerUp() { notesDrawing = false; notesLast = null; }
+(function bindNotesCanvas() {
+  const canvas = $("notesCanvas");
+  canvas.addEventListener("mousedown", notesPointerDown);
+  canvas.addEventListener("mousemove", notesPointerMove);
+  window.addEventListener("mouseup", notesPointerUp);
+  canvas.addEventListener("touchstart", notesPointerDown, { passive: false });
+  canvas.addEventListener("touchmove", notesPointerMove, { passive: false });
+  canvas.addEventListener("touchend", notesPointerUp);
+})();
+$("btnClearSketch").addEventListener("click", () => {
+  const canvas = $("notesCanvas");
+  notesCtx.fillStyle = "#fff";
+  notesCtx.fillRect(0, 0, canvas.width, canvas.height);
+  Exam.noteImages[Exam.currentIndex] = null;
+});
+$("btnSaveNotes").addEventListener("click", () => {
+  const idx = Exam.currentIndex;
+  Exam.noteTexts[idx] = $("notesTextInput").value;
+  const canvas = $("notesCanvas");
+  // Only keep a raster if something was actually drawn (not a blank white canvas)
+  const blank = document.createElement("canvas");
+  blank.width = canvas.width; blank.height = canvas.height;
+  const bctx = blank.getContext("2d");
+  bctx.fillStyle = "#fff"; bctx.fillRect(0, 0, blank.width, blank.height);
+  if (canvas.toDataURL() !== blank.toDataURL()) {
+    Exam.noteImages[idx] = canvas.toDataURL("image/png");
+  }
+  closeSheet("notesSheet");
+  updateNotesButtonIndicator();
+  persistExamProgress();
+});
+
+/* ---------------------------------------------------------------------
+   Report
+   --------------------------------------------------------------------- */
+function showReport() {
+  bankElapsedTime();
+  clearExamProgress();
+  Exam.score = 0;
+  Exam.allItemsReport = [];
+  Exam.sortByWrongFirst = false;
+
+  for (let i = 0; i < Exam.totalQuestions; i++) {
+    const q = Exam.questions[i];
+    const userAns = Exam.userAnswers[i];
+    const correctAns = q.correct;
+    const isCorrect = userAns === correctAns;
+    const isAnswered = userAns !== null;
+    if (isCorrect) Exam.score++;
+
+    const chosenText = (userAns !== null && userAns >= 0 && userAns < q.options.length)
+      ? q.options[userAns] : "No Answer Provided (Skipped)";
+
+    const sourceList = q._source_list || Exam.topic;
+    const sourceIndex = q._source_index;
+    const referenceNo = (sourceIndex !== undefined && sourceIndex !== null) ? sourceIndex + 1 : "";
+
+    Exam.allItemsReport.push({
+      number: i + 1, is_correct: isCorrect, is_flagged: !!Exam.flagged[i], is_answered: isAnswered,
+      time_spent_seconds: Exam.questionTimes[i], question: q.text, your_answer: chosenText,
+      correct_answer: q.options[correctAns], source_list: sourceList, reference_no: referenceNo,
+      confidence: Exam.confidence[i], note_text: Exam.noteTexts[i], note_image: Exam.noteImages[i],
+    });
+  }
+
+  try {
+    const histRecord = saveTestHistory(Exam.topic, Exam.score, Exam.totalQuestions,
+      Object.values(Exam.questionTimes).reduce((a, b) => a + b, 0));
+    const detailItems = Exam.allItemsReport.map(item => ({
+      source_list: item.source_list, reference_no: item.reference_no, is_correct: item.is_correct,
+      is_answered: item.is_answered, confidence: item.confidence, question: item.question,
+      your_answer: item.your_answer, correct_answer: item.correct_answer,
+    }));
+    saveExamDetails(histRecord.id, Exam.topic, histRecord.date, detailItems);
+  } catch (e) {
+    console.error("Could not save test history/analysis data:", e);
+  }
+
+  closeOverlay("examOverlay");
+  renderReportSummary();
+  renderReportItems();
+  openOverlay("reportOverlay");
+}
+
+function renderReportSummary() {
+  const pct = Exam.totalQuestions ? (Exam.score / Exam.totalQuestions) * 100 : 0;
+  const passed = (Exam.score / Exam.totalQuestions) >= 0.70;
+  $("reportScore").textContent = `${Exam.score}/${Exam.totalQuestions} (${pct.toFixed(1)}%)`;
+  $("reportStatus").textContent = passed ? "PASSED" : "FAILED";
+}
+function renderReportItems() {
+  const list = Exam.sortByWrongFirst
+    ? Exam.allItemsReport.slice().sort((a, b) => (a.is_correct === b.is_correct) ? 0 : (a.is_correct ? 1 : -1))
+    : Exam.allItemsReport.slice().sort((a, b) => a.number - b.number);
+
+  const box = $("reportItems");
+  box.innerHTML = "";
+  for (const item of list) {
+    const refTag = item.reference_no !== "" ? `${item.source_list} #${item.reference_no}` : "N/A";
+    const card = el("div", "report-item");
+    card.innerHTML = `
+      <div class="tagrow">
+        <span class="tag ${item.is_correct ? "correct" : "wrong"}">${item.is_correct ? "CORRECT" : "INCORRECT/SKIPPED"}</span>
+        ${item.is_flagged ? '<span class="tag flag">FLAGGED</span>' : ""}
+        <span class="tag neutral">Confidence: ${esc(item.confidence || "Not Set")}</span>
+        <span class="tag neutral">${esc(refTag)}</span>
+        <span class="tag neutral">${fmtDuration(item.time_spent_seconds)}</span>
+      </div>
+      <div class="qtext"><b>Q${item.number}.</b> ${esc(item.question)}</div>
+      <div class="ans-line ${item.is_correct ? "" : "wrong-ans"}">Your answer: <b>${esc(item.your_answer)}</b></div>
+      <div class="ans-line right-ans">Correct answer: <b>${esc(item.correct_answer)}</b></div>`;
+    box.appendChild(card);
+  }
+}
+$("btnToggleSort").addEventListener("click", () => {
+  Exam.sortByWrongFirst = !Exam.sortByWrongFirst;
+  $("btnToggleSort").textContent = Exam.sortByWrongFirst ? "Sort: Sequential (1-N) \u2195" : "Sort: Wrong Answers First \u2195";
+  renderReportItems();
+});
+
+function buildReportString() {
+  const totalTimeUsed = Object.values(Exam.questionTimes).reduce((a, b) => a + b, 0);
+  const pct = Exam.totalQuestions ? (Exam.score / Exam.totalQuestions) * 100 : 0;
+  const status = (Exam.score / Exam.totalQuestions) >= 0.70 ? "PASSED" : "FAILED";
+  const list = Exam.sortByWrongFirst
+    ? Exam.allItemsReport.slice().sort((a, b) => (a.is_correct === b.is_correct) ? 0 : (a.is_correct ? 1 : -1))
+    : Exam.allItemsReport.slice().sort((a, b) => a.number - b.number);
+
+  const lines = [];
+  const sep = "=".repeat(78), subsep = "-".repeat(78);
+  lines.push(sep, "PRC CBLE SIMULATION - EXAM DIAGNOSTIC REPORT", sep);
+  lines.push(`Topic:           ${Exam.topic}`);
+  lines.push(`Generated:       ${new Date().toLocaleString()}`);
+  lines.push(`Score:           ${Exam.score}/${Exam.totalQuestions} (${pct.toFixed(1)}%) - ${status}`);
+  lines.push(`Total Time Used: ${fmtDuration(totalTimeUsed)}`);
+  lines.push(`Sort Order:      ${Exam.sortByWrongFirst ? "Wrong Answers First" : "Sequential (1 - N)"}`);
+  lines.push(sep, "");
+  for (const item of list) {
+    const statusTag = item.is_correct ? "CORRECT" : "INCORRECT/SKIPPED";
+    const flagTag = item.is_flagged ? "FLAGGED" : "Not Flagged";
+    const timeTag = fmtDuration(item.time_spent_seconds);
+    const refTag = item.reference_no !== "" ? `${item.source_list} #${item.reference_no}` : "N/A";
+    const confTag = item.confidence || "Not Set";
+    lines.push(subsep);
+    lines.push(`Q${item.number}  |  ${statusTag}  |  ${flagTag}  |  Confidence: ${confTag}  |  Ref: ${refTag}  |  Time Spent: ${timeTag}`);
+    lines.push(subsep);
+    lines.push(`Question: ${item.question}`);
+    lines.push(`Your Answer:    ${item.your_answer}`);
+    lines.push(`Correct Answer: ${item.correct_answer}`);
+    lines.push("");
+  }
+  return lines.join("\n");
+}
+$("btnCopyReport").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(buildReportString()); toast("Report copied to clipboard."); }
+  catch (e) { toast("Couldn't access clipboard."); }
+});
+
+function csvEscape(v) {
+  const s = (v === null || v === undefined) ? "" : String(v);
+  return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+}
+$("btnExportCsv").addEventListener("click", () => {
+  const headers = ["Number", "Correct", "Flagged", "Confidence", "SourceList", "ReferenceNo", "TimeSpentSec", "Question", "YourAnswer", "CorrectAnswer"];
+  const rows = [headers.join(",")];
+  for (const item of Exam.allItemsReport.slice().sort((a, b) => a.number - b.number)) {
+    rows.push([
+      item.number, item.is_correct ? "Correct" : "Incorrect", item.is_flagged ? "Yes" : "No",
+      item.confidence || "Not Set", item.source_list, item.reference_no,
+      Math.round(item.time_spent_seconds), item.question, item.your_answer, item.correct_answer,
+    ].map(csvEscape).join(","));
+  }
+  const blob = new Blob([rows.join("\n")], { type: "text/csv" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `cble_report_${todayStamp()}.csv`;
+  document.body.appendChild(a); a.click(); a.remove();
+  toast("CSV downloaded.");
+});
+
+$("btnPrintNotes").addEventListener("click", () => {
+  const withNotes = Exam.allItemsReport.filter(it => (it.note_text || "").trim() || it.note_image);
+  if (!withNotes.length) { toast("No notes or sketches were added during this exam."); return; }
+  const root = $("printNotesRoot");
+  let html = `<h1 style="font-family:sans-serif;">Notes &amp; Explanations \u2014 ${esc(Exam.topic)}</h1>`;
+  for (const item of withNotes) {
+    html += `<div style="page-break-inside:avoid;margin-bottom:22px;font-family:sans-serif;">
+      <h3 style="margin-bottom:4px;">Q${item.number}. ${esc(item.question)}</h3>
+      <p style="font-size:.85rem;color:#444;">Your answer: ${esc(item.your_answer)} &middot; Correct answer: ${esc(item.correct_answer)}</p>
+      ${item.note_text ? `<p style="white-space:pre-wrap;">${esc(item.note_text)}</p>` : ""}
+      ${item.note_image ? `<img src="${item.note_image}" style="max-width:100%;border:1px solid #ccc;">` : ""}
+    </div>`;
+  }
+  root.innerHTML = html;
+  document.body.classList.add("printing-notes");
+  window.print();
+  setTimeout(() => document.body.classList.remove("printing-notes"), 500);
+});
+
+$("btnBackToWorkbench").addEventListener("click", () => {
+  closeOverlay("reportOverlay");
+});
+
+/* =====================================================================
+   Boot
+   ===================================================================== */
+(function init() {
+  refreshListsDisplay();
+  refreshSavedSamplesList();
+  refreshHistoryList();
+  const cached = loadJson(KEYS.topics, null);
+  if (cached) {
+    setSyncStatus(`Bank cached ${new Date(cached.fetchedAt).toLocaleString()} \u00b7 ${Object.keys(cached.topics).length} list(s)`);
+  } else {
+    setSyncStatus("Not synced yet");
+  }
+  refreshQuestionBank(false).then(refreshListsDisplay);
+
+  if (githubConfigured()) {
+    runGithubSync();
+  }
+  checkForExamToResume();
+
+  // Safety net: mobile browsers can suspend/kill a backgrounded tab without
+  // warning, so flush exam progress (and any pending GitHub sync) whenever
+  // the page is about to go away or lose visibility, not just on discrete actions.
+  const flushOnHide = () => {
+    if (!$("examOverlay").classList.contains("hidden")) persistExamProgress();
+  };
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") flushOnHide(); });
+  window.addEventListener("pagehide", flushOnHide);
+})();
+</script>
+</body>
+</html>
