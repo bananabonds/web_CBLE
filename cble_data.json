@@ -1872,6 +1872,15 @@
       "pct": 70,
       "date": "2026-09-21T09:29:16",
       "time_used_seconds": 1050.5
+    },
+    {
+      "id": "179000334236560",
+      "source": "D3_S1",
+      "score": 24,
+      "total": 50,
+      "pct": 48,
+      "date": "2026-09-21T15:09:02",
+      "time_used_seconds": 627.2
     }
   ],
   "exam_details": [
@@ -2888,6 +2897,513 @@
           "correct_answer": "A. 125 mg/L"
         }
       ]
+    },
+    {
+      "exam_id": "179000334236560",
+      "source": "D3_S1",
+      "date": "2026-09-21T15:09:02",
+      "items": [
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 33,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Jojo bought a 2nd hand DVD player and then sold it to Rowace at a profit of 40%. Rowace then sold the DVD player to Kat at a profit of 20%. If Kat paid 2856 more than it cost Jojo, how much did Jojo pay for the unit?",
+          "your_answer": "A. P4200",
+          "correct_answer": "A. P4200"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 39,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "An operator is using a nitrogen utility hose connected to a process vessel to purge the system before maintenance. The operator finishes and leaves the hose connected while attending to other tasks nearby. What is the hazard?",
+          "your_answer": "B. Process material at higher pressure could flow back into the nitrogen utility system",
+          "correct_answer": "B. Process material at higher pressure could flow back into the nitrogen utility system"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Given f(x) = 3x^2 - x + 10 and g(x) = 1 - 20x, find (f o g)(x).",
+          "your_answer": "D. 1200x^2 - 100x + 12",
+          "correct_answer": "D. 1200x^2 - 100x + 12"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "The first American car tire made from synthetic rubber used which material?",
+          "your_answer": "C. Neoprene",
+          "correct_answer": "C. Neoprene"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A block weighing 500 kN rests on a ramp inclined at 25° with the horizontal. What is the force tending to move the block down the ramp?",
+          "your_answer": "C. 211 kN",
+          "correct_answer": "C. 211 kN"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 78,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Traditionally, there have been two figures or variables used to measure company-wide safety performance. Which of the following describe these two measures?",
+          "your_answer": "B. frequency, severity",
+          "correct_answer": "B. frequency, severity"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 24,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "If sin A = 3/5 and A lies on the 2nd quadrant, while cosine B = 7/25 lies on the first quadrant, find the numerical value of sin (A + B).",
+          "your_answer": "B. 3/5",
+          "correct_answer": "A. -3/5"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 20,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "A rubber ball of mass 0.25 kg is dropped from a height of 10 m. If the coefficient of restitution is 0.56, how high is the ball's second rebound?",
+          "your_answer": "D. 5.60 m",
+          "correct_answer": "C. 0.98 m"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 35,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "The equation 25x^2 + 16y^2 u2013 150x + 128y + 81 = 0 has its center at?",
+          "your_answer": "A. (3, -4)",
+          "correct_answer": "A. (3, -4)"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 33,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "The location in which the graph changes its concavity is called the:",
+          "your_answer": "C. inflection point",
+          "correct_answer": "C. inflection point"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 64,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "An asset has a 1st cost of P22,000, an estimated life of 30 years. Using the double declining balance method, determine the book value after 6 years.",
+          "your_answer": "A. P14,542.44",
+          "correct_answer": "A. P14,542.44"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 110,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Any person who, in the course of trade or business, sells barters, exchanges, leases goods or properties, renders services, and any person who imports goods shall be subjected to",
+          "your_answer": "B. estimated tax",
+          "correct_answer": "D. VAT"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 29,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Suppose 4 machines in a machine shop are used to produce the same part. However, each of the 4 machines takes 2.5, 2.0, 1.5 and 6.0 minutes to make one part, respectively. What is the average rate of speed?",
+          "your_answer": "D. 3",
+          "correct_answer": "C. 2.31"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 56,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Find the median of the following scores: 73, 62, 60, 58, 70, 60, 90, 66, 51, 85.",
+          "your_answer": "A. 66",
+          "correct_answer": "D. 64"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 38,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "The index of refraction of benzene is 1.80. The critical angle for total internal reflection, at a benzene-air interface, is about:",
+          "your_answer": "C. 34 deg",
+          "correct_answer": "C. 34 deg"
+        },
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 26,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "The perimeter of a sector is 9 units and its radius is 3 units. What is the area of the sector?",
+          "your_answer": "C. 4.5",
+          "correct_answer": "C. 4.5"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A vertical pole 8 ft tall casts a shadow 5 ft long on level ground. Find the angle which the rays of the sun make with the horizontal.",
+          "your_answer": "B. 58u00b0",
+          "correct_answer": "B. 58u00b0"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 61,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Determine the electric flux for a Gaussian surface that contains 100 million (1 x 10^8) electrons.",
+          "your_answer": "A. 1.8 Nm²/C²",
+          "correct_answer": "A. 1.8 Nm²/C²"
+        },
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 56,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "What is the Laplace transform of sinh(2t)?",
+          "your_answer": "B. 2/(s²-4)",
+          "correct_answer": "B. 2/(s²-4)"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 86,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "A businessman invests in a medium scale business which cost him P100,000. The net annual return is estimated at P30,000 for each of the next 10 years. Compute the benefit cost ratio if the annual rate of interest is 20%.",
+          "your_answer": "C. 1.26",
+          "correct_answer": "C. 1.26"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 119,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Most easily and cheaply available fibrous raw material for paper manufacture available in India is bamboo. The yield of pulp produced from fibrous raw material by mechanical process is about __________ percent.",
+          "your_answer": "D. 50",
+          "correct_answer": "A. 75"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "In primitive days, __________ was manufactured by Leblanc Process.",
+          "your_answer": "B. Soda ash",
+          "correct_answer": "B. Soda ash"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 35,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "This type of control loop measures the disturbance variables to limit the deviation in the output variables by preemptively adjusting the manipulated variable.",
+          "your_answer": "A. Feedback control",
+          "correct_answer": "C. Feedforward control"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 65,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "In which sampling method is the population divided into clusters, and then all members from randomly selected clusters are sampled?",
+          "your_answer": "D. Cluster sampling",
+          "correct_answer": "D. Cluster sampling"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 26,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": null,
+          "question": "A horizontal truss spans three 10 m panels (total 30 m) between a pin support at A (far left) and a roller support at F (far right), with top-chord joints A, B, D, F and bottom-chord joints C, E. A diagonal member near B makes a 20° angle with the horizontal. A 60 kN downward load is applied at joint B and an 80 kN downward load is applied at joint D (both on the top chord). What is the force acting on member BE?",
+          "your_answer": "C. 183.15kN, compression",
+          "correct_answer": "B. 19.5kN, tension"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 79,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The Stockholm Convention is a global treaty that aims to protect the environment and human health from these hazards.",
+          "your_answer": "D. persistent organic pollutants",
+          "correct_answer": "D. persistent organic pollutants"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 15,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Which of the following is equivalent to 15C15 + 16C15 + 17C15 + ... + 2023C15?",
+          "your_answer": "D. 2023C15",
+          "correct_answer": "C. 2024C16"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 38,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Determine the particular solution of the differential equation: y'' − 4y' − 12y = 3e^(5t)",
+          "your_answer": "C. (3/7)e^5t",
+          "correct_answer": "D. (-3/7)e^5t"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 77,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "[Situation 6: C(x) = 10000 + 90x - 0.05x²] What is the marginal cost of 500 tanks?",
+          "your_answer": "D. $40.10",
+          "correct_answer": "B. $40"
+        },
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 22,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Given a cyclic quadrilateral whose sides are 4 cm, 5 cm, 8 cm, and 11 cm. Its area is:",
+          "your_answer": "B. 48.65 sq. cm.",
+          "correct_answer": "A. 40.25 sq. cm."
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 3,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Evaluate: lim(x→4) (x²-16)/(2-√x)",
+          "your_answer": "A. 8",
+          "correct_answer": "D. -32"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 19,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Consider instead the following fourth-order ODE found in the denominator of a transfer function with zero initial conditions: yʺʺ + 9yʺ + 26ÿ+ 24ẏ = 1 Which correctly identifies the qualitative nature of the time-domain solution y(t)?",
+          "your_answer": "B. y(t) consists of a constant (steady-state) term plus three decaying exponentials; with no oscillation",
+          "correct_answer": "B. y(t) consists of a constant (steady-state) term plus three decaying exponentials; with no oscillation"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Which of the following is the triangle inequality for an acute triangle?",
+          "your_answer": "B. c^2 < a^2 + b^2",
+          "correct_answer": "B. c^2 < a^2 + b^2"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 40,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Which of these gives the lowest effective rate of interest?",
+          "your_answer": "A. 12.35% compounded annually",
+          "correct_answer": "D. 11.60% compounded monthly"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 45,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Suppose that an object initially having a temperature of 20° is placed in a large temperature controlled room of 80° and one hour later the object has a temperature of 35°. What will its temperature be after three hours?",
+          "your_answer": "B. 52.64°",
+          "correct_answer": "D. 54.69°"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 124,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "In project management; \"R & D\" stands for:",
+          "your_answer": "D. Reduce and Deduce",
+          "correct_answer": "C. Research and Development"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 26,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "The _____ reports the number of fatalities based on 1000 employees working their entire lifetime. The employees are assumed to work a total of 50 years.",
+          "your_answer": "C. Fatality Rate",
+          "correct_answer": "A. FAR"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 45,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "_____________ is the lowest temperature that the vapors of a material will ignite when exposed to an ignition source.",
+          "your_answer": "A. Flash point",
+          "correct_answer": "A. Flash point"
+        },
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 44,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Determine the volume generated by rotating the curve 9x² + 4y² = 36 about the line 3x + 4y = 20.",
+          "your_answer": "C. 374.5",
+          "correct_answer": "D. 473.7"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 12,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Which of the following equations is an exact DE?",
+          "your_answer": "A. (x² + 1) dx – xy dy = 0",
+          "correct_answer": "C. 2xy dx + (2 + x²) dy = 0"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 42,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "The image produced by a convex mirror of an erect object in front of the mirror is always:",
+          "your_answer": "C. real, erect and larger than the object",
+          "correct_answer": "B. virtual, erect and smaller than the object"
+        },
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 27,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "A cylinder is circumscribed about a right prism having a square base one meter on an edge. The volume of the cylinder is 6.283 cu. m. Compute its altitude.",
+          "your_answer": "A. 3",
+          "correct_answer": "B. 4"
+        },
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 64,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "What is the Laplace transform of sin(2t)/t?",
+          "your_answer": "B. arcsin(s/a)",
+          "correct_answer": "C. arctan(a/s)"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 9,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "If there are 6 persons, in how many ways can they sit at a round table if two of them always want to be next to each other, while another 2 of them don't want to be next to one another?",
+          "your_answer": "C. 12",
+          "correct_answer": "D. 24"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 30,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "3x^2 + 2x u2013 5y + 7 = 0. Determine the curve.",
+          "your_answer": "A. Parabola",
+          "correct_answer": "A. Parabola"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 44,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "The disadvantage of conventional feedback control is the large time lag between the disturbance and the deviation observed in the set point. This can be resolved by using cascade control, which measures the __________ to anticipate a possible deviation in the main variable.",
+          "your_answer": "A. Primary measurement point",
+          "correct_answer": "B. Secondary measurement point"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 24,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "The numbers 28, x+2, 112... form a geometric progression. What is the 15th term of the sequence?",
+          "your_answer": "A. 143369",
+          "correct_answer": "C. 458752"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The equation of a line that intercepts the x-axis at x = 4 and the y-axis at y = -6 is,",
+          "your_answer": "C. 3x u2013 2y = 12",
+          "correct_answer": "C. 3x u2013 2y = 12"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 62,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A ball is thrown with an initial velocity of 20 m/s at an angle of 30° above the horizontal. Find the maximum horizontal range.",
+          "your_answer": "C. 35.3 m",
+          "correct_answer": "C. 35.3 m"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 48,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "In a tank are 100 liters of brine containing 50 kg total of dissolved salt. Pure water is allowed to run into the tank at the rate of 3 liters a minute. Brine runs out of the tank at the rate of 2 liters a minute. The instantaneous concentration in the tank is kept uniform by stirring. How much salt is in the tank at the end of one hour?",
+          "your_answer": "D. 20.62 kg",
+          "correct_answer": "B. 19.53 kg"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -3116,5 +3632,5 @@
       "date_logged": "2026-09-21T13:35:41"
     }
   ],
-  "updated_at": "2026-09-21T13:37:50"
+  "updated_at": "2026-09-21T15:09:03"
 }
