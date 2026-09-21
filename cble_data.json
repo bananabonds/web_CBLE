@@ -2462,7 +2462,21 @@
       "note": "The reinforcement is the carbon fiber, the matrix is the epoxy",
       "resolved": true,
       "date_logged": "2026-09-21T13:18:21"
+    },
+    {
+      "id": "1789996968507575",
+      "exam_id": "1789982956801386",
+      "exam_source": "D1_S1",
+      "source_list": "D1_L2_Environmental_EngSci",
+      "reference_no": 85,
+      "question": "A wastewater treatment plant treats 50,000 mu00b3/day with an influent BOD of 250 mg/L and an effluent BOD of 30 mg/L. What is the daily BOD load removed (kg)?",
+      "your_answer": "C. 12,000 kg",
+      "correct_answer": "B. 11,000 kg",
+      "category": "Formula / Equation Error",
+      "note": "BODin-BODout = BODremoved, BODremoved * Flowrate = mass of BOD Load removed",
+      "resolved": true,
+      "date_logged": "2026-09-21T13:22:48"
     }
   ],
-  "updated_at": "2026-09-21T13:18:27"
+  "updated_at": "2026-09-21T13:22:54"
 }
