@@ -2476,7 +2476,21 @@
       "note": "BODin-BODout = BODremoved, BODremoved * Flowrate = mass of BOD Load removed",
       "resolved": true,
       "date_logged": "2026-09-21T13:22:48"
+    },
+    {
+      "id": "1789997741945324",
+      "exam_id": "1789982956801386",
+      "exam_source": "D1_S1",
+      "source_list": "D1_L4_Organic_Chemistry",
+      "reference_no": 107,
+      "question": "What is the major organic product of the reaction between benzene and isobutyl chloride in the presence of AlCl₃?",
+      "your_answer": "B. isobutylbenzene",
+      "correct_answer": "A. tert-butylbenzene",
+      "category": "Conceptual Misunderstanding",
+      "note": "In Friedel Crafts Alkylation, if the alkyl halide forms a less stable primary carbocation it rearranges into a secondary hence forming tert-butyl addition instead of isobutyl",
+      "resolved": true,
+      "date_logged": "2026-09-21T13:35:41"
     }
   ],
-  "updated_at": "2026-09-21T13:22:54"
+  "updated_at": "2026-09-21T13:35:47"
 }
