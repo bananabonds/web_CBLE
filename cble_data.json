@@ -2470,6 +2470,624 @@
           "_source_index": 55
         }
       ]
+    },
+    {
+      "id": "1790010479834154",
+      "name": "CT_S2",
+      "created_at": "2026-09-21T17:07:59",
+      "composition": {
+        "D2_L8_Equipment_Plant_Design": 5,
+        "D2_L9_Chemical_Reaction_Engineering": 5,
+        "D2_L3_Thermodynamics": 6,
+        "D2_L1_ChE_Calculations": 6,
+        "D2_L2_Separation_Processes": 6,
+        "D2_L6_Particle_Technology": 5,
+        "D2_L5_Transport_Phenomenon": 6,
+        "D2_L7_Heat_Mass_Transfer": 5,
+        "D2_L4_Momentum_Transfer": 6
+      },
+      "questions": [
+        {
+          "text": "Typical static submergence for bubble cap plate column operating at atmospheric pressure may be around  ",
+          "options": [
+            "A. 2.5\" ",
+            "B. 0.5\" ",
+            "C. 0.5\" ",
+            "D. 50% of the plate spacing"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 5
+        },
+        {
+          "text": " The following liquid phase reactions are carried out in a plug flow reactor A + C ->2D + P   rp = k1CaCc    A->B rB = k2Ca What is the ratio of moles of P formed to moles of B formed at the reactor exit if the\r\nconversion of C is 50%. No product is present in the feed. Data: CAO = Cco = 2 kmol /m³,\r\nk₁ = 1 m³ / kmol-s and k₂ = 1 /s.",
+          "options": [
+            "A. 0",
+            "B.  0.75",
+            "C. 0.5",
+            "D. 1"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 43
+        },
+        {
+          "text": "A gas initially at 15 psia and 2 ft3 undergoes a process to 90 psia and 0.6 ft3, during which the enthalpy increases by 15.5 BTU; Cv=2.44 BTU/lb-R. Determine ДU",
+          "options": [
+            "A. 12.2 BTU",
+            "B. 11.1 BTU ",
+            "C. 13.3 BTU",
+            "D. 10.0 BTU"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 25
+        },
+        {
+          "text": "An evaporator is fed continuously with 25 MT/h\r\nof a solution consisting of 10% NaOH, 10% NaCl,\r\nand 80% H₂0. During evaporation, water is\r\nboiled off, and salt precipitates as crystals,\r\nwhich are settled and removed from the\r\nremaining liquor. The concentrated liquor\r\nleaving the evaporator contains 50% NaOH, 2%\r\nNaCl and 48% H₂0. Calculate the kg of concentrated liquor\r\nproduced per hour",
+          "options": [
+            "A. 4000",
+            "B. 3000",
+            "C. 6000",
+            "D. 5000"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 11
+        },
+        {
+          "text": "By extraction with amyl acetate, Penicillin Fis recovered from an aqueous\r\nfermentation broth using 6 volumes of solvent per 100 volumes of the\r\naqueous phase. At pH = 3.2, the distribution coefficient Kp is 80. What would be the recovery with two-stage extraction using fresh solvent in both stages",
+          "options": [
+            "A. 88%",
+            "B. 97%",
+            "C.  75%",
+            "D. 69%"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 48
+        },
+        {
+          "text": "To clean a sand bed filter, it is fluidized at\r\nminimum conditions using water at 24°C.\r\nThe round sand particles have a density of\r\n2550 kg/m³ and an average size of 0.40\r\nmm. sphericity = 0.86 and ε= 0.42. If the bed diameter is 0.4 m and the\r\ndesired height of the bed at these minimum\r\nfluidizing conditions is 1.75 m. Calculate the\r\namount of solids needed.",
+          "options": [
+            "A. 235.52 kg",
+            "B. 523.35 kg",
+            "C. 352.32 kg",
+            "D. 325.25 kg"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 105
+        },
+        {
+          "text": "Flooding results in ",
+          "options": [
+            "A. high tray efficiency",
+            "B. low tray efficiency\r\n",
+            "C. high gas velocity\r\n. ",
+            "D. good contact between the fluid"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 94
+        },
+        {
+          "text": "Two aqueous sulfuric acid solutions containing 20 wt% H2SO, (SG=1.139) and 60 wt% H₂SO (SG=1.498) are mixed to form a 4 M solution (SG-1.213).  What feed rate of the 60% solution (L/hr) would be required to produce 1250 kg/h of the product.",
+          "options": [
+            "A. 986 L/h",
+            "B.  257 L/h",
+            "C. 110 L/h",
+            "D. 462 L/h"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 5
+        },
+        {
+          "text": "A single effect evaporator is to\r\nconcentrate 20000 lb/hr of a 20%\r\nsolution NaOH to 50% solids.\r\nSaturated steam is available at 20\r\npsig. The absolute vapor pressure in\r\nthe vapor space is to be 100 mmHg.\r\nThe overall coefficient is to be\r\nestimated to be 250 BTU/hr-ft2-0F. The\r\nfeed temperature is 100°F. Calculate\r\nthe following:  The amount of steam consumed",
+          "options": [
+            "A. 15400 lb/h",
+            "B. 13500 lb/h",
+            "C. 12800 lb/h",
+            "D. 19100 lb/hr"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 19
+        },
+        {
+          "text": "A liquid having a density of 801\r\nkg/m³ and a viscosity 1.49x10-3 Pa-s\r\nis flowing through a horizontal\r\nstraight pipe of a velocity of 4.57\r\nm/s. The commercial steel pipe is 1\r\n1/½ in nominal pipe size, schedule 40.\r\nFor a length of a pipe of 61 m, do as\r\nfollows: what is the percent reduction of the Ffor the smooth tube?",
+          "options": [
+            "A. 21%",
+            "B. 13%",
+            "C. 42%",
+            "D. 34%"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 20
+        },
+        {
+          "text": "Cp - Cv = R is valid for ",
+          "options": [
+            "A. ideal gases",
+            "B. all gases",
+            "C. gases at very high pressure",
+            "D. gases at a very low temperature"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 43
+        },
+        {
+          "text": "If 100 lb of air at 50'F db and 50'F wb is mixed with 300 lb of dry air at 110 F db and 80\"F wb, the resulting mixture will have dry bulb temperature of ",
+          "options": [
+            "A. 80 F",
+            "B. 90 F ",
+            "C.  85 F ",
+            "D. 95 F "
+          ],
+          "correct": 3,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 86
+        },
+        {
+          "text": "In steam distillation, the ",
+          "options": [
+            "A. temperature is 100°C.",
+            "B.  temperature is more than 100°С.",
+            "C. product must be immiscible with water.",
+            "D. temperature is higher than the boilingpoint of either component."
+          ],
+          "correct": 2,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 84
+        },
+        {
+          "text": "1 kg of gas occupies a volume of 0.4 m³ at a pressure of100 kN/m². The gas is compressed isothermally to a pressureof 450 kN/m². Determine the change in entropy of the gasduring the compression. Assume R = 300 J/kg-K. ",
+          "options": [
+            "A. -0.33 kJ/kg-K ",
+            "B. -0.28 kJ/kg-K ",
+            "C. -0.45 kJ/kg-K",
+            "D. -0.19 kJ/kg-K"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 82
+        },
+        {
+          "text": " Baffles are provided in a shell and tube heat exchanger to increase the turbulence and velocity of the shell side fluid. Which of the following shaped baffles does not fall in the category of transverse baffle? ",
+          "options": [
+            "A. Segmental baffle ",
+            "B. Flat plate extending across the wall ",
+            "C. Disk type baffle ",
+            "D. Helical type baffle "
+          ],
+          "correct": 3,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 45
+        },
+        {
+          "text": "The air supply for a dryer has a dry-bulb temperature of 70 F and a wet bulb temperature of 60 F. It is heated to 200 F by coils and blown into the dryer: In the dryer it cools along an adiabatic cooling line and leaves the dryer fully saturated: At what temperature does the air leave the dryer? ",
+          "options": [
+            "A.  86 F",
+            "B.  93 F ",
+            "C. 72 F ",
+            "D. 61 F"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 81
+        },
+        {
+          "text": "A steel pipe having an inside diameter of\r\n13.25 inches is to be designed to carry\r\n48000 bbl of oil per 24 hour day from a\r\nmid-continent field to a refinery 580 miles\r\nfrom the source. The difference in\r\nelevation of the two ends of the line is\r\nnegligible. At an average temperature\r\ninvolved, the oil has an absolute viscosity\r\nof 50 centipoises and a specific gravity of\r\n0.87.  Since the maximum allowable pressure\r\nin any section of the line is 650 psi, it will be\r\nnecessary to insert additional pumping\r\nstations at suitable intervals along the pipe\r\nline. What is the smallest number of\r\npumping stations required?",
+          "options": [
+            "A. 15",
+            "B. 10",
+            "C. 7",
+            "D. 5"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 22
+        },
+        {
+          "text": " Forces acting on a particle settling in fluid are ",
+          "options": [
+            "A.  gravitational and buoyant forces",
+            "B. centrifugal and drag forces",
+            "C. gravitational or centrifugal, buoyant and dragforces",
+            "D.  external, drag and viscous forces"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 53
+        },
+        {
+          "text": "Normal butanol is diffusing through air at 1 atm abs. Using Fulleret. al. method, estimate the diffusivity for the following\r\ntemperatures and compare with the experimental data:\r\nFor 0°C For 0°C and 2 atm",
+          "options": [
+            "A. 3.9x10-6 m²/s",
+            "B. 8.3x10-6 m²/s",
+            "C.  7.7x10-6 m²/s",
+            "D. 9.1x10-6 m²/s"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 56
+        },
+        {
+          "text": "A gas mixture containing 1% acetone and 99% dry air by volume is contacted with pure water in a plate gas absorber in which 90% of the acetone is recovered. The inlet gas flow rate is 30 kmol/hr and the inlet water flow rate is 90 kmol/hr. The absorber operates at 27 C and 1 atm. The equilibrium curve is given by y* = 2.53x.  What is the number of theoretical plates required?",
+          "options": [
+            "A. 5.1 ",
+            "B. 6.2 ",
+            "C. 7.0 ",
+            "D. 7.9 "
+          ],
+          "correct": 0,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 78
+        },
+        {
+          "text": "Given that the vapor pressure of nbutane at 350 K is 9.4573 bar, find the molar volume of the following using Redlich-Kwong equation. Saturated liquid",
+          "options": [
+            "A. 191.0 cm³/mol",
+            "B. 112.6 cm³/mol",
+            "C. 133.3 cm³/mol",
+            "D.  127.8 cm³/mol"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 64
+        },
+        {
+          "text": "Measurement of thermodynamic propertyof temperature is facilitated by_ law ofthermodynamics. ",
+          "options": [
+            "A. 1st ",
+            "B. 3rd ",
+            "C. zeroth ",
+            "D. none of these"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 10
+        },
+        {
+          "text": "A plane wall that is 20 cm thick and has a constant thermal conductivityk = 3 W/m-K undergoes one-dimensional steady conduction. The surface\r\ntemperature of the left side of the wall is known (TI = 50 deg C) and theright side of the wall is exposed to air (Tair = 10 deg C) and convective\r\nheat transfer (h = 60 W/m²-K). What is the temperature at the interface\r\nbetween the wall and the air on the right-hand side (T2)? ",
+          "options": [
+            "A. 27°C",
+            "B.  18°C",
+            "C. 35°C",
+            "D. 44°C"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 17
+        },
+        {
+          "text": "Half-life period of a chemical reaction is ",
+          "options": [
+            "A. the time required to reduce the concentration of the reacting substance to half\r\nits initial value",
+            "B.  half of the space time of the reaction",
+            "C.  half of the residence time of the reaction",
+            "D.  none of these"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 22
+        },
+        {
+          "text": "A furnace is fired with sub bituminous B\r\ncoal containing 10.3% moisture, 34% VCM\r\nand 7.7% ash. It is also known to contain\r\n1.2% N and 1.57% S. Its calorific value is 22\r\nMJ/kg. Calculate its: Calorific Value of VCM.",
+          "options": [
+            "A. 12 MJ/kg",
+            "B. 17 MJ/kg",
+            "C. 15 MJ/kg",
+            "D. 10 MJ/kg"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 67
+        },
+        {
+          "text": " In McCabe-Thiele method of theoretical platecalculation for a distillation column, the operatinglines of stripping and rectifying sections coincidewith the diagonal at reflux. ",
+          "options": [
+            "A. total",
+            "B. operating",
+            "C. minimum",
+            "D. maximum permissible"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 104
+        },
+        {
+          "text": "Any shell opening greater than 5 cms for a storage tank must be reinforced for reason of ",
+          "options": [
+            "A. preventing the local overstressing of the shell around the opening ",
+            "B. reduction of discontinuity in shape at the junction. ",
+            "C. making the joint leak proof",
+            "D. none of these"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 47
+        },
+        {
+          "text": "Water is running through a vertical plate withReynolds number of 10. What is the flowrate of waterin gal/ft-hr. ",
+          "options": [
+            "A. 0.624",
+            "B. 0.277",
+            "C. 0.727",
+            "D.  0.426"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 37
+        },
+        {
+          "text": "Energy requirement (per unit mass of materialcrushed/ground) is highest for ",
+          "options": [
+            "A.  jaw crusher",
+            "B.  ball mill",
+            "C. rod mill",
+            "D. fluid energy mill"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 31
+        },
+        {
+          "text": "An aqueous solution containing 15%\r\nNaOH and 0.5% NaCl is concentrated at\r\na rate of 100 kg/min in an evaporator.\r\nThe concentrated solution is then\r\nmixed with 2000 kg of aqueous NaOH\r\nsolution in a mixer. At the end of one\r\nhour a sample is collected from the\r\nmixer and analyzed. The analysis\r\nshows 40% NaOH and 0.8574% NaCl.\r\nCalculate the following:\r\n The concentration of the original\r\nsolution in the receiver\r\n",
+          "options": [
+            "A.  32% NaOH",
+            "B. 25% NaOH",
+            "C. 40% NaOH",
+            "D. 56% NaOH"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 22
+        },
+        {
+          "text": "A furnace is fired with high\r\nvolatile A bituminous coal whose\r\nultimate analysis shows 75.2% C,\r\n5.19% H, 8.72% 0, 1.5% N, 7.8%\r\nash and 1.6% S. 60% excess air is\r\nsupplied. Assume CO to CO₂ ratio\r\nof 0.175. The stack gas leaves at\r\n300°C, 740 torrs. Calculate: The % water in the complete\r\nanalysis of the stack gas if air is\r\nsupplied at 28C, 100 kPa and\r\nessentially dry.",
+          "options": [
+            "A. 2.06%",
+            "B. 5.90%",
+            "C. 3.12%",
+            "D. 4.47%"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 68
+        },
+        {
+          "text": "Ultra centrifuges are used for the separation ofsolid particles. ",
+          "options": [
+            "A. coarse",
+            "B. colloidal",
+            "C. fine",
+            "D. dissolved"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 77
+        },
+        {
+          "text": "What is the theoretical yield of crystals which may be\r\nobtained by cooling a solution containing 1000 kg of sodium\r\nsulfate (mw = 142 kg/kmol) in 5000 kg water to 283 K? The\r\nsolubility of sodium sulfate at 283 K is 9 kg anhydrous salt\r\n100 kg water and the deposited crystals will consist of\r\ndecahydrate. It may be assumed that 2% of the water will be\r\nlost by evaporation during cooling. ",
+          "options": [
+            "A. 4469.17 kg",
+            "B.  250 kg",
+            "C. 6000 kg",
+            "D. 1430.83 kg"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 15
+        },
+        {
+          "text": "Smoker's equation for the calculation of number\r\nof equilibrium stages in a continuous binarydistillation column is used, when the ",
+          "options": [
+            "A. relative volatility is close to one (e.g., separation ofclose boiling isomers).",
+            "B. feed is not at its bubble point.",
+            "C. number of equilibrium stages in only stripping\r\nsection is to be calculated.",
+            "D. number of equilibrium stages required is likely to\r\nbe very small."
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 116
+        },
+        {
+          "text": "The reaction A +  B + C -> products has equimolar amounts initially, 1 M If the reaction is second order with respect to A and first order with respect to B and C The half-life of the reaction",
+          "options": [
+            "A. 2.781 hours",
+            "B. 1.278 hours ",
+            "C. 1.782 hours ",
+            "D.  1.827 hours"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 35
+        },
+        {
+          "text": "It is planned to feed continuously 100 mol per hour of a solution containing 80 mol of A and 20 mol of B to an externally fired kettle by which there is good agitation due to boiling.\r\nThe residue and vapor will be withdrawn continuously, the vapor condensed, cooled and\r\nsent to storage. There is no return of residue or condensate to kettle, hence, this will be\r\ncontinuous simple distillation. It is planned to regulate the heat supply that D grams of\r\ndistillate per hour will contain 72 mol of the more volatile component A which is five times\r\nmore volatile than B.\r\n  What is the mole fraction of A in the distillate?",
+          "options": [
+            "A. 0.69",
+            "B.  0.78",
+            "C. 0.91",
+            "D. 0.85"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 87
+        },
+        {
+          "text": "The general relationship between speed N, head H, power P and discharge Q for a centrifugal\r\npump is ",
+          "options": [
+            "A. QN: H&N2 : P&N3",
+            "B. Q&N2: HN3: PN",
+            "C. QN:H&N3 : P&N2",
+            "D. QN3: H*N: P&N2"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 53
+        },
+        {
+          "text": "he fractional volume change between no conversion andcomplete conversion, for the isothermal gas phase reaction, 2A->R, is ",
+          "options": [
+            "A. 0.5",
+            "B. 1",
+            "C.  -0.5",
+            "D. 1.5"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 52
+        },
+        {
+          "text": "The terminal settling velocity of a 6 mm diameter glasssphere (density: 2500 kg/m³) in a viscous Newtonian liquid(density: 1500 kg/m³) is 100 µm/s. If the particle Reynoldsnumber is small and the value of acceleration due to gravityis 9.81 m/s², then the viscosity of the liquid (in Pa-s) is ",
+          "options": [
+            "A.  300.5",
+            "B. 196.2",
+            "C. 245.3",
+            "D. 490.5"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 59
+        },
+        {
+          "text": "A 50 % by weight benzene - toluene-\r\nmixture is fed to a column at 180 °F and 1\r\natm. The condition of the feed is called ",
+          "options": [
+            "A. saturated liquid",
+            "B.  sub cooled liquid",
+            "C. saturated vapor",
+            "D. mixture of liquid and vapor"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 59
+        },
+        {
+          "text": "An uninsulated steam pipe passes through a room in which the air and walls are at 25 C. The outside diameter of the pipe is 70 mm, and its surface temperature and emissivity are 200 C and 0.8, respectively. If the coefficient associated with free convection heat transfer from the surface air is 15 W/m2, what is the rate of heat loss from the surface per unit length of pipe ",
+          "options": [
+            "A. 650 W/m",
+            "B. 998 W/m",
+            "C. 835 W/m",
+            "D. 726 W/m"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 44
+        },
+        {
+          "text": "A gas is confined in a 0.47 m diameter cylinder by piston, on which rests a weight. The mass of the piston and weight together is 150 kg. The local gravity acceleration is 9.813 m/s², the atmospheric pressure is 101.57 kPa. What is the change in potential energy of the piston and weight?",
+          "options": [
+            "A. 1.8 kJ",
+            "B. 1.5 kJ",
+            "C. 1.9 kJ",
+            "D. 1.2 kJ"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 4
+        },
+        {
+          "text": "Lower BWG means ___ of the tube ",
+          "options": [
+            "A. lower thickness",
+            "B. lower cross section",
+            "C. outer diameter",
+            "D. inner diameter"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 49
+        },
+        {
+          "text": "What is the yield of sodium acetate crystals (CH3COONa x 3H20) obtainable from a vacuum crystallizer operating at 1.33 kN/m2 when it is supplied with 0.56 kg/s of a 40 percent aqueous solution of the salt at 353 K? The boiling point elevation of the solution is 11.5 K Data: Heat of crystallizatlon, q= 144 kJ/kg trihydrate Heat capacity of the solution, Cp 3.5 kJ/kg Latent heat of water at 1.33 kN/m2, lambda = 2.46 MJ/kg Boiling of water at 1.33 kN/m2 = 290.7k Solubility of sodium acetate product 0.539 kg/kg water. ",
+          "options": [
+            "A. 0.15 kg/s ",
+            "B.  0.12 kg/s ",
+            "C. 0.18 kg/s ",
+            "D.  0.16 kg/s"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 47
+        },
+        {
+          "text": "Weber number is the ratio of inertial force to _____ force ",
+          "options": [
+            "A. surface tension",
+            "B. gravity",
+            "C. viscous",
+            "D. elastic"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 45
+        },
+        {
+          "text": "Which of the following is not true? ",
+          "options": [
+            "A. Potential flow is a flow of compressible fluids with no shear",
+            "B. Rotameters are variable head meters",
+            "C. There are 8 schedule numbers in used for standard pipes",
+            "D. Roughness has no appreciable effect on the friction factor when flow is laminar"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 58
+        },
+        {
+          "text": "Ammonium sulfate is to be crystallized from solution containing 48% (NH 4)2SO4, by cooling it in counter flow crystallizer from 85 to 35\"C. During cooling the amount of water that evaporates is 5% of the mass of the feed solution_ Data: Feed rate 1000 kg/h Solubility of (NH4)2SO4 at 35 C = 75 kg /100 kg of water Specific heat of 48% (NH4)2SO4 at solution 2.97 kJ/kg-K Heat of crystallization of (NH4)2SO4 = 75.2 kJ/kg Determine the required cooling surface, if the overall heat transfer is 125 W/m2 K ",
+          "options": [
+            "A. 3.13 m2",
+            "B. 2.52 m2",
+            "C. 1.95 m2",
+            "D. 4.02 m2"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 43
+        },
+        {
+          "text": "The clearance between two tubes in a shell and tube heat exchanger is known as 'ligament; whose minimum value is _______ the outside diameter ofthe tube; but in no case it should be less than 4.5 mm_  ",
+          "options": [
+            "A. equal to ",
+            "B. half ",
+            "C. one fourth",
+            "D. three fourth"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 38
+        },
+        {
+          "text": " Equivalent diameter for heat transfer calculation for a duct of square cross section having each side as 'd' will be  ",
+          "options": [
+            "A. d ",
+            "B.  sqrt d ",
+            "C. sqrt 2pid",
+            "D.  sqrt 2d"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 41
+        },
+        {
+          "text": "A first order irreversible reaction; is carried out separately in constant volume as well as variable volume reactor for particular period: It signifies that ______ in the two reactors ",
+          "options": [
+            "A. both conversion as well as concentration are sameQ",
+            "B. conversion in both will be the same but concentrations will be different",
+            "C. both the conversion as well as concentrations will be different",
+            "D. none of these"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 55
+        }
+      ]
     }
   ],
   "test_history": [
@@ -4766,5 +5384,5 @@
       "date_logged": "2026-09-21T13:35:41"
     }
   ],
-  "updated_at": "2026-09-21T16:56:28"
+  "updated_at": "2026-09-21T17:08:04"
 }
