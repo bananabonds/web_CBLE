@@ -2378,7 +2378,21 @@
       "note": "DoU = [2C+2+N-H]/2, Ring = 1, Double = 1, Triple = 2",
       "resolved": true,
       "date_logged": "2026-09-21T12:47:33"
+    },
+    {
+      "id": "1789995465334178",
+      "exam_id": "1789982956801386",
+      "exam_source": "D1_S1",
+      "source_list": "D1_L5_Material_Science_Engineering",
+      "reference_no": 41,
+      "question": "Consider a cylindrical specimen of some hypothetical metal alloy that has a diameter of 10.0 mm. A tensile force of 1500 N produces an elastic reduction in diameter of 6.7 x 10⁻⁴ mm. Compute the elastic modulus of this alloy, given that Poisson’s ratio is 0.35.",
+      "your_answer": "C. 250 GPa",
+      "correct_answer": "D. 100 GPa",
+      "category": "Formula / Equation Erro",
+      "note": "Elastic modulus = Tensile stress/Longtitudunal Strain, Tensile stress = Force / Cross section , Poissons ratio = -lateral strain/longtitudunal strain, Lateral strain = (change in diameter)/initial diameter",
+      "resolved": true,
+      "date_logged": "2026-09-21T12:57:45"
     }
   ],
-  "updated_at": "2026-09-21T12:47:38"
+  "updated_at": "2026-09-21T12:57:50"
 }
