@@ -4315,6 +4315,630 @@
           "_source_index": 35
         }
       ]
+    },
+    {
+      "id": "179009154409475",
+      "name": "D3_S2",
+      "created_at": "2026-09-22T15:39:04",
+      "composition": {
+        "D3_L2_Process_Control_Analysis": 3,
+        "D3_L4_Trigonometry": 3,
+        "D3_L13_EngineeringDataAnalysis": 4,
+        "D3_L7_Differential_Calculus": 3,
+        "D3_L6_AnalyticGeometry": 3,
+        "D3_L11_Differential_Equations": 4,
+        "D3_L8_Integral_Calculus": 3,
+        "D3_L10_ProcessSafety": 4,
+        "D3_L9_CPI": 3,
+        "D3_L1_ChE_Laws": 3,
+        "D3_L15_Engineering_Mechanics": 3,
+        "D3_L14_Physics": 4,
+        "D3_L12_EngineeringEconomics": 4,
+        "D3_L3_Algebra": 3,
+        "D3_L5_Geometry": 3
+      },
+      "questions": [
+        {
+          "text": " In process control, valves have various states wherein each state has a separate process function. Which of the following pertains to a temporary state wherein the valve has been commanded to change state, is not yet consistent with the commanded state, and the time to switch between states has not yet expired? ",
+          "options": [
+            "A. Open",
+            "B. Transition",
+            "C. Closed",
+            "D. Invalid"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 52
+        },
+        {
+          "text": "At a certain point, the angle of elevation of the top of a flagpole, which stands on level ground, is 35 deg. Seventy-five feet nearer the pole, the angle of elevation is 50 deg. How high is the pole?",
+          "options": [
+            "A. 127.32ft",
+            "B. 106.84ft",
+            "C. 117.85ft",
+            "D. 96.32ft"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 18
+        },
+        {
+          "text": "[Questions 31-39 refer to the following: The times required by three workers to perform an assembly-line task were recorded on five randomly selected occasions. Worker 1: 8, 10, 9, 11, 10. Worker 2: 8, 9, 9, 8, 10. Worker 3: 10, 9, 10, 11, 9.] Compute the F-statistic.",
+          "options": [
+            "A. 1.4",
+            "B. 0.9",
+            "C. 1.56",
+            "D. 2.8"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 79
+        },
+        {
+          "text": "[Questions 31-39 refer to the following: The times required by three workers to perform an assembly-line task were recorded on five randomly selected occasions. Worker 1: 8, 10, 9, 11, 10. Worker 2: 8, 9, 9, 8, 10. Worker 3: 10, 9, 10, 11, 9.] Compute the mean squares between treatments.",
+          "options": [
+            "A. 1.4",
+            "B. 0.9",
+            "C. 1.56",
+            "D. 2.8"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 77
+        },
+        {
+          "text": "Under what circumstances does an open control loop exist? ",
+          "options": [
+            "A. Process variable is not measured",
+            "B. Process variable is measured and compared to a setpoint",
+            "C. Action is taken regarding process variable conditions",
+            "D. None of the above"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 7
+        },
+        {
+          "text": "Find the limit: lim(x,y)→(0,0) (x² + y²)·ln(x² + y²)",
+          "options": [
+            "A. -1",
+            "B. 0",
+            "C. 1",
+            "D. limit does not exist"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 79
+        },
+        {
+          "text": "Find the eccentricity of the curve 9x^2 u2013 4y^2 u2013 36x + 8y = 4.",
+          "options": [
+            "A. 1.80",
+            "B. 1.86",
+            "C. 1.92",
+            "D. 1.76"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 38
+        },
+        {
+          "text": "Evaluate the integrating factor of the differential equation: y' + (4/x)y = x³y²",
+          "options": [
+            "A. 1/x",
+            "B. 1/x^2",
+            "C. 1/x^3",
+            "D. 1/x^4"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 24
+        },
+        {
+          "text": "Which of the following is considered as the Fredholm equation of the second kind?",
+          "options": [
+            "A. u(x) = λ∫[a,x] K(x,t)u(t)dt",
+            "B. u(x) = f(x) + λ∫[a,x] K(x,t)u(t)dt",
+            "C. u(x) = λ∫[a,b] K(x,t)u(t)dt",
+            "D. u(x) = f(x) + λ∫[a,b] K(x,t)u(t)dt"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 50
+        },
+        {
+          "text": "Why does site history have to be considered for hazard identification?",
+          "options": [
+            "A. To estimate the risk",
+            "B. To calculate carcinogenic exposure",
+            "C. To know source and cause of contamination",
+            "D. For determination of remedial actions"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 19
+        },
+        {
+          "text": "Which of the following is not produced on commercial scale from sea water?",
+          "options": [
+            "A. Bromine",
+            "B. Potassium compounds",
+            "C. Magnesium compounds",
+            "D. Sodium sulphate"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 39
+        },
+        {
+          "text": " The amount which the individual declared as income tax in his final adjusted and annual income tax return: ",
+          "options": [
+            "A. wages",
+            "B. excise tax",
+            "C. estimated tax",
+            "D. VAT"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 104
+        },
+        {
+          "text": "A circular road course track has a radius of 500 m and is banked at 10°. The coefficient of friction between the road and tire is 0.25. Compute the maximum speed to avoid slipping.",
+          "options": [
+            "A. 29.39 m/s",
+            "B. 36.36 m/s",
+            "C. 46.77 m/s",
+            "D. 51.12 m/s"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 40
+        },
+        {
+          "text": "A concave mirror forms a real image that is twice the size of the object. If the object is 20 cm from the mirror, the radius of curvature of the mirror must be about:",
+          "options": [
+            "A. 13 cm",
+            "B. 27 cm",
+            "C. 20 cm",
+            "D. 40 cm"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 42
+        },
+        {
+          "text": "A tank has pure water flowing into it at 10 L/min. The contents of the tank are kept thoroughly mixed, and the contents flow out at 10 L/min. Initially, the tank contains 10 kg of salt in 100 L of water. How much salt will there be in the tank after 30 minutes?",
+          "options": [
+            "A. 412.39g",
+            "B. 457.82g",
+            "C. 478.09g",
+            "D. 497.87g"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 46
+        },
+        {
+          "text": "If P1000 accumulates to P1500 when invested at a simple interest for 3 years, what is the rate of interest?",
+          "options": [
+            "A. 16.67%",
+            "B. 15.00%",
+            "C. 20.00%",
+            "D. 12.50%"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 31
+        },
+        {
+          "text": "Find the center of the circle x^2 + y^2 u2013 6x + 4y u2013 23 = 0.",
+          "options": [
+            "A. (3, -2)",
+            "B. (3, 2)",
+            "C. (-3, 2)",
+            "D. (-3, -2)"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 25
+        },
+        {
+          "text": "Simplify: cos x / (sin x + 1) + tan x",
+          "options": [
+            "A. cos x",
+            "B. sec x",
+            "C. cot x",
+            "D. tan x"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 7
+        },
+        {
+          "text": "A type of simple interest in which interest is calculated on the basis of a year with 365 days rather than the conventional 360 days.",
+          "options": [
+            "A. Ordinary Simple Interest",
+            "B. Compound Interest",
+            "C. Exact Simple Interest",
+            "D. Effective Interest"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 16
+        },
+        {
+          "text": "Consider the curve given by the equation y² + x³ = 0. Find its curvature at the point (-1, 1).",
+          "options": [
+            "A. 0.082",
+            "B. 0.128",
+            "C. -0.324",
+            "D. -0.526"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 43
+        },
+        {
+          "text": "What is the Laplace transform of sin(2t)?",
+          "options": [
+            "A. 2/(s²+2)",
+            "B. 2/(s²+4)",
+            "C. s/(s²+2)",
+            "D. s/(s²+4)"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 53
+        },
+        {
+          "text": "A motorcycle moving at 5 m/s accelerates uniformly at 3 m/s² for 4 s. Find the total distance traveled.",
+          "options": [
+            "A. 36 m",
+            "B. 40 m",
+            "C. 44 m",
+            "D. 48 m"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 44
+        },
+        {
+          "text": "It is an economic or a market situation in which only a single seller or producer supplies a commodity or a service.",
+          "options": [
+            "A. Oligopoly",
+            "B. Monopoly",
+            "C. Monopsony",
+            "D. Perfect Competition"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 1
+        },
+        {
+          "text": "An arithmetic progression starts with 3, has 9 terms, and the middle term is 19. Determine the sum of the first 9 terms.",
+          "options": [
+            "A. 220",
+            "B. 57",
+            "C. 110",
+            "D. 171"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 18
+        },
+        {
+          "text": "In which quadrant will angle A terminate if sec A is positive and csc A is negative?",
+          "options": [
+            "A. I",
+            "B. II",
+            "C. III",
+            "D. IV"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 16
+        },
+        {
+          "text": "Given that the roots of the polynomial x^3 - 7x^2 + 13x - 7 = 0 are r, s and t, compute the value of 1/r + 1/s + 1/t.",
+          "options": [
+            "A. 13/7",
+            "B. 7/13",
+            "C. 1/7",
+            "D. 7"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 14
+        },
+        {
+          "text": "Residue formed in the petroleum refining is ___________",
+          "options": [
+            "A. Waxes",
+            "B. Ammonia",
+            "C. Asphalt",
+            "D. Gas oil"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 94
+        },
+        {
+          "text": "What is the sum of the interior angles of a convex dodecagon?",
+          "options": [
+            "A. 1680u00b0",
+            "B. 1620u00b0",
+            "C. 1710u00b0",
+            "D. 1800u00b0"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 3
+        },
+        {
+          "text": "What is the measure of one interior angle of a regular icosagon?",
+          "options": [
+            "A. 160u00b0",
+            "B. 162u00b0",
+            "C. 168u00b0",
+            "D. 174u00b0"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 5
+        },
+        {
+          "text": "In project management, what is usually the first step underlying in the process of performing a project? ",
+          "options": [
+            "A. Select appropriate performance measures",
+            "B. Define the goals of the project and their relative importance",
+            "C. Identify a need for a product or service",
+            "D. Develop a technological concept"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 147
+        },
+        {
+          "text": "Which measurement has higher uncertainty?",
+          "options": [
+            "A. 123.4",
+            "B. 120",
+            "C. 123",
+            "D. 123.45"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 3
+        },
+        {
+          "text": "The _________ process determines whether exposure to a chemical can increase the incidence of adverse health effect.",
+          "options": [
+            "A. Hazard identification",
+            "B. Toxicity assessment",
+            "C. Exposure assessment",
+            "D. Risk characterization"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 60
+        },
+        {
+          "text": "Simplify: [(x^2 y^3 z^-2)^-3 (x^-3 y z^3)^(-1/2)] / (xyz^-3)^(-5/2)",
+          "options": [
+            "A. 1/(x^2 y^7 z^5)",
+            "B. 1/(x^2 y^7 z^3)",
+            "C. 1/(x^2 y^5 z^7)",
+            "D. 1/(x^5 y^7 z^2)"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 1
+        },
+        {
+          "text": "(Torricelli's law) A cylindrical keg with radius 10cm and height 25cm has a drain hole at the bottom with an area of 2cm². How long does it take for the keg to drain?",
+          "options": [
+            "A. 56.1s",
+            "B. 57.1s",
+            "C. 58.1s",
+            "D. 59.1s"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 53
+        },
+        {
+          "text": "Solve (x + y) dy = (x – y) dx",
+          "options": [
+            "A. x² + y² = C",
+            "B. x² + 2xy + y² = C",
+            "C. x² – 2xy – y² = C",
+            "D. x² – 2xy + y² = C"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 10
+        },
+        {
+          "text": "What is the main purpose of Good Manufacturing Practices (GMP)?",
+          "options": [
+            "A. To reduce production costs and increase profitability",
+            "B. To ensure products are consistently safe, effective, and of high quality",
+            "C. To speed up manufacturing processes and reduce waste",
+            "D. To comply with local tax regulations and accounting practices"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 81
+        },
+        {
+          "text": "A second-order process has τ = 3 min and ζ = 0.4. A step input of magnitude M is applied. Which of the following best describes the step response behavior? ",
+          "options": [
+            "A. The output rises monotonically with no overshoot and settles very slowly",
+            "B. The output is critically damped and reaches steady state in the minimum possible time without overshoot",
+            "C. The output overshoots the final steady-state value, oscillates, and eventually settles because ζ < 1",
+            "D. The output grows without bound because ζ < 1 implies instability"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 42
+        },
+        {
+          "text": "[Situation 3: Sphere with radius 12 in; cylinder inscribed with maximum volume] What is the height of the cylinder?",
+          "options": [
+            "A. 4√3 in",
+            "B. 6√3 in",
+            "C. 8√3 in",
+            "D. 10√3 in"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 57
+        },
+        {
+          "text": "Given the PMF of a discrete random variable X: P(X=1)=0.2, P(X=2)=0.3, P(X=3)=0.5, and 0 otherwise. What is the mean (μ) of the random variable X?",
+          "options": [
+            "A. 2.3",
+            "B. 2",
+            "C. 2.2",
+            "D. 2.1"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 51
+        },
+        {
+          "text": "What is the volume generated when the area in the first quadrant bounded by the curve x²=8y, the line x=4, and the x-axis is revolved about the y-axis?",
+          "options": [
+            "A. 40.13",
+            "B. 45.78",
+            "C. 50.26",
+            "D. 30.56"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 39
+        },
+        {
+          "text": "__________ glass has the lowest co-efficient of thermal expansion and hence is more heat resistant.",
+          "options": [
+            "A. Pyrex",
+            "B. Lead",
+            "C. Soda lime",
+            "D. High silica"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 90
+        },
+        {
+          "text": "Find the equation of the line through point (3, 1) and is perpendicular to the line x + 5y + 5 = 0.",
+          "options": [
+            "A. 5x u2013 2y = 14",
+            "B. 5x u2013 y = 14",
+            "C. 2x u2013 5y = 14",
+            "D. 2x + 5y = 14"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 18
+        },
+        {
+          "text": " Where do one submit or file the incorporation documents of an applicant company? ",
+          "options": [
+            "A. mayor's office",
+            "B. PRC",
+            "C. SEC",
+            "D. DTI"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 114
+        },
+        {
+          "text": "A 2.29-m long organ pipe acts as a closed-end resonator that produces several different harmonic frequencies in the audible range from 20 Hz to 20,000 Hz. Assuming a speed of sound of 343 m/s, determine the 5th lowest (5th harmonic present) frequency that the pipe can produce.",
+          "options": [
+            "A. 187 Hz",
+            "B. 276 Hz",
+            "C. 337 Hz",
+            "D. 409 Hz"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 26
+        },
+        {
+          "text": "A 3.0 kg box is at rest on a table. The static friction coefficient between the box and table is 0.40 and the kinetic friction coefficient is 0.10. A 10N horizontal force is applied to the box. What is the best estimate of the magnitude of the box's acceleration?",
+          "options": [
+            "A. 2.7 m/s²",
+            "B. 0 m/s²",
+            "C. 9.8 m/s²",
+            "D. 5.7 m/s²"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 18
+        },
+        {
+          "text": "A circle whose area is 452 cm square is cut into two segments by a chord whose distance from the center of the circle is 6 cm. Find the area of the larger segment in cm square.",
+          "options": [
+            "A. 372.5",
+            "B. 363.6",
+            "C. 368.4",
+            "D. 377.6"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 23
+        },
+        {
+          "text": "What phase of 5S involves identifying unnecessary items with a red tag system and organizing the remaining items, possibly through color-coding, for efficient use and access?",
+          "options": [
+            "A. Sort",
+            "B. Shine",
+            "C. Set-In-Order",
+            "D. Standardize"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 10
+        },
+        {
+          "text": "There are 5 positions on a flagstaff and 4 different colors of flags, with at least 5 flags of each color available. How many different signals are possible by displaying 5 flags simultaneously? Note that arrangement and order is important.",
+          "options": [
+            "A. 120",
+            "B. 625",
+            "C. 1024",
+            "D. 20"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 7
+        },
+        {
+          "text": "The nominal rate of return on the bonds of Steve's boat is 7.75%. The real rate of return is 4.4%. What is the rate of inflation?",
+          "options": [
+            "A. 3.35%",
+            "B. 3.28%",
+            "C. 3.21%",
+            "D. 3.17%"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 79
+        },
+        {
+          "text": "Water is flowing in a fire hose with a velocity of 1 m/s and a pressure of 200 kPa. At the nozzle, the pressure decreases to atmospheric pressure, and there is no change in height. Use the Bernoulli equation to calculate the velocity of the water exiting the nozzle.",
+          "options": [
+            "A. 13 m/s",
+            "B. 14 m/s",
+            "C. 15 m/s",
+            "D. 16 m/s"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 70
+        }
+      ]
     }
   ],
   "test_history": [
@@ -8511,5 +9135,5 @@
       "date_logged": "2026-09-22T15:13:42"
     }
   ],
-  "updated_at": "2026-09-22T15:36:04"
+  "updated_at": "2026-09-22T15:39:09"
 }
