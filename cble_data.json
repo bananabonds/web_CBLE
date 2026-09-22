@@ -5394,8 +5394,8 @@
       "correct_answer": "B. 11.1 BTU",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "dU=dH+d(PV), psia ft3 -> ft lbf by multiplying to 144 in2/ft2 then to BTU = 778.16 lbf ft",
-      "resolved": false,
-      "date_logged": "2026-09-21T18:32:14"
+      "resolved": true,
+      "date_logged": "2026-09-22T00:32:02"
     },
     {
       "id": "1790015515844868",
@@ -5422,8 +5422,8 @@
       "correct_answer": "A. QN: H&N2 : P&N3",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Pump affinity laws. Q~N, H~N^2, P~N^3",
-      "resolved": false,
-      "date_logged": "2026-09-21T18:34:47"
+      "resolved": true,
+      "date_logged": "2026-09-22T00:32:10"
     },
     {
       "id": "1790015843872613",
@@ -5522,7 +5522,21 @@
       "note": "Temp is less than 100 C and the product must be immiscible",
       "resolved": false,
       "date_logged": "2026-09-22T00:28:38"
+    },
+    {
+      "id": "1790037292169216",
+      "exam_id": "179000978718785",
+      "exam_source": "D2_S1",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 105,
+      "question": "In McCabe-Thiele method of theoretical platecalculation for a distillation column, the operatinglines of stripping and rectifying sections coincidewith the diagonal at reflux.",
+      "your_answer": "C. minimum",
+      "correct_answer": "A. total",
+      "category": "Conceptual Misunderstanding",
+      "note": "Total reflux = minimum number of plates, minimum reflux = infinite number of plates",
+      "resolved": true,
+      "date_logged": "2026-09-22T00:34:52"
     }
   ],
-  "updated_at": "2026-09-22T00:31:58"
+  "updated_at": "2026-09-22T00:34:57"
 }
