@@ -6777,7 +6777,21 @@
       "note": "VAT is automatically added to goods, estimated tax is used for businesses to pay their tax replaced now by quarterly income tax returns",
       "resolved": false,
       "date_logged": "2026-09-22T05:46:54"
+    },
+    {
+      "id": "1790057716755165",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "source_list": "D3_L3_Algebra",
+      "reference_no": 29,
+      "question": "Suppose 4 machines in a machine shop are used to produce the same part. However, each of the 4 machines takes 2.5, 2.0, 1.5 and 6.0 minutes to make one part, respectively. What is the average rate of speed?",
+      "your_answer": "D. 3",
+      "correct_answer": "C. 2.31",
+      "category": "Formula / Equation Error",
+      "note": "When dealing with rates or values of time per unit, use the harmonic mean. H = N/SUM(x^-1). Arithmetic mean is biased when it comes to rates.",
+      "resolved": false,
+      "date_logged": "2026-09-22T06:15:16"
     }
   ],
-  "updated_at": "2026-09-22T06:07:24"
+  "updated_at": "2026-09-22T06:15:22"
 }
