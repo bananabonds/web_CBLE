@@ -6861,7 +6861,21 @@
       "note": "Hockey Stick Identity: rCr + (r+1)Cr + (r+2)Cr+...+nCr = (n+1)C(r+1). Solve the equivalent where n = 2023, and r = 15",
       "resolved": false,
       "date_logged": "2026-09-22T06:31:52"
+    },
+    {
+      "id": "179005946634038",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 77,
+      "question": "[Situation 6: C(x) = 10000 + 90x - 0.05x²] What is the marginal cost of 500 tanks?",
+      "your_answer": "D. $40.10",
+      "correct_answer": "B. $40",
+      "category": "Formula / Equation Error",
+      "note": "The marginal cost is the rate of change of cost. Find derivative then substitute",
+      "resolved": false,
+      "date_logged": "2026-09-22T06:44:26"
     }
   ],
-  "updated_at": "2026-09-22T06:31:57"
+  "updated_at": "2026-09-22T06:44:31"
 }
