@@ -7197,7 +7197,21 @@
       "note": "+-1 is specific zone limit (non-standard), +-2 is warning limits, +-3 is action limits",
       "resolved": true,
       "date_logged": "2026-09-22T13:19:28"
+    },
+    {
+      "id": "1790083256067477",
+      "exam_id": "1790049374501945",
+      "exam_source": "CT_PT_S1",
+      "source_list": "CT_PT_Laboratory_Instrumentation",
+      "reference_no": 34,
+      "question": "Which substance is commonly used as the external standard in ¹H NMR spectroscopy and assigned δ = 0 ppm?",
+      "your_answer": "C. methanol",
+      "correct_answer": "B. tetramethylsilane",
+      "category": "Conceptual Misunderstanding",
+      "note": "TMS is reference since its protons are shielded, hydrogen is equivalent, volatile, and inert",
+      "resolved": true,
+      "date_logged": "2026-09-22T13:21:01"
     }
   ],
-  "updated_at": "2026-09-22T13:19:34"
+  "updated_at": "2026-09-22T13:21:01"
 }
