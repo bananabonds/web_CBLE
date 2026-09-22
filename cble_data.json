@@ -7043,7 +7043,35 @@
       "note": "Geometric progression. a_n = a_1 * r ^(n-1). where r is the common ratio which is solvable from the given and the general form of the equation.",
       "resolved": false,
       "date_logged": "2026-09-22T08:47:32"
+    },
+    {
+      "id": "1790068595197999",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 48,
+      "question": "In a tank are 100 liters of brine containing 50 kg total of dissolved salt. Pure water is allowed to run into the tank at the rate of 3 liters a minute. Brine runs out of the tank at the rate of 2 liters a minute. The instantaneous concentration in the tank is kept uniform by stirring. How much salt is in the tank at the end of one hour?",
+      "your_answer": "D. 20.62 kg",
+      "correct_answer": "B. 19.53 kg",
+      "category": "Formula / Equation Error",
+      "note": "Find instantaneous volume, find the differential of salt over time (rate in - rate out), integrate the differential, simplify, solve for constant at t=0 formulate the equation of instantaneous salt  S(t).",
+      "resolved": false,
+      "date_logged": "2026-09-22T09:16:35"
+    },
+    {
+      "id": "179006949169229",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "source_list": "D3_L4_Trigonometry",
+      "reference_no": 24,
+      "question": "If sin A = 3/5 and A lies on the 2nd quadrant, while cosine B = 7/25 lies on the first quadrant, find the numerical value of sin (A + B).",
+      "your_answer": "B. 3/5",
+      "correct_answer": "A. -3/5",
+      "category": "Formula / Equation Error",
+      "note": "inverse trig functions could work but if in quarant 2 (theta) = 180 - theta. sin2A+cos2A =1 and sin2B + cos2B = 1 then solve for sin A, sin B, cos A, cos B then sin(A+B) = sinAcosB +cosAsinB",
+      "resolved": false,
+      "date_logged": "2026-09-22T09:31:31"
     }
   ],
-  "updated_at": "2026-09-22T08:47:38"
+  "updated_at": "2026-09-22T09:31:36"
 }
