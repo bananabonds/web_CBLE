@@ -6917,7 +6917,21 @@
       "note": "Effective annual rate = [(1+(r/n))^n]-1, where n depends on the payment times where n = 1 is annual",
       "resolved": false,
       "date_logged": "2026-09-22T06:53:30"
+    },
+    {
+      "id": "179006038142790",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 45,
+      "question": "Suppose that an object initially having a temperature of 20° is placed in a large temperature controlled room of 80° and one hour later the object has a temperature of 35°. What will its temperature be after three hours?",
+      "your_answer": "B. 52.64°",
+      "correct_answer": "D. 54.69°",
+      "category": "Formula / Equation Error",
+      "note": "T(t)=Tambient + (To - Tambient)e^-kt. Solve for k then solve for T(3)",
+      "resolved": false,
+      "date_logged": "2026-09-22T06:59:41"
     }
   ],
-  "updated_at": "2026-09-22T06:53:36"
+  "updated_at": "2026-09-22T06:59:47"
 }
