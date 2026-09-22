@@ -7225,7 +7225,21 @@
       "note": "HPLC can be non constant in conditions, (gradient elutions). It doesnt need volatile components",
       "resolved": true,
       "date_logged": "2026-09-22T13:23:28"
+    },
+    {
+      "id": "179008360347554",
+      "exam_id": "1790049374501945",
+      "exam_source": "CT_PT_S1",
+      "source_list": "CT_PT_Laboratory_Instrumentation",
+      "reference_no": 50,
+      "question": "In the van Deemter equation, the B term represents",
+      "your_answer": "C. mass transfer",
+      "correct_answer": "B. longitudinal diffusion",
+      "category": "Conceptual Misunderstanding",
+      "note": "Van Deemter equation determines chromatography column efficiency H = A + B/u +Cu. H is efficiency, A is Eddy diffusion, B is longtitudinal diffusion, C is mass transfer resistance, u is the linear velocity of mobile phase.",
+      "resolved": true,
+      "date_logged": "2026-09-22T13:26:43"
     }
   ],
-  "updated_at": "2026-09-22T13:23:33"
+  "updated_at": "2026-09-22T13:26:49"
 }
