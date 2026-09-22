@@ -5564,7 +5564,21 @@
       "note": "Raffinate A = Feed A * (Inert/ (Dist. Coeff * Inert))^no. Stages",
       "resolved": false,
       "date_logged": "2026-09-22T00:54:05"
+    },
+    {
+      "id": "1790039005637734",
+      "exam_id": "179000978718785",
+      "exam_source": "D2_S1",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 82,
+      "question": "The air supply for a dryer has a dry-bulb temperature of 70 F and a wet bulb temperature of 60 F. It is heated to 200 F by coils and blown into the dryer: In the dryer it cools along an adiabatic cooling line and leaves the dryer fully saturated: At what temperature does the air leave the dryer?",
+      "your_answer": "A. 86 F",
+      "correct_answer": "B. 93 F",
+      "category": "Forgot a Concept (Knew It Before)",
+      "note": "Use initial Tdb and Twb to get the amount humidity ratio then use it with the heating temp to find the line where it's 100%saturated then find the temp where db = wb",
+      "resolved": false,
+      "date_logged": "2026-09-22T01:03:25"
     }
   ],
-  "updated_at": "2026-09-22T00:54:12"
+  "updated_at": "2026-09-22T01:03:30"
 }
