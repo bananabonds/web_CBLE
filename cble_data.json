@@ -7113,7 +7113,21 @@
       "note": "Draw the conditions. Since A and B must be together the circular perm = (5-1)! instead of (6-1)!. Total is (5-1)! * 2! (AB swapping positions). For C and D to not be together we can group them as well giving (4-1)! where 4 is left (AB), (CD), E, and F. (4-1)! * 2! (AB swaps) * 2! (CD swaps) = 24. T = 48-24 = 24",
       "resolved": false,
       "date_logged": "2026-09-22T12:31:40"
+    },
+    {
+      "id": "1790080665856765",
+      "exam_id": "1790049374501945",
+      "exam_source": "CT_PT_S1",
+      "source_list": "CT_PT_Quality_Assurance_Control",
+      "reference_no": 12,
+      "question": "External Quality Assurance primarily ensures quality for",
+      "your_answer": "C. Equipment suppliers",
+      "correct_answer": "A. Clients",
+      "category": "Conceptual Misunderstanding",
+      "note": "EQA is an external body that assess an organization's product / service which gives clients confidence (accreditation)",
+      "resolved": true,
+      "date_logged": "2026-09-22T12:37:50"
     }
   ],
-  "updated_at": "2026-09-22T12:31:46"
+  "updated_at": "2026-09-22T12:37:51"
 }
