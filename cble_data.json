@@ -7351,7 +7351,21 @@
       "note": "",
       "resolved": true,
       "date_logged": "2026-09-22T14:49:53"
+    },
+    {
+      "id": "1790089361064524",
+      "exam_id": "179000978718785",
+      "exam_source": "D2_S1",
+      "source_list": "D2_L1_ChE_Calculations",
+      "reference_no": 69,
+      "question": "A furnace is fired with high volatile A bituminous coal whose ultimate analysis shows 75.2% C, 5.19% H, 8.72% 0, 1.5% N, 7.8% ash and 1.6% S. 60% excess air is supplied. Assume CO to CO₂ ratio of 0.175. The stack gas leaves at 300°C, 740 torrs. Calculate: The % water in the complete analysis of the stack gas if air is supplied at 28C, 100 kPa and essentially dry.",
+      "your_answer": "C. 3.12%",
+      "correct_answer": "D. 4.47%",
+      "category": "Formula / Equation Error",
+      "note": "Convert the ultimate analysis to moles. O2 theo = C + H/4 + S - O/2. O2 supp = O2 theo * (1+O2 xs). Find N2 (air) from O2 supp. Find CO and CO2 from Ct = CO + CO2 and the ratio. Find O2 free = O2 supp - CO2 - 0.5CO - 0.5H2O - SO2 - O/2 (from coal). Find N2 free = N2(air) + N/2 (from coal). Then find the percent of H2O from total",
+      "resolved": false,
+      "date_logged": "2026-09-22T15:02:41"
     }
   ],
-  "updated_at": "2026-09-22T14:49:58"
+  "updated_at": "2026-09-22T15:02:46"
 }
