@@ -18,6 +18,7 @@
   --line:#E1E4E9;
   --amber:#F59E0B;
   --amber-ink:#7A4A05;
+  --amber-bg:#FEF3C7;
   --green:#166534;
   --green-bg:#DCFCE7;
   --red:#DC2626;
@@ -122,6 +123,13 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
 .list-item .meta{font-size:.74rem;color:var(--sub);font-family:"IBM Plex Mono",monospace;}
 .list-item.selectable{cursor:pointer;}
 .list-item.selected{border-color:var(--navy);box-shadow:0 0 0 1px var(--navy) inset;background:#EEF2FF;}
+.list-item.status-red{border-left:4px solid var(--red);background:var(--red-bg);}
+.list-item.status-yellow{border-left:4px solid var(--amber);background:var(--amber-bg);}
+.list-item.status-green{border-left:4px solid var(--green);background:var(--green-bg);}
+.status-pill{display:inline-block;border-radius:999px;padding:2px 9px;font-size:.68rem;font-weight:700;}
+.status-pill.status-red{border-left:none;background:var(--red);color:#fff;}
+.status-pill.status-yellow{border-left:none;background:var(--amber);color:#fff;}
+.status-pill.status-green{border-left:none;background:var(--green);color:#fff;}
 
 .progress-track{height:6px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:6px;}
 .progress-fill{height:100%;background:var(--navy);}
@@ -347,6 +355,26 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
       </div>
       <div class="card">
         <h3>Priority Overview</h3>
+        <div class="row wrap" style="margin-bottom:10px;">
+          <button class="btn" id="btnPriorityFilterToggle">Filter Subjects</button>
+          <select id="prioritySortSelect">
+            <option value="priority">Sort: Priority (lowest first)</option>
+            <option value="accuracy">Sort: Raw Accuracy (lowest first)</option>
+            <option value="alpha">Sort: Alphabetical</option>
+          </select>
+          <select id="priorityMetricSelect">
+            <option value="weighted">Bar: Weighted Priority %</option>
+            <option value="accuracy">Bar: Raw Accuracy %</option>
+          </select>
+        </div>
+        <div id="priorityFilterBox" class="list-item" style="display:none;margin-bottom:10px;">
+          <div class="row wrap" style="margin-bottom:8px;">
+            <b style="font-size:.8rem;flex:1;">Choose subjects to show</b>
+            <button class="btn link" id="btnPrioritySelectAll">All</button>
+            <button class="btn link" id="btnPriorityClearAll">None</button>
+          </div>
+          <div id="prioritySubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
+        </div>
         <div id="priorityBars"></div>
       </div>
       <div class="card">
@@ -466,8 +494,9 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
     <p class="hint" id="githubSyncLine" style="margin:6px 0 10px;">Not connected.</p>
     <p class="hint" style="margin-bottom:10px;">Your data (banks, samples, history, analysis, mistake log) will be
       read from and written to one JSON file in a GitHub repo of your choosing, so it survives losing this phone
-      or clearing Chrome's site data. The token below is stored only in this browser and used only to call
-      GitHub's API directly from this page.</p>
+      or clearing Chrome's site data. Each exam's report is also auto-saved as its own CSV file, named after the
+      sample and the date it was submitted, in the folder below. The token is stored only in this browser and
+      used only to call GitHub's API directly from this page.</p>
     <label class="field-label">Repo owner (your GitHub username)</label>
     <input type="text" id="ghOwnerInput" placeholder="e.g. jdoe">
     <label class="field-label">Repo name</label>
@@ -476,6 +505,8 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
     <input type="text" id="ghBranchInput" placeholder="main" value="main">
     <label class="field-label">File path in the repo</label>
     <input type="text" id="ghPathInput" placeholder="cble_data.json" value="cble_data.json">
+    <label class="field-label">CSV reports folder (each exam's report is auto-saved here as a .csv on submit)</label>
+    <input type="text" id="ghCsvFolderInput" placeholder="reports" value="reports">
     <label class="field-label">Fine-grained Personal Access Token (Contents: Read and write, scoped to this one repo)</label>
     <input type="password" id="ghTokenInput" placeholder="github_pat_\u2026">
     <div class="row" style="margin-top:10px;">
@@ -1019,6 +1050,74 @@ async function githubPutFile(dataObj, sha) {
   return json.content.sha;
 }
 
+/* ---------------------------------------------------------------------
+   Generic path-based GitHub helpers, used for auto-saving each exam's
+   CSV report into its own file (as opposed to githubGetFile/githubPutFile
+   above, which are hardcoded to the single data-sync JSON file).
+   --------------------------------------------------------------------- */
+function githubContentsUrl(path, ref) {
+  const c = getGithubConfig();
+  const encodedPath = path.split("/").map(encodeURIComponent).join("/");
+  let url = `https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${encodedPath}`;
+  if (ref) url += `?ref=${encodeURIComponent(ref)}`;
+  return url;
+}
+async function githubGetFileAtPath(path) {
+  const c = getGithubConfig();
+  const res = await fetch(githubContentsUrl(path, c.branch || "main"), {
+    headers: { "Authorization": `Bearer ${c.token}`, "Accept": "application/vnd.github+json" },
+    cache: "no-store",
+  });
+  if (res.status === 404) return { sha: null };
+  if (!res.ok) throw new Error(`GET ${res.status} ${(await res.text().catch(() => "")).slice(0, 150)}`);
+  const json = await res.json();
+  return { sha: json.sha };
+}
+async function githubPutFileAtPath(path, contentStr, sha, message) {
+  const c = getGithubConfig();
+  const body = { message: message || `Update ${path}`, content: b64EncodeUnicode(contentStr), branch: c.branch || "main" };
+  if (sha) body.sha = sha;
+  const res = await fetch(githubContentsUrl(path), {
+    method: "PUT",
+    headers: { "Authorization": `Bearer ${c.token}`, "Accept": "application/vnd.github+json", "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(`PUT ${res.status} ${(await res.text().catch(() => "")).slice(0, 200)}`);
+  const json = await res.json();
+  return json.content.sha;
+}
+function slugifyFilename(name) {
+  return (name || "untitled").trim().replace(/[\/\\?%*:|"<>#&]/g, "-").replace(/\s+/g, "_").slice(0, 80) || "untitled";
+}
+function dateStampReadable() {
+  const d = new Date();
+  const pad = n => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+async function pushCsvReportToGithub() {
+  if (!githubConfigured()) return;
+  const c = getGithubConfig();
+  const folder = (c.csvFolder || "reports").replace(/^\/+|\/+$/g, "");
+  const baseName = `${slugifyFilename(Exam.topic)}_${dateStampReadable()}`;
+  let filename = `${baseName}.csv`;
+  let path = `${folder}/${filename}`;
+  try {
+    const existing = await githubGetFileAtPath(path);
+    if (existing.sha) {
+      // Same sample already has a CSV for today (e.g. a retake) -- keep both instead of overwriting.
+      const d = new Date();
+      const pad = n => String(n).padStart(2, "0");
+      filename = `${baseName}_${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}.csv`;
+      path = `${folder}/${filename}`;
+    }
+    await githubPutFileAtPath(path, buildReportCsvString(), null, `Add exam report CSV: ${filename}`);
+    setGithubStatus(`Synced \u00b7 saved ${path}`);
+  } catch (e) {
+    console.error("Could not push CSV report to GitHub:", e);
+    toast(`Saved locally, but couldn't push the CSV to GitHub: ${e.message}`);
+  }
+}
+
 function buildLocalSnapshot() {
   return {
     local_banks: loadJson(KEYS.banks, {}),
@@ -1391,6 +1490,7 @@ $("btnSettings").addEventListener("click", () => {
   $("ghRepoInput").value = c ? c.repo || "" : "";
   $("ghBranchInput").value = c ? (c.branch || "main") : "main";
   $("ghPathInput").value = c ? (c.path || "cble_data.json") : "cble_data.json";
+  $("ghCsvFolderInput").value = c ? (c.csvFolder || "reports") : "reports";
   $("ghTokenInput").value = c ? c.token || "" : "";
   setGithubStatus(githubConfigured() ? "connected, not yet synced this session" : "not connected");
   openSheet("settingsSheet");
@@ -1403,9 +1503,10 @@ $("btnSaveGithubConfig").addEventListener("click", async () => {
   const repo = $("ghRepoInput").value.trim();
   const branch = $("ghBranchInput").value.trim() || "main";
   const path = $("ghPathInput").value.trim() || "cble_data.json";
+  const csvFolder = $("ghCsvFolderInput").value.trim().replace(/^\/+|\/+$/g, "") || "reports";
   const token = $("ghTokenInput").value.trim();
   if (!owner || !repo || !token) { toast("Fill in owner, repo, and a token at minimum."); return; }
-  saveGithubConfigRaw({ owner, repo, branch, path, token });
+  saveGithubConfigRaw({ owner, repo, branch, path, csvFolder, token });
   setGithubStatus("Testing connection\u2026");
   try {
     const { data, sha } = await githubGetFile();
@@ -1646,6 +1747,71 @@ $("btnClearHistory").addEventListener("click", () => {
    Tab 4: Study Priority Analysis
    ===================================================================== */
 let analysisOverall = {}, analysisProgression = {};
+let priorityHiddenSubjects = new Set(); // subjects unchecked in the Priority Overview filter
+let prioritySortMode = "priority";
+let priorityMetric = "weighted";
+
+function renderPrioritySubjectChecks(subjects) {
+  const box = $("prioritySubjectChecks");
+  box.innerHTML = "";
+  const sorted = subjects.slice().sort();
+  if (!sorted.length) { box.appendChild(el("div", "empty-state", "No subjects with data yet.")); return; }
+  for (const s of sorted) {
+    const row = el("label", "row");
+    row.style.marginBottom = "6px";
+    row.style.fontSize = ".82rem";
+    const checked = !priorityHiddenSubjects.has(s);
+    row.innerHTML = `<input type="checkbox" ${checked ? "checked" : ""}><span>${esc(s)}</span>`;
+    row.querySelector("input").addEventListener("change", (e) => {
+      if (e.target.checked) priorityHiddenSubjects.delete(s); else priorityHiddenSubjects.add(s);
+      renderPriorityBars();
+    });
+    box.appendChild(row);
+  }
+}
+function renderPriorityBars() {
+  const overall = analysisOverall;
+  const allSubjects = Object.keys(overall);
+  let subjects = allSubjects.filter(s => !priorityHiddenSubjects.has(s));
+  const metricKey = priorityMetric === "accuracy" ? "accuracy_pct" : "weighted_pct";
+
+  if (prioritySortMode === "alpha") subjects.sort();
+  else if (prioritySortMode === "accuracy") subjects.sort((a, b) => overall[a].accuracy_pct - overall[b].accuracy_pct);
+  else subjects.sort((a, b) => overall[a].weighted_pct - overall[b].weighted_pct);
+
+  const barBox = $("priorityBars");
+  barBox.innerHTML = "";
+  if (!subjects.length) {
+    barBox.appendChild(el("div", "empty-state",
+      allSubjects.length ? "No subjects selected \u2014 use Filter Subjects above." : "No data yet."));
+    return;
+  }
+  for (const subj of subjects) {
+    const stats = overall[subj];
+    const pct = stats[metricKey];
+    const color = pct < 40 ? "var(--red)" : (pct < 70 ? "var(--amber)" : "var(--green)");
+    const row = el("div", "bar-row");
+    row.innerHTML = `<div class="lbl">${esc(subj)}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.max(2, pct)}%;background:${color};"></div></div><div class="bar-val">${pct.toFixed(0)}%</div>`;
+    barBox.appendChild(row);
+  }
+}
+$("btnPriorityFilterToggle").addEventListener("click", () => {
+  const box = $("priorityFilterBox");
+  box.style.display = box.style.display === "none" ? "block" : "none";
+});
+$("btnPrioritySelectAll").addEventListener("click", () => {
+  priorityHiddenSubjects.clear();
+  renderPrioritySubjectChecks(Object.keys(analysisOverall));
+  renderPriorityBars();
+});
+$("btnPriorityClearAll").addEventListener("click", () => {
+  priorityHiddenSubjects = new Set(Object.keys(analysisOverall));
+  renderPrioritySubjectChecks(Object.keys(analysisOverall));
+  renderPriorityBars();
+});
+$("prioritySortSelect").addEventListener("change", () => { prioritySortMode = $("prioritySortSelect").value; renderPriorityBars(); });
+$("priorityMetricSelect").addEventListener("change", () => { priorityMetric = $("priorityMetricSelect").value; renderPriorityBars(); });
+
 function refreshAnalysis() {
   const { overall, progression } = computeSubjectAnalysis();
   analysisOverall = overall; analysisProgression = progression;
@@ -1666,13 +1832,8 @@ function refreshAnalysis() {
 
   const barBox = $("priorityBars");
   barBox.innerHTML = "";
-  for (const [subj, stats] of ranked) {
-    const pct = stats.weighted_pct;
-    const color = pct < 40 ? "var(--red)" : (pct < 70 ? "var(--amber)" : "var(--green)");
-    const row = el("div", "bar-row");
-    row.innerHTML = `<div class="lbl">${esc(subj)}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.max(2, pct)}%;background:${color};"></div></div><div class="bar-val">${pct.toFixed(0)}%</div>`;
-    barBox.appendChild(row);
-  }
+  renderPrioritySubjectChecks(Object.keys(overall));
+  renderPriorityBars();
   if (!ranked.length) barBox.appendChild(el("div", "empty-state", "No data yet."));
 
   const subjects = Object.keys(progression).sort();
@@ -1790,9 +1951,11 @@ function onLoadExamMistakes() {
   }
   currentExamMistakes.forEach((row, idx) => {
     const entry = row.logged_entry;
-    const item = el("div", "list-item selectable");
+    const statusClass = !entry ? "status-red" : (entry.resolved ? "status-green" : "status-yellow");
+    const statusLabel = !entry ? "Not logged" : (entry.resolved ? "Logged \u00b7 Resolved" : "Logged \u00b7 Unresolved");
+    const item = el("div", `list-item selectable ${statusClass}`);
     item.innerHTML = `<div class="top-row"><span class="name">Ref #${esc(row.reference_no)} &middot; ${esc(row.source_list)}</span>
-        <span class="meta">${entry ? "Logged" : "Not logged"}</span></div>
+        <span class="status-pill ${statusClass}">${statusLabel}</span></div>
       <div class="meta">Your answer: ${esc((row.your_answer || "").slice(0, 60))}</div>
       <div class="meta">Correct: ${esc((row.correct_answer || "").slice(0, 60))}</div>
       ${entry ? `<div class="meta">Category: ${esc(entry.category)}</div>` : ""}`;
@@ -1857,10 +2020,11 @@ function refreshAllMistakesTree() {
     group.innerHTML = `<div class="row" style="margin-bottom:8px;"><b style="font-size:.85rem;">${esc(subject)}</b>
       <span class="meta" style="margin-left:6px;">(${sorted.length} mistake${sorted.length === 1 ? "" : "s"}, ${unresolved} open)</span></div>`;
     for (const e of sorted) {
-      const line = el("div", "list-item");
+      const statusClass = e.resolved ? "status-green" : "status-yellow";
+      const line = el("div", `list-item ${statusClass}`);
       line.style.marginBottom = "6px";
       line.innerHTML = `<div class="top-row"><span class="name">Ref #${esc(e.reference_no)} &middot; ${esc(e.category || "")}</span>
-          <span class="meta">${e.resolved ? "Resolved" : "Open"}</span></div>
+          <span class="status-pill ${statusClass}">${e.resolved ? "Resolved" : "Open"}</span></div>
         <div class="meta">${esc(e.exam_source || "")} &middot; logged ${esc(e.date_logged || "")}</div>
         ${e.note ? `<div class="meta">${esc((e.note || "").slice(0, 90))}</div>` : ""}`;
       group.appendChild(line);
@@ -2396,6 +2560,7 @@ function showReport() {
   renderReportSummary();
   renderReportItems();
   openOverlay("reportOverlay");
+  if (githubConfigured()) pushCsvReportToGithub();
 }
 
 function renderReportSummary() {
@@ -2476,7 +2641,7 @@ function csvEscape(v) {
   const s = (v === null || v === undefined) ? "" : String(v);
   return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
 }
-$("btnExportCsv").addEventListener("click", () => {
+function buildReportCsvString() {
   const headers = ["Number", "Correct", "Flagged", "Confidence", "SourceList", "ReferenceNo", "TimeSpentSec", "Question", "YourAnswer", "CorrectAnswer"];
   const rows = [headers.join(",")];
   for (const item of Exam.allItemsReport.slice().sort((a, b) => a.number - b.number)) {
@@ -2486,7 +2651,10 @@ $("btnExportCsv").addEventListener("click", () => {
       Math.round(item.time_spent_seconds), item.question, item.your_answer, item.correct_answer,
     ].map(csvEscape).join(","));
   }
-  const blob = new Blob([rows.join("\n")], { type: "text/csv" });
+  return rows.join("\n");
+}
+$("btnExportCsv").addEventListener("click", () => {
+  const blob = new Blob([buildReportCsvString()], { type: "text/csv" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = `cble_report_${todayStamp()}.csv`;
