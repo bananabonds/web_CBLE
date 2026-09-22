@@ -6819,7 +6819,21 @@
       "note": "Bamboo is high yield fiber source",
       "resolved": false,
       "date_logged": "2026-09-22T06:21:07"
+    },
+    {
+      "id": "1790058151859210",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "source_list": "D3_L2_Process_Control_Analysis",
+      "reference_no": 35,
+      "question": "This type of control loop measures the disturbance variables to limit the deviation in the output variables by preemptively adjusting the manipulated variable.",
+      "your_answer": "A. Feedback control",
+      "correct_answer": "C. Feedforward control",
+      "category": "Conceptual Misunderstanding",
+      "note": "Feedforward is preemptive, proactive, and modeled correction. Feedbackward waits for the error before correction",
+      "resolved": false,
+      "date_logged": "2026-09-22T06:22:31"
     }
   ],
-  "updated_at": "2026-09-22T06:21:12"
+  "updated_at": "2026-09-22T06:22:37"
 }
