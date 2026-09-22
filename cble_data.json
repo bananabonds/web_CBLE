@@ -3088,6 +3088,619 @@
           "_source_index": 55
         }
       ]
+    },
+    {
+      "id": "1790047805836180",
+      "name": "CT_PT_S1",
+      "created_at": "2026-09-22T03:30:05",
+      "composition": {
+        "CT_PT_Analytical_Chemistry": 13,
+        "CT_PT_Quality_Assurance_Control": 12,
+        "CT_PT_Laboratory_Instrumentation": 12,
+        "CT_PT_Inorganic_Chemistry": 13
+      },
+      "questions": [
+        {
+          "text": "Where should a thermometer be placed to determine the boiling point of the distillate?",
+          "options": [
+            "A. Inside the distilling flask, just below the side arm",
+            "B. Immersed in the liquid mixture being distilled",
+            "C. Inside the receiver",
+            "D. Inside the adapter"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 81
+        },
+        {
+          "text": "Why should QC samples be available in large quantities?",
+          "options": [
+            "A. To allow their repeated use for routine quality monitoring",
+            "B. To increase the concentration of the analyte",
+            "C. To replace all unknown samples",
+            "D. To eliminate the need for calibration"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 19
+        },
+        {
+          "text": "The peaks of the following bonds can be found at ≥3000 cm⁻¹ in an IR spectrum EXCEPT",
+          "options": [
+            "A. O–H bond",
+            "B. N–H bond",
+            "C. C–H bond",
+            "D. C–C bond"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 16
+        },
+        {
+          "text": "A reaction has a theoretical yield of 10.0 g and an actual yield of 8.00 g. What is the percent yield?",
+          "options": [
+            "A. 20.0%",
+            "B. 80.0%",
+            "C. 100%",
+            "D. 180%"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 33
+        },
+        {
+          "text": "External Quality Assurance primarily ensures quality for",
+          "options": [
+            "A. Clients",
+            "B. Laboratory analysts",
+            "C. Equipment suppliers",
+            "D. Internal auditors"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 11
+        },
+        {
+          "text": "A 25.0 mL aliquot of 2.00 M HCl is diluted to 500.0 mL. What is the final concentration?",
+          "options": [
+            "A. 0.0500 M",
+            "B. 0.100 M",
+            "C. 0.250 M",
+            "D. 1.000 M"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 79
+        },
+        {
+          "text": "Which substance is commonly used as the external standard in ¹H NMR spectroscopy and assigned δ = 0 ppm?",
+          "options": [
+            "A. benzene",
+            "B. tetramethylsilane",
+            "C. methanol",
+            "D. chloroform"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 33
+        },
+        {
+          "text": "Which chemical may be used to neutralize waste containing phosphoric acid?",
+          "options": [
+            "A. Hydrochloric acid",
+            "B. Sodium hydroxide",
+            "C. Distilled water",
+            "D. Acetone"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 11
+        },
+        {
+          "text": "All of the following statements are true EXCEPT",
+          "options": [
+            "A. Two different pure substances can have similar melting points.",
+            "B. An impure sample has a wider melting-point range.",
+            "C. Melting point serves as an index of purity of a solid crystalline substance.",
+            "D. Every pure solid crystalline substance has a characteristic and unique melting point."
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 25
+        },
+        {
+          "text": "In chromatography, the time required for a nonretained solute to pass through the column is called the",
+          "options": [
+            "A. retention time",
+            "B. dead or void time",
+            "C. resolution time",
+            "D. equilibration time"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 35
+        },
+        {
+          "text": "What is another term for spiking?",
+          "options": [
+            "A. Fortification",
+            "B. Calibration",
+            "C. Certification",
+            "D. Accreditation"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 47
+        },
+        {
+          "text": "An advantage of HPLC over GC for the separation and measurement of high molecular weight compounds is that",
+          "options": [
+            "A. HPLC columns and detectors are simpler and less expensive.",
+            "B. The preparation of volatile derivatives is not necessary in HPLC.",
+            "C. HPLC systems are always operated under constant conditions of eluant temperature and composition.",
+            "D. The sensitivity of HPLC detectors increases as the molecular weights of the compounds increase."
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 41
+        },
+        {
+          "text": "What is the molecular geometry of the chlorate ion, ClO₃⁻?",
+          "options": [
+            "A. Trigonal pyramidal",
+            "B. T-shaped",
+            "C. Tetrahedral",
+            "D. Trigonal planar"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 8
+        },
+        {
+          "text": "Boiling stones or chips are commonly made of porous",
+          "options": [
+            "A. sodium chloride",
+            "B. silicon carbide",
+            "C. calcium carbonate",
+            "D. aluminum oxide"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 80
+        },
+        {
+          "text": "The empirical formula of a compound is CH. If its molar mass is approximately 78 g/mol, what is its molecular formula?",
+          "options": [
+            "A. C₂H₂",
+            "B. C₆H₆",
+            "C. C₈H₈",
+            "D. None of the above"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 19
+        },
+        {
+          "text": "A standard whose value is assigned through comparison with a primary standard is known as a",
+          "options": [
+            "A. Secondary standard",
+            "B. Certified Reference Material",
+            "C. Method blank",
+            "D. Quality Control sample"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 32
+        },
+        {
+          "text": "For the following reaction, which statement is correct? Fe²⁺ + MnO₄⁻ ⇌ Fe³⁺ + Mn²⁺ + H₂O",
+          "options": [
+            "A. Fe²⁺ is the oxidizing agent.",
+            "B. Fe²⁺ undergoes oxidation.",
+            "C. MnO₄⁻ undergoes oxidation.",
+            "D. MnO₄⁻ is the reducing agent."
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 64
+        },
+        {
+          "text": "When the pressure of a gas is increased and its temperature is lowered, which becomes applicable?",
+          "options": [
+            "A. Van der Waals forces become evident.",
+            "B. Molecular motion speeds up.",
+            "C. No change occurs.",
+            "D. Ideality is achieved."
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 53
+        },
+        {
+          "text": "In liquid-liquid extraction, a drop of water is added to the top layer. If the water dissolves in the top layer, then the top layer is:",
+          "options": [
+            "A. Organic",
+            "B. Aqueous",
+            "C. Denser",
+            "D. Nonaqueous"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 41
+        },
+        {
+          "text": "When a deviation from critical limits happens, what should be done?",
+          "options": [
+            "A. Documentation of corrective actions.",
+            "B. Stop the process and inform the supervisor.",
+            "C. Reassess the standards being implemented.",
+            "D. All of the above."
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 48
+        },
+        {
+          "text": "According to Beer’s Law, absorbance is directly proportional to",
+          "options": [
+            "A. concentration and path length",
+            "B. wavelength only",
+            "C. transmittance only",
+            "D. detector voltage only"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 85
+        },
+        {
+          "text": "A student is tasked to measure 12 mL of a liquid as precisely as possible. Which measuring device should be selected?",
+          "options": [
+            "A. 25 mL beaker",
+            "B. 25 mL graduated cylinder",
+            "C. 25 mL conical flask",
+            "D. 25 mL volumetric flask"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 39
+        },
+        {
+          "text": "A strong, broad IR absorption at 3600–3200 cm⁻¹ most strongly suggests the presence of a",
+          "options": [
+            "A. C=O bond",
+            "B. O–H bond",
+            "C. C≡N bond",
+            "D. C=C bond"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 0
+        },
+        {
+          "text": "The mass of an empty sample container is called the",
+          "options": [
+            "A. aliquot",
+            "B. tare",
+            "C. capacity",
+            "D. calibration mass"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 92
+        },
+        {
+          "text": "In a quality control chart, the upper and lower warning limits are commonly positioned at",
+          "options": [
+            "A. ±1 standard deviation from the central line",
+            "B. ±2 standard deviations from the central line",
+            "C. ±3 standard deviations from the central line",
+            "D. ±4 standard deviations from the central line"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 28
+        },
+        {
+          "text": "Determine the volumes of the liquids in the graduated cylinders shown. (Figure of two graduated cylinders not included in the source.)",
+          "options": [
+            "A. 6.60 mL and 2.00 mL",
+            "B. 6.60 mL and 2.30 mL",
+            "C. 6.70 mL and 2.00 mL",
+            "D. 6.70 mL and 2.30 mL"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 42
+        },
+        {
+          "text": "An organic compound decomposes at its boiling point. What is the most appropriate method for recovery of the solid organic compound?",
+          "options": [
+            "A. Steam distillation",
+            "B. Vacuum distillation",
+            "C. Fractional distillation",
+            "D. Liquid-liquid extraction"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 71
+        },
+        {
+          "text": "The primary purpose of proper sampling is to obtain a sample that",
+          "options": [
+            "A. has the largest possible mass",
+            "B. accurately represents the target population",
+            "C. contains the highest analyte concentration",
+            "D. requires no sample preparation"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 59
+        },
+        {
+          "text": "In using a separatory funnel, the “stand” step allows the",
+          "options": [
+            "A. solvent to boil",
+            "B. mixture to separate into layers",
+            "C. analyte to crystallize",
+            "D. solvent to evaporate completely"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 79
+        },
+        {
+          "text": "During the electroplating of silver, silver ions in the solution",
+          "options": [
+            "A. Are oxidized at the anode",
+            "B. Are oxidized at the cathode",
+            "C. Are reduced at the cathode",
+            "D. Remain unchanged in the solution"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 84
+        },
+        {
+          "text": "What is the chemical formula of cobaltous oxide?",
+          "options": [
+            "A. CoO",
+            "B. CoO₂",
+            "C. Co₂O",
+            "D. Co₂O₃"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 10
+        },
+        {
+          "text": "A technique used to evaluate the performance of a procedure when testing a specific sample type.",
+          "options": [
+            "A. Spiking",
+            "B. Blank analysis",
+            "C. System suitability checking",
+            "D. Reference material analysis"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 59
+        },
+        {
+          "text": "What is the partial pressure of methane in a 100 g mixture of methane and argon if argon constitutes 10% by mass and the total pressure is 250 torr? Molar mass of Ar = 39.95 g/mol.",
+          "options": [
+            "A. 225 torr",
+            "B. 239 torr",
+            "C. 111 torr",
+            "D. 250 torr"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 17
+        },
+        {
+          "text": "How many grams of NaCl, 58.44 g/mol, are required to prepare 250.0 mL of 0.200 M NaCl?",
+          "options": [
+            "A. 1.46 g",
+            "B. 2.92 g",
+            "C. 5.84 g",
+            "D. 11.69 g"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 28
+        },
+        {
+          "text": "Which GC detector is considered a universal detector that responds to essentially all substances?",
+          "options": [
+            "A. ECD",
+            "B. TCD",
+            "C. NPD",
+            "D. FID"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 46
+        },
+        {
+          "text": "What is the mass percent of oxygen in H₂O?",
+          "options": [
+            "A. 11.1%",
+            "B. 50.0%",
+            "C. 88.9%",
+            "D. 94.1%"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 34
+        },
+        {
+          "text": "Which property represents the energy required to increase a liquid’s surface area?",
+          "options": [
+            "A. Vapor pressure",
+            "B. Surface tension",
+            "C. Compressibility",
+            "D. Density"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 38
+        },
+        {
+          "text": "In the van Deemter equation, the B term represents",
+          "options": [
+            "A. multiple path effects",
+            "B. longitudinal diffusion",
+            "C. mass transfer",
+            "D. detector noise"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 49
+        },
+        {
+          "text": "Which condition produces the greatest deviation from ideal-gas behavior?",
+          "options": [
+            "A. High pressure and low temperature",
+            "B. Low pressure and high temperature",
+            "C. Low pressure and low temperature",
+            "D. High pressure and high temperature"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 15
+        },
+        {
+          "text": "What is boiling-point elevation?",
+          "options": [
+            "A. The boiling point of a solution",
+            "B. The difference between the boiling points of a pure solute and a pure solvent",
+            "C. The sum of the boiling points of a pure solvent and a solution",
+            "D. The difference between the boiling point of a solution and that of the pure solvent"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 55
+        },
+        {
+          "text": "A student has stock solutions of A at 2000 ppm, B at 1500 ppm, and C at 1000 ppm. The student transfers 10 mL of each solution into a 200 mL volumetric flask and dilutes to volume. What are the final concentrations?",
+          "options": [
+            "A. 50 ppm A, 32 ppm B, 25 ppm C",
+            "B. 100 ppm A, 75 ppm B, 50 ppm C",
+            "C. 75 ppm A, 75 ppm B, 50 ppm C",
+            "D. 100 ppm A, 25 ppm B, 25 ppm C"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 35
+        },
+        {
+          "text": "For an effective buffer, the pKₐ of the weak acid should preferably be",
+          "options": [
+            "A. Very different from the desired pH",
+            "B. Approximately equal to the desired pH",
+            "C. Equal to 0",
+            "D. Equal to 14"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 70
+        },
+        {
+          "text": "Which document provides guidelines and procedures for managing quality systems?",
+          "options": [
+            "A. Quality certificate",
+            "B. Quality manual",
+            "C. Audit trail",
+            "D. Calibration certificate"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 37
+        },
+        {
+          "text": "Which activity is most closely associated with Quality Assurance?",
+          "options": [
+            "A. Identification of defects",
+            "B. Verification of finished products",
+            "C. Prevention of defects",
+            "D. Rejection of defective products"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 12
+        },
+        {
+          "text": "A reactive part of the quality management system that is concerned on the quality of the product, especially those materials that are soon to be released to the customer.",
+          "options": [
+            "A. Quality Assurance",
+            "B. Quality Control",
+            "C. Quality Audit",
+            "D. Quality Evaluation"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 40
+        },
+        {
+          "text": "Which of the following are considered in purification using crystallization? I. Polarity II. Solubility III. Vapor pressure",
+          "options": [
+            "A. I only",
+            "B. II only",
+            "C. I and II only",
+            "D. I, II, and III"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 19
+        },
+        {
+          "text": "Good Laboratory Practices are considered a subsection of",
+          "options": [
+            "A. ISO 15189",
+            "B. GMP",
+            "C. CPA",
+            "D. ISO/IEC 17025"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 2
+        },
+        {
+          "text": "What additional element distinguishes accreditation from certification?",
+          "options": [
+            "A. Financial evaluation",
+            "B. Peer review for the intended purpose",
+            "C. Product packaging inspection",
+            "D. Customer satisfaction surveys"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 58
+        },
+        {
+          "text": "What is the name of HIO₄?",
+          "options": [
+            "A. Periodic acid",
+            "B. Iodous acid",
+            "C. Iodic acid",
+            "D. Periodous acid"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 46
+        },
+        {
+          "text": "In the decomposition and dissolution of solids during sample preparation, which is expensive and often the last resort?",
+          "options": [
+            "A. Fusion technique",
+            "B. Simple dissolution",
+            "C. Acid treatment using oxidation",
+            "D. Dissolution using ultrasound and solvent"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 54
+        }
+      ]
     }
   ],
   "test_history": [
@@ -5608,5 +6221,5 @@
       "date_logged": "2026-09-22T02:37:12"
     }
   ],
-  "updated_at": "2026-09-22T02:37:18"
+  "updated_at": "2026-09-22T03:30:11"
 }
