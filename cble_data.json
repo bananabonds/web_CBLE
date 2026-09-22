@@ -6847,7 +6847,21 @@
       "note": "",
       "resolved": false,
       "date_logged": "2026-09-22T06:24:45"
+    },
+    {
+      "id": "179005871237152",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "source_list": "D3_L13_EngineeringDataAnalysis",
+      "reference_no": 15,
+      "question": "Which of the following is equivalent to 15C15 + 16C15 + 17C15 + ... + 2023C15?",
+      "your_answer": "D. 2023C15",
+      "correct_answer": "C. 2024C16",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Hockey Stick Identity: rCr + (r+1)Cr + (r+2)Cr+...+nCr = (n+1)C(r+1). Solve the equivalent where n = 2023, and r = 15",
+      "resolved": false,
+      "date_logged": "2026-09-22T06:31:52"
     }
   ],
-  "updated_at": "2026-09-22T06:24:51"
+  "updated_at": "2026-09-22T06:31:57"
 }
