@@ -6749,7 +6749,21 @@
       "note": "For a liquid film Re = 4*Mass Flow Rate / dynamic viscosity. 10 = 4*density of water * Q / dynamic viscosity. Solve for Q convert to gal/ft hr",
       "resolved": false,
       "date_logged": "2026-09-22T04:56:52"
+    },
+    {
+      "id": "1790055498562423",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "source_list": "D3_L14_Physics",
+      "reference_no": 20,
+      "question": "A rubber ball of mass 0.25 kg is dropped from a height of 10 m. If the coefficient of restitution is 0.56, how high is the ball's second rebound?",
+      "your_answer": "D. 5.60 m",
+      "correct_answer": "C. 0.98 m",
+      "category": "Formula / Equation Error",
+      "note": "h1 = e^2 * h0, h2 = e^2 * h1",
+      "resolved": false,
+      "date_logged": "2026-09-22T05:38:18"
     }
   ],
-  "updated_at": "2026-09-22T04:56:58"
+  "updated_at": "2026-09-22T05:38:23"
 }
