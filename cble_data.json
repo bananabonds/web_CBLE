@@ -6903,7 +6903,21 @@
       "note": "Factor the numerator twice until the denominator term cancels out and then solve as x approaches 4",
       "resolved": false,
       "date_logged": "2026-09-22T06:50:59"
+    },
+    {
+      "id": "1790060010940175",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "source_list": "D3_L12_EngineeringEconomics",
+      "reference_no": 40,
+      "question": "Which of these gives the lowest effective rate of interest?",
+      "your_answer": "A. 12.35% compounded annually",
+      "correct_answer": "D. 11.60% compounded monthly",
+      "category": "Formula / Equation Error",
+      "note": "Effective annual rate = [(1+(r/n))^n]-1, where n depends on the payment times where n = 1 is annual",
+      "resolved": false,
+      "date_logged": "2026-09-22T06:53:30"
     }
   ],
-  "updated_at": "2026-09-22T06:51:05"
+  "updated_at": "2026-09-22T06:53:36"
 }
