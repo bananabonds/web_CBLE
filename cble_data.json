@@ -6889,7 +6889,21 @@
       "note": "Use Brahmagupta's Formula. sqrt(product of the differences between the semiperimeter and each side). Semi perimeter (s) = SUM(all sides)/2 then sqrt((s-a)* (s-b)*(s-c)*(s-d))",
       "resolved": false,
       "date_logged": "2026-09-22T06:48:55"
+    },
+    {
+      "id": "1790059859772844",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 3,
+      "question": "Evaluate: lim(x→4) (x²-16)/(2-√x)",
+      "your_answer": "A. 8",
+      "correct_answer": "D. -32",
+      "category": "Formula / Equation Error",
+      "note": "Factor the numerator twice until the denominator term cancels out and then solve as x approaches 4",
+      "resolved": false,
+      "date_logged": "2026-09-22T06:50:59"
     }
   ],
-  "updated_at": "2026-09-22T06:49:01"
+  "updated_at": "2026-09-22T06:51:05"
 }
