@@ -5536,7 +5536,21 @@
       "note": "Total reflux = minimum number of plates, minimum reflux = infinite number of plates",
       "resolved": true,
       "date_logged": "2026-09-22T00:34:52"
+    },
+    {
+      "id": "1790037695027939",
+      "exam_id": "179000978718785",
+      "exam_source": "D2_S1",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 79,
+      "question": "A gas mixture containing 1% acetone and 99% dry air by volume is contacted with pure water in a plate gas absorber in which 90% of the acetone is recovered. The inlet gas flow rate is 30 kmol/hr and the inlet water flow rate is 90 kmol/hr. The absorber operates at 27 C and 1 atm. The equilibrium curve is given by y* = 2.53x. What is the number of theoretical plates required?",
+      "your_answer": "C. 7.0",
+      "correct_answer": "A. 5.1",
+      "category": "Formula / Equation Error",
+      "note": "Complete the balance, use kremser eq. Where N= ln((yin/yout)(1-(1/A))+(1/A))/ln A. Where A = L/mG, L=inlet liq and G = inlet gas",
+      "resolved": false,
+      "date_logged": "2026-09-22T00:41:35"
     }
   ],
-  "updated_at": "2026-09-22T00:34:57"
+  "updated_at": "2026-09-22T00:41:40"
 }
