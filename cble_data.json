@@ -7015,7 +7015,21 @@
       "note": "Find the diameter of cylinder from the diagonal of the square = square base * sqrt(2), r = diagonal/2 then from the volume find the height, V = 2pi * r^2 * h.",
       "resolved": false,
       "date_logged": "2026-09-22T08:03:44"
+    },
+    {
+      "id": "179006652213020",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "source_list": "D3_L2_Process_Control_Analysis",
+      "reference_no": 44,
+      "question": "The disadvantage of conventional feedback control is the large time lag between the disturbance and the deviation observed in the set point. This can be resolved by using cascade control, which measures the __________ to anticipate a possible deviation in the main variable.",
+      "your_answer": "A. Primary measurement point",
+      "correct_answer": "B. Secondary measurement point",
+      "category": "Conceptual Misunderstanding",
+      "note": "Cascade conrol uses two loops, (inner) secondary measurement and (outer) primary measurement. Secondary measurement is proactive.",
+      "resolved": false,
+      "date_logged": "2026-09-22T08:42:02"
     }
   ],
-  "updated_at": "2026-09-22T08:19:34"
+  "updated_at": "2026-09-22T08:42:07"
 }
