@@ -6875,7 +6875,21 @@
       "note": "The marginal cost is the rate of change of cost. Find derivative then substitute",
       "resolved": false,
       "date_logged": "2026-09-22T06:44:26"
+    },
+    {
+      "id": "1790059735667703",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "source_list": "D3_L5_Geometry",
+      "reference_no": 22,
+      "question": "Given a cyclic quadrilateral whose sides are 4 cm, 5 cm, 8 cm, and 11 cm. Its area is:",
+      "your_answer": "B. 48.65 sq. cm.",
+      "correct_answer": "A. 40.25 sq. cm.",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Use Brahmagupta's Formula. sqrt(product of the differences between the semiperimeter and each side). Semi perimeter (s) = SUM(all sides)/2 then sqrt((s-a)* (s-b)*(s-c)*(s-d))",
+      "resolved": false,
+      "date_logged": "2026-09-22T06:48:55"
     }
   ],
-  "updated_at": "2026-09-22T06:44:31"
+  "updated_at": "2026-09-22T06:49:01"
 }
