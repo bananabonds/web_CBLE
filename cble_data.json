@@ -5578,7 +5578,21 @@
       "note": "Use initial Tdb and Twb to get the amount humidity ratio then use it with the heating temp to find the line where it's 100%saturated then find the temp where db = wb",
       "resolved": false,
       "date_logged": "2026-09-22T01:03:25"
+    },
+    {
+      "id": "1790039340371596",
+      "exam_id": "179000978718785",
+      "exam_source": "D2_S1",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 45,
+      "question": "An uninsulated steam pipe passes through a room in which the air and walls are at 25 C. The outside diameter of the pipe is 70 mm, and its surface temperature and emissivity are 200 C and 0.8, respectively. If the coefficient associated with free convection heat transfer from the surface air is 15 W/m2, what is the rate of heat loss from the surface per unit length of pipe",
+      "your_answer": "C. 835 W/m",
+      "correct_answer": "B. 998 W/m",
+      "category": "Forgot a Concept (Knew It Before)",
+      "note": "qtotal = qconv + qrad, qconv = T1-T2/(1/hA), and qrad = emissivity * area * Stefan- Boltzmann constant * (T1^4 - T2^4)",
+      "resolved": false,
+      "date_logged": "2026-09-22T01:09:00"
     }
   ],
-  "updated_at": "2026-09-22T01:03:30"
+  "updated_at": "2026-09-22T01:09:05"
 }
