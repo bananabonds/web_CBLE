@@ -7365,7 +7365,21 @@
       "note": "Convert the ultimate analysis to moles. O2 theo = C + H/4 + S - O/2. O2 supp = O2 theo * (1+O2 xs). Find N2 (air) from O2 supp. Find CO and CO2 from Ct = CO + CO2 and the ratio. Find O2 free = O2 supp - CO2 - 0.5CO - 0.5H2O - SO2 - O/2 (from coal). Find N2 free = N2(air) + N/2 (from coal). Then find the percent of H2O from total",
       "resolved": false,
       "date_logged": "2026-09-22T15:02:41"
+    },
+    {
+      "id": "1790090022247691",
+      "exam_id": "179000978718785",
+      "exam_source": "D2_S1",
+      "source_list": "D2_L9_Chemical_Reaction_Engineering",
+      "reference_no": 44,
+      "question": "The following liquid phase reactions are carried out in a plug flow reactor A + C ->2D + P rp = k1CaCc A->B rB = k2Ca What is the ratio of moles of P formed to moles of B formed at the reactor exit if the conversion of C is 50%. No product is present in the feed. Data: CAO = Cco = 2 kmol /m³, k₁ = 1 m³ / kmol-s and k₂ = 1 /s.",
+      "your_answer": "B. 0.75",
+      "correct_answer": "D. 1",
+      "category": "Formula / Equation Error",
+      "note": "ratio the rate laws. rp/rb = k1CaCc/k2Ca = k1Cc/k2. Cc = Cco (1-Xc). This is CSTR not PlugFlow",
+      "resolved": false,
+      "date_logged": "2026-09-22T15:13:42"
     }
   ],
-  "updated_at": "2026-09-22T15:02:46"
+  "updated_at": "2026-09-22T15:13:47"
 }
