@@ -7099,7 +7099,21 @@
       "note": "L{sin at} = a/(s^2 + a^2), for L{sin at / t } = tan^-1 (a/s)",
       "resolved": false,
       "date_logged": "2026-09-22T12:16:38"
+    },
+    {
+      "id": "179008030064154",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "source_list": "D3_L13_EngineeringDataAnalysis",
+      "reference_no": 9,
+      "question": "If there are 6 persons, in how many ways can they sit at a round table if two of them always want to be next to each other, while another 2 of them don't want to be next to one another?",
+      "your_answer": "C. 12",
+      "correct_answer": "D. 24",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Draw the conditions. Since A and B must be together the circular perm = (5-1)! instead of (6-1)!. Total is (5-1)! * 2! (AB swapping positions). For C and D to not be together we can group them as well giving (4-1)! where 4 is left (AB), (CD), E, and F. (4-1)! * 2! (AB swaps) * 2! (CD swaps) = 24. T = 48-24 = 24",
+      "resolved": false,
+      "date_logged": "2026-09-22T12:31:40"
     }
   ],
-  "updated_at": "2026-09-22T12:16:43"
+  "updated_at": "2026-09-22T12:31:46"
 }
