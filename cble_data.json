@@ -6735,7 +6735,21 @@
       "note": "Stoke's Law, v = [(d^2) * g * (psolid - pliquid)]/ (18u). I didnt square the diameter.",
       "resolved": true,
       "date_logged": "2026-09-22T02:37:12"
+    },
+    {
+      "id": "1790053012637806",
+      "exam_id": "179000978718785",
+      "exam_source": "D2_S1",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 38,
+      "question": "Water is running through a vertical plate with Reynolds number of 10. What is the flowrate of waterin gal/ft-hr.",
+      "your_answer": "B. 0.277",
+      "correct_answer": "C. 0.727",
+      "category": "Forgot a Concept (Knew It Before)",
+      "note": "For a liquid film Re = 4*Mass Flow Rate / dynamic viscosity. 10 = 4*density of water * Q / dynamic viscosity. Solve for Q convert to gal/ft hr",
+      "resolved": false,
+      "date_logged": "2026-09-22T04:56:52"
     }
   ],
-  "updated_at": "2026-09-22T04:52:56"
+  "updated_at": "2026-09-22T04:56:58"
 }
