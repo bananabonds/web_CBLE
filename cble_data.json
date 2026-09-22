@@ -7323,7 +7323,21 @@
       "note": "Complete the mass balance. Use the w/BPE energy balance, Q = m_cH_c + m_vH_v - m_fH_f\nFind all the enthalpies. H_f = find from fig 2-17, H_c = fig. 2-17, Hv = H_saturatedvapor + Cp(BPE). Hsaturatedvapor = steam table, BPE = BPE line (fig 11-7), memorize Cp of steam = 0.45 BTU/lb F and 1.88 kJ/kg K. Then find latent heat of steam = H_v - H_l (steam table) then m_s = Q/latentheat of steam",
       "resolved": false,
       "date_logged": "2026-09-22T14:30:32"
+    },
+    {
+      "id": "1790088226547404",
+      "exam_id": "179000978718785",
+      "exam_source": "D2_S1",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 57,
+      "question": "Normal butanol is diffusing through air at 1 atm abs. Using Fulleret. al. method, estimate the diffusivity for the following temperatures and compare with the experimental data: For 0°C For 0°C and 2 atm",
+      "your_answer": "C. 7.7x10-6 m²/s",
+      "correct_answer": "A. 3.9x10-6 m²/s",
+      "category": "Formula / Equation Error",
+      "note": "Fulleret. al. method. Dab = (0.001 * T^1.75 * M_ab^0.5)/ (P * (SUM(v_a)^1/3 + SUM(v_b) ^1/3)) ^ 2",
+      "resolved": false,
+      "date_logged": "2026-09-22T14:43:46"
     }
   ],
-  "updated_at": "2026-09-22T14:30:38"
+  "updated_at": "2026-09-22T14:43:52"
 }
