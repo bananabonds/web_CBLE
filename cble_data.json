@@ -7309,7 +7309,21 @@
       "note": "",
       "resolved": true,
       "date_logged": "2026-09-22T13:45:00"
+    },
+    {
+      "id": "1790087432364254",
+      "exam_id": "179000978718785",
+      "exam_source": "D2_S1",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 20,
+      "question": "A single effect evaporator is to concentrate 20000 lb/hr of a 20% solution NaOH to 50% solids. Saturated steam is available at 20 psig. The absolute vapor pressure in the vapor space is to be 100 mmHg. The overall coefficient is to be estimated to be 250 BTU/hr-ft2-0F. The feed temperature is 100°F. Calculate the following: The amount of steam consumed",
+      "your_answer": "C. 12800 lb/h",
+      "correct_answer": "A. 15400 lb/h",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Complete the mass balance. Use the w/BPE energy balance, Q = m_cH_c + m_vH_v - m_fH_f\nFind all the enthalpies. H_f = find from fig 2-17, H_c = fig. 2-17, Hv = H_saturatedvapor + Cp(BPE). Hsaturatedvapor = steam table, BPE = BPE line (fig 11-7), memorize Cp of steam = 0.45 BTU/lb F and 1.88 kJ/kg K. Then find latent heat of steam = H_v - H_l (steam table) then m_s = Q/latentheat of steam",
+      "resolved": false,
+      "date_logged": "2026-09-22T14:30:32"
     }
   ],
-  "updated_at": "2026-09-22T13:46:07"
+  "updated_at": "2026-09-22T14:30:38"
 }
