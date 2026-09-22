@@ -7071,7 +7071,21 @@
       "note": "inverse trig functions could work but if in quarant 2 (theta) = 180 - theta. sin2A+cos2A =1 and sin2B + cos2B = 1 then solve for sin A, sin B, cos A, cos B then sin(A+B) = sinAcosB +cosAsinB",
       "resolved": false,
       "date_logged": "2026-09-22T09:31:31"
+    },
+    {
+      "id": "1790078817180944",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 38,
+      "question": "Determine the particular solution of the differential equation: y'' − 4y' − 12y = 3e^(5t)",
+      "your_answer": "C. (3/7)e^5t",
+      "correct_answer": "D. (-3/7)e^5t",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Assume the solution 3e^5t is Be^5t (where B is a constant). Solve for the derivatives of each term where we let y = Be^5t, y' = 5Be^5t, y'' = 25Be^5t = 3e^5t, solve for B. 25B - 20B -12B = 3.",
+      "resolved": false,
+      "date_logged": "2026-09-22T12:06:57"
     }
   ],
-  "updated_at": "2026-09-22T11:46:57"
+  "updated_at": "2026-09-22T12:07:02"
 }
