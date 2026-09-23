@@ -4939,6 +4939,619 @@
           "_source_index": 70
         }
       ]
+    },
+    {
+      "id": "1790136033895783",
+      "name": "CT_PT_S2",
+      "created_at": "2026-09-23T04:00:33",
+      "composition": {
+        "CT_PT_Inorganic_Chemistry": 13,
+        "CT_PT_Laboratory_Instrumentation": 12,
+        "CT_PT_Quality_Assurance_Control": 12,
+        "CT_PT_Analytical_Chemistry": 13
+      },
+      "questions": [
+        {
+          "text": "What is the formal charge of nitrogen in NH₄⁺?",
+          "options": [
+            "A. −1",
+            "B. 0",
+            "C. +1",
+            "D. +4"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 32
+        },
+        {
+          "text": "A hollow cathode tube lamp is necessary in AAS because",
+          "options": [
+            "A. The width of an atom’s absorption band is narrow.",
+            "B. Cathode lamps are cheaper to operate and maintain.",
+            "C. Continuous spectrum lamps do not emit at the proper intensity.",
+            "D. Continuous spectrum lamps cause ionization of the molecules."
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 11
+        },
+        {
+          "text": "A liquid with strong intermolecular forces generally has",
+          "options": [
+            "A. High vapor pressure",
+            "B. Low boiling point",
+            "C. Low vapor pressure",
+            "D. Low surface tension"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 66
+        },
+        {
+          "text": "Which of the following observation(s) will require a process to stop immediately? I. Results lie outside action limits. II. Three consecutive measurements on one side of the central limit. III. Seven consecutive measurements create an increasing trend. IV. Values are within warning limits.",
+          "options": [
+            "A. I only",
+            "B. I and III",
+            "C. I, II, and IV",
+            "D. I, III, and IV"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 18
+        },
+        {
+          "text": "Which activity is most closely associated with Quality Control?",
+          "options": [
+            "A. Defining standards",
+            "B. Preventing defects",
+            "C. Verification of products before release",
+            "D. Developing quality procedures"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 44
+        },
+        {
+          "text": "Objects cannot be weighed when hot or warm. But if you were to take a sample out and wait for it to cool, it would pick up moisture, so it should be placed in a/an:",
+          "options": [
+            "A. Oven",
+            "B. Desiccator",
+            "C. Room temperature",
+            "D. Fume hood"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 66
+        },
+        {
+          "text": "Which statement best describes a Quality Control sample?",
+          "options": [
+            "A. A sample with completely unknown composition",
+            "B. A sample with known composition and a matrix similar to the samples being analyzed",
+            "C. A sample containing only the solvent",
+            "D. A sample used only for instrument cleaning"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 52
+        },
+        {
+          "text": "The guard column in HPLC is positioned primarily to",
+          "options": [
+            "A. protect the analytical column from contamination",
+            "B. increase sample concentration",
+            "C. generate UV radiation",
+            "D. measure pressure directly"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 17
+        },
+        {
+          "text": "Which light source should be used in the wavelength range of 340 to 1000 nm?",
+          "options": [
+            "A. Deuterium",
+            "B. Tungsten",
+            "C. Mercury vapor lamp",
+            "D. Nernst glower"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 58
+        },
+        {
+          "text": "Aqua regia is a/an",
+          "options": [
+            "A. Solution",
+            "B. Colloid",
+            "C. Element",
+            "D. Alloy"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 22
+        },
+        {
+          "text": "Internal Quality Assurance primarily ensures quality for",
+          "options": [
+            "A. Clients",
+            "B. Regulatory agencies",
+            "C. Laboratory management",
+            "D. Equipment manufacturers"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 39
+        },
+        {
+          "text": "It allows many successive distillations to take place at once and contains indentations or packing material with a large surface area.",
+          "options": [
+            "A. Adapter",
+            "B. Condenser",
+            "C. Round-bottom flask",
+            "D. Fractionating column"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 16
+        },
+        {
+          "text": "Which GC detector is particularly sensitive to compounds containing electronegative atoms?",
+          "options": [
+            "A. FID",
+            "B. TCD",
+            "C. ECD",
+            "D. NPD"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 14
+        },
+        {
+          "text": "Certification is generally specific to a",
+          "options": [
+            "A. Country only",
+            "B. Laboratory employee",
+            "C. Product, process, or service",
+            "D. Type of laboratory glassware"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 22
+        },
+        {
+          "text": "Which part of an electrochemical cell maintains electrical neutrality?",
+          "options": [
+            "A. Anode",
+            "B. Salt bridge",
+            "C. Cathode",
+            "D. Voltmeter"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 27
+        },
+        {
+          "text": "In determining the sugar concentration of powdered juice dissolved in water, which constitutes the matrix?",
+          "options": [
+            "A. Sugar",
+            "B. Powdered juice",
+            "C. Water",
+            "D. Powdered juice and water"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 55
+        },
+        {
+          "text": "To determine the density of a liquid, which should be used?",
+          "options": [
+            "A. Graduated cylinder",
+            "B. Volumetric flask",
+            "C. Pycnometer",
+            "D. Pipette"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 85
+        },
+        {
+          "text": "Which element has a valence-electron configuration of 5s² 5p³?",
+          "options": [
+            "A. Silver",
+            "B. Antimony",
+            "C. Cesium",
+            "D. Chlorine"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 39
+        },
+        {
+          "text": "An analytical balance should have a precision of at least",
+          "options": [
+            "A. 1 part in 10²",
+            "B. 1 part in 10³",
+            "C. 1 part in 10⁴",
+            "D. 1 part in 10⁵"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 20
+        },
+        {
+          "text": "Which statement best describes quality according to the presentation?",
+          "options": [
+            "A. Production of a completely defect-free product",
+            "B. Meeting minimum specifications set by the customer in a timely manner",
+            "C. Obtaining exactly the same result in every analysis",
+            "D. Following only government regulations"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 17
+        },
+        {
+          "text": "Adding NaCl to a saturated AgCl solution will generally:",
+          "options": [
+            "A. Increase the solubility of AgCl",
+            "B. Decrease the solubility of AgCl",
+            "C. Have no effect",
+            "D. Completely ionize AgCl"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 15
+        },
+        {
+          "text": "What is the name of BF₃?",
+          "options": [
+            "A. Boron fluoride",
+            "B. Boron trifluoride",
+            "C. Boronic fluoride",
+            "D. Boronous fluoride"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 18
+        },
+        {
+          "text": "A reaction mixture needs to be cooled to −77°C after refluxing. What is the best method?",
+          "options": [
+            "A. Ice bath",
+            "B. Freezer",
+            "C. Salt and crushed-ice mixture",
+            "D. Dry ice–acetone mixture"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 20
+        },
+        {
+          "text": "Accreditation gives formal recognition that a laboratory is",
+          "options": [
+            "A. Profitable",
+            "B. Competent to carry out certain tasks",
+            "C. Producing only certified products",
+            "D. Completely free of systematic error"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 53
+        },
+        {
+          "text": "Which sequence correctly represents the basic path of radiation in a UV-Vis spectrophotometer?",
+          "options": [
+            "A. source → sample → detector → monochromator",
+            "B. detector → monochromator → sample → source",
+            "C. source → monochromator → sample → detector",
+            "D. monochromator → detector → source → sample"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 29
+        },
+        {
+          "text": "Consider the reaction: 2H₂ + O₂ → 2H₂O. If 3.0 mol H₂ reacts with 2.0 mol O₂, which reactant is limiting and how much H₂O forms?",
+          "options": [
+            "A. H₂ is limiting; 3.0 mol H₂O forms.",
+            "B. H₂ is limiting; 1.5 mol H₂O forms.",
+            "C. O₂ is limiting; 4.0 mol H₂O forms.",
+            "D. O₂ is limiting; 2.0 mol H₂O forms."
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 57
+        },
+        {
+          "text": "Which arrangement shows increasing atomic size?",
+          "options": [
+            "A. Cs < Ca < O < Ne",
+            "B. Cs < O < Ca < Ne",
+            "C. Ne < Ca < O < Cs",
+            "D. Ne < O < Ca < Cs"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 67
+        },
+        {
+          "text": "Which is the most ideal gas element?",
+          "options": [
+            "A. Helium",
+            "B. Neon",
+            "C. Nitrogen",
+            "D. Oxygen"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 45
+        },
+        {
+          "text": "Possible sources of contamination during sample preparation include:",
+          "options": [
+            "A. All of the choices",
+            "B. Reagents",
+            "C. Glassware from previous experiments",
+            "D. Equipment from previous experiments"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 23
+        },
+        {
+          "text": "Why must solutions with high concentrations be diluted prior to analysis via Beer’s Law?",
+          "options": [
+            "A. The photon source is too weak to provide accurate results.",
+            "B. The molar absorptivity of a compound is dependent on its concentration.",
+            "C. There is no need to work with dilute concentrations; any concentration will work.",
+            "D. The relationship between absorbance and concentration is not linear at high concentration."
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 65
+        },
+        {
+          "text": "Arrange the following scenarios according to the scientific method. I. Different solvents are used in trials to process raw material X. II. Raw material X yielded more products than the original material. III. A previous study suggested the use of a different raw material X.",
+          "options": [
+            "A. I, II, III",
+            "B. III, II, I",
+            "C. III, I, II",
+            "D. I, III, II"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 37
+        },
+        {
+          "text": "Which of the following is the correct order in which light passes through a UV-Vis spectrophotometer?",
+          "options": [
+            "A. detector, sample, source, monochromator",
+            "B. source, monochromator, sample, detector",
+            "C. source, sample, monochromator, detector",
+            "D. monochromator, source, sample, detector"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 3
+        },
+        {
+          "text": "It is the nominal volume of water or mercury contained or delivered by an article of volumetric glassware at its reference temperature.",
+          "options": [
+            "A. Accuracy",
+            "B. Calibration",
+            "C. Capacity",
+            "D. Measurand"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 8
+        },
+        {
+          "text": "What is the usual relationship between temperature and the solubility of a solid in a liquid?",
+          "options": [
+            "A. Inversely proportional",
+            "B. Directly proportional",
+            "C. No relationship",
+            "D. Geometric"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 0
+        },
+        {
+          "text": "Which of the following has the correct order of elution (first to last) from an HPLC column containing a reversed-phase packing?",
+          "options": [
+            "A. acetone, dichloroethane, acetamide",
+            "B. acetamide, acetone, dichloroethane",
+            "C. dichloroethane, acetone, acetamide",
+            "D. dichloroethane, acetamide, acetone"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 5
+        },
+        {
+          "text": "Predict the product of the following acid-base reaction: NH₃(aq) + HNO₃(aq) →",
+          "options": [
+            "A. NH₂OH(aq) + HNO₂(aq)",
+            "B. NH₄NO₃(aq)",
+            "C. NH₄OH(aq)",
+            "D. No reaction"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 68
+        },
+        {
+          "text": "A compound contains 40.0% carbon, 6.7% hydrogen, and 53.3% oxygen. What is its empirical formula?",
+          "options": [
+            "A. CHO",
+            "B. CH₂O",
+            "C. C₂H₄O",
+            "D. C₂H₄O₂"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 5
+        },
+        {
+          "text": "An element has the notation shown in the image. How many neutrons does it have? (Notation image not included in the source; assumed to be ⁴⁰₁₈Ar, with mass number 40 and atomic number 18.)",
+          "options": [
+            "A. 18",
+            "B. 22",
+            "C. 40",
+            "D. 58"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 9
+        },
+        {
+          "text": "Which standard is also called a working standard?",
+          "options": [
+            "A. Primary standard",
+            "B. Secondary standard",
+            "C. Analytical standard",
+            "D. Calibration standard"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 23
+        },
+        {
+          "text": "A laboratory result is located beyond the warning limit but remains within the control limit. What does this indicate?",
+          "options": [
+            "A. The process is automatically considered acceptable with no monitoring required",
+            "B. The process may be heading out of control and should be monitored closely",
+            "C. The process must always be permanently terminated",
+            "D. The analytical result must automatically be deleted"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 16
+        },
+        {
+          "text": "Which is a disadvantage of microwave digestion?",
+          "options": [
+            "A. very long digestion time",
+            "B. inability to add reagents during digestion",
+            "C. unavoidable loss of volatile gases",
+            "D. operation only at atmospheric pressure"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 78
+        },
+        {
+          "text": "A drug sample contains 10.0 µg/L of its active ingredient. A 5.0 µg/L of spike was added to a replicate portion of the drug. The spiked sample gave a concentration of 14.6 µg/L. What is the % recovery of the spike?",
+          "options": [
+            "A. 34",
+            "B. 96",
+            "C. 37",
+            "D. 92"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 31
+        },
+        {
+          "text": "Clinical Pathology Accreditation is a quality system standard specifically employed in",
+          "options": [
+            "A. Calibration laboratories",
+            "B. Pathology laboratories",
+            "C. Manufacturing plants",
+            "D. Environmental laboratories"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 35
+        },
+        {
+          "text": "Which bath can commonly be used at temperatures greater than 250 °C?",
+          "options": [
+            "A. ice bath",
+            "B. water bath",
+            "C. sand bath",
+            "D. salt-water bath"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 42
+        },
+        {
+          "text": "An audit conducted by an individual not directly related to the organization is classified as",
+          "options": [
+            "A. Internal audit",
+            "B. External audit",
+            "C. Process audit",
+            "D. Management review"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 1
+        },
+        {
+          "text": "The height equivalent of a theoretical plate (HETP) has all of the following characteristics EXCEPT",
+          "options": [
+            "A. It is defined by the van Deemter equation.",
+            "B. Equilibrium is attained at each height equivalent.",
+            "C. The smaller the value is, the better the separation attainable.",
+            "D. This quantity times the column length is equal to the number of theoretical plates in the column."
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 24
+        },
+        {
+          "text": "This is used to remove trace amounts of water from organic solutions and can be added to pooled organic layers before removal of the organic solvent.",
+          "options": [
+            "A. Drying agent",
+            "B. Boiling stone",
+            "C. Seed crystal",
+            "D. None of the above"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 1
+        },
+        {
+          "text": "The lining of the stomach contains cells that secrete an HCl solution. Which drink would best alleviate heartburn caused by excess stomach acid?",
+          "options": [
+            "A. Milk, pH 6.5",
+            "B. Wine, pH 3.8",
+            "C. Diet soda, pH 4.3",
+            "D. Milk of magnesia, pH 10.5"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 78
+        },
+        {
+          "text": "Sample preparation technique used prior to instrumental analysis of metals:",
+          "options": [
+            "A. Sieving",
+            "B. Clean-up",
+            "C. Acid digestion",
+            "D. Liquid-liquid extraction"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 80
+        },
+        {
+          "text": "A sample actually contains 9 mg/L of a substance, but the reported result is only 5 mg/L. The acceptable limit is 7 mg/L. This is an example of:",
+          "options": [
+            "A. False positive",
+            "B. False negative",
+            "C. Accurate result",
+            "D. Precise result"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 34
+        }
+      ]
     }
   ],
   "test_history": [
@@ -9164,5 +9777,5 @@
     }
   ],
   "guess_notes": [],
-  "updated_at": "2026-09-23T03:59:43"
+  "updated_at": "2026-09-23T04:00:39"
 }
