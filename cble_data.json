@@ -6241,6 +6241,15 @@
       "pct": 52,
       "date": "2026-09-23T07:47:41",
       "time_used_seconds": 1680.6
+    },
+    {
+      "id": "1790178932634161",
+      "source": "D1_S1",
+      "score": 31,
+      "total": 50,
+      "pct": 62,
+      "date": "2026-09-23T15:55:32",
+      "time_used_seconds": 1747.1
     }
   ],
   "exam_details": [
@@ -10299,6 +10308,513 @@
           "correct_answer": "B. sec x"
         }
       ]
+    },
+    {
+      "exam_id": "1790178932634161",
+      "source": "D1_S1",
+      "date": "2026-09-23T15:55:32",
+      "items": [
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 36,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "How many stereoisomers exist with the following basic connectivity? CH₃CHClCH₂CHClCH₃",
+          "your_answer": "B. 2",
+          "correct_answer": "C. 3"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "What happens to the entropy of the surroundings when an endothermic reaction occurs at constant pressure?",
+          "your_answer": "B. It decreases",
+          "correct_answer": "B. It decreases"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 29,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Find the pH at the following points in the titration of 50 mL of 0.02 M KOH with 0.1 M HBr. What is the pH at the initial point?",
+          "your_answer": "C. 12.3",
+          "correct_answer": "C. 12.3"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 9,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "What is the theoretical oxygen demand in liters of air for 50 mg/L solution of acetone, to decompose completely?",
+          "your_answer": "B. 0.224 L",
+          "correct_answer": "C. 0.368 L"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 5,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "How much water must be added to 50 mL of a 0.4 N solution of Cr₂(SO₄)₃•18H₂O in order to make it 0.05 M? The solution is to be used in the precipitation of chromium as the hydroxide.",
+          "your_answer": "B. 62.2 mL",
+          "correct_answer": "C. 16.7 mL"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 62,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Toxicants enter organisms through",
+          "your_answer": "B. Dermal absorption",
+          "correct_answer": "D. Ail of above"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 34,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Find the pH at the following points in the titration of 25 mL of 0.3 M HF with 0.3 M NaOH. The K_a value is 6.6x10⁻⁴. What is the pH after adding 25 mL of 0.3 M NaOH?",
+          "your_answer": "C. 8.18",
+          "correct_answer": "C. 8.18"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 39,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A piece of titanium originally 250 mm long is pulled in tension with a stress of 315 MPa. If the deformation is entirely elastic, what will be the elongation of the material? Modulus of elasticity = 107 GPa.",
+          "your_answer": "B. 0.55 mm",
+          "correct_answer": "A. 0.74 mm"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 34,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "What is the maximum number of stereoisomers of an organic compound that contains 4 carbons?",
+          "your_answer": "A. 2",
+          "correct_answer": "D. 16"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 104,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "What is the primary environmental concern with hydrofluorocarbons (HFCs)?",
+          "your_answer": "C. High global warming potential",
+          "correct_answer": "C. High global warming potential"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 77,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "The ozonolysis product/s obtained from all the unbranched and unsymmetrical isomers of heptene is/are",
+          "your_answer": "B. an aldehyde and a ketone",
+          "correct_answer": "D. two different aldehydes"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the density of 53.4% NaOH (40) if 16.7 mL of the solution diluted to 2 L gave 0.169 M NaOH?",
+          "your_answer": "A. 1.52 g/mL",
+          "correct_answer": "A. 1.52 g/mL"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "One pound of a mixture of NaCl and KCl was treated with sulfuric acid and 1.2 lb of potassium and sodium sulfate were recovered. What is the mass ratio of NaCl to KCl in the original mixture?",
+          "your_answer": "A. 2.14",
+          "correct_answer": "A. 2.14"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 30,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Find the pH at the following points in the titration of 50 mL of 0.02 M KOH with 0.1 M HBr. What is the pH when 3 mL of 0.1 M HBr is added?",
+          "your_answer": "C. 12.3",
+          "correct_answer": "C. 12.3"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 76,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which thermodynamic property does the Clausius-Clapeyron equation relate to the slope of the vapor pressure curve?",
+          "your_answer": "A. Temperature",
+          "correct_answer": "B. Entropy change of vaporization"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 28,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "It is the phenomenon that results in the overabundance of algae growth in bodies of water. It is also the natural process of nutrient enrichment that occurs over time in a body of water.",
+          "your_answer": "B. eutrophication",
+          "correct_answer": "B. eutrophication"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A 0.1 M solution of a base has pH = 9.28. Find K_b.",
+          "your_answer": "B. 3.6x10⁻⁹",
+          "correct_answer": "B. 3.6x10⁻⁹"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 42,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "The maximum stress that can be sustained by a structure in tension. This is the maximum point in the engineering stress-strain diagram.",
+          "your_answer": "A. yield strength",
+          "correct_answer": "C. tensile strength"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 47,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Determine the double bond stereochemistry (E or Z) for the following molecules. Molecule A: a trisubstituted alkene drawn with a vertical C=C bond, with two alkyl chains on the upper alkene carbon and a single ethyl group on the lower alkene carbon. Molecule B: a disubstituted alkene in a zigzag chain, with the C=C near the left end and its two chain substituents drawn on the same side (cis-type arrangement).",
+          "your_answer": "C. A: E; B: Z",
+          "correct_answer": "C. A: E; B: Z"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 72,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A 50 mL solution of 1 M HCl is mixed with 50 mL of 1 M NaOH. The initial temperature of both solutions is 25.0°C, and the final temperature after mixing is 31.2°C. Given that the density of the solution is 1 g/mL and specific heat capacity is 4.18 J/g-°C, calculate the heat of mixing.",
+          "your_answer": "D. -26040 J",
+          "correct_answer": "C. -51800 J"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 74,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "You are performing safety audit and encounter pressurized cylinder marked with the following NFPA 704 Diamond: Blue: 4, Red: 0, Yellow: 1, White: W. A small fire has started on wooden pallet nearby: The heat is beginning to radiate toward the cylinder: Based strictly on the NFPA Diamond provided; which of the following is the most critical safety directive for the response team?",
+          "your_answer": "B. Evacuate the area and utilize self-contained breathing apparatus (SCBA):",
+          "correct_answer": "B. Evacuate the area and utilize self-contained breathing apparatus (SCBA):"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 115,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the difference between NMR and IR spectroscopy?",
+          "your_answer": "B. NMR determines the chemical structure and molecular weight, IR determines the functional groups present.",
+          "correct_answer": "B. NMR determines the chemical structure and molecular weight, IR determines the functional groups present."
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 48,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Describe the procedure for smelling a chemical.",
+          "your_answer": "B. Point vessel away from face while gently fanning vapors toward nose",
+          "correct_answer": "B. Point vessel away from face while gently fanning vapors toward nose"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 22,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which country is the largest producer of nuclear energy, with 95.8 GW produced in 2023",
+          "your_answer": "C. USA",
+          "correct_answer": "C. USA"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 26,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Find the pH at the following points in the titration of 30 mL of 0.05 M HClO₄ with 0.1 M KOH. What is the pH at the initial point?",
+          "your_answer": "A. 1.3",
+          "correct_answer": "A. 1.3"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the primary source of the worlds energy consumption?",
+          "your_answer": "B. Oil",
+          "correct_answer": "B. Oil"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 80,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "If equal amounts of BaCl₂ and Na₂SO₄ solutions are mixed, what will be the precipitate formed?",
+          "your_answer": "A. BaSO₄",
+          "correct_answer": "A. BaSO₄"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 90,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A solution has an absorbance of 0.301 when measured using a spectrophotometer. What is its transmittance (T)?",
+          "your_answer": "C. 50%",
+          "correct_answer": "C. 50%"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following can be explained by the Second Law of Thermodynamics?",
+          "your_answer": "D. Inefficiency of heat engines",
+          "correct_answer": "D. Inefficiency of heat engines"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 1,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Which of the following forces is responsible for the rise or drop in potential energy of an object?",
+          "your_answer": "A. Gravitational force",
+          "correct_answer": "D. AIl of the above"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 88,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Which of the following compounds would not be a possible product from the mixed aldol reaction of two butanal molecules?",
+          "your_answer": "B. 2-ethyl-3-hydroxybutanal",
+          "correct_answer": "C. 3-ethyl-2-hydroxyhexanal"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 62,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is a common coagulant used in water treatment?",
+          "your_answer": "B. Aluminum sulfate",
+          "correct_answer": "B. Aluminum sulfate"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 95,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Which statement about Scope 2 emissions is true?",
+          "your_answer": "A. They are under direct operational control",
+          "correct_answer": "C. They arise from purchased energy"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of these fuels has the least energy density?",
+          "your_answer": "D. Dry wood",
+          "correct_answer": "D. Dry wood"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 27,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "The crystallographic direction [1 0 0] in a cubic crystal points along:",
+          "your_answer": "A. The x-axis",
+          "correct_answer": "A. The x-axis"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 44,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Recall the pictogram that shows a silhouette of a person with starburst on the chest ~what type of health hazard does this symbol represent?",
+          "your_answer": "C. acute toxicity",
+          "correct_answer": "B. serious health hazard"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 27,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the name of CH₃CH=CHCHO?",
+          "your_answer": "D. 2-butenealdehyde",
+          "correct_answer": "C. 2-butenal"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 87,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "When a ketone is reacted with primary amine, the product is:",
+          "your_answer": "D. imine",
+          "correct_answer": "D. imine"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 63,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the role of a flocculant in water treatment?",
+          "your_answer": "C. Helps in aggregation of fine particles",
+          "correct_answer": "C. Helps in aggregation of fine particles"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 43,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The ability of a material to absorb energy in the plastic and elastic range.",
+          "your_answer": "B. strength",
+          "correct_answer": "A. toughness"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 93,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "The GHG Protocol divides emissions into how many Scopes?",
+          "your_answer": "B. 3",
+          "correct_answer": "B. 3"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 75,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The final stage of wastewater treatment often involves:",
+          "your_answer": "B. disinfection",
+          "correct_answer": "B. disinfection"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 70,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "An ideal gas undergoes isothermal expansion at a temperature of 350 K. The gas expands from an initial volume of 2.0 L to a final volume of 5.0 L. The heat absorbed by the gas during this process is 500 J. What is the change in entropy (ΔS) of the system?",
+          "your_answer": "C. 1.43 J/K",
+          "correct_answer": "C. 1.43 J/K"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 20,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "For numbers 18 to 20: The dilution factor P for an unseeded mixture of waste and water is 0.030. The DO of the mixture is initially 9.0 mg/L, and after five days, it has dropped to 3 mg/L. The reaction rate constant k has been found to be 0.22 /day.: What would be the remaining oxygen demand after five days?",
+          "your_answer": "D. 50 mg/L",
+          "correct_answer": "A. 100 mg/L"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 40,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The Kjeldahl procedure was used to analyze 256 microliters of a solution containing 37.9 mg/mL protein. The liberated NH₃ (17.031) was collected in 5 mL of 0.0336 M HCl, and the remaining acid required 6.34 mL of 0.01 M NaOH for complete titration. What is the weight % of nitrogen (14.007) in the protein?",
+          "your_answer": "B. 15.1%",
+          "correct_answer": "B. 15.1%"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A method to measure soluble organic carbon in seawater includes oxidation of the organic materials to CO₂ with K₂S₂O₈, followed by a gravimetric determination of the CO₂ trapped by a column of ascarite. A water sample weighing 6.234 g produced 2.378 mg CO₂ (44.009). Determine the ppm C in the seawater.",
+          "your_answer": "B. 104.01",
+          "correct_answer": "B. 104.01"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 109,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Which of the following compounds reacts most rapidly with HNO₃/H₂SO₄?",
+          "your_answer": "A. toluene",
+          "correct_answer": "B. anisole"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 104,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the name of the following compound? Structure: a toluene ring (benzene bearing CH₃) with an NO₂ group on the adjacent (ortho) carbon and a Br on the ring carbon that is meta to the CH₃ and para to the NO₂.",
+          "your_answer": "C. m-bromo-o-nitrotoluene",
+          "correct_answer": "D. 5-bromo-2-nitrotoluene"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which type of bonding involves the sharing of electron pairs between atoms?",
+          "your_answer": "B. Covalent",
+          "correct_answer": "B. Covalent"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 83,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "What is the typical COD/BOD ratio for domestic wastewater?",
+          "your_answer": "B. 1.5 u2013 2.5",
+          "correct_answer": "B. 1.5 u2013 2.5"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -11424,5 +11940,5 @@
     }
   ],
   "guess_notes": [],
-  "updated_at": "2026-09-23T14:22:10"
+  "updated_at": "2026-09-23T15:55:34"
 }
