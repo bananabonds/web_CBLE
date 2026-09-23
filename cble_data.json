@@ -9133,8 +9133,22 @@
       "note": "ratio the rate laws. rp/rb = k1CaCc/k2Ca = k1Cc/k2. Cc = Cco (1-Xc). This is CSTR not PlugFlow",
       "resolved": false,
       "date_logged": "2026-09-22T15:13:42"
+    },
+    {
+      "id": "179013429941412",
+      "exam_id": "1790091362989999",
+      "exam_source": "CT_PRAC2",
+      "source_list": "CT_Analytic_Chemistry",
+      "reference_no": 13,
+      "question": "A 25.00 mL sample of 0.100 M acetic acid (CH₃COOH) is titrated with 0.100 M NaOH at 25°C. The acid has Ka=1.8×10−5. Determine the pH of the solution at each of the following points during the titration: What is the approximate pH after 25.0 mL of 0.100 M NaOH has been added?",
+      "your_answer": "A. 7.00",
+      "correct_answer": "C. 8.72",
+      "category": "Formula / Equation Error",
+      "note": "When weak acid is neutralized by strong base the added base becomes the concentration of the weak base hence 2.5*10^-3 / 50ml * 1000 ml then Kw = KaKb solve for Kb, then Kb = [A-]^2 / [concentration of weak base]. Get pOH then get pH",
+      "resolved": false,
+      "date_logged": "2026-09-23T03:31:39"
     }
   ],
   "guess_notes": [],
-  "updated_at": "2026-09-23T03:28:23"
+  "updated_at": "2026-09-23T03:31:44"
 }
