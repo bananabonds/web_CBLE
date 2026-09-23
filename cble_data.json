@@ -8865,8 +8865,8 @@
       "correct_answer": "D. 24",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Draw the conditions. Since A and B must be together the circular perm = (5-1)! instead of (6-1)!. Total is (5-1)! * 2! (AB swapping positions). For C and D to not be together we can group them as well giving (4-1)! where 4 is left (AB), (CD), E, and F. (4-1)! * 2! (AB swaps) * 2! (CD swaps) = 24. T = 48-24 = 24",
-      "resolved": false,
-      "date_logged": "2026-09-22T12:31:40"
+      "resolved": true,
+      "date_logged": "2026-09-23T03:38:19"
     },
     {
       "id": "1790080665856765",
@@ -9164,5 +9164,5 @@
     }
   ],
   "guess_notes": [],
-  "updated_at": "2026-09-23T03:37:55"
+  "updated_at": "2026-09-23T03:38:24"
 }
