@@ -131,6 +131,10 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
 .status-pill.status-red{border-left:none;background:var(--red);color:#fff;}
 .status-pill.status-yellow{border-left:none;background:var(--amber);color:#fff;}
 .status-pill.status-green{border-left:none;background:var(--green);color:#fff;}
+.status-pill.repeat-pill{background:var(--violet);color:#fff;}
+.list-item.repeated{box-shadow:0 0 0 2px var(--violet) inset;}
+.list-item.flashcard{cursor:pointer;}
+.list-item.flashcard:active{filter:brightness(.97);}
 
 .progress-track{height:6px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:6px;}
 .progress-fill{height:100%;background:var(--navy);}
@@ -421,16 +425,39 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
         <div class="row wrap" style="margin-bottom:8px;">
           <h3 style="border:none;padding:0;flex:1;">All Logged Mistakes</h3>
         </div>
-        <label class="row" style="margin-bottom:10px;">
-          <input type="checkbox" id="mistakeUnresolvedOnly">
-          <span style="font-size:.82rem;">Show unresolved only</span>
-        </label>
+        <p class="hint" style="margin-bottom:8px;">Tap a mistake once to see the details, tap again for your notes and a resolve button \u2014 no need to hunt for it in the dropdown above.</p>
+        <div class="row wrap" style="margin-bottom:6px;">
+          <label class="row" style="flex:none;">
+            <input type="checkbox" id="mistakeUnresolvedOnly">
+            <span style="font-size:.82rem;">Unresolved only</span>
+          </label>
+          <label class="row" style="flex:none;">
+            <input type="checkbox" id="mistakeRepeatedOnly">
+            <span style="font-size:.82rem;">Repeated only</span>
+          </label>
+        </div>
+        <select id="mistakeGroupSelect" style="margin-bottom:10px;">
+          <option value="subject">Group by: Subject</option>
+          <option value="repetition">Group by: Repeated vs One-Time</option>
+        </select>
         <div id="allMistakesContainer"></div>
         <button class="btn link" id="btnCopyMistakeInsights">&#128203; Copy Insights to Clipboard</button>
       </div>
       <div class="card">
         <h3>Mistake Categories (most frequent first)</h3>
         <div id="mistakeCategoryBars"></div>
+      </div>
+      <div class="card">
+        <h3>Guesses You Made <span class="count" id="guessesCount"></span></h3>
+        <p class="hint" style="margin-bottom:10px;">Every question you flagged "Guess" confidence on, right or wrong \u2014 a good source of flashcards even when you happened to get lucky. Tap one to jot a note; tap again to see/hide it.</p>
+        <select id="guessesExamSelect" style="margin-bottom:10px;">
+          <option value="all">All tests</option>
+        </select>
+        <label class="row" style="margin-bottom:10px;">
+          <input type="checkbox" id="guessesWrongOnly">
+          <span style="font-size:.82rem;">Only guesses I got wrong</span>
+        </label>
+        <div id="guessesContainer"></div>
       </div>
     </section>
 
@@ -693,6 +720,7 @@ const KEYS = {
   history: "cble.testHistory",
   details: "cble.examDetails",
   mistakes: "cble.mistakeLog",
+  guessNotes: "cble.guessNotes",
   topics: "cble.topicsCache",
   githubConfig: "cble.githubConfig",
   examProgress: "cble.examProgress",
@@ -999,6 +1027,56 @@ function computeMistakeInsights() {
 }
 
 /* ---------------------------------------------------------------------
+   Guesses -- every question answered with "Guess" confidence, right or
+   wrong, with an optional flashcard-style note. Separate from the
+   mistake log since a guess you happened to get right is still worth
+   reviewing, and doesn't belong in a *mistakes* list.
+   --------------------------------------------------------------------- */
+function loadGuessNotes() { return loadJson(KEYS.guessNotes, []); }
+function guessKey(examId, sourceList, referenceNo) { return `${examId}::${sourceList}::${referenceNo}`; }
+function saveGuessNote(examId, examSource, sourceList, referenceNo, question, yourAnswer, correctAnswer, isCorrect, note) {
+  const log = loadGuessNotes();
+  const key = guessKey(examId, sourceList, referenceNo);
+  const now = nowIso();
+  for (const entry of log) {
+    if (guessKey(entry.exam_id, entry.source_list, entry.reference_no) === key) {
+      Object.assign(entry, { note, date_logged: now, question, your_answer: yourAnswer, correct_answer: correctAnswer, is_correct: isCorrect, exam_source: examSource });
+      saveJson(KEYS.guessNotes, log);
+      scheduleGithubSync();
+      return entry;
+    }
+  }
+  const record = {
+    id: uid(), exam_id: examId, exam_source: examSource, source_list: sourceList, reference_no: referenceNo,
+    question, your_answer: yourAnswer, correct_answer: correctAnswer, is_correct: isCorrect, note, date_logged: now,
+  };
+  log.push(record);
+  saveJson(KEYS.guessNotes, log);
+  scheduleGithubSync();
+  return record;
+}
+function getAllGuesses() {
+  const details = loadJson(KEYS.details, []);
+  const notesByKey = {};
+  for (const n of loadGuessNotes()) notesByKey[guessKey(n.exam_id, n.source_list, n.reference_no)] = n;
+  const out = [];
+  for (const d of details) {
+    for (const item of (d.items || [])) {
+      if (item.confidence === "Guess") {
+        const key = guessKey(d.exam_id, item.source_list, item.reference_no);
+        out.push({
+          exam_id: d.exam_id, exam_source: d.source, date: d.date,
+          source_list: item.source_list, reference_no: item.reference_no,
+          question: item.question, your_answer: item.your_answer, correct_answer: item.correct_answer,
+          is_correct: item.is_correct, note_entry: notesByKey[key] || null,
+        });
+      }
+    }
+  }
+  return out;
+}
+
+/* ---------------------------------------------------------------------
    GitHub Sync -- optional durable store. Everything above this still
    works purely from localStorage; when a repo/token is configured, every
    save-worthy action schedules a debounced pull-merge-push cycle against
@@ -1126,6 +1204,7 @@ function buildLocalSnapshot() {
     test_history: loadJson(KEYS.history, []),
     exam_details: loadJson(KEYS.details, []),
     mistake_log: loadJson(KEYS.mistakes, []),
+    guess_notes: loadJson(KEYS.guessNotes, []),
     updated_at: nowIso(),
   };
 }
@@ -1136,6 +1215,7 @@ function applySnapshotToLocal(snap) {
   if (snap.test_history) saveJson(KEYS.history, snap.test_history);
   if (snap.exam_details) saveJson(KEYS.details, snap.exam_details);
   if (snap.mistake_log) saveJson(KEYS.mistakes, snap.mistake_log);
+  if (snap.guess_notes) saveJson(KEYS.guessNotes, snap.guess_notes);
 }
 function mergeById(remoteArr, localArr, idKey) {
   const map = new Map();
@@ -1150,6 +1230,7 @@ function mergeSnapshots(remote, local) {
     test_history: mergeById(remote && remote.test_history, local.test_history, "id"),
     exam_details: mergeById(remote && remote.exam_details, local.exam_details, "exam_id"),
     mistake_log: mergeById(remote && remote.mistake_log, local.mistake_log, "id"),
+    guess_notes: mergeById(remote && remote.guess_notes, local.guess_notes, "id"),
     updated_at: nowIso(),
   };
 }
@@ -1548,6 +1629,7 @@ $("btnExportAll").addEventListener("click", () => {
     test_history: loadJson(KEYS.history, []),
     exam_details: loadJson(KEYS.details, []),
     mistake_log: loadJson(KEYS.mistakes, []),
+    guess_notes: loadJson(KEYS.guessNotes, []),
   };
   const blob = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" });
   const a = document.createElement("a");
@@ -1570,6 +1652,7 @@ $("importFileInput").addEventListener("change", (e) => {
       if (data.test_history) saveJson(KEYS.history, data.test_history);
       if (data.exam_details) saveJson(KEYS.details, data.exam_details);
       if (data.mistake_log) saveJson(KEYS.mistakes, data.mistake_log);
+      if (data.guess_notes) saveJson(KEYS.guessNotes, data.guess_notes);
       toast("Backup imported.");
       closeSheet("settingsSheet");
       refreshListsDisplay();
@@ -1584,8 +1667,8 @@ $("importFileInput").addEventListener("change", (e) => {
 
 $("btnClearAllData").addEventListener("click", () => {
   const note = githubConfigured() ? " GitHub is left untouched -- this only clears this browser's copy." : "";
-  if (!confirmDialog(`Erase ALL locally saved data -- local banks, saved samples, test history, analysis data, and the mistake log? This cannot be undone.${note}`)) return;
-  [KEYS.banks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes].forEach(k => localStorage.removeItem(k));
+  if (!confirmDialog(`Erase ALL locally saved data -- local banks, saved samples, test history, analysis data, the mistake log, and guess notes? This cannot be undone.${note}`)) return;
+  [KEYS.banks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes, KEYS.guessNotes].forEach(k => localStorage.removeItem(k));
   toast("All local data erased.");
   closeSheet("settingsSheet");
   refreshListsDisplay();
@@ -1916,8 +1999,90 @@ function refreshMistakeLogTab() {
   onLoadExamMistakes();
   refreshAllMistakesTree();
   drawMistakeCategoryChart();
+  refreshGuessesSection();
 }
 $("mistakeExamSelect").addEventListener("change", onLoadExamMistakes);
+
+/* ---------------------------------------------------------------------
+   Guesses You Made -- flashcard-style, same interaction pattern as the
+   mistake cards but keyed on confidence="Guess" rather than wrong answers.
+   --------------------------------------------------------------------- */
+let guessCardState = {}; // guessKey -> 0 (collapsed) | 1 (details) | 2 (note editor)
+
+function refreshGuessesSection() {
+  const details = loadJson(KEYS.details, []).slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  const sel = $("guessesExamSelect");
+  const prevVal = sel.value;
+  sel.innerHTML = `<option value="all">All tests</option>` +
+    details.map(d => `<option value="${esc(d.exam_id)}">${esc(d.date || "")} | ${esc(d.source || "")}</option>`).join("");
+  if (Array.from(sel.options).some(o => o.value === prevVal)) sel.value = prevVal;
+
+  let guesses = getAllGuesses();
+  if (sel.value !== "all") guesses = guesses.filter(g => g.exam_id === sel.value);
+  if ($("guessesWrongOnly").checked) guesses = guesses.filter(g => !g.is_correct);
+  guesses.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+
+  $("guessesCount").textContent = `(${guesses.length})`;
+  const box = $("guessesContainer");
+  box.innerHTML = "";
+  if (!guesses.length) {
+    box.appendChild(el("div", "empty-state", "No guesses recorded yet \u2014 they'll show up here whenever you tag an answer \u2018Guess\u2019 during an exam."));
+    return;
+  }
+  for (const g of guesses) box.appendChild(renderGuessCard(g));
+}
+
+function renderGuessCard(g) {
+  const key = guessKey(g.exam_id, g.source_list, g.reference_no);
+  const state = guessCardState[key] || 0;
+  const statusClass = g.is_correct ? "status-green" : "status-red";
+  const hasNote = !!(g.note_entry && g.note_entry.note);
+  const card = el("div", `list-item flashcard ${statusClass}`);
+  card.style.marginBottom = "6px";
+
+  let inner = `<div class="top-row"><span class="name">Ref #${esc(g.reference_no)} &middot; ${esc(g.source_list)}</span>
+      <span class="row" style="gap:4px;flex:none;">
+        ${hasNote ? `<span class="status-pill" style="background:var(--violet);color:#fff;">\u{1F4DD}</span>` : ""}
+        <span class="status-pill ${statusClass}">${g.is_correct ? "Guessed Right" : "Guessed Wrong"}</span>
+      </span></div>
+    <div class="meta">${esc(g.exam_source || "")} &middot; ${esc(g.date || "")}</div>`;
+
+  if (state >= 1) {
+    inner += `<div class="meta" style="margin-top:6px;">${esc(g.question || "(question text unavailable)")}</div>
+      <div class="meta">Your answer: ${esc(g.your_answer || "(none)")}</div>
+      <div class="meta">Correct answer: ${esc(g.correct_answer || "(unknown)")}</div>`;
+  }
+  if (state >= 2) {
+    inner += `<label class="field-label" style="margin-top:8px;">Flashcard note</label>
+      <textarea class="guess-note-input" rows="3"></textarea>
+      <div class="row" style="margin-top:6px;">
+        <button class="btn primary" data-save-guess="1">Save Note</button>
+      </div>`;
+  } else {
+    inner += `<div class="hint" style="margin-top:6px;">${state === 0 ? "Tap for details" : "Tap again to add a note"}</div>`;
+  }
+  card.innerHTML = inner;
+  if (state >= 2) card.querySelector(".guess-note-input").value = (g.note_entry && g.note_entry.note) || "";
+
+  card.addEventListener("click", (ev) => {
+    if (ev.target.closest("textarea") || ev.target.closest("[data-save-guess]")) return;
+    guessCardState[key] = ((guessCardState[key] || 0) + 1) % 3;
+    refreshGuessesSection();
+  });
+  const saveBtn = card.querySelector("[data-save-guess]");
+  if (saveBtn) {
+    saveBtn.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      const textarea = card.querySelector(".guess-note-input");
+      saveGuessNote(g.exam_id, g.exam_source, g.source_list, g.reference_no, g.question, g.your_answer, g.correct_answer, g.is_correct, textarea.value.trim());
+      toast("Note saved.");
+      refreshGuessesSection();
+    });
+  }
+  return card;
+}
+$("guessesExamSelect").addEventListener("change", refreshGuessesSection);
+$("guessesWrongOnly").addEventListener("change", refreshGuessesSection);
 
 function onLoadExamMistakes() {
   currentExamMistakes = [];
@@ -2002,36 +2167,111 @@ $("btnDeleteMistake").addEventListener("click", () => {
   drawMistakeCategoryChart();
 });
 $("mistakeUnresolvedOnly").addEventListener("change", refreshAllMistakesTree);
+$("mistakeRepeatedOnly").addEventListener("change", refreshAllMistakesTree);
+$("mistakeGroupSelect").addEventListener("change", refreshAllMistakesTree);
+
+function mistakeRepeatKey(e) { return `${e.source_list}::${e.reference_no}`; }
+
+function setMistakeResolved(entryId, resolved) {
+  const log = loadMistakeLog();
+  const entry = log.find(e => e.id === entryId);
+  if (!entry) return;
+  entry.resolved = resolved;
+  entry.date_logged = nowIso();
+  saveJson(KEYS.mistakes, log);
+  scheduleGithubSync();
+}
+
+let mistakeCardState = {}; // entry id -> 0 (collapsed) | 1 (details, no notes) | 2 (details + notes + resolve)
+
+function renderMistakeCard(e, repeatCount) {
+  const statusClass = e.resolved ? "status-green" : "status-yellow";
+  const state = mistakeCardState[e.id] || 0;
+  const card = el("div", `list-item flashcard ${statusClass}${repeatCount > 1 ? " repeated" : ""}`);
+  card.style.marginBottom = "6px";
+
+  let inner = `<div class="top-row"><span class="name">Ref #${esc(e.reference_no)} &middot; ${esc(e.category || "")}</span>
+      <span class="row" style="gap:4px;flex:none;">
+        ${repeatCount > 1 ? `<span class="status-pill repeat-pill">\u{1F501} \u00d7${repeatCount}</span>` : ""}
+        <span class="status-pill ${statusClass}">${e.resolved ? "Resolved" : "Open"}</span>
+      </span></div>
+    <div class="meta">${esc(e.exam_source || "")} &middot; logged ${esc(e.date_logged || "")}</div>`;
+
+  if (state >= 1) {
+    inner += `<div class="meta" style="margin-top:6px;">Your answer: ${esc(e.your_answer || "(none)")}</div>
+      <div class="meta">Correct answer: ${esc(e.correct_answer || "(unknown)")}</div>
+      ${e.question ? `<div class="meta" style="margin-top:4px;">${esc(e.question)}</div>` : ""}`;
+  }
+  if (state >= 2) {
+    inner += `<div class="meta" style="margin-top:6px;white-space:pre-wrap;"><b>Notes:</b> ${esc(e.note || "(no notes yet)")}</div>
+      <div class="row" style="margin-top:8px;">
+        <button class="btn ${e.resolved ? "" : "success"}" data-resolve-id="${e.id}">${e.resolved ? "Mark Unresolved" : "Mark Resolved"}</button>
+      </div>`;
+  } else {
+    inner += `<div class="hint" style="margin-top:6px;">${state === 0 ? "Tap for details" : "Tap again for notes"}</div>`;
+  }
+  card.innerHTML = inner;
+
+  card.addEventListener("click", (ev) => {
+    if (ev.target.closest("[data-resolve-id]")) return;
+    mistakeCardState[e.id] = ((mistakeCardState[e.id] || 0) + 1) % 3;
+    refreshAllMistakesTree();
+  });
+  const resolveBtn = card.querySelector("[data-resolve-id]");
+  if (resolveBtn) {
+    resolveBtn.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      setMistakeResolved(e.id, !e.resolved);
+      refreshAllMistakesTree();
+      onLoadExamMistakes();
+      drawMistakeCategoryChart();
+    });
+  }
+  return card;
+}
+
+function renderMistakeGroup(title, entries, repeatCounts) {
+  const group = el("div", "card", "");
+  group.style.padding = "10px 12px";
+  group.style.marginBottom = "10px";
+  const unresolved = entries.filter(e => !e.resolved).length;
+  group.innerHTML = `<div class="row" style="margin-bottom:8px;"><b style="font-size:.85rem;">${esc(title)}</b>
+    <span class="meta" style="margin-left:6px;">(${entries.length} mistake${entries.length === 1 ? "" : "s"}, ${unresolved} open)</span></div>`;
+  for (const e of entries) group.appendChild(renderMistakeCard(e, repeatCounts[mistakeRepeatKey(e)] || 1));
+  return group;
+}
 
 function refreshAllMistakesTree() {
-  let log = loadMistakeLog();
+  const fullLog = loadMistakeLog();
+  const repeatCounts = {};
+  for (const e of fullLog) { const k = mistakeRepeatKey(e); repeatCounts[k] = (repeatCounts[k] || 0) + 1; }
+
+  let log = fullLog;
   if ($("mistakeUnresolvedOnly").checked) log = log.filter(e => !e.resolved);
-  const bySubject = {};
-  for (const e of log) (bySubject[e.source_list || "Unknown"] = bySubject[e.source_list || "Unknown"] || []).push(e);
-  const subjectOrder = Object.entries(bySubject).sort((a, b) => b[1].length - a[1].length);
+  if ($("mistakeRepeatedOnly").checked) log = log.filter(e => repeatCounts[mistakeRepeatKey(e)] > 1);
 
   const box = $("allMistakesContainer");
   box.innerHTML = "";
-  if (!subjectOrder.length) { box.appendChild(el("div", "empty-state", "No mistakes logged yet.")); return; }
-  for (const [subject, entries] of subjectOrder) {
-    const sorted = entries.slice().sort((a, b) => (b.date_logged || "").localeCompare(a.date_logged || ""));
-    const unresolved = sorted.filter(e => !e.resolved).length;
-    const group = el("div", "card", "");
-    group.style.padding = "10px 12px";
-    group.style.marginBottom = "10px";
-    group.innerHTML = `<div class="row" style="margin-bottom:8px;"><b style="font-size:.85rem;">${esc(subject)}</b>
-      <span class="meta" style="margin-left:6px;">(${sorted.length} mistake${sorted.length === 1 ? "" : "s"}, ${unresolved} open)</span></div>`;
-    for (const e of sorted) {
-      const statusClass = e.resolved ? "status-green" : "status-yellow";
-      const line = el("div", `list-item ${statusClass}`);
-      line.style.marginBottom = "6px";
-      line.innerHTML = `<div class="top-row"><span class="name">Ref #${esc(e.reference_no)} &middot; ${esc(e.category || "")}</span>
-          <span class="status-pill ${statusClass}">${e.resolved ? "Resolved" : "Open"}</span></div>
-        <div class="meta">${esc(e.exam_source || "")} &middot; logged ${esc(e.date_logged || "")}</div>
-        ${e.note ? `<div class="meta">${esc((e.note || "").slice(0, 90))}</div>` : ""}`;
-      group.appendChild(line);
+  if (!log.length) {
+    box.appendChild(el("div", "empty-state", fullLog.length ? "Nothing matches these filters." : "No mistakes logged yet."));
+    return;
+  }
+
+  if ($("mistakeGroupSelect").value === "repetition") {
+    const repeated = log.filter(e => repeatCounts[mistakeRepeatKey(e)] > 1)
+      .sort((a, b) => (repeatCounts[mistakeRepeatKey(b)] - repeatCounts[mistakeRepeatKey(a)]) || (b.date_logged || "").localeCompare(a.date_logged || ""));
+    const oneTime = log.filter(e => repeatCounts[mistakeRepeatKey(e)] <= 1)
+      .sort((a, b) => (b.date_logged || "").localeCompare(a.date_logged || ""));
+    if (repeated.length) box.appendChild(renderMistakeGroup("\u{1F501} Repeated Mistakes", repeated, repeatCounts));
+    if (oneTime.length) box.appendChild(renderMistakeGroup("One-Time Mistakes", oneTime, repeatCounts));
+  } else {
+    const bySubject = {};
+    for (const e of log) (bySubject[e.source_list || "Unknown"] = bySubject[e.source_list || "Unknown"] || []).push(e);
+    const subjectOrder = Object.entries(bySubject).sort((a, b) => b[1].length - a[1].length);
+    for (const [subject, entries] of subjectOrder) {
+      const sorted = entries.slice().sort((a, b) => (b.date_logged || "").localeCompare(a.date_logged || ""));
+      box.appendChild(renderMistakeGroup(subject, sorted, repeatCounts));
     }
-    box.appendChild(group);
   }
 }
 
