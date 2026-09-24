@@ -12905,8 +12905,22 @@
       "note": "Dilution factor scales the change in DO of the sample to the actual Oxygen demand of the total volume. BOD5 = (DOi-DOf)/P, then BOD5 = Lo(1-e^-kt), then L5 (remaining demand) = Lo - BOD5",
       "resolved": false,
       "date_logged": "2026-09-24T09:24:57"
+    },
+    {
+      "id": "1790242591441866",
+      "exam_id": "1790178932634161",
+      "exam_source": "D1_S1",
+      "source_list": "D1_L4_Organic_Chemistry",
+      "reference_no": 109,
+      "question": "Which of the following compounds reacts most rapidly with HNO₃/H₂SO₄?",
+      "your_answer": "A. toluene",
+      "correct_answer": "B. anisole",
+      "category": "Conceptual Misunderstanding",
+      "note": "Anisole is a methoxy substituted benzene ring which is resonance stabilized. The resonance activates the double bonds in the benzene and makes it more electron dense (nucleophile) hence reacting faster with electrophiles",
+      "resolved": false,
+      "date_logged": "2026-09-24T09:36:31"
     }
   ],
   "guess_notes": [],
-  "updated_at": "2026-09-24T09:25:03"
+  "updated_at": "2026-09-24T09:36:37"
 }
