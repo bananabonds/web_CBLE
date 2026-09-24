@@ -12035,8 +12035,22 @@
       "note": "True quality prioritizes fulfilling customer requirements rather than mere precision.",
       "resolved": false,
       "date_logged": "2026-09-24T05:16:25"
+    },
+    {
+      "id": "1790227277605742",
+      "exam_id": "1790138253439819",
+      "exam_source": "CT_PT_S2",
+      "source_list": "CT_PT_Laboratory_Instrumentation",
+      "reference_no": 6,
+      "question": "Which of the following has the correct order of elution (first to last) from an HPLC column containing a reversed-phase packing?",
+      "your_answer": "A. acetone, dichloroethane, acetamide",
+      "correct_answer": "B. acetamide, acetone, dichloroethane",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "In RP-HPLC the stationary phase is non-polar and the mobile phase is polar so polar molecules elute first while non polar lags since its attracted to the stationary phase. Amides (CONH2) is polar and can hydrogen bond. Acetone has a dipole moment. and DCE is non-polar",
+      "resolved": false,
+      "date_logged": "2026-09-24T05:21:17"
     }
   ],
   "guess_notes": [],
-  "updated_at": "2026-09-24T05:16:31"
+  "updated_at": "2026-09-24T05:21:23"
 }
