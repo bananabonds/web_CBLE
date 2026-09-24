@@ -341,6 +341,7 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
         <div class="row wrap">
           <button class="btn success" id="btnStartFromSaved">Start Exam &#9654;</button>
           <button class="btn" id="btnViewComposition">View Composition</button>
+          <button class="btn" id="btnRenameSaved">Rename</button>
           <button class="btn danger" id="btnDeleteSaved">Delete Selected</button>
         </div>
       </div>
@@ -350,6 +351,15 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
     <section class="panel" id="panel-history">
       <div class="card">
         <h3>Tests Taken <span class="count" id="historyCount"></span></h3>
+        <input type="text" id="historySearchInput" placeholder="Search by sample name&hellip;" style="margin-bottom:8px;">
+        <select id="historySortSelect" style="margin-bottom:10px;">
+          <option value="newest">Sort: Newest First</option>
+          <option value="oldest">Sort: Oldest First</option>
+          <option value="alpha_asc">Sort: Name (A&ndash;Z)</option>
+          <option value="alpha_desc">Sort: Name (Z&ndash;A)</option>
+          <option value="score_high">Sort: Highest Score First</option>
+          <option value="score_low">Sort: Lowest Score First</option>
+        </select>
         <div id="historyContainer"></div>
       </div>
       <div class="card">
@@ -729,6 +739,19 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
   </div>
 </div>
 
+<div class="sheet hidden" id="renameSampleSheet">
+  <div class="sheet-inner">
+    <h2>Rename Sample</h2>
+    <label class="field-label">New name</label>
+    <input type="text" id="renameSampleInput">
+    <p class="hint" style="margin-top:8px;">This also renames it everywhere it shows up in Test History, Study Priority Analysis, the Mistake Log, and Guesses.</p>
+    <div class="row" style="margin-top:14px;">
+      <button class="btn block" id="btnCancelRenameSample">Cancel</button>
+      <button class="btn primary block" id="btnConfirmRenameSample">Save Name</button>
+    </div>
+  </div>
+</div>
+
 <div id="toast"></div>
 
 <script>
@@ -761,6 +784,7 @@ const KEYS = {
   topics: "cble.topicsCache",
   githubConfig: "cble.githubConfig",
   examProgress: "cble.examProgress",
+  tombstones: "cble.tombstones",
 };
 
 /* ---------------------------------------------------------------------
@@ -811,11 +835,17 @@ function saveLocalBank(bankName, questions) {
   const raw = loadLocalBanksRaw();
   raw[bankName] = questions.map(q => ({ text: q.text, options: q.options.slice(), correct: q.correct }));
   saveJson(KEYS.banks, raw);
+  removeTombstone("local_banks", bankName); // in case this name was deleted before and is now being recreated
   scheduleGithubSync();
 }
 function deleteLocalBank(bankName) {
   const raw = loadLocalBanksRaw();
-  if (bankName in raw) { delete raw[bankName]; saveJson(KEYS.banks, raw); scheduleGithubSync(); }
+  if (bankName in raw) {
+    delete raw[bankName];
+    saveJson(KEYS.banks, raw);
+    addTombstone("local_banks", bankName);
+    scheduleGithubSync();
+  }
 }
 
 let _topicCache = null; // in-memory per session, mirrors _topic_cache
@@ -913,7 +943,44 @@ function deleteSampleSet(id) {
   let sets = loadJson(KEYS.samples, []);
   sets = sets.filter(s => s.id !== id);
   saveJson(KEYS.samples, sets);
+  addTombstone("sample_sets", id);
   scheduleGithubSync();
+}
+function renameSampleSet(id, newName) {
+  const sets = loadJson(KEYS.samples, []);
+  const sample = sets.find(s => s.id === id);
+  if (!sample) return null;
+  const oldName = sample.name;
+  if (oldName === newName) return sample;
+  sample.name = newName;
+  saveJson(KEYS.samples, sets);
+
+  // The name is copied (not referenced) into every exam record taken from this sample --
+  // there's no foreign key to it, so cascade the rename by matching the old name text.
+  if (oldName) {
+    const history = loadJson(KEYS.history, []);
+    let changed = false;
+    for (const h of history) if (h.source === oldName) { h.source = newName; changed = true; }
+    if (changed) saveJson(KEYS.history, history);
+
+    const details = loadJson(KEYS.details, []);
+    changed = false;
+    for (const d of details) if (d.source === oldName) { d.source = newName; changed = true; }
+    if (changed) saveJson(KEYS.details, details);
+
+    const mistakes = loadMistakeLog();
+    changed = false;
+    for (const m of mistakes) if (m.exam_source === oldName) { m.exam_source = newName; changed = true; }
+    if (changed) saveJson(KEYS.mistakes, mistakes);
+
+    const guesses = loadGuessNotes();
+    changed = false;
+    for (const g of guesses) if (g.exam_source === oldName) { g.exam_source = newName; changed = true; }
+    if (changed) saveJson(KEYS.guessNotes, guesses);
+  }
+
+  scheduleGithubSync();
+  return sample;
 }
 
 function saveTestHistory(sourceName, score, total, timeUsedSeconds) {
@@ -1045,6 +1112,7 @@ function deleteMistakeEntry(entryId) {
   let log = loadMistakeLog();
   log = log.filter(e => e.id !== entryId);
   saveJson(KEYS.mistakes, log);
+  addTombstone("mistake_log", entryId);
   scheduleGithubSync();
 }
 function computeMistakeInsights() {
@@ -1234,6 +1302,41 @@ async function pushCsvReportToGithub() {
   }
 }
 
+/* ---------------------------------------------------------------------
+   Tombstones -- deletions can't be represented by a plain "union the two
+   sides by id" merge (the deleted record just comes right back from
+   whichever side still has it). Recording what was deleted, and
+   subtracting that from every future merge, is what makes Delete
+   actually stick once GitHub sync is involved.
+   --------------------------------------------------------------------- */
+const TOMBSTONE_COLLECTIONS = ["sample_sets", "test_history", "exam_details", "mistake_log", "guess_notes", "local_banks"];
+function emptyTombstones() {
+  const t = {};
+  for (const c of TOMBSTONE_COLLECTIONS) t[c] = [];
+  return t;
+}
+function loadTombstones() {
+  const t = loadJson(KEYS.tombstones, null);
+  return t ? Object.assign(emptyTombstones(), t) : emptyTombstones();
+}
+function addTombstone(collection, key) {
+  const t = loadTombstones();
+  if (!t[collection]) t[collection] = [];
+  if (!t[collection].includes(key)) t[collection].push(key);
+  saveJson(KEYS.tombstones, t);
+}
+function removeTombstone(collection, key) {
+  const t = loadTombstones();
+  if (!t[collection] || !t[collection].includes(key)) return;
+  t[collection] = t[collection].filter(k => k !== key);
+  saveJson(KEYS.tombstones, t);
+}
+function unionTombstones(a, b) {
+  const merged = emptyTombstones();
+  for (const c of TOMBSTONE_COLLECTIONS) merged[c] = Array.from(new Set([...((a && a[c]) || []), ...((b && b[c]) || [])]));
+  return merged;
+}
+
 function buildLocalSnapshot() {
   return {
     local_banks: loadJson(KEYS.banks, {}),
@@ -1242,6 +1345,7 @@ function buildLocalSnapshot() {
     exam_details: loadJson(KEYS.details, []),
     mistake_log: loadJson(KEYS.mistakes, []),
     guess_notes: loadJson(KEYS.guessNotes, []),
+    tombstones: loadTombstones(),
     updated_at: nowIso(),
   };
 }
@@ -1253,21 +1357,34 @@ function applySnapshotToLocal(snap) {
   if (snap.exam_details) saveJson(KEYS.details, snap.exam_details);
   if (snap.mistake_log) saveJson(KEYS.mistakes, snap.mistake_log);
   if (snap.guess_notes) saveJson(KEYS.guessNotes, snap.guess_notes);
+  if (snap.tombstones) saveJson(KEYS.tombstones, snap.tombstones);
 }
-function mergeById(remoteArr, localArr, idKey) {
+function mergeById(remoteArr, localArr, idKey, deletedKeys) {
+  const dead = new Set(deletedKeys || []);
   const map = new Map();
-  for (const r of (remoteArr || [])) map.set(r[idKey], r);
-  for (const l of (localArr || [])) map.set(l[idKey], l); // local wins on same-id conflict
+  for (const r of (remoteArr || [])) if (!dead.has(r[idKey])) map.set(r[idKey], r);
+  for (const l of (localArr || [])) { // local wins on same-id conflict
+    if (dead.has(l[idKey])) map.delete(l[idKey]); else map.set(l[idKey], l);
+  }
   return Array.from(map.values());
 }
+function mergeBanks(remoteBanks, localBanks, deletedNames) {
+  const dead = new Set(deletedNames || []);
+  const merged = Object.assign({}, remoteBanks || {}, localBanks || {});
+  for (const name of dead) delete merged[name];
+  return merged;
+}
 function mergeSnapshots(remote, local) {
+  const tomb = unionTombstones(remote && remote.tombstones, local.tombstones);
+  saveJson(KEYS.tombstones, tomb); // persist the merged set locally so future deletes/merges see the full history
   return {
-    local_banks: Object.assign({}, (remote && remote.local_banks) || {}, local.local_banks || {}),
-    sample_sets: mergeById(remote && remote.sample_sets, local.sample_sets, "id"),
-    test_history: mergeById(remote && remote.test_history, local.test_history, "id"),
-    exam_details: mergeById(remote && remote.exam_details, local.exam_details, "exam_id"),
-    mistake_log: mergeById(remote && remote.mistake_log, local.mistake_log, "id"),
-    guess_notes: mergeById(remote && remote.guess_notes, local.guess_notes, "id"),
+    local_banks: mergeBanks(remote && remote.local_banks, local.local_banks, tomb.local_banks),
+    sample_sets: mergeById(remote && remote.sample_sets, local.sample_sets, "id", tomb.sample_sets),
+    test_history: mergeById(remote && remote.test_history, local.test_history, "id", tomb.test_history),
+    exam_details: mergeById(remote && remote.exam_details, local.exam_details, "exam_id", tomb.exam_details),
+    mistake_log: mergeById(remote && remote.mistake_log, local.mistake_log, "id", tomb.mistake_log),
+    guess_notes: mergeById(remote && remote.guess_notes, local.guess_notes, "id", tomb.guess_notes),
+    tombstones: tomb,
     updated_at: nowIso(),
   };
 }
@@ -1667,6 +1784,7 @@ $("btnExportAll").addEventListener("click", () => {
     exam_details: loadJson(KEYS.details, []),
     mistake_log: loadJson(KEYS.mistakes, []),
     guess_notes: loadJson(KEYS.guessNotes, []),
+    tombstones: loadTombstones(),
   };
   const blob = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" });
   const a = document.createElement("a");
@@ -1690,6 +1808,7 @@ $("importFileInput").addEventListener("change", (e) => {
       if (data.exam_details) saveJson(KEYS.details, data.exam_details);
       if (data.mistake_log) saveJson(KEYS.mistakes, data.mistake_log);
       if (data.guess_notes) saveJson(KEYS.guessNotes, data.guess_notes);
+      if (data.tombstones) saveJson(KEYS.tombstones, unionTombstones(loadTombstones(), data.tombstones));
       toast("Backup imported.");
       closeSheet("settingsSheet");
       refreshListsDisplay();
@@ -1844,6 +1963,24 @@ $("btnViewComposition").addEventListener("click", () => {
   openSheet("compositionSheet");
 });
 $("btnCloseComposition").addEventListener("click", () => closeSheet("compositionSheet"));
+$("btnRenameSaved").addEventListener("click", () => {
+  const s = getSelectedSavedSet();
+  if (!s) { toast("Select a saved sample first."); return; }
+  $("renameSampleInput").value = s.name || "";
+  openSheet("renameSampleSheet");
+});
+$("btnCancelRenameSample").addEventListener("click", () => closeSheet("renameSampleSheet"));
+$("btnConfirmRenameSample").addEventListener("click", () => {
+  const s = getSelectedSavedSet();
+  if (!s) { closeSheet("renameSampleSheet"); return; }
+  const newName = $("renameSampleInput").value.trim();
+  if (!newName) { toast("Enter a name."); return; }
+  renameSampleSet(s.id, newName);
+  closeSheet("renameSampleSheet");
+  toast("Sample renamed.");
+  refreshSavedSamplesList();
+  refreshHistoryList();
+});
 $("btnDeleteSaved").addEventListener("click", () => {
   const s = getSelectedSavedSet();
   if (!s) { toast("Select a saved sample first."); return; }
@@ -1859,11 +1996,24 @@ $("btnDeleteSaved").addEventListener("click", () => {
    ===================================================================== */
 function refreshHistoryList() {
   const history = loadJson(KEYS.history, []);
-  const ordered = history.slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""));
-  $("historyCount").textContent = `(${ordered.length})`;
+  const query = $("historySearchInput").value.trim().toLowerCase();
+  let filtered = query ? history.filter(h => (h.source || "").toLowerCase().includes(query)) : history.slice();
+
+  const sortMode = $("historySortSelect").value;
+  const byName = (a, b) => (a.source || "").localeCompare(b.source || "", undefined, { sensitivity: "base" });
+  if (sortMode === "alpha_asc") filtered.sort(byName);
+  else if (sortMode === "alpha_desc") filtered.sort((a, b) => byName(b, a));
+  else if (sortMode === "oldest") filtered.sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  else if (sortMode === "score_high") filtered.sort((a, b) => (b.pct || 0) - (a.pct || 0));
+  else if (sortMode === "score_low") filtered.sort((a, b) => (a.pct || 0) - (b.pct || 0));
+  else filtered.sort((a, b) => (b.date || "").localeCompare(a.date || "")); // newest (default)
+
+  const ordered = filtered;
+  $("historyCount").textContent = `(${ordered.length}${ordered.length !== history.length ? ` of ${history.length}` : ""})`;
   const box = $("historyContainer");
   box.innerHTML = "";
-  if (!ordered.length) { box.appendChild(el("div", "empty-state", "No tests taken yet.")); return; }
+  if (!history.length) { box.appendChild(el("div", "empty-state", "No tests taken yet.")); return; }
+  if (!ordered.length) { box.appendChild(el("div", "empty-state", "No tests match that search.")); return; }
   for (const h of ordered) {
     const item = el("div", "list-item");
     item.innerHTML = `<div class="top-row"><span class="name">${esc(h.source || "")}</span><span class="meta">${esc(h.date || "")}</span></div>
@@ -1871,6 +2021,8 @@ function refreshHistoryList() {
     box.appendChild(item);
   }
 }
+$("historySearchInput").addEventListener("input", refreshHistoryList);
+$("historySortSelect").addEventListener("change", refreshHistoryList);
 $("btnRefreshHistory").addEventListener("click", refreshHistoryList);
 $("btnClearHistory").addEventListener("click", () => {
   if (!confirmDialog("Clear all locally saved test history? This also clears the data behind Study Priority Analysis. This cannot be undone.")) return;
