@@ -326,6 +326,15 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
     <section class="panel" id="panel-saved">
       <div class="card">
         <h3>Previously Saved Samples <span class="count" id="savedCount"></span></h3>
+        <input type="text" id="savedSearchInput" placeholder="Search by name&hellip;" style="margin-bottom:8px;">
+        <select id="savedSortSelect" style="margin-bottom:10px;">
+          <option value="alpha_asc">Sort: Name (A&ndash;Z)</option>
+          <option value="alpha_desc">Sort: Name (Z&ndash;A)</option>
+          <option value="newest">Sort: Newest First</option>
+          <option value="oldest">Sort: Oldest First</option>
+          <option value="most_questions">Sort: Most Questions First</option>
+          <option value="fewest_questions">Sort: Fewest Questions First</option>
+        </select>
         <div id="savedContainer"></div>
       </div>
       <div class="card">
@@ -425,7 +434,7 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
         <div class="row wrap" style="margin-bottom:8px;">
           <h3 style="border:none;padding:0;flex:1;">All Logged Mistakes</h3>
         </div>
-        <p class="hint" style="margin-bottom:8px;">Tap a mistake once to see the details, tap again for your notes and a resolve button \u2014 no need to hunt for it in the dropdown above.</p>
+        <p class="hint" style="margin-bottom:8px;">Tap a mistake once to see the details, tap again for your notes and a resolve button &mdash; no need to hunt for it in the dropdown above.</p>
         <div class="row wrap" style="margin-bottom:6px;">
           <label class="row" style="flex:none;">
             <input type="checkbox" id="mistakeUnresolvedOnly">
@@ -436,10 +445,21 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
             <span style="font-size:.82rem;">Repeated only</span>
           </label>
         </div>
-        <select id="mistakeGroupSelect" style="margin-bottom:10px;">
-          <option value="subject">Group by: Subject</option>
-          <option value="repetition">Group by: Repeated vs One-Time</option>
-        </select>
+        <div class="row wrap" style="margin-bottom:10px;">
+          <button class="btn" id="btnMistakeFilterToggle">Filter Subjects</button>
+          <select id="mistakeGroupSelect">
+            <option value="subject">Group by: Subject</option>
+            <option value="repetition">Group by: Repeated vs One-Time</option>
+          </select>
+        </div>
+        <div id="mistakeFilterBox" class="list-item" style="display:none;margin-bottom:10px;">
+          <div class="row wrap" style="margin-bottom:8px;">
+            <b style="font-size:.8rem;flex:1;">Choose subjects to show</b>
+            <button class="btn link" id="btnMistakeSubjectsAll">All</button>
+            <button class="btn link" id="btnMistakeSubjectsNone">None</button>
+          </div>
+          <div id="mistakeSubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
+        </div>
         <div id="allMistakesContainer"></div>
         <button class="btn link" id="btnCopyMistakeInsights">&#128203; Copy Insights to Clipboard</button>
       </div>
@@ -449,14 +469,31 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
       </div>
       <div class="card">
         <h3>Guesses You Made <span class="count" id="guessesCount"></span></h3>
-        <p class="hint" style="margin-bottom:10px;">Every question you flagged "Guess" confidence on, right or wrong \u2014 a good source of flashcards even when you happened to get lucky. Tap one to jot a note; tap again to see/hide it.</p>
+        <p class="hint" style="margin-bottom:10px;">Every question you flagged "Guess" confidence on, right or wrong &mdash; a good source of flashcards even when you happened to get lucky. Tap one to jot a note; tap again to see/hide it.</p>
         <select id="guessesExamSelect" style="margin-bottom:10px;">
           <option value="all">All tests</option>
         </select>
-        <label class="row" style="margin-bottom:10px;">
-          <input type="checkbox" id="guessesWrongOnly">
-          <span style="font-size:.82rem;">Only guesses I got wrong</span>
-        </label>
+        <div class="row wrap" style="margin-bottom:10px;">
+          <button class="btn" id="btnGuessFilterToggle">Filter Subjects</button>
+        </div>
+        <div id="guessFilterBox" class="list-item" style="display:none;margin-bottom:10px;">
+          <div class="row wrap" style="margin-bottom:8px;">
+            <b style="font-size:.8rem;flex:1;">Choose subjects to show</b>
+            <button class="btn link" id="btnGuessSubjectsAll">All</button>
+            <button class="btn link" id="btnGuessSubjectsNone">None</button>
+          </div>
+          <div id="guessSubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
+        </div>
+        <div class="row wrap" style="margin-bottom:10px;">
+          <label class="row" style="flex:none;">
+            <input type="checkbox" id="guessesWrongOnly">
+            <span style="font-size:.82rem;">Only guesses I got wrong</span>
+          </label>
+          <label class="row" style="flex:none;">
+            <input type="checkbox" id="guessesCorrectOnly">
+            <span style="font-size:.82rem;">Only guesses I got right</span>
+          </label>
+        </div>
         <div id="guessesContainer"></div>
       </div>
     </section>
@@ -536,7 +573,7 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
     <label class="field-label">CSV reports folder (each exam's report is auto-saved here as a .csv on submit)</label>
     <input type="text" id="ghCsvFolderInput" placeholder="reports" value="reports">
     <label class="field-label">Fine-grained Personal Access Token (Contents: Read and write, scoped to this one repo)</label>
-    <input type="password" id="ghTokenInput" placeholder="github_pat_\u2026">
+    <input type="password" id="ghTokenInput" placeholder="github_pat_&hellip;">
     <div class="row" style="margin-top:10px;">
       <button class="btn primary" id="btnSaveGithubConfig">Save &amp; Test Connection</button>
       <button class="btn" id="btnSyncNow">Sync Now</button>
@@ -1763,11 +1800,24 @@ let selectedSavedId = null;
 function refreshSavedSamplesListQuiet() { savedSets = loadJson(KEYS.samples, []); }
 function refreshSavedSamplesList() {
   savedSets = loadJson(KEYS.samples, []);
-  const ordered = savedSets.slice().sort((a, b) => (b.created_at || "").localeCompare(a.created_at || ""));
-  $("savedCount").textContent = `(${ordered.length})`;
+  const query = $("savedSearchInput").value.trim().toLowerCase();
+  let filtered = query ? savedSets.filter(s => (s.name || "").toLowerCase().includes(query)) : savedSets.slice();
+
+  const sortMode = $("savedSortSelect").value;
+  const byName = (a, b) => (a.name || "").localeCompare(b.name || "", undefined, { sensitivity: "base" });
+  if (sortMode === "alpha_asc") filtered.sort(byName);
+  else if (sortMode === "alpha_desc") filtered.sort((a, b) => byName(b, a));
+  else if (sortMode === "newest") filtered.sort((a, b) => (b.created_at || "").localeCompare(a.created_at || ""));
+  else if (sortMode === "oldest") filtered.sort((a, b) => (a.created_at || "").localeCompare(b.created_at || ""));
+  else if (sortMode === "most_questions") filtered.sort((a, b) => (b.questions || []).length - (a.questions || []).length);
+  else if (sortMode === "fewest_questions") filtered.sort((a, b) => (a.questions || []).length - (b.questions || []).length);
+
+  const ordered = filtered;
+  $("savedCount").textContent = `(${ordered.length}${ordered.length !== savedSets.length ? ` of ${savedSets.length}` : ""})`;
   const box = $("savedContainer");
   box.innerHTML = "";
-  if (!ordered.length) { box.appendChild(el("div", "empty-state", "No saved samples yet -- build one in Sample Builder.")); return; }
+  if (!savedSets.length) { box.appendChild(el("div", "empty-state", "No saved samples yet -- build one in Sample Builder.")); return; }
+  if (!ordered.length) { box.appendChild(el("div", "empty-state", "No saved samples match that search.")); return; }
   for (const s of ordered) {
     const item = el("div", "list-item selectable" + (s.id === selectedSavedId ? " selected" : ""));
     item.innerHTML = `<div class="top-row"><span class="name">${esc(s.name || "(unnamed)")}</span></div>
@@ -1776,6 +1826,8 @@ function refreshSavedSamplesList() {
     box.appendChild(item);
   }
 }
+$("savedSearchInput").addEventListener("input", refreshSavedSamplesList);
+$("savedSortSelect").addEventListener("change", refreshSavedSamplesList);
 function getSelectedSavedSet() { return savedSets.find(s => s.id === selectedSavedId) || null; }
 
 $("btnStartFromSaved").addEventListener("click", () => {
@@ -2017,19 +2069,54 @@ function refreshGuessesSection() {
     details.map(d => `<option value="${esc(d.exam_id)}">${esc(d.date || "")} | ${esc(d.source || "")}</option>`).join("");
   if (Array.from(sel.options).some(o => o.value === prevVal)) sel.value = prevVal;
 
-  let guesses = getAllGuesses();
-  if (sel.value !== "all") guesses = guesses.filter(g => g.exam_id === sel.value);
+  const allGuesses = getAllGuesses();
+  renderGuessSubjectChecks(Array.from(new Set(allGuesses.map(g => g.source_list || "Unknown"))));
+
+  let guesses = allGuesses;
+  if (sel.value !== "all") guesses = guesses.filter(g => g.exam_id === sel.value); // per-sample filter, kept
+  guesses = guesses.filter(g => !guessHiddenSubjects.has(g.source_list || "Unknown")); // subject filter
   if ($("guessesWrongOnly").checked) guesses = guesses.filter(g => !g.is_correct);
+  if ($("guessesCorrectOnly").checked) guesses = guesses.filter(g => g.is_correct);
   guesses.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 
   $("guessesCount").textContent = `(${guesses.length})`;
   const box = $("guessesContainer");
   box.innerHTML = "";
   if (!guesses.length) {
-    box.appendChild(el("div", "empty-state", "No guesses recorded yet \u2014 they'll show up here whenever you tag an answer \u2018Guess\u2019 during an exam."));
+    box.appendChild(el("div", "empty-state",
+      allGuesses.length ? "Nothing matches these filters." : "No guesses recorded yet \u2014 they'll show up here whenever you tag an answer \u2018Guess\u2019 during an exam."));
     return;
   }
   for (const g of guesses) box.appendChild(renderGuessCard(g));
+}
+
+let guessHiddenSubjects = new Set();
+$("btnGuessFilterToggle").addEventListener("click", () => {
+  const box = $("guessFilterBox");
+  box.style.display = box.style.display === "none" ? "block" : "none";
+});
+$("btnGuessSubjectsAll").addEventListener("click", () => { guessHiddenSubjects.clear(); refreshGuessesSection(); });
+$("btnGuessSubjectsNone").addEventListener("click", () => {
+  guessHiddenSubjects = new Set(getAllGuesses().map(g => g.source_list || "Unknown"));
+  refreshGuessesSection();
+});
+function renderGuessSubjectChecks(subjects) {
+  const box = $("guessSubjectChecks");
+  box.innerHTML = "";
+  const sorted = subjects.slice().sort();
+  if (!sorted.length) { box.appendChild(el("div", "empty-state", "No guesses recorded yet.")); return; }
+  for (const s of sorted) {
+    const row = el("label", "row");
+    row.style.marginBottom = "6px";
+    row.style.fontSize = ".82rem";
+    const checked = !guessHiddenSubjects.has(s);
+    row.innerHTML = `<input type="checkbox" ${checked ? "checked" : ""}><span>${esc(s)}</span>`;
+    row.querySelector("input").addEventListener("change", (e) => {
+      if (e.target.checked) guessHiddenSubjects.delete(s); else guessHiddenSubjects.add(s);
+      refreshGuessesSection();
+    });
+    box.appendChild(row);
+  }
 }
 
 function renderGuessCard(g) {
@@ -2082,7 +2169,14 @@ function renderGuessCard(g) {
   return card;
 }
 $("guessesExamSelect").addEventListener("change", refreshGuessesSection);
-$("guessesWrongOnly").addEventListener("change", refreshGuessesSection);
+$("guessesWrongOnly").addEventListener("change", () => {
+  if ($("guessesWrongOnly").checked) $("guessesCorrectOnly").checked = false;
+  refreshGuessesSection();
+});
+$("guessesCorrectOnly").addEventListener("change", () => {
+  if ($("guessesCorrectOnly").checked) $("guessesWrongOnly").checked = false;
+  refreshGuessesSection();
+});
 
 function onLoadExamMistakes() {
   currentExamMistakes = [];
@@ -2170,6 +2264,35 @@ $("mistakeUnresolvedOnly").addEventListener("change", refreshAllMistakesTree);
 $("mistakeRepeatedOnly").addEventListener("change", refreshAllMistakesTree);
 $("mistakeGroupSelect").addEventListener("change", refreshAllMistakesTree);
 
+let mistakeHiddenSubjects = new Set();
+$("btnMistakeFilterToggle").addEventListener("click", () => {
+  const box = $("mistakeFilterBox");
+  box.style.display = box.style.display === "none" ? "block" : "none";
+});
+$("btnMistakeSubjectsAll").addEventListener("click", () => { mistakeHiddenSubjects.clear(); refreshAllMistakesTree(); });
+$("btnMistakeSubjectsNone").addEventListener("click", () => {
+  mistakeHiddenSubjects = new Set(loadMistakeLog().map(e => e.source_list || "Unknown"));
+  refreshAllMistakesTree();
+});
+function renderMistakeSubjectChecks(subjects) {
+  const box = $("mistakeSubjectChecks");
+  box.innerHTML = "";
+  const sorted = subjects.slice().sort();
+  if (!sorted.length) { box.appendChild(el("div", "empty-state", "No mistakes logged yet.")); return; }
+  for (const s of sorted) {
+    const row = el("label", "row");
+    row.style.marginBottom = "6px";
+    row.style.fontSize = ".82rem";
+    const checked = !mistakeHiddenSubjects.has(s);
+    row.innerHTML = `<input type="checkbox" ${checked ? "checked" : ""}><span>${esc(s)}</span>`;
+    row.querySelector("input").addEventListener("change", (e) => {
+      if (e.target.checked) mistakeHiddenSubjects.delete(s); else mistakeHiddenSubjects.add(s);
+      refreshAllMistakesTree();
+    });
+    box.appendChild(row);
+  }
+}
+
 function mistakeRepeatKey(e) { return `${e.source_list}::${e.reference_no}`; }
 
 function setMistakeResolved(entryId, resolved) {
@@ -2177,7 +2300,8 @@ function setMistakeResolved(entryId, resolved) {
   const entry = log.find(e => e.id === entryId);
   if (!entry) return;
   entry.resolved = resolved;
-  entry.date_logged = nowIso();
+  // Deliberately NOT touching date_logged here -- the list is sorted by it, and
+  // bumping it on every resolve toggle used to make rows jump around mid-review.
   saveJson(KEYS.mistakes, log);
   scheduleGithubSync();
 }
@@ -2246,9 +2370,12 @@ function refreshAllMistakesTree() {
   const repeatCounts = {};
   for (const e of fullLog) { const k = mistakeRepeatKey(e); repeatCounts[k] = (repeatCounts[k] || 0) + 1; }
 
+  renderMistakeSubjectChecks(Array.from(new Set(fullLog.map(e => e.source_list || "Unknown"))));
+
   let log = fullLog;
   if ($("mistakeUnresolvedOnly").checked) log = log.filter(e => !e.resolved);
   if ($("mistakeRepeatedOnly").checked) log = log.filter(e => repeatCounts[mistakeRepeatKey(e)] > 1);
+  log = log.filter(e => !mistakeHiddenSubjects.has(e.source_list || "Unknown"));
 
   const box = $("allMistakesContainer");
   box.innerHTML = "";
@@ -2598,6 +2725,7 @@ function loadQuestion() {
   persistExamProgress();
 }
 function selectOption(i) {
+  bankElapsedTime();
   Exam.userAnswers[Exam.currentIndex] = i;
   loadQuestion();
 }
