@@ -12891,8 +12891,22 @@
       "note": "Toughness is energy absorption and strength is resistance to stress/load without failing",
       "resolved": false,
       "date_logged": "2026-09-24T09:11:48"
+    },
+    {
+      "id": "1790241897571488",
+      "exam_id": "1790178932634161",
+      "exam_source": "D1_S1",
+      "source_list": "D1_L2_Environmental_EngSci",
+      "reference_no": 20,
+      "question": "For numbers 18 to 20: The dilution factor P for an unseeded mixture of waste and water is 0.030. The DO of the mixture is initially 9.0 mg/L, and after five days, it has dropped to 3 mg/L. The reaction rate constant k has been found to be 0.22 /day.: What would be the remaining oxygen demand after five days?",
+      "your_answer": "D. 50 mg/L",
+      "correct_answer": "A. 100 mg/L",
+      "category": "Formula / Equation Error",
+      "note": "Dilution factor scales the change in DO of the sample to the actual Oxygen demand of the total volume. BOD5 = (DOi-DOf)/P, then BOD5 = Lo(1-e^-kt), then L5 (remaining demand) = Lo - BOD5",
+      "resolved": false,
+      "date_logged": "2026-09-24T09:24:57"
     }
   ],
   "guess_notes": [],
-  "updated_at": "2026-09-24T09:11:53"
+  "updated_at": "2026-09-24T09:25:03"
 }
