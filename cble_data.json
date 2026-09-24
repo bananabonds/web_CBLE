@@ -12947,8 +12947,22 @@
       "note": "Soda lime has a high coefficient of thermal expansion. Pyrex has boron dopants that reduces this",
       "resolved": false,
       "date_logged": "2026-09-24T09:39:20"
+    },
+    {
+      "id": "1790254591779120",
+      "exam_id": "1790149661027511",
+      "exam_source": "D3_S2",
+      "source_list": "D3_L8_Integral_Calculus",
+      "reference_no": 40,
+      "question": "What is the volume generated when the area in the first quadrant bounded by the curve x²=8y, the line x=4, and the x-axis is revolved about the y-axis?",
+      "your_answer": "B. 45.78",
+      "correct_answer": "C. 50.26",
+      "category": "Formula / Equation Error",
+      "note": "Use the shell method V = integ(2pi * radius * height , a, b) where a b are the limits. the y = height of the curve, the bottom of the shape is in the x-axis, the limit is from x = 0 and x = 4, the radius is the distance from y axis to some value of x hence radius = x, height is y=x^2/8. integrate with respect to x.",
+      "resolved": false,
+      "date_logged": "2026-09-24T12:56:31"
     }
   ],
   "guess_notes": [],
-  "updated_at": "2026-09-24T09:39:26"
+  "updated_at": "2026-09-24T12:56:38"
 }
