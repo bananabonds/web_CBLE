@@ -12077,8 +12077,22 @@
       "note": "Balance the chemical reaction, get the mols of acetone, find the equivalent O2 mols needed via stoichiometry, then at STP specific volume is 22.414 L/mol find volume then from the oxygen volume find the volume of air via its mol frac.",
       "resolved": false,
       "date_logged": "2026-09-24T05:49:08"
+    },
+    {
+      "id": "1790229107170543",
+      "exam_id": "1790178932634161",
+      "exam_source": "D1_S1",
+      "source_list": "D1_L3_Analytical_Chemistry",
+      "reference_no": 5,
+      "question": "How much water must be added to 50 mL of a 0.4 N solution of Cr₂(SO₄)₃•18H₂O in order to make it 0.05 M? The solution is to be used in the precipitation of chromium as the hydroxide.",
+      "your_answer": "B. 62.2 mL",
+      "correct_answer": "C. 16.7 mL",
+      "category": "Formula / Equation Error",
+      "note": "The n for chromium sulfate is 6 not 5, count the valence not the number of dissociating ions. It gives 6- for total sulfate and 6+ for total Cr3+, then use dilution equation.",
+      "resolved": false,
+      "date_logged": "2026-09-24T05:51:47"
     }
   ],
   "guess_notes": [],
-  "updated_at": "2026-09-24T05:49:13"
+  "updated_at": "2026-09-24T05:51:53"
 }
