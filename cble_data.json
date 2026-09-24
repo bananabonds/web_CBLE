@@ -14091,6 +14091,20 @@
       "note": "Use the shell method V = integ(2pi * radius * height , a, b) where a b are the limits. the y = height of the curve, the bottom of the shape is in the x-axis, the limit is from x = 0 and x = 4, the radius is the distance from y axis to some value of x hence radius = x, height is y=x^2/8. integrate with respect to x.",
       "resolved": false,
       "date_logged": "2026-09-24T12:56:31"
+    },
+    {
+      "id": "1790262915290279",
+      "exam_id": "179026251344471",
+      "exam_source": "CT_PRAC3",
+      "source_list": "CT_Organic_Chemistry",
+      "reference_no": 3,
+      "question": "Which of the following compounds has the shortest CN bond length?",
+      "your_answer": "B. Acetamide",
+      "correct_answer": "C. Benzonitrile",
+      "category": "Conceptual Misunderstanding",
+      "note": "Nitrile group is C---N not NO2, NO2 is nitro group",
+      "resolved": false,
+      "date_logged": "2026-09-24T15:15:15"
     }
   ],
   "guess_notes": [],
@@ -14102,5 +14116,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-24T15:08:35"
+  "updated_at": "2026-09-24T15:15:22"
 }
