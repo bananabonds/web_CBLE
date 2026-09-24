@@ -12007,8 +12007,22 @@
       "note": "H = A + B/u + Cu, H here is HETP it measures the column inefficiency, higher HETP means more inefficient. Number of plates is N = L/HETP where L is column length. Hence HETP = L/N. HETP is height equivalent to a theoretical plate meaning that a higher height needed for one means inefficiency. HETP * N = height",
       "resolved": false,
       "date_logged": "2026-09-24T05:08:17"
+    },
+    {
+      "id": "1790226912358866",
+      "exam_id": "1790138253439819",
+      "exam_source": "CT_PT_S2",
+      "source_list": "CT_PT_Laboratory_Instrumentation",
+      "reference_no": 21,
+      "question": "An analytical balance should have a precision of at least",
+      "your_answer": "A. 1 part in 10²",
+      "correct_answer": "D. 1 part in 10⁵",
+      "category": "Conceptual Misunderstanding",
+      "note": "For a balance to be classified as analytic, it must be able to detect until 10^-5 as defined by international metrology organizations and global scientific communities.",
+      "resolved": false,
+      "date_logged": "2026-09-24T05:15:12"
     }
   ],
   "guess_notes": [],
-  "updated_at": "2026-09-24T05:08:23"
+  "updated_at": "2026-09-24T05:15:18"
 }
