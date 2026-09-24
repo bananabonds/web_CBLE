@@ -12793,8 +12793,22 @@
       "note": "Yield strength is where the permanent deformation happens and tensile strength is the peak stress before necking (the deformation where the material narrows)",
       "resolved": false,
       "date_logged": "2026-09-24T07:16:28"
+    },
+    {
+      "id": "1790234345659277",
+      "exam_id": "1790178932634161",
+      "exam_source": "D1_S1",
+      "source_list": "D1_L5_Material_Science_Engineering",
+      "reference_no": 72,
+      "question": "A 50 mL solution of 1 M HCl is mixed with 50 mL of 1 M NaOH. The initial temperature of both solutions is 25.0°C, and the final temperature after mixing is 31.2°C. Given that the density of the solution is 1 g/mL and specific heat capacity is 4.18 J/g-°C, calculate the heat of mixing.",
+      "your_answer": "D. -26040 J",
+      "correct_answer": "C. -51800 J",
+      "category": "Formula / Equation Error",
+      "note": "So calculate the heat released q = mCpdT then divide it by the mols of water formed (standard for strong acid and bases)",
+      "resolved": false,
+      "date_logged": "2026-09-24T07:19:05"
     }
   ],
   "guess_notes": [],
-  "updated_at": "2026-09-24T07:16:34"
+  "updated_at": "2026-09-24T07:19:11"
 }
