@@ -11993,8 +11993,22 @@
       "note": "340-1000 nm is a continous wide range spectra that is produced by tungsten lamps. Mercury vapor emits discrete spectra and specific peaks (365 nm). Deuterium is restricted to UV range 150-400 nm",
       "resolved": false,
       "date_logged": "2026-09-24T05:00:25"
+    },
+    {
+      "id": "1790226497671655",
+      "exam_id": "1790138253439819",
+      "exam_source": "CT_PT_S2",
+      "source_list": "CT_PT_Laboratory_Instrumentation",
+      "reference_no": 25,
+      "question": "The height equivalent of a theoretical plate (HETP) has all of the following characteristics EXCEPT",
+      "your_answer": "A. It is defined by the van Deemter equation.",
+      "correct_answer": "D. This quantity times the column length is equal to the number of theoretical plates in the column.",
+      "category": "Conceptual Misunderstanding",
+      "note": "H = A + B/u + Cu, H here is HETP it measures the column inefficiency, higher HETP means more inefficient. Number of plates is N = L/HETP where L is column length. Hence HETP = L/N. HETP is height equivalent to a theoretical plate meaning that a higher height needed for one means inefficiency. HETP * N = height",
+      "resolved": false,
+      "date_logged": "2026-09-24T05:08:17"
     }
   ],
   "guess_notes": [],
-  "updated_at": "2026-09-24T05:00:31"
+  "updated_at": "2026-09-24T05:08:23"
 }
