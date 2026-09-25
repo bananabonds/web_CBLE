@@ -16975,6 +16975,20 @@
       "note": "This is the ratio of retention factors (or distribution coefficients). This describes how well chromatography can seperate two substances. where it is >= 1, if = 1 it wont seperate.",
       "resolved": false,
       "date_logged": "2026-09-25T13:09:42"
+    },
+    {
+      "id": "1790341924272523",
+      "exam_id": "1790325302316330",
+      "exam_source": "CT_PT_S3",
+      "source_list": "CT_PT_Analytical_Chemistry",
+      "reference_no": 77,
+      "question": "It is the portion of the calibration curve that includes the concentration range in which the analyte can be determined with demonstrated precision, accuracy, and response function.",
+      "your_answer": "B. Limit of quantification",
+      "correct_answer": "C. Working range",
+      "category": "Conceptual Misunderstanding",
+      "note": "LOQ is a single point while working range is the entire span of the feasible measurements.",
+      "resolved": false,
+      "date_logged": "2026-09-25T13:12:04"
     }
   ],
   "guess_notes": [],
@@ -16988,5 +17002,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-25T13:09:48"
+  "updated_at": "2026-09-25T13:12:09"
 }
