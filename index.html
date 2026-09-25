@@ -141,6 +141,19 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
 
 .empty-state{padding:22px 10px;text-align:center;color:var(--sub);font-size:.85rem;}
 
+/* Home tab */
+#homeOverviewGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:6px;}
+.home-stat{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 8px;text-align:center;}
+.home-stat-val{font-size:1.25rem;font-weight:700;color:var(--navy);font-family:"IBM Plex Mono",monospace;}
+.home-stat-lbl{font-size:.7rem;color:var(--sub);margin-top:3px;}
+.home-bignum{font-size:1.9rem;font-weight:700;color:var(--navy);font-family:"IBM Plex Mono",monospace;line-height:1.1;}
+.home-sub{font-size:.78rem;color:var(--sub);margin-top:2px;}
+.home-delta{font-size:.86rem;margin-top:8px;line-height:1.45;}
+.home-delta b{font-weight:700;}
+.home-delta.positive b{color:var(--green);}
+.home-delta.negative b{color:var(--red);}
+input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 10px;font-size:.9rem;font-family:inherit;background:#fff;color:var(--ink);}
+
 /* bar chart rows */
 .bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:.76rem;}
 .bar-row .lbl{width:120px;flex:none;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
@@ -275,7 +288,8 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
   </div>
 
   <div id="tabstrip">
-    <button class="tabchip active" data-tab="builder">Sample Builder</button>
+    <button class="tabchip active" data-tab="home">Home</button>
+    <button class="tabchip" data-tab="builder">Sample Builder</button>
     <button class="tabchip" data-tab="saved">Saved Samples</button>
     <button class="tabchip" data-tab="history">Test History</button>
     <button class="tabchip" data-tab="analysis">Study Priority</button>
@@ -284,8 +298,53 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
   </div>
 
   <main>
+    <!-- ---- Tab: Home ---- -->
+    <section class="panel active" id="panel-home">
+      <div class="card">
+        <h3 id="homeGreeting">Your Progress</h3>
+        <p class="hint" id="homeSubline">Here's where things stand.</p>
+        <div id="homeOverviewGrid"></div>
+      </div>
+
+      <div class="card">
+        <h3>Mistakes Logged</h3>
+        <div id="homeMistakesStat"></div>
+        <div class="row wrap" style="margin-top:10px;">
+          <span class="hint" style="flex:none;">Compare to:</span>
+          <input type="date" id="homeMistakesDate">
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Assessment Performance</h3>
+        <div id="homeAssessStat"></div>
+        <div class="row wrap" style="margin-top:10px;">
+          <span class="hint" style="flex:none;">Compare to:</span>
+          <input type="date" id="homeAssessDate">
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Samples Generated</h3>
+        <div id="homeSamplesStat"></div>
+        <div class="row wrap" style="margin-top:10px;">
+          <span class="hint" style="flex:none;">Compare to:</span>
+          <input type="date" id="homeSamplesDate">
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Tests Taken</h3>
+        <div id="homeTestsStat"></div>
+        <div class="row wrap" style="margin-top:10px;">
+          <span class="hint" style="flex:none;">Compare to:</span>
+          <input type="date" id="homeTestsDate">
+        </div>
+      </div>
+    </section>
+
     <!-- ---- Tab: Sample Builder ---- -->
-    <section class="panel active" id="panel-builder">
+    <section class="panel" id="panel-builder">
       <div class="card">
         <h3>Available Lists <span class="count" id="listsCount"></span></h3>
         <div class="row wrap" style="margin-bottom:8px;">
@@ -1408,6 +1467,7 @@ async function runGithubSync() {
     await githubPutFile(merged, remoteSha);
     setGithubStatus(`Synced \u00b7 ${new Date().toLocaleTimeString()}`);
     if (typeof refreshListsDisplay === "function") refreshListsDisplay();
+    if (typeof refreshHome === "function") refreshHome();
   } catch (e) {
     console.error("GitHub sync failed:", e);
     setGithubStatus(`Sync failed: ${e.message}`);
@@ -1698,7 +1758,166 @@ function confirmDialog(message) { return window.confirm(message); }
 /* =====================================================================
    Tab navigation
    ===================================================================== */
+/* =====================================================================
+   Home tab -- progress dashboard
+   ===================================================================== */
+function dateOnly(iso) { return (iso || "").slice(0, 10); }
+function todayDateStr() { return new Date().toISOString().slice(0, 10); }
+function formatDateNice(dateStr) {
+  if (!dateStr) return "(no date)";
+  if (dateStr === todayDateStr()) return "Today";
+  const d = new Date(dateStr + "T00:00:00");
+  if (isNaN(d.getTime())) return dateStr;
+  return d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+}
+function latestDateFromArray(arr, field) {
+  let latest = null;
+  for (const item of arr) {
+    const d = dateOnly(item[field]);
+    if (d && (!latest || d > latest)) latest = d;
+  }
+  return latest;
+}
+function countUpTo(arr, field, cutoffDate) {
+  if (!cutoffDate) return 0;
+  return arr.filter(item => dateOnly(item[field]) && dateOnly(item[field]) <= cutoffDate).length;
+}
+function avgPctOnDate(history, dateStr) {
+  if (!dateStr) return null;
+  const matches = history.filter(h => dateOnly(h.date) === dateStr);
+  if (!matches.length) return null;
+  const avg = matches.reduce((sum, h) => sum + (h.pct || 0), 0) / matches.length;
+  return { avg, count: matches.length };
+}
+
+function refreshHome() {
+  renderHomeOverview();
+  renderHomeMistakes();
+  renderHomeAssessments();
+  renderHomeSamples();
+  renderHomeTests();
+}
+
+function renderHomeOverview() {
+  const history = loadJson(KEYS.history, []);
+  const samples = loadJson(KEYS.samples, []);
+  const mistakes = loadMistakeLog();
+  const banks = loadLocalBanksRaw();
+  const totalTests = history.length;
+  const avgScore = totalTests ? (history.reduce((s, h) => s + (h.pct || 0), 0) / totalTests) : null;
+  const resolved = mistakes.filter(m => m.resolved).length;
+  const lastActivity = [latestDateFromArray(history, "date"), latestDateFromArray(samples, "created_at"), latestDateFromArray(mistakes, "date_logged")]
+    .filter(Boolean).sort().pop();
+
+  $("homeSubline").textContent = lastActivity ? `Last activity: ${formatDateNice(lastActivity)}` : "Take an assessment or build a sample to get started.";
+
+  const stats = [
+    ["Tests Taken", totalTests],
+    ["Average Score", avgScore != null ? `${avgScore.toFixed(1)}%` : "\u2013"],
+    ["Saved Samples", samples.length],
+    ["Mistakes Resolved", `${resolved}/${mistakes.length}`],
+  ];
+  const box = $("homeOverviewGrid");
+  box.innerHTML = "";
+  for (const [label, val] of stats) {
+    const cell = el("div", "home-stat");
+    cell.innerHTML = `<div class="home-stat-val">${esc(val)}</div><div class="home-stat-lbl">${esc(label)}</div>`;
+    box.appendChild(cell);
+  }
+}
+
+function renderHomeMistakes() {
+  const mistakes = loadMistakeLog();
+  const box = $("homeMistakesStat");
+  const dateInput = $("homeMistakesDate");
+  if (!mistakes.length) {
+    box.innerHTML = "";
+    box.appendChild(el("div", "empty-state", "Log a mistake to start tracking this."));
+    return;
+  }
+  const latest = latestDateFromArray(mistakes, "date_logged");
+  if (!dateInput.value) dateInput.value = latest;
+  const selected = dateInput.value || latest;
+  const current = mistakes.length;
+  const baseline = countUpTo(mistakes, "date_logged", selected);
+  const delta = current - baseline;
+  box.innerHTML = `<div class="home-bignum">${current}</div><div class="home-sub">mistakes logged in total</div>
+    <div class="home-delta${delta > 0 ? " positive" : ""}">You've logged <b>${delta}</b> more mistake${delta === 1 ? "" : "s"} since ${esc(formatDateNice(selected))} <span class="hint">(${baseline} logged by then)</span></div>`;
+}
+$("homeMistakesDate").addEventListener("change", renderHomeMistakes);
+
+function renderHomeSamples() {
+  const samples = loadJson(KEYS.samples, []);
+  const box = $("homeSamplesStat");
+  const dateInput = $("homeSamplesDate");
+  if (!samples.length) {
+    box.innerHTML = "";
+    box.appendChild(el("div", "empty-state", "Generate and save a sample to start tracking this."));
+    return;
+  }
+  const latest = latestDateFromArray(samples, "created_at");
+  if (!dateInput.value) dateInput.value = latest;
+  const selected = dateInput.value || latest;
+  const current = samples.length;
+  const baseline = countUpTo(samples, "created_at", selected);
+  const delta = current - baseline;
+  box.innerHTML = `<div class="home-bignum">${current}</div><div class="home-sub">samples generated in total</div>
+    <div class="home-delta${delta > 0 ? " positive" : ""}">You've generated <b>${delta}</b> more sample${delta === 1 ? "" : "s"} since ${esc(formatDateNice(selected))} <span class="hint">(${baseline} by then)</span></div>`;
+}
+$("homeSamplesDate").addEventListener("change", renderHomeSamples);
+
+function renderHomeTests() {
+  const history = loadJson(KEYS.history, []);
+  const box = $("homeTestsStat");
+  const dateInput = $("homeTestsDate");
+  if (!history.length) {
+    box.innerHTML = "";
+    box.appendChild(el("div", "empty-state", "Take an assessment to start tracking this."));
+    return;
+  }
+  const latest = latestDateFromArray(history, "date");
+  if (!dateInput.value) dateInput.value = latest;
+  const selected = dateInput.value || latest;
+  const current = history.length;
+  const baseline = countUpTo(history, "date", selected);
+  const delta = current - baseline;
+  box.innerHTML = `<div class="home-bignum">${current}</div><div class="home-sub">tests taken in total</div>
+    <div class="home-delta${delta > 0 ? " positive" : ""}">You've taken <b>${delta}</b> more test${delta === 1 ? "" : "s"} since ${esc(formatDateNice(selected))} <span class="hint">(${baseline} by then)</span></div>`;
+}
+$("homeTestsDate").addEventListener("change", renderHomeTests);
+
+function renderHomeAssessments() {
+  const history = loadJson(KEYS.history, []);
+  const box = $("homeAssessStat");
+  const dateInput = $("homeAssessDate");
+  if (!history.length) {
+    box.innerHTML = "";
+    box.appendChild(el("div", "empty-state", "Take an assessment to start tracking this."));
+    return;
+  }
+  const latest = latestDateFromArray(history, "date");
+  if (!dateInput.value) dateInput.value = latest;
+  const selected = dateInput.value || latest;
+  const latestStat = avgPctOnDate(history, latest);
+  const baselineStat = avgPctOnDate(history, selected);
+
+  if (!baselineStat) {
+    box.innerHTML = `<div class="home-sub">Your latest assessment day was ${esc(formatDateNice(latest))} (avg ${latestStat.avg.toFixed(1)}%).</div>
+      <div class="empty-state">No assessments recorded on ${esc(formatDateNice(selected))} \u2014 try another date.</div>`;
+    return;
+  }
+  const diff = latestStat.avg - baselineStat.avg;
+  const verb = diff > 0.05 ? "better" : diff < -0.05 ? "worse" : "about the same";
+  const cls = diff > 0.05 ? "positive" : diff < -0.05 ? "negative" : "";
+  box.innerHTML = `<div class="home-bignum">${Math.abs(diff).toFixed(1)}%</div><div class="home-sub">${verb === "about the same" ? "about the same as before" : `performing ${verb}`}</div>
+    <div class="home-delta${cls ? " " + cls : ""}">You performed <b>${Math.abs(diff).toFixed(1)}% ${verb}</b> in your assessments on ${esc(formatDateNice(latest))}
+      <span class="hint">(avg ${latestStat.avg.toFixed(1)}%, ${latestStat.count} test${latestStat.count === 1 ? "" : "s"})</span>
+      compared to ${esc(formatDateNice(selected))} <span class="hint">(avg ${baselineStat.avg.toFixed(1)}%, ${baselineStat.count} test${baselineStat.count === 1 ? "" : "s"})</span>.</div>`;
+}
+$("homeAssessDate").addEventListener("change", renderHomeAssessments);
+
 const TAB_REFRESH = {
+  home: refreshHome,
   builder: refreshListsDisplay,
   saved: refreshSavedSamplesList,
   history: refreshHistoryList,
@@ -3211,6 +3430,7 @@ $("btnBackToWorkbench").addEventListener("click", () => {
    Boot
    ===================================================================== */
 (function init() {
+  refreshHome();
   refreshListsDisplay();
   refreshSavedSamplesList();
   refreshHistoryList();
