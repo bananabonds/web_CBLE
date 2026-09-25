@@ -16933,6 +16933,20 @@
       "note": "GMP is manufacturing and distribution, while GLP is for planning to archiving of lab results",
       "resolved": false,
       "date_logged": "2026-09-25T12:50:51"
+    },
+    {
+      "id": "1790341481993358",
+      "exam_id": "1790325302316330",
+      "exam_source": "CT_PT_S3",
+      "source_list": "CT_PT_Laboratory_Instrumentation",
+      "reference_no": 20,
+      "question": "A compound has tᵣ = 10 min and tₘ = 2 min. What is its retention factor, k?",
+      "your_answer": "D. 8",
+      "correct_answer": "B. 4",
+      "category": "Formula / Equation Error",
+      "note": "The retention factor formula is (tr - tm) / tm, its adjusted retention time / void time. Its the ratio of the time a compound spends on the stationary to the mobile phase k<1 elutes quick, k>10 too sticky.",
+      "resolved": false,
+      "date_logged": "2026-09-25T13:04:41"
     }
   ],
   "guess_notes": [],
@@ -16946,5 +16960,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-25T12:50:57"
+  "updated_at": "2026-09-25T13:04:47"
 }
