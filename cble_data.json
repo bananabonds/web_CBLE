@@ -13023,7 +13023,7 @@
       "correct_answer": "D. 4.47%",
       "category": "Formula / Equation Error",
       "note": "Convert the ultimate analysis to moles. O2 theo = C + H/4 + S - O/2. O2 supp = O2 theo * (1+O2 xs). Find N2 (air) from O2 supp. Find CO and CO2 from Ct = CO + CO2 and the ratio. Find O2 free = O2 supp - CO2 - 0.5CO - 0.5H2O - SO2 - O/2 (from coal). Find N2 free = N2(air) + N/2 (from coal). Then find the percent of H2O from total",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-22T15:02:41"
     },
     {
@@ -13514,5 +13514,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-25T02:19:35"
+  "updated_at": "2026-09-25T02:21:27"
 }
