@@ -7394,6 +7394,619 @@
           "_source_index": 20
         }
       ]
+    },
+    {
+      "id": "1790319779071467",
+      "name": "CT_PT_S3",
+      "created_at": "2026-09-25T07:02:59",
+      "composition": {
+        "CT_PT_Laboratory_Instrumentation": 12,
+        "CT_PT_Quality_Assurance_Control": 12,
+        "CT_PT_Analytical_Chemistry": 13,
+        "CT_PT_Inorganic_Chemistry": 13
+      },
+      "questions": [
+        {
+          "text": "Aqua regia is prepared using HCl and HNO₃ in what volume ratio?",
+          "options": [
+            "A. 1:1",
+            "B. 1:3",
+            "C. 2:1",
+            "D. 3:1"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 66
+        },
+        {
+          "text": "A sample is analyzed again later in the same batch or in another batch to provide a less formal quality check. This is called a",
+          "options": [
+            "A. Blind sample",
+            "B. Repeat sample",
+            "C. Field blank",
+            "D. Primary standard"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 33
+        },
+        {
+          "text": "During dry ashing, carbon present in the sample is primarily oxidized to",
+          "options": [
+            "A. CO",
+            "B. CO₂",
+            "C. CH₄",
+            "D. C₂H₆"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 57
+        },
+        {
+          "text": "During the “draw” step in liquid-liquid extraction, the analyst initially",
+          "options": [
+            "A. drains the lower layer",
+            "B. adds a drying agent",
+            "C. shakes the funnel vigorously",
+            "D. heats the funnel"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 68
+        },
+        {
+          "text": "What is the primary goal of managing quality in analytical laboratories?",
+          "options": [
+            "A. Eliminate all laboratory errors",
+            "B. Incorporate standard protocols into all laboratory activities",
+            "C. Increase the number of samples analyzed",
+            "D. Reduce laboratory operating costs"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 8
+        },
+        {
+          "text": "Which pair of bonds both absorb at approximately 2250 cm⁻¹ according to the file?",
+          "options": [
+            "A. C≡C and C≡N",
+            "B. C=O and C=C",
+            "C. O–H and N–H",
+            "D. C–H and C=C"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 83
+        },
+        {
+          "text": "The selectivity factor, α, compares the",
+          "options": [
+            "A. widths of two chromatographic peaks",
+            "B. retention of two solutes",
+            "C. detector responses of two solutes",
+            "D. lengths of two columns"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 18
+        },
+        {
+          "text": "Which of the following is TRUE about TC pipets?",
+          "options": [
+            "A. TC means “to carry.”",
+            "B. It commonly does not have a colored band.",
+            "C. It is used if the liquid left in the pipet is already accounted.",
+            "D. None of the choices."
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 72
+        },
+        {
+          "text": "What normally happens to the viscosity of a liquid as its temperature increases?",
+          "options": [
+            "A. It decreases.",
+            "B. It remains constant.",
+            "C. It becomes infinite.",
+            "D. It increases."
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 63
+        },
+        {
+          "text": "When Cr³⁺ changes from an oxidation state of +3 to +6, Cr³⁺ will",
+          "options": [
+            "A. Gain 6 electrons",
+            "B. Lose 6 electrons",
+            "C. Lose 3 electrons",
+            "D. Gain 3 electrons"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 6
+        },
+        {
+          "text": "Which species corresponds to the electron configuration 1s²2s²2p⁶?",
+          "options": [
+            "A. Na",
+            "B. Na⁺",
+            "C. Cl",
+            "D. Cl⁻"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 25
+        },
+        {
+          "text": "In crystallization, crystal phases can be interconverted by varying:",
+          "options": [
+            "A. Temperature",
+            "B. Pressure",
+            "C. Viscosity",
+            "D. Size"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 86
+        },
+        {
+          "text": "Which condition is required for ideal application of Beer’s Law?",
+          "options": [
+            "A. concentrated solutions must be used",
+            "B. light should be monochromatic",
+            "C. several absorbing species must always be present",
+            "D. scattered light must reach the detector"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 2
+        },
+        {
+          "text": "Which conjugate acid–base pair should be used to prepare a buffer with a pH near 7.15?",
+          "options": [
+            "A. Formic acid and sodium formate, pKₐ = 3.74",
+            "B. Succinic acid and sodium succinate, pKₐ = 5.64",
+            "C. Sodium dihydrogen phosphate and sodium hydrogen phosphate, pKₐ₂ = 7.20",
+            "D. Glycylglycine and sodium glycylglycinate, pKₐ = 8.35"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 49
+        },
+        {
+          "text": "Which species is isoelectronic with neon?",
+          "options": [
+            "A. F⁻",
+            "B. Cl⁻",
+            "C. Na",
+            "D. Mg"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 56
+        },
+        {
+          "text": "Elements or groups of elements that have more protons than electrons are called:",
+          "options": [
+            "A. Anions",
+            "B. Cations",
+            "C. Isotopes",
+            "D. Isobars"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 12
+        },
+        {
+          "text": "What is the normality of 0.250 M H₂SO₄ in a complete acid–base neutralization?",
+          "options": [
+            "A. 0.125 N",
+            "B. 0.250 N",
+            "C. 0.500 N",
+            "D. 1.00 N"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 43
+        },
+        {
+          "text": "Which compound is primarily covalent?",
+          "options": [
+            "A. NaCl",
+            "B. MgO",
+            "C. CO₂",
+            "D. CaF₂"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 14
+        },
+        {
+          "text": "What is the acceptable range for spiking recovery?",
+          "options": [
+            "A. 80%–120%",
+            "B. 90%–110%",
+            "C. 95%–105%",
+            "D. 98%–102%"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 34
+        },
+        {
+          "text": "Which analytical balance typically has a maximum capacity of approximately 180 to 200 g and a precision of ±0.1 mg?",
+          "options": [
+            "A. micro balance",
+            "B. semi-micro balance",
+            "C. macro balance",
+            "D. precision balance"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 51
+        },
+        {
+          "text": "Whose atomic model illustrates negative charges scattered throughout an atom?",
+          "options": [
+            "A. Dalton",
+            "B. Rutherford",
+            "C. Bohr",
+            "D. Thomson"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 13
+        },
+        {
+          "text": "Which of the following is a required characteristic of a QC sample?",
+          "options": [
+            "A. It must be unstable",
+            "B. It must be heterogeneous",
+            "C. It must be fully characterized",
+            "D. It must contain no analyte"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 57
+        },
+        {
+          "text": "A sample inserted into an analytical batch without the analyst knowing its identity is called a",
+          "options": [
+            "A. Blind sample",
+            "B. Method blank",
+            "C. Calibration standard",
+            "D. Reagent blank"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 49
+        },
+        {
+          "text": "What is the value of the universal gas constant in cal/mol·K?",
+          "options": [
+            "A. 4.184",
+            "B. 3.973",
+            "C. 1.986",
+            "D. 8.314"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 20
+        },
+        {
+          "text": "Compounds have been prepared from which noble-gas elements?",
+          "options": [
+            "A. He only",
+            "B. He and Ne only",
+            "C. He, Ne, and Ar",
+            "D. Kr, Xe, and Rn"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 30
+        },
+        {
+          "text": "What intermolecular forces are present in acetone? I. London dispersion forces II. Dipole-dipole forces III. Hydrogen bonding between acetone molecules",
+          "options": [
+            "A. II",
+            "B. III",
+            "C. I and II",
+            "D. I, II, III"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 41
+        },
+        {
+          "text": "A liquid mixture that has a constant boiling point and whose vapor has the same composition as the liquid is a/an:",
+          "options": [
+            "A. Azeotrope",
+            "B. Ideal solution",
+            "C. Nonideal solution",
+            "D. Eutectic mixture"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 12
+        },
+        {
+          "text": "A series of reference standard solutions that have known and accurate pH values at different temperatures, and used for pH meter calibration.",
+          "options": [
+            "A. Buffer solutions",
+            "B. QC solutions",
+            "C. pH solutions",
+            "D. None of these"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 30
+        },
+        {
+          "text": "What is added to a sample during a spiking procedure?",
+          "options": [
+            "A. An unknown amount of solvent",
+            "B. A known quantity of analyte",
+            "C. A field blank",
+            "D. A secondary standard with unknown concentration"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 25
+        },
+        {
+          "text": "The following will cause drift errors in an analytical balance EXCEPT",
+          "options": [
+            "A. Balance door is open.",
+            "B. Balance is not levelled.",
+            "C. Air currents are present in the laboratory.",
+            "D. Temperature of the balance and the sample to be weighed is the same."
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 68
+        },
+        {
+          "text": "At the equivalence point of an acid–base titration",
+          "options": [
+            "A. The indicator must always be colorless.",
+            "B. The volume of acid must equal the volume of base.",
+            "C. Stoichiometrically equivalent amounts of acid and base have reacted.",
+            "D. The pH must always equal 7."
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 52
+        },
+        {
+          "text": "Good Manufacturing Practice requires products intended for human consumption to be",
+          "options": [
+            "A. Economical, available, and standardized",
+            "B. Safe, pure, and effective",
+            "C. Certified, accredited, and validated",
+            "D. Stable, homogeneous, and inexpensive"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 54
+        },
+        {
+          "text": "The following are characteristics of gases EXCEPT",
+          "options": [
+            "A. Pressure exerted by a gas decreases as temperature increases.",
+            "B. Attractions between particles of an ideal gas are negligible.",
+            "C. Gases can be compressed by applying pressure.",
+            "D. Gases diffuse and spontaneously mix."
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 28
+        },
+        {
+          "text": "What is the pH of 2.5 × 10⁻³ M HNO₃?",
+          "options": [
+            "A. 2.40",
+            "B. 2.60",
+            "C. 3.40",
+            "D. 11.40"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 60
+        },
+        {
+          "text": "After washing laboratory glassware with detergent and rinsing with tap water, the final rinse should use:",
+          "options": [
+            "A. acetone",
+            "B. ethanol",
+            "C. deionized water",
+            "D. concentrated acid"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 73
+        },
+        {
+          "text": "A compound has tᵣ = 10 min and tₘ = 2 min. What is its retention factor, k?",
+          "options": [
+            "A. 2",
+            "B. 4",
+            "C. 5",
+            "D. 8"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 19
+        },
+        {
+          "text": "Which blank is exposed to the actual site of sampling?",
+          "options": [
+            "A. Method blank",
+            "B. Reagent blank",
+            "C. Field blank",
+            "D. Calibration blank"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 14
+        },
+        {
+          "text": "The mobile phase that exits a chromatographic column is called the",
+          "options": [
+            "A. eluate",
+            "B. adsorbate",
+            "C. stationary phase",
+            "D. precipitate"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 53
+        },
+        {
+          "text": "A sample originally contains 20.0 mg/L of an analyte. After adding a 10.0 mg/L spike, the measured concentration is 29.5 mg/L. What is the percent recovery?",
+          "options": [
+            "A. 90%",
+            "B. 95%",
+            "C. 97.5%",
+            "D. 105%"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 21
+        },
+        {
+          "text": "How many grams of NaOH, with a molar mass of 40 g/mol, are needed to prepare 500 mL of a 0.500 N NaOH solution?",
+          "options": [
+            "A. 4.00 g",
+            "B. 5.00 g",
+            "C. 10.00 g",
+            "D. 10.3 g"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 62
+        },
+        {
+          "text": "If the absolute temperature of a confined gas is doubled while volume is held constant, what happens to the pressure?",
+          "options": [
+            "A. It doubles.",
+            "B. It becomes half as large.",
+            "C. It becomes four times as large.",
+            "D. It cannot be determined."
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 60
+        },
+        {
+          "text": "Which substance will require the greatest amount of work to increase its surface area?",
+          "options": [
+            "A. Butanol",
+            "B. Butanal",
+            "C. Pentane",
+            "D. Diethyl ether"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 3
+        },
+        {
+          "text": "Which molecule is polar?",
+          "options": [
+            "A. CO₂",
+            "B. BF₃",
+            "C. CH₄",
+            "D. H₂O"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 65
+        },
+        {
+          "text": "What is the concentration in ppm of 0.0150 g Pb²⁺ dissolved in 2.00 L of solution?",
+          "options": [
+            "A. 3.75 ppm",
+            "B. 7.50 ppm",
+            "C. 15.0 ppm",
+            "D. 30.0 ppm"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 47
+        },
+        {
+          "text": "Good Laboratory Practices are concerned with laboratory activities from",
+          "options": [
+            "A. Sampling to calibration only",
+            "B. Planning through reporting and archiving of results",
+            "C. Manufacturing to product distribution",
+            "D. Instrument installation to maintenance only"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 36
+        },
+        {
+          "text": "Which of the following correctly describes Quality Assurance?",
+          "options": [
+            "A. Reactive and defect-oriented",
+            "B. Reactive and product-oriented",
+            "C. Proactive and process-oriented",
+            "D. Product-oriented and corrective"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 29
+        },
+        {
+          "text": "It is the portion of the calibration curve that includes the concentration range in which the analyte can be determined with demonstrated precision, accuracy, and response function.",
+          "options": [
+            "A. Limit of detection",
+            "B. Limit of quantification",
+            "C. Working range",
+            "D. Linear dynamic range"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 76
+        },
+        {
+          "text": "In atomic spectroscopy, converting a sample into gas-phase atoms or elementary ions is called",
+          "options": [
+            "A. derivatization",
+            "B. atomization",
+            "C. elution",
+            "D. ion exchange"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 12
+        },
+        {
+          "text": "Reversed-phase chromatography refers to which of the following?",
+          "options": [
+            "A. A nonpolar stationary phase and a polar mobile phase",
+            "B. A polar stationary phase and a nonpolar mobile phase",
+            "C. A stationary phase and mobile phase of similar polarities",
+            "D. A nonpolar stationary phase and a nonpolar mobile phase"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 75
+        },
+        {
+          "text": "What are the products of the reaction between HNO₃ and NH₄OH?",
+          "options": [
+            "A. HNO₂ + H₂O",
+            "B. NH₂OH + H₂O",
+            "C. NH₄NO₃ + H₂O",
+            "D. No reaction occurs"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 53
+        }
+      ]
     }
   ],
   "test_history": [
@@ -15187,5 +15800,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-25T06:59:29"
+  "updated_at": "2026-09-25T07:03:05"
 }
