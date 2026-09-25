@@ -6873,6 +6873,15 @@
       "pct": 96,
       "date": "2026-09-24T15:08:33",
       "time_used_seconds": 1596.4
+    },
+    {
+      "id": "1790316144805377",
+      "source": "D2_S2",
+      "score": 29,
+      "total": 50,
+      "pct": 58,
+      "date": "2026-09-25T06:02:24",
+      "time_used_seconds": 7732.1
     }
   ],
   "exam_details": [
@@ -11945,6 +11954,513 @@
           "correct_answer": "B. Purity"
         }
       ]
+    },
+    {
+      "exam_id": "1790316144805377",
+      "source": "D2_S2",
+      "date": "2026-09-25T06:02:24",
+      "items": [
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 61,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A sharp edged orifice meter is to be fabricated to measure water flowing at a rate not exceed 1200 cfh with a differential head of 30 inHg. What orifice diameter in inches is required if D2/D1 = 1/5",
+          "your_answer": "C. 2",
+          "correct_answer": "A. 1.5"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 60,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "By what percentage would the rate of absorption be increased or decreases by increasing the total pressure from 100 to 200 kPa in the following cases? The same conditions as (58) but the absorbing solution exerts a partial vapor pressure of ammonia of 5 kN/m².",
+          "your_answer": "B. 50%",
+          "correct_answer": "C. 48%"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 112,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "In vapor compression refrigeration system, if theevaporator temperature and the condenser temperaturesare -13°C and 37°C respectively, the Carnot COP will be",
+          "your_answer": "A. 5.2",
+          "correct_answer": "A. 5.2"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 48,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "TiCl4, can be formed by reacting titaniumdioxide (TiO,) with hydrochloric acid. TiO₂is available as an ore containing 78 % TiO2and 22% inerts. The HCL is available as 45wt% solution (the balance is water). Theper pass conversion of TiO₂ is 75 %. TheHCl is fed into the reactor in 20% excessbased on the reaction. Pure unreacted TiO2 is recycled back to mix with the Ti02 feed. TiO2+ 4 HCL→ TiCl4 + 2H₂0 For 1 kg of TiCl4 produced, determine: The ratio of recycle stream to fresh TiO2 ore (in kg).",
+          "your_answer": "C. 2.05",
+          "correct_answer": "A. 0.26"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 26,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Normally; the ratio of the total riser area to the tower cross sectional area (for bubble cap towers of D>3 ft) is around",
+          "your_answer": "B. 0.35-0.75",
+          "correct_answer": "C. 0.1-0.2"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 50,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following equipment is not used for liquid dispersion?",
+          "your_answer": "D. Agitated vessels",
+          "correct_answer": "D. Agitated vessels"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "As particle size is reduced",
+          "your_answer": "A. screening becomes progressively more difficult",
+          "correct_answer": "A. screening becomes progressively more difficult"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 16,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "In a certain chemical plant, the carbonate solution used in the absorption tower is pumped continuously from the bottom of the lye storage tank through a standard 4 in. pipe and then through sprays head at the top of the scrubber. The depth of solution in the storage tank is 10 ft and the vertical distance from the spray head to the bottom of the tank is 110 ft. In a test on this equipment the following data were obtained: Rate of flow Density 200 gpm 68.9 lb/ft3 Friction drop from tank to spray head 15 ft-lb/lb Gage pressure on spray head Power input to pump Calculate the efficiency of the pump. 5 psi 14 hp",
+          "your_answer": "B. 75%",
+          "correct_answer": "C. 50%"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 43,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "A bare horizontal pipe of 50 mm outside diameter is placed in a room where the air temperature is 290 K. Saturated steam at 415 K flows through the pipe. Using emissivityof 0.9. Estimate the heat transfer coefficient due to convection from the pipe to the room.",
+          "your_answer": "B. 9.23 W/m²-°C",
+          "correct_answer": "D. 8.5 W/m2-°C"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 19,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "During the working stroke of an engine the heattransferred out of the system was 150 kJ/kg of theworking substance. If the work done by the engine is 250kJ/kg, determine the change in internal energy.",
+          "your_answer": "A. 400 kJ",
+          "correct_answer": "C. -400 kJ"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 44,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Radioactive nuclear waste is treated in",
+          "your_answer": "C. pulsed column extractor",
+          "correct_answer": "C. pulsed column extractor"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 15,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Viscous and heat sensitive liquidsare concentrated in evaporators.",
+          "your_answer": "B. agitated film",
+          "correct_answer": "B. agitated film"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 42,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "For the reaction that can be written as A->B->C, the value ofk₁ is 5.65 x10-3 per min and the time necessary to reach themaximum concentration of B is 26 min. What is the value of k2?",
+          "your_answer": "A. 0.3459",
+          "correct_answer": "C. 0.1246"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 49,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Propane is dehydrogenated to formpropylene in a catalytic reactor. The process is to be designed for a 95% overall conversion of propane. Thereaction products are separated into twostreams: the first, which contains H₂, СзH6 and 0.555% of the propane that leaves thereactor, is taken off as a product; thesecond stream, which contains thebalance of the unreacted propane and 5%of the propylene in the first stream, is recycled to the reactor. Calculate the ratio of moles recycled / mole fresh feed",
+          "your_answer": "B. 6.8",
+          "correct_answer": "D. 9.0"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is the most commonly used leaching solvent in vegetableoil industry?",
+          "your_answer": "B. hexane",
+          "correct_answer": "B. hexane"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 21,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "One hundred pounds of solution containing 80 wt% Na2SO must be obtained by evaporating a dilute solution using double effect evaporator. If the evaporator from the 2nd effect is 60% of that coming from the first effect and the concentrate of the first effect contains 1 lb Na₂SO per pound of water. Calculate for the composition of the feed.",
+          "your_answer": "D. 31% Na₂SO4",
+          "correct_answer": "D. 31% Na₂SO4"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 56,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A cylindrical storage tank can have a self-supported conical roof",
+          "your_answer": "A. if its diameter is less than 15-20 meters.",
+          "correct_answer": "A. if its diameter is less than 15-20 meters."
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 96,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A binary mixture with components A and B is to be separated in a distillation column to obtain 95 mol% A as the top product. The binary mixture has a constant relative volatility aAB = 2. The column feed is a saturated liquidcontaining 50 mol% A. Under the usual simplifyingassumptions such as constant molal overflow, negligible heat loss, ideal trays, the minimum reflux ratio for this separation is",
+          "your_answer": "C. 1.4",
+          "correct_answer": "A. 1.7"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 30,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A solution of solute (A) in diluent (B) is mixed with solvent (S). The component (B) is slightly soluble in (S). The resulting extract willbe",
+          "your_answer": "D. rich in S, poor in B, rich in A",
+          "correct_answer": "D. rich in S, poor in B, rich in A"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Turbulent flow generally occurs for cases involving",
+          "your_answer": "D. none of these",
+          "correct_answer": "D. none of these"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "How many degrees of freedom has each of the following systems? Liquid water in equilibrium with its vapor",
+          "your_answer": "A. one",
+          "correct_answer": "A. one"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 29,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Gyratory crushers compared to thereciprocating jaw crushers",
+          "your_answer": "A. have greater capacity per unit of discharge area.",
+          "correct_answer": "A. have greater capacity per unit of discharge area."
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 52,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Quicksand is an example of a fluid.",
+          "your_answer": "B. dilatent",
+          "correct_answer": "B. dilatent"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 92,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Filter aid is used",
+          "your_answer": "C. to increase the porosity of the cake",
+          "correct_answer": "C. to increase the porosity of the cake"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 73,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Consider air at 1 atm, 35 C and 40% relative humidity: Using: psychrometric chart, determine The specific humidity",
+          "your_answer": "A. 0.025",
+          "correct_answer": "C. 0.014"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 51,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Nitrogen pentoxide decomposes as follows: N₂05→1/2 O2 + N204 -r N205 = (2.2 x 10 -3/min) C -N2-O5 N2O4 = 2NO2, instantaneous Kp = 45 mmHg The partial pressure of NO₂",
+          "your_answer": "B. 0.15 atm",
+          "correct_answer": "A. 0.19 atm"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 29,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Slope of countercurrent flow rotary drier is in the range of ______ meters",
+          "your_answer": "C. 0 to 1.5",
+          "correct_answer": "A. 0 to 0.08"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 89,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A mixture of benzene vapor and flue gas contains 12.7 mole % benzene and is to be scrubbed continuously in a packed tower operated at atmospheric pressure at 43°C. The tower is to be designed to treat 36000 ft3 per hour of entering gas and the exit gas is to contain 1.5 mole % benzene. Pure solvent will be supplied at the rate of 28 lbmol/hr. The solution of benzene in oil may be assumed to follow Raoult's law and the vapor pressure of pure solvent at 43°C is 0.263 atm. It is agreed that the maximum allowable superficial velocity of the gas is 1 ft/sec. Calculate the height of the tower required, assuming that the height of a transfer unit is 2 ft.",
+          "your_answer": "C. 5.8 ft",
+          "correct_answer": "B. 7.0 ft"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 51,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "The longitudinal stress induced in a thin-walled cylindrical vessel under internal pressure is",
+          "your_answer": "C. pd/4t",
+          "correct_answer": "C. pd/4t"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 63,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A furnace burns a fuel oil containing 82% carbon, 17% hydrogen and 1% sulfur using 10% excess air. Assuming that the combustion of C to CO₂ is only 90% complete and that all the sulfur is burnt to SO2 calculate the %CO₂ in the analysis of flue gas.",
+          "your_answer": "B. 9.8%",
+          "correct_answer": "B. 9.8%"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 49,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Pipes having diameter 14 inches or more are designated by their",
+          "your_answer": "C. schedule number",
+          "correct_answer": "A. outside diameter"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "On doubling the concentration of reactant, the rate of reaction triples, find the reaction order.",
+          "your_answer": "C. 1.59",
+          "correct_answer": "C. 1.59"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 71,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "For liquid acetone at 20°C and 1 bar, ẞ = 1.487 x 10^-3 C-, к = 62 x 10-6 bar- and V = 1.287 cm³/g. What is the change in volume for a change from 20°C and 1 bar to 0 °C and 10 bar?",
+          "your_answer": "A. -0.038 cm³/g",
+          "correct_answer": "A. -0.038 cm³/g"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 49,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A certain pressure vessel manufacturer avoids reinforcements calculations for openings by always providing a reinforcing extending up to double the diameter of the opening and of the same material and thickness as that of the shell wall If area compensation is accepted as a code guideline, his approach leads to safe design",
+          "your_answer": "D. irrespective of the shape of the vessel",
+          "correct_answer": "D. irrespective of the shape of the vessel"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 40,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A second order reaction involving reactants initially present at 0.10 mole/L is found to be 20% complete in 40 minutes, when the reaction is 25 °C, and 40% complete in 35 minutes, when the reaction is 50 °C. What is the activation energy for this reaction in cal/mol.",
+          "your_answer": "A. 2700 cal/mol",
+          "correct_answer": "B. 8500 cal/mol"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 111,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is not a continuous drier?",
+          "your_answer": "D. Tray drier",
+          "correct_answer": "D. Tray drier"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 51,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Ammonia (A) being absorbed from air (B) into water is an example of",
+          "your_answer": "B. steady-state unicomponent",
+          "correct_answer": "B. steady-state unicomponent"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 6,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Water at 80°F at 10 ft/s through a 6 inches sch 40 steel pipe with length of 1000 ft. The Reynolds number is",
+          "your_answer": "B. 260 000",
+          "correct_answer": "C. 550 000"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A supplier shipped a material for chicken feed with the following analytical report: protein - 22%, triglyceride - 8%, moisture - 10%. During transport moisture was picked up by the material; the later analytical report showed 14% moisture. Based on the latest report, recalculate the % triglyceride.",
+          "your_answer": "C. 7.64%",
+          "correct_answer": "C. 7.64%"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 95,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "An ice skating rink contains ice at -10°C. Calculate thepressure than an ice skate blade must exert to allowsmooth ice skating at this temperature. Assume thatΔΗ fusion 1440 cal/mol. Pliquid 1.0 g/ml and Pice= 0.917 g/ml.",
+          "your_answer": "C. 20x103 psi",
+          "correct_answer": "C. 20x103 psi"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 61,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "A space-time of 3 hours for a flow reactor means that",
+          "your_answer": "A. the time required to process one reactor volume of feed (measured at specified conditions) is 3 hour",
+          "correct_answer": "A. the time required to process one reactor volume of feed (measured at specified conditions) is 3 hour"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 31,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A container with an air tight piston is at a pressure of 100 psia and at a temperature of 70°F. The piston moves up when 100 BTU of heat is transferred at a constant pressure and the volume changes from 0.5 ft3 to 2.0 ft3. Assuming perfect gas behavior, calculate the following: The final temperature in",
+          "your_answer": "B. 1440",
+          "correct_answer": "A. 1660"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 57,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Determine the composition of the equilibrium vapor over a liquid mixture consisting of 10 mol % water, 50 mol % acetic acid and 40 mol % acetone at 80°C, assuming that the component obey Raoult's law. The vapor pressures ofcomponents at 80°C are: water - 47.33 kPa, acetic acid 27.32 kPa and acetone - 219.77 kPa.",
+          "your_answer": "B. 4.45% water, 12.85% acetic acid and 82.70% acetone",
+          "correct_answer": "B. 4.45% water, 12.85% acetic acid and 82.70% acetone"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 24,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A dilute aqueous solution is to be concentrated in an evaporator system. High pressure steam is available. Multiple effect evaporator system employed, because",
+          "your_answer": "B. total amount of vapor produced per kg of feed steam in a multiple effect system is much higher than in a single effect.",
+          "correct_answer": "B. total amount of vapor produced per kg of feed steam in a multiple effect system is much higher than in a single effect."
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 79,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "The air supply for a dryer has a dry-bulb temperature of 70 F and a wet bulb temperature of 60 F. It is heated to 200 F by coils and blown into the dryer: In the dryer it cools along an adiabatic cooling line and leaves the dryer fully saturated: What is its percentage relative humidity?",
+          "your_answer": "C. 55%",
+          "correct_answer": "C. 55%"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 59,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "By what percentage would the rate of absorption be increased or decreases by increasing the total pressure from 100 to 200 kPa in the following cases? The absorption of ammonia from a mixture of ammonia and air containing 10% ammonia by volume, using pure water as solvent. Assume that all the resistance to the mass transfer lies within the gas phase.",
+          "your_answer": "B. 50%",
+          "correct_answer": "A. 0%"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 40,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "A barytes composed of 100 percentBaSO4 is fused with carbon in the formof coke containing 6% ash (which isinfusible). The composition of the fusionmass is BaSO 11.1%, BaS 72.8%, C 13.9%, Ash 2.2%, Reaction: BaSO+4 C→ BaS + 4 CO. Find the percent excess reactant.",
+          "your_answer": "B. 38.9%",
+          "correct_answer": "C. 50.6%"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 42,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "As the product becomes finer, the energy required forgrinding",
+          "your_answer": "C. increases",
+          "correct_answer": "C. increases"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 47,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The Fick's Law of Diffusion gives the rate of diffusion based on",
+          "your_answer": "C. concentration driving force",
+          "correct_answer": "C. concentration driving force"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 9,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A sand mixture was screened through a standard 10mesh screen. The mass fraction of the oversize material in feed, overflow and underflow were found to be 0.38, 0.79 and 0.22 respectively. The screen effectivenessbased on the oversize is",
+          "your_answer": "C. 0.58",
+          "correct_answer": "A. 0.50"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -13514,5 +14030,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-25T03:27:30"
+  "updated_at": "2026-09-25T06:02:26"
 }
