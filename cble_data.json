@@ -18773,6 +18773,20 @@
       "note": "Convert the mols of calcium and magnesium into CaCO3. The total hardness is CaCO3_Ca + CaCO3_Mg.",
       "resolved": false,
       "date_logged": "2026-09-26T08:33:04"
+    },
+    {
+      "id": "1790412121259371",
+      "exam_id": "1790400213527768",
+      "exam_source": "D1_S3",
+      "source_list": "D1_L5_Material_Science_Engineering",
+      "reference_no": 5,
+      "question": "Calculate the percentage ionic character of the bond in MgO.",
+      "your_answer": "C. 52.79%",
+      "correct_answer": "B. 73.35%",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "percent ionic charater, %IC = (1-e^(-0.25*dX^2))*100%. Let X = electronegativity X_oxygen = 3.5, X_magnesium = 1.2.",
+      "resolved": false,
+      "date_logged": "2026-09-26T08:42:01"
     }
   ],
   "guess_notes": [
@@ -18865,5 +18879,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-26T08:33:10"
+  "updated_at": "2026-09-26T08:42:06"
 }
