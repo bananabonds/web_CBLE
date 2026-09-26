@@ -20126,6 +20126,20 @@
       "note": "a=b=c & a=b=c=90 (cubic), a=b<>c & a=b=c=90 (Tetragonal), a<>b<>c & a=b=c=90 (Orthorhombic)",
       "resolved": false,
       "date_logged": "2026-09-26T10:04:17"
+    },
+    {
+      "id": "1790424954725983",
+      "exam_id": "179042344546364",
+      "exam_source": "CT_PT_S4",
+      "source_list": "CT_PT_Laboratory_Instrumentation",
+      "reference_no": 87,
+      "question": "What is the typical precision of a semi-micro balance?",
+      "your_answer": "B. ±0.1 mg",
+      "correct_answer": "C. ±0.01 mg",
+      "category": "Conceptual Misunderstanding",
+      "note": "0.1mg = 0.0001g (10^-4) is macrobalance. 0.01mg = 0.00001(10^-5) is semi-micro",
+      "resolved": false,
+      "date_logged": "2026-09-26T12:15:54"
     }
   ],
   "guess_notes": [
@@ -20218,5 +20232,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-26T11:50:47"
+  "updated_at": "2026-09-26T12:16:00"
 }
