@@ -18677,7 +18677,21 @@
       "date_logged": "2026-09-25T13:36:00"
     }
   ],
-  "guess_notes": [],
+  "guess_notes": [
+    {
+      "id": "1790406638166676",
+      "exam_id": "1789982956801386",
+      "exam_source": "D1_S2",
+      "source_list": "D1_L5_Material_Science_Engineering",
+      "reference_no": 34,
+      "question": "The energy for vacancy formation in copper is 0.9 eV/atom. The atomic weight and density at 1000 °C are 63.5 g/mol and 8.4 g/cm³, respectively. Determine the equilibrium number of vacancies per cubic meter for Cu at the given temperature.",
+      "your_answer": "C. 2.2x10²⁵ atoms/m³",
+      "correct_answer": "C. 2.2x10²⁵ atoms/m³",
+      "is_correct": true,
+      "note": "Use the vacancy concentration formula. Nv = Ne^(-Q/kT), where N is total number of atomic sites N = Na*p/MW, Na is avogrados no., p is density, and MW is the molar mass. Q is the vacancy formation and k = 8.617*10^-5 boltzmann constant.",
+      "date_logged": "2026-09-26T07:10:38"
+    }
+  ],
   "tombstones": {
     "sample_sets": [
       "1790010479834154"
@@ -18688,5 +18702,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-26T06:52:46"
+  "updated_at": "2026-09-26T07:10:43"
 }
