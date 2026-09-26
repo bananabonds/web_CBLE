@@ -20196,6 +20196,20 @@
       "note": "0.01 ml is too small. 0.1 to 25 ml is the graduation of a measuring pipette",
       "resolved": false,
       "date_logged": "2026-09-26T12:21:35"
+    },
+    {
+      "id": "1790425559603634",
+      "exam_id": "179042344546364",
+      "exam_source": "CT_PT_S4",
+      "source_list": "CT_PT_Quality_Assurance_Control",
+      "reference_no": 42,
+      "question": "Which quality control sample provides a less formal check than a conventional QC sample?",
+      "your_answer": "C. Field blank",
+      "correct_answer": "B. Repeat sample",
+      "category": "Conceptual Misunderstanding",
+      "note": "Field blanks are blanks that are exposed in the same environment as the sample while repeat sample is less formal and is simply retesting the same sample for consistency",
+      "resolved": false,
+      "date_logged": "2026-09-26T12:25:59"
     }
   ],
   "guess_notes": [
@@ -20288,5 +20302,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-26T12:21:41"
+  "updated_at": "2026-09-26T12:26:05"
 }
