@@ -18899,6 +18899,20 @@
       "note": "The value of gibbs free energy is different from the value of the CHANGE in gibbs free energy. At equilibrium the gibbs free energy is at minimum the change is 0",
       "resolved": false,
       "date_logged": "2026-09-26T09:38:19"
+    },
+    {
+      "id": "1790415758197702",
+      "exam_id": "1790400213527768",
+      "exam_source": "D1_S3",
+      "source_list": "D1_L2_Environmental_EngSci",
+      "reference_no": 38,
+      "question": "For numbers 35 to 39: The analysis of a sample of water with pH 7.5 has produced the following concentrations (mg/L). Cations: Cau00b2u207a 80, Mgu00b2u207a 30, Nau207a 72, Ku207a 6. Anions: HCO3u207b 165, Clu207b 100, SO4u00b2u207b 201, find the alkalinity, all expressed as CaCO3.",
+      "your_answer": "B. 188",
+      "correct_answer": "C. 135",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "HCO3- is the source of alkalinity. Convert it to equivalent weights of CaCO3. eq_HCO3- = 61/1 \n165*(50/61)",
+      "resolved": false,
+      "date_logged": "2026-09-26T09:42:38"
     }
   ],
   "guess_notes": [
@@ -18991,5 +19005,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-26T09:38:25"
+  "updated_at": "2026-09-26T09:42:44"
 }
