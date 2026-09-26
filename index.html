@@ -512,6 +512,11 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
     <!-- ---- Tab: Mistake Log ---- -->
     <section class="panel" id="panel-mistakes">
       <div class="card">
+        <h3>Tests With Unlogged Mistakes <span class="count" id="unloggedTestsCount"></span></h3>
+        <p class="hint" style="margin-bottom:10px;">Tap a test to jump straight to its first unlogged mistake &mdash; no need to click through them one by one.</p>
+        <div id="unloggedTestsContainer"></div>
+      </div>
+      <div class="card">
         <h3>Select a Test to Review</h3>
         <select id="mistakeExamSelect"></select>
         <div id="mistakesContainer" style="margin-top:10px;"></div>
@@ -2594,8 +2599,56 @@ function refreshMistakeLogTab() {
   refreshAllMistakesTree();
   drawMistakeCategoryChart();
   refreshGuessesSection();
+  renderUnloggedTestsList();
 }
 $("mistakeExamSelect").addEventListener("change", onLoadExamMistakes);
+
+/* ---------------------------------------------------------------------
+   Tests With Unlogged Mistakes -- a triage view so you don't have to
+   click through the exam dropdown one at a time to find what's left.
+   --------------------------------------------------------------------- */
+function computeTestsWithUnloggedMistakes() {
+  const history = loadJson(KEYS.history, []);
+  const details = loadJson(KEYS.details, []);
+  const loggedKeys = new Set(loadMistakeLog().map(e => mistakeKey(e.exam_id, e.source_list, e.reference_no)));
+  const rows = [];
+  for (const h of history) {
+    const d = details.find(dd => dd.exam_id === h.id);
+    if (!d) continue;
+    const wrongItems = (d.items || []).filter(it => !it.is_correct);
+    if (!wrongItems.length) continue; // perfect score, nothing to log
+    const unloggedCount = wrongItems.filter(it => !loggedKeys.has(mistakeKey(h.id, it.source_list, it.reference_no))).length;
+    if (unloggedCount > 0) rows.push({ examId: h.id, source: h.source, date: h.date, totalWrong: wrongItems.length, unloggedCount });
+  }
+  rows.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  return rows;
+}
+function renderUnloggedTestsList() {
+  const rows = computeTestsWithUnloggedMistakes();
+  $("unloggedTestsCount").textContent = `(${rows.length})`;
+  const box = $("unloggedTestsContainer");
+  box.innerHTML = "";
+  if (!rows.length) {
+    box.appendChild(el("div", "empty-state", "You're all caught up \u2014 every wrong answer across your tests has been logged."));
+    return;
+  }
+  for (const r of rows) {
+    const item = el("div", "list-item selectable status-red");
+    item.innerHTML = `<div class="top-row"><span class="name">${esc(r.source)}</span><span class="status-pill status-red">${r.unloggedCount} unlogged</span></div>
+      <div class="meta">${esc(r.date)} &middot; ${r.totalWrong - r.unloggedCount}/${r.totalWrong} mistakes logged</div>`;
+    item.addEventListener("click", () => jumpToExamInMistakeLog(r.examId));
+    box.appendChild(item);
+  }
+}
+function jumpToExamInMistakeLog(examId) {
+  const idx = mistakeExamOptions.findIndex(h => h.id === examId);
+  if (idx === -1) return;
+  $("mistakeExamSelect").value = String(idx);
+  onLoadExamMistakes();
+  const firstUnloggedIdx = currentExamMistakes.findIndex(row => !row.logged_entry);
+  if (firstUnloggedIdx !== -1) selectMistakeRow(firstUnloggedIdx);
+  else $("mistakesContainer").scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 /* ---------------------------------------------------------------------
    Guesses You Made -- flashcard-style, same interaction pattern as the
@@ -2794,6 +2847,7 @@ $("btnSaveMistake").addEventListener("click", () => {
   refreshAllMistakesTree();
   drawMistakeCategoryChart();
   if (typeof renderDueForReview === "function") renderDueForReview();
+  renderUnloggedTestsList();
   toast("Mistake logged.");
 });
 $("btnDeleteMistake").addEventListener("click", () => {
@@ -2805,6 +2859,7 @@ $("btnDeleteMistake").addEventListener("click", () => {
   refreshAllMistakesTree();
   drawMistakeCategoryChart();
   if (typeof renderDueForReview === "function") renderDueForReview();
+  renderUnloggedTestsList();
 });
 $("mistakeUnresolvedOnly").addEventListener("change", refreshAllMistakesTree);
 $("mistakeRepeatedOnly").addEventListener("change", refreshAllMistakesTree);
