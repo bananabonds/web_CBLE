@@ -18885,6 +18885,20 @@
       "note": "Phase change of ice to water. Latent heat of fusion_ice = 334J/g = 80 cal/g, Cp_water = 1 cal/g, Cp_ice = 0.5 cal/g. ice to 0C -> ice to water -> liquid water to some temp. dS = Q/T, Qloss = Qadded = 4kJ/K = 956 cal/K (373K - Tf).",
       "resolved": false,
       "date_logged": "2026-09-26T09:32:04"
+    },
+    {
+      "id": "1790415499574718",
+      "exam_id": "1790400213527768",
+      "exam_source": "D1_S3",
+      "source_list": "D1_L5_Material_Science_Engineering",
+      "reference_no": 73,
+      "question": "When a system is at equilibrium, what is the value of Gibbs free energy?",
+      "your_answer": "C. Zero",
+      "correct_answer": "B. Minimum",
+      "category": "Conceptual Misunderstanding",
+      "note": "The value of gibbs free energy is different from the value of the CHANGE in gibbs free energy. At equilibrium the gibbs free energy is at minimum the change is 0",
+      "resolved": false,
+      "date_logged": "2026-09-26T09:38:19"
     }
   ],
   "guess_notes": [
@@ -18977,5 +18991,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-26T09:32:10"
+  "updated_at": "2026-09-26T09:38:25"
 }
