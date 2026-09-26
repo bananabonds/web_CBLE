@@ -18690,6 +18690,19 @@
       "is_correct": true,
       "note": "Use the vacancy concentration formula. Nv = Ne^(-Q/kT), where N is total number of atomic sites N = Na*p/MW, Na is avogrados no., p is density, and MW is the molar mass. Q is the vacancy formation and k = 8.617*10^-5 boltzmann constant.",
       "date_logged": "2026-09-26T07:10:38"
+    },
+    {
+      "id": "1790407107981785",
+      "exam_id": "1789982956801386",
+      "exam_source": "D1_S2",
+      "source_list": "D1_L3_Analytical_Chemistry",
+      "reference_no": 25,
+      "question": "A 10.231 g sample of window cleaner containing ammonia was diluted with 39.466 g of water. Then 4.373 g of solution were titrated with 14.22 mL of 0.1063 M HCl to reach a bromocresol green endpoint. Find the weight % of NH₃ (17.031) in the cleaner.",
+      "your_answer": "C. 5.33%",
+      "correct_answer": "B. 2.85%",
+      "is_correct": false,
+      "note": "Find the grams of ammonia from the titration. Find the fraction of the sample titrated to the total mass of solution multiply to the mass of total cleaner. Then ammonia from titration / m_sample",
+      "date_logged": "2026-09-26T07:18:27"
     }
   ],
   "tombstones": {
@@ -18702,5 +18715,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-26T07:10:43"
+  "updated_at": "2026-09-26T07:18:33"
 }
