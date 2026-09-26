@@ -18941,6 +18941,20 @@
       "note": "Ingestion is usually accidental while inhalation is most common. Ingestion is preventable.",
       "resolved": false,
       "date_logged": "2026-09-26T09:50:45"
+    },
+    {
+      "id": "1790416332580810",
+      "exam_id": "1790400213527768",
+      "exam_source": "D1_S3",
+      "source_list": "D1_L6_Physical_Chemistry",
+      "reference_no": 23,
+      "question": "A 2 kg open calorimeter at 100 u02daC has a heat capacity of 4 kJ/K. 100 g of ice at -10 u02daC was placed inside the calorimeter. Calculate the final temperature in u00b0C.",
+      "your_answer": "C. 86",
+      "correct_answer": "B. 82",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Calculate the sensible heat and latent heats. Find the lost heat from the heatcapacity of the calorimeter and equate it to the sum of the heat generated solve for T",
+      "resolved": false,
+      "date_logged": "2026-09-26T09:52:12"
     }
   ],
   "guess_notes": [
@@ -19033,5 +19047,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-26T09:50:51"
+  "updated_at": "2026-09-26T09:52:18"
 }
