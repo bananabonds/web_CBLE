@@ -18729,6 +18729,19 @@
       "is_correct": true,
       "note": "Diisobutylaluminum hydride is a reducing agent used to partially reduce esters. Alternative to strong LiAlH4 which will reduce it to alcohol.",
       "date_logged": "2026-09-26T07:33:45"
+    },
+    {
+      "id": "1790408791625174",
+      "exam_id": "1789982956801386",
+      "exam_source": "D1_S2",
+      "source_list": "D1_L2_Environmental_EngSci",
+      "reference_no": 31,
+      "question": "A water contains 100.0 mg/L CO3u00b2u207b and 75.0 mg/L HCO3u207b at a pH of 10 (T = 25u00b0C). Calculate the exact alkalinity in mg/L as CaCO3. Approximate the alkalinity by ignoring the appropriate chemical species.",
+      "your_answer": "A. 225",
+      "correct_answer": "C. 233",
+      "is_correct": false,
+      "note": "Find the equivalent weights. eq_species = MW/v(proticity). use the equivalent weights as the conversion factor. e.g. eq_OH = 17/1 and eq_CaCO3 = 100/2, then [OH]*(eq_CaCO3/eq_OH) = CaCO3 from OH. approx alkalinity doesnt involve H and OH while exact does",
+      "date_logged": "2026-09-26T07:46:31"
     }
   ],
   "tombstones": {
@@ -18741,5 +18754,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-26T07:33:52"
+  "updated_at": "2026-09-26T07:46:37"
 }
