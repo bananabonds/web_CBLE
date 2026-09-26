@@ -18871,6 +18871,20 @@
       "note": "",
       "resolved": false,
       "date_logged": "2026-09-26T09:13:08"
+    },
+    {
+      "id": "1790415124718109",
+      "exam_id": "1790400213527768",
+      "exam_source": "D1_S3",
+      "source_list": "D1_L6_Physical_Chemistry",
+      "reference_no": 25,
+      "question": "(Situation: A 2 kg open calorimeter at 100 u02daC with heat capacity 4 kJ/K has 100 g of ice at -10 u02daC placed inside it, reaching a common final temperature.) Calculate the entropy change of the ice in cal/K.",
+      "your_answer": "B. 100",
+      "correct_answer": "C. 60",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Phase change of ice to water. Latent heat of fusion_ice = 334J/g = 80 cal/g, Cp_water = 1 cal/g, Cp_ice = 0.5 cal/g. ice to 0C -> ice to water -> liquid water to some temp. dS = Q/T, Qloss = Qadded = 4kJ/K = 956 cal/K (373K - Tf).",
+      "resolved": false,
+      "date_logged": "2026-09-26T09:32:04"
     }
   ],
   "guess_notes": [
@@ -18963,5 +18977,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-26T09:13:13"
+  "updated_at": "2026-09-26T09:32:10"
 }
