@@ -9235,6 +9235,619 @@
           "_source_index": 20
         }
       ]
+    },
+    {
+      "id": "1790417185204873",
+      "name": "CT_PT_S4",
+      "created_at": "2026-09-26T10:06:25",
+      "composition": {
+        "CT_PT_Inorganic_Chemistry": 13,
+        "CT_PT_Laboratory_Instrumentation": 12,
+        "CT_PT_Analytical_Chemistry": 13,
+        "CT_PT_Quality_Assurance_Control": 12
+      },
+      "questions": [
+        {
+          "text": "A gas occupies 2.00 L at 300 K. What volume will it occupy at 450 K under constant pressure?",
+          "options": [
+            "A. 1.33 L",
+            "B. 2.00 L",
+            "C. 3.00 L",
+            "D. 4.50 L"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 52
+        },
+        {
+          "text": "The elution power of a solvent is determined by __________.",
+          "options": [
+            "A. Its overall polarity",
+            "B. The polarity of the stationary phase",
+            "C. The nature of the sample components",
+            "D. All of the mentioned"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 89
+        },
+        {
+          "text": "Which of the following can cause ERRORS during sample preparation? I. Loss of sample during weighing or dissolution II. Contamination by impurities in reagents and in the environment III. Changes in mass due to varying humidity and temperature IV. Obtaining a nonhomogeneous sample from the bulk",
+          "options": [
+            "A. I and II only",
+            "B. I, III, and IV",
+            "C. I, II, and III",
+            "D. I, II, III, and IV"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 32
+        },
+        {
+          "text": "Which of the following are characteristics of a QC sample?",
+          "options": [
+            "A. Similar in composition to the types of samples normally examined.",
+            "B. Must be stable.",
+            "C. Must be available in large quantities.",
+            "D. All of the above."
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 43
+        },
+        {
+          "text": "Convert 250 μL to milliliters.",
+          "options": [
+            "A. 250,000 mL",
+            "B. 0.0250 mL",
+            "C. 0.250 mL",
+            "D. 2.50 mL"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 31
+        },
+        {
+          "text": "What is [OH⁻] in a solution having pOH = 3.00?",
+          "options": [
+            "A. 1.0 × 10⁻¹¹ M",
+            "B. 1.0 × 10⁻⁷ M",
+            "C. 1.0 × 10⁻³ M",
+            "D. 3.0 M"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 22
+        },
+        {
+          "text": "All are common carrier gases for gas chromatography EXCEPT",
+          "options": [
+            "A. Helium",
+            "B. Argon",
+            "C. Oxygen",
+            "D. Nitrogen"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 0
+        },
+        {
+          "text": "What is the name of MgH₂?",
+          "options": [
+            "A. Magnesium hydroxide",
+            "B. Magnesium dihydride",
+            "C. Magnesium(II) hydride",
+            "D. Magnesium hydride"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 51
+        },
+        {
+          "text": "According to the file, measuring pipets commonly have maximum capacities ranging from",
+          "options": [
+            "A. 0.01 to 5 mL",
+            "B. 0.1 to 25 mL",
+            "C. 0.5 to 200 mL",
+            "D. 25 to 500 mL"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 76
+        },
+        {
+          "text": "Which pair is inversely proportional?",
+          "options": [
+            "A. Bond order and bond energy",
+            "B. Bond strength and bond order",
+            "C. Bond length and bond energy",
+            "D. None of these"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 47
+        },
+        {
+          "text": "Which funnel should be used to filter hot mother liquor during recrystallization?",
+          "options": [
+            "A. Hirsch funnel",
+            "B. Büchner funnel",
+            "C. Long-stem funnel",
+            "D. Short-stem funnel"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 35
+        },
+        {
+          "text": "If T = 0.01, what is the absorbance?",
+          "options": [
+            "A. 0.01",
+            "B. 1",
+            "C. 2",
+            "D. 100"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 74
+        },
+        {
+          "text": "What is the typical precision of a semi-micro balance?",
+          "options": [
+            "A. ±1 mg",
+            "B. ±0.1 mg",
+            "C. ±0.01 mg",
+            "D. ±0.001 mg"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 86
+        },
+        {
+          "text": "Fractional distillation is appropriate when the boiling points of two miscible liquids differ by",
+          "options": [
+            "A. less than 25 °C",
+            "B. more than 100 °C",
+            "C. exactly 50 °C",
+            "D. more than 200 °C"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 30
+        },
+        {
+          "text": "Which standard promotes the adoption of a process approach in developing, implementing, and improving a quality management system?",
+          "options": [
+            "A. ISO 15189",
+            "B. ISO 9000 Quality Management System",
+            "C. GLP",
+            "D. CPA"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 26
+        },
+        {
+          "text": "Which blank is similar to a method blank but is not subjected to all sample preparation procedures?",
+          "options": [
+            "A. Reagent blank",
+            "B. Field blank",
+            "C. Method blank",
+            "D. QC sample"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 55
+        },
+        {
+          "text": "Which statements are true about instrumental background signals? I. Even when no sample is being analyzed, the instrument generates a background signal. II. The instrument’s limit of detection improves when the signal-to-noise ratio increases. III. The instrument’s limit of detection is not affected by its signal-to-noise ratio.",
+          "options": [
+            "A. I only",
+            "B. I and II",
+            "C. I and III",
+            "D. I, II, and III"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 33
+        },
+        {
+          "text": "If you are going to mass produce vitamin C, which standard should you subscribe in?",
+          "options": [
+            "A. GMP",
+            "B. HACCP",
+            "C. ISO 9001",
+            "D. All of these"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 56
+        },
+        {
+          "text": "Which wavelength selector is used when continuous variation of wavelength is required?",
+          "options": [
+            "A. monochromator",
+            "B. cuvette",
+            "C. detector",
+            "D. transducer"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 88
+        },
+        {
+          "text": "The total volume of an average adult’s expanded lungs is approximately 6 L. Calculate the pressure of 0.05 mol oxygen at 37°C.",
+          "options": [
+            "A. 0.0253 atm",
+            "B. 0.308 atm",
+            "C. 2.58 atm",
+            "D. 0.212 atm"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 62
+        },
+        {
+          "text": "What are the smallest whole-number coefficients for the following reaction? Al + O₂ → Al₂O₃",
+          "options": [
+            "A. 1, 1, 1",
+            "B. 2, 1, 1",
+            "C. 2, 3, 2",
+            "D. 4, 3, 2"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 43
+        },
+        {
+          "text": "It is a laboratory quality control activity that is used to verify that an instrument works correctly on a day-to-day basis.",
+          "options": [
+            "A. Spiking",
+            "B. Blank analysis",
+            "C. System suitability checking",
+            "D. Reference material analysis"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 42
+        },
+        {
+          "text": "Along the third period, which arrangement shows increasing affinity for electrons?",
+          "options": [
+            "A. Na < Mg < Cl < Ar",
+            "B. Ar < Na < Mg < Cl",
+            "C. Cl < Mg < Na < Ar",
+            "D. Ar < Cl < Mg < Na"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 4
+        },
+        {
+          "text": "In an experiment to determine the percentage of water in a solid hydrate by heating, what is the best indication that all water has been removed?",
+          "options": [
+            "A. The solid melts.",
+            "B. The solid changes color.",
+            "C. Water vapor no longer appears.",
+            "D. Successive weighings give the same mass."
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 74
+        },
+        {
+          "text": "Which IR absorption is expected to be broad rather than relatively sharp?",
+          "options": [
+            "A. C≡N",
+            "B. C=O",
+            "C. O–H",
+            "D. C=C"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 52
+        },
+        {
+          "text": "In an electrolytic cell, oxidation occurs",
+          "options": [
+            "A. At the anode",
+            "B. At the cathode",
+            "C. At either the cathode or anode",
+            "D. Between the cathode and anode"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 82
+        },
+        {
+          "text": "A solution has 3 × 10⁻⁴ M Cu²⁺. Convert this concentration into ppm. Atomic mass of Cu = 63.55 g/mol.",
+          "options": [
+            "A. 3 ppm",
+            "B. 38 ppm",
+            "C. 9 ppm",
+            "D. 19 ppm"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 56
+        },
+        {
+          "text": "Which quality control sample provides a less formal check than a conventional QC sample?",
+          "options": [
+            "A. Blind sample",
+            "B. Repeat sample",
+            "C. Field blank",
+            "D. Primary standard"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 41
+        },
+        {
+          "text": "Which is NOT a possible set of quantum numbers (n, l, mₗ, mₛ)?",
+          "options": [
+            "A. 2, 1, 0, +1/2",
+            "B. 2, 0, 0, +1/2",
+            "C. 3, 1, 2, -1/2",
+            "D. 3, 1, -1, -1/2"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 42
+        },
+        {
+          "text": "Which group reacts with water at a slower rate to form basic hydroxide solutions?",
+          "options": [
+            "A. Group 1",
+            "B. Group 2",
+            "C. Group 16",
+            "D. Group 7"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 48
+        },
+        {
+          "text": "What is the name of Fe(NO₃)₃?",
+          "options": [
+            "A. Iron nitrate",
+            "B. Iron(II) nitrate",
+            "C. Iron(III) nitrate",
+            "D. Ferric nitrite"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 6
+        },
+        {
+          "text": "In which part of an electrochemical cell does oxidation occur?",
+          "options": [
+            "A. Anode",
+            "B. Cathode",
+            "C. Salt bridge",
+            "D. Electric wire"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 58
+        },
+        {
+          "text": "Widely used continuous atomization method in AAS. It is also the most reproducible of all liquid-sample introduction methods that have been developed for AAS to date.",
+          "options": [
+            "A. Flame",
+            "B. Electrothermal",
+            "C. Direct-current plasma",
+            "D. Inductively coupled plasma"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 31
+        },
+        {
+          "text": "Process in which all of the modifications made into a laboratory activity are documented.",
+          "options": [
+            "A. Management review",
+            "B. Audit trail",
+            "C. Accreditation",
+            "D. Quality manual"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 24
+        },
+        {
+          "text": "Sodium carbonate is also known as",
+          "options": [
+            "A. Baking soda",
+            "B. Soda ash",
+            "C. Caustic potash",
+            "D. Caustic soda"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 58
+        },
+        {
+          "text": "An exact amount of 0.8214 g of KMnO₄, with a molar mass of 158 g/mol, was dissolved in water and diluted to volume in a 500 mL volumetric flask. A 2.00 mL portion was transferred to a 1000 mL flask and diluted to volume. Then, 10.00 mL of the diluted solution was transferred to a 250 mL flask and diluted to volume. What is the molar concentration of the final solution?",
+          "options": [
+            "A. 0.104 M",
+            "B. 2.08 × 10⁻⁵ M",
+            "C. 8.32 × 10⁻⁷ M",
+            "D. None of the above"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 17
+        },
+        {
+          "text": "Recrystallization is particularly important for purifying",
+          "options": [
+            "A. volatile gases",
+            "B. nonvolatile organic solids",
+            "C. inorganic gases",
+            "D. highly volatile liquids"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 60
+        },
+        {
+          "text": "Which bond typically produces a medium IR absorption at 3500–3200 cm⁻¹?",
+          "options": [
+            "A. N–H",
+            "B. C=C",
+            "C. C≡C",
+            "D. C=O"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 26
+        },
+        {
+          "text": "A quality system is a combination of which three components?",
+          "options": [
+            "A. Quality Management, Quality Assurance, and Quality Control",
+            "B. Quality Audit, Quality Manual, and Quality Control",
+            "C. Accreditation, Certification, and Quality Assurance",
+            "D. Management Review, Audit Trail, and Certification"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 45
+        },
+        {
+          "text": "Which chemical standard has the highest metrological qualities and whose value is accepted without reference to another standard of the same quantity?",
+          "options": [
+            "A. Secondary standard",
+            "B. Analytical standard",
+            "C. Calibration standard",
+            "D. Primary standard"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 50
+        },
+        {
+          "text": "A type of blank that is commonly used with techniques such as spectrophotometry to zero the instrument before measuring test samples and other blanks.",
+          "options": [
+            "A. Reagent blank",
+            "B. Method blank",
+            "C. Trip blank",
+            "D. Field blank"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 27
+        },
+        {
+          "text": "Which of the following is NOT an acid–base conjugate pair?",
+          "options": [
+            "A. NH₃ and NH₄⁺",
+            "B. H₂S and OH⁻",
+            "C. H₂O and OH⁻",
+            "D. HCN and CN⁻"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 36
+        },
+        {
+          "text": "Volumetric flasks are particularly useful for",
+          "options": [
+            "A. heating organic liquids",
+            "B. preparing standard solutions",
+            "C. measuring density",
+            "D. filtering precipitates"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 22
+        },
+        {
+          "text": "The addition of potassium chloride, a nonvolatile solute, to water:",
+          "options": [
+            "A. Increases the boiling point of water",
+            "B. Decreases the boiling point of water",
+            "C. Increases the freezing point of water",
+            "D. Increases the vapor pressure of water"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 23
+        },
+        {
+          "text": "The following are properties of an open tubular or capillary column EXCEPT",
+          "options": [
+            "A. Poor resolution can be obtained.",
+            "B. Only small samples can be applied.",
+            "C. It has a long column length with small inner diameter.",
+            "D. It contains an enormous number of plates that permit rapid separations of closely related species."
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 39
+        },
+        {
+          "text": "Which statements BEST describe a primary method? I. It is a set of instructions on how to carry out a method issued by a national standards body. II. It has the highest metrological qualities. III. It employs materials such as certified reference materials. IV. Titrating hydrochloric acid with anhydrous sodium carbonate to determine the acid concentration is an example.",
+          "options": [
+            "A. I only",
+            "B. II only",
+            "C. II and IV",
+            "D. I and IV"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 65
+        },
+        {
+          "text": "All of the following are properties of an organic solvent for extraction EXCEPT",
+          "options": [
+            "A. Dissolve the desired substance",
+            "B. React with the desired substance",
+            "C. Not react or be miscible with water",
+            "D. Have a low boiling point so it can be easily removed during a later purification step"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 3
+        },
+        {
+          "text": "Quality Assurance is primarily intended to assure clients that laboratory-generated data are",
+          "options": [
+            "A. Obtained as quickly as possible",
+            "B. Of good quality and compliant with applicable protocols and regulations",
+            "C. Always identical between laboratories",
+            "D. Produced using automated equipment and systems"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 4
+        },
+        {
+          "text": "An internal audit is conducted by",
+          "options": [
+            "A. A client",
+            "B. An accreditation representative",
+            "C. A member of the audited area",
+            "D. An external regulatory agency"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 13
+        },
+        {
+          "text": "What is the wavelength of light in nanometers if its frequency is 600 THz?",
+          "options": [
+            "A. 500 nm",
+            "B. 1800 nm",
+            "C. 180 nm",
+            "D. 5000 nm"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 44
+        }
+      ]
     }
   ],
   "test_history": [
@@ -19089,5 +19702,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-26T10:04:23"
+  "updated_at": "2026-09-26T10:06:31"
 }
