@@ -18717,6 +18717,20 @@
       "note": "A point defect is a 1 dimensional defect and during crystallization point defects form at an atomic level while volume defects are larger macroscopic defects",
       "resolved": false,
       "date_logged": "2026-09-26T08:18:16"
+    },
+    {
+      "id": "1790410748638683",
+      "exam_id": "1790400213527768",
+      "exam_source": "D1_S3",
+      "source_list": "D1_L5_Material_Science_Engineering",
+      "reference_no": 89,
+      "question": "A solution has an absorbance of 1.2 when measured in a 1 cm path length cuvette. What will happen to the absorbance if the path length is increased to 2 cm while keeping the concentration constant?",
+      "your_answer": "B. Absorbance will be halved",
+      "correct_answer": "C. Absorbance will double",
+      "category": "Careless / Computational Error",
+      "note": "A = e*l*c if l = 2l then A = 2A",
+      "resolved": false,
+      "date_logged": "2026-09-26T08:19:08"
     }
   ],
   "guess_notes": [
@@ -18809,5 +18823,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-26T08:18:22"
+  "updated_at": "2026-09-26T08:19:14"
 }
