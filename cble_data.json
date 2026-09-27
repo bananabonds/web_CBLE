@@ -23640,6 +23640,20 @@
       "note": "ISO 15189 is specifically designed for medical laboratories (diagnostic) while GLP is for non clinical safety and environemental studies. Both are quality standards.",
       "resolved": false,
       "date_logged": "2026-09-27T09:42:04"
+    },
+    {
+      "id": "1790502293121574",
+      "exam_id": "1790497471266123",
+      "exam_source": "CT_PT_S5",
+      "source_list": "CT_PT_Quality_Assurance_Control",
+      "reference_no": 11,
+      "question": "Which blank contains all components except the analyte and is taken through all steps of the analytical procedure?",
+      "your_answer": "B. Field blank",
+      "correct_answer": "C. Method blank",
+      "category": "Conceptual Misunderstanding",
+      "note": "Field blanks are method blanks but they also go into the sampling site (checking site/transit). Method blanks go through all the steps. Reagent blank is only for the purity of the chemicals.",
+      "resolved": false,
+      "date_logged": "2026-09-27T09:44:53"
     }
   ],
   "guess_notes": [
@@ -23732,5 +23746,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-27T09:42:11"
+  "updated_at": "2026-09-27T09:44:59"
 }
