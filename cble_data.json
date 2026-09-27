@@ -23752,6 +23752,20 @@
       "note": "KE = 0.5mv^2, find the mass of a single O2 molecule = MW/(avogadro's no.) then solve for v",
       "resolved": false,
       "date_logged": "2026-09-27T12:27:18"
+    },
+    {
+      "id": "1790512195549810",
+      "exam_id": "1790443279699647",
+      "exam_source": "D1_S4",
+      "source_list": "D1_L3_Analytical_Chemistry",
+      "reference_no": 32,
+      "question": "Find the pH at the following points in the titration of 25 mL of 0.3 M HF with 0.3 M NaOH. The K_a value is 6.6x10⁻⁴. What is the pH at the initial point?",
+      "your_answer": "B. 2.681",
+      "correct_answer": "A. 1.862",
+      "category": "Careless / Computational Error",
+      "note": "Ka = X^2 / (molarity of solution) - X, solve for X, solve for pH",
+      "resolved": false,
+      "date_logged": "2026-09-27T12:29:55"
     }
   ],
   "guess_notes": [
@@ -23844,5 +23858,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-27T12:27:24"
+  "updated_at": "2026-09-27T12:30:00"
 }
