@@ -23878,6 +23878,20 @@
       "note": "",
       "resolved": false,
       "date_logged": "2026-09-27T15:35:58"
+    },
+    {
+      "id": "1790523861791439",
+      "exam_id": "1790443279699647",
+      "exam_source": "D1_S4",
+      "source_list": "D1_L3_Analytical_Chemistry",
+      "reference_no": 38,
+      "question": "How many mL of 0.246 M HNO₃ should be added to 213 mL of 0.00666 M 2,2’-bipyridine (pKa = 4.34) to give a pH of 4.19?",
+      "your_answer": "D. 8.1 mL",
+      "correct_answer": "C. 3.38 mL",
+      "category": "Formula / Equation Error",
+      "note": "Solve the ratio from Henderson-Hasselbach. ratio = B_actual/BH+, since B is a conjugate base it forms BH+ acid from HNO3. B_actual = B-BH+.",
+      "resolved": false,
+      "date_logged": "2026-09-27T15:44:21"
     }
   ],
   "guess_notes": [
@@ -23970,5 +23984,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-27T15:36:03"
+  "updated_at": "2026-09-27T15:44:28"
 }
