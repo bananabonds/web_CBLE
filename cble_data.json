@@ -23654,6 +23654,20 @@
       "note": "Field blanks are method blanks but they also go into the sampling site (checking site/transit). Method blanks go through all the steps. Reagent blank is only for the purity of the chemicals.",
       "resolved": false,
       "date_logged": "2026-09-27T09:44:53"
+    },
+    {
+      "id": "1790502493848922",
+      "exam_id": "1790443279699647",
+      "exam_source": "D1_S4",
+      "source_list": "D1_L6_Physical_Chemistry",
+      "reference_no": 55,
+      "question": "An aqueous solution at 26.85 u02daC of 0.72% by weight HCl freezes at -0.706 u02daC. Calculate the Van't Hoff factor.",
+      "your_answer": "B. 1.85",
+      "correct_answer": "C. 1.9",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Memorize the cryoscopic of water Kf = 1.86 C kg/mol. dT = Kf * i * m",
+      "resolved": false,
+      "date_logged": "2026-09-27T09:48:13"
     }
   ],
   "guess_notes": [
@@ -23746,5 +23760,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-27T09:44:59"
+  "updated_at": "2026-09-27T09:48:19"
 }
