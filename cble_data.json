@@ -23934,6 +23934,20 @@
       "note": "Nernst Equation is Ecell = E_standard potential of cell * 0.0592/n * log Q. E_spc = E_cathode - E_anode. Balance the redox Sn2+ Fe3+ -> Sn4+ + Fe(s) Reaction quotient (Q) = Sn4+ / (Sn2+ *  Fe3+) raise to approriate stoich. n is the coefficient of e- during balance of half reactions",
       "resolved": false,
       "date_logged": "2026-09-27T17:19:27"
+    },
+    {
+      "id": "1790531152594924",
+      "exam_id": "1790443279699647",
+      "exam_source": "D1_S4",
+      "source_list": "D1_L7_Biochemistry",
+      "reference_no": 79,
+      "question": "(Situation: Lactase kinetics were processed with a Lineweaver-Burk plot giving the best-fit linear equation y = 4.43u00d710u207bu2074 + 0.01738x, where x = 1/[S] in Mu207bu00b9 and y = 1/v in Mu207bu00b9 min.) Evaluate the enzymeu2019s Km.",
+      "your_answer": "D. 4.43 M",
+      "correct_answer": "C. 39.2 M",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Michaeles menten. 1/v = [Km/(Vmax * S)] + 1/Vmax. Find Km m = 0.01738, 1/Vmax = 4.43 * 10^-4. Find Km algebraically",
+      "resolved": false,
+      "date_logged": "2026-09-27T17:45:52"
     }
   ],
   "guess_notes": [
@@ -24026,5 +24040,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-27T17:19:33"
+  "updated_at": "2026-09-27T17:46:02"
 }
