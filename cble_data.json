@@ -23920,6 +23920,20 @@
       "note": "The crystalline structure doesnt cause the brittleness of ceramics, the ionic and covalent bonds doesnt let each other slide each other unlike metal (crystalline).",
       "resolved": false,
       "date_logged": "2026-09-27T16:35:44"
+    },
+    {
+      "id": "1790529416734307",
+      "exam_id": "1790443279699647",
+      "exam_source": "D1_S4",
+      "source_list": "D1_L6_Physical_Chemistry",
+      "reference_no": 65,
+      "question": "Calculate the EMF at 25 u02daC of the cell: Pt | Sn2+ (0.1 m), Sn4+ (0.01 m) || Fe3+ (0.5 m) | Fe Fe3+ + 3e- u2192 Fe; Eu00b0 = -0.041 V Sn4+ + 2e- u2192 Sn2+; Eu00b0 = 0.151 V",
+      "your_answer": "B. 0.17 V",
+      "correct_answer": "A. -0.17 V",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Nernst Equation is Ecell = E_standard potential of cell * 0.0592/n * log Q. E_spc = E_cathode - E_anode. Balance the redox Sn2+ Fe3+ -> Sn4+ + Fe(s) Reaction quotient (Q) = Sn4+ / (Sn2+ *  Fe3+) raise to approriate stoich",
+      "resolved": false,
+      "date_logged": "2026-09-27T17:16:56"
     }
   ],
   "guess_notes": [
@@ -24012,5 +24026,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-27T16:35:50"
+  "updated_at": "2026-09-27T17:17:03"
 }
