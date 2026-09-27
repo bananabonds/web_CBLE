@@ -132,6 +132,9 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
 .status-pill.status-yellow{border-left:none;background:var(--amber);color:#fff;}
 .status-pill.status-green{border-left:none;background:var(--green);color:#fff;}
 .status-pill.repeat-pill{background:var(--violet);color:#fff;}
+.status-pill.neutral{background:var(--paper);color:var(--sub);}
+.milestone-badge{font-size:.68rem;padding:3px 9px;border-radius:999px;background:var(--paper);color:var(--sub);border:1px solid var(--line);}
+.milestone-badge.achieved{background:var(--green-bg);color:var(--green);border-color:transparent;font-weight:700;}
 .list-item.repeated{box-shadow:0 0 0 2px var(--violet) inset;}
 .list-item.flashcard{cursor:pointer;}
 .list-item.flashcard:active{filter:brightness(.97);}
@@ -316,6 +319,11 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
         <h3 id="homeGreeting">Your Progress</h3>
         <p class="hint" id="homeSubline">Here's where things stand.</p>
         <div id="homeOverviewGrid"></div>
+      </div>
+
+      <div class="card">
+        <h3>Questions Answered</h3>
+        <div id="homeMilestonesStat"></div>
       </div>
 
       <div class="card">
@@ -1831,6 +1839,7 @@ function avgPctOnDate(history, dateStr) {
 
 function refreshHome() {
   renderHomeOverview();
+  renderQuestionsMilestones();
   renderStreakAndHeatmap();
   renderDueForReview();
   renderHomeMistakes();
@@ -1982,6 +1991,7 @@ function renderHomeOverview() {
   const totalTests = history.length;
   const avgScore = totalTests ? (history.reduce((s, h) => s + (h.pct || 0), 0) / totalTests) : null;
   const resolved = mistakes.filter(m => m.resolved).length;
+  const { allTime: questionsAnswered } = computeQuestionsAnsweredStats();
   const lastActivity = [latestDateFromArray(history, "date"), latestDateFromArray(samples, "created_at"), latestDateFromArray(mistakes, "date_logged")]
     .filter(Boolean).sort().pop();
 
@@ -1990,6 +2000,7 @@ function renderHomeOverview() {
   const stats = [
     ["Tests Taken", totalTests],
     ["Average Score", avgScore != null ? `${avgScore.toFixed(1)}%` : "\u2013"],
+    ["Questions Answered", questionsAnswered],
     ["Saved Samples", samples.length],
     ["Mistakes Resolved", `${resolved}/${mistakes.length}`],
   ];
@@ -2000,6 +2011,67 @@ function renderHomeOverview() {
     cell.innerHTML = `<div class="home-stat-val">${esc(val)}</div><div class="home-stat-lbl">${esc(label)}</div>`;
     box.appendChild(cell);
   }
+}
+
+/* ---------------------------------------------------------------------
+   Questions Answered + Milestones
+   --------------------------------------------------------------------- */
+const DAILY_MILESTONES = [50, 100, 150, 200, 250, 300, 400, 500, 750, 1000];
+const ALLTIME_MILESTONES = [100, 250, 500, 1000, 2500, 5000, 10000, 25000];
+
+function computeQuestionsAnsweredStats() {
+  const details = loadJson(KEYS.details, []);
+  const todayStr = todayDateStr();
+  let allTime = 0, today = 0;
+  for (const d of details) {
+    const isToday = dateOnly(d.date) === todayStr;
+    for (const item of (d.items || [])) {
+      if (item.is_answered) {
+        allTime++;
+        if (isToday) today++;
+      }
+    }
+  }
+  return { allTime, today };
+}
+function nextMilestone(count, list) { return list.find(m => m > count) || null; }
+function lastAchievedMilestone(count, list) {
+  let last = null;
+  for (const m of list) { if (count >= m) last = m; else break; }
+  return last;
+}
+function formatMilestoneNum(m) { return m >= 1000 ? `${m / 1000}k` : String(m); }
+
+function renderQuestionsMilestones() {
+  const { allTime, today } = computeQuestionsAnsweredStats();
+  const box = $("homeMilestonesStat");
+
+  const todayNext = nextMilestone(today, DAILY_MILESTONES);
+  const todayLast = lastAchievedMilestone(today, DAILY_MILESTONES);
+  const allNext = nextMilestone(allTime, ALLTIME_MILESTONES);
+
+  let todayLine;
+  if (todayLast) {
+    todayLine = `<div class="home-delta positive">\u{1F389} You've hit <b>${todayLast}</b> question${todayLast === 1 ? "" : "s"} today!${todayNext ? ` ${todayNext - today} more to reach ${todayNext}.` : " That's every daily milestone we track."}</div>`;
+  } else if (today > 0) {
+    todayLine = `<div class="home-delta">${todayNext - today} more to hit today's first milestone of ${todayNext}.</div>`;
+  } else {
+    todayLine = `<div class="hint">Answer some questions today to start building toward a milestone.</div>`;
+  }
+
+  const allLine = allNext
+    ? `<div class="hint" style="margin-top:6px;">All-time: <b>${allTime}</b> answered &middot; ${allNext - allTime} more to reach ${allNext}.</div>`
+    : `<div class="hint" style="margin-top:6px;">All-time: <b>${allTime}</b> answered &middot; you've cleared every milestone we track!</div>`;
+
+  const badgeRow = ALLTIME_MILESTONES.map(m => {
+    const achieved = allTime >= m;
+    return `<span class="milestone-badge${achieved ? " achieved" : ""}">${achieved ? "\u2713" : "\u25CB"} ${formatMilestoneNum(m)}</span>`;
+  }).join("");
+
+  box.innerHTML = `<div class="home-bignum">${today}</div><div class="home-sub">questions answered today</div>
+    ${todayLine}
+    ${allLine}
+    <div class="row wrap" style="margin-top:10px;gap:6px;">${badgeRow}</div>`;
 }
 
 function renderHomeMistakes() {
@@ -2332,9 +2404,18 @@ function refreshSavedSamplesList() {
   box.innerHTML = "";
   if (!savedSets.length) { box.appendChild(el("div", "empty-state", "No saved samples yet -- build one in Sample Builder.")); return; }
   if (!ordered.length) { box.appendChild(el("div", "empty-state", "No saved samples match that search.")); return; }
+
+  const history = loadJson(KEYS.history, []);
+  const takenCounts = {};
+  for (const h of history) takenCounts[h.source] = (takenCounts[h.source] || 0) + 1;
+
   for (const s of ordered) {
     const item = el("div", "list-item selectable" + (s.id === selectedSavedId ? " selected" : ""));
-    item.innerHTML = `<div class="top-row"><span class="name">${esc(s.name || "(unnamed)")}</span></div>
+    const takenCount = takenCounts[s.name] || 0;
+    const takenBadge = takenCount > 0
+      ? `<span class="status-pill status-green">Taken \u00d7${takenCount}</span>`
+      : `<span class="status-pill neutral">Not yet taken</span>`;
+    item.innerHTML = `<div class="top-row"><span class="name">${esc(s.name || "(unnamed)")}</span>${takenBadge}</div>
       <div class="meta">${(s.questions || []).length} questions &middot; saved ${esc(s.created_at || "")}</div>`;
     item.addEventListener("click", () => { selectedSavedId = s.id; refreshSavedSamplesList(); });
     box.appendChild(item);
