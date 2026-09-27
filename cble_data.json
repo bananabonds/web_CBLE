@@ -23832,10 +23832,10 @@
       "question": "Aqueous glycerol (C₃H₈O₃, 92.095) solution weighing 100 mg was treated with 50 mL of 0.0837 M Ce⁴⁺ in 4 M HClO₄ at 60 °C for 15 min to oxidize glycerol to formic acid, H₂CO₂. The excess Ce⁴⁺ required 12.11 mL of 0.0448 M Fe²⁺ to reach a ferroin endpoint. Find the weight % glycerol in the unknown.",
       "your_answer": "C. 33.1%",
       "correct_answer": "B. 41.9%",
-      "category": "Formula / Equation Error",
+      "category": "Careless / Computational Error",
       "note": "Account for the stoichiometric coefficient of the cerium oxidant. C3H8O3  -> CHO2 gives 8e+ divide the total cerium added by this to get the actual amount of glycerol",
       "resolved": false,
-      "date_logged": "2026-09-27T15:29:34"
+      "date_logged": "2026-09-27T15:30:51"
     }
   ],
   "guess_notes": [
@@ -23928,5 +23928,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-27T15:29:40"
+  "updated_at": "2026-09-27T15:30:57"
 }
