@@ -11075,6 +11075,619 @@
           "_source_index": 23
         }
       ]
+    },
+    {
+      "id": "1790489196194360",
+      "name": "CT_PT_S5",
+      "created_at": "2026-09-27T06:06:36",
+      "composition": {
+        "CT_PT_Analytical_Chemistry": 13,
+        "CT_PT_Laboratory_Instrumentation": 12,
+        "CT_PT_Quality_Assurance_Control": 12,
+        "CT_PT_Inorganic_Chemistry": 13
+      },
+      "questions": [
+        {
+          "text": "Reversed-phase chromatography refers to",
+          "options": [
+            "A. Nonpolar stationary phase and polar mobile phase",
+            "B. Polar stationary phase and nonpolar mobile phase",
+            "C. Stationary and mobile phases with similar polarities",
+            "D. Nonpolar stationary phase and nonpolar mobile phase"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 13
+        },
+        {
+          "text": "In atomic spectroscopy, atomization refers to converting the sample into",
+          "options": [
+            "A. solid crystals",
+            "B. gas-phase atoms or elementary ions",
+            "C. an aqueous precipitate",
+            "D. a polymeric film"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 15
+        },
+        {
+          "text": "It is a part of quality systems that is officially defined by the ISO as the assembly of all planned and systematic actions to provide adequate confidence that a product, process or service will satisfy the given quality requirements.",
+          "options": [
+            "A. Quality Management",
+            "B. Quality Assurance",
+            "C. Quality Control",
+            "D. Quality Manual"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 5
+        },
+        {
+          "text": "Which of the following is/are TRUE about quality assurance? I. QA is a set of activities for ensuring quality in the process by which products are developed. II. QA is a corrective tool and product oriented.",
+          "options": [
+            "A. I only",
+            "B. II only",
+            "C. Both I and II",
+            "D. None of these"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 51
+        },
+        {
+          "text": "Which performance parameter may be determined by analyzing a blank sample matrix?",
+          "options": [
+            "A. Bias estimate",
+            "B. Selectivity",
+            "C. Limit of quantification",
+            "D. Limit of detection"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 59
+        },
+        {
+          "text": "If the transmittance of a sample is 0.10, what is its absorbance? Given: A = −log T",
+          "options": [
+            "A. 0.10",
+            "B. 0.50",
+            "C. 1.00",
+            "D. 10.0"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 90
+        },
+        {
+          "text": "What is the primary purpose of a quality audit?",
+          "options": [
+            "A. To calculate analytical uncertainty",
+            "B. To determine compliance with quality management plans",
+            "C. To calibrate laboratory instruments",
+            "D. To prepare reference materials"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 3
+        },
+        {
+          "text": "Certification confirms that a laboratory’s quality management system is",
+          "options": [
+            "A. Fully implemented and compliant with the standard",
+            "B. Free from all analytical errors",
+            "C. Recognized as competent for every possible test",
+            "D. Exempt from future audits"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 46
+        },
+        {
+          "text": "An analyst knows that special test samples have been inserted into a batch but does not know which samples they are. These are",
+          "options": [
+            "A. Repeat samples",
+            "B. Blind samples",
+            "C. Method blanks",
+            "D. Calibration standards"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 6
+        },
+        {
+          "text": "Which should NOT be done when an emulsion forms during extraction?",
+          "options": [
+            "A. Stir the emulsion gently using a stirring rod.",
+            "B. Add salt crystals and stir gently.",
+            "C. Add a salt solution and stir gently.",
+            "D. Shake the separatory funnel very vigorously."
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 9
+        },
+        {
+          "text": "Which process is a chemical change?",
+          "options": [
+            "A. Melting ice",
+            "B. Crushing glass",
+            "C. Boiling water",
+            "D. Rusting iron"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 2
+        },
+        {
+          "text": "Which of the following is NOT listed as a use of chemical standards?",
+          "options": [
+            "A. Checking metrological traceability",
+            "B. Validating analytical methods",
+            "C. Calibrating analytical methods",
+            "D. Increasing sample stability"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 7
+        },
+        {
+          "text": "A colorless liquid and a yellowish liquid were mixed in a test tube. Which statement is incorrect?",
+          "options": [
+            "A. There will be no reaction if the test tube becomes hot.",
+            "B. There will be a reaction if a precipitate forms.",
+            "C. There will be no reaction if the liquids remain on top of each other.",
+            "D. There will be a reaction if the yellow color drastically disappears."
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 21
+        },
+        {
+          "text": "In HPLC, an elution using a mobile phase of constant composition is called",
+          "options": [
+            "A. gradient elution",
+            "B. isocratic elution",
+            "C. affinity elution",
+            "D. programmed elution"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 54
+        },
+        {
+          "text": "When ammonium chloride hydrolyzes, the resulting solution will have a pH _____.",
+          "options": [
+            "A. Less than 7",
+            "B. Equal to 7",
+            "C. Greater than 7",
+            "D. Equal to 14"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 61
+        },
+        {
+          "text": "How many significant figures are there in 4.200 g?",
+          "options": [
+            "A. 1",
+            "B. 2",
+            "C. 3",
+            "D. 4"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 24
+        },
+        {
+          "text": "This quality system standard is a general requirement for the competence of testing and calibration laboratories.",
+          "options": [
+            "A. GLP",
+            "B. GMP",
+            "C. ISO 9001",
+            "D. ISO/IEC 17025"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 15
+        },
+        {
+          "text": "Why should a hot crucible not be weighed directly on an analytical balance?",
+          "options": [
+            "A. Its mass becomes zero.",
+            "B. Convection currents can cause unstable readings.",
+            "C. It permanently increases the balance capacity.",
+            "D. The sample immediately dissolves."
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 75
+        },
+        {
+          "text": "When reading the volume of a colorless liquid in a buret, the eye should be",
+          "options": [
+            "A. Above the meniscus",
+            "B. Below the meniscus",
+            "C. Level with the meniscus",
+            "D. At any convenient position"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 73
+        },
+        {
+          "text": "Which substance is expected to have the highest vapor pressure?",
+          "options": [
+            "A. Water",
+            "B. Pentane",
+            "C. Butanone",
+            "D. Methylbutane"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 50
+        },
+        {
+          "text": "Which of the following is NOT a characteristic of a Quality Control sample?",
+          "options": [
+            "A. Similar in composition to normal samples",
+            "B. Stable and homogeneous",
+            "C. Available in large quantities",
+            "D. Completely unknown in composition"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 20
+        },
+        {
+          "text": "Among the following noble gases, which has the strongest intermolecular forces?",
+          "options": [
+            "A. Kr",
+            "B. Xe",
+            "C. Ne",
+            "D. He"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 16
+        },
+        {
+          "text": "A metal sample has a mass of 54.0 g and occupies 20.0 mL. What is its density?",
+          "options": [
+            "A. 2.70 g/mL",
+            "B. 34.0 g/mL",
+            "C. 74.0 g/mL",
+            "D. 0.370 g/mL"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 54
+        },
+        {
+          "text": "All of the following are oxidizing agents EXCEPT",
+          "options": [
+            "A. Na₂S₂O₃",
+            "B. HNO₃",
+            "C. KMnO₄",
+            "D. K₂Cr₂O₇"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 48
+        },
+        {
+          "text": "It is the fraction of the named material present in the stated chemical form.",
+          "options": [
+            "A. Potency",
+            "B. Purity",
+            "C. Stability",
+            "D. Activity"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 14
+        },
+        {
+          "text": "How would you prepare 500.0 mL of 0.2500 M NaOH from a 1.000 M NaOH stock solution?",
+          "options": [
+            "A. Transfer 125 mL of the stock solution and dilute to 500.0 mL.",
+            "B. Transfer 121 mL of the stock solution and dilute to 500.0 mL.",
+            "C. Transfer 122 mL of the stock solution and dilute to 500.0 mL.",
+            "D. Transfer 112 mL of the stock solution and dilute to 500.0 mL."
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 44
+        },
+        {
+          "text": "Which chemical may be used to neutralize waste containing caustic soda?",
+          "options": [
+            "A. Potassium hydroxide",
+            "B. Ammonia",
+            "C. Hydrochloric acid",
+            "D. Buffer 10 solution"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 69
+        },
+        {
+          "text": "Which apparatus can hasten the drying of a thermally unstable sample without subjecting it to high temperature?",
+          "options": [
+            "A. vacuum desiccator",
+            "B. Bunsen burner",
+            "C. sand bath",
+            "D. muffle furnace"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 38
+        },
+        {
+          "text": "Which electrochemical cell uses electrical energy to drive a nonspontaneous redox reaction?",
+          "options": [
+            "A. Daniell cell",
+            "B. Voltaic cell",
+            "C. Galvanic cell",
+            "D. Electrolytic cell"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 21
+        },
+        {
+          "text": "In the chlorate (ClO₃⁻) Lewis structure shown (one Cl=O double bond and two Cl–O single bonds, each singly bonded oxygen carrying three lone pairs), what is the formal charge of the rightmost singly bonded oxygen atom?",
+          "options": [
+            "A. 0",
+            "B. +1",
+            "C. -1",
+            "D. -2"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 29
+        },
+        {
+          "text": "An absorption near 2250 cm⁻¹ may indicate the presence of which bond?",
+          "options": [
+            "A. O–H",
+            "B. C≡N",
+            "C. C=O",
+            "D. N–H"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 98
+        },
+        {
+          "text": "Which blank contains all components except the analyte and is taken through all steps of the analytical procedure?",
+          "options": [
+            "A. Reagent blank",
+            "B. Field blank",
+            "C. Method blank",
+            "D. Calibration blank"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 10
+        },
+        {
+          "text": "A material, sufficiently homogeneous and stable with respect to one or more specified property values, which has been established to be fit for its intended use in a measurement process.",
+          "options": [
+            "A. Chemical standards",
+            "B. Certified Reference Materials (CRM)",
+            "C. Reference Materials (RM)",
+            "D. Certified standards"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 38
+        },
+        {
+          "text": "A desirable organic solvent for liquid-liquid extraction should",
+          "options": [
+            "A. react readily with the desired product",
+            "B. be completely miscible with water",
+            "C. readily dissolve the desired substance",
+            "D. have an extremely high boiling point"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 69
+        },
+        {
+          "text": "Which technique is recommended for determining the odor of an unknown liquid in the laboratory?",
+          "options": [
+            "A. Hold the test tube directly under the nose and inhale.",
+            "B. Transfer a few drops to the bench top and inhale the vapor.",
+            "C. Use a dropper to squirt vapor under the nose while inhaling.",
+            "D. Use a hand to fan some vapor from the test tube toward the nose and inhale."
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 83
+        },
+        {
+          "text": "It is the measure of hydrogen-ion activity in aqueous solutions.",
+          "options": [
+            "A. Conductivity",
+            "B. Viscosity",
+            "C. pH",
+            "D. Solubility"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 59
+        },
+        {
+          "text": "Which flux is listed for fusion of silicates and oxides using a platinum crucible?",
+          "options": [
+            "A. Na₂CO₃",
+            "B. NaOH",
+            "C. KOH",
+            "D. Na₂O₂"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 62
+        },
+        {
+          "text": "A strong-to-medium absorption near 3000 cm⁻¹ is characteristic of",
+          "options": [
+            "A. C–H",
+            "B. C=O",
+            "C. C≡N",
+            "D. C=C"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 67
+        },
+        {
+          "text": "The substance that performs the dissolving and constitutes more than 50% of a solution is the:",
+          "options": [
+            "A. Solvent",
+            "B. Solute",
+            "C. Mixture",
+            "D. Solution"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 27
+        },
+        {
+          "text": "Which quality system standard is specifically intended for medical laboratories?",
+          "options": [
+            "A. ISO 15189",
+            "B. ISO 9000",
+            "C. ISO/IEC 17025",
+            "D. GLP"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 9
+        },
+        {
+          "text": "The following chemical formulas are correctly named EXCEPT:",
+          "options": [
+            "A. BaCl₂, barium chloride",
+            "B. CsNO₂, cesium nitrate",
+            "C. Fe₂O₃, ferric oxide",
+            "D. Mg(HCO₃)₂, magnesium bicarbonate"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 49
+        },
+        {
+          "text": "Which of the following correctly describes Quality Control?",
+          "options": [
+            "A. Proactive and process-oriented",
+            "B. Reactive and product-oriented",
+            "C. Preventive and management-oriented",
+            "D. Proactive and customer-oriented"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 0
+        },
+        {
+          "text": "The size of the sample taken for analysis depends on the __________.",
+          "options": [
+            "A. Concentration of analyte",
+            "B. Equipment to be used",
+            "C. Specific chemical tests",
+            "D. All of the choices"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 45
+        },
+        {
+          "text": "Which combination indicates better chromatographic column efficiency?",
+          "options": [
+            "A. lower plate count and higher plate height",
+            "B. lower plate count and lower plate height",
+            "C. higher plate count and smaller plate height",
+            "D. higher plate count and larger plate height"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 47
+        },
+        {
+          "text": "Inorganic solid samples are commonly dried before weighing at approximately",
+          "options": [
+            "A. 25 to 30 °C",
+            "B. 50 to 60 °C",
+            "C. 105 to 110 °C",
+            "D. 200 to 300 °C"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 37
+        },
+        {
+          "text": "The ideal range for the retention factor, k, is approximately",
+          "options": [
+            "A. 0 to 0.5",
+            "B. 1 to 5",
+            "C. 10 to 20",
+            "D. 50 to 100"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 48
+        },
+        {
+          "text": "Which of the following is true?",
+          "options": [
+            "A. Heterogeneous mixtures have phase boundaries.",
+            "B. Compounds have only one type of atom.",
+            "C. Elements can be chemically decomposed.",
+            "D. Solutions are considered pure substances."
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 61
+        },
+        {
+          "text": "An IR absorption near 1650 cm⁻¹ of medium intensity is associated with",
+          "options": [
+            "A. C=C",
+            "B. C≡N",
+            "C. O–H",
+            "D. N–H"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 93
+        },
+        {
+          "text": "Which is TRUE for a 19/22 stopper?",
+          "options": [
+            "A. Radius = 19 mm, height = 22 mm",
+            "B. Radius = 22 mm, height = 19 mm",
+            "C. Diameter = 19 mm, height = 22 mm",
+            "D. Diameter = 22 mm, height = 19 mm"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 67
+        },
+        {
+          "text": "The standard atmospheric pressure at sea level is:",
+          "options": [
+            "A. 1 atm",
+            "B. 760 mmHg",
+            "C. 760 torr",
+            "D. All of the choices"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 26
+        }
+      ]
     }
   ],
   "test_history": [
@@ -22589,5 +23202,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-27T05:59:50"
+  "updated_at": "2026-09-27T06:06:42"
 }
