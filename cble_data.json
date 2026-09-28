@@ -25227,7 +25227,7 @@
       "correct_answer": "A. 100 mg/L",
       "category": "Formula / Equation Error",
       "note": "Dilution factor scales the change in DO of the sample to the actual Oxygen demand of the total volume. BOD5 = (DOi-DOf)/P, then BOD5 = Lo(1-e^-kt), then L5 (remaining demand) = Lo - BOD5",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T09:24:57"
     },
     {
@@ -26396,5 +26396,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-28T20:12:23"
+  "updated_at": "2026-09-28T20:38:21"
 }
