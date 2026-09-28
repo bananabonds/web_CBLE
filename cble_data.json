@@ -12301,6 +12301,622 @@
           "_source_index": 13
         }
       ]
+    },
+    {
+      "id": "1790585735583874",
+      "name": "D1_S5",
+      "created_at": "2026-09-28T08:55:35",
+      "composition": {
+        "D1_L6_Physical_Chemistry": 7,
+        "D1_L1_Chem_for_Engineers": 8,
+        "D1_L7_Biochemistry": 7,
+        "D1_L4_Organic_Chemistry": 7,
+        "D1_L3_Analytical_Chemistry": 7,
+        "D1_L5_Material_Science_Engineering": 7,
+        "D1_L2_Environmental_EngSci": 7
+      },
+      "questions": [
+        {
+          "text": "(Situation: A 2 kg open calorimeter at 100 u02daC with heat capacity 4 kJ/K has 100 g of ice at -10 u02daC placed inside it, reaching a common final temperature.) Calculate the entropy change of the universe in cal/K.",
+          "options": [
+            "A. 12",
+            "B. 14",
+            "C. 16",
+            "D. 18"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 25
+        },
+        {
+          "text": "Which of the following chemicals should not be stored in glass containers? ",
+          "options": [
+            "A. Hydrofluoric acid",
+            "B. NaOH solution",
+            "C. Ammonia solutions",
+            "D. All of the above"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 51
+        },
+        {
+          "text": "What are the \"Permissible Exposure Limits (PEL)\"? ",
+          "options": [
+            "A.  An arbitrary chemical exposure limit; which is not legally enforced by OSHA",
+            "B. Allowable time period of chemical exposure for a worker",
+            "C. Legally-enforced exposure limits for a typical &-hour 5- day a week worker",
+            "D. The concentration at which a chemical ignites"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 66
+        },
+        {
+          "text": "Immobilized cell reactors for wastewater treatment have the advantage of having/being:",
+          "options": [
+            "A. higher cell concentration",
+            "B. more stable and preventing washout",
+            "C. higher maximum dilution rate",
+            "D. all of the above"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 109
+        },
+        {
+          "text": "(Situation: N2O4 gas is 18.46% dissociated to NO2 at 298.15 K and 1 bar in equilibrium.) Calculate u0394Gu00b0 at 25 u02daC.",
+          "options": [
+            "A. 4850 J/mol",
+            "B. 834 J/mol",
+            "C. 1440 J/mol",
+            "D. 4270 J/mol"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 34
+        },
+        {
+          "text": "RNA is synthesized on a DNA template in a process called _____, which utilizes the enzyme _____.",
+          "options": [
+            "A. translation, RNA polymerase",
+            "B. transcription, DNA polymerase",
+            "C. transcription, RNA polymerase",
+            "D. replication, DNA polymerase"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 35
+        },
+        {
+          "text": "Which of the following is 3,3-diphenylpropanal?",
+          "options": [
+            "A. C₆H₅CH₂CH(C₆H₅)CHO",
+            "B. (C₆H₅)₂CHCH₂CHO",
+            "C. C₆H₅CH₂CH₂COC₆H₅",
+            "D. (C₆H₅)₂CHCH₂COC₆H₅"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 25
+        },
+        {
+          "text": "Which of the following statements is/are true?\n1) The criterion of equilibrium at constant temperature and pressure is dG = 0.\n2) For a reversible process, dS = dQ / T.",
+          "options": [
+            "A. 1 only",
+            "B. Both 1 and 2",
+            "C. 2 only",
+            "D. None of the above"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 9
+        },
+        {
+          "text": "A 30 mL solution of HBr was treated with 5 mL of freshly boiled and cooled 8 M HNO₃, and then with 50 mL of 0.365 M AgNO₃ with rigorous stirring. Then, 1 mL of saturated ferric alum was added and the solution was titrated with 0.287 M KSCN. When 3.6 mL had been added, the solution turned red. What was the molar concentration of HBr in the original solution?",
+          "options": [
+            "A. 0.5739 M",
+            "B. 0.3395 M",
+            "C. 0.2724 M",
+            "D. 0.6788 M"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L3_Analytical_Chemistry",
+          "_source_index": 41
+        },
+        {
+          "text": "Find the pH at the following points in the titration of 50 mL of 0.02 M KOH with 0.1 M HBr. What is the pH when 10 mL of 0.1 M HBr is added?",
+          "options": [
+            "A. 6",
+            "B. 7",
+            "C. 8",
+            "D. 9"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L3_Analytical_Chemistry",
+          "_source_index": 30
+        },
+        {
+          "text": "Which fossil fuel has the highest carbon content and is notable for being highly reliable energy source while having pronounced environmental effects? ",
+          "options": [
+            "A. Methane",
+            "B. Diesel",
+            "C. Coal",
+            "D. Gasoline"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 7
+        },
+        {
+          "text": "What is the significance of colligative property in physical chemistry?",
+          "options": [
+            "A. It refers to the freezing point depression, boiling point elevation, osmotic pressure and lowering of the vapor pressure by a nonvolatile solute",
+            "B. It refers to the temperature, pressure and energy of fusion of volatile solutes in phase equilibrium",
+            "C. It refers to the non-existence of pressure among molecules within the solute",
+            "D. It refers to the temperature differentials exhibited by nonvolatile solutes in reactions"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 52
+        },
+        {
+          "text": "A sphere of radius 5 mm and density of 1.1 g/cm3 falls at a constant velocity through a liquid of density 1 g/cm3 and viscosity of 1 cP. What is the velocity of the falling sphere in m/s?",
+          "options": [
+            "A. 1.36 m/s",
+            "B. 2.72 m/s",
+            "C. 5.45 m/s",
+            "D. 10.88 m/s"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 1
+        },
+        {
+          "text": "Pultrusion is primarily used to produce:",
+          "options": [
+            "A. Flat composite sheets",
+            "B. Complex 3D components",
+            "C. Continuous constant cross-section profiles",
+            "D. Laminated panels with variable thickness"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 59
+        },
+        {
+          "text": "How are secondary battery cells recharged? ",
+          "options": [
+            "A. By heating under sunlight",
+            "B. By inputting energy, energizing an endothermic reaction that regenerates the reactants of the battery cell",
+            "C. By excitation of the battery molecules through continuous friction with an external object",
+            "D. None of the above"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 26
+        },
+        {
+          "text": "For numbers 18 to 20: The dilution factor P for an unseeded mixture of waste and water is 0.030. The DO of the mixture is initially 9.0 mg/L, and after five days, it has dropped to 3 mg/L. The reaction rate constant k has been found to be 0.22 /day.: What would be the ultimate carbonaceous BOD?",
+          "options": [
+            "A. 300 mg/L",
+            "B. 400 mg/L",
+            "C. 500 mg/L",
+            "D. 200 mg/L"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 18
+        },
+        {
+          "text": "A sludge thickener processes 500 mu00b3/day of sludge with an initial solid content of 2%. If the thickened sludge has a solid content of 5%, what is the final sludge volume (mu00b3/day)?",
+          "options": [
+            "A. 100",
+            "B. 250",
+            "C. 200",
+            "D. 400"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 76
+        },
+        {
+          "text": "Which of the following is false regarding absolute zero?",
+          "options": [
+            "A. All molecules will stop moving",
+            "B. Absolute zero can be achieved",
+            "C. Temperature is 0 K",
+            "D. Temperature is 0 R"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 11
+        },
+        {
+          "text": "Which of the following is an example of allotropy, where an element exists in different structural forms?",
+          "options": [
+            "A. Calcite and Aragonite",
+            "B. Diamond and Graphite",
+            "C. Rutile and Anatase",
+            "D. Monazite and Apatite"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 28
+        },
+        {
+          "text": "Which state of matter generally has the highest entropy? ",
+          "options": [
+            "A. Solid",
+            "B. Liquid",
+            "C. Gas",
+            "D. Plasma"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 15
+        },
+        {
+          "text": "In a titration experiment, 15.02 mL of an HCl solution required 26.1 mL of 0.32 M sodium hydroxide. Determine the concentration of HCl.",
+          "options": [
+            "A. 2.15 M",
+            "B. 0.56 M",
+            "C. 1.12 M",
+            "D. 0.64 M"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L3_Analytical_Chemistry",
+          "_source_index": 23
+        },
+        {
+          "text": "Which of the following is the best method to remove arsenic from water?",
+          "options": [
+            "A. Boiling",
+            "B. Chlorination",
+            "C. Reverse osmosis",
+            "D. Sand filtration"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 68
+        },
+        {
+          "text": "Some enzymatic regulation is allosteric. In such cases, which of the following would usually be found?",
+          "options": [
+            "A. cooperativity",
+            "B. feedback inhibition",
+            "C. both activating and inhibitory activity",
+            "D. an enzyme with more than one subunit"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 80
+        },
+        {
+          "text": "When a can of soda is opened and CO₂ is released to the atmosphere, what is the resultant pH of the soda?",
+          "options": [
+            "A. Decreases",
+            "B. Increases",
+            "C. The same",
+            "D. All of these"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L3_Analytical_Chemistry",
+          "_source_index": 13
+        },
+        {
+          "text": "For numbers 35 to 39: The analysis of a sample of water with pH 7.5 has produced the following concentrations (mg/L). Cations: Cau00b2u207a 80, Mgu00b2u207a 30, Nau207a 72, Ku207a 6. Anions: HCO3u207b 165, Clu207b 100, SO4u00b2u207b 201, find the noncarbonated hardness.",
+          "options": [
+            "A. 323",
+            "B. 188",
+            "C. 135",
+            "D. 123"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 36
+        },
+        {
+          "text": "This reaction converts aldehydes/ketones to alkenes using a phosphorus ylide reagent.",
+          "options": [
+            "A. Diels-Alder reaction",
+            "B. Wittig reaction",
+            "C. Cannizzaro reaction",
+            "D. Wurtz reaction"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 113
+        },
+        {
+          "text": "You are given 90 mL of 0.6 M of the weak base NH₃ (K_b = 1.8×10⁻⁵), and 1 M of the strong acid titrant HCl. What is the pH prior to titration?",
+          "options": [
+            "A. 11.25",
+            "B. 11.52",
+            "C. 12.15",
+            "D. 12.51"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L3_Analytical_Chemistry",
+          "_source_index": 34
+        },
+        {
+          "text": "A back titration is performed using potassium dichromate (K₂Cr₂O₇). If 50.0 mL of a 0.100 M solution is used in the reaction, how many moles of Cr₂O₇²⁻ are present?",
+          "options": [
+            "A. 0.00250 moles",
+            "B. 0.00500 moles",
+            "C. 0.0100 moles",
+            "D. 0.0500 moles"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 83
+        },
+        {
+          "text": "Starting with benzene, the best method for preparing p-nitrobenzoic acid is:",
+          "options": [
+            "A. HNO₃/H₂SO₄; then CH₃Cl/AlCl₃; then separation of isomers; then KMnO₄/OH⁻/heat, followed by H₃O⁺.",
+            "B. CH₃Cl/AlCl₃; then HNO₃/H₂SO₄; then separation of isomers; then KMnO₄/OH⁻/heat, followed by H₃O⁺.",
+            "C. CH₃Cl/AlCl₃; then KMnO₄/OH⁻/heat, followed by H₃O⁺; then HNO₃/H₂SO₄.",
+            "D. HNO₃/H₂SO₄; then KMnO₄/OH⁻/heat, followed by H₃O⁺; then CH₃Cl/AlCl₃."
+          ],
+          "correct": 1,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 110
+        },
+        {
+          "text": "Which of the following are the elimination products of the reaction shown below? CH₃CH₂Br + ⁻OH → ?",
+          "options": [
+            "A. HOCH₂CH₂Br",
+            "B. CH₃CH₂OH + Br⁻",
+            "C. CH₂=CH₂ + Br⁻ + H₂O",
+            "D. CH₂=CHBr + H₂O"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 53
+        },
+        {
+          "text": "The local spatial arrangement of a polypeptideu2019s backbone atoms without regard to the conformation of its side chains can be called as",
+          "options": [
+            "A. Primary structure",
+            "B. Secondary structure",
+            "C. Tertiary structure",
+            "D. Quaternary structure"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 17
+        },
+        {
+          "text": "Polymorphism refers to:",
+          "options": [
+            "A. Different elements forming the same compound",
+            "B. Different crystal structures of the same compound",
+            "C. Different isotopes of an element",
+            "D. Different oxidation states of an element"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 29
+        },
+        {
+          "text": "The unit of energy in the SI system is:",
+          "options": [
+            "A. Joule",
+            "B. Calorie",
+            "C. Watt",
+            "D. Pascal"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 60
+        },
+        {
+          "text": "For numbers 35 to 39: The analysis of a sample of water with pH 7.5 has produced the following concentrations (mg/L). Cations: Cau00b2u207a 80, Mgu00b2u207a 30, Nau207a 72, Ku207a 6. Anions: HCO3u207b 165, Clu207b 100, SO4u00b2u207b 201. Find the total hardness.",
+          "options": [
+            "A. 323",
+            "B. 188",
+            "C. 135",
+            "D. 123"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 34
+        },
+        {
+          "text": "It is the property of a fluid that is caused by the shearing effect of a fluid layer moving past another layer.",
+          "options": [
+            "A. Density",
+            "B. Viscosity",
+            "C. Flow",
+            "D. Compressibility"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 0
+        },
+        {
+          "text": "Which of the following is a type of secondary bond?",
+          "options": [
+            "A. Ionic bond",
+            "B. Metallic bond",
+            "C. Covalent bond",
+            "D. Hydrogen bond"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 7
+        },
+        {
+          "text": "What reagent must be used for converting the amide of (R)-2-phenylpropanoic acid, C₆H₅CH(CH₃)CONH₂, into (R)-1-phenylethylamine?",
+          "options": [
+            "A. H₂SO₄",
+            "B. KMnO₄",
+            "C. H₂O/H⁺",
+            "D. LiAlH₄ in ether."
+          ],
+          "correct": 3,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 100
+        },
+        {
+          "text": "Which of the following kinetic parameters best describes how well suited a specific compound functions as a substrate for a particular enzyme?",
+          "options": [
+            "A. Km",
+            "B. Vmax",
+            "C. kcat",
+            "D. kcat/Km"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 75
+        },
+        {
+          "text": "Carbon intensity refers to:",
+          "options": [
+            "A. Energy per unit mass",
+            "B. CO2 emitted per unit energy produced",
+            "C. Fuel weight per km traveled",
+            "D. Thermal conductivity of carbon"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 88
+        },
+        {
+          "text": "Which of these describes a primary battery cell? ",
+          "options": [
+            "A. Primary cells have a constant voltage output throughout its lifetime",
+            "B. Primary cells emply a different kind of reaction compared to secondary cells",
+            "C. The lifetime of a primary cell is defined by the consumption of its reactants , and the battery becomes useless after depletion_",
+            "D. Primary cells are typically larger than secondary cells, hence they last longer"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 25
+        },
+        {
+          "text": "If the dose response curves of three chemicals are shown on the same graph, the one which intersects the X-axis (dose) at the lowest dose is ",
+          "options": [
+            "A. innocuous",
+            "B. the most poisonous",
+            "C. lethal",
+            "D. without a threshold level"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 69
+        },
+        {
+          "text": "The energy densities of various types of coal are listed below: Anthracite 35 kJ/g Subbituminous 31 kJ/g Bituminous 28 kJ/g Lignite 26 kJ/g An unknown sample of one of these coals is burned in an apparatus with a calorimeter constant of 1.3 kJ/C. When a 0.367-g sample is used, the temperature change is 8.75*C. Which type of coal is the sample? ",
+          "options": [
+            "A. Anthracite",
+            "B. Bituminous",
+            "C. Subbituminous",
+            "D. Lignite"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 20
+        },
+        {
+          "text": "Williamson synthesis is a procedure for the production of:",
+          "options": [
+            "A. Esters from acid chlorides",
+            "B. Alkanes using sodium metal",
+            "C. Ethers from alkyl iodide",
+            "D. Salicylic acid from phenol"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 60
+        },
+        {
+          "text": "An allosteric activator",
+          "options": [
+            "A. increases the binding affinity",
+            "B. decreases the binding affinity",
+            "C. stabilizes the R state of the protein",
+            "D. both A and C"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 82
+        },
+        {
+          "text": "Which type of bonding involves the transfer of electrons from one atom to another?",
+          "options": [
+            "A. Covalent",
+            "B. Ionic",
+            "C. Metallic",
+            "D. Hydrogen"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 3
+        },
+        {
+          "text": "What is the pH at the equivalence point when 0.1 M hydroxyacetic acid (pKa = 3.832) is titrated with 0.05 M KOH?",
+          "options": [
+            "A. 2.56",
+            "B. 10.2",
+            "C. 4.75",
+            "D. 8.18"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L3_Analytical_Chemistry",
+          "_source_index": 38
+        },
+        {
+          "text": "What is the isoelectric point of glutamic acid? pKa(COOH) = 2.19, pKa(R) = 4.25, pKa(NH2) = 9.67.",
+          "options": [
+            "A. 3.22",
+            "B. 6.96",
+            "C. 5.93",
+            "D. 5.37"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 15
+        },
+        {
+          "text": "In a BOD test, 1.0 mL of raw sewage was diluted to 100 mL, maintained at 20u00b0C. The dissolved oxygen concentration of diluted sample at the beginning was 6 ppm and it was 4 ppm after 5 days. The BOD of raw sewage in ppm is",
+          "options": [
+            "A. 100",
+            "B. 200",
+            "C. 300",
+            "D. 400"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 14
+        },
+        {
+          "text": "Find the pH at the following points in the titration of 30 mL of 0.05 M HClO₄ with 0.1 M KOH. What is the pH when 15 mL of 0.1 M KOH is added?",
+          "options": [
+            "A. 5",
+            "B. 6",
+            "C. 7",
+            "D. 8"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L3_Analytical_Chemistry",
+          "_source_index": 27
+        },
+        {
+          "text": "(2R,3S)-1,2,3-butanetriol and (2S,3S)-1,2,3-butanetriol are:",
+          "options": [
+            "A. enantiomers",
+            "B. diastereomers",
+            "C. identical",
+            "D. meso compounds"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 36
+        }
+      ]
     }
   ],
   "test_history": [
@@ -12483,6 +13099,15 @@
       "pct": 92,
       "date": "2026-09-28T08:27:35",
       "time_used_seconds": 1083.6
+    },
+    {
+      "id": "1790608409306839",
+      "source": "D1_S5",
+      "score": 34,
+      "total": 50,
+      "pct": 68,
+      "date": "2026-09-28T15:13:29",
+      "time_used_seconds": 3226
     }
   ],
   "exam_details": [
@@ -22625,6 +23250,513 @@
           "correct_answer": "B. Surface tension"
         }
       ]
+    },
+    {
+      "exam_id": "1790608409306839",
+      "source": "D1_S5",
+      "date": "2026-09-28T15:13:29",
+      "items": [
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which state of matter generally has the highest entropy?",
+          "your_answer": "D. Plasma",
+          "correct_answer": "D. Plasma"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 61,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The unit of energy in the SI system is:",
+          "your_answer": "A. Joule",
+          "correct_answer": "A. Joule"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 101,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "What reagent must be used for converting the amide of (R)-2-phenylpropanoic acid, C₆H₅CH(CH₃)CONH₂, into (R)-1-phenylethylamine?",
+          "your_answer": "D. LiAlH₄ in ether.",
+          "correct_answer": "D. LiAlH₄ in ether."
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 37,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "(2R,3S)-1,2,3-butanetriol and (2S,3S)-1,2,3-butanetriol are:",
+          "your_answer": "A. enantiomers",
+          "correct_answer": "B. diastereomers"
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 16,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "What is the isoelectric point of glutamic acid? pKa(COOH) = 2.19, pKa(R) = 4.25, pKa(NH2) = 9.67.",
+          "your_answer": "D. 5.37",
+          "correct_answer": "A. 3.22"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 30,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Polymorphism refers to:",
+          "your_answer": "C. Different isotopes of an element",
+          "correct_answer": "B. Different crystal structures of the same compound"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "When a can of soda is opened and CO₂ is released to the atmosphere, what is the resultant pH of the soda?",
+          "your_answer": "B. Increases",
+          "correct_answer": "B. Increases"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 26,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is 3,3-diphenylpropanal?",
+          "your_answer": "B. (C₆H₅)₂CHCH₂CHO",
+          "correct_answer": "B. (C₆H₅)₂CHCH₂CHO"
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 110,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Immobilized cell reactors for wastewater treatment have the advantage of having/being:",
+          "your_answer": "D. all of the above",
+          "correct_answer": "D. all of the above"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 61,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Williamson synthesis is a procedure for the production of:",
+          "your_answer": "C. Ethers from alkyl iodide",
+          "correct_answer": "C. Ethers from alkyl iodide"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 37,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "For numbers 35 to 39: The analysis of a sample of water with pH 7.5 has produced the following concentrations (mg/L). Cations: Cau00b2u207a 80, Mgu00b2u207a 30, Nau207a 72, Ku207a 6. Anions: HCO3u207b 165, Clu207b 100, SO4u00b2u207b 201, find the noncarbonated hardness.",
+          "your_answer": "D. 123",
+          "correct_answer": "B. 188"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which type of bonding involves the transfer of electrons from one atom to another?",
+          "your_answer": "B. Ionic",
+          "correct_answer": "B. Ionic"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 31,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Find the pH at the following points in the titration of 50 mL of 0.02 M KOH with 0.1 M HBr. What is the pH when 10 mL of 0.1 M HBr is added?",
+          "your_answer": "B. 7",
+          "correct_answer": "B. 7"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 28,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Find the pH at the following points in the titration of 30 mL of 0.05 M HClO₄ with 0.1 M KOH. What is the pH when 15 mL of 0.1 M KOH is added?",
+          "your_answer": "C. 7",
+          "correct_answer": "C. 7"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 77,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A sludge thickener processes 500 mu00b3/day of sludge with an initial solid content of 2%. If the thickened sludge has a solid content of 5%, what is the final sludge volume (mu00b3/day)?",
+          "your_answer": "C. 200",
+          "correct_answer": "C. 200"
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is false regarding absolute zero?",
+          "your_answer": "B. Absolute zero can be achieved",
+          "correct_answer": "B. Absolute zero can be achieved"
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "RNA is synthesized on a DNA template in a process called _____, which utilizes the enzyme _____.",
+          "your_answer": "C. transcription, RNA polymerase",
+          "correct_answer": "C. transcription, RNA polymerase"
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 76,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Which of the following kinetic parameters best describes how well suited a specific compound functions as a substrate for a particular enzyme?",
+          "your_answer": "A. Km",
+          "correct_answer": "D. kcat/Km"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 89,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Carbon intensity refers to:",
+          "your_answer": "B. CO2 emitted per unit energy produced",
+          "correct_answer": "B. CO2 emitted per unit energy produced"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is a type of secondary bond?",
+          "your_answer": "D. Hydrogen bond",
+          "correct_answer": "D. Hydrogen bond"
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 81,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Some enzymatic regulation is allosteric. In such cases, which of the following would usually be found?",
+          "your_answer": "C. both activating and inhibitory activity",
+          "correct_answer": "A. cooperativity"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 19,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "For numbers 18 to 20: The dilution factor P for an unseeded mixture of waste and water is 0.030. The DO of the mixture is initially 9.0 mg/L, and after five days, it has dropped to 3 mg/L. The reaction rate constant k has been found to be 0.22 /day.: What would be the ultimate carbonaceous BOD?",
+          "your_answer": "A. 300 mg/L",
+          "correct_answer": "A. 300 mg/L"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 35,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "For numbers 35 to 39: The analysis of a sample of water with pH 7.5 has produced the following concentrations (mg/L). Cations: Cau00b2u207a 80, Mgu00b2u207a 30, Nau207a 72, Ku207a 6. Anions: HCO3u207b 165, Clu207b 100, SO4u00b2u207b 201. Find the total hardness.",
+          "your_answer": "A. 323",
+          "correct_answer": "A. 323"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 52,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following chemicals should not be stored in glass containers?",
+          "your_answer": "D. All of the above",
+          "correct_answer": "D. All of the above"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 54,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following are the elimination products of the reaction shown below? CH₃CH₂Br + ⁻OH → ?",
+          "your_answer": "B. CH₃CH₂OH + Br⁻",
+          "correct_answer": "C. CH₂=CH₂ + Br⁻ + H₂O"
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Which of the following statements is/are true? 1) The criterion of equilibrium at constant temperature and pressure is dG = 0. 2) For a reversible process, dS = dQ / T.",
+          "your_answer": "B. Both 1 and 2",
+          "correct_answer": "B. Both 1 and 2"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 42,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "A 30 mL solution of HBr was treated with 5 mL of freshly boiled and cooled 8 M HNO₃, and then with 50 mL of 0.365 M AgNO₃ with rigorous stirring. Then, 1 mL of saturated ferric alum was added and the solution was titrated with 0.287 M KSCN. When 3.6 mL had been added, the solution turned red. What was the molar concentration of HBr in the original solution?",
+          "your_answer": "C. 0.2724 M",
+          "correct_answer": "A. 0.5739 M"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 114,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "This reaction converts aldehydes/ketones to alkenes using a phosphorus ylide reagent.",
+          "your_answer": "B. Wittig reaction",
+          "correct_answer": "B. Wittig reaction"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 35,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "You are given 90 mL of 0.6 M of the weak base NH₃ (K_b = 1.8×10⁻⁵), and 1 M of the strong acid titrant HCl. What is the pH prior to titration?",
+          "your_answer": "B. 11.52",
+          "correct_answer": "B. 11.52"
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 53,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the significance of colligative property in physical chemistry?",
+          "your_answer": "A. It refers to the freezing point depression, boiling point elevation, osmotic pressure and lowering of the vapor pressure by a nonvolatile solute",
+          "correct_answer": "A. It refers to the freezing point depression, boiling point elevation, osmotic pressure and lowering of the vapor pressure by a nonvolatile solute"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 26,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Which of these describes a primary battery cell?",
+          "your_answer": "C. The lifetime of a primary cell is defined by the consumption of its reactants , and the battery becomes useless after depletion_",
+          "correct_answer": "C. The lifetime of a primary cell is defined by the consumption of its reactants , and the battery becomes useless after depletion_"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 111,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Starting with benzene, the best method for preparing p-nitrobenzoic acid is:",
+          "your_answer": "B. CH₃Cl/AlCl₃; then HNO₃/H₂SO₄; then separation of isomers; then KMnO₄/OH⁻/heat, followed by H₃O⁺.",
+          "correct_answer": "B. CH₃Cl/AlCl₃; then HNO₃/H₂SO₄; then separation of isomers; then KMnO₄/OH⁻/heat, followed by H₃O⁺."
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 83,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "An allosteric activator",
+          "your_answer": "A. increases the binding affinity",
+          "correct_answer": "D. both A and C"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 39,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the pH at the equivalence point when 0.1 M hydroxyacetic acid (pKa = 3.832) is titrated with 0.05 M KOH?",
+          "your_answer": "D. 8.18",
+          "correct_answer": "D. 8.18"
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 35,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "(Situation: N2O4 gas is 18.46% dissociated to NO2 at 298.15 K and 1 bar in equilibrium.) Calculate u0394Gu00b0 at 25 u02daC.",
+          "your_answer": "C. 1440 J/mol",
+          "correct_answer": "A. 4850 J/mol"
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "It is the property of a fluid that is caused by the shearing effect of a fluid layer moving past another layer.",
+          "your_answer": "B. Viscosity",
+          "correct_answer": "B. Viscosity"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 8,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Which fossil fuel has the highest carbon content and is notable for being highly reliable energy source while having pronounced environmental effects?",
+          "your_answer": "B. Diesel",
+          "correct_answer": "C. Coal"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 27,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "How are secondary battery cells recharged?",
+          "your_answer": "B. By inputting energy, energizing an endothermic reaction that regenerates the reactants of the battery cell",
+          "correct_answer": "B. By inputting energy, energizing an endothermic reaction that regenerates the reactants of the battery cell"
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 2,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A sphere of radius 5 mm and density of 1.1 g/cm3 falls at a constant velocity through a liquid of density 1 g/cm3 and viscosity of 1 cP. What is the velocity of the falling sphere in m/s?",
+          "your_answer": "A. 1.36 m/s",
+          "correct_answer": "C. 5.45 m/s"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 70,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "If the dose response curves of three chemicals are shown on the same graph, the one which intersects the X-axis (dose) at the lowest dose is",
+          "your_answer": "D. without a threshold level",
+          "correct_answer": "B. the most poisonous"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 15,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "In a BOD test, 1.0 mL of raw sewage was diluted to 100 mL, maintained at 20u00b0C. The dissolved oxygen concentration of diluted sample at the beginning was 6 ppm and it was 4 ppm after 5 days. The BOD of raw sewage in ppm is",
+          "your_answer": "B. 200",
+          "correct_answer": "C. 300"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 60,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Pultrusion is primarily used to produce:",
+          "your_answer": "C. Continuous constant cross-section profiles",
+          "correct_answer": "C. Continuous constant cross-section profiles"
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 26,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "(Situation: A 2 kg open calorimeter at 100 u02daC with heat capacity 4 kJ/K has 100 g of ice at -10 u02daC placed inside it, reaching a common final temperature.) Calculate the entropy change of the universe in cal/K.",
+          "your_answer": "C. 16",
+          "correct_answer": "A. 12"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 21,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The energy densities of various types of coal are listed below: Anthracite 35 kJ/g Subbituminous 31 kJ/g Bituminous 28 kJ/g Lignite 26 kJ/g An unknown sample of one of these coals is burned in an apparatus with a calorimeter constant of 1.3 kJ/C. When a 0.367-g sample is used, the temperature change is 8.75*C. Which type of coal is the sample?",
+          "your_answer": "C. Subbituminous",
+          "correct_answer": "C. Subbituminous"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 67,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What are the \"Permissible Exposure Limits (PEL)\"?",
+          "your_answer": "C. Legally-enforced exposure limits for a typical &-hour 5- day a week worker",
+          "correct_answer": "C. Legally-enforced exposure limits for a typical &-hour 5- day a week worker"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 69,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is the best method to remove arsenic from water?",
+          "your_answer": "C. Reverse osmosis",
+          "correct_answer": "C. Reverse osmosis"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 84,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A back titration is performed using potassium dichromate (K₂Cr₂O₇). If 50.0 mL of a 0.100 M solution is used in the reaction, how many moles of Cr₂O₇²⁻ are present?",
+          "your_answer": "B. 0.00500 moles",
+          "correct_answer": "B. 0.00500 moles"
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 18,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "The local spatial arrangement of a polypeptideu2019s backbone atoms without regard to the conformation of its side chains can be called as",
+          "your_answer": "A. Primary structure",
+          "correct_answer": "B. Secondary structure"
+        },
+        {
+          "source_list": "D1_L3_Analytical_Chemistry",
+          "reference_no": 24,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "In a titration experiment, 15.02 mL of an HCl solution required 26.1 mL of 0.32 M sodium hydroxide. Determine the concentration of HCl.",
+          "your_answer": "B. 0.56 M",
+          "correct_answer": "B. 0.56 M"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 29,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is an example of allotropy, where an element exists in different structural forms?",
+          "your_answer": "B. Diamond and Graphite",
+          "correct_answer": "B. Diamond and Graphite"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -25077,6 +26209,62 @@
       "note": "Michaeles menten. 1/v = [Km/(Vmax * S)] + 1/Vmax. Find Km m = 0.01738, 1/Vmax = 4.43 * 10^-4. Find Km algebraically",
       "resolved": false,
       "date_logged": "2026-09-27T17:45:52"
+    },
+    {
+      "id": "1790589725422506",
+      "exam_id": "1790584055915753",
+      "exam_source": "CT_PT_S6",
+      "source_list": "CT_PT_Laboratory_Instrumentation",
+      "reference_no": 51,
+      "question": "In anion-exchange chromatography,",
+      "your_answer": "C. Column contains (+) and (−) beads where species bind depending on their net charge.",
+      "correct_answer": "B. The column has (+) resin where (−) species bind.",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "ANION - exchange means that negatively charged species are exchanged (captured)",
+      "resolved": false,
+      "date_logged": "2026-09-28T10:02:05"
+    },
+    {
+      "id": "1790589842510886",
+      "exam_id": "1790584055915753",
+      "exam_source": "CT_PT_S6",
+      "source_list": "CT_PT_Analytical_Chemistry",
+      "reference_no": 32,
+      "question": "Which technique can be used to heat a reaction to 200°C?",
+      "your_answer": "C. Place the reaction vessel in a sand bath with stirring.",
+      "correct_answer": "B. Use a heating mantle with stirring.",
+      "category": "Conceptual Misunderstanding",
+      "note": "Sand bath can reach 200 C but a heating mantle can do it safer and more precisely",
+      "resolved": false,
+      "date_logged": "2026-09-28T10:04:02"
+    },
+    {
+      "id": "1790590013582636",
+      "exam_id": "1790584055915753",
+      "exam_source": "CT_PT_S6",
+      "source_list": "CT_PT_Laboratory_Instrumentation",
+      "reference_no": 35,
+      "question": "Simple distillation is described as suitable for separating liquids boiling below approximately",
+      "your_answer": "B. 100 °C",
+      "correct_answer": "C. 150 °C",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "The upper limit for simple distillation is 150 C since most solvents boil between 100 - 150. Beyond 150 vacuum distillation is recommended",
+      "resolved": false,
+      "date_logged": "2026-09-28T10:06:53"
+    },
+    {
+      "id": "1790605161400352",
+      "exam_id": "1790584055915753",
+      "exam_source": "CT_PT_S6",
+      "source_list": "CT_PT_Laboratory_Instrumentation",
+      "reference_no": 64,
+      "question": "An air sample is subjected to gas chromatography for the analysis of Freon-11 (CCl₃F). The detector that is most suitable for this analysis is",
+      "your_answer": "D. TSD",
+      "correct_answer": "B. ECD",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Electron capture detector (ECD) is sensitive to electronegative atoms, as it fires electrons the halogens capture these and as they elute out of the column there is a decrease in current. Thermionic Specific Detectors (TSD) responds to nitrogen and phosporus, N and P passess over an alkali metal bead causing an increase in current, it works by N and P oxidizing the hydrogen plasma medium which causes the alkali bead to release thermionic electrons.",
+      "resolved": false,
+      "date_logged": "2026-09-28T14:19:21"
     }
   ],
   "guess_notes": [
@@ -25159,7 +26347,18 @@
       "date_logged": "2026-09-26T07:52:31"
     }
   ],
-  "exam_dates": [],
+  "exam_dates": [
+    {
+      "id": "179058410793063",
+      "label": "Chemical Technician Board Exam",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "1790584132394843",
+      "label": "Chemical Engineering Board Exam",
+      "date": "2026-11-14"
+    }
+  ],
   "tombstones": {
     "sample_sets": [
       "1790010479834154"
@@ -25171,5 +26370,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-28T08:27:37"
+  "updated_at": "2026-09-28T19:43:50"
 }
