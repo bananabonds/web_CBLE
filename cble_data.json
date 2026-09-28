@@ -11688,6 +11688,619 @@
           "_source_index": 26
         }
       ]
+    },
+    {
+      "id": "1790580056003528",
+      "name": "CT_PT_S6",
+      "created_at": "2026-09-28T07:20:56",
+      "composition": {
+        "CT_PT_Laboratory_Instrumentation": 12,
+        "CT_PT_Quality_Assurance_Control": 12,
+        "CT_PT_Inorganic_Chemistry": 13,
+        "CT_PT_Analytical_Chemistry": 13
+      },
+      "questions": [
+        {
+          "text": "What is the purpose of a monochromator?",
+          "options": [
+            "A. To remove stray light from the room.",
+            "B. To serve as a polychromatic light source.",
+            "C. To focus light from the sample onto the detector.",
+            "D. To allow only light of a certain wavelength to pass from the source to the sample."
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 64
+        },
+        {
+          "text": "Spectroscopy is defined as the study of the interaction between",
+          "options": [
+            "A. heat and pressure",
+            "B. electromagnetic radiation and matter",
+            "C. acids and bases",
+            "D. solids and liquids"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 9
+        },
+        {
+          "text": "A volumetric pipet is designed primarily to",
+          "options": [
+            "A. deliver a single fixed volume",
+            "B. measure several variable volumes",
+            "C. determine liquid density",
+            "D. contain a standard solution permanently"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 13
+        },
+        {
+          "text": "What is the primary goal of managing quality in analytical laboratories?",
+          "options": [
+            "A. Eliminate all laboratory errors",
+            "B. Incorporate standard protocols into all laboratory activities",
+            "C. Increase the number of samples analyzed",
+            "D. Reduce laboratory operating costs"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 8
+        },
+        {
+          "text": "A solution was prepared by transferring 60 mL of 85% v/v H₃PO₄ and diluting it to 1.0 L. What is the concentration of the new solution?",
+          "options": [
+            "A. 10.10%",
+            "B. 9.25%",
+            "C. 12.2%",
+            "D. 5.10%"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 64
+        },
+        {
+          "text": "Which quality control sample provides a less formal check than a conventional QC sample?",
+          "options": [
+            "A. Blind sample",
+            "B. Repeat sample",
+            "C. Field blank",
+            "D. Primary standard"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 41
+        },
+        {
+          "text": "Along the third period, which arrangement shows increasing affinity for electrons?",
+          "options": [
+            "A. Na < Mg < Cl < Ar",
+            "B. Ar < Na < Mg < Cl",
+            "C. Cl < Mg < Na < Ar",
+            "D. Ar < Cl < Mg < Na"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 4
+        },
+        {
+          "text": "Before filling a buret with titrant, it should preferably be rinsed with",
+          "options": [
+            "A. Tap water only",
+            "B. Distilled water only",
+            "C. A small portion of the titrant",
+            "D. Concentrated acid"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 37
+        },
+        {
+          "text": "Which factors affect the choice of an analytical method?",
+          "options": [
+            "A. The type of analysis required",
+            "B. The required accuracy",
+            "C. Possible interference from components other than the analyte",
+            "D. All of the choices"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 38
+        },
+        {
+          "text": "Which chemical grade is commonly used for low-grade applications such as cleaning and qualitative testing?",
+          "options": [
+            "A. USP grade",
+            "B. NF grade",
+            "C. Technical grade",
+            "D. Laboratory grade"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 63
+        },
+        {
+          "text": "Which condition produces the greatest deviation from ideal-gas behavior?",
+          "options": [
+            "A. High pressure and low temperature",
+            "B. Low pressure and high temperature",
+            "C. Low pressure and low temperature",
+            "D. High pressure and high temperature"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 15
+        },
+        {
+          "text": "Which substance is commonly used as a primary standard for standardizing NaOH?",
+          "options": [
+            "A. NaCl",
+            "B. KHP",
+            "C. HCl",
+            "D. NH₄OH"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 50
+        },
+        {
+          "text": "Which quality system standard is specifically intended for medical laboratories?",
+          "options": [
+            "A. ISO 15189",
+            "B. ISO 9000",
+            "C. ISO/IEC 17025",
+            "D. GLP"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 9
+        },
+        {
+          "text": "Which reagent dissolves silicates by forming volatile SiF₄?",
+          "options": [
+            "A. HCl",
+            "B. HNO₃",
+            "C. HF",
+            "D. H₂SO₄"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 56
+        },
+        {
+          "text": "Among the following noble gases, which has the strongest intermolecular forces?",
+          "options": [
+            "A. Kr",
+            "B. Xe",
+            "C. Ne",
+            "D. He"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 16
+        },
+        {
+          "text": "Tin(II) fluoride, SnF₂, has a molar mass of 156.7 g/mol and is added to toothpaste to prevent tooth decay. What is the mass of fluoride in 24.6 g of SnF₂? Atomic mass of F = 19 g/mol.",
+          "options": [
+            "A. 0.31 g",
+            "B. 2.98 g",
+            "C. 5.97 g",
+            "D. 101.4 g"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 1
+        },
+        {
+          "text": "Method of passing the sample through a metal or plastic mesh of uniform cross-sectional area to separate particles into uniform sizes.",
+          "options": [
+            "A. Sieving",
+            "B. Milling",
+            "C. Pulverizing",
+            "D. Macerating"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 77
+        },
+        {
+          "text": "Which chemical standard has the highest metrological qualities and whose value is accepted without reference to another standard of the same quantity?",
+          "options": [
+            "A. Secondary standard",
+            "B. Analytical standard",
+            "C. Calibration standard",
+            "D. Primary standard"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 50
+        },
+        {
+          "text": "A laboratory result is located beyond the warning limit but remains within the control limit. What does this indicate?",
+          "options": [
+            "A. The process is automatically considered acceptable with no monitoring required",
+            "B. The process may be heading out of control and should be monitored closely",
+            "C. The process must always be permanently terminated",
+            "D. The analytical result must automatically be deleted"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 16
+        },
+        {
+          "text": "Which is NOT a possible set of quantum numbers (n, l, mₗ, mₛ)?",
+          "options": [
+            "A. 2, 1, 0, +1/2",
+            "B. 2, 0, 0, +1/2",
+            "C. 3, 1, 2, -1/2",
+            "D. 3, 1, -1, -1/2"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 42
+        },
+        {
+          "text": "It is the property of an analytical method that allows the simultaneous determination of several components independently from one another.",
+          "options": [
+            "A. Selectivity",
+            "B. Specificity",
+            "C. Sensitivity",
+            "D. Ruggedness"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 2
+        },
+        {
+          "text": "A soft ionization method in mass spectrometry that is typically applied to biomolecules that involves a laser striking a solid matrix to ionize the analyte without fragmentation or decomposition.",
+          "options": [
+            "A. EI",
+            "B. CI",
+            "C. ESI",
+            "D. MALDI"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 8
+        },
+        {
+          "text": "In anion-exchange chromatography,",
+          "options": [
+            "A. The column has (+) resin where (+) species bind.",
+            "B. The column has (+) resin where (−) species bind.",
+            "C. Column contains (+) and (−) beads where species bind depending on their net charge.",
+            "D. None of the above."
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 50
+        },
+        {
+          "text": "Simple distillation is described as suitable for separating liquids boiling below approximately",
+          "options": [
+            "A. 50 °C",
+            "B. 100 °C",
+            "C. 150 °C",
+            "D. 300 °C"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 34
+        },
+        {
+          "text": "Reversed-phase HPLC generally employs",
+          "options": [
+            "A. polar stationary phase and nonpolar mobile phase",
+            "B. nonpolar stationary phase and polar mobile phase",
+            "C. nonpolar stationary and mobile phases",
+            "D. polar stationary and mobile phases"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 45
+        },
+        {
+          "text": "For the following reaction, which statement is FALSE? Mg + H₂O ⇌ MgO + H₂",
+          "options": [
+            "A. H₂O is the oxidizing agent.",
+            "B. Mg loses electrons.",
+            "C. Mg is the oxidizing agent.",
+            "D. H₂O gains electrons."
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 26
+        },
+        {
+          "text": "Which blank is similar to a method blank but is not subjected to all sample preparation procedures?",
+          "options": [
+            "A. Reagent blank",
+            "B. Field blank",
+            "C. Method blank",
+            "D. QC sample"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 55
+        },
+        {
+          "text": "In a quality control chart, the upper and lower warning limits are commonly positioned at",
+          "options": [
+            "A. ±1 standard deviation from the central line",
+            "B. ±2 standard deviations from the central line",
+            "C. ±3 standard deviations from the central line",
+            "D. ±4 standard deviations from the central line"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 28
+        },
+        {
+          "text": "A 5 g organic solid is dissolved in 100 mL of distilled water. What is the best way to recover most of the organic solid?",
+          "options": [
+            "A. Single extraction using 150 mL ether",
+            "B. Single extraction using 150 mL acetic acid",
+            "C. Multiple extraction using three 50 mL portions of ether",
+            "D. Multiple extraction using three 50 mL portions of acetic acid"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 89
+        },
+        {
+          "text": "One microliter (μL) is equivalent to:",
+          "options": [
+            "A. 10⁻³ L",
+            "B. 10⁻⁴ L",
+            "C. 10⁻⁵ L",
+            "D. 10⁻⁶ L"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 77
+        },
+        {
+          "text": "An air sample is subjected to gas chromatography for the analysis of Freon-11 (CCl₃F). The detector that is most suitable for this analysis is",
+          "options": [
+            "A. TCD",
+            "B. ECD",
+            "C. FID",
+            "D. TSD"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 63
+        },
+        {
+          "text": "What is the formula of aluminum sulfate?",
+          "options": [
+            "A. Al₂(SO₄)₃",
+            "B. AlSO₄",
+            "C. Al₂SO₄",
+            "D. Al(SO₄)₃"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 40
+        },
+        {
+          "text": "Sodium carbonate is also known as",
+          "options": [
+            "A. Baking soda",
+            "B. Soda ash",
+            "C. Caustic potash",
+            "D. Caustic soda"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 58
+        },
+        {
+          "text": "Which technique can be used to heat a reaction to 200°C?",
+          "options": [
+            "A. Use a Bunsen burner to heat the reaction vessel.",
+            "B. Use a heating mantle with stirring.",
+            "C. Place the reaction vessel in a sand bath with stirring.",
+            "D. Place the reaction vessel in a water bath with stirring."
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 31
+        },
+        {
+          "text": "Which substance will require the greatest amount of work to increase its surface area?",
+          "options": [
+            "A. Butanol",
+            "B. Butanal",
+            "C. Pentane",
+            "D. Diethyl ether"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 3
+        },
+        {
+          "text": "A student has stock solutions of A at 2000 ppm, B at 1500 ppm, and C at 1000 ppm. The student transfers 10 mL of each solution into a 200 mL volumetric flask and dilutes to volume. What are the final concentrations?",
+          "options": [
+            "A. 50 ppm A, 32 ppm B, 25 ppm C",
+            "B. 100 ppm A, 75 ppm B, 50 ppm C",
+            "C. 75 ppm A, 75 ppm B, 50 ppm C",
+            "D. 100 ppm A, 25 ppm B, 25 ppm C"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 35
+        },
+        {
+          "text": "What is the molar mass of an unknown gas if 1.60 g occupies 2.24 L at STP? Assume the gas is ideal.",
+          "options": [
+            "A. 160 g/mol",
+            "B. 81.0 g/mol",
+            "C. 16.0 g/mol",
+            "D. 35.8 g/mol"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 36
+        },
+        {
+          "text": "Good Laboratory Practices are considered a subsection of",
+          "options": [
+            "A. ISO 15189",
+            "B. GMP",
+            "C. CPA",
+            "D. ISO/IEC 17025"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 2
+        },
+        {
+          "text": "This is done during liquid-liquid extraction to release pressure that builds up inside the separatory funnel during shaking.",
+          "options": [
+            "A. Stirring",
+            "B. Venting",
+            "C. Drawing",
+            "D. Salting out"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 46
+        },
+        {
+          "text": "What is the molecular geometry of NH₃?",
+          "options": [
+            "A. Trigonal planar",
+            "B. Trigonal pyramidal",
+            "C. Tetrahedral",
+            "D. Bent"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 7
+        },
+        {
+          "text": "A student needs to transfer a precipitate from a beaker to filter paper. Which procedure best ensures quantitative transfer?",
+          "options": [
+            "A. Decant most of the supernatant liquid, transfer the bulk of the precipitate through a stirring rod, then wash the beaker with large volumes of wash solution.",
+            "B. Decant most of the supernatant liquid, transfer the bulk of the precipitate through a stirring rod, then wash the beaker several times with small volumes of wash solution.",
+            "C. Shake the solution, immediately filter it, then wash the beaker with large volumes of wash solution.",
+            "D. None of the above."
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 24
+        },
+        {
+          "text": "Which may serve as a mobile phase in column chromatography?",
+          "options": [
+            "A. gas or liquid",
+            "B. solid only",
+            "C. plasma only",
+            "D. precipitate only"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 21
+        },
+        {
+          "text": "Which is the reducing agent in the following reaction? Ce⁴⁺ + Fe²⁺ ⇌ Ce³⁺ + Fe³⁺",
+          "options": [
+            "A. Ce⁴⁺",
+            "B. Fe²⁺",
+            "C. Ce³⁺",
+            "D. Fe³⁺"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 4
+        },
+        {
+          "text": "It is a part of quality systems that is officially defined by the ISO as the assembly of all planned and systematic actions to provide adequate confidence that a product, process or service will satisfy the given quality requirements.",
+          "options": [
+            "A. Quality Management",
+            "B. Quality Assurance",
+            "C. Quality Control",
+            "D. Quality Manual"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 5
+        },
+        {
+          "text": "Which approximate IR range is associated with the carbonyl C=O group?",
+          "options": [
+            "A. 3600–3200 cm⁻¹",
+            "B. 2500–2200 cm⁻¹",
+            "C. 1800–1650 cm⁻¹",
+            "D. 1200–800 cm⁻¹"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 25
+        },
+        {
+          "text": "Quality Assurance is primarily intended to assure clients that laboratory-generated data are",
+          "options": [
+            "A. Obtained as quickly as possible",
+            "B. Of good quality and compliant with applicable protocols and regulations",
+            "C. Always identical between laboratories",
+            "D. Produced using automated equipment and systems"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 4
+        },
+        {
+          "text": "Which should NOT be used during dry ashing?",
+          "options": [
+            "A. Zirconium",
+            "B. Platinum",
+            "C. Porcelain",
+            "D. Glass"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 88
+        },
+        {
+          "text": "Which property represents the energy required to increase a liquid’s surface area?",
+          "options": [
+            "A. Vapor pressure",
+            "B. Surface tension",
+            "C. Compressibility",
+            "D. Density"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 38
+        },
+        {
+          "text": "Which blank is exposed to the actual site of sampling?",
+          "options": [
+            "A. Method blank",
+            "B. Reagent blank",
+            "C. Field blank",
+            "D. Calibration blank"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 14
+        },
+        {
+          "text": "An internal audit is conducted by",
+          "options": [
+            "A. A client",
+            "B. An accreditation representative",
+            "C. A member of the audited area",
+            "D. An external regulatory agency"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 13
+        }
+      ]
     }
   ],
   "test_history": [
@@ -24040,5 +24653,5 @@
     "guess_notes": [],
     "local_banks": []
   },
-  "updated_at": "2026-09-28T07:19:39"
+  "updated_at": "2026-09-28T07:21:01"
 }
