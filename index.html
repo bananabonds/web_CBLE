@@ -135,6 +135,21 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
 .status-pill.neutral{background:var(--paper);color:var(--sub);}
 .milestone-badge{font-size:.68rem;padding:3px 9px;border-radius:999px;background:var(--paper);color:var(--sub);border:1px solid var(--line);}
 .milestone-badge.achieved{background:var(--green-bg);color:var(--green);border-color:transparent;font-weight:700;}
+
+.exam-countdown{border-left:4px solid var(--line);}
+.exam-countdown .exam-days{font-weight:700;font-family:"IBM Plex Mono",monospace;flex:none;}
+.exam-far{border-left-color:var(--navy);}
+.exam-far .exam-days{color:var(--navy);}
+.exam-medium{border-left-color:#0EA5E9;}
+.exam-medium .exam-days{color:#0EA5E9;}
+.exam-soon{border-left-color:var(--amber);background:var(--amber-bg);}
+.exam-soon .exam-days{color:var(--amber-ink);}
+.exam-urgent{border-left-color:var(--red);background:var(--red-bg);}
+.exam-urgent .exam-days{color:var(--red);}
+.exam-today{border-left-color:var(--red);background:var(--red-bg);}
+.exam-today .exam-days{color:var(--red);font-weight:800;}
+.exam-past{border-left-color:var(--line);opacity:.65;}
+.exam-past .exam-days{color:var(--sub);}
 .list-item.repeated{box-shadow:0 0 0 2px var(--violet) inset;}
 .list-item.flashcard{cursor:pointer;}
 .list-item.flashcard:active{filter:brightness(.97);}
@@ -149,6 +164,22 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
 .home-stat{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 8px;text-align:center;}
 .home-stat-val{font-size:1.25rem;font-weight:700;color:var(--navy);font-family:"IBM Plex Mono",monospace;}
 .home-stat-lbl{font-size:.7rem;color:var(--sub);margin-top:3px;}
+.home-stat.tappable{cursor:pointer;}
+.home-stat.tappable:active{filter:brightness(.95);}
+.home-stat-sub{font-size:.66rem;color:var(--sub);margin-top:4px;font-weight:600;}
+.home-stat-sub.needs-action{color:var(--amber-ink);}
+.home-stat-sub.good{color:var(--green);}
+#homeSpotlightCard,#homeMilestonesCard,#homeDueCard{scroll-margin-top:calc(120px + env(safe-area-inset-top, 0px));}
+.na-label{font-size:.72rem;font-weight:700;color:var(--sub);margin:10px 0 6px;}
+.next-action{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:8px;padding:10px 11px;margin-bottom:8px;background:#fff;cursor:pointer;}
+.next-action:active{filter:brightness(.96);}
+.next-action .na-icon{font-size:1.1rem;flex:none;}
+.next-action .na-text{flex:1;font-size:.86rem;line-height:1.35;}
+.next-action .na-cta{font-size:.74rem;font-weight:700;color:var(--navy);flex:none;}
+.next-action.urgent{border-left-color:var(--red);background:var(--red-bg);}
+.next-action.urgent .na-cta{color:var(--red);}
+.next-action.warn{border-left-color:var(--amber);background:var(--amber-bg);}
+.next-action.warn .na-cta{color:var(--amber-ink);}
 .home-bignum{font-size:1.9rem;font-weight:700;color:var(--navy);font-family:"IBM Plex Mono",monospace;line-height:1.1;}
 .home-sub{font-size:.78rem;color:var(--sub);margin-top:2px;}
 .home-delta{font-size:.86rem;margin-top:8px;line-height:1.45;}
@@ -318,10 +349,24 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
       <div class="card">
         <h3 id="homeGreeting">Your Progress</h3>
         <p class="hint" id="homeSubline">Here's where things stand.</p>
+        <div id="homeNextUp"></div>
         <div id="homeOverviewGrid"></div>
       </div>
 
       <div class="card">
+        <div class="row wrap" style="margin-bottom:4px;">
+          <h3 style="border:none;padding:0;flex:1;">Upcoming Exams</h3>
+          <button class="btn link" id="btnAddExamDate">+ Add</button>
+        </div>
+        <div id="homeExamDatesContainer"></div>
+      </div>
+
+      <div class="card" id="homeSpotlightCard">
+        <h3>Weakest Subject Spotlight</h3>
+        <div id="homeSpotlightStat"></div>
+      </div>
+
+      <div class="card" id="homeMilestonesCard">
         <h3>Questions Answered</h3>
         <div id="homeMilestonesStat"></div>
       </div>
@@ -340,7 +385,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" id="homeDueCard">
         <div class="row wrap" style="margin-bottom:4px;">
           <h3 style="border:none;padding:0;flex:1;">Due for Review</h3>
         </div>
@@ -858,6 +903,21 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
   </div>
 </div>
 
+<div class="sheet hidden" id="examDateSheet">
+  <div class="sheet-inner">
+    <h2 id="examDateSheetTitle">Add Exam Date</h2>
+    <label class="field-label">Label</label>
+    <input type="text" id="examDateLabelInput" placeholder="e.g. PRC CBLE Board Exam">
+    <label class="field-label">Date</label>
+    <input type="date" id="examDateDateInput">
+    <div class="row" style="margin-top:14px;">
+      <button class="btn block" id="btnCancelExamDate">Cancel</button>
+      <button class="btn primary block" id="btnSaveExamDate">Save</button>
+    </div>
+    <button class="btn danger block" id="btnDeleteExamDate" style="margin-top:8px;display:none;">Delete This Date</button>
+  </div>
+</div>
+
 <div id="toast"></div>
 
 <script>
@@ -887,6 +947,7 @@ const KEYS = {
   details: "cble.examDetails",
   mistakes: "cble.mistakeLog",
   guessNotes: "cble.guessNotes",
+  examDates: "cble.examDates",
   topics: "cble.topicsCache",
   githubConfig: "cble.githubConfig",
   examProgress: "cble.examProgress",
@@ -1288,6 +1349,37 @@ function getAllGuesses() {
 }
 
 /* ---------------------------------------------------------------------
+   Exam dates -- multiple upcoming exams the person is counting down to.
+   --------------------------------------------------------------------- */
+function loadExamDates() { return loadJson(KEYS.examDates, []); }
+function saveExamDate(label, dateStr) {
+  const dates = loadExamDates();
+  const record = { id: uid(), label, date: dateStr };
+  dates.push(record);
+  saveJson(KEYS.examDates, dates);
+  removeTombstone("exam_dates", record.id);
+  scheduleGithubSync();
+  return record;
+}
+function updateExamDate(id, label, dateStr) {
+  const dates = loadExamDates();
+  const rec = dates.find(d => d.id === id);
+  if (!rec) return null;
+  rec.label = label;
+  rec.date = dateStr;
+  saveJson(KEYS.examDates, dates);
+  scheduleGithubSync();
+  return rec;
+}
+function deleteExamDateEntry(id) {
+  let dates = loadExamDates();
+  dates = dates.filter(d => d.id !== id);
+  saveJson(KEYS.examDates, dates);
+  addTombstone("exam_dates", id);
+  scheduleGithubSync();
+}
+
+/* ---------------------------------------------------------------------
    GitHub Sync -- optional durable store. Everything above this still
    works purely from localStorage; when a repo/token is configured, every
    save-worthy action schedules a debounced pull-merge-push cycle against
@@ -1415,7 +1507,7 @@ async function pushCsvReportToGithub() {
    subtracting that from every future merge, is what makes Delete
    actually stick once GitHub sync is involved.
    --------------------------------------------------------------------- */
-const TOMBSTONE_COLLECTIONS = ["sample_sets", "test_history", "exam_details", "mistake_log", "guess_notes", "local_banks"];
+const TOMBSTONE_COLLECTIONS = ["sample_sets", "test_history", "exam_details", "mistake_log", "guess_notes", "local_banks", "exam_dates"];
 function emptyTombstones() {
   const t = {};
   for (const c of TOMBSTONE_COLLECTIONS) t[c] = [];
@@ -1451,6 +1543,7 @@ function buildLocalSnapshot() {
     exam_details: loadJson(KEYS.details, []),
     mistake_log: loadJson(KEYS.mistakes, []),
     guess_notes: loadJson(KEYS.guessNotes, []),
+    exam_dates: loadJson(KEYS.examDates, []),
     tombstones: loadTombstones(),
     updated_at: nowIso(),
   };
@@ -1463,6 +1556,7 @@ function applySnapshotToLocal(snap) {
   if (snap.exam_details) saveJson(KEYS.details, snap.exam_details);
   if (snap.mistake_log) saveJson(KEYS.mistakes, snap.mistake_log);
   if (snap.guess_notes) saveJson(KEYS.guessNotes, snap.guess_notes);
+  if (snap.exam_dates) saveJson(KEYS.examDates, snap.exam_dates);
   if (snap.tombstones) saveJson(KEYS.tombstones, snap.tombstones);
 }
 function mergeById(remoteArr, localArr, idKey, deletedKeys) {
@@ -1490,6 +1584,7 @@ function mergeSnapshots(remote, local) {
     exam_details: mergeById(remote && remote.exam_details, local.exam_details, "exam_id", tomb.exam_details),
     mistake_log: mergeById(remote && remote.mistake_log, local.mistake_log, "id", tomb.mistake_log),
     guess_notes: mergeById(remote && remote.guess_notes, local.guess_notes, "id", tomb.guess_notes),
+    exam_dates: mergeById(remote && remote.exam_dates, local.exam_dates, "id", tomb.exam_dates),
     tombstones: tomb,
     updated_at: nowIso(),
   };
@@ -1839,6 +1934,9 @@ function avgPctOnDate(history, dateStr) {
 
 function refreshHome() {
   renderHomeOverview();
+  renderNextUp();
+  renderExamCountdowns();
+  renderWeakestSubjectSpotlight();
   renderQuestionsMilestones();
   renderStreakAndHeatmap();
   renderDueForReview();
@@ -1846,6 +1944,102 @@ function refreshHome() {
   renderHomeAssessments();
   renderHomeSamples();
   renderHomeTests();
+}
+
+/* ---------------------------------------------------------------------
+   Upcoming Exams -- multiple countdowns, urgency-colored as they approach.
+   --------------------------------------------------------------------- */
+function daysUntil(dateStr) {
+  const target = new Date(dateStr + "T00:00:00").getTime();
+  const today = new Date(todayDateStr() + "T00:00:00").getTime();
+  return Math.round((target - today) / 86400000);
+}
+let editingExamDateId = null;
+function openExamDateSheet(existing) {
+  editingExamDateId = existing ? existing.id : null;
+  $("examDateSheetTitle").textContent = existing ? "Edit Exam Date" : "Add Exam Date";
+  $("examDateLabelInput").value = existing ? existing.label : "";
+  $("examDateDateInput").value = existing ? existing.date : "";
+  $("btnDeleteExamDate").style.display = existing ? "block" : "none";
+  openSheet("examDateSheet");
+}
+$("btnAddExamDate").addEventListener("click", () => openExamDateSheet(null));
+$("btnCancelExamDate").addEventListener("click", () => closeSheet("examDateSheet"));
+$("btnSaveExamDate").addEventListener("click", () => {
+  const label = $("examDateLabelInput").value.trim();
+  const dateStr = $("examDateDateInput").value;
+  if (!label) { toast("Give this exam a name."); return; }
+  if (!dateStr) { toast("Pick a date."); return; }
+  if (editingExamDateId) updateExamDate(editingExamDateId, label, dateStr);
+  else saveExamDate(label, dateStr);
+  closeSheet("examDateSheet");
+  renderExamCountdowns();
+});
+$("btnDeleteExamDate").addEventListener("click", () => {
+  if (!editingExamDateId) return;
+  if (!confirmDialog("Delete this exam date?")) return;
+  deleteExamDateEntry(editingExamDateId);
+  closeSheet("examDateSheet");
+  renderExamCountdowns();
+});
+function renderExamCountdowns() {
+  const dates = loadExamDates().slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  const box = $("homeExamDatesContainer");
+  box.innerHTML = "";
+  if (!dates.length) {
+    box.appendChild(el("div", "empty-state", "Add your exam date to see a countdown here \u2014 you can track more than one."));
+    return;
+  }
+  for (const ex of dates) {
+    const days = daysUntil(ex.date);
+    let urgency, text;
+    if (days > 60) { urgency = "far"; text = `${days} days left`; }
+    else if (days > 30) { urgency = "medium"; text = `${days} days left`; }
+    else if (days > 7) { urgency = "soon"; text = `${days} days left`; }
+    else if (days > 0) { urgency = "urgent"; text = `${days} day${days === 1 ? "" : "s"} left`; }
+    else if (days === 0) { urgency = "today"; text = "Today!"; }
+    else { urgency = "past"; text = `${Math.abs(days)} day${Math.abs(days) === 1 ? "" : "s"} ago`; }
+
+    const item = el("div", `list-item selectable exam-countdown exam-${urgency}`);
+    item.innerHTML = `<div class="top-row"><span class="name">${esc(ex.label)}</span><span class="exam-days">${esc(text)}</span></div>
+      <div class="meta">${esc(formatDateNice(ex.date))}</div>`;
+    item.addEventListener("click", () => openExamDateSheet(ex));
+    box.appendChild(item);
+  }
+}
+
+/* ---------------------------------------------------------------------
+   Weakest Subject Spotlight -- one tap from "here's your worst subject"
+   straight to a generated sample ready to start.
+   --------------------------------------------------------------------- */
+function renderWeakestSubjectSpotlight() {
+  const { overall } = computeSubjectAnalysis();
+  const subjectEntries = Object.entries(overall);
+  const box = $("homeSpotlightStat");
+  box.innerHTML = "";
+  if (!subjectEntries.length) {
+    box.appendChild(el("div", "empty-state", "Take a few assessments across different subjects to unlock this."));
+    return;
+  }
+  subjectEntries.sort((a, b) => a[1].weighted_pct - b[1].weighted_pct);
+  const [subjectName, stats] = subjectEntries[0];
+  const lists = getAllLists();
+  const pool = lists[subjectName] || [];
+
+  box.innerHTML = `<div class="home-bignum" style="font-size:1.3rem;">${esc(subjectName)}</div>
+    <div class="home-sub">${stats.weighted_pct.toFixed(1)}% priority score &middot; ${stats.accuracy_pct.toFixed(1)}% raw accuracy &middot; ${stats.total_answered} answered</div>
+    ${pool.length
+      ? `<button class="btn primary block" id="btnSpotlightGenerate" style="margin-top:10px;">Generate a 10-Question Sample From This \u25b6</button>`
+      : `<p class="hint" style="margin-top:10px;">This subject's original question list isn't available right now (renamed, deleted, or not synced), so a sample can't be generated automatically.</p>`}`;
+
+  if (pool.length) {
+    $("btnSpotlightGenerate").addEventListener("click", () => {
+      const count = Math.min(10, pool.length);
+      const questions = evenSample(lists, [subjectName], count, true);
+      if (!questions.length) { toast("Couldn't generate questions from this subject."); return; }
+      requestStartExam(`${subjectName} Focus Sample`, questions);
+    });
+  }
 }
 
 /* ---------------------------------------------------------------------
@@ -1983,33 +2177,142 @@ function renderDueForReview() {
   }
 }
 
+function scrollHomeTo(id) {
+  const target = $(id);
+  if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 function renderHomeOverview() {
   const history = loadJson(KEYS.history, []);
   const samples = loadJson(KEYS.samples, []);
   const mistakes = loadMistakeLog();
-  const banks = loadLocalBanksRaw();
   const totalTests = history.length;
   const avgScore = totalTests ? (history.reduce((s, h) => s + (h.pct || 0), 0) / totalTests) : null;
   const resolved = mistakes.filter(m => m.resolved).length;
-  const { allTime: questionsAnswered } = computeQuestionsAnsweredStats();
+  const openCount = mistakes.length - resolved;
+  const { allTime: questionsAnswered, today: answeredToday } = computeQuestionsAnsweredStats();
+  const todayStr = todayDateStr();
+  const testsToday = history.filter(h => dateOnly(h.date) === todayStr).length;
+  const lastTest = history.slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""))[0];
+  const takenNames = new Set(history.map(h => h.source));
+  const untakenCount = samples.filter(s => !takenNames.has(s.name)).length;
   const lastActivity = [latestDateFromArray(history, "date"), latestDateFromArray(samples, "created_at"), latestDateFromArray(mistakes, "date_logged")]
     .filter(Boolean).sort().pop();
 
-  $("homeSubline").textContent = lastActivity ? `Last activity: ${formatDateNice(lastActivity)}` : "Take an assessment or build a sample to get started.";
+  $("homeSubline").textContent = lastActivity ? `Last activity: ${formatDateNice(lastActivity)}. Tap any tile to dig in.` : "Take an assessment or build a sample to get started.";
 
+  // [label, value, subtext, subtext tone, where tapping goes]
   const stats = [
-    ["Tests Taken", totalTests],
-    ["Average Score", avgScore != null ? `${avgScore.toFixed(1)}%` : "\u2013"],
-    ["Questions Answered", questionsAnswered],
-    ["Saved Samples", samples.length],
-    ["Mistakes Resolved", `${resolved}/${mistakes.length}`],
+    ["Tests Taken", totalTests, testsToday ? `${testsToday} today` : "none today", testsToday ? "good" : "", () => switchTab("history")],
+    ["Average Score", avgScore != null ? `${avgScore.toFixed(1)}%` : "\u2013", lastTest ? `last: ${Math.round(lastTest.pct)}%` : "no tests yet", "", () => switchTab("analysis")],
+    ["Questions Answered", questionsAnswered, `${answeredToday} today`, answeredToday ? "good" : "", () => scrollHomeTo("homeMilestonesCard")],
+    ["Saved Samples", samples.length, samples.length ? (untakenCount ? `${untakenCount} not yet taken` : "all taken") : "build one", untakenCount ? "needs-action" : (samples.length ? "good" : ""), () => switchTab(samples.length ? "saved" : "builder")],
+    ["Mistakes Resolved", `${resolved}/${mistakes.length}`, mistakes.length ? (openCount ? `${openCount} open` : "all resolved") : "none logged", openCount ? "needs-action" : (mistakes.length ? "good" : ""), () => switchTab("mistakes")],
   ];
   const box = $("homeOverviewGrid");
   box.innerHTML = "";
-  for (const [label, val] of stats) {
-    const cell = el("div", "home-stat");
-    cell.innerHTML = `<div class="home-stat-val">${esc(val)}</div><div class="home-stat-lbl">${esc(label)}</div>`;
+  for (const [label, val, sub, tone, go] of stats) {
+    const cell = el("div", "home-stat tappable");
+    cell.setAttribute("role", "button");
+    cell.tabIndex = 0;
+    cell.innerHTML = `<div class="home-stat-val">${esc(val)}</div><div class="home-stat-lbl">${esc(label)}</div><div class="home-stat-sub ${tone}">${esc(sub)}</div>`;
+    cell.addEventListener("click", go);
+    cell.addEventListener("keydown", (ev) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); go(); } });
     box.appendChild(cell);
+  }
+}
+
+/* ---------------------------------------------------------------------
+   Next up -- turns the numbers into a short, prioritized to-do list.
+   --------------------------------------------------------------------- */
+function computeNextActions() {
+  const actions = [];
+  const history = loadJson(KEYS.history, []);
+  const samples = loadJson(KEYS.samples, []);
+  const mistakes = loadMistakeLog();
+  const activityMap = computeActivityMap();
+  const { current: streak } = computeStreaks(activityMap);
+  const activeToday = activityMap.has(todayDateStr());
+  const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
+
+  const upcoming = loadExamDates().map(e => ({ e, days: daysUntil(e.date) })).filter(x => x.days >= 0).sort((a, b) => a.days - b.days);
+  if (upcoming.length) {
+    const { e, days } = upcoming[0];
+    if (days === 0) {
+      actions.push({ priority: 100, tone: "urgent", icon: "\u23F3", cta: "Review", text: `${e.label} is today. Skim your open mistakes one last time.`, run: () => scrollHomeTo("homeDueCard") });
+    } else if (days <= 7) {
+      actions.push({ priority: 100 - days, tone: "urgent", icon: "\u23F3", cta: "Practice", text: `${e.label} is in ${plural(days, "day")}. Run a full practice sample.`, run: () => switchTab("builder") });
+    } else if (days <= 30) {
+      actions.push({ priority: 55, tone: "warn", icon: "\u{1F4C5}", cta: "Practice", text: `${e.label} is in ${days} days. Keep your daily volume up.`, run: () => switchTab("builder") });
+    }
+  }
+
+  if (streak > 0 && !activeToday) {
+    actions.push({ priority: 90, tone: "warn", icon: "\u{1F525}", cta: "Practice",
+      text: `Your ${streak}-day streak ends tonight. Answer a few questions to keep it.`,
+      run: () => ($("btnSpotlightGenerate") ? scrollHomeTo("homeSpotlightCard") : switchTab("builder")) });
+  }
+
+  const unloggedRows = computeTestsWithUnloggedMistakes();
+  if (unloggedRows.length) {
+    const total = unloggedRows.reduce((n, r) => n + r.unloggedCount, 0);
+    actions.push({ priority: 80, tone: "warn", icon: "\u{1F4DD}", cta: "Log",
+      text: `${plural(total, "mistake")} across ${plural(unloggedRows.length, "test")} not logged yet.`,
+      run: () => { switchTab("mistakes"); jumpToExamInMistakeLog(unloggedRows[0].examId); } });
+  }
+
+  const takenNames = new Set(history.map(h => h.source));
+  const untaken = samples.filter(s => !takenNames.has(s.name)).sort((a, b) => (a.created_at || "").localeCompare(b.created_at || ""));
+  if (untaken.length) {
+    actions.push({ priority: 70, tone: "", icon: "\u{1F4DA}", cta: "Take",
+      text: `${plural(untaken.length, "saved sample")} you haven't taken yet.`,
+      run: () => { selectedSavedId = untaken[0].id; $("savedSearchInput").value = ""; switchTab("saved"); } });
+  }
+
+  const openMistakes = mistakes.filter(m => !m.resolved);
+  if (openMistakes.length) {
+    actions.push({ priority: 60, tone: "", icon: "\u{1F501}", cta: "Review",
+      text: `${plural(openMistakes.length, "open mistake")} waiting for review.`,
+      run: () => scrollHomeTo("homeDueCard") });
+  }
+
+  const { today: answeredToday } = computeQuestionsAnsweredStats();
+  const nextDaily = nextMilestone(answeredToday, DAILY_MILESTONES);
+  if (answeredToday > 0 && nextDaily && nextDaily - answeredToday <= 25) {
+    actions.push({ priority: 50, tone: "", icon: "\u{1F3AF}", cta: "Practice",
+      text: `${plural(nextDaily - answeredToday, "more question")} to hit ${nextDaily} today.`,
+      run: () => switchTab("builder") });
+  }
+
+  if (!activeToday && streak === 0 && history.length) {
+    actions.push({ priority: 45, tone: "", icon: "\u2600\uFE0F", cta: "Start",
+      text: "Nothing answered today yet. A 10-question session only takes a few minutes.",
+      run: () => ($("btnSpotlightGenerate") ? scrollHomeTo("homeSpotlightCard") : switchTab("builder")) });
+  }
+
+  if (!history.length && !samples.length) {
+    actions.push({ priority: 100, tone: "", icon: "\u{1F680}", cta: "Build", text: "Build your first sample to start tracking progress.", run: () => switchTab("builder") });
+  }
+  if (!actions.length) {
+    actions.push({ priority: 0, tone: "", icon: "\u2705", cta: "Practice", text: "You're all caught up. Take another sample to keep momentum.", run: () => switchTab("builder") });
+  }
+
+  actions.sort((a, b) => b.priority - a.priority);
+  return actions;
+}
+function renderNextUp() {
+  const box = $("homeNextUp");
+  box.innerHTML = "";
+  const actions = computeNextActions().slice(0, 3);
+  box.appendChild(el("div", "na-label", "Next up"));
+  for (const a of actions) {
+    const row = el("div", `next-action ${a.tone}`);
+    row.setAttribute("role", "button");
+    row.tabIndex = 0;
+    row.innerHTML = `<span class="na-icon">${a.icon}</span><span class="na-text">${esc(a.text)}</span><span class="na-cta">${esc(a.cta)} \u203A</span>`;
+    row.addEventListener("click", a.run);
+    row.addEventListener("keydown", (ev) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); a.run(); } });
+    box.appendChild(row);
   }
 }
 
@@ -2251,6 +2554,7 @@ $("btnExportAll").addEventListener("click", () => {
     exam_details: loadJson(KEYS.details, []),
     mistake_log: loadJson(KEYS.mistakes, []),
     guess_notes: loadJson(KEYS.guessNotes, []),
+    exam_dates: loadJson(KEYS.examDates, []),
     tombstones: loadTombstones(),
   };
   const blob = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" });
@@ -2275,6 +2579,7 @@ $("importFileInput").addEventListener("change", (e) => {
       if (data.exam_details) saveJson(KEYS.details, data.exam_details);
       if (data.mistake_log) saveJson(KEYS.mistakes, data.mistake_log);
       if (data.guess_notes) saveJson(KEYS.guessNotes, data.guess_notes);
+      if (data.exam_dates) saveJson(KEYS.examDates, data.exam_dates);
       if (data.tombstones) saveJson(KEYS.tombstones, unionTombstones(loadTombstones(), data.tombstones));
       toast("Backup imported.");
       closeSheet("settingsSheet");
@@ -2290,8 +2595,8 @@ $("importFileInput").addEventListener("change", (e) => {
 
 $("btnClearAllData").addEventListener("click", () => {
   const note = githubConfigured() ? " GitHub is left untouched -- this only clears this browser's copy." : "";
-  if (!confirmDialog(`Erase ALL locally saved data -- local banks, saved samples, test history, analysis data, the mistake log, and guess notes? This cannot be undone.${note}`)) return;
-  [KEYS.banks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes, KEYS.guessNotes].forEach(k => localStorage.removeItem(k));
+  if (!confirmDialog(`Erase ALL locally saved data -- local banks, saved samples, test history, analysis data, the mistake log, guess notes, and exam dates? This cannot be undone.${note}`)) return;
+  [KEYS.banks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes, KEYS.guessNotes, KEYS.examDates].forEach(k => localStorage.removeItem(k));
   toast("All local data erased.");
   closeSheet("settingsSheet");
   refreshListsDisplay();
