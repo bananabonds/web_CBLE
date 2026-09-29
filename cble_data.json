@@ -14760,6 +14760,619 @@
           "_source_index": 26
         }
       ]
+    },
+    {
+      "id": "1790671880098477",
+      "name": "CT_PT_S9",
+      "created_at": "2026-09-29T08:51:20",
+      "composition": {
+        "CT_PT_Inorganic_Chemistry": 13,
+        "CT_PT_Laboratory_Instrumentation": 12,
+        "CT_PT_Quality_Assurance_Control": 12,
+        "CT_PT_Analytical_Chemistry": 13
+      },
+      "questions": [
+        {
+          "text": "A student has stock solutions of A at 2000 ppm, B at 1500 ppm, and C at 1000 ppm. The student transfers 10 mL of each solution into a 200 mL volumetric flask and dilutes to volume. What are the final concentrations?",
+          "options": [
+            "A. 50 ppm A, 32 ppm B, 25 ppm C",
+            "B. 100 ppm A, 75 ppm B, 50 ppm C",
+            "C. 75 ppm A, 75 ppm B, 50 ppm C",
+            "D. 100 ppm A, 25 ppm B, 25 ppm C"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 35
+        },
+        {
+          "text": "An element has the notation shown in the image. How many neutrons does it have? (Notation image not included in the source; assumed to be ⁴⁰₁₈Ar, with mass number 40 and atomic number 18.)",
+          "options": [
+            "A. 18",
+            "B. 22",
+            "C. 40",
+            "D. 58"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 9
+        },
+        {
+          "text": "In gradient elution, the mobile-phase composition",
+          "options": [
+            "A. remains constant",
+            "B. is varied during the separation",
+            "C. contains only one solvent",
+            "D. is removed completely during analysis"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 23
+        },
+        {
+          "text": "A sample is analyzed again later in the same batch or in another batch to provide a less formal quality check. This is called a",
+          "options": [
+            "A. Blind sample",
+            "B. Repeat sample",
+            "C. Field blank",
+            "D. Primary standard"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 33
+        },
+        {
+          "text": "Which statement best describes quality according to the presentation?",
+          "options": [
+            "A. Production of a completely defect-free product",
+            "B. Meeting minimum specifications set by the customer in a timely manner",
+            "C. Obtaining exactly the same result in every analysis",
+            "D. Following only government regulations"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 17
+        },
+        {
+          "text": "Which of the following statements about columns containing more theoretical plates is TRUE?",
+          "options": [
+            "A. Columns containing more theoretical plates make separations impossible.",
+            "B. Columns containing more theoretical plates interact irreversibly with the analyte.",
+            "C. Columns containing more theoretical plates take a long time to perform separations.",
+            "D. Columns containing more theoretical plates are better suited to separate a complex mixture."
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 81
+        },
+        {
+          "text": "What are the products of the reaction between HNO₃ and NH₄OH?",
+          "options": [
+            "A. HNO₂ + H₂O",
+            "B. NH₂OH + H₂O",
+            "C. NH₄NO₃ + H₂O",
+            "D. No reaction occurs"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 53
+        },
+        {
+          "text": "Which can promote even boiling?",
+          "options": [
+            "A. Stones",
+            "B. All of the choices",
+            "C. Chips",
+            "D. Stir bars"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 57
+        },
+        {
+          "text": "Which chemical grade is commonly used for low-grade applications such as cleaning and qualitative testing?",
+          "options": [
+            "A. USP grade",
+            "B. NF grade",
+            "C. Technical grade",
+            "D. Laboratory grade"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 63
+        },
+        {
+          "text": "Which electrochemical cell uses electrical energy to drive a nonspontaneous redox reaction?",
+          "options": [
+            "A. Daniell cell",
+            "B. Voltaic cell",
+            "C. Galvanic cell",
+            "D. Electrolytic cell"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 21
+        },
+        {
+          "text": "A standard whose value is assigned through comparison with a primary standard is known as a",
+          "options": [
+            "A. Secondary standard",
+            "B. Certified Reference Material",
+            "C. Method blank",
+            "D. Quality Control sample"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 32
+        },
+        {
+          "text": "Which blank is similar to a method blank but is not subjected to all sample preparation procedures?",
+          "options": [
+            "A. Reagent blank",
+            "B. Field blank",
+            "C. Method blank",
+            "D. QC sample"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 55
+        },
+        {
+          "text": "Before filling a buret with titrant, it should preferably be rinsed with",
+          "options": [
+            "A. Tap water only",
+            "B. Distilled water only",
+            "C. A small portion of the titrant",
+            "D. Concentrated acid"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 37
+        },
+        {
+          "text": "Retention time, tᵣ, is defined as the time between",
+          "options": [
+            "A. column preparation and sample injection",
+            "B. sample injection and appearance of the solute peak at the detector",
+            "C. detector activation and shutdown",
+            "D. two consecutive blank runs"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 84
+        },
+        {
+          "text": "An unknown compound shows a strong absorption near 1700 cm⁻¹. Which functional feature should be suspected first?",
+          "options": [
+            "A. carbonyl group",
+            "B. nitrile group",
+            "C. hydroxyl group",
+            "D. carbon-carbon triple bond"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 72
+        },
+        {
+          "text": "Which type of fractionating column has the least surface area but the highest recovery?",
+          "options": [
+            "A. glass bead column",
+            "B. steel wool column",
+            "C. Vigreux column",
+            "D. packed silica column"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 95
+        },
+        {
+          "text": "Which can remove a fairly large amount of water from a sample containing thermally labile material?",
+          "options": [
+            "A. Hotplate",
+            "B. Freeze dryer",
+            "C. Convection oven",
+            "D. Microwave equipment"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 18
+        },
+        {
+          "text": "The standard atmospheric pressure at sea level is:",
+          "options": [
+            "A. 1 atm",
+            "B. 760 mmHg",
+            "C. 760 torr",
+            "D. All of the choices"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 26
+        },
+        {
+          "text": "The addition of potassium chloride, a nonvolatile solute, to water:",
+          "options": [
+            "A. Increases the boiling point of water",
+            "B. Decreases the boiling point of water",
+            "C. Increases the freezing point of water",
+            "D. Increases the vapor pressure of water"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 23
+        },
+        {
+          "text": "Why are heating mantles preferred over open flames for many organic liquids?",
+          "options": [
+            "A. They cool the flask rapidly.",
+            "B. They provide an enclosed heating system that reduces ignition hazards.",
+            "C. They prevent all solvent evaporation.",
+            "D. They operate only below room temperature."
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 91
+        },
+        {
+          "text": "A liquid mixture that has a constant boiling point and whose vapor has the same composition as the liquid is a/an:",
+          "options": [
+            "A. Azeotrope",
+            "B. Ideal solution",
+            "C. Nonideal solution",
+            "D. Eutectic mixture"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 12
+        },
+        {
+          "text": "What is the primary goal of managing quality in analytical laboratories?",
+          "options": [
+            "A. Eliminate all laboratory errors",
+            "B. Incorporate standard protocols into all laboratory activities",
+            "C. Increase the number of samples analyzed",
+            "D. Reduce laboratory operating costs"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 8
+        },
+        {
+          "text": "Which sequence correctly represents the basic path of radiation in a UV-Vis spectrophotometer?",
+          "options": [
+            "A. source → sample → detector → monochromator",
+            "B. detector → monochromator → sample → source",
+            "C. source → monochromator → sample → detector",
+            "D. monochromator → detector → source → sample"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 29
+        },
+        {
+          "text": "What is the name of Fe(NO₃)₃?",
+          "options": [
+            "A. Iron nitrate",
+            "B. Iron(II) nitrate",
+            "C. Iron(III) nitrate",
+            "D. Ferric nitrite"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 6
+        },
+        {
+          "text": "Where should a thermometer be placed to determine the boiling point of the distillate?",
+          "options": [
+            "A. Inside the distilling flask, just below the side arm",
+            "B. Immersed in the liquid mixture being distilled",
+            "C. Inside the receiver",
+            "D. Inside the adapter"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 81
+        },
+        {
+          "text": "If the transmittance of a sample is 0.10, what is its absorbance? Given: A = −log T",
+          "options": [
+            "A. 0.10",
+            "B. 0.50",
+            "C. 1.00",
+            "D. 10.0"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 90
+        },
+        {
+          "text": "Which substance will require the greatest amount of work to increase its surface area?",
+          "options": [
+            "A. Butanol",
+            "B. Butanal",
+            "C. Pentane",
+            "D. Diethyl ether"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 3
+        },
+        {
+          "text": "An audit conducted by an individual not directly related to the organization is classified as",
+          "options": [
+            "A. Internal audit",
+            "B. External audit",
+            "C. Process audit",
+            "D. Management review"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 1
+        },
+        {
+          "text": "Sample preparation technique used prior to instrumental analysis of metals:",
+          "options": [
+            "A. Sieving",
+            "B. Clean-up",
+            "C. Acid digestion",
+            "D. Liquid-liquid extraction"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 80
+        },
+        {
+          "text": "The empirical formula of a compound is CH. If its molar mass is approximately 78 g/mol, what is its molecular formula?",
+          "options": [
+            "A. C₂H₂",
+            "B. C₆H₆",
+            "C. C₈H₈",
+            "D. None of the above"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 19
+        },
+        {
+          "text": "Which may serve as a mobile phase in column chromatography?",
+          "options": [
+            "A. gas or liquid",
+            "B. solid only",
+            "C. plasma only",
+            "D. precipitate only"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 21
+        },
+        {
+          "text": "Aqua regia is a/an",
+          "options": [
+            "A. Solution",
+            "B. Colloid",
+            "C. Element",
+            "D. Alloy"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 22
+        },
+        {
+          "text": "The following are characteristics of gases EXCEPT",
+          "options": [
+            "A. Pressure exerted by a gas decreases as temperature increases.",
+            "B. Attractions between particles of an ideal gas are negligible.",
+            "C. Gases can be compressed by applying pressure.",
+            "D. Gases diffuse and spontaneously mix."
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 28
+        },
+        {
+          "text": "A metal sample has a mass of 54.0 g and occupies 20.0 mL. What is its density?",
+          "options": [
+            "A. 2.70 g/mL",
+            "B. 34.0 g/mL",
+            "C. 74.0 g/mL",
+            "D. 0.370 g/mL"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 54
+        },
+        {
+          "text": "Which funnel should be used to filter hot mother liquor during recrystallization?",
+          "options": [
+            "A. Hirsch funnel",
+            "B. Büchner funnel",
+            "C. Long-stem funnel",
+            "D. Short-stem funnel"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 35
+        },
+        {
+          "text": "Which of the following is a required characteristic of a QC sample?",
+          "options": [
+            "A. It must be unstable",
+            "B. It must be heterogeneous",
+            "C. It must be fully characterized",
+            "D. It must contain no analyte"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 57
+        },
+        {
+          "text": "Which quality system standard is specifically intended for medical laboratories?",
+          "options": [
+            "A. ISO 15189",
+            "B. ISO 9000",
+            "C. ISO/IEC 17025",
+            "D. GLP"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 9
+        },
+        {
+          "text": "A sample originally contains 20.0 mg/L of an analyte. After adding a 10.0 mg/L spike, the measured concentration is 29.5 mg/L. What is the percent recovery?",
+          "options": [
+            "A. 90%",
+            "B. 95%",
+            "C. 97.5%",
+            "D. 105%"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 21
+        },
+        {
+          "text": "During coning and quartering, which portions are discarded after the flattened sample is divided into four quarters?",
+          "options": [
+            "A. two adjacent quarters",
+            "B. three quarters",
+            "C. two diagonally opposed quarters",
+            "D. only the smallest quarter"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 36
+        },
+        {
+          "text": "Which activity is most closely associated with Quality Assurance?",
+          "options": [
+            "A. Identification of defects",
+            "B. Verification of finished products",
+            "C. Prevention of defects",
+            "D. Rejection of defective products"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 12
+        },
+        {
+          "text": "All are common carrier gases for gas chromatography EXCEPT",
+          "options": [
+            "A. Helium",
+            "B. Argon",
+            "C. Oxygen",
+            "D. Nitrogen"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 0
+        },
+        {
+          "text": "Which of the following is TRUE about TC pipets?",
+          "options": [
+            "A. TC means “to carry.”",
+            "B. It commonly does not have a colored band.",
+            "C. It is used if the liquid left in the pipet is already accounted.",
+            "D. None of the choices."
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 72
+        },
+        {
+          "text": "Widely used continuous atomization method in AAS. It is also the most reproducible of all liquid-sample introduction methods that have been developed for AAS to date.",
+          "options": [
+            "A. Flame",
+            "B. Electrothermal",
+            "C. Direct-current plasma",
+            "D. Inductively coupled plasma"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 31
+        },
+        {
+          "text": "Which IR absorption is expected to be broad rather than relatively sharp?",
+          "options": [
+            "A. C≡N",
+            "B. C=O",
+            "C. O–H",
+            "D. C=C"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 52
+        },
+        {
+          "text": "Which property represents the energy required to increase a liquid’s surface area?",
+          "options": [
+            "A. Vapor pressure",
+            "B. Surface tension",
+            "C. Compressibility",
+            "D. Density"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 38
+        },
+        {
+          "text": "Determine the volumes of the liquids in the graduated cylinders shown. The image shows two graduated cylinders containing gray liquid, with horizontal graduation marks and numbered major graduations. Left cylinder: markings labeled 6, 7, and 8. The liquid level is between 6 and 7, closer to 7. Right cylinder: markings labeled 1, 2, and 3. The liquid level is between 2 and 3, closer to 2. Each numbered interval is divided into smaller graduations. The liquid surfaces are slightly curved, forming menisci.",
+          "options": [
+            "A. 6.60 mL and 2.00 mL",
+            "B. 6.60 mL and 2.30 mL",
+            "C. 6.70 mL and 2.00 mL",
+            "D. 6.70 mL and 2.30 mL"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 42
+        },
+        {
+          "text": "Which pair is inversely proportional?",
+          "options": [
+            "A. Bond order and bond energy",
+            "B. Bond strength and bond order",
+            "C. Bond length and bond energy",
+            "D. None of these"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 47
+        },
+        {
+          "text": "This quality system standard is a general requirement for the competence of testing and calibration laboratories.",
+          "options": [
+            "A. GLP",
+            "B. GMP",
+            "C. ISO 9001",
+            "D. ISO/IEC 17025"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 15
+        },
+        {
+          "text": "What is the mass percent of oxygen in H₂O?",
+          "options": [
+            "A. 11.1%",
+            "B. 50.0%",
+            "C. 88.9%",
+            "D. 94.1%"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 34
+        },
+        {
+          "text": "Good Laboratory Practices are concerned with laboratory activities from",
+          "options": [
+            "A. Sampling to calibration only",
+            "B. Planning through reporting and archiving of results",
+            "C. Manufacturing to product distribution",
+            "D. Instrument installation to maintenance only"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 36
+        }
+      ]
     }
   ],
   "test_history": [
@@ -28254,7 +28867,7 @@
       "correct_answer": "C. 8.72",
       "category": "Formula / Equation Error",
       "note": "When weak acid is neutralized by strong base the added base becomes the concentration of the weak base hence 2.5*10^-3 / 50ml * 1000 ml then Kw = KaKb solve for Kb, then Kb = [A-]^2 / [concentration of weak base]. Get pOH then get pH",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-23T03:31:39"
     },
     {
@@ -28268,7 +28881,7 @@
       "correct_answer": "C. Working range",
       "category": "Conceptual Misunderstanding",
       "note": "Limit of detection is the lowest concentration that can be detected, working range is the interval between the limit of quantitation. Limit of quantitation is the lowest possible reliable concentration that can me measured not only detected.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-23T03:36:52"
     },
     {
@@ -28716,7 +29329,7 @@
       "correct_answer": "D. Limit of detection",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "The analysis of a blank sample matrix is done to eliminate noise hence LOD is more appropriate parameter to detect this. Selectivity is the performance parameter that differentiate between a particular component from other components",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-25T06:56:33"
     },
     {
@@ -28996,7 +29609,7 @@
       "correct_answer": "A. Benzoic acid",
       "category": "Conceptual Misunderstanding",
       "note": "Primary alcohol -> Aldehyde -> Carboxylic acid. Secondary alcohol -> Ketone -> No further oxidation",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T09:08:40"
     },
     {
@@ -29010,7 +29623,7 @@
       "correct_answer": "B. Nucleophilic addition",
       "category": "Conceptual Misunderstanding",
       "note": "Alkenes undergo electrophilic addition. Carbonyls has a partial positive charge which acts an electrophile for a nucleophile to attack.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T09:10:44"
     },
     {
@@ -29290,7 +29903,7 @@
       "correct_answer": "A. ISO 15189",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "ISO 15189 is specifically designed for medical laboratories (diagnostic) while GLP is for non clinical safety and environemental studies. Both are quality standards.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T09:42:04"
     },
     {
@@ -29304,7 +29917,7 @@
       "correct_answer": "C. Method blank",
       "category": "Conceptual Misunderstanding",
       "note": "Field blanks are method blanks but they also go into the sampling site (checking site/transit). Method blanks go through all the steps. Reagent blank is only for the purity of the chemicals.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T09:44:53"
     },
     {
@@ -29626,7 +30239,7 @@
       "correct_answer": "B. Use a heating mantle with stirring.",
       "category": "Conceptual Misunderstanding",
       "note": "Sand bath can reach 200 C but a heating mantle can do it safer and more precisely",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-28T10:04:02"
     },
     {
@@ -29766,7 +30379,7 @@
       "correct_answer": "C. hollow cathode lamp",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Lamps can be line sources or continuum sources. Hollow cathode are specific and is line sources. Tungsten lamp is a continuum source",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-29T08:13:14"
     }
   ],
@@ -29912,5 +30525,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-29T08:13:21"
+  "updated_at": "2026-09-29T08:51:27"
 }
