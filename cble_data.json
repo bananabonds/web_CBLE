@@ -27464,6 +27464,34 @@
       "note": "kcat/Km is called the specificity constant where kcat is from Vmax = kcat[E]t or the maximum velocity over total enzyme concentration. If Km >> [S] the michaeles menten is kcat/Km * [E]t * [S] it becomes the k constant of the rate law",
       "resolved": false,
       "date_logged": "2026-09-29T03:21:10"
+    },
+    {
+      "id": "179065843344952",
+      "exam_id": "1790657852839495",
+      "exam_source": "CT_PT_S7",
+      "source_list": "CT_PT_Laboratory_Instrumentation",
+      "reference_no": 11,
+      "question": "A solution containing 4.48 ppm KMnO₄ (158.04 g/mol) exhibits 85.9% transmittance in a 1.00-cm cell at 520 nm. Calculate the molar absorptivity of KMnO₄ at this wavelength.",
+      "your_answer": "C. 4.29 × 10⁻⁴ L/mol·cm",
+      "correct_answer": "B. 2.33 × 10³ L/mol·cm",
+      "category": "Formula / Equation Error",
+      "note": "A=elc, not a function of wavelength",
+      "resolved": false,
+      "date_logged": "2026-09-29T05:07:13"
+    },
+    {
+      "id": "1790658657004866",
+      "exam_id": "1790657852839495",
+      "exam_source": "CT_PT_S7",
+      "source_list": "CT_PT_Laboratory_Instrumentation",
+      "reference_no": 56,
+      "question": "In gas-solid chromatography, separation occurs primarily through",
+      "your_answer": "B. ionization",
+      "correct_answer": "C. adsorption",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Gas solid chroma uses solid adsorbents where the gases carried by an inert medium adsorb and release at different rates",
+      "resolved": false,
+      "date_logged": "2026-09-29T05:10:56"
     }
   ],
   "guess_notes": [
@@ -27595,5 +27623,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-29T04:57:42"
+  "updated_at": "2026-09-29T05:11:11"
 }
