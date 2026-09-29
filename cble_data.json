@@ -15591,6 +15591,15 @@
       "pct": 98,
       "date": "2026-09-29T08:10:36",
       "time_used_seconds": 1423.6
+    },
+    {
+      "id": "1790673388137498",
+      "source": "CT_PT_S9",
+      "score": 50,
+      "total": 50,
+      "pct": 100,
+      "date": "2026-09-29T09:16:28",
+      "time_used_seconds": 1504.8
     }
   ],
   "exam_details": [
@@ -27761,6 +27770,513 @@
           "correct_answer": "B. Secondary standard"
         }
       ]
+    },
+    {
+      "exam_id": "1790673388137498",
+      "source": "CT_PT_S9",
+      "date": "2026-09-29T09:16:28",
+      "items": [
+        {
+          "source_list": "CT_PT_Inorganic_Chemistry",
+          "reference_no": 27,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The standard atmospheric pressure at sea level is:",
+          "your_answer": "D. All of the choices",
+          "correct_answer": "D. All of the choices"
+        },
+        {
+          "source_list": "CT_PT_Analytical_Chemistry",
+          "reference_no": 81,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Sample preparation technique used prior to instrumental analysis of metals:",
+          "your_answer": "C. Acid digestion",
+          "correct_answer": "C. Acid digestion"
+        },
+        {
+          "source_list": "CT_PT_Analytical_Chemistry",
+          "reference_no": 64,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which chemical grade is commonly used for low-grade applications such as cleaning and qualitative testing?",
+          "your_answer": "C. Technical grade",
+          "correct_answer": "C. Technical grade"
+        },
+        {
+          "source_list": "CT_PT_Analytical_Chemistry",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A liquid mixture that has a constant boiling point and whose vapor has the same composition as the liquid is a/an:",
+          "your_answer": "A. Azeotrope",
+          "correct_answer": "A. Azeotrope"
+        },
+        {
+          "source_list": "CT_PT_Inorganic_Chemistry",
+          "reference_no": 35,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the mass percent of oxygen in H₂O?",
+          "your_answer": "C. 88.9%",
+          "correct_answer": "C. 88.9%"
+        },
+        {
+          "source_list": "CT_PT_Quality_Assurance_Control",
+          "reference_no": 58,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is a required characteristic of a QC sample?",
+          "your_answer": "C. It must be fully characterized",
+          "correct_answer": "C. It must be fully characterized"
+        },
+        {
+          "source_list": "CT_PT_Quality_Assurance_Control",
+          "reference_no": 34,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A sample is analyzed again later in the same batch or in another batch to provide a less formal quality check. This is called a",
+          "your_answer": "B. Repeat sample",
+          "correct_answer": "B. Repeat sample"
+        },
+        {
+          "source_list": "CT_PT_Inorganic_Chemistry",
+          "reference_no": 24,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The addition of potassium chloride, a nonvolatile solute, to water:",
+          "your_answer": "A. Increases the boiling point of water",
+          "correct_answer": "A. Increases the boiling point of water"
+        },
+        {
+          "source_list": "CT_PT_Analytical_Chemistry",
+          "reference_no": 58,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which can promote even boiling?",
+          "your_answer": "B. All of the choices",
+          "correct_answer": "B. All of the choices"
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 37,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "During coning and quartering, which portions are discarded after the flattened sample is divided into four quarters?",
+          "your_answer": "C. two diagonally opposed quarters",
+          "correct_answer": "C. two diagonally opposed quarters"
+        },
+        {
+          "source_list": "CT_PT_Inorganic_Chemistry",
+          "reference_no": 39,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which property represents the energy required to increase a liquid’s surface area?",
+          "your_answer": "B. Surface tension",
+          "correct_answer": "B. Surface tension"
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 73,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "An unknown compound shows a strong absorption near 1700 cm⁻¹. Which functional feature should be suspected first?",
+          "your_answer": "A. carbonyl group",
+          "correct_answer": "A. carbonyl group"
+        },
+        {
+          "source_list": "CT_PT_Quality_Assurance_Control",
+          "reference_no": 56,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which blank is similar to a method blank but is not subjected to all sample preparation procedures?",
+          "your_answer": "A. Reagent blank",
+          "correct_answer": "A. Reagent blank"
+        },
+        {
+          "source_list": "CT_PT_Quality_Assurance_Control",
+          "reference_no": 22,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A sample originally contains 20.0 mg/L of an analyte. After adding a 10.0 mg/L spike, the measured concentration is 29.5 mg/L. What is the percent recovery?",
+          "your_answer": "B. 95%",
+          "correct_answer": "B. 95%"
+        },
+        {
+          "source_list": "CT_PT_Analytical_Chemistry",
+          "reference_no": 22,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which electrochemical cell uses electrical energy to drive a nonspontaneous redox reaction?",
+          "your_answer": "D. Electrolytic cell",
+          "correct_answer": "D. Electrolytic cell"
+        },
+        {
+          "source_list": "CT_PT_Inorganic_Chemistry",
+          "reference_no": 55,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A metal sample has a mass of 54.0 g and occupies 20.0 mL. What is its density?",
+          "your_answer": "A. 2.70 g/mL",
+          "correct_answer": "A. 2.70 g/mL"
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 82,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following statements about columns containing more theoretical plates is TRUE?",
+          "your_answer": "D. Columns containing more theoretical plates are better suited to separate a complex mixture.",
+          "correct_answer": "D. Columns containing more theoretical plates are better suited to separate a complex mixture."
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 85,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Retention time, tᵣ, is defined as the time between",
+          "your_answer": "B. sample injection and appearance of the solute peak at the detector",
+          "correct_answer": "B. sample injection and appearance of the solute peak at the detector"
+        },
+        {
+          "source_list": "CT_PT_Quality_Assurance_Control",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "This quality system standard is a general requirement for the competence of testing and calibration laboratories.",
+          "your_answer": "D. ISO/IEC 17025",
+          "correct_answer": "D. ISO/IEC 17025"
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 24,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "In gradient elution, the mobile-phase composition",
+          "your_answer": "B. is varied during the separation",
+          "correct_answer": "B. is varied during the separation"
+        },
+        {
+          "source_list": "CT_PT_Analytical_Chemistry",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "All are common carrier gases for gas chromatography EXCEPT",
+          "your_answer": "C. Oxygen",
+          "correct_answer": "C. Oxygen"
+        },
+        {
+          "source_list": "CT_PT_Analytical_Chemistry",
+          "reference_no": 54,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What are the products of the reaction between HNO₃ and NH₄OH?",
+          "your_answer": "C. NH₄NO₃ + H₂O",
+          "correct_answer": "C. NH₄NO₃ + H₂O"
+        },
+        {
+          "source_list": "CT_PT_Analytical_Chemistry",
+          "reference_no": 82,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Where should a thermometer be placed to determine the boiling point of the distillate?",
+          "your_answer": "A. Inside the distilling flask, just below the side arm",
+          "correct_answer": "A. Inside the distilling flask, just below the side arm"
+        },
+        {
+          "source_list": "CT_PT_Analytical_Chemistry",
+          "reference_no": 38,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Before filling a buret with titrant, it should preferably be rinsed with",
+          "your_answer": "C. A small portion of the titrant",
+          "correct_answer": "C. A small portion of the titrant"
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 32,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Widely used continuous atomization method in AAS. It is also the most reproducible of all liquid-sample introduction methods that have been developed for AAS to date.",
+          "your_answer": "A. Flame",
+          "correct_answer": "A. Flame"
+        },
+        {
+          "source_list": "CT_PT_Inorganic_Chemistry",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A student has stock solutions of A at 2000 ppm, B at 1500 ppm, and C at 1000 ppm. The student transfers 10 mL of each solution into a 200 mL volumetric flask and dilutes to volume. What are the final concentrations?",
+          "your_answer": "B. 100 ppm A, 75 ppm B, 50 ppm C",
+          "correct_answer": "B. 100 ppm A, 75 ppm B, 50 ppm C"
+        },
+        {
+          "source_list": "CT_PT_Quality_Assurance_Control",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the primary goal of managing quality in analytical laboratories?",
+          "your_answer": "B. Incorporate standard protocols into all laboratory activities",
+          "correct_answer": "B. Incorporate standard protocols into all laboratory activities"
+        },
+        {
+          "source_list": "CT_PT_Analytical_Chemistry",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which funnel should be used to filter hot mother liquor during recrystallization?",
+          "your_answer": "D. Short-stem funnel",
+          "correct_answer": "D. Short-stem funnel"
+        },
+        {
+          "source_list": "CT_PT_Quality_Assurance_Control",
+          "reference_no": 37,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Good Laboratory Practices are concerned with laboratory activities from",
+          "your_answer": "B. Planning through reporting and archiving of results",
+          "correct_answer": "B. Planning through reporting and archiving of results"
+        },
+        {
+          "source_list": "CT_PT_Inorganic_Chemistry",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "An element has the notation shown in the image. How many neutrons does it have? (Notation image not included in the source; assumed to be ⁴⁰₁₈Ar, with mass number 40 and atomic number 18.)",
+          "your_answer": "B. 22",
+          "correct_answer": "B. 22"
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 91,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "If the transmittance of a sample is 0.10, what is its absorbance? Given: A = −log T",
+          "your_answer": "C. 1.00",
+          "correct_answer": "C. 1.00"
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 92,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Why are heating mantles preferred over open flames for many organic liquids?",
+          "your_answer": "B. They provide an enclosed heating system that reduces ignition hazards.",
+          "correct_answer": "B. They provide an enclosed heating system that reduces ignition hazards."
+        },
+        {
+          "source_list": "CT_PT_Quality_Assurance_Control",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Which activity is most closely associated with Quality Assurance?",
+          "your_answer": "C. Prevention of defects",
+          "correct_answer": "C. Prevention of defects"
+        },
+        {
+          "source_list": "CT_PT_Inorganic_Chemistry",
+          "reference_no": 23,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Aqua regia is a/an",
+          "your_answer": "A. Solution",
+          "correct_answer": "A. Solution"
+        },
+        {
+          "source_list": "CT_PT_Inorganic_Chemistry",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The empirical formula of a compound is CH. If its molar mass is approximately 78 g/mol, what is its molecular formula?",
+          "your_answer": "B. C₆H₆",
+          "correct_answer": "B. C₆H₆"
+        },
+        {
+          "source_list": "CT_PT_Quality_Assurance_Control",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which statement best describes quality according to the presentation?",
+          "your_answer": "B. Meeting minimum specifications set by the customer in a timely manner",
+          "correct_answer": "B. Meeting minimum specifications set by the customer in a timely manner"
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 30,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which sequence correctly represents the basic path of radiation in a UV-Vis spectrophotometer?",
+          "your_answer": "C. source → monochromator → sample → detector",
+          "correct_answer": "C. source → monochromator → sample → detector"
+        },
+        {
+          "source_list": "CT_PT_Inorganic_Chemistry",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the name of Fe(NO₃)₃?",
+          "your_answer": "C. Iron(III) nitrate",
+          "correct_answer": "C. Iron(III) nitrate"
+        },
+        {
+          "source_list": "CT_PT_Inorganic_Chemistry",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which substance will require the greatest amount of work to increase its surface area?",
+          "your_answer": "A. Butanol",
+          "correct_answer": "A. Butanol"
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 96,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which type of fractionating column has the least surface area but the highest recovery?",
+          "your_answer": "C. Vigreux column",
+          "correct_answer": "C. Vigreux column"
+        },
+        {
+          "source_list": "CT_PT_Inorganic_Chemistry",
+          "reference_no": 48,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which pair is inversely proportional?",
+          "your_answer": "C. Bond length and bond energy",
+          "correct_answer": "C. Bond length and bond energy"
+        },
+        {
+          "source_list": "CT_PT_Quality_Assurance_Control",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "An audit conducted by an individual not directly related to the organization is classified as",
+          "your_answer": "B. External audit",
+          "correct_answer": "B. External audit"
+        },
+        {
+          "source_list": "CT_PT_Quality_Assurance_Control",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which quality system standard is specifically intended for medical laboratories?",
+          "your_answer": "A. ISO 15189",
+          "correct_answer": "A. ISO 15189"
+        },
+        {
+          "source_list": "CT_PT_Analytical_Chemistry",
+          "reference_no": 43,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Determine the volumes of the liquids in the graduated cylinders shown. The image shows two graduated cylinders containing gray liquid, with horizontal graduation marks and numbered major graduations. Left cylinder: markings labeled 6, 7, and 8. The liquid level is between 6 and 7, closer to 7. Right cylinder: markings labeled 1, 2, and 3. The liquid level is between 2 and 3, closer to 2. Each numbered interval is divided into smaller graduations. The liquid surfaces are slightly curved, forming menisci.",
+          "your_answer": "B. 6.60 mL and 2.30 mL",
+          "correct_answer": "B. 6.60 mL and 2.30 mL"
+        },
+        {
+          "source_list": "CT_PT_Quality_Assurance_Control",
+          "reference_no": 33,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A standard whose value is assigned through comparison with a primary standard is known as a",
+          "your_answer": "A. Secondary standard",
+          "correct_answer": "A. Secondary standard"
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 22,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which may serve as a mobile phase in column chromatography?",
+          "your_answer": "A. gas or liquid",
+          "correct_answer": "A. gas or liquid"
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 53,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which IR absorption is expected to be broad rather than relatively sharp?",
+          "your_answer": "C. O–H",
+          "correct_answer": "C. O–H"
+        },
+        {
+          "source_list": "CT_PT_Inorganic_Chemistry",
+          "reference_no": 29,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The following are characteristics of gases EXCEPT",
+          "your_answer": "A. Pressure exerted by a gas decreases as temperature increases.",
+          "correct_answer": "A. Pressure exerted by a gas decreases as temperature increases."
+        },
+        {
+          "source_list": "CT_PT_Analytical_Chemistry",
+          "reference_no": 73,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is TRUE about TC pipets?",
+          "your_answer": "D. None of the choices.",
+          "correct_answer": "D. None of the choices."
+        },
+        {
+          "source_list": "CT_PT_Analytical_Chemistry",
+          "reference_no": 19,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which can remove a fairly large amount of water from a sample containing thermally labile material?",
+          "your_answer": "B. Freeze dryer",
+          "correct_answer": "B. Freeze dryer"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -30525,5 +31041,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-29T08:51:27"
+  "updated_at": "2026-09-29T09:16:34"
 }
