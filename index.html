@@ -521,15 +521,24 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
       </div>
       <div class="card">
         <h3>Score Trend</h3>
-        <p class="hint" style="margin-bottom:10px;">Accuracy across every test you've taken, regardless of subject &mdash; the subject-by-subject breakdown lives in Study Priority.</p>
+        <p class="hint" style="margin-bottom:10px;">Accuracy across the tests you've taken. Use Filter Subjects to see the trend for specific subjects only (score = correct &divide; questions from those subjects in each test).</p>
+        <div class="row wrap" style="margin-bottom:10px;">
+          <button class="btn" id="btnTrendFilterToggle">Filter Subjects</button>
+          <label class="row" style="flex:none;">
+            <input type="checkbox" id="trendSeparateLines">
+            <span style="font-size:.82rem;">One line per subject</span>
+          </label>
+        </div>
+        <div id="trendFilterBox" class="list-item" style="display:none;margin-bottom:10px;">
+          <div class="row wrap" style="margin-bottom:8px;">
+            <b style="font-size:.8rem;flex:1;">Choose subjects to show</b>
+            <button class="btn link" id="btnTrendSubjectsAll">All</button>
+            <button class="btn link" id="btnTrendSubjectsNone">None</button>
+          </div>
+          <div id="trendSubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
+        </div>
         <div id="historyTrendTable"></div>
         <div id="historyTrendChart" class="chart-wrap" style="margin-top:12px;"></div>
-      </div>
-      <div class="card">
-        <div class="row wrap">
-          <button class="btn" id="btnRefreshHistory">Refresh</button>
-          <button class="btn danger" id="btnClearHistory">Clear History</button>
-        </div>
       </div>
     </section>
 
@@ -2874,14 +2883,26 @@ function chartLegendHTML(seriesList) {
   return `<div class="chart-legend">${seriesList.map(s => `<span><i class="sw" style="background:${s.color};"></i>${esc(s.label)}</span>`).join("")}</div>`;
 }
 
-function computeHistoryTrendStats() {
-  const history = loadJson(KEYS.history, []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
-  if (!history.length) return null;
-  const scores = history.map(h => h.pct || 0);
+/* ---- Score Trend (with subject filter) ---- */
+let trendHiddenSubjects = new Set();
+const TREND_COLORS = ["#1E3A8A", "#DC2626", "#16A34A", "#F59E0B", "#5B21B6", "#0EA5E9", "#DB2777", "#0F766E", "#92400E", "#4B5563"];
+
+function getTrendSubjects() {
+  const s = new Set();
+  for (const d of loadJson(KEYS.details, [])) for (const it of (d.items || [])) s.add(it.source_list || "Unknown");
+  return Array.from(s).sort();
+}
+function subjectScoreForExam(detail, subjectSet) {
+  let total = 0, correct = 0;
+  for (const it of (detail.items || [])) {
+    if (!subjectSet.has(it.source_list || "Unknown")) continue;
+    total++;
+    if (it.is_correct) correct++;
+  }
+  return total ? { pct: correct / total * 100, correct, total } : null;
+}
+function summarizeScores(scores) {
   const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-  const best = Math.max(...scores);
-  const worst = Math.min(...scores);
-  const recent = scores[scores.length - 1];
   let trendLabel = "Not enough data yet";
   if (scores.length >= 4) {
     const half = Math.floor(scores.length / 2);
@@ -2890,33 +2911,103 @@ function computeHistoryTrendStats() {
     const diff = secondAvg - firstAvg;
     trendLabel = diff > 2 ? `Improving (+${diff.toFixed(1)}%)` : diff < -2 ? `Declining (${diff.toFixed(1)}%)` : "Holding steady";
   }
-  return { history, avg, best, worst, recent, trendLabel, count: history.length };
+  return { avg, best: Math.max(...scores), worst: Math.min(...scores), recent: scores[scores.length - 1], trendLabel, count: scores.length };
+}
+function renderTrendSubjectChecks(subjects) {
+  const box = $("trendSubjectChecks");
+  box.innerHTML = "";
+  if (!subjects.length) { box.appendChild(el("div", "empty-state", "No per-subject data yet.")); return; }
+  for (const s of subjects) {
+    const row = el("label", "row");
+    row.style.marginBottom = "6px";
+    row.style.fontSize = ".82rem";
+    row.innerHTML = `<input type="checkbox" ${trendHiddenSubjects.has(s) ? "" : "checked"}><span>${esc(s)}</span>`;
+    row.querySelector("input").addEventListener("change", (e) => {
+      if (e.target.checked) trendHiddenSubjects.delete(s); else trendHiddenSubjects.add(s);
+      renderHistoryTrend();
+    });
+    box.appendChild(row);
+  }
 }
 function renderHistoryTrend() {
-  const stats = computeHistoryTrendStats();
-  const tableBox = $("historyTrendTable");
-  const chartBox = $("historyTrendChart");
-  tableBox.innerHTML = "";
-  chartBox.innerHTML = "";
-  if (!stats) {
-    tableBox.appendChild(el("div", "empty-state", "Take a test to see your score trend here."));
+  const allSubjects = getTrendSubjects();
+  renderTrendSubjectChecks(allSubjects);
+  const tableBox = $("historyTrendTable"), chartBox = $("historyTrendChart");
+  tableBox.innerHTML = ""; chartBox.innerHTML = "";
+
+  const history = loadJson(KEYS.history, []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  if (!history.length) { tableBox.appendChild(el("div", "empty-state", "Take a test to see your score trend here.")); return; }
+
+  const visible = allSubjects.filter(s => !trendHiddenSubjects.has(s));
+  const filterActive = visible.length < allSubjects.length;
+  const separate = $("trendSeparateLines").checked;
+  const detailsById = {};
+  for (const d of loadJson(KEYS.details, [])) detailsById[d.exam_id] = d;
+
+  /* --- One line per subject --- */
+  if (separate) {
+    if (!visible.length) { tableBox.appendChild(el("div", "empty-state", "No subjects selected \u2014 use Filter Subjects above.")); return; }
+    const exams = history.filter(h => detailsById[h.id]);
+    if (!exams.length) { tableBox.appendChild(el("div", "empty-state", "No per-subject data yet \u2014 it's saved for tests you submit from now on.")); return; }
+    const series = visible.map((subj, i) => ({
+      label: subj, color: TREND_COLORS[i % TREND_COLORS.length],
+      points: exams.map(h => {
+        const r = subjectScoreForExam(detailsById[h.id], new Set([subj]));
+        return r ? { y: r.pct, tooltip: `${subj} \u2014 ${h.source}: ${r.pct.toFixed(1)}% (${r.correct}/${r.total})` } : { y: null, tooltip: "" };
+      }),
+    }));
+    const rowsHtml = series.map(s => {
+      const ys = s.points.map(p => p.y).filter(y => y !== null);
+      if (!ys.length) return `<tr><td>${esc(s.label)}</td><td>0</td><td>\u2013</td><td>\u2013</td><td>\u2013</td></tr>`;
+      const st = summarizeScores(ys);
+      return `<tr><td>${esc(s.label)}</td><td>${st.count}</td><td>${st.avg.toFixed(1)}%</td><td>${st.best.toFixed(1)}%</td><td>${st.recent.toFixed(1)}%</td></tr>`;
+    }).join("");
+    tableBox.innerHTML = `<div class="table-wrap"><table class="data-table">
+      <tr><th>Subject</th><th>Tests</th><th>Avg</th><th>Best</th><th>Latest</th></tr>${rowsHtml}</table></div>`;
+    chartBox.innerHTML = buildLineGraphSVG(series, { yMin: 0, yMax: 100 }) + chartLegendHTML(series);
     return;
   }
+
+  /* --- Single combined line --- */
+  const rows = [];
+  if (!filterActive) {
+    for (const h of history) rows.push({ y: h.pct || 0, tooltip: `${h.source}: ${(h.pct || 0).toFixed(1)}% (${formatDateNice(dateOnly(h.date))})` });
+  } else {
+    if (!visible.length) { tableBox.appendChild(el("div", "empty-state", "No subjects selected \u2014 use Filter Subjects above.")); return; }
+    const set = new Set(visible);
+    for (const h of history) {
+      const d = detailsById[h.id];
+      if (!d) continue;
+      const r = subjectScoreForExam(d, set);
+      if (!r) continue; // this test had no questions from the selected subjects
+      rows.push({ y: r.pct, tooltip: `${h.source}: ${r.pct.toFixed(1)}% (${r.correct}/${r.total}, ${formatDateNice(dateOnly(h.date))})` });
+    }
+    if (!rows.length) { tableBox.appendChild(el("div", "empty-state", "None of your tests included questions from the selected subjects.")); return; }
+  }
+
+  const stats = summarizeScores(rows.map(r => r.y));
+  const subjectsRow = filterActive
+    ? `<tr><td>Subjects Shown</td><td>${visible.length} of ${allSubjects.length}</td></tr>` : "";
   tableBox.innerHTML = `<div class="table-wrap"><table class="data-table kv-table">
-    <tr><td>Tests Taken</td><td>${stats.count}</td></tr>
+    ${subjectsRow}
+    <tr><td>Tests Included</td><td>${stats.count}</td></tr>
     <tr><td>Average Score</td><td>${stats.avg.toFixed(1)}%</td></tr>
     <tr><td>Best Score</td><td>${stats.best.toFixed(1)}%</td></tr>
     <tr><td>Worst Score</td><td>${stats.worst.toFixed(1)}%</td></tr>
     <tr><td>Most Recent</td><td>${stats.recent.toFixed(1)}%</td></tr>
     <tr><td>Trend</td><td>${esc(stats.trendLabel)}</td></tr>
   </table></div>`;
-  const series = [{
-    label: "Score %", color: "#1E3A8A",
-    points: stats.history.map(h => ({ y: h.pct || 0, tooltip: `${h.source}: ${(h.pct || 0).toFixed(1)}% (${formatDateNice(dateOnly(h.date))})` })),
-  }];
-  chartBox.innerHTML = buildLineGraphSVG(series, { yMin: 0, yMax: 100 });
+  chartBox.innerHTML = buildLineGraphSVG([{ label: "Score %", color: "#1E3A8A", points: rows }], { yMin: 0, yMax: 100 });
 }
 
+$("btnTrendFilterToggle").addEventListener("click", () => {
+  const box = $("trendFilterBox");
+  box.style.display = box.style.display === "none" ? "block" : "none";
+});
+$("btnTrendSubjectsAll").addEventListener("click", () => { trendHiddenSubjects.clear(); renderHistoryTrend(); });
+$("btnTrendSubjectsNone").addEventListener("click", () => { trendHiddenSubjects = new Set(getTrendSubjects()); renderHistoryTrend(); });
+$("trendSeparateLines").addEventListener("change", renderHistoryTrend);
+  
 $("btnClearHistory").addEventListener("click", () => {
   if (!confirmDialog("Clear all locally saved test history? This also clears the data behind Study Priority Analysis. This cannot be undone.")) return;
   saveJson(KEYS.history, []);
