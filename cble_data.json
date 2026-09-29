@@ -12917,6 +12917,619 @@
           "_source_index": 36
         }
       ]
+    },
+    {
+      "id": "1790655354297811",
+      "name": "CT_PT_S7",
+      "created_at": "2026-09-29T04:15:54",
+      "composition": {
+        "CT_PT_Analytical_Chemistry": 13,
+        "CT_PT_Inorganic_Chemistry": 13,
+        "CT_PT_Laboratory_Instrumentation": 12,
+        "CT_PT_Quality_Assurance_Control": 12
+      },
+      "questions": [
+        {
+          "text": "When solid and liquid phases are in equilibrium, the temperature of the system:",
+          "options": [
+            "A. Decreases gradually",
+            "B. None of the given answers",
+            "C. Increases gradually",
+            "D. Remains constant"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 51
+        },
+        {
+          "text": "What is the mass percent of oxygen in H₂O?",
+          "options": [
+            "A. 11.1%",
+            "B. 50.0%",
+            "C. 88.9%",
+            "D. 94.1%"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 34
+        },
+        {
+          "text": "What is the main purpose of heating under reflux?",
+          "options": [
+            "A. To provide a very high temperature so slow reactions occur faster",
+            "B. To increase solvent evaporation and increase product yield",
+            "C. To heat a reaction mixture in a solvent at constant temperature without loss of reagents",
+            "D. None of the above"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 40
+        },
+        {
+          "text": "An important requirement for compounds analyzed directly by GC is that they should be",
+          "options": [
+            "A. nonvolatile and thermally unstable",
+            "B. volatile and thermally stable",
+            "C. ionic and nonvolatile",
+            "D. insoluble in all solvents"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 97
+        },
+        {
+          "text": "An internal audit is conducted by",
+          "options": [
+            "A. A client",
+            "B. An accreditation representative",
+            "C. A member of the audited area",
+            "D. An external regulatory agency"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 13
+        },
+        {
+          "text": "Which technique is used to reduce a bulk solid sample while maintaining representativeness?",
+          "options": [
+            "A. Coning and quartering",
+            "B. Titration",
+            "C. Distillation",
+            "D. Reflux"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 5
+        },
+        {
+          "text": "To determine the density of a liquid, which should be used?",
+          "options": [
+            "A. Graduated cylinder",
+            "B. Volumetric flask",
+            "C. Pycnometer",
+            "D. Pipette"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 85
+        },
+        {
+          "text": "When a deviation from critical limits happens, what should be done?",
+          "options": [
+            "A. Documentation of corrective actions.",
+            "B. Stop the process and inform the supervisor.",
+            "C. Reassess the standards being implemented.",
+            "D. All of the above."
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 48
+        },
+        {
+          "text": "Which element has a valence-electron configuration of 5s² 5p³?",
+          "options": [
+            "A. Silver",
+            "B. Antimony",
+            "C. Cesium",
+            "D. Chlorine"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 39
+        },
+        {
+          "text": "For a chromatographic column, plate height is calculated using",
+          "options": [
+            "A. H = N/L",
+            "B. H = L/N",
+            "C. H = tᵣ/tₘ",
+            "D. H = N × L"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 40
+        },
+        {
+          "text": "A compound contains 40.0% carbon, 6.7% hydrogen, and 53.3% oxygen. What is its empirical formula?",
+          "options": [
+            "A. CHO",
+            "B. CH₂O",
+            "C. C₂H₄O",
+            "D. C₂H₄O₂"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 5
+        },
+        {
+          "text": "The elution power of a mobile phase is determined by",
+          "options": [
+            "A. Its overall polarity",
+            "B. The polarity of the stationary phase",
+            "C. All of the choices",
+            "D. The nature of the sample components"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 87
+        },
+        {
+          "text": "Which statements are TRUE? I. Dry ashing is primarily for proximate composition and some types of specific mineral analyses. II. Wet ashing is done as preparation for the analysis of certain minerals. III. Microwave systems are available for both dry and wet ashing to speed the processes.",
+          "options": [
+            "A. I only",
+            "B. II only",
+            "C. I and II only",
+            "D. I, II, and III"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 11
+        },
+        {
+          "text": "What is a major advantage of a photomultiplier tube?",
+          "options": [
+            "A. internal amplification",
+            "B. absence of electrical signals",
+            "C. production of monochromatic radiation",
+            "D. elimination of the need for a radiation source"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 4
+        },
+        {
+          "text": "Which type of fractionating column has the least surface area but the highest recovery?",
+          "options": [
+            "A. glass bead column",
+            "B. steel wool column",
+            "C. Vigreux column",
+            "D. packed silica column"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 95
+        },
+        {
+          "text": "A solution containing 4.48 ppm KMnO₄ (158.04 g/mol) exhibits 85.9% transmittance in a 1.00-cm cell at 520 nm. Calculate the molar absorptivity of KMnO₄ at this wavelength.",
+          "options": [
+            "A. 1.47 × 10³ L/mol·cm",
+            "B. 2.33 × 10³ L/mol·cm",
+            "C. 4.29 × 10⁻⁴ L/mol·cm",
+            "D. 2.24 × 10⁻⁵ L/mol·cm"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 10
+        },
+        {
+          "text": "Which compound is primarily covalent?",
+          "options": [
+            "A. NaCl",
+            "B. MgO",
+            "C. CO₂",
+            "D. CaF₂"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 14
+        },
+        {
+          "text": "Which standard promotes the adoption of a process approach in developing, implementing, and improving a quality management system?",
+          "options": [
+            "A. ISO 15189",
+            "B. ISO 9000 Quality Management System",
+            "C. GLP",
+            "D. CPA"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 26
+        },
+        {
+          "text": "The total volume of an average adult’s expanded lungs is approximately 6 L. Calculate the pressure of 0.05 mol oxygen at 37°C.",
+          "options": [
+            "A. 0.0253 atm",
+            "B. 0.308 atm",
+            "C. 2.58 atm",
+            "D. 0.212 atm"
+          ],
+          "correct": 3,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 62
+        },
+        {
+          "text": "Which can promote even boiling?",
+          "options": [
+            "A. Stones",
+            "B. All of the choices",
+            "C. Chips",
+            "D. Stir bars"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 57
+        },
+        {
+          "text": "Which mixture produces a buffer solution?",
+          "options": [
+            "A. HCl and NaCl",
+            "B. NaOH and KOH",
+            "C. CH₃COOH and CH₃COONa",
+            "D. HNO₃ and KNO₃"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 69
+        },
+        {
+          "text": "Convert 250 μL to milliliters.",
+          "options": [
+            "A. 250,000 mL",
+            "B. 0.0250 mL",
+            "C. 0.250 mL",
+            "D. 2.50 mL"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 31
+        },
+        {
+          "text": "Which can remove a fairly large amount of water from a sample containing thermally labile material?",
+          "options": [
+            "A. Hotplate",
+            "B. Freeze dryer",
+            "C. Convection oven",
+            "D. Microwave equipment"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 18
+        },
+        {
+          "text": "The hydrochloric acid secreted by the stomach lining typically has a concentration of 1.2 × 10⁻³ M. What is its pH?",
+          "options": [
+            "A. 1.50",
+            "B. 2.92",
+            "C. 3.50",
+            "D. 6.19"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 7
+        },
+        {
+          "text": "Chromatographic separation is based primarily on differences in the",
+          "options": [
+            "A. atomic numbers of the analytes",
+            "B. rates at which components move through a stationary phase",
+            "C. color of the analytes",
+            "D. boiling point of the stationary phase only"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 99
+        },
+        {
+          "text": "Which volumetric equipment is normally calibrated to contain a specified volume rather than deliver it?",
+          "options": [
+            "A. buret",
+            "B. measuring pipet",
+            "C. volumetric flask",
+            "D. volumetric pipet"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 27
+        },
+        {
+          "text": "A strong absorption around 1700 cm⁻¹ is most characteristic of",
+          "options": [
+            "A. C=C",
+            "B. C–H",
+            "C. C=O",
+            "D. C≡C"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 82
+        },
+        {
+          "text": "In a mass spectrum, the tallest peak is known as the",
+          "options": [
+            "A. solvent peak",
+            "B. molecular background",
+            "C. base peak",
+            "D. isotope limit"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 70
+        },
+        {
+          "text": "A quality system is a combination of which three components?",
+          "options": [
+            "A. Quality Management, Quality Assurance, and Quality Control",
+            "B. Quality Audit, Quality Manual, and Quality Control",
+            "C. Accreditation, Certification, and Quality Assurance",
+            "D. Management Review, Audit Trail, and Certification"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 45
+        },
+        {
+          "text": "A material, sufficiently homogeneous and stable with respect to one or more specified property values, which has been established to be fit for its intended use in a measurement process.",
+          "options": [
+            "A. Chemical standards",
+            "B. Certified Reference Materials (CRM)",
+            "C. Reference Materials (RM)",
+            "D. Certified standards"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 38
+        },
+        {
+          "text": "What is the acceptable range for spiking recovery?",
+          "options": [
+            "A. 80%–120%",
+            "B. 90%–110%",
+            "C. 95%–105%",
+            "D. 98%–102%"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 34
+        },
+        {
+          "text": "Which quality system standard is specifically intended for medical laboratories?",
+          "options": [
+            "A. ISO 15189",
+            "B. ISO 9000",
+            "C. ISO/IEC 17025",
+            "D. GLP"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 9
+        },
+        {
+          "text": "In gas-solid chromatography, separation occurs primarily through",
+          "options": [
+            "A. precipitation",
+            "B. ionization",
+            "C. adsorption",
+            "D. crystallization"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 55
+        },
+        {
+          "text": "The end point of a titration is",
+          "options": [
+            "A. Always identical to the equivalence point",
+            "B. Determined by experimental observation",
+            "C. The point at which no titrant has been added",
+            "D. Independent of the indicator used"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 30
+        },
+        {
+          "text": "What is the primary function of a guard column in HPLC?",
+          "options": [
+            "A. increase detector sensitivity",
+            "B. protect the analytical column from contamination",
+            "C. increase sample concentration",
+            "D. control mobile-phase temperature"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 6
+        },
+        {
+          "text": "A standard whose value is assigned through comparison with a primary standard is known as a",
+          "options": [
+            "A. Secondary standard",
+            "B. Certified Reference Material",
+            "C. Method blank",
+            "D. Quality Control sample"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 32
+        },
+        {
+          "text": "The empirical formula of a compound is CH. If its molar mass is approximately 78 g/mol, what is its molecular formula?",
+          "options": [
+            "A. C₂H₂",
+            "B. C₆H₆",
+            "C. C₈H₈",
+            "D. None of the above"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 19
+        },
+        {
+          "text": "In a quality control chart, the upper and lower warning limits are commonly positioned at",
+          "options": [
+            "A. ±1 standard deviation from the central line",
+            "B. ±2 standard deviations from the central line",
+            "C. ±3 standard deviations from the central line",
+            "D. ±4 standard deviations from the central line"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 28
+        },
+        {
+          "text": "What is the formal charge of nitrogen in NH₄⁺?",
+          "options": [
+            "A. −1",
+            "B. 0",
+            "C. +1",
+            "D. +4"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 32
+        },
+        {
+          "text": "An element has the notation shown in the image. How many neutrons does it have? (Notation image not included in the source; assumed to be ⁴⁰₁₈Ar, with mass number 40 and atomic number 18.)",
+          "options": [
+            "A. 18",
+            "B. 22",
+            "C. 40",
+            "D. 58"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 9
+        },
+        {
+          "text": "Which of the following is true?",
+          "options": [
+            "A. Heterogeneous mixtures have phase boundaries.",
+            "B. Compounds have only one type of atom.",
+            "C. Elements can be chemically decomposed.",
+            "D. Solutions are considered pure substances."
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 61
+        },
+        {
+          "text": "Liquid-liquid chromatography separates compounds primarily by",
+          "options": [
+            "A. partition between immiscible liquids",
+            "B. magnetic attraction",
+            "C. sublimation",
+            "D. filtration"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Laboratory_Instrumentation",
+          "_source_index": 7
+        },
+        {
+          "text": "A technique used to evaluate the performance of a procedure when testing a specific sample type.",
+          "options": [
+            "A. Spiking",
+            "B. Blank analysis",
+            "C. System suitability checking",
+            "D. Reference material analysis"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 59
+        },
+        {
+          "text": "Dry ashing is primarily used to",
+          "options": [
+            "A. Increase organic content",
+            "B. Remove organic material and leave inorganic residue",
+            "C. Separate two liquids",
+            "D. Determine vapor pressure"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 29
+        },
+        {
+          "text": "Which chemical may be used to neutralize waste containing caustic soda?",
+          "options": [
+            "A. Potassium hydroxide",
+            "B. Ammonia",
+            "C. Hydrochloric acid",
+            "D. Buffer 10 solution"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 69
+        },
+        {
+          "text": "The boiling point of a liquid is the temperature at which its vapor pressure is:",
+          "options": [
+            "A. Less than internal pressure",
+            "B. Equal to internal pressure",
+            "C. Equal to external pressure",
+            "D. Greater than internal pressure"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Analytical_Chemistry",
+          "_source_index": 10
+        },
+        {
+          "text": "What is another term for spiking?",
+          "options": [
+            "A. Fortification",
+            "B. Calibration",
+            "C. Certification",
+            "D. Accreditation"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 47
+        },
+        {
+          "text": "A reaction has a theoretical yield of 10.0 g and an actual yield of 8.00 g. What is the percent yield?",
+          "options": [
+            "A. 20.0%",
+            "B. 80.0%",
+            "C. 100%",
+            "D. 180%"
+          ],
+          "correct": 1,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 33
+        },
+        {
+          "text": "Which activity is most closely associated with Quality Control?",
+          "options": [
+            "A. Defining standards",
+            "B. Preventing defects",
+            "C. Verification of products before release",
+            "D. Developing quality procedures"
+          ],
+          "correct": 2,
+          "_source_list": "CT_PT_Quality_Assurance_Control",
+          "_source_index": 44
+        },
+        {
+          "text": "What is the wavelength of light in nanometers if its frequency is 600 THz?",
+          "options": [
+            "A. 500 nm",
+            "B. 1800 nm",
+            "C. 180 nm",
+            "D. 5000 nm"
+          ],
+          "correct": 0,
+          "_source_list": "CT_PT_Inorganic_Chemistry",
+          "_source_index": 44
+        }
+      ]
     }
   ],
   "test_history": [
@@ -26466,5 +27079,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-29T03:21:17"
+  "updated_at": "2026-09-29T04:16:00"
 }
