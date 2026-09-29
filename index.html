@@ -180,6 +180,17 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
 .next-action.urgent .na-cta{color:var(--red);}
 .next-action.warn{border-left-color:var(--amber);background:var(--amber-bg);}
 .next-action.warn .na-cta{color:var(--amber-ink);}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+table.data-table{width:100%;border-collapse:collapse;font-size:.8rem;}
+table.data-table th,table.data-table td{padding:6px 9px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap;}
+table.data-table th{color:var(--sub);font-weight:700;background:var(--paper);font-size:.68rem;text-transform:uppercase;letter-spacing:.02em;}
+table.data-table td{font-family:"IBM Plex Mono",monospace;}
+table.data-table tr:last-child td{border-bottom:none;}
+table.kv-table td:first-child{color:var(--sub);font-family:inherit;font-weight:600;width:55%;}
+.chart-wrap{width:100%;}
+.chart-legend{display:flex;gap:14px;font-size:.7rem;color:var(--sub);margin-top:6px;flex-wrap:wrap;}
+.chart-legend span{display:inline-flex;align-items:center;gap:5px;}
+.chart-legend .sw{width:12px;height:3px;border-radius:2px;display:inline-block;}
 .home-bignum{font-size:1.9rem;font-weight:700;color:var(--navy);font-family:"IBM Plex Mono",monospace;line-height:1.1;}
 .home-sub{font-size:.78rem;color:var(--sub);margin-top:2px;}
 .home-delta{font-size:.86rem;margin-top:8px;line-height:1.45;}
@@ -507,6 +518,12 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
           <option value="score_low">Sort: Lowest Score First</option>
         </select>
         <div id="historyContainer"></div>
+      </div>
+      <div class="card">
+        <h3>Score Trend</h3>
+        <p class="hint" style="margin-bottom:10px;">Accuracy across every test you've taken, regardless of subject &mdash; the subject-by-subject breakdown lives in Study Priority.</p>
+        <div id="historyTrendTable"></div>
+        <div id="historyTrendChart" class="chart-wrap" style="margin-top:12px;"></div>
       </div>
       <div class="card">
         <div class="row wrap">
@@ -1408,20 +1425,7 @@ async function githubGetFile() {
   if (res.status === 404) return { data: null, sha: null };
   if (!res.ok) throw new Error(`GET ${res.status} ${(await res.text().catch(() => "")).slice(0, 150)}`);
   const json = await res.json();
-  let text;
-  if (json.content && json.encoding === "base64") {
-    text = b64DecodeUnicode(json.content);
-  } else {
-    // File is >1MB: Contents API omits content, so fetch the blob instead
-    const c2 = getGithubConfig();
-    const blobRes = await fetch(
-      `https://api.github.com/repos/${encodeURIComponent(c2.owner)}/${encodeURIComponent(c2.repo)}/git/blobs/${json.sha}`,
-      { headers: { "Authorization": `Bearer ${c2.token}`, "Accept": "application/vnd.github+json" }, cache: "no-store" }
-    );
-    if (!blobRes.ok) throw new Error(`Blob GET ${blobRes.status}`);
-    const blob = await blobRes.json();
-    text = b64DecodeUnicode(blob.content);
-  }
+  const text = b64DecodeUnicode(json.content);
   let data;
   try { data = JSON.parse(text); } catch (e) { throw new Error("Remote file isn't valid JSON -- check the path/branch."); }
   return { data, sha: json.sha };
@@ -2195,6 +2199,13 @@ function scrollHomeTo(id) {
   if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+function computeTotalQuestionsInBank() {
+  const lists = getAllLists();
+  let total = 0;
+  for (const name of Object.keys(lists)) total += (lists[name] || []).length;
+  return total;
+}
+
 function renderHomeOverview() {
   const history = loadJson(KEYS.history, []);
   const samples = loadJson(KEYS.samples, []);
@@ -2204,6 +2215,7 @@ function renderHomeOverview() {
   const resolved = mistakes.filter(m => m.resolved).length;
   const openCount = mistakes.length - resolved;
   const { allTime: questionsAnswered, today: answeredToday } = computeQuestionsAnsweredStats();
+  const totalQuestionsInBank = computeTotalQuestionsInBank();
   const todayStr = todayDateStr();
   const testsToday = history.filter(h => dateOnly(h.date) === todayStr).length;
   const lastTest = history.slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""))[0];
@@ -2219,6 +2231,7 @@ function renderHomeOverview() {
     ["Tests Taken", totalTests, testsToday ? `${testsToday} today` : "none today", testsToday ? "good" : "", () => switchTab("history")],
     ["Average Score", avgScore != null ? `${avgScore.toFixed(1)}%` : "\u2013", lastTest ? `last: ${Math.round(lastTest.pct)}%` : "no tests yet", "", () => switchTab("analysis")],
     ["Questions Answered", questionsAnswered, `${answeredToday} today`, answeredToday ? "good" : "", () => scrollHomeTo("homeMilestonesCard")],
+    ["Total Questions", totalQuestionsInBank, "in your question bank", "", () => switchTab("builder")],
     ["Saved Samples", samples.length, samples.length ? (untakenCount ? `${untakenCount} not yet taken` : "all taken") : "build one", untakenCount ? "needs-action" : (samples.length ? "good" : ""), () => switchTab(samples.length ? "saved" : "builder")],
     ["Mistakes Resolved", `${resolved}/${mistakes.length}`, mistakes.length ? (openCount ? `${openCount} open` : "all resolved") : "none logged", openCount ? "needs-action" : (mistakes.length ? "good" : ""), () => switchTab("mistakes")],
   ];
@@ -2806,18 +2819,104 @@ function refreshHistoryList() {
   $("historyCount").textContent = `(${ordered.length}${ordered.length !== history.length ? ` of ${history.length}` : ""})`;
   const box = $("historyContainer");
   box.innerHTML = "";
-  if (!history.length) { box.appendChild(el("div", "empty-state", "No tests taken yet.")); return; }
-  if (!ordered.length) { box.appendChild(el("div", "empty-state", "No tests match that search.")); return; }
+  if (!history.length) { box.appendChild(el("div", "empty-state", "No tests taken yet.")); renderHistoryTrend(); return; }
+  if (!ordered.length) { box.appendChild(el("div", "empty-state", "No tests match that search.")); renderHistoryTrend(); return; }
   for (const h of ordered) {
     const item = el("div", "list-item");
     item.innerHTML = `<div class="top-row"><span class="name">${esc(h.source || "")}</span><span class="meta">${esc(h.date || "")}</span></div>
       <div class="meta">Score ${h.score}/${h.total} (${h.pct}%) &middot; Time used ${fmtDuration(h.time_used_seconds)}</div>`;
     box.appendChild(item);
   }
+  renderHistoryTrend();
 }
 $("historySearchInput").addEventListener("input", refreshHistoryList);
 $("historySortSelect").addEventListener("change", refreshHistoryList);
 $("btnRefreshHistory").addEventListener("click", refreshHistoryList);
+
+/* ---------------------------------------------------------------------
+   Lightweight, dependency-free SVG line graph, reused by Score Trend
+   (Test History) and Progression Over Samples (Study Priority).
+   --------------------------------------------------------------------- */
+function buildLineGraphSVG(seriesList, opts) {
+  opts = opts || {};
+  const width = opts.width || 320, height = opts.height || 170;
+  const padL = 32, padR = 10, padT = 10, padB = 22;
+  const plotW = width - padL - padR, plotH = height - padT - padB;
+  const allPoints = seriesList.flatMap(s => s.points);
+  const allY = allPoints.map(p => p.y).filter(y => y !== null && y !== undefined);
+  const yMin = opts.yMin !== undefined ? opts.yMin : Math.min(0, ...allY);
+  const yMax = opts.yMax !== undefined ? opts.yMax : Math.max(100, ...allY);
+  const n = Math.max(...seriesList.map(s => s.points.length), 2);
+  const xScale = (i) => padL + (n <= 1 ? plotW / 2 : (i / (n - 1)) * plotW);
+  const yScale = (v) => padT + plotH - ((v - yMin) / ((yMax - yMin) || 1)) * plotH;
+
+  let svg = `<svg viewBox="0 0 ${width} ${height}" style="width:100%;height:auto;display:block;" xmlns="http://www.w3.org/2000/svg">`;
+  for (let i = 0; i <= 4; i++) {
+    const v = yMin + (yMax - yMin) * (i / 4);
+    const y = yScale(v);
+    svg += `<line x1="${padL}" y1="${y.toFixed(1)}" x2="${width - padR}" y2="${y.toFixed(1)}" stroke="#E1E4E9" stroke-width="1"/>`;
+    svg += `<text x="${padL - 6}" y="${(y + 3).toFixed(1)}" font-size="8" text-anchor="end" fill="#4B5563" font-family="IBM Plex Mono, monospace">${Math.round(v)}</text>`;
+  }
+  for (const s of seriesList) {
+    const valid = s.points.map((p, i) => ({ i, p })).filter(({ p }) => p.y !== null && p.y !== undefined);
+    if (valid.length) {
+      const pts = valid.map(({ i, p }) => `${xScale(i).toFixed(1)},${yScale(p.y).toFixed(1)}`).join(" ");
+      svg += `<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+      for (const { i, p } of valid) {
+        svg += `<circle cx="${xScale(i).toFixed(1)}" cy="${yScale(p.y).toFixed(1)}" r="2.6" fill="${s.color}"><title>${esc(p.tooltip || String(p.y))}</title></circle>`;
+      }
+    }
+  }
+  svg += `</svg>`;
+  return svg;
+}
+function chartLegendHTML(seriesList) {
+  return `<div class="chart-legend">${seriesList.map(s => `<span><i class="sw" style="background:${s.color};"></i>${esc(s.label)}</span>`).join("")}</div>`;
+}
+
+function computeHistoryTrendStats() {
+  const history = loadJson(KEYS.history, []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  if (!history.length) return null;
+  const scores = history.map(h => h.pct || 0);
+  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+  const best = Math.max(...scores);
+  const worst = Math.min(...scores);
+  const recent = scores[scores.length - 1];
+  let trendLabel = "Not enough data yet";
+  if (scores.length >= 4) {
+    const half = Math.floor(scores.length / 2);
+    const firstAvg = scores.slice(0, half).reduce((a, b) => a + b, 0) / half;
+    const secondAvg = scores.slice(half).reduce((a, b) => a + b, 0) / (scores.length - half);
+    const diff = secondAvg - firstAvg;
+    trendLabel = diff > 2 ? `Improving (+${diff.toFixed(1)}%)` : diff < -2 ? `Declining (${diff.toFixed(1)}%)` : "Holding steady";
+  }
+  return { history, avg, best, worst, recent, trendLabel, count: history.length };
+}
+function renderHistoryTrend() {
+  const stats = computeHistoryTrendStats();
+  const tableBox = $("historyTrendTable");
+  const chartBox = $("historyTrendChart");
+  tableBox.innerHTML = "";
+  chartBox.innerHTML = "";
+  if (!stats) {
+    tableBox.appendChild(el("div", "empty-state", "Take a test to see your score trend here."));
+    return;
+  }
+  tableBox.innerHTML = `<div class="table-wrap"><table class="data-table kv-table">
+    <tr><td>Tests Taken</td><td>${stats.count}</td></tr>
+    <tr><td>Average Score</td><td>${stats.avg.toFixed(1)}%</td></tr>
+    <tr><td>Best Score</td><td>${stats.best.toFixed(1)}%</td></tr>
+    <tr><td>Worst Score</td><td>${stats.worst.toFixed(1)}%</td></tr>
+    <tr><td>Most Recent</td><td>${stats.recent.toFixed(1)}%</td></tr>
+    <tr><td>Trend</td><td>${esc(stats.trendLabel)}</td></tr>
+  </table></div>`;
+  const series = [{
+    label: "Score %", color: "#1E3A8A",
+    points: stats.history.map(h => ({ y: h.pct || 0, tooltip: `${h.source}: ${(h.pct || 0).toFixed(1)}% (${formatDateNice(dateOnly(h.date))})` })),
+  }];
+  chartBox.innerHTML = buildLineGraphSVG(series, { yMin: 0, yMax: 100 });
+}
+
 $("btnClearHistory").addEventListener("click", () => {
   if (!confirmDialog("Clear all locally saved test history? This also clears the data behind Study Priority Analysis. This cannot be undone.")) return;
   saveJson(KEYS.history, []);
@@ -2904,12 +3003,14 @@ function refreshAnalysis() {
   if (!ranked.length) {
     rankBox.appendChild(el("div", "empty-state", "No exam data yet -- take an exam to see priority rankings here."));
   } else {
-    ranked.forEach(([subj, stats], i) => {
-      const item = el("div", "list-item");
-      item.innerHTML = `<div class="top-row"><span class="name">#${i + 1} ${esc(subj)}</span><span class="meta">${stats.weighted_pct.toFixed(1)}% priority</span></div>
-        <div class="meta">Raw accuracy ${stats.accuracy_pct.toFixed(1)}% &middot; Overconfident misses ${stats.overconfident_wrong} &middot; Answered ${stats.total_answered} &middot; Exams ${stats.n_exams}</div>`;
-      rankBox.appendChild(item);
-    });
+    const rows = ranked.map(([subj, stats], i) => `<tr>
+        <td>${i + 1}</td><td>${esc(subj)}</td><td>${stats.weighted_pct.toFixed(1)}%</td>
+        <td>${stats.accuracy_pct.toFixed(1)}%</td><td>${stats.overconfident_wrong}</td>
+        <td>${stats.total_answered}</td><td>${stats.n_exams}</td></tr>`).join("");
+    rankBox.innerHTML = `<div class="table-wrap"><table class="data-table">
+      <tr><th>#</th><th>Subject</th><th>Priority</th><th>Accuracy</th><th>Overconfident</th><th>Answered</th><th>Exams</th></tr>
+      ${rows}
+    </table></div>`;
   }
 
   const barBox = $("priorityBars");
@@ -2934,19 +3035,11 @@ function drawProgressionChart() {
   const box = $("progressionChart");
   box.innerHTML = "";
   if (!series.length) { box.appendChild(el("div", "empty-state", "No progression data for this subject yet.")); return; }
-  series.forEach((entry, i) => {
-    const acc = entry.accuracy_pct, w = entry.weighted_pct;
-    const row = el("div", "bar-row");
-    row.innerHTML = `<div class="lbl">S${i + 1}</div>
-      <div class="bar-track"><div class="bar-fill" style="width:${acc != null ? acc : 0}%;background:var(--navy);"></div></div>
-      <div class="bar-val">${acc != null ? acc.toFixed(0) + "%" : "n/a"}</div>`;
-    box.appendChild(row);
-    const row2 = el("div", "bar-row");
-    row2.innerHTML = `<div class="lbl" style="color:var(--violet);">weighted</div>
-      <div class="bar-track"><div class="bar-fill" style="width:${w != null ? w : 0}%;background:var(--violet);"></div></div>
-      <div class="bar-val">${w != null ? w.toFixed(0) + "%" : "n/a"}</div>`;
-    box.appendChild(row2);
-  });
+  const lines = [
+    { label: "Raw Accuracy %", color: "#1E3A8A", points: series.map((entry, i) => ({ y: entry.accuracy_pct, tooltip: `Sample ${i + 1} (${entry.exam_source}): ${entry.accuracy_pct != null ? entry.accuracy_pct.toFixed(1) + "%" : "n/a"}` })) },
+    { label: "Weighted Priority %", color: "#5B21B6", points: series.map((entry, i) => ({ y: entry.weighted_pct, tooltip: `Sample ${i + 1} (${entry.exam_source}): ${entry.weighted_pct != null ? entry.weighted_pct.toFixed(1) + "%" : "n/a"}` })) },
+  ];
+  box.innerHTML = buildLineGraphSVG(lines, { yMin: 0, yMax: 100 }) + chartLegendHTML(lines);
 }
 
 function renderAnalysisText(ranked, progression) {
