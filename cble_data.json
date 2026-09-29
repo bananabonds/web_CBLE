@@ -26174,7 +26174,7 @@
       "correct_answer": "D. Ail of above",
       "category": "Conceptual Misunderstanding",
       "note": "Dermal absorption is only one of the ways toxicants enter organisms",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T05:52:54"
     },
     {
@@ -27598,6 +27598,19 @@
       "is_correct": false,
       "note": "DoU = C-H/2+N/2+1. Ring or double is 1 DoU and triple is 2.",
       "date_logged": "2026-09-28T20:03:16"
+    },
+    {
+      "id": "1790660085964211",
+      "exam_id": "1790657852839495",
+      "exam_source": "CT_PT_S7",
+      "source_list": "CT_PT_Laboratory_Instrumentation",
+      "reference_no": 96,
+      "question": "Which type of fractionating column has the least surface area but the highest recovery?",
+      "your_answer": "C. Vigreux column",
+      "correct_answer": "C. Vigreux column",
+      "is_correct": true,
+      "note": "Vigreux column uses glass indentations which lowers hold up meaning more liquid is recovered",
+      "date_logged": "2026-09-29T05:34:45"
     }
   ],
   "exam_dates": [
@@ -27623,5 +27636,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-29T05:28:17"
+  "updated_at": "2026-09-29T05:34:54"
 }
