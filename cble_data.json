@@ -26321,6 +26321,20 @@
       "note": "TH is from Ca Mg, Alkalinity is from HCO3, Carbonate hardness = min(TH, Alkalinity), Non Carbonate Hardness= TH - Alkalinity",
       "resolved": false,
       "date_logged": "2026-09-29T03:14:56"
+    },
+    {
+      "id": "1790652070095889",
+      "exam_id": "1790608409306839",
+      "exam_source": "D1_S5",
+      "source_list": "D1_L7_Biochemistry",
+      "reference_no": 76,
+      "question": "Which of the following kinetic parameters best describes how well suited a specific compound functions as a substrate for a particular enzyme?",
+      "your_answer": "A. Km",
+      "correct_answer": "D. kcat/Km",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "kcat/Km is called the specificity constant where kcat is from Vmax = kcat[E]t or the maximum velocity over total enzyme concentration. If Km >> [S] the michaeles menten is kcat/Km * [E]t * [S] it becomes the k constant of the rate law",
+      "resolved": false,
+      "date_logged": "2026-09-29T03:21:10"
     }
   ],
   "guess_notes": [
@@ -26452,5 +26466,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-29T03:15:03"
+  "updated_at": "2026-09-29T03:21:17"
 }
