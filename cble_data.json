@@ -17841,6 +17841,623 @@
           "_source_index": 90
         }
       ]
+    },
+    {
+      "id": "179076789778829",
+      "name": "AI_CT_S4",
+      "created_at": "2026-09-30T11:31:37",
+      "composition": {
+        "AI_CT_Organic_Laboratory_Technology": 6,
+        "AI_CT_Chemical_Waste_Management": 7,
+        "AI_CT_Organic_Chemistry": 6,
+        "AI_CT_Reagents_and_QC": 6,
+        "AI_CT_General_Chemistry": 6,
+        "AI_CT_Laboratory_Technology": 6,
+        "AI_CT_Chemical_Safety": 7,
+        "AI_CT_Instrumental_Analysis": 6
+      },
+      "questions": [
+        {
+          "text": "Reflux is used to",
+          "options": [
+            "A. filter a solid product",
+            "B. cool a reaction mixture",
+            "C. heat a reaction at its boiling point without losing solvent, using a condenser",
+            "D. evaporate all the solvent"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Organic_Laboratory_Technology",
+          "_source_index": 17
+        },
+        {
+          "text": "The preferred first step in waste management is",
+          "options": [
+            "A. waste minimization at the source",
+            "B. disposal in a landfill",
+            "C. open burning",
+            "D. dilution before disposal"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Chemical_Waste_Management",
+          "_source_index": 12
+        },
+        {
+          "text": "Isomers are compounds that have",
+          "options": [
+            "A. different elements",
+            "B. the same structure but different molecular formulas",
+            "C. the same molecular formula but different structures",
+            "D. identical physical properties"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Organic_Chemistry",
+          "_source_index": 1
+        },
+        {
+          "text": "A standard solution is a solution whose",
+          "options": [
+            "A. color is standardized",
+            "B. concentration is accurately known",
+            "C. volume is exactly 1 L",
+            "D. concentration is estimated"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Reagents_and_QC",
+          "_source_index": 15
+        },
+        {
+          "text": "Adding a nonvolatile solute to water will",
+          "options": [
+            "A. lower both its boiling point and freezing point",
+            "B. lower its boiling point and raise its freezing point",
+            "C. raise its boiling point and lower its freezing point",
+            "D. raise both its boiling point and freezing point"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_General_Chemistry",
+          "_source_index": 11
+        },
+        {
+          "text": "Hazardous waste generators in the Philippines are required to register with the",
+          "options": [
+            "A. DENR Environmental Management Bureau (EMB)",
+            "B. Department of Labor and Employment",
+            "C. Department of Health",
+            "D. Bureau of Fisheries and Aquatic Resources"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Chemical_Waste_Management",
+          "_source_index": 3
+        },
+        {
+          "text": "Coning and quartering is used to",
+          "options": [
+            "A. separate two immiscible liquids",
+            "B. reduce a large bulk solid to a smaller representative portion",
+            "C. dissolve a solid sample",
+            "D. measure particle color"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Laboratory_Technology",
+          "_source_index": 15
+        },
+        {
+          "text": "The conductivity of an electrolyte solution mainly depends on",
+          "options": [
+            "A. the volume of the container",
+            "B. the color of the solution",
+            "C. the concentration and mobility of ions",
+            "D. the density of the solvent only"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Laboratory_Technology",
+          "_source_index": 13
+        },
+        {
+          "text": "Samples for volatile organic analysis should be collected",
+          "options": [
+            "A. in sealed containers filled with no headspace and kept cold",
+            "B. with extra headspace to allow expansion",
+            "C. in loosely capped plastic bags",
+            "D. in open beakers at room temperature"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Laboratory_Technology",
+          "_source_index": 16
+        },
+        {
+          "text": "In a voltaic (galvanic) cell, oxidation occurs at the",
+          "options": [
+            "A. anode",
+            "B. cathode",
+            "C. salt bridge",
+            "D. external wire"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_General_Chemistry",
+          "_source_index": 16
+        },
+        {
+          "text": "Express 0.000456 in scientific notation.",
+          "options": [
+            "A. 4.56 × 10⁻⁵",
+            "B. 4.56 × 10⁴",
+            "C. 4.56 × 10⁻³",
+            "D. 4.56 × 10⁻⁴"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_General_Chemistry",
+          "_source_index": 4
+        },
+        {
+          "text": "Mixing cyanide waste with acidic waste is dangerous because it",
+          "options": [
+            "A. cools the mixture",
+            "B. solidifies the waste",
+            "C. produces a harmless salt",
+            "D. releases toxic hydrogen cyanide gas"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Waste_Management",
+          "_source_index": 5
+        },
+        {
+          "text": "After a chemical splash in the eye, the eye should be flushed at an eyewash station for at least",
+          "options": [
+            "A. 1 minute",
+            "B. 15 minutes",
+            "C. 30 seconds",
+            "D. 5 minutes"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Chemical_Safety",
+          "_source_index": 4
+        },
+        {
+          "text": "Which GHS pictogram is used for substances that corrode metals and burn skin?",
+          "options": [
+            "A. Exclamation mark",
+            "B. Flame over circle",
+            "C. Gas cylinder",
+            "D. Corrosion"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Safety",
+          "_source_index": 17
+        },
+        {
+          "text": "How many significant figures are in the measurement 0.004050 g?",
+          "options": [
+            "A. 4",
+            "B. 2",
+            "C. 3",
+            "D. 5"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_General_Chemistry",
+          "_source_index": 2
+        },
+        {
+          "text": "Aromatic hydrocarbons are typically characterized by",
+          "options": [
+            "A. the absence of carbon",
+            "B. ionic bonding",
+            "C. delocalized π electrons in a ring",
+            "D. only single bonds in a chain"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Organic_Chemistry",
+          "_source_index": 18
+        },
+        {
+          "text": "Retention time in chromatography is the time",
+          "options": [
+            "A. from sample injection to the peak maximum",
+            "B. needed to pack the column",
+            "C. needed to warm up the detector",
+            "D. needed to prepare the sample"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Instrumental_Analysis",
+          "_source_index": 9
+        },
+        {
+          "text": "A blank solution in a spectrophotometer is used to",
+          "options": [
+            "A. set the instrument to maximum absorbance",
+            "B. measure the density of the sample",
+            "C. calibrate the wavelength scale",
+            "D. set the instrument to zero absorbance (100 %T)"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Instrumental_Analysis",
+          "_source_index": 4
+        },
+        {
+          "text": "A reagent blank is used to",
+          "options": [
+            "A. increase the sensitivity of the method",
+            "B. correct for signal contributed by the reagents and background",
+            "C. replace the calibration standards",
+            "D. determine the density of the sample"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Reagents_and_QC",
+          "_source_index": 3
+        },
+        {
+          "text": "UV-Vis spectroscopy is most useful for organic compounds containing",
+          "options": [
+            "A. only metals",
+            "B. conjugated systems (chromophores)",
+            "C. only single bonds",
+            "D. only saturated alkanes"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Organic_Laboratory_Technology",
+          "_source_index": 15
+        },
+        {
+          "text": "Glassware is considered clean when",
+          "options": [
+            "A. water drains as a uniform film with no droplets",
+            "B. it has been wiped with a paper towel",
+            "C. it smells of detergent",
+            "D. it has been rinsed once with tap water"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Laboratory_Technology",
+          "_source_index": 3
+        },
+        {
+          "text": "A pH meter should be calibrated using",
+          "options": [
+            "A. at least two standard buffers that bracket the expected sample pH",
+            "B. distilled water only",
+            "C. one pH 7 buffer regardless of the sample",
+            "D. the sample itself"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Laboratory_Technology",
+          "_source_index": 9
+        },
+        {
+          "text": "Deviations from the Beer–Lambert law are most common at",
+          "options": [
+            "A. high concentrations",
+            "B. low temperatures only",
+            "C. zero absorbance",
+            "D. very dilute solutions only"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Instrumental_Analysis",
+          "_source_index": 12
+        },
+        {
+          "text": "How many grams of NaOH (M = 40.00 g/mol) are needed to prepare 500 mL of 0.10 M solution?",
+          "options": [
+            "A. 20 g",
+            "B. 4.0 g",
+            "C. 2.0 g",
+            "D. 0.20 g"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Reagents_and_QC",
+          "_source_index": 0
+        },
+        {
+          "text": "A closed system should never be heated because",
+          "options": [
+            "A. it slows the reaction",
+            "B. it changes the color of the product",
+            "C. it wastes energy",
+            "D. pressure buildup may cause an explosion"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Organic_Laboratory_Technology",
+          "_source_index": 18
+        },
+        {
+          "text": "A glass pH electrode should be stored in",
+          "options": [
+            "A. distilled water",
+            "B. a storage solution (or pH 4 buffer with KCl) so it stays hydrated",
+            "C. air, completely dry",
+            "D. strong acid"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Instrumental_Analysis",
+          "_source_index": 6
+        },
+        {
+          "text": "In the scientific method, a hypothesis is evaluated by",
+          "options": [
+            "A. repeating the observation without changing anything",
+            "B. a controlled experiment",
+            "C. personal opinion",
+            "D. memorizing previous results"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_General_Chemistry",
+          "_source_index": 19
+        },
+        {
+          "text": "Oxidation of a primary alcohol with excess oxidant generally yields",
+          "options": [
+            "A. a ketone",
+            "B. an ether",
+            "C. an alkane",
+            "D. a carboxylic acid"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Organic_Chemistry",
+          "_source_index": 10
+        },
+        {
+          "text": "Aqueous and solvent-based wastes should be",
+          "options": [
+            "A. combined for convenience",
+            "B. combined into one drum",
+            "C. evaporated in the open",
+            "D. collected in separate containers"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Waste_Management",
+          "_source_index": 10
+        },
+        {
+          "text": "In colorimetric analysis, measurements are normally made at",
+          "options": [
+            "A. the wavelength of minimum absorbance",
+            "B. the wavelength of maximum absorbance",
+            "C. any random wavelength",
+            "D. the wavelength where absorbance is zero"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Instrumental_Analysis",
+          "_source_index": 1
+        },
+        {
+          "text": "Which cuvette material is required for measurements in the ultraviolet region?",
+          "options": [
+            "A. Polyethylene",
+            "B. Ordinary glass",
+            "C. Polystyrene",
+            "D. Quartz"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Instrumental_Analysis",
+          "_source_index": 2
+        },
+        {
+          "text": "A broken mercury thermometer should be cleaned up using",
+          "options": [
+            "A. a broom",
+            "B. a wet mop and then the sink",
+            "C. a household vacuum cleaner",
+            "D. a mercury spill kit, with the waste disposed of as hazardous waste"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Waste_Management",
+          "_source_index": 13
+        },
+        {
+          "text": "Which instrument is used to measure viscosity?",
+          "options": [
+            "A. Hydrometer",
+            "B. Ostwald viscometer",
+            "C. Refractometer",
+            "D. Pycnometer"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Laboratory_Technology",
+          "_source_index": 10
+        },
+        {
+          "text": "A chemical fume hood should be used when working with",
+          "options": [
+            "A. dry glassware",
+            "B. tap water",
+            "C. table salt",
+            "D. volatile, toxic, or odorous substances"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Safety",
+          "_source_index": 10
+        },
+        {
+          "text": "Alkenes typically undergo",
+          "options": [
+            "A. no reactions",
+            "B. addition reactions",
+            "C. substitution at the C=C bond only",
+            "D. neutralization only"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Organic_Chemistry",
+          "_source_index": 8
+        },
+        {
+          "text": "Used needles and broken glass should be placed in",
+          "options": [
+            "A. a paper bag",
+            "B. a regular trash bag",
+            "C. the sink",
+            "D. a puncture-resistant sharps container"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Waste_Management",
+          "_source_index": 8
+        },
+        {
+          "text": "Oxidizing reagents such as nitric acid should be stored",
+          "options": [
+            "A. in the same cabinet as flammable liquids",
+            "B. separately from flammable and organic materials",
+            "C. beside solvents for convenience",
+            "D. together with reducing agents"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Reagents_and_QC",
+          "_source_index": 13
+        },
+        {
+          "text": "In an extraction with dichloromethane and water, the dichloromethane layer is",
+          "options": [
+            "A. the top layer because it is less dense than water",
+            "B. not a separate layer",
+            "C. the bottom layer because it is denser than water",
+            "D. the top layer because it is polar"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Organic_Laboratory_Technology",
+          "_source_index": 4
+        },
+        {
+          "text": "In a water-cooled condenser, the cooling water should enter at the",
+          "options": [
+            "A. top inlet and exit at the bottom",
+            "B. either end, with no difference",
+            "C. top only, with no flow through",
+            "D. lower inlet and exit at the top"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Organic_Laboratory_Technology",
+          "_source_index": 8
+        },
+        {
+          "text": "The fire triangle consists of",
+          "options": [
+            "A. oxygen, nitrogen, and heat",
+            "B. fuel, light, and oxygen",
+            "C. fuel, water, and heat",
+            "D. fuel, heat, and oxygen"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Safety",
+          "_source_index": 8
+        },
+        {
+          "text": "Diethyl ether stored for a long time can form",
+          "options": [
+            "A. strong acids",
+            "B. harmless polymers",
+            "C. stable hydrates",
+            "D. explosive peroxides"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Safety",
+          "_source_index": 20
+        },
+        {
+          "text": "Halogenated and non-halogenated solvent wastes are segregated mainly because",
+          "options": [
+            "A. it only saves storage space",
+            "B. they have different colors",
+            "C. halogenated solvents always float",
+            "D. they require different disposal treatment, and mixing increases hazard and cost"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Waste_Management",
+          "_source_index": 4
+        },
+        {
+          "text": "Ethanol is completely miscible with water mainly because it",
+          "options": [
+            "A. is nonpolar",
+            "B. forms hydrogen bonds with water",
+            "C. has a very high density",
+            "D. is ionic"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Organic_Chemistry",
+          "_source_index": 11
+        },
+        {
+          "text": "Percent error is computed as",
+          "options": [
+            "A. |experimental − true| × 100",
+            "B. experimental + true ÷ 100",
+            "C. |experimental − true| ÷ true × 100",
+            "D. true ÷ experimental × 100"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Reagents_and_QC",
+          "_source_index": 6
+        },
+        {
+          "text": "What is the pH of a 0.001 M HCl solution?",
+          "options": [
+            "A. 3",
+            "B. 7",
+            "C. 1",
+            "D. 11"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_General_Chemistry",
+          "_source_index": 12
+        },
+        {
+          "text": "Which pair are structural isomers?",
+          "options": [
+            "A. butane and 2-methylpropane",
+            "B. propane and propene",
+            "C. ethane and ethene",
+            "D. methanol and ethanol"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Organic_Chemistry",
+          "_source_index": 16
+        },
+        {
+          "text": "When diluting concentrated sulfuric acid, one should",
+          "options": [
+            "A. slowly add the acid to water while stirring",
+            "B. add water quickly to the acid",
+            "C. heat the water first and then add the acid",
+            "D. add all the acid at once to a small volume of water"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Reagents_and_QC",
+          "_source_index": 1
+        },
+        {
+          "text": "Pipetting by mouth in the laboratory is",
+          "options": [
+            "A. acceptable for water",
+            "B. acceptable for dilute solutions",
+            "C. prohibited; use a pipette bulb or pipettor",
+            "D. allowed when wearing gloves"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Chemical_Safety",
+          "_source_index": 16
+        },
+        {
+          "text": "A common drying agent for organic liquids is",
+          "options": [
+            "A. calcium chloride solution",
+            "B. dilute sulfuric acid",
+            "C. anhydrous sodium sulfate",
+            "D. sodium hydroxide solution"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Organic_Laboratory_Technology",
+          "_source_index": 10
+        },
+        {
+          "text": "Which extinguisher type is suitable for an electrical (Class C) fire?",
+          "options": [
+            "A. Wet chemical",
+            "B. Water",
+            "C. Foam",
+            "D. Carbon dioxide (CO2)"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Safety",
+          "_source_index": 5
+        }
+      ]
     }
   ],
   "test_history": [
@@ -35379,5 +35996,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-30T11:21:36"
+  "updated_at": "2026-09-30T11:31:45"
 }
