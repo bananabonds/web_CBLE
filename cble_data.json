@@ -34534,6 +34534,20 @@
       "note": "Rf is a ratio between 0-1 and it's the distance of the spot relative to the solvent",
       "resolved": true,
       "date_logged": "2026-09-30T09:50:33"
+    },
+    {
+      "id": "1790766362911869",
+      "exam_id": "179076617643414",
+      "exam_source": "AI_CT_S3",
+      "source_list": "AI_CT_Instrumental_Analysis",
+      "reference_no": 9,
+      "question": "In gas chromatography, the mobile phase is",
+      "your_answer": "A. the volatile liquid sample",
+      "correct_answer": "C. an inert carrier gas such as helium or nitrogen",
+      "category": "Conceptual Misunderstanding",
+      "note": "The mobile phase is the medium of the analyte",
+      "resolved": false,
+      "date_logged": "2026-09-30T11:06:02"
     }
   ],
   "guess_notes": [
@@ -34678,5 +34692,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-30T11:04:57"
+  "updated_at": "2026-09-30T11:06:10"
 }
