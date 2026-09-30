@@ -1154,7 +1154,9 @@ function renameSampleSet(id, newName) {
 
     const mistakes = loadMistakeLog();
     changed = false;
-    for (const m of mistakes) if (m.exam_source === oldName) { m.exam_source = newName; changed = true; }
+    for (const m of mistakes) {
+      for (const o of (m.occurrences || [])) if (o.exam_source === oldName) { o.exam_source = newName; changed = true; }
+    }
     if (changed) saveJson(KEYS.mistakes, mistakes);
 
     const guesses = loadGuessNotes();
@@ -1262,7 +1264,38 @@ function computeSubjectAnalysis() {
    Mistake log
    --------------------------------------------------------------------- */
 function loadMistakeLog() { return loadJson(KEYS.mistakes, []); }
-function mistakeKey(examId, sourceList, referenceNo) { return `${examId}::${sourceList}::${referenceNo}`; }
+function mistakeKey(sourceList, referenceNo) { return `${sourceList}::${referenceNo}`; }
+function findMistakeEntry(log, sourceList, referenceNo) {
+  const key = mistakeKey(sourceList, referenceNo);
+  return log.find(e => mistakeKey(e.source_list, e.reference_no) === key);
+}
+function addMistakeOccurrence(entry, examId, examSource, yourAnswer, correctAnswer) {
+  if (!entry.occurrences) entry.occurrences = [];
+  if (!entry.occurrences.some(o => o.exam_id === examId)) {
+    entry.occurrences.push({ exam_id: examId, exam_source: examSource, date: nowIso(), your_answer: yourAnswer, correct_answer: correctAnswer });
+  }
+}
+// Called automatically for every wrong answer when an exam is submitted. If this exact
+// question (by subject + reference number) already has a flashcard -- from ANY exam,
+// not just this one -- it just adds this attempt to its history and, if it had been
+// marked resolved, reopens it. It never overwrites an existing note or category. A
+// brand-new question gets an entry with no category yet, which is what "unlogged"
+// means elsewhere in this tab -- logging is filling that in, not creating the record.
+function recordMistakeOccurrence(examId, examSource, sourceList, referenceNo, question, yourAnswer, correctAnswer) {
+  const log = loadMistakeLog();
+  let entry = findMistakeEntry(log, sourceList, referenceNo);
+  let reopened = false;
+  if (!entry) {
+    entry = { id: uid(), source_list: sourceList, reference_no: referenceNo, question, category: "", note: "", resolved: false, date_logged: nowIso(), occurrences: [] };
+    log.push(entry);
+  } else {
+    if (question) entry.question = question;
+    if (entry.resolved) { entry.resolved = false; reopened = true; }
+  }
+  addMistakeOccurrence(entry, examId, examSource, yourAnswer, correctAnswer);
+  saveJson(KEYS.mistakes, log);
+  return { entry, reopened };
+}
 
 function getExamMistakes(examId) {
   const details = loadJson(KEYS.details, []);
@@ -1271,26 +1304,27 @@ function getExamMistakes(examId) {
   return (d.items || []).filter(it => !it.is_correct);
 }
 
+// Used by the manual "Log / Edit This Mistake" form. This ENRICHES the flashcard for a
+// question (by subject + reference number) with a category and note -- it does not create
+// a fresh row per exam. If this question already has a flashcard (because it was missed
+// before, or was just auto-recorded by recordMistakeOccurrence at submission time), that
+// same flashcard is updated in place, so a repeated mistake never starts blank again.
 function saveMistakeEntry(examId, examSource, sourceList, referenceNo, question, yourAnswer, correctAnswer, category, note, resolved) {
   const log = loadMistakeLog();
-  const key = mistakeKey(examId, sourceList, referenceNo);
-  const now = nowIso();
-  for (const entry of log) {
-    if (mistakeKey(entry.exam_id, entry.source_list, entry.reference_no) === key) {
-      Object.assign(entry, { category, note, resolved, date_logged: now, question, your_answer: yourAnswer, correct_answer: correctAnswer, exam_source: examSource });
-      saveJson(KEYS.mistakes, log);
-      scheduleGithubSync();
-      return entry;
-    }
+  let entry = findMistakeEntry(log, sourceList, referenceNo);
+  if (!entry) {
+    entry = { id: uid(), source_list: sourceList, reference_no: referenceNo, question, category: "", note: "", resolved: false, date_logged: nowIso(), occurrences: [] };
+    log.push(entry);
   }
-  const record = {
-    id: uid(), exam_id: examId, exam_source: examSource, source_list: sourceList, reference_no: referenceNo,
-    question, your_answer: yourAnswer, correct_answer: correctAnswer, category, note, resolved, date_logged: now,
-  };
-  log.push(record);
+  entry.question = question || entry.question;
+  entry.category = category;
+  entry.note = note;
+  entry.resolved = resolved;
+  entry.date_logged = nowIso();
+  addMistakeOccurrence(entry, examId, examSource, yourAnswer, correctAnswer);
   saveJson(KEYS.mistakes, log);
   scheduleGithubSync();
-  return record;
+  return entry;
 }
 function deleteMistakeEntry(entryId) {
   let log = loadMistakeLog();
@@ -1300,7 +1334,7 @@ function deleteMistakeEntry(entryId) {
   scheduleGithubSync();
 }
 function computeMistakeInsights() {
-  const log = loadMistakeLog();
+  const log = loadMistakeLog().filter(e => e.category); // only actually-logged flashcards, not auto-tracked-only ones
   const catCounts = {}, catUnresolved = {}, subjCounts = {};
   for (const e of log) {
     const cat = e.category || "Uncategorized";
@@ -1424,24 +1458,8 @@ async function githubGetFile() {
   });
   if (res.status === 404) return { data: null, sha: null };
   if (!res.ok) throw new Error(`GET ${res.status} ${(await res.text().catch(() => "")).slice(0, 150)}`);
-  
-  // Blob Fix
   const json = await res.json();
-  let text;
-  if (json.content && json.encoding === "base64") {
-    text = b64DecodeUnicode(json.content);
-  } else {
-    // File is >1MB: Contents API omits content, so fetch the blob instead
-    const c2 = getGithubConfig();
-    const blobRes = await fetch(
-      `https://api.github.com/repos/${encodeURIComponent(c2.owner)}/${encodeURIComponent(c2.repo)}/git/blobs/${json.sha}`,
-      { headers: { "Authorization": `Bearer ${c2.token}`, "Accept": "application/vnd.github+json" }, cache: "no-store" }
-    );
-    if (!blobRes.ok) throw new Error(`Blob GET ${blobRes.status}`);
-    const blob = await blobRes.json();
-    text = b64DecodeUnicode(blob.content);
-  }
-    
+  const text = b64DecodeUnicode(json.content);
   let data;
   try { data = JSON.parse(text); } catch (e) { throw new Error("Remote file isn't valid JSON -- check the path/branch."); }
   return { data, sha: json.sha };
@@ -1591,6 +1609,7 @@ function applySnapshotToLocal(snap) {
   if (snap.guess_notes) saveJson(KEYS.guessNotes, snap.guess_notes);
   if (snap.exam_dates) saveJson(KEYS.examDates, snap.exam_dates);
   if (snap.tombstones) saveJson(KEYS.tombstones, snap.tombstones);
+  if (snap.mistake_log && typeof migrateMistakeLogIfNeeded === "function") migrateMistakeLogIfNeeded();
 }
 function mergeById(remoteArr, localArr, idKey, deletedKeys) {
   const dead = new Set(deletedKeys || []);
@@ -2181,31 +2200,31 @@ function daysSince(dateStr) {
   return Math.round((now - then) / 86400000);
 }
 function computeDueForReview(limit) {
-  const fullMistakeLog = loadMistakeLog();
-  const repeatCounts = {};
-  for (const e of fullMistakeLog) { const k = mistakeRepeatKey(e); repeatCounts[k] = (repeatCounts[k] || 0) + 1; }
+  // Only actually-logged (categorized), unresolved flashcards -- an auto-tracked-but-not-
+  // yet-categorized miss belongs in "Tests With Unlogged Mistakes" instead, not here.
+  const fullMistakeLog = loadMistakeLog().filter(e => e.category && !e.resolved);
 
   const items = [];
-  for (const m of fullMistakeLog.filter(e => !e.resolved)) {
-    items.push({ type: "mistake", stale: daysSince(m.date_logged), repeat: repeatCounts[mistakeRepeatKey(m)] || 1, data: m });
+  for (const m of fullMistakeLog) {
+    items.push({ type: "mistake", stale: daysSince(m.date_logged), repeat: (m.occurrences || []).length || 1, data: m });
   }
   for (const g of getAllGuesses()) {
     const touched = (g.note_entry && g.note_entry.date_logged) || g.date;
     items.push({ type: "guess", stale: daysSince(touched), repeat: 1, data: g });
   }
   items.sort((a, b) => (b.repeat - a.repeat) || (b.stale - a.stale));
-  return { items: items.slice(0, limit), repeatCounts };
+  return items.slice(0, limit);
 }
 function renderDueForReview() {
   const box = $("homeDueContainer");
   box.innerHTML = "";
-  const { items, repeatCounts } = computeDueForReview(8);
+  const items = computeDueForReview(8);
   if (!items.length) {
     box.appendChild(el("div", "empty-state", "Nothing waiting for review right now \u2014 log a mistake or take an assessment to build this up."));
     return;
   }
   for (const item of items) {
-    if (item.type === "mistake") box.appendChild(renderMistakeCard(item.data, repeatCounts[mistakeRepeatKey(item.data)] || 1));
+    if (item.type === "mistake") box.appendChild(renderMistakeCard(item.data, (item.data.occurrences || []).length || 1));
     else box.appendChild(renderGuessCard(item.data));
   }
 }
@@ -2619,7 +2638,7 @@ $("importFileInput").addEventListener("change", (e) => {
       if (data.sample_sets) saveJson(KEYS.samples, data.sample_sets);
       if (data.test_history) saveJson(KEYS.history, data.test_history);
       if (data.exam_details) saveJson(KEYS.details, data.exam_details);
-      if (data.mistake_log) saveJson(KEYS.mistakes, data.mistake_log);
+      if (data.mistake_log) { saveJson(KEYS.mistakes, data.mistake_log); migrateMistakeLogIfNeeded(); }
       if (data.guess_notes) saveJson(KEYS.guessNotes, data.guess_notes);
       if (data.exam_dates) saveJson(KEYS.examDates, data.exam_dates);
       if (data.tombstones) saveJson(KEYS.tombstones, unionTombstones(loadTombstones(), data.tombstones));
@@ -3118,14 +3137,18 @@ $("mistakeExamSelect").addEventListener("change", onLoadExamMistakes);
 function computeTestsWithUnloggedMistakes() {
   const history = loadJson(KEYS.history, []);
   const details = loadJson(KEYS.details, []);
-  const loggedKeys = new Set(loadMistakeLog().map(e => mistakeKey(e.exam_id, e.source_list, e.reference_no)));
+  // Keyed by subject + reference number only (not by exam) -- a question already
+  // categorized from ANY earlier test counts as logged here too, so you're never asked
+  // to re-log the same flashcard just because it recurred in a new test.
+  const categorizedByKey = {};
+  for (const e of loadMistakeLog()) if (e.category) categorizedByKey[mistakeKey(e.source_list, e.reference_no)] = true;
   const rows = [];
   for (const h of history) {
     const d = details.find(dd => dd.exam_id === h.id);
     if (!d) continue;
     const wrongItems = (d.items || []).filter(it => !it.is_correct);
     if (!wrongItems.length) continue; // perfect score, nothing to log
-    const unloggedCount = wrongItems.filter(it => !loggedKeys.has(mistakeKey(h.id, it.source_list, it.reference_no))).length;
+    const unloggedCount = wrongItems.filter(it => !categorizedByKey[mistakeKey(it.source_list, it.reference_no)]).length;
     if (unloggedCount > 0) rows.push({ examId: h.id, source: h.source, date: h.date, totalWrong: wrongItems.length, unloggedCount });
   }
   rows.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
@@ -3298,15 +3321,19 @@ function onLoadExamMistakes() {
   if (!examRecord) return;
   const examId = examRecord.id;
   const mistakes = getExamMistakes(examId);
-  const loggedByKey = {};
-  for (const e of loadMistakeLog()) if (e.exam_id === examId) loggedByKey[`${e.source_list}::${e.reference_no}`] = e;
+  // Looked up globally by subject + reference number -- NOT scoped to this exam -- so a
+  // question logged from a different test still shows its existing flashcard here instead
+  // of appearing blank. "Logged" specifically means it has a category, not just that it's
+  // been auto-tracked (recordMistakeOccurrence creates an entry for every miss up front).
+  const fullLog = loadMistakeLog();
 
   for (const it of mistakes) {
-    const key = `${it.source_list}::${it.reference_no}`;
+    const rawEntry = findMistakeEntry(fullLog, it.source_list, it.reference_no);
     currentExamMistakes.push({
       exam_id: examId, exam_source: examRecord.source, source_list: it.source_list, reference_no: it.reference_no,
       question: it.question || "", your_answer: it.your_answer || "", correct_answer: it.correct_answer || "",
-      logged_entry: loggedByKey[key] || null,
+      logged_entry: (rawEntry && rawEntry.category) ? rawEntry : null,
+      occurrence_count: rawEntry ? (rawEntry.occurrences || []).length : 1,
     });
   }
 
@@ -3318,12 +3345,13 @@ function onLoadExamMistakes() {
     const entry = row.logged_entry;
     const statusClass = !entry ? "status-red" : (entry.resolved ? "status-green" : "status-yellow");
     const statusLabel = !entry ? "Not logged" : (entry.resolved ? "Logged \u00b7 Resolved" : "Logged \u00b7 Unresolved");
-    const item = el("div", `list-item selectable ${statusClass}`);
+    const repeatBadge = row.occurrence_count > 1 ? `<span class="status-pill repeat-pill">\u{1F501} \u00d7${row.occurrence_count}</span>` : "";
+    const item = el("div", `list-item selectable ${statusClass}${row.occurrence_count > 1 ? " repeated" : ""}`);
     item.innerHTML = `<div class="top-row"><span class="name">Ref #${esc(row.reference_no)} &middot; ${esc(row.source_list)}</span>
-        <span class="status-pill ${statusClass}">${statusLabel}</span></div>
+        <span class="row" style="gap:4px;flex:none;">${repeatBadge}<span class="status-pill ${statusClass}">${statusLabel}</span></span></div>
       <div class="meta">Your answer: ${esc((row.your_answer || "").slice(0, 60))}</div>
       <div class="meta">Correct: ${esc((row.correct_answer || "").slice(0, 60))}</div>
-      ${entry ? `<div class="meta">Category: ${esc(entry.category)}</div>` : ""}`;
+      ${entry ? `<div class="meta">Category: ${esc(entry.category)}${entry.note ? " \u00b7 has notes" : ""}</div>` : ""}`;
     item.addEventListener("click", () => selectMistakeRow(idx));
     box.appendChild(item);
   });
@@ -3334,9 +3362,16 @@ function selectMistakeRow(idx) {
   if (!row) return;
   selectedMistakeRow = row;
   const qPreview = row.question || "(question text unavailable \u2014 this exam was taken before question text started being saved)";
-  $("mistakeQuestionLbl").textContent =
-    `Ref #${row.reference_no} (${row.source_list}): ${qPreview}\nYour answer: ${row.your_answer || "(none)"} | Correct answer: ${row.correct_answer || "(unknown)"}`;
+  let label = `Ref #${row.reference_no} (${row.source_list}): ${qPreview}\nYour answer: ${row.your_answer || "(none)"} | Correct answer: ${row.correct_answer || "(unknown)"}`;
   const entry = row.logged_entry;
+  const fullEntry = entry || findMistakeEntry(loadMistakeLog(), row.source_list, row.reference_no);
+  if (fullEntry && fullEntry.occurrences && fullEntry.occurrences.length > 1) {
+    const history = fullEntry.occurrences
+      .slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""))
+      .map(o => `${o.exam_source} (${formatDateNice(dateOnly(o.date))})`).join(", ");
+    label += `\n\n\u{1F501} You've missed this ${fullEntry.occurrences.length} times: ${history}`;
+  }
+  $("mistakeQuestionLbl").textContent = label;
   $("mistakeCategoryInput").value = entry ? entry.category : "";
   $("mistakeResolvedInput").checked = entry ? !!entry.resolved : false;
   $("mistakeNoteInput").value = entry ? (entry.note || "") : "";
@@ -3402,7 +3437,7 @@ function renderMistakeSubjectChecks(subjects) {
   }
 }
 
-function mistakeRepeatKey(e) { return `${e.source_list}::${e.reference_no}`; }
+function mistakeOccurrenceCount(e) { return (e.occurrences || []).length || 1; }
 
 function setMistakeResolved(entryId, resolved) {
   const log = loadMistakeLog();
@@ -3418,22 +3453,31 @@ function setMistakeResolved(entryId, resolved) {
 let mistakeCardState = {}; // entry id -> 0 (collapsed) | 1 (details, no notes) | 2 (details + notes + resolve)
 
 function renderMistakeCard(e, repeatCount) {
+  repeatCount = repeatCount || mistakeOccurrenceCount(e);
   const statusClass = e.resolved ? "status-green" : "status-yellow";
   const state = mistakeCardState[e.id] || 0;
   const card = el("div", `list-item flashcard ${statusClass}${repeatCount > 1 ? " repeated" : ""}`);
   card.style.marginBottom = "6px";
+  const occurrences = (e.occurrences || []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  const latest = occurrences[occurrences.length - 1] || {};
 
   let inner = `<div class="top-row"><span class="name">Ref #${esc(e.reference_no)} &middot; ${esc(e.category || "")}</span>
       <span class="row" style="gap:4px;flex:none;">
         ${repeatCount > 1 ? `<span class="status-pill repeat-pill">\u{1F501} \u00d7${repeatCount}</span>` : ""}
         <span class="status-pill ${statusClass}">${e.resolved ? "Resolved" : "Open"}</span>
       </span></div>
-    <div class="meta">${esc(e.exam_source || "")} &middot; logged ${esc(e.date_logged || "")}</div>`;
+    <div class="meta">${esc(latest.exam_source || "")} &middot; logged ${esc(e.date_logged || "")}</div>`;
 
   if (state >= 1) {
-    inner += `<div class="meta" style="margin-top:6px;">Your answer: ${esc(e.your_answer || "(none)")}</div>
-      <div class="meta">Correct answer: ${esc(e.correct_answer || "(unknown)")}</div>
-      ${e.question ? `<div class="meta" style="margin-top:4px;">${esc(e.question)}</div>` : ""}`;
+    if (occurrences.length > 1) {
+      const rows = occurrences.map(o => `<div class="meta">${esc(o.exam_source || "")} (${esc(formatDateNice(dateOnly(o.date)))}): answered "${esc(o.your_answer || "(none)")}"</div>`).join("");
+      inner += `<div class="meta" style="margin-top:6px;">Missed ${occurrences.length} times \u2014</div>${rows}
+        <div class="meta">Correct answer: ${esc(latest.correct_answer || "(unknown)")}</div>`;
+    } else {
+      inner += `<div class="meta" style="margin-top:6px;">Your answer: ${esc(latest.your_answer || "(none)")}</div>
+        <div class="meta">Correct answer: ${esc(latest.correct_answer || "(unknown)")}</div>`;
+    }
+    inner += e.question ? `<div class="meta" style="margin-top:4px;">${esc(e.question)}</div>` : "";
   }
   if (state >= 2) {
     inner += `<div class="meta" style="margin-top:6px;white-space:pre-wrap;"><b>Notes:</b> ${esc(e.note || "(no notes yet)")}</div>
@@ -3465,27 +3509,27 @@ function renderMistakeCard(e, repeatCount) {
   return card;
 }
 
-function renderMistakeGroup(title, entries, repeatCounts) {
+function renderMistakeGroup(title, entries) {
   const group = el("div", "card", "");
   group.style.padding = "10px 12px";
   group.style.marginBottom = "10px";
   const unresolved = entries.filter(e => !e.resolved).length;
   group.innerHTML = `<div class="row" style="margin-bottom:8px;"><b style="font-size:.85rem;">${esc(title)}</b>
     <span class="meta" style="margin-left:6px;">(${entries.length} mistake${entries.length === 1 ? "" : "s"}, ${unresolved} open)</span></div>`;
-  for (const e of entries) group.appendChild(renderMistakeCard(e, repeatCounts[mistakeRepeatKey(e)] || 1));
+  for (const e of entries) group.appendChild(renderMistakeCard(e));
   return group;
 }
 
 function refreshAllMistakesTree() {
-  const fullLog = loadMistakeLog();
-  const repeatCounts = {};
-  for (const e of fullLog) { const k = mistakeRepeatKey(e); repeatCounts[k] = (repeatCounts[k] || 0) + 1; }
+  // Only entries that have actually been given a category show up here -- an
+  // auto-tracked-but-uncategorized miss lives in "Tests With Unlogged Mistakes" instead.
+  const fullLog = loadMistakeLog().filter(e => e.category);
 
   renderMistakeSubjectChecks(Array.from(new Set(fullLog.map(e => e.source_list || "Unknown"))));
 
   let log = fullLog;
   if ($("mistakeUnresolvedOnly").checked) log = log.filter(e => !e.resolved);
-  if ($("mistakeRepeatedOnly").checked) log = log.filter(e => repeatCounts[mistakeRepeatKey(e)] > 1);
+  if ($("mistakeRepeatedOnly").checked) log = log.filter(e => mistakeOccurrenceCount(e) > 1);
   log = log.filter(e => !mistakeHiddenSubjects.has(e.source_list || "Unknown"));
 
   const box = $("allMistakesContainer");
@@ -3496,19 +3540,19 @@ function refreshAllMistakesTree() {
   }
 
   if ($("mistakeGroupSelect").value === "repetition") {
-    const repeated = log.filter(e => repeatCounts[mistakeRepeatKey(e)] > 1)
-      .sort((a, b) => (repeatCounts[mistakeRepeatKey(b)] - repeatCounts[mistakeRepeatKey(a)]) || (b.date_logged || "").localeCompare(a.date_logged || ""));
-    const oneTime = log.filter(e => repeatCounts[mistakeRepeatKey(e)] <= 1)
+    const repeated = log.filter(e => mistakeOccurrenceCount(e) > 1)
+      .sort((a, b) => (mistakeOccurrenceCount(b) - mistakeOccurrenceCount(a)) || (b.date_logged || "").localeCompare(a.date_logged || ""));
+    const oneTime = log.filter(e => mistakeOccurrenceCount(e) <= 1)
       .sort((a, b) => (b.date_logged || "").localeCompare(a.date_logged || ""));
-    if (repeated.length) box.appendChild(renderMistakeGroup("\u{1F501} Repeated Mistakes", repeated, repeatCounts));
-    if (oneTime.length) box.appendChild(renderMistakeGroup("One-Time Mistakes", oneTime, repeatCounts));
+    if (repeated.length) box.appendChild(renderMistakeGroup("\u{1F501} Repeated Mistakes", repeated));
+    if (oneTime.length) box.appendChild(renderMistakeGroup("One-Time Mistakes", oneTime));
   } else {
     const bySubject = {};
     for (const e of log) (bySubject[e.source_list || "Unknown"] = bySubject[e.source_list || "Unknown"] || []).push(e);
     const subjectOrder = Object.entries(bySubject).sort((a, b) => b[1].length - a[1].length);
     for (const [subject, entries] of subjectOrder) {
       const sorted = entries.slice().sort((a, b) => (b.date_logged || "").localeCompare(a.date_logged || ""));
-      box.appendChild(renderMistakeGroup(subject, sorted, repeatCounts));
+      box.appendChild(renderMistakeGroup(subject, sorted));
     }
   }
 }
@@ -4024,6 +4068,7 @@ function showReport() {
     });
   }
 
+  let reopenedCount = 0;
   try {
     const histRecord = saveTestHistory(Exam.topic, Exam.score, Exam.totalQuestions,
       Object.values(Exam.questionTimes).reduce((a, b) => a + b, 0));
@@ -4033,6 +4078,15 @@ function showReport() {
       your_answer: item.your_answer, correct_answer: item.correct_answer,
     }));
     saveExamDetails(histRecord.id, Exam.topic, histRecord.date, detailItems);
+
+    // Auto-track every wrong answer against its flashcard (by subject + reference number,
+    // not by this exam) so a repeated mistake resurfaces its existing notes instead of
+    // starting a blank duplicate. Reopens it if it had been marked resolved.
+    for (const item of Exam.allItemsReport) {
+      if (item.is_correct || item.reference_no === "" || item.reference_no === null) continue;
+      const { reopened } = recordMistakeOccurrence(histRecord.id, Exam.topic, item.source_list, item.reference_no, item.question, item.your_answer, item.correct_answer);
+      if (reopened) reopenedCount++;
+    }
   } catch (e) {
     console.error("Could not save test history/analysis data:", e);
   }
@@ -4040,6 +4094,9 @@ function showReport() {
   closeOverlay("examOverlay");
   renderReportSummary();
   renderReportItems();
+  if (reopenedCount > 0) {
+    toast(`${reopenedCount} mistake${reopenedCount === 1 ? "" : "s"} you'd resolved before came back — reopened for review.`, 3200);
+  }
   openOverlay("reportOverlay");
   if (githubConfigured()) pushCsvReportToGithub();
 }
@@ -4169,7 +4226,45 @@ $("btnBackToWorkbench").addEventListener("click", () => {
 /* =====================================================================
    Boot
    ===================================================================== */
+/* ---------------------------------------------------------------------
+   One-time migration: old mistake log entries were one row per (exam,
+   question) -- new entries are one row per question, with an
+   occurrences[] history. Consolidates any old-format rows found so
+   existing notes survive and duplicates collapse into one flashcard.
+   --------------------------------------------------------------------- */
+function migrateMistakeLogIfNeeded() {
+  const log = loadJson(KEYS.mistakes, []);
+  const needsMigration = log.some(e => !e.occurrences);
+  if (!needsMigration) return;
+
+  const groups = {};
+  for (const e of log) {
+    const key = `${e.source_list}::${e.reference_no}`;
+    (groups[key] = groups[key] || []).push(e);
+  }
+  const migrated = [];
+  for (const key of Object.keys(groups)) {
+    const entries = groups[key].slice().sort((a, b) => (b.date_logged || "").localeCompare(a.date_logged || ""));
+    const primary = entries[0];
+    if (primary.occurrences) { migrated.push(primary); continue; } // already new-format, nothing to merge
+    const occurrences = entries.map(e => ({
+      exam_id: e.exam_id, exam_source: e.exam_source, date: e.date_logged,
+      your_answer: e.your_answer, correct_answer: e.correct_answer,
+    })).filter(o => o.exam_id);
+    let note = primary.note || "";
+    const otherNotes = entries.slice(1).map(e => e.note).filter(n => n && n !== note);
+    if (otherNotes.length) note = (note ? note + "\n\n" : "") + otherNotes.map(n => `(from an earlier log) ${n}`).join("\n");
+    migrated.push({
+      id: primary.id, source_list: primary.source_list, reference_no: primary.reference_no,
+      question: primary.question, category: primary.category || "", note, resolved: !!primary.resolved,
+      date_logged: primary.date_logged, occurrences,
+    });
+  }
+  saveJson(KEYS.mistakes, migrated);
+}
+
 (function init() {
+  migrateMistakeLogIfNeeded();
   refreshHome();
   refreshListsDisplay();
   refreshSavedSamplesList();
