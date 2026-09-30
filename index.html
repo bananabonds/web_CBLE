@@ -526,8 +526,20 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
       <div class="card">
         <h3>Score Trend</h3>
         <p class="hint" style="margin-bottom:10px;">Accuracy across every test you've taken, regardless of subject &mdash; the subject-by-subject breakdown lives in Study Priority.</p>
+        <div class="row wrap" style="margin-bottom:8px;">
+          <button class="btn" id="btnTrendFilterToggle">Filter Subjects</button>
+          <label class="row" style="font-size:.8rem;gap:6px;"><input type="checkbox" id="trendShowOverall" checked><span>Show overall line</span></label>
+        </div>
+        <div id="trendFilterBox" class="list-item" style="display:none;margin-bottom:10px;">
+          <div class="row wrap" style="margin-bottom:6px;">
+            <button class="btn link" id="btnTrendSelectAll">All</button>
+            <button class="btn link" id="btnTrendClearAll">None</button>
+          </div>
+          <div id="trendSubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
+        </div>
         <div id="historyTrendTable"></div>
         <div id="historyTrendChart" class="chart-wrap" style="margin-top:12px;"></div>
+        <div id="historyTrendSubjectTable" style="margin-top:12px;"></div>
       </div>
       <div class="card">
         <div class="row wrap">
@@ -570,7 +582,22 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
       </div>
       <div class="card">
         <h3>Progression Over Samples</h3>
-        <select id="progressionSubjectSelect" style="margin-bottom:10px;"></select>
+        <p class="hint" style="margin-bottom:8px;">Pick one or more subjects to layer their lines on the same graph. Tests where a subject didn't appear leave a gap.</p>
+        <div class="row wrap" style="margin-bottom:8px;">
+          <button class="btn" id="btnProgFilterToggle">Select Subjects</button>
+          <select id="progressionMetricSelect">
+            <option value="weighted">Weighted Priority %</option>
+            <option value="accuracy">Raw Accuracy %</option>
+            <option value="both">Both (solid = raw, dashed = weighted)</option>
+          </select>
+        </div>
+        <div id="progFilterBox" class="list-item" style="display:none;margin-bottom:10px;">
+          <div class="row wrap" style="margin-bottom:6px;">
+            <button class="btn link" id="btnProgSelectAll">All</button>
+            <button class="btn link" id="btnProgClearAll">None</button>
+          </div>
+          <div id="progSubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
+        </div>
         <div id="progressionChart"></div>
       </div>
       <div class="card">
@@ -2937,7 +2964,7 @@ function buildLineGraphSVG(seriesList, opts) {
     const valid = s.points.map((p, i) => ({ i, p })).filter(({ p }) => p.y !== null && p.y !== undefined);
     if (valid.length) {
       const pts = valid.map(({ i, p }) => `${xScale(i).toFixed(1)},${yScale(p.y).toFixed(1)}`).join(" ");
-      svg += `<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+      svg += `<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="${s.width || 2}" ${s.dash ? `stroke-dasharray="${s.dash}"` : ""} stroke-linejoin="round" stroke-linecap="round"/>`;
       for (const { i, p } of valid) {
         svg += `<circle cx="${xScale(i).toFixed(1)}" cy="${yScale(p.y).toFixed(1)}" r="2.6" fill="${s.color}"><title>${esc(p.tooltip || String(p.y))}</title></circle>`;
       }
@@ -2947,7 +2974,7 @@ function buildLineGraphSVG(seriesList, opts) {
   return svg;
 }
 function chartLegendHTML(seriesList) {
-  return `<div class="chart-legend">${seriesList.map(s => `<span><i class="sw" style="background:${s.color};"></i>${esc(s.label)}</span>`).join("")}</div>`;
+  return `<div class="chart-legend">${seriesList.map(s => `<span><i class="sw" style="background:${s.dash ? "repeating-linear-gradient(90deg," + s.color + " 0 4px,transparent 4px 7px)" : s.color};"></i>${esc(s.label)}</span>`).join("")}</div>`;
 }
 
 function computeHistoryTrendStats() {
@@ -2968,16 +2995,65 @@ function computeHistoryTrendStats() {
   }
   return { history, avg, best, worst, recent, trendLabel, count: history.length };
 }
+const CHART_PALETTE = ["#1E3A8A", "#B45309", "#166534", "#B91C1C", "#5B21B6", "#0E7490", "#BE185D", "#4D7C0F", "#9A3412", "#334155"];
+let trendSelectedSubjects = new Set();   // subjects whose line is drawn in Score Trend
+let trendShowOverall = true;
+
+// Per-test, per-subject accuracy (correct / questions of that subject in the test),
+// aligned to the same chronological test list as the overall line.
+function computeTrendBySubject(history) {
+  const details = loadJson(KEYS.details, []);
+  const byId = {};
+  for (const d of details) byId[d.exam_id] = d;
+  const subjects = new Set();
+  const perTest = history.map(h => {
+    const out = {};
+    const d = byId[h.id];
+    if (!d) return out;
+    for (const it of (d.items || [])) {
+      const subj = it.source_list || "Unknown";
+      const o = out[subj] = out[subj] || { n: 0, correct: 0 };
+      o.n++; if (it.is_correct) o.correct++;
+      subjects.add(subj);
+    }
+    return out;
+  });
+  return { perTest, subjects: Array.from(subjects).sort() };
+}
+function renderTrendSubjectChecks(subjects) {
+  const box = $("trendSubjectChecks");
+  box.innerHTML = "";
+  if (!subjects.length) { box.appendChild(el("div", "empty-state", "No per-subject data yet.")); return; }
+  subjects.forEach((subj, idx) => {
+    const row = el("label", "row");
+    row.style.marginBottom = "6px";
+    row.style.fontSize = ".82rem";
+    const color = CHART_PALETTE[idx % CHART_PALETTE.length];
+    row.innerHTML = `<input type="checkbox" ${trendSelectedSubjects.has(subj) ? "checked" : ""}><i class="sw" style="width:12px;height:3px;border-radius:2px;background:${color};display:inline-block;"></i><span>${esc(subj)}</span>`;
+    row.querySelector("input").addEventListener("change", (e) => {
+      if (e.target.checked) trendSelectedSubjects.add(subj); else trendSelectedSubjects.delete(subj);
+      renderHistoryTrend();
+    });
+    box.appendChild(row);
+  });
+}
 function renderHistoryTrend() {
   const stats = computeHistoryTrendStats();
   const tableBox = $("historyTrendTable");
   const chartBox = $("historyTrendChart");
+  const subjTableBox = $("historyTrendSubjectTable");
   tableBox.innerHTML = "";
   chartBox.innerHTML = "";
+  subjTableBox.innerHTML = "";
   if (!stats) {
     tableBox.appendChild(el("div", "empty-state", "Take a test to see your score trend here."));
     return;
   }
+  const { perTest, subjects } = computeTrendBySubject(stats.history);
+  for (const s of Array.from(trendSelectedSubjects)) if (!subjects.includes(s)) trendSelectedSubjects.delete(s);
+  renderTrendSubjectChecks(subjects);
+  const colorOf = (subj) => CHART_PALETTE[subjects.indexOf(subj) % CHART_PALETTE.length];
+
   tableBox.innerHTML = `<div class="table-wrap"><table class="data-table kv-table">
     <tr><td>Tests Taken</td><td>${stats.count}</td></tr>
     <tr><td>Average Score</td><td>${stats.avg.toFixed(1)}%</td></tr>
@@ -2986,12 +3062,46 @@ function renderHistoryTrend() {
     <tr><td>Most Recent</td><td>${stats.recent.toFixed(1)}%</td></tr>
     <tr><td>Trend</td><td>${esc(stats.trendLabel)}</td></tr>
   </table></div>`;
-  const series = [{
-    label: "Score %", color: "#1E3A8A",
-    points: stats.history.map(h => ({ y: h.pct || 0, tooltip: `${h.source}: ${(h.pct || 0).toFixed(1)}% (${formatDateNice(dateOnly(h.date))})` })),
-  }];
-  chartBox.innerHTML = buildLineGraphSVG(series, { yMin: 0, yMax: 100 });
+
+  const series = [];
+  if (trendShowOverall || !trendSelectedSubjects.size) {
+    series.push({
+      label: "Overall", color: "#111827", width: trendSelectedSubjects.size ? 2.4 : 2, dash: trendSelectedSubjects.size ? "5 3" : "",
+      points: stats.history.map(h => ({ y: h.pct || 0, tooltip: `Overall \u2013 ${h.source}: ${(h.pct || 0).toFixed(1)}% (${formatDateNice(dateOnly(h.date))})` })),
+    });
+  }
+  const rows = [];
+  for (const subj of subjects.filter(s => trendSelectedSubjects.has(s))) {
+    const pts = stats.history.map((h, i) => {
+      const o = perTest[i][subj];
+      if (!o || !o.n) return { y: null };
+      const y = o.correct / o.n * 100;
+      return { y, tooltip: `${subj} \u2013 ${h.source}: ${y.toFixed(1)}% (${o.correct}/${o.n}, ${formatDateNice(dateOnly(h.date))})` };
+    });
+    series.push({ label: subj, color: colorOf(subj), points: pts });
+    const vals = pts.map(p => p.y).filter(y => y !== null);
+    if (vals.length) {
+      rows.push(`<tr><td style="font-family:inherit;">${esc(subj)}</td><td>${vals.length}</td><td>${(vals.reduce((a, b) => a + b, 0) / vals.length).toFixed(1)}%</td><td>${Math.max(...vals).toFixed(1)}%</td><td>${vals[vals.length - 1].toFixed(1)}%</td></tr>`);
+    }
+  }
+  chartBox.innerHTML = buildLineGraphSVG(series, { yMin: 0, yMax: 100 }) + chartLegendHTML(series);
+  if (trendSelectedSubjects.size) {
+    subjTableBox.innerHTML = rows.length
+      ? `<div class="table-wrap"><table class="data-table"><tr><th>Subject</th><th>Tests</th><th>Avg</th><th>Best</th><th>Latest</th></tr>${rows.join("")}</table></div>
+         <p class="hint" style="margin-top:6px;">Subject scores = correct answers \u00f7 that subject's questions in each test. Tests without that subject leave a gap in the line.</p>`
+      : `<div class="empty-state">No detailed results for the selected subjects yet.</div>`;
+  }
 }
+$("btnTrendFilterToggle").addEventListener("click", () => {
+  const box = $("trendFilterBox");
+  box.style.display = box.style.display === "none" ? "block" : "none";
+});
+$("trendShowOverall").addEventListener("change", (e) => { trendShowOverall = e.target.checked; renderHistoryTrend(); });
+$("btnTrendSelectAll").addEventListener("click", () => {
+  trendSelectedSubjects = new Set(computeTrendBySubject(computeHistoryTrendStats() ? computeHistoryTrendStats().history : []).subjects);
+  renderHistoryTrend();
+});
+$("btnTrendClearAll").addEventListener("click", () => { trendSelectedSubjects.clear(); renderHistoryTrend(); });
 
 $("btnClearHistory").addEventListener("click", () => {
   if (!confirmDialog("Clear all locally saved test history? This also clears the data behind Study Priority Analysis. This cannot be undone.")) return;
@@ -3096,25 +3206,80 @@ function refreshAnalysis() {
   if (!ranked.length) barBox.appendChild(el("div", "empty-state", "No data yet."));
 
   const subjects = Object.keys(progression).sort();
-  const sel = $("progressionSubjectSelect");
-  const prevVal = sel.value;
-  sel.innerHTML = subjects.map(s => `<option value="${esc(s)}">${esc(s)}</option>`).join("");
-  if (subjects.includes(prevVal)) sel.value = prevVal;
+  for (const s of Array.from(progSelectedSubjects)) if (!subjects.includes(s)) progSelectedSubjects.delete(s);
+  if (!progSelectedSubjects.size && !progTouched && subjects.length) progSelectedSubjects.add(subjects[0]);
+  renderProgSubjectChecks(subjects);
   drawProgressionChart();
   renderAnalysisText(ranked, progression);
 }
-$("progressionSubjectSelect").addEventListener("change", drawProgressionChart);
+let progSelectedSubjects = new Set();
+let progTouched = false;   // once the user changes the selection, stop auto-picking the first subject
+function renderProgSubjectChecks(subjects) {
+  const box = $("progSubjectChecks");
+  box.innerHTML = "";
+  if (!subjects.length) { box.appendChild(el("div", "empty-state", "No subjects with data yet.")); return; }
+  subjects.forEach((subj, idx) => {
+    const row = el("label", "row");
+    row.style.marginBottom = "6px";
+    row.style.fontSize = ".82rem";
+    const color = CHART_PALETTE[idx % CHART_PALETTE.length];
+    row.innerHTML = `<input type="checkbox" ${progSelectedSubjects.has(subj) ? "checked" : ""}><i class="sw" style="width:12px;height:3px;border-radius:2px;background:${color};display:inline-block;"></i><span>${esc(subj)}</span>`;
+    row.querySelector("input").addEventListener("change", (e) => {
+      progTouched = true;
+      if (e.target.checked) progSelectedSubjects.add(subj); else progSelectedSubjects.delete(subj);
+      drawProgressionChart();
+    });
+    box.appendChild(row);
+  });
+}
+$("btnProgFilterToggle").addEventListener("click", () => {
+  const box = $("progFilterBox");
+  box.style.display = box.style.display === "none" ? "block" : "none";
+});
+$("btnProgSelectAll").addEventListener("click", () => {
+  progTouched = true; progSelectedSubjects = new Set(Object.keys(analysisProgression));
+  renderProgSubjectChecks(Object.keys(analysisProgression).sort()); drawProgressionChart();
+});
+$("btnProgClearAll").addEventListener("click", () => {
+  progTouched = true; progSelectedSubjects.clear();
+  renderProgSubjectChecks(Object.keys(analysisProgression).sort()); drawProgressionChart();
+});
+$("progressionMetricSelect").addEventListener("change", drawProgressionChart);
 
 function drawProgressionChart() {
-  const subj = $("progressionSubjectSelect").value;
-  const series = analysisProgression[subj] || [];
   const box = $("progressionChart");
   box.innerHTML = "";
-  if (!series.length) { box.appendChild(el("div", "empty-state", "No progression data for this subject yet.")); return; }
-  const lines = [
-    { label: "Raw Accuracy %", color: "#1E3A8A", points: series.map((entry, i) => ({ y: entry.accuracy_pct, tooltip: `Sample ${i + 1} (${entry.exam_source}): ${entry.accuracy_pct != null ? entry.accuracy_pct.toFixed(1) + "%" : "n/a"}` })) },
-    { label: "Weighted Priority %", color: "#5B21B6", points: series.map((entry, i) => ({ y: entry.weighted_pct, tooltip: `Sample ${i + 1} (${entry.exam_source}): ${entry.weighted_pct != null ? entry.weighted_pct.toFixed(1) + "%" : "n/a"}` })) },
-  ];
+  const allSubjects = Object.keys(analysisProgression).sort();
+  const chosen = allSubjects.filter(s => progSelectedSubjects.has(s));
+  if (!allSubjects.length) { box.appendChild(el("div", "empty-state", "No progression data yet.")); return; }
+  if (!chosen.length) { box.appendChild(el("div", "empty-state", "No subjects selected \u2014 use Select Subjects above.")); return; }
+
+  // Shared x-axis: every test (chronological) that any selected subject appeared in, so lines line up.
+  const keyOf = (e) => `${e.date || ""}|${e.exam_source || ""}`;
+  const axis = new Map();
+  for (const subj of chosen) for (const e of analysisProgression[subj]) if (!axis.has(keyOf(e))) axis.set(keyOf(e), e);
+  const ticks = Array.from(axis.entries()).sort((a, b) => (a[1].date || "").localeCompare(b[1].date || ""));
+  const tickIdx = new Map(ticks.map(([k], i) => [k, i]));
+
+  const metric = $("progressionMetricSelect").value;
+  const defs = metric === "both"
+    ? [{ key: "accuracy_pct", name: "Raw", dash: "" }, { key: "weighted_pct", name: "Weighted", dash: "5 3" }]
+    : metric === "accuracy" ? [{ key: "accuracy_pct", name: "Raw Accuracy", dash: "" }]
+    : [{ key: "weighted_pct", name: "Weighted Priority", dash: "" }];
+
+  const lines = [];
+  for (const subj of chosen) {
+    const color = CHART_PALETTE[allSubjects.indexOf(subj) % CHART_PALETTE.length];
+    for (const def of defs) {
+      const pts = ticks.map(() => ({ y: null }));
+      for (const e of analysisProgression[subj]) {
+        const i = tickIdx.get(keyOf(e));
+        const v = e[def.key];
+        pts[i] = { y: v, tooltip: `${subj} \u2013 Sample ${i + 1} (${e.exam_source}): ${def.name} ${v != null ? v.toFixed(1) + "%" : "n/a"}` };
+      }
+      lines.push({ label: defs.length > 1 ? `${subj} \u2013 ${def.name}` : subj, color, dash: def.dash, points: pts });
+    }
+  }
   box.innerHTML = buildLineGraphSVG(lines, { yMin: 0, yMax: 100 }) + chartLegendHTML(lines);
 }
 
