@@ -15373,6 +15373,623 @@
           "_source_index": 36
         }
       ]
+    },
+    {
+      "id": "1790732554264117",
+      "name": "AI_CT_S1",
+      "created_at": "2026-09-30T01:42:34",
+      "composition": {
+        "AI_CT_Reagents_and_QC": 6,
+        "AI_CT_General_Chemistry": 6,
+        "AI_CT_Chemical_Safety": 7,
+        "AI_CT_Organic_Laboratory_Technology": 6,
+        "AI_CT_Organic_Chemistry": 6,
+        "AI_CT_Instrumental_Analysis": 6,
+        "AI_CT_Chemical_Waste_Management": 7,
+        "AI_CT_Laboratory_Technology": 6
+      },
+      "questions": [
+        {
+          "text": "A calibration curve is a plot of",
+          "options": [
+            "A. temperature versus pressure",
+            "B. instrument response versus concentration of standards",
+            "C. sample volume versus concentration of blank",
+            "D. sample mass versus time"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Reagents_and_QC",
+          "_source_index": 4
+        },
+        {
+          "text": "Adding a nonvolatile solute to water will",
+          "options": [
+            "A. lower both its boiling point and freezing point",
+            "B. lower its boiling point and raise its freezing point",
+            "C. raise its boiling point and lower its freezing point",
+            "D. raise both its boiling point and freezing point"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_General_Chemistry",
+          "_source_index": 11
+        },
+        {
+          "text": "Which combination produces toxic chloramine vapors and must never be mixed?",
+          "options": [
+            "A. Ethanol and water",
+            "B. Table salt and water",
+            "C. Vinegar and water",
+            "D. Bleach and ammonia"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Safety",
+          "_source_index": 15
+        },
+        {
+          "text": "A technician's repeat test still gives a result outside the specification. The ethical action is to",
+          "options": [
+            "A. keep re-running the test until it passes",
+            "B. adjust the data so it meets the specification",
+            "C. report the actual result and follow the out-of-specification procedure",
+            "D. discard the result and report only passing values"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_General_Chemistry",
+          "_source_index": 18
+        },
+        {
+          "text": "Which of the following is a strong base?",
+          "options": [
+            "A. Al(OH)3",
+            "B. CH3COOH",
+            "C. NH3",
+            "D. NaOH"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_General_Chemistry",
+          "_source_index": 13
+        },
+        {
+          "text": "Liquid–liquid extraction separates compounds based on",
+          "options": [
+            "A. their boiling points",
+            "B. their molecular size only",
+            "C. their color",
+            "D. their relative solubility in two immiscible solvents"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Organic_Laboratory_Technology",
+          "_source_index": 2
+        },
+        {
+          "text": "What is the formula of chloroform?",
+          "options": [
+            "A. CHCl3",
+            "B. CH3Cl",
+            "C. CCl4",
+            "D. CH2Cl2"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Organic_Chemistry",
+          "_source_index": 14
+        },
+        {
+          "text": "In colorimetric analysis, measurements are normally made at",
+          "options": [
+            "A. the wavelength of minimum absorbance",
+            "B. the wavelength of maximum absorbance",
+            "C. any random wavelength",
+            "D. the wavelength where absorbance is zero"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Instrumental_Analysis",
+          "_source_index": 1
+        },
+        {
+          "text": "The Beer–Lambert law relating absorbance to concentration is",
+          "options": [
+            "A. A = εbc",
+            "B. A = c ÷ εb",
+            "C. A = ε ÷ bc",
+            "D. A = bc ÷ ε"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Instrumental_Analysis",
+          "_source_index": 0
+        },
+        {
+          "text": "Methanol exposure is especially dangerous because it can cause",
+          "options": [
+            "A. hearing loss only",
+            "B. hair loss",
+            "C. blindness and metabolic acidosis",
+            "D. sunburn"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Chemical_Safety",
+          "_source_index": 18
+        },
+        {
+          "text": "The GHS skull and crossbones pictogram indicates",
+          "options": [
+            "A. acute toxicity (fatal or toxic)",
+            "B. skin irritation",
+            "C. flammability",
+            "D. environmental hazard"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Chemical_Safety",
+          "_source_index": 1
+        },
+        {
+          "text": "How many liters are in 250 mL?",
+          "options": [
+            "A. 0.250 L",
+            "B. 0.0250 L",
+            "C. 2.50 L",
+            "D. 25.0 L"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_General_Chemistry",
+          "_source_index": 1
+        },
+        {
+          "text": "RA 9275 is the",
+          "options": [
+            "A. Philippine Clean Water Act of 2004",
+            "B. Ecological Solid Waste Management Act of 2000",
+            "C. Toxic Substances and Hazardous and Nuclear Wastes Control Act",
+            "D. Philippine Clean Air Act of 1999"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Chemical_Waste_Management",
+          "_source_index": 2
+        },
+        {
+          "text": "Before weighing on an analytical balance, the technician should make sure the balance is",
+          "options": [
+            "A. on a shaking bench with doors open",
+            "B. warm from being touched by hand",
+            "C. loaded with the sample before taring",
+            "D. level, clean, and tared with the draft shield doors closed"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Laboratory_Technology",
+          "_source_index": 19
+        },
+        {
+          "text": "Mixing cyanide waste with acidic waste is dangerous because it",
+          "options": [
+            "A. cools the mixture",
+            "B. solidifies the waste",
+            "C. produces a harmless salt",
+            "D. releases toxic hydrogen cyanide gas"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Waste_Management",
+          "_source_index": 5
+        },
+        {
+          "text": "In the Philippines, RA 6969 is the",
+          "options": [
+            "A. Toxic Substances and Hazardous and Nuclear Wastes Control Act of 1990",
+            "B. Philippine Clean Water Act",
+            "C. Ecological Solid Waste Management Act",
+            "D. Philippine Clean Air Act"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Chemical_Waste_Management",
+          "_source_index": 0
+        },
+        {
+          "text": "What is the correct name of Fe2O3?",
+          "options": [
+            "A. iron(III) oxide",
+            "B. iron(II) oxide",
+            "C. iron(III) dioxide",
+            "D. ferric peroxide"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_General_Chemistry",
+          "_source_index": 15
+        },
+        {
+          "text": "How many grams of solute are in 200 mL of a 5.0% w/v solution?",
+          "options": [
+            "A. 25 g",
+            "B. 10 g",
+            "C. 1.0 g",
+            "D. 100 g"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Reagents_and_QC",
+          "_source_index": 14
+        },
+        {
+          "text": "Which cuvette material is required for measurements in the ultraviolet region?",
+          "options": [
+            "A. Polyethylene",
+            "B. Ordinary glass",
+            "C. Polystyrene",
+            "D. Quartz"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Instrumental_Analysis",
+          "_source_index": 2
+        },
+        {
+          "text": "A blank solution in a spectrophotometer is used to",
+          "options": [
+            "A. set the instrument to maximum absorbance",
+            "B. measure the density of the sample",
+            "C. calibrate the wavelength scale",
+            "D. set the instrument to zero absorbance (100 %T)"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Instrumental_Analysis",
+          "_source_index": 4
+        },
+        {
+          "text": "A hazardous waste container must be labeled with",
+          "options": [
+            "A. nothing, to avoid confusion",
+            "B. the words \"hazardous waste\", the contents, and the accumulation date",
+            "C. the price of the chemical",
+            "D. only the laboratory name"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Chemical_Waste_Management",
+          "_source_index": 6
+        },
+        {
+          "text": "What is the pH of a 0.001 M HCl solution?",
+          "options": [
+            "A. 3",
+            "B. 7",
+            "C. 1",
+            "D. 11"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_General_Chemistry",
+          "_source_index": 12
+        },
+        {
+          "text": "What is the IUPAC name of CH3CH2CH2CH2CH2CH3?",
+          "options": [
+            "A. butane",
+            "B. heptane",
+            "C. hexane",
+            "D. pentane"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Organic_Chemistry",
+          "_source_index": 2
+        },
+        {
+          "text": "Before filling a burette with titrant, it should be rinsed with",
+          "options": [
+            "A. a small portion of the titrant",
+            "B. distilled water only",
+            "C. acetone",
+            "D. the analyte"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Laboratory_Technology",
+          "_source_index": 2
+        },
+        {
+          "text": "A standard solution is a solution whose",
+          "options": [
+            "A. color is standardized",
+            "B. concentration is accurately known",
+            "C. volume is exactly 1 L",
+            "D. concentration is estimated"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Reagents_and_QC",
+          "_source_index": 15
+        },
+        {
+          "text": "Which extinguisher type is suitable for an electrical (Class C) fire?",
+          "options": [
+            "A. Wet chemical",
+            "B. Water",
+            "C. Foam",
+            "D. Carbon dioxide (CO2)"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Safety",
+          "_source_index": 5
+        },
+        {
+          "text": "In an extraction with dichloromethane and water, the dichloromethane layer is",
+          "options": [
+            "A. the top layer because it is less dense than water",
+            "B. not a separate layer",
+            "C. the bottom layer because it is denser than water",
+            "D. the top layer because it is polar"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Organic_Laboratory_Technology",
+          "_source_index": 4
+        },
+        {
+          "text": "When reading the volume of a liquid in a graduated cylinder, the eye should be level with",
+          "options": [
+            "A. the top of the meniscus",
+            "B. the top of the cylinder",
+            "C. the bottom of the meniscus (for water)",
+            "D. the edge where the liquid touches the glass"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Laboratory_Technology",
+          "_source_index": 0
+        },
+        {
+          "text": "The reference electrode commonly built into a combination pH electrode is",
+          "options": [
+            "A. Ag/AgCl",
+            "B. zinc rod",
+            "C. platinum wire",
+            "D. glassy carbon"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Instrumental_Analysis",
+          "_source_index": 13
+        },
+        {
+          "text": "The preferred first step in waste management is",
+          "options": [
+            "A. waste minimization at the source",
+            "B. disposal in a landfill",
+            "C. open burning",
+            "D. dilution before disposal"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Chemical_Waste_Management",
+          "_source_index": 12
+        },
+        {
+          "text": "What is the IUPAC name of acetone?",
+          "options": [
+            "A. propanone",
+            "B. propanal",
+            "C. ethanal",
+            "D. methanol"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Organic_Chemistry",
+          "_source_index": 6
+        },
+        {
+          "text": "Simple distillation separates liquids based on differences in",
+          "options": [
+            "A. densities",
+            "B. boiling points",
+            "C. solubility in acid",
+            "D. colors"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Organic_Laboratory_Technology",
+          "_source_index": 6
+        },
+        {
+          "text": "Which pair are structural isomers?",
+          "options": [
+            "A. butane and 2-methylpropane",
+            "B. propane and propene",
+            "C. ethane and ethene",
+            "D. methanol and ethanol"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Organic_Chemistry",
+          "_source_index": 16
+        },
+        {
+          "text": "A liquid with a higher vapor pressure at a given temperature is",
+          "options": [
+            "A. always less flammable",
+            "B. more volatile",
+            "C. always denser",
+            "D. less volatile"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Organic_Chemistry",
+          "_source_index": 12
+        },
+        {
+          "text": "The fire extinguisher operating sequence PASS stands for",
+          "options": [
+            "A. Push, Aim, Spray, Stop",
+            "B. Pull, Aim, Squeeze, Sweep",
+            "C. Point, Activate, Spray, Slide",
+            "D. Pull, Alert, Squeeze, Stand"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Chemical_Safety",
+          "_source_index": 7
+        },
+        {
+          "text": "Aqueous and solvent-based wastes should be",
+          "options": [
+            "A. combined for convenience",
+            "B. combined into one drum",
+            "C. evaporated in the open",
+            "D. collected in separate containers"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Waste_Management",
+          "_source_index": 10
+        },
+        {
+          "text": "The best way to obtain a representative sample from a large pile of solid material is to",
+          "options": [
+            "A. take material from the bottom only",
+            "B. take one scoop from the top",
+            "C. take increments from several random locations and combine them",
+            "D. choose the most uniform-looking portion"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Laboratory_Technology",
+          "_source_index": 14
+        },
+        {
+          "text": "A reagent blank is used to",
+          "options": [
+            "A. increase the sensitivity of the method",
+            "B. correct for signal contributed by the reagents and background",
+            "C. replace the calibration standards",
+            "D. determine the density of the sample"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Reagents_and_QC",
+          "_source_index": 3
+        },
+        {
+          "text": "Which substance is commonly used as a primary standard to standardize NaOH solution?",
+          "options": [
+            "A. Concentrated sulfuric acid",
+            "B. Potassium hydrogen phthalate (KHP)",
+            "C. Sodium hydroxide pellets",
+            "D. Hydrochloric acid"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Laboratory_Technology",
+          "_source_index": 7
+        },
+        {
+          "text": "Density is calculated as",
+          "options": [
+            "A. mass divided by volume",
+            "B. mass divided by molar mass",
+            "C. volume divided by mass",
+            "D. mass multiplied by volume"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Laboratory_Technology",
+          "_source_index": 11
+        },
+        {
+          "text": "What is the common name of methanoic acid?",
+          "options": [
+            "A. butyric acid",
+            "B. acetic acid",
+            "C. formic acid",
+            "D. propionic acid"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Organic_Chemistry",
+          "_source_index": 15
+        },
+        {
+          "text": "In infrared spectroscopy, a strong absorption near 1700 cm⁻¹ indicates",
+          "options": [
+            "A. a carbonyl (C=O) group",
+            "B. a nitrile C≡N group",
+            "C. an alcohol O–H group",
+            "D. an aromatic C–H bond"
+          ],
+          "correct": 0,
+          "_source_list": "AI_CT_Organic_Laboratory_Technology",
+          "_source_index": 14
+        },
+        {
+          "text": "In HPLC, the mobile phase is",
+          "options": [
+            "A. a solid",
+            "B. a gas",
+            "C. a liquid pumped at high pressure",
+            "D. a plasma"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Instrumental_Analysis",
+          "_source_index": 14
+        },
+        {
+          "text": "Which GHS pictogram is used for substances that corrode metals and burn skin?",
+          "options": [
+            "A. Exclamation mark",
+            "B. Flame over circle",
+            "C. Gas cylinder",
+            "D. Corrosion"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Safety",
+          "_source_index": 17
+        },
+        {
+          "text": "Which control is the most effective in the hierarchy of controls?",
+          "options": [
+            "A. Personal protective equipment",
+            "B. Administrative controls",
+            "C. Elimination or substitution of the hazard",
+            "D. Warning signs"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Chemical_Safety",
+          "_source_index": 9
+        },
+        {
+          "text": "Percent error is computed as",
+          "options": [
+            "A. |experimental − true| × 100",
+            "B. experimental + true ÷ 100",
+            "C. |experimental − true| ÷ true × 100",
+            "D. true ÷ experimental × 100"
+          ],
+          "correct": 2,
+          "_source_list": "AI_CT_Reagents_and_QC",
+          "_source_index": 6
+        },
+        {
+          "text": "Halogenated and non-halogenated solvent wastes are segregated mainly because",
+          "options": [
+            "A. it only saves storage space",
+            "B. they have different colors",
+            "C. halogenated solvents always float",
+            "D. they require different disposal treatment, and mixing increases hazard and cost"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Chemical_Waste_Management",
+          "_source_index": 4
+        },
+        {
+          "text": "When shaking a separatory funnel containing a volatile solvent, one should",
+          "options": [
+            "A. heat it while shaking",
+            "B. shake with the stopper removed",
+            "C. keep the stopcock closed and never vent",
+            "D. invert and vent frequently to release pressure"
+          ],
+          "correct": 3,
+          "_source_list": "AI_CT_Organic_Laboratory_Technology",
+          "_source_index": 3
+        },
+        {
+          "text": "Boiling chips are added to a distillation flask to",
+          "options": [
+            "A. neutralize acid",
+            "B. promote smooth boiling and prevent bumping",
+            "C. speed up the reaction",
+            "D. raise the boiling point"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Organic_Laboratory_Technology",
+          "_source_index": 7
+        },
+        {
+          "text": "The standard deviation of repeated measurements is a measure of",
+          "options": [
+            "A. sensitivity",
+            "B. precision",
+            "C. accuracy",
+            "D. selectivity"
+          ],
+          "correct": 1,
+          "_source_list": "AI_CT_Reagents_and_QC",
+          "_source_index": 7
+        }
+      ]
     }
   ],
   "test_history": [
@@ -31195,5 +31812,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-30T01:42:03"
+  "updated_at": "2026-09-30T01:42:41"
 }
