@@ -4937,7 +4937,7 @@
     },
     {
       "id": "1790173325245844",
-      "name": "D1_S1",
+      "name": "D1_S2",
       "created_at": "2026-09-23T14:22:05",
       "composition": {
         "D1_L5_Material_Science_Engineering": 10,
@@ -16684,7 +16684,7 @@
     },
     {
       "id": "1790178932634161",
-      "source": "D1_S1",
+      "source": "D1_S2",
       "score": 31,
       "total": 50,
       "pct": 62,
@@ -20904,7 +20904,7 @@
     },
     {
       "exam_id": "1790178932634161",
-      "source": "D1_S1",
+      "source": "D1_S2",
       "date": "2026-09-23T15:55:32",
       "items": [
         {
@@ -30307,7 +30307,7 @@
       "correct_answer": "B. sub cooled liquid",
       "category": "Conceptual Misunderstanding",
       "note": "Turn the weight percent into mol percent and look up in Txy",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-21T18:37:23"
     },
     {
@@ -30321,7 +30321,7 @@
       "correct_answer": "D. 325.25 kg",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Find bed volume, discount the voids, find mass of sand from density",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-21T18:41:23"
     },
     {
@@ -30335,7 +30335,7 @@
       "correct_answer": "B. 0.5\"",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "0.5 inch is standard static submergence of the bubble cap so the vapor can bubble through",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-21T18:46:28"
     },
     {
@@ -30349,7 +30349,7 @@
       "correct_answer": "C. -0.45 kJ/kg-K",
       "category": "Forgot a Concept (Knew It Before)",
       "note": "dS = -R ln ( P2/P1 ), negative since compressed \nand since ln(V2/V1) = ln(P1/P2)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-21T18:51:43"
     },
     {
@@ -30363,7 +30363,7 @@
       "correct_answer": "D. 1.827 hours",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Turn the rate law into a single variable 4th order equation then integrate it and substitute to find half life.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-21T18:56:04"
     },
     {
@@ -30391,8 +30391,8 @@
       "correct_answer": "C. product must be immiscible with water.",
       "category": "Conceptual Misunderstanding",
       "note": "Temp is less than 100 C and the product must be immiscible",
-      "resolved": true,
-      "date_logged": "2026-09-23T03:39:21"
+      "resolved": false,
+      "date_logged": "2026-09-22T00:28:38"
     },
     {
       "id": "1790037292169216",
@@ -30433,8 +30433,8 @@
       "correct_answer": "B. 97%",
       "category": "Forgot a Concept (Knew It Before)",
       "note": "Raffinate A = Feed A * (Inert/ (Dist. Coeff * Inert))^no. Stages",
-      "resolved": true,
-      "date_logged": "2026-09-23T03:22:26"
+      "resolved": false,
+      "date_logged": "2026-09-22T00:54:05"
     },
     {
       "id": "1790039005637734",
@@ -30447,8 +30447,8 @@
       "correct_answer": "B. 93 F",
       "category": "Forgot a Concept (Knew It Before)",
       "note": "Use initial Tdb and Twb to get the amount humidity ratio then use it with the heating temp to find the line where it's 100%saturated then find the temp where db = wb",
-      "resolved": true,
-      "date_logged": "2026-09-23T03:47:29"
+      "resolved": false,
+      "date_logged": "2026-09-22T01:03:25"
     },
     {
       "id": "1790039340371596",
@@ -30462,7 +30462,7 @@
       "category": "Forgot a Concept (Knew It Before)",
       "note": "qtotal = qconv + qrad, qconv = T1-T2/(1/hA), and qrad = emissivity * area * Stefan- Boltzmann constant * (T1^4 - T2^4)",
       "resolved": true,
-      "date_logged": "2026-09-23T03:40:44"
+      "date_logged": "2026-09-22T01:09:00"
     },
     {
       "id": "1790044632647493",
@@ -30490,7 +30490,7 @@
       "category": "Forgot a Concept (Knew It Before)",
       "note": "For a liquid film Re = 4*Mass Flow Rate / dynamic viscosity. 10 = 4*density of water * Q / dynamic viscosity. Solve for Q convert to gal/ft hr",
       "resolved": true,
-      "date_logged": "2026-09-23T03:37:50"
+      "date_logged": "2026-09-22T04:56:52"
     },
     {
       "id": "1790055498562423",
@@ -30503,8 +30503,8 @@
       "correct_answer": "C. 0.98 m",
       "category": "Formula / Equation Error",
       "note": "h1 = e^2 * h0, h2 = e^2 * h1",
-      "resolved": false,
-      "date_logged": "2026-09-22T05:38:18"
+      "resolved": true,
+      "date_logged": "2026-09-22T13:45:44"
     },
     {
       "id": "1790056014155497",
@@ -30517,8 +30517,8 @@
       "correct_answer": "D. VAT",
       "category": "Conceptual Misunderstanding",
       "note": "VAT is automatically added to goods, estimated tax is used for businesses to pay their tax replaced now by quarterly income tax returns",
-      "resolved": false,
-      "date_logged": "2026-09-22T05:46:54"
+      "resolved": true,
+      "date_logged": "2026-09-22T13:45:50"
     },
     {
       "id": "1790057716755165",
@@ -30531,8 +30531,8 @@
       "correct_answer": "C. 2.31",
       "category": "Formula / Equation Error",
       "note": "When dealing with rates or values of time per unit, use the harmonic mean. H = N/SUM(x^-1). Arithmetic mean is biased when it comes to rates.",
-      "resolved": false,
-      "date_logged": "2026-09-22T06:15:16"
+      "resolved": true,
+      "date_logged": "2026-09-22T13:45:56"
     },
     {
       "id": "179005802271541",
@@ -30545,8 +30545,8 @@
       "correct_answer": "D. 64",
       "category": "Formula / Equation Error",
       "note": "Arrange the set, get the middle value, if even average the 2 values arithmetically",
-      "resolved": false,
-      "date_logged": "2026-09-22T06:20:22"
+      "resolved": true,
+      "date_logged": "2026-09-22T13:46:01"
     },
     {
       "id": "1790058067099635",
@@ -30769,8 +30769,8 @@
       "correct_answer": "B. Secondary measurement point",
       "category": "Conceptual Misunderstanding",
       "note": "Cascade conrol uses two loops, (inner) secondary measurement and (outer) primary measurement. Secondary measurement is proactive.",
-      "resolved": false,
-      "date_logged": "2026-09-22T08:42:02"
+      "resolved": true,
+      "date_logged": "2026-09-23T16:12:23"
     },
     {
       "id": "1790066846489388",
@@ -30797,8 +30797,8 @@
       "correct_answer": "B. 19.53 kg",
       "category": "Formula / Equation Error",
       "note": "Find instantaneous volume, find the differential of salt over time (rate in - rate out), integrate the differential, simplify, solve for constant at t=0 formulate the equation of instantaneous salt  S(t).",
-      "resolved": true,
-      "date_logged": "2026-09-23T03:39:00"
+      "resolved": false,
+      "date_logged": "2026-09-22T09:16:35"
     },
     {
       "id": "179006949169229",
@@ -30825,8 +30825,8 @@
       "correct_answer": "D. (-3/7)e^5t",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Assume the solution 3e^5t is Be^5t (where B is a constant). Solve for the derivatives of each term where we let y = Be^5t, y' = 5Be^5t, y'' = 25Be^5t = 3e^5t, solve for B. 25B - 20B -12B = 3.",
-      "resolved": true,
-      "date_logged": "2026-09-23T03:22:03"
+      "resolved": false,
+      "date_logged": "2026-09-22T12:06:57"
     },
     {
       "id": "1790079398290820",
@@ -30853,8 +30853,8 @@
       "correct_answer": "D. 24",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Draw the conditions. Since A and B must be together the circular perm = (5-1)! instead of (6-1)!. Total is (5-1)! * 2! (AB swapping positions). For C and D to not be together we can group them as well giving (4-1)! where 4 is left (AB), (CD), E, and F. (4-1)! * 2! (AB swaps) * 2! (CD swaps) = 24. T = 48-24 = 24",
-      "resolved": true,
-      "date_logged": "2026-09-23T03:38:19"
+      "resolved": false,
+      "date_logged": "2026-09-22T12:31:40"
     },
     {
       "id": "1790080665856765",
@@ -31063,7 +31063,7 @@
       "correct_answer": "A. 15400 lb/h",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Complete the mass balance. Use the w/BPE energy balance, Q = m_cH_c + m_vH_v - m_fH_f\nFind all the enthalpies. H_f = find from fig 2-17, H_c = fig. 2-17, Hv = H_saturatedvapor + Cp(BPE). Hsaturatedvapor = steam table, BPE = BPE line (fig 11-7), memorize Cp of steam = 0.45 BTU/lb F and 1.88 kJ/kg K. Then find latent heat of steam = H_v - H_l (steam table) then m_s = Q/latentheat of steam",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-22T14:30:32"
     },
     {
@@ -31078,7 +31078,7 @@
       "category": "Formula / Equation Error",
       "note": "Fulleret. al. method. Dab = (0.001 * T^1.75 * M_ab^0.5)/ (P * (SUM(v_a)^1/3 + SUM(v_b) ^1/3)) ^ 2. Use T 5-13 for volumes C = 16.5, H = 1.98, O = 5.48 and M_ab = arithmetic mean of molar masses",
       "resolved": true,
-      "date_logged": "2026-09-23T03:21:51"
+      "date_logged": "2026-09-22T14:46:05"
     },
     {
       "id": "1790088593194449",
@@ -31106,7 +31106,7 @@
       "category": "Formula / Equation Error",
       "note": "Convert the ultimate analysis to moles. O2 theo = C + H/4 + S - O/2. O2 supp = O2 theo * (1+O2 xs). Find N2 (air) from O2 supp. Find CO and CO2 from Ct = CO + CO2 and the ratio. Find O2 free = O2 supp - CO2 - 0.5CO - 0.5H2O - SO2 - O/2 (from coal). Find N2 free = N2(air) + N/2 (from coal). Then find the percent of H2O from total",
       "resolved": true,
-      "date_logged": "2026-09-23T03:40:10"
+      "date_logged": "2026-09-22T15:02:41"
     },
     {
       "id": "1790090022247691",
@@ -31120,7 +31120,7 @@
       "category": "Formula / Equation Error",
       "note": "ratio the rate laws. rp/rb = k1CaCc/k2Ca = k1Cc/k2. Cc = Cco (1-Xc). This is CSTR not PlugFlow",
       "resolved": true,
-      "date_logged": "2026-09-23T03:39:41"
+      "date_logged": "2026-09-22T15:13:42"
     },
     {
       "id": "179013429941412",
@@ -31133,7 +31133,7 @@
       "correct_answer": "C. 8.72",
       "category": "Formula / Equation Error",
       "note": "When weak acid is neutralized by strong base the added base becomes the concentration of the weak base hence 2.5*10^-3 / 50ml * 1000 ml then Kw = KaKb solve for Kb, then Kb = [A-]^2 / [concentration of weak base]. Get pOH then get pH",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-23T03:31:39"
     },
     {
@@ -31147,7 +31147,7 @@
       "correct_answer": "C. Working range",
       "category": "Conceptual Misunderstanding",
       "note": "Limit of detection is the lowest concentration that can be detected, working range is the interval between the limit of quantitation. Limit of quantitation is the lowest possible reliable concentration that can me measured not only detected.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-23T03:36:52"
     },
     {
@@ -31161,7 +31161,7 @@
       "correct_answer": "C. Laboratory management",
       "category": "Conceptual Misunderstanding",
       "note": "IQA is responsible for the overseeing of the laboratory management.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T04:47:18"
     },
     {
@@ -31175,7 +31175,7 @@
       "correct_answer": "B. Secondary standard",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "A primary standard is a very pure very stable basis used to verify a secondary standard. The secondary standard is the one used on a daily basis with its purity or concentration verified by a primary standard",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T04:53:57"
     },
     {
@@ -31189,7 +31189,7 @@
       "correct_answer": "D. The relationship between absorbance and concentration is not linear at high concentration.",
       "category": "Conceptual Misunderstanding",
       "note": "The molar absorptivity is the e term in beer lamberts law and is constant at a given wavelength. High concentration makes a solution more non-ideal leading to non-linear relations.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T04:56:53"
     },
     {
@@ -31203,7 +31203,7 @@
       "correct_answer": "B. Tungsten",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "340-1000 nm is a continous wide range spectra that is produced by tungsten lamps. Mercury vapor emits discrete spectra and specific peaks (365 nm). Deuterium is restricted to UV range 150-400 nm",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T05:00:25"
     },
     {
@@ -31217,7 +31217,7 @@
       "correct_answer": "D. This quantity times the column length is equal to the number of theoretical plates in the column.",
       "category": "Conceptual Misunderstanding",
       "note": "H = A + B/u + Cu, H here is HETP it measures the column inefficiency, higher HETP means more inefficient. Number of plates is N = L/HETP where L is column length. Hence HETP = L/N. HETP is height equivalent to a theoretical plate meaning that a higher height needed for one means inefficiency. HETP * N = height",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T05:08:17"
     },
     {
@@ -31231,7 +31231,7 @@
       "correct_answer": "D. 1 part in 10⁵",
       "category": "Conceptual Misunderstanding",
       "note": "For a balance to be classified as analytic, it must be able to detect until 10^-5 as defined by international metrology organizations and global scientific communities.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T05:15:12"
     },
     {
@@ -31245,7 +31245,7 @@
       "correct_answer": "B. Meeting minimum specifications set by the customer in a timely manner",
       "category": "Conceptual Misunderstanding",
       "note": "True quality prioritizes fulfilling customer requirements rather than mere precision.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T05:16:25"
     },
     {
@@ -31259,13 +31259,13 @@
       "correct_answer": "B. acetamide, acetone, dichloroethane",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "In RP-HPLC the stationary phase is non-polar and the mobile phase is polar so polar molecules elute first while non polar lags since its attracted to the stationary phase. Amides (CONH2) is polar and can hydrogen bond. Acetone has a dipole moment. and DCE is non-polar",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T05:21:17"
     },
     {
       "id": "1790228003652352",
       "exam_id": "1790178932634161",
-      "exam_source": "D1_S1",
+      "exam_source": "D1_S2",
       "source_list": "D1_L4_Organic_Chemistry",
       "reference_no": 36,
       "question": "How many stereoisomers exist with the following basic connectivity? CH₃CHClCH₂CHClCH₃",
@@ -31273,13 +31273,13 @@
       "correct_answer": "C. 3",
       "category": "Conceptual Misunderstanding",
       "note": "Draw the compound with all atoms visible then assess via Cahn-Ingold Prelog to determine the R and S configurations of the chiral centers. RR, SS, RS (meso if plane of symmetry counted as 1)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T05:33:23"
     },
     {
       "id": "1790228948202539",
       "exam_id": "1790178932634161",
-      "exam_source": "D1_S1",
+      "exam_source": "D1_S2",
       "source_list": "D1_L2_Environmental_EngSci",
       "reference_no": 9,
       "question": "What is the theoretical oxygen demand in liters of air for 50 mg/L solution of acetone, to decompose completely?",
@@ -31287,13 +31287,13 @@
       "correct_answer": "C. 0.368 L",
       "category": "Formula / Equation Error",
       "note": "Balance the chemical reaction, get the mols of acetone, find the equivalent O2 mols needed via stoichiometry, then at STP specific volume is 22.414 L/mol find volume then from the oxygen volume find the volume of air via its mol frac.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T05:49:08"
     },
     {
       "id": "1790229107170543",
       "exam_id": "1790178932634161",
-      "exam_source": "D1_S1",
+      "exam_source": "D1_S2",
       "source_list": "D1_L3_Analytical_Chemistry",
       "reference_no": 5,
       "question": "How much water must be added to 50 mL of a 0.4 N solution of Cr₂(SO₄)₃•18H₂O in order to make it 0.05 M? The solution is to be used in the precipitation of chromium as the hydroxide.",
@@ -31301,13 +31301,13 @@
       "correct_answer": "C. 16.7 mL",
       "category": "Formula / Equation Error",
       "note": "The n for chromium sulfate is 6 not 5, count the valence not the number of dissociating ions. It gives 6- for total sulfate and 6+ for total Cr3+, then use dilution equation.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T05:51:47"
     },
     {
       "id": "1790229174505572",
       "exam_id": "1790178932634161",
-      "exam_source": "D1_S1",
+      "exam_source": "D1_S2",
       "source_list": "D1_L1_Chem_for_Engineers",
       "reference_no": 62,
       "question": "Toxicants enter organisms through",
@@ -31315,7 +31315,7 @@
       "correct_answer": "D. Ail of above",
       "category": "Conceptual Misunderstanding",
       "note": "Dermal absorption is only one of the ways toxicants enter organisms",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T05:52:54"
     },
     {
@@ -31329,7 +31329,7 @@
       "correct_answer": "A. 0.74 mm",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Hooke's law stress = elastic modulus * strain, dL = strain * initial length",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T06:02:23"
     },
     {
@@ -31343,7 +31343,7 @@
       "correct_answer": "D. 16",
       "category": "Conceptual Misunderstanding",
       "note": "A four carbon chain can have 4 chiral centers. The amount of possible stereoisomers is 2^no. of chiral centers",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T06:58:23"
     },
     {
@@ -31357,7 +31357,7 @@
       "correct_answer": "D. two different aldehydes",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Ozonolysis is a class of cycloaddition/cleavage reaction. Where it forms a molozonide ring C-C-O-O-O which rearranges to an ozonide ring C-O-C-O-O then a reducing agent cleaves this unstable peroxide intermediate into two carbonyls splitting them and forming aldehydes (for unbranched alkenes).",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T07:08:58"
     },
     {
@@ -31371,7 +31371,7 @@
       "correct_answer": "B. Entropy change of vaporization",
       "category": "Conceptual Misunderstanding",
       "note": "Entropy of vaporization is dS = dHvap / T where clausius clapeyron is dP/dT = dHvap/TdV.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T07:13:13"
     },
     {
@@ -31385,7 +31385,7 @@
       "correct_answer": "C. tensile strength",
       "category": "Conceptual Misunderstanding",
       "note": "Yield strength is where the permanent deformation happens and tensile strength is the peak stress before necking (the deformation where the material narrows)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T07:16:28"
     },
     {
@@ -31399,7 +31399,7 @@
       "correct_answer": "C. -51800 J",
       "category": "Formula / Equation Error",
       "note": "So calculate the heat released q = mCpdT then divide it by the mols of water formed (standard for strong acid and bases)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T07:19:05"
     },
     {
@@ -31413,7 +31413,7 @@
       "correct_answer": "D. AIl of the above",
       "category": "Conceptual Misunderstanding",
       "note": "Magnetic force is also a conservative force.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T07:20:29"
     },
     {
@@ -31427,7 +31427,7 @@
       "correct_answer": "C. 3-ethyl-2-hydroxyhexanal",
       "category": "Conceptual Misunderstanding",
       "note": "An aldol reaction is the formation of an aldol from an enolate and an aldehyde where the enolate as a nucleophile attacks the carbonyl carbon of the aldehyde and condenses into one large molecule turning the oxygen from the aldehyde carbonyl into an alcohol on the beta carbon of the newly formed product resulting in a neutral molecule",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T08:28:03"
     },
     {
@@ -31441,7 +31441,7 @@
       "correct_answer": "C. They arise from purchased energy",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Scope of emissions is divided into the 1: direct emissions by the firm, 2: indirect emissions by the firm (utilities), 3: Value chain, is also indirect emissions but further away in terms of a clear ownership",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T09:08:13"
     },
     {
@@ -31455,7 +31455,7 @@
       "correct_answer": "B. serious health hazard",
       "category": "Conceptual Misunderstanding",
       "note": "the starburst is representative of chronic serious health hazards not only acute",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T09:09:10"
     },
     {
@@ -31483,7 +31483,7 @@
       "correct_answer": "A. toughness",
       "category": "Conceptual Misunderstanding",
       "note": "Toughness is energy absorption and strength is resistance to stress/load without failing",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T09:11:48"
     },
     {
@@ -31497,7 +31497,7 @@
       "correct_answer": "A. 100 mg/L",
       "category": "Formula / Equation Error",
       "note": "Dilution factor scales the change in DO of the sample to the actual Oxygen demand of the total volume. BOD5 = (DOi-DOf)/P, then BOD5 = Lo(1-e^-kt), then L5 (remaining demand) = Lo - BOD5",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-24T09:24:57"
     },
     {
@@ -31595,7 +31595,7 @@
       "correct_answer": "D. Limit of detection",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "The analysis of a blank sample matrix is done to eliminate noise hence LOD is more appropriate parameter to detect this. Selectivity is the performance parameter that differentiate between a particular component from other components",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-25T06:56:33"
     },
     {
@@ -31609,7 +31609,7 @@
       "correct_answer": "A. Anode",
       "category": "Conceptual Misunderstanding",
       "note": "Electrochemical cell pertains to both electrolytic and galvanic cells. electrolytic cell and galvanic cell change the polarity of the electrodes but the redox remains at the convention of anode is oxidation. In electrolytic cell anode is positive.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-25T06:59:24"
     },
     {
@@ -31735,7 +31735,7 @@
       "correct_answer": "A. Trouton's rule fails for highly polar liquids",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Trouton's Rule assumes that for liquids in their normal boiling point, the change in entropy is roughly 85-88 J/mol K. For highly polar liquids, their entropy is much lower since the hydrogen bonding provides structure making the change in entropy larger.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T08:01:16"
     },
     {
@@ -31749,7 +31749,7 @@
       "correct_answer": "D. Molecular marker",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Restriction Fragment Length Polymorphism is used to analyze DNA variations by  cutting DNA into fragments of different lengths which marks the DNA for identification",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T08:07:40"
     },
     {
@@ -31763,7 +31763,7 @@
       "correct_answer": "A. point",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "A point defect is a 1 dimensional defect and during crystallization point defects form at an atomic level while volume defects are larger macroscopic defects",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T08:18:16"
     },
     {
@@ -31777,7 +31777,7 @@
       "correct_answer": "C. Absorbance will double",
       "category": "Careless / Computational Error",
       "note": "A = e*l*c if l = 2l then A = 2A",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T08:19:08"
     },
     {
@@ -31791,7 +31791,7 @@
       "correct_answer": "C. 2",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "BCC has 8 corner atoms and 1 central atom. 1/8 * 8 = 1 + 1 = 2. 4 atoms is in FCC",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T08:21:10"
     },
     {
@@ -31819,7 +31819,7 @@
       "correct_answer": "C. 335",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Convert the mols of calcium and magnesium into CaCO3. The total hardness is CaCO3_Ca + CaCO3_Mg.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T08:33:04"
     },
     {
@@ -31833,7 +31833,7 @@
       "correct_answer": "B. 73.35%",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "percent ionic charater, %IC = (1-e^(-0.25*dX^2))*100%. Let X = electronegativity X_oxygen = 3.5, X_magnesium = 1.2.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T08:42:01"
     },
     {
@@ -31847,7 +31847,7 @@
       "correct_answer": "B. Nitrous oxide",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "N2O is used in fertilizers and indutry in combustion and wastewater. N2O has a 100 year GWP of 273 and CH4 has 27.9-29.8 (81-83 for 20 year GWP)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T08:45:11"
     },
     {
@@ -31861,7 +31861,7 @@
       "correct_answer": "B. 1.679 g",
       "category": "Conceptual Misunderstanding",
       "note": "Balance the redox. Na2C2O4 is sodium oxalate. Proceed to find the weight of Na2C2O4 via stoichiometry.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T09:02:36"
     },
     {
@@ -31875,7 +31875,7 @@
       "correct_answer": "A. Benzoic acid",
       "category": "Conceptual Misunderstanding",
       "note": "Primary alcohol -> Aldehyde -> Carboxylic acid. Secondary alcohol -> Ketone -> No further oxidation",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T09:08:40"
     },
     {
@@ -31889,7 +31889,7 @@
       "correct_answer": "B. Nucleophilic addition",
       "category": "Conceptual Misunderstanding",
       "note": "Alkenes undergo electrophilic addition. Carbonyls has a partial positive charge which acts an electrophile for a nucleophile to attack.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T09:10:44"
     },
     {
@@ -31931,7 +31931,7 @@
       "correct_answer": "C. 60",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Phase change of ice to water. Latent heat of fusion_ice = 334J/g = 80 cal/g, Cp_water = 1 cal/g, Cp_ice = 0.5 cal/g. ice to 0C -> ice to water -> liquid water to some temp. dS = Q/T, Qloss = Qadded = 4kJ/K = 956 cal/K (373K - Tf).",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T09:32:04"
     },
     {
@@ -31945,7 +31945,7 @@
       "correct_answer": "B. Minimum",
       "category": "Conceptual Misunderstanding",
       "note": "The value of gibbs free energy is different from the value of the CHANGE in gibbs free energy. At equilibrium the gibbs free energy is at minimum the change is 0",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T09:38:19"
     },
     {
@@ -31959,7 +31959,7 @@
       "correct_answer": "C. 135",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "HCO3- is the source of alkalinity. Convert it to equivalent weights of CaCO3. eq_HCO3- = 61/1 \n165*(50/61)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T09:42:38"
     },
     {
@@ -31973,7 +31973,7 @@
       "correct_answer": "A. Primary Treatment",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Primary treatment relies on chemical and physical methods while secondary relies more on biological agents.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T09:48:55"
     },
     {
@@ -31987,7 +31987,7 @@
       "correct_answer": "A. ingestion is usually a significant way in which chemicale gain into the body entry _",
       "category": "Conceptual Misunderstanding",
       "note": "Ingestion is usually accidental while inhalation is most common. Ingestion is preventable.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T09:50:45"
     },
     {
@@ -32001,7 +32001,7 @@
       "correct_answer": "B. 82",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Calculate the sensible heat and latent heats. Find the lost heat from the heatcapacity of the calorimeter and equate it to the sum of the heat generated solve for T",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T09:52:12"
     },
     {
@@ -32015,7 +32015,7 @@
       "correct_answer": "D. ether",
       "category": "Careless / Computational Error",
       "note": "The carbon before the oxygen is only singly bonded and there are no carbonyl groups",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T09:53:01"
     },
     {
@@ -32029,7 +32029,7 @@
       "correct_answer": "B. 2,3-dimethyl-2-hexene",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "An unhindered nucleophile attacks the alkylhalide via E2 elimination which favors the zaitsev product (or the more substituted product). The double bond is in the second carbon since there it becomes tetrasubstituted and when at 3rd carbon its only tri substituted",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T10:02:06"
     },
     {
@@ -32043,7 +32043,7 @@
       "correct_answer": "B. tetragonal",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "a=b=c & a=b=c=90 (cubic), a=b<>c & a=b=c=90 (Tetragonal), a<>b<>c & a=b=c=90 (Orthorhombic)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-26T10:04:17"
     },
     {
@@ -32169,7 +32169,7 @@
       "correct_answer": "A. ISO 15189",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "ISO 15189 is specifically designed for medical laboratories (diagnostic) while GLP is for non clinical safety and environemental studies. Both are quality standards.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T09:42:04"
     },
     {
@@ -32183,7 +32183,7 @@
       "correct_answer": "C. Method blank",
       "category": "Conceptual Misunderstanding",
       "note": "Field blanks are method blanks but they also go into the sampling site (checking site/transit). Method blanks go through all the steps. Reagent blank is only for the purity of the chemicals.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T09:44:53"
     },
     {
@@ -32197,7 +32197,7 @@
       "correct_answer": "C. 1.9",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Memorize the cryoscopic of water Kf = 1.86 C kg/mol. dT = Kf * i * m",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T09:48:13"
     },
     {
@@ -32211,7 +32211,7 @@
       "correct_answer": "D. To promote the growth of larger and purer precipitate particles for easier filtration",
       "category": "Conceptual Misunderstanding",
       "note": "Digestion (Ostwald Ripening) is part of the precipitation process where the precipitate is left in contact with the mother liquor to reduce surface area and increase purity",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T10:28:17"
     },
     {
@@ -32225,7 +32225,7 @@
       "correct_answer": "B. DNA",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Blotting is for detection of particular species. Southern blotting is for DNA, Western blotting is for Proteins, Eastern blotting is for post translation protein modifications and Northern blotting is for RNA.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T12:02:29"
     },
     {
@@ -32239,7 +32239,7 @@
       "correct_answer": "A. 0.25",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "From the fundamental equation dG = VdP - SdT and V=1/p convert into proper units",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T12:10:15"
     },
     {
@@ -32253,7 +32253,7 @@
       "correct_answer": "C. 189",
       "category": "Careless / Computational Error",
       "note": "Atomic mass of magnesium is 24 not 22. Proceed with equivalent weights calculation",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T12:12:51"
     },
     {
@@ -32267,7 +32267,7 @@
       "correct_answer": "D. CH₃CH₂CHClCH₂Cl",
       "category": "Conceptual Misunderstanding",
       "note": "In halogenation of an alkene, the halogen adds anti to the double bond carbons resulting in a vicinal dihalide rather than a geminal dihalide but if the agent is HCl the addition follows markovnikov's rule",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T12:24:33"
     },
     {
@@ -32281,7 +32281,7 @@
       "correct_answer": "C. 5562 m/s",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "KE = 0.5mv^2, find the mass of a single O2 molecule = MW/(avogadro's no.) then solve for v",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T12:27:18"
     },
     {
@@ -32295,7 +32295,7 @@
       "correct_answer": "A. 1.862",
       "category": "Careless / Computational Error",
       "note": "Ka = X^2 / (molarity of solution) - X, solve for X, solve for pH",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T12:29:55"
     },
     {
@@ -32309,7 +32309,7 @@
       "correct_answer": "A. a s-shaped or sigmoidal curve",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Dose response curve is what you use to determine the strength of a substance to produce a particular effect (response). For acute toxicity, the graph usually follows a S curve where the bottom is almost no effect then the middle linear part where the relationship is seen and the top is where the max effect is reached.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T12:42:52"
     },
     {
@@ -32323,7 +32323,7 @@
       "correct_answer": "C. 450 MJ",
       "category": "Misread the Question",
       "note": "The question states \"the energy released to the surroundings\".",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T12:44:28"
     },
     {
@@ -32337,7 +32337,7 @@
       "correct_answer": "B. resilience",
       "category": "Conceptual Misunderstanding",
       "note": "Toughness absorbs massive amounts of energy by deformation. Resilience absorbs energy elastically and can revert back to the original shape.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T14:04:48"
     },
     {
@@ -32365,7 +32365,7 @@
       "correct_answer": "B. 41.9%",
       "category": "Careless / Computational Error",
       "note": "Account for the stoichiometric coefficient of the cerium oxidant. C3H8O3  -> CHO2 gives 8e+ divide the total cerium added by this to get the actual amount of glycerol",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T15:30:51"
     },
     {
@@ -32379,7 +32379,7 @@
       "correct_answer": "A. 0.09254 M",
       "category": "Careless / Computational Error",
       "note": "Account for the stoichiometric coefficient. Balance the reaction first",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T15:31:49"
     },
     {
@@ -32393,7 +32393,7 @@
       "correct_answer": "A. Reduction",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "The increase in entopy stabilizes the solvent leading to the decrease of the chemical potential causing the colligative properties.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T15:35:34"
     },
     {
@@ -32421,7 +32421,7 @@
       "correct_answer": "C. 3.38 mL",
       "category": "Formula / Equation Error",
       "note": "Solve the ratio from Henderson-Hasselbach. ratio = B_actual/BH+, since B is a conjugate base it forms BH+ acid from HNO3. B_actual = B-BH+.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T15:44:21"
     },
     {
@@ -32435,7 +32435,7 @@
       "correct_answer": "D. 80%",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Enantiomeric excess = specific rotation of mixture / specific rotation of pure substance. If the given were observed rotation the specific rotation = observed rotation / (conc. g/ml) * (path length dm)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T15:50:41"
     },
     {
@@ -32449,7 +32449,7 @@
       "correct_answer": "B. Ionic and covalent bonding",
       "category": "Conceptual Misunderstanding",
       "note": "The crystalline structure doesnt cause the brittleness of ceramics, the ionic and covalent bonds doesnt let each other slide each other unlike metal (crystalline).",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T16:35:44"
     },
     {
@@ -32463,7 +32463,7 @@
       "correct_answer": "A. -0.17 V",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Nernst Equation is Ecell = E_standard potential of cell * 0.0592/n * log Q. E_spc = E_cathode - E_anode. Balance the redox Sn2+ Fe3+ -> Sn4+ + Fe(s) Reaction quotient (Q) = Sn4+ / (Sn2+ *  Fe3+) raise to approriate stoich. n is the coefficient of e- during balance of half reactions",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T17:19:27"
     },
     {
@@ -32477,7 +32477,7 @@
       "correct_answer": "C. 39.2 M",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Michaeles menten. 1/v = [Km/(Vmax * S)] + 1/Vmax. Find Km m = 0.01738, 1/Vmax = 4.43 * 10^-4. Find Km algebraically",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T17:45:52"
     },
     {
@@ -32491,7 +32491,7 @@
       "correct_answer": "B. The column has (+) resin where (−) species bind.",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "ANION - exchange means that negatively charged species are exchanged (captured)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-28T10:02:05"
     },
     {
@@ -32505,7 +32505,7 @@
       "correct_answer": "B. Use a heating mantle with stirring.",
       "category": "Conceptual Misunderstanding",
       "note": "Sand bath can reach 200 C but a heating mantle can do it safer and more precisely",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-28T10:04:02"
     },
     {
@@ -32519,7 +32519,7 @@
       "correct_answer": "C. 150 °C",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "The upper limit for simple distillation is 150 C since most solvents boil between 100 - 150. Beyond 150 vacuum distillation is recommended",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-28T10:06:53"
     },
     {
@@ -32533,7 +32533,7 @@
       "correct_answer": "B. ECD",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Electron capture detector (ECD) is sensitive to electronegative atoms, as it fires electrons the halogens capture these and as they elute out of the column there is a decrease in current. Thermionic Specific Detectors (TSD) responds to nitrogen and phosporus, N and P passess over an alkali metal bead causing an increase in current, it works by N and P oxidizing the hydrogen plasma medium which causes the alkali bead to release thermionic electrons.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-28T14:19:21"
     },
     {
@@ -32801,6 +32801,20 @@
       "note": "Since it states spatial arrangements primary structure is disqualified. Secondary structures are building blocks and can either be alpha helix or beta sheets rather than depend on the side chains which determines higher level folding",
       "resolved": false,
       "date_logged": "2026-09-29T23:13:46"
+    },
+    {
+      "id": "179075981323154",
+      "exam_id": "1790748459135703",
+      "exam_source": "AI_CT_S1",
+      "source_list": "AI_CT_Chemical_Safety",
+      "reference_no": 6,
+      "question": "Which extinguisher type is suitable for an electrical (Class C) fire?",
+      "your_answer": "C. Foam",
+      "correct_answer": "D. Carbon dioxide (CO2)",
+      "category": "Conceptual Misunderstanding",
+      "note": "Foam is water based and conductive which will worsen electrical fires",
+      "resolved": false,
+      "date_logged": "2026-09-30T09:16:53"
     }
   ],
   "guess_notes": [
@@ -32945,5 +32959,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-30T07:21:49"
+  "updated_at": "2026-09-30T09:17:00"
 }
