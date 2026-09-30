@@ -32813,7 +32813,7 @@
       "correct_answer": "D. Carbon dioxide (CO2)",
       "category": "Conceptual Misunderstanding",
       "note": "Foam is water based and conductive which will worsen electrical fires",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-30T09:16:53"
     },
     {
@@ -32827,7 +32827,7 @@
       "correct_answer": "A. Philippine Clean Water Act of 2004",
       "category": "Conceptual Misunderstanding",
       "note": "RA 8749 is clean air act",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-30T09:17:39"
     },
     {
@@ -32843,6 +32843,20 @@
       "note": "pH meters use Ag wire coated in AgCl with KCl providing a practical known pH reference",
       "resolved": true,
       "date_logged": "2026-09-30T09:20:33"
+    },
+    {
+      "id": "1790760091529714",
+      "exam_id": "1790748459135703",
+      "exam_source": "AI_CT_S1",
+      "source_list": "AI_CT_Organic_Laboratory_Technology",
+      "reference_no": 5,
+      "question": "In an extraction with dichloromethane and water, the dichloromethane layer is",
+      "your_answer": "A. the top layer because it is less dense than water",
+      "correct_answer": "C. the bottom layer because it is denser than water",
+      "category": "Conceptual Misunderstanding",
+      "note": "DCM is denser than water it's 1330 kg/m3",
+      "resolved": true,
+      "date_logged": "2026-09-30T09:21:31"
     }
   ],
   "guess_notes": [
@@ -32987,5 +33001,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-30T09:20:40"
+  "updated_at": "2026-09-30T09:22:03"
 }
