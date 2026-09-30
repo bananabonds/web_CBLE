@@ -18458,6 +18458,619 @@
           "_source_index": 5
         }
       ]
+    },
+    {
+      "id": "1790788081982993",
+      "name": "CT_PRAC7",
+      "created_at": "2026-09-30T17:08:01",
+      "composition": {
+        "CT_Organic_Chemistry": 13,
+        "CT_Quality_Control_Assurance": 12,
+        "CT_Chemical_Waste_Management": 13,
+        "CT_Inorganic_Chemistry": 12
+      },
+      "questions": [
+        {
+          "text": "All of the following are properties of an organic solvent for extraction except ",
+          "options": [
+            "A. Dissolve the desired substance",
+            "B. React with the desired substance",
+            "C. Not react or be miscible with water",
+            "D. Have a low boiling point so that it can be easily removed later"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 61
+        },
+        {
+          "text": "Which of the following observation/s will require a process to stop immediately? I. Results lie outside action limits. II. 3 consecutive measurements on one side of the central limit. III. 7 consecutive measurements create an increasing trend. IV. Values are within warning limits ",
+          "options": [
+            "A. I only",
+            "B. I and III",
+            "C. I, II, and IV",
+            "D. I, III, and IV"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 7
+        },
+        {
+          "text": "Which of the following are characteristics of a QC sample? ",
+          "options": [
+            "A. Similar in composition to the types of samples normally examined",
+            "B. Must be stable",
+            "C. Must be available in large quantities",
+            "D. All of the above"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 12
+        },
+        {
+          "text": "This quality system standard is a general requirement for the competence of testing and calibration laboratories ",
+          "options": [
+            "A. GLP",
+            "B. GMP",
+            "C. ISO9001",
+            "D. ISO/IEC 17025"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 2
+        },
+        {
+          "text": "It is a record (usually a database), which in some cases is a required document for compliance, that lists the chemicals in the laboratory, along with information essential for their proper management ",
+          "options": [
+            "A. Safety datasheet",
+            "B. Material safety datasheet",
+            "C. Chemical inventory",
+            "D. Chemical list"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Chemical_Waste_Management",
+          "_source_index": 1
+        },
+        {
+          "text": "Which of the following has a valence electron configuration of 5s2 5p32 ",
+          "options": [
+            "A. Silver",
+            "B. Antimony",
+            "C. Cesium",
+            "D. Chlorine"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 12
+        },
+        {
+          "text": "It allows for many successive distillations to take place at once. It contains indentations or a packing material with lots of surface area? ",
+          "options": [
+            "A. Adapter",
+            "B. Condenser",
+            "C. Round bottom flask",
+            "D. Fractionating column"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 70
+        },
+        {
+          "text": "Which of the following can promote even boiling? ",
+          "options": [
+            "A. Stones",
+            "B. Chips",
+            "C. Stir bars",
+            "D. All of the above"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 67
+        },
+        {
+          "text": "Where should a thermometer be placed to determine the boiling point of the distillate? ",
+          "options": [
+            "A. Inside the distilling flask and it should be just below the side arm of the flask",
+            "B. Inside the distilling flask and it should be immersed in the mixture being distilled",
+            "C. Inside the receiver",
+            "D. Inside the adapter"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 68
+        },
+        {
+          "text": "This refers to a type of waste in which when placed in a landfill is reasonably expected not to undergo any physical, chemical, and biological changes to such an extent as to cause health or safety hazards. ",
+          "options": [
+            "A. Stable wastes",
+            "B. Infectious wastes",
+            "C. Special wastes",
+            "D. Inert wastes"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Chemical_Waste_Management",
+          "_source_index": 6
+        },
+        {
+          "text": "When a deviation from critical limits happens, what should be done? ",
+          "options": [
+            "A. Documentation of corrective actions",
+            "B. Stop the process and inform the supervisor",
+            "C. Reassess the standards being implemented",
+            "D. All of the above"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 10
+        },
+        {
+          "text": "Sodium metal should be best stored in ___: ",
+          "options": [
+            "A. Dry ventilated cabinet",
+            "B. Closed container under kerosene, or mineral oil",
+            "C. Tightly screw-cap glass bottle",
+            "D. Closed metal container"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Chemical_Waste_Management",
+          "_source_index": 3
+        },
+        {
+          "text": "Which of the following is arranged in increasing atomic size? ",
+          "options": [
+            "A. Cs < Ca < 0 < Ne",
+            "B. Cs < 0 < Ca < Ne",
+            "C. Ne < Ca < 0 < Cs",
+            "D. Ne<0<Ca Cs"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 13
+        },
+        {
+          "text": "An “alkali waste” has a pH of ___ ",
+          "options": [
+            "A. 7",
+            "B. ≥ 2",
+            "C. 10",
+            "D. ≥ 12.5"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Chemical_Waste_Management",
+          "_source_index": 12
+        },
+        {
+          "text": "A type of blank that is commonly used with techniques such as spectrophotometry to zero the instrument before measuring test samples and other blanks. ",
+          "options": [
+            "A. Reagent blank",
+            "B. Method blank",
+            "C. Trip blank",
+            "D. Field blank"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 11
+        },
+        {
+          "text": "Which of the following acids are stored properly? ",
+          "options": [
+            "A. Hydrochloric acid, nitric acid, phosphoric acid, sulfuric acid",
+            "B. Hydrochloric acid, acetic acid, sulfuric acid, lactic acid",
+            "C. Lactic acid, acetic acid, trichloroacetic acid",
+            "D. Lactic acid, acetic acid, perchloric acid"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Chemical_Waste_Management",
+          "_source_index": 2
+        },
+        {
+          "text": "It is a laboratory quality control activity that is used to verify that an instrument works correctly on a day-to-day basis. ",
+          "options": [
+            "A. Spiking",
+            "B. Blank analysis",
+            "C. System suitability checking",
+            "D. Reference material analysis"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 13
+        },
+        {
+          "text": "Which of the following laboratory activities practices green chemistry? I. Waste prevention II. Microscale work III. Use of digital thermometers IV. Catalysis ",
+          "options": [
+            "A. I and II",
+            "B. I, II, and III",
+            "C. I and III",
+            "D. I, II, III, and IV"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Chemical_Waste_Management",
+          "_source_index": 10
+        },
+        {
+          "text": "It is an act regulating and modernizing the practice of chemistry in the Philippines, otherwise known as the Chemistry Law of the Philippines. ",
+          "options": [
+            "A. RA 6969",
+            "B. RA 9514",
+            "C. RA 10657",
+            "D. RA 3720"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Chemical_Waste_Management",
+          "_source_index": 8
+        },
+        {
+          "text": "A technique used to evaluate the performance of a procedure when testing a specific sample type. ",
+          "options": [
+            "A. Spiking",
+            "B. Blank analysis",
+            "C. System suitability checking",
+            "D. Reference material analysis"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 6
+        },
+        {
+          "text": " Which of the following corresponds to the electron configuration 1s2 2s2 2p62 ",
+          "options": [
+            "A. Na",
+            "B. Na+",
+            "C. Cl",
+            "D. Cl-"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 11
+        },
+        {
+          "text": "A sample of water was collected from immediately downstream of an industrial outfall to assess the worst possible situation regarding potential pollution. What type of sample is used in the situation? ",
+          "options": [
+            "A. Selective sample",
+            "B. Random sample",
+            "C. Representative sample",
+            "D. Composite sample"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Chemical_Waste_Management",
+          "_source_index": 9
+        },
+        {
+          "text": "This refers to the net result of uptake, transformation and elimination of a substance in an organism due to all routes of exposure ",
+          "options": [
+            "A. Bioaccumulation",
+            "B. Bioavailability",
+            "C. Availability",
+            "D. Bioconcentration"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Chemical_Waste_Management",
+          "_source_index": 4
+        },
+        {
+          "text": " Protium, the most common isotope of hydrogen has one proton and one electron. What is its mass? ",
+          "options": [
+            "A. 1.67x10-27 g",
+            "B. 3.35X 10-27 g",
+            "C. 1.67X10-27 kg",
+            "D. 9.11x10-31 kg"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 0
+        },
+        {
+          "text": "A liquid mixture that has a constant boiling point and whose vapor has the same composition as the liquid. ",
+          "options": [
+            "A. azeotrope",
+            "B. Ideal",
+            "C. Ethylene",
+            "D. Dimethyl ether"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 73
+        },
+        {
+          "text": "What is the molar mass of an unknown gas is 1.60 g of that gas occupies a volume of 2.24 L at STP? ",
+          "options": [
+            "A. 16.0 g/mol",
+            "B. 25.1 g/mol",
+            "C. 50.2 g/mol",
+            "D. 81.9 g/mol"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 38
+        },
+        {
+          "text": " Which group in the periodic table reacts with water at a slower rate to form basic hydroxide solutions? ",
+          "options": [
+            "A. Group 1",
+            "B. Group 2",
+            "C. Group 16",
+            "D. Group 17"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 14
+        },
+        {
+          "text": "Which of the following funnels should be used to filter hot mother liquor during recrystallization? ",
+          "options": [
+            "A. Hirsch funnel",
+            "B. Buchner funnel",
+            "C. Long stem funnel",
+            "D. Short stem funnel"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 65
+        },
+        {
+          "text": "What is the molecular geometry of chlorate? ",
+          "options": [
+            "A. Trigonal bipyramidal",
+            "B. Tetrahedral",
+            "C. Trigonal pyramidal,",
+            "D. Trigonal planar"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 17
+        },
+        {
+          "text": "When collecting waste in the laboratory a good way to reduce the expense of waste management is to ",
+          "options": [
+            "A. Put non-halogenated and halogenated solvents in separate primary containers",
+            "B. Plan to recycle solvents",
+            "C. Put acids and mixtures of acids and metals in separate primary containers",
+            "D. All of these"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Chemical_Waste_Management",
+          "_source_index": 11
+        },
+        {
+          "text": "In the acquisition of chemicals for the laboratory, the following are important considerations except ",
+          "options": [
+            "A. Cost: chemical purchases must be determined by the cheaper unit price basis of large quantities. Buying bulk quantities will save significant amount of acquisition cost.",
+            "B. Availability: check first if the material is available from another laboratory in the institution",
+            "C. Facilities: the incoming chemicals must be managed safely when it arrives",
+            "D. Security: the institution must have adequate security measures and required documentations if purchasing a controlled substance"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Chemical_Waste_Management",
+          "_source_index": 0
+        },
+        {
+          "text": "An organic compound decomposes at its boiling point. What is the most appropriate method for the recovery of the solid organic compound? ",
+          "options": [
+            "A. Steam distillation",
+            "B. Batch distillation",
+            "C. Fractional distillation",
+            "D. Liquid-liquid extraction"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 69
+        },
+        {
+          "text": "What type of container must be used to store waste such as paints and solvents? ",
+          "options": [
+            "A. Polyethylene drum",
+            "B. Metal drum",
+            "C. Fiber drum",
+            "D. Glass drum"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Chemical_Waste_Management",
+          "_source_index": 7
+        },
+        {
+          "text": "This is done during liquid-liquid extraction to release the pressure buildup inside the separatory funnel during shaking ",
+          "options": [
+            "A. Stirring",
+            "B. Venting",
+            "C. Drawing",
+            "D. Salting out"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 62
+        },
+        {
+          "text": "Which of the following techniques can be used to heat a reaction to 200oC? ",
+          "options": [
+            "A. Use a Bunsen burner to heat the reaction vessel",
+            "B. Use a heating mantle with stirring",
+            "C. Place the reaction vessel in a sand bath with stirring",
+            "D. Place the reaction vessel in a water bath with stirring"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 66
+        },
+        {
+          "text": "When the pressure of a gas is increased and the temperature is lowered, which of the following is applicable? ",
+          "options": [
+            "A. Ideality is achieved",
+            "B. Van der Waals forces become evident;",
+            "C. Molecular motion speeds up",
+            "D. No change"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 35
+        },
+        {
+          "text": "It is part of quality systems that is officially defined by the ISO as the assembly of all planned and systematic actions to provide adequate confidence that a product, process, or service will satisfy the given quality requirements ",
+          "options": [
+            "A. Quality management",
+            "B. Quality assurance",
+            "C. Quality control",
+            "D. Quality manual"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 0
+        },
+        {
+          "text": "A drug sample contains 10.0 ug/L of its active ingredient. A 5.0 ug/L of spike was added to replicate a portion of the drug. The spiked sample gave a concentration of 14.6 ug/L. What is the percent recovery of the spike? ",
+          "options": [
+            "A. 34",
+            "B. 37",
+            "C. 92",
+            "D. 96"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 5
+        },
+        {
+          "text": "Which of the following is/are true about quality assurance? I. QA is a set of activities for ensuring quality in the process by which products are developed II. QA is a corrective tool and product oriented. ",
+          "options": [
+            "A. I only",
+            "B. II only",
+            "C. Both I and II",
+            "D. None of these"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 4
+        },
+        {
+          "text": "A series of reference standard solutions that have known and accurate pH values at different temperatures and are used for pH meter calibration. ",
+          "options": [
+            "A. Buffer solutions",
+            "B. QC solutions",
+            "C. pH solutions",
+            "D. None of these"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 8
+        },
+        {
+          "text": "Aqua regia is a/an ",
+          "options": [
+            "A. solution",
+            "B. colloid",
+            "C. suspension",
+            "D. compound"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 26
+        },
+        {
+          "text": "When the solid and liquid phases are in equilibrium, the temperature of the system ___? ",
+          "options": [
+            "A. Decreases gradually",
+            "B. Increases gradually",
+            "C. Remains constant",
+            "D. None of the above"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 72
+        },
+        {
+          "text": "What is the name of (NH4)2C03? ",
+          "options": [
+            "A. Ammonium carbonate",
+            "B. Diammonium carbonate",
+            "C. Ammonium carbon trioxide",
+            "D. Nitrogen hydride carbonate"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 21
+        },
+        {
+          "text": "What is the main purpose of heating under reflux? ",
+          "options": [
+            "A. To provide a very high temperature so that slow reactions occur at faster rates",
+            "B. To increase the rate of evaporation of the solvent to increase the product yield",
+            "C. To heat the reaction mixture in a solvent at a constant temperature without the loss of any reagents",
+            "D. None of the above"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 74
+        },
+        {
+          "text": "A hazardous waste characteristic that refers to substances that are unstable under normal conditions and readily undergo violent reaction without detonation ",
+          "options": [
+            "A. Ignitability",
+            "B. Corrosivity",
+            "C. Reactivity",
+            "D. Toxicity"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Chemical_Waste_Management",
+          "_source_index": 5
+        },
+        {
+          "text": "Arrange the following scenarios according to the scientific method: I. Different solvents are used in trials to process raw material X. II. Raw material X yielded more products than the original material. III. A previous study suggested the usage of a different raw material X. ",
+          "options": [
+            "A. III, I, II",
+            "B. I, II, III",
+            "C. III, II, I",
+            "D. I, III, II"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 4
+        },
+        {
+          "text": "Which of the following is inversely proportional for an ideal gas? ",
+          "options": [
+            "A. Concentration and mass",
+            "B. Pressure and temperature ",
+            "C. Density and temperature",
+            "D. Molar mass and temperature"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Inorganic_Chemistry",
+          "_source_index": 36
+        },
+        {
+          "text": "A material, sufficiently homogenous and stable with respect to one or more specified property values, which has been established to be for its intended use in a measurement process ",
+          "options": [
+            "A. Chemical standards",
+            "B. Certified Reference Materials (CRM)",
+            "C. Reference Materials (RM)",
+            "D. Certified standards"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Quality_Control_Assurance",
+          "_source_index": 9
+        },
+        {
+          "text": "A reaction needs to be cooled to -77oC after refluxing. What is the best method to be used? ",
+          "options": [
+            "A. Place the reaction vessel in an ice bath",
+            "B. Place the reaction vessel in the freezer",
+            "C. Place the reaction vessel in a salt and crushed ice mixture",
+            "D. Place the reaction vessel in a dry ice-acetone mixture"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 75
+        },
+        {
+          "text": "Which of the following is/are considered in purification using crystallization? I. Polarity II. Solubility III. Vapor pressure ",
+          "options": [
+            "A. I only",
+            "B. II only",
+            "C. I and II only",
+            "D. I, II, and III"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Organic_Chemistry",
+          "_source_index": 64
+        }
+      ]
     }
   ],
   "test_history": [
@@ -37633,5 +38246,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-30T16:55:42"
+  "updated_at": "2026-09-30T17:08:09"
 }
