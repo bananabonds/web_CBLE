@@ -1424,8 +1424,24 @@ async function githubGetFile() {
   });
   if (res.status === 404) return { data: null, sha: null };
   if (!res.ok) throw new Error(`GET ${res.status} ${(await res.text().catch(() => "")).slice(0, 150)}`);
+  
+  // Blob Fix
   const json = await res.json();
-  const text = b64DecodeUnicode(json.content);
+  let text;
+  if (json.content && json.encoding === "base64") {
+    text = b64DecodeUnicode(json.content);
+  } else {
+    // File is >1MB: Contents API omits content, so fetch the blob instead
+    const c2 = getGithubConfig();
+    const blobRes = await fetch(
+      `https://api.github.com/repos/${encodeURIComponent(c2.owner)}/${encodeURIComponent(c2.repo)}/git/blobs/${json.sha}`,
+      { headers: { "Authorization": `Bearer ${c2.token}`, "Accept": "application/vnd.github+json" }, cache: "no-store" }
+    );
+    if (!blobRes.ok) throw new Error(`Blob GET ${blobRes.status}`);
+    const blob = await blobRes.json();
+    text = b64DecodeUnicode(blob.content);
+  }
+    
   let data;
   try { data = JSON.parse(text); } catch (e) { throw new Error("Remote file isn't valid JSON -- check the path/branch."); }
   return { data, sha: json.sha };
