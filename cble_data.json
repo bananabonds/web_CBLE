@@ -16843,6 +16843,15 @@
       "pct": 92,
       "date": "2026-09-30T06:07:39",
       "time_used_seconds": 15901
+    },
+    {
+      "id": "1790761609466480",
+      "source": "AI_CT_S2",
+      "score": 48,
+      "total": 50,
+      "pct": 96,
+      "date": "2026-09-30T09:46:49",
+      "time_used_seconds": 1477.8
     }
   ],
   "exam_details": [
@@ -30027,6 +30036,513 @@
           "correct_answer": "A. A = εbc"
         }
       ]
+    },
+    {
+      "exam_id": "1790761609466480",
+      "source": "AI_CT_S2",
+      "date": "2026-09-30T09:46:49",
+      "items": [
+        {
+          "source_list": "AI_CT_Organic_Chemistry",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The general formula of alkanes is",
+          "your_answer": "D. CnH2n+2",
+          "correct_answer": "D. CnH2n+2"
+        },
+        {
+          "source_list": "AI_CT_Laboratory_Technology",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Which apparatus is calibrated \"to contain\" (TC) rather than \"to deliver\"?",
+          "your_answer": "B. Volumetric flask",
+          "correct_answer": "B. Volumetric flask"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Retention time in chromatography is the time",
+          "your_answer": "A. from sample injection to the peak maximum",
+          "correct_answer": "A. from sample injection to the peak maximum"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Safety",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The fire triangle consists of",
+          "your_answer": "D. fuel, heat, and oxygen",
+          "correct_answer": "D. fuel, heat, and oxygen"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Safety",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Pipetting by mouth in the laboratory is",
+          "your_answer": "C. prohibited; use a pipette bulb or pipettor",
+          "correct_answer": "C. prohibited; use a pipette bulb or pipettor"
+        },
+        {
+          "source_list": "AI_CT_Organic_Chemistry",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is an aromatic compound?",
+          "your_answer": "C. Benzene",
+          "correct_answer": "C. Benzene"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Waste_Management",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Used needles and broken glass should be placed in",
+          "your_answer": "D. a puncture-resistant sharps container",
+          "correct_answer": "D. a puncture-resistant sharps container"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Waste_Management",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Waste containers should be kept",
+          "your_answer": "A. closed except when waste is being added",
+          "correct_answer": "A. closed except when waste is being added"
+        },
+        {
+          "source_list": "AI_CT_Reagents_and_QC",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "When diluting concentrated sulfuric acid, one should",
+          "your_answer": "A. slowly add the acid to water while stirring",
+          "correct_answer": "A. slowly add the acid to water while stirring"
+        },
+        {
+          "source_list": "AI_CT_Organic_Chemistry",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Compared with typical inorganic compounds, organic compounds generally",
+          "your_answer": "A. have covalent bonds, lower melting points, and are often flammable",
+          "correct_answer": "A. have covalent bonds, lower melting points, and are often flammable"
+        },
+        {
+          "source_list": "AI_CT_Reagents_and_QC",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A control chart is used to",
+          "your_answer": "B. monitor whether a measurement process remains stable over time",
+          "correct_answer": "B. monitor whether a measurement process remains stable over time"
+        },
+        {
+          "source_list": "AI_CT_General_Chemistry",
+          "reference_no": 6,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Elements in Group 17 of the periodic table are known as the",
+          "your_answer": "D. noble gases",
+          "correct_answer": "C. halogens"
+        },
+        {
+          "source_list": "AI_CT_Organic_Laboratory_Technology",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Reflux is used to",
+          "your_answer": "C. heat a reaction at its boiling point without losing solvent, using a condenser",
+          "correct_answer": "C. heat a reaction at its boiling point without losing solvent, using a condenser"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is an electroanalytical method?",
+          "your_answer": "C. Potentiometry using a pH meter",
+          "correct_answer": "C. Potentiometry using a pH meter"
+        },
+        {
+          "source_list": "AI_CT_Laboratory_Technology",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A pure crystalline organic compound typically melts",
+          "your_answer": "D. over a sharp, narrow temperature range",
+          "correct_answer": "D. over a sharp, narrow temperature range"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Cuvettes should be handled by",
+          "your_answer": "B. the frosted sides and wiped with lint-free tissue",
+          "correct_answer": "B. the frosted sides and wiped with lint-free tissue"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Waste_Management",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A broken mercury thermometer should be cleaned up using",
+          "your_answer": "D. a mercury spill kit, with the waste disposed of as hazardous waste",
+          "correct_answer": "D. a mercury spill kit, with the waste disposed of as hazardous waste"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Waste_Management",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Waste containing heavy metals such as mercury or lead should be",
+          "your_answer": "B. collected in labeled containers for treatment by an accredited treater",
+          "correct_answer": "B. collected in labeled containers for treatment by an accredited treater"
+        },
+        {
+          "source_list": "AI_CT_General_Chemistry",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the molarity of a solution prepared by dissolving 5.85 g NaCl (M = 58.5 g/mol) in enough water to make 500 mL?",
+          "your_answer": "B. 0.200 M",
+          "correct_answer": "B. 0.200 M"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 11,
+          "is_correct": false,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "In TLC, the Rf value is equal to",
+          "your_answer": "D. distance traveled by the spot − distance traveled by the solvent front",
+          "correct_answer": "C. distance traveled by the spot ÷ distance traveled by the solvent front"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Safety",
+          "reference_no": 21,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Slightly Confident",
+          "question": "Diethyl ether stored for a long time can form",
+          "your_answer": "D. explosive peroxides",
+          "correct_answer": "D. explosive peroxides"
+        },
+        {
+          "source_list": "AI_CT_General_Chemistry",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "What is the SI base unit for amount of substance?",
+          "your_answer": "D. mole",
+          "correct_answer": "D. mole"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Waste_Management",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "RA 9003 is the",
+          "your_answer": "B. Ecological Solid Waste Management Act of 2000",
+          "correct_answer": "B. Ecological Solid Waste Management Act of 2000"
+        },
+        {
+          "source_list": "AI_CT_Laboratory_Technology",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Coning and quartering is used to",
+          "your_answer": "B. reduce a large bulk solid to a smaller representative portion",
+          "correct_answer": "B. reduce a large bulk solid to a smaller representative portion"
+        },
+        {
+          "source_list": "AI_CT_Organic_Laboratory_Technology",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "In a distillation setup, the thermometer bulb should be placed",
+          "your_answer": "A. just below the side-arm opening of the distillation head",
+          "correct_answer": "A. just below the side-arm opening of the distillation head"
+        },
+        {
+          "source_list": "AI_CT_Reagents_and_QC",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "NaOH solutions for titration are best stored in",
+          "your_answer": "C. tightly closed polyethylene bottles",
+          "correct_answer": "C. tightly closed polyethylene bottles"
+        },
+        {
+          "source_list": "AI_CT_Organic_Laboratory_Technology",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Gas chromatography is best suited for compounds that are",
+          "your_answer": "C. volatile and thermally stable",
+          "correct_answer": "C. volatile and thermally stable"
+        },
+        {
+          "source_list": "AI_CT_Organic_Laboratory_Technology",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Flammable organic solvents should be heated using",
+          "your_answer": "B. a water bath or heating mantle rather than an open flame",
+          "correct_answer": "B. a water bath or heating mantle rather than an open flame"
+        },
+        {
+          "source_list": "AI_CT_Laboratory_Technology",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which step is commonly used to convert a solid inorganic sample into solution for analysis?",
+          "your_answer": "B. Acid digestion or dissolution",
+          "correct_answer": "B. Acid digestion or dissolution"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Waste_Management",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Hazardous waste generators in the Philippines are required to register with the",
+          "your_answer": "A. DENR Environmental Management Bureau (EMB)",
+          "correct_answer": "A. DENR Environmental Management Bureau (EMB)"
+        },
+        {
+          "source_list": "AI_CT_Organic_Chemistry",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Isomers are compounds that have",
+          "your_answer": "C. the same molecular formula but different structures",
+          "correct_answer": "C. the same molecular formula but different structures"
+        },
+        {
+          "source_list": "AI_CT_Laboratory_Technology",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "Samples for volatile organic analysis should be collected",
+          "your_answer": "A. in sealed containers filled with no headspace and kept cold",
+          "correct_answer": "A. in sealed containers filled with no headspace and kept cold"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A flame ionization detector (FID) responds mainly to",
+          "your_answer": "C. organic compounds that form ions when burned",
+          "correct_answer": "C. organic compounds that form ions when burned"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Safety",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Prolonged exposure to benzene is associated with",
+          "your_answer": "A. leukemia and other blood disorders",
+          "correct_answer": "A. leukemia and other blood disorders"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Deviations from the Beer–Lambert law are most common at",
+          "your_answer": "A. high concentrations",
+          "correct_answer": "A. high concentrations"
+        },
+        {
+          "source_list": "AI_CT_Organic_Chemistry",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The −COOH group characterizes",
+          "your_answer": "D. carboxylic acids",
+          "correct_answer": "D. carboxylic acids"
+        },
+        {
+          "source_list": "AI_CT_Organic_Chemistry",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Oxidation of a primary alcohol with excess oxidant generally yields",
+          "your_answer": "D. a carboxylic acid",
+          "correct_answer": "D. a carboxylic acid"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Safety",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Minimum PPE when working in a chemistry laboratory includes",
+          "your_answer": "B. safety goggles, laboratory gown, and gloves",
+          "correct_answer": "B. safety goggles, laboratory gown, and gloves"
+        },
+        {
+          "source_list": "AI_CT_Reagents_and_QC",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A 0.5105 g sample of KHP (M = 204.22 g/mol) requires 25.00 mL of NaOH to reach the endpoint. What is the molarity of the NaOH?",
+          "your_answer": "D. 0.1000 M",
+          "correct_answer": "D. 0.1000 M"
+        },
+        {
+          "source_list": "AI_CT_Organic_Laboratory_Technology",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "UV-Vis spectroscopy is most useful for organic compounds containing",
+          "your_answer": "B. conjugated systems (chromophores)",
+          "correct_answer": "B. conjugated systems (chromophores)"
+        },
+        {
+          "source_list": "AI_CT_General_Chemistry",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "In dilute aqueous solutions, 1 ppm is approximately equal to",
+          "your_answer": "C. 1 mg/L",
+          "correct_answer": "C. 1 mg/L"
+        },
+        {
+          "source_list": "AI_CT_General_Chemistry",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Which statement correctly distinguishes accuracy from precision?",
+          "your_answer": "C. Accuracy is closeness to the true value; precision is closeness of repeated measurements to one another",
+          "correct_answer": "C. Accuracy is closeness to the true value; precision is closeness of repeated measurements to one another"
+        },
+        {
+          "source_list": "AI_CT_Reagents_and_QC",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "Approximately what volume of concentrated HCl (about 12 M) is needed to prepare 1.0 L of 0.10 M HCl?",
+          "your_answer": "C. 8.3 mL",
+          "correct_answer": "C. 8.3 mL"
+        },
+        {
+          "source_list": "AI_CT_Laboratory_Technology",
+          "reference_no": 19,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "The purpose of validating an analytical method is to",
+          "your_answer": "D. confirm that it is suitable for its intended use",
+          "correct_answer": "D. confirm that it is suitable for its intended use"
+        },
+        {
+          "source_list": "AI_CT_Organic_Laboratory_Technology",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Confident",
+          "question": "On a silica gel column, more polar compounds generally",
+          "your_answer": "B. elute more slowly",
+          "correct_answer": "B. elute more slowly"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Safety",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Guess",
+          "question": "Fires involving flammable liquids are classified as",
+          "your_answer": "A. Class B",
+          "correct_answer": "A. Class B"
+        },
+        {
+          "source_list": "AI_CT_Reagents_and_QC",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "How many grams of NaOH (M = 40.00 g/mol) are needed to prepare 500 mL of 0.10 M solution?",
+          "your_answer": "C. 2.0 g",
+          "correct_answer": "C. 2.0 g"
+        },
+        {
+          "source_list": "AI_CT_General_Chemistry",
+          "reference_no": 15,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A real gas behaves most like an ideal gas at",
+          "your_answer": "D. high temperature and low pressure",
+          "correct_answer": "D. high temperature and low pressure"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Waste_Management",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A hazardous waste manifest is used to",
+          "your_answer": "D. track waste from the generator to the transporter to the treatment facility",
+          "correct_answer": "D. track waste from the generator to the transporter to the treatment facility"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Safety",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "confidence": "Sure I'm Right",
+          "question": "A chemical fume hood should be used when working with",
+          "your_answer": "D. volatile, toxic, or odorous substances",
+          "correct_answer": "D. volatile, toxic, or odorous substances"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -33001,5 +33517,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-09-30T09:22:03"
+  "updated_at": "2026-09-30T09:46:52"
 }
