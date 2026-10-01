@@ -413,6 +413,8 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
         <div class="row wrap" style="margin-bottom:4px;">
           <h3 style="border:none;padding:0;flex:1;">Due for Review</h3>
         </div>
+        <select class="examScopeSelect" id="homeDueScope" style="margin-bottom:8px;"></select>
+        <div id="homeDueSummary" style="margin-bottom:10px;"></div>
         <p class="hint" style="margin-bottom:10px;">Repeated and stale mistakes and guesses, pulled up so you don't have to go hunting for them. Tap to flip, just like in the Mistake Log.</p>
         <div id="homeDueContainer"></div>
       </div>
@@ -428,6 +430,8 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
 
       <div class="card">
         <h3>Assessment Performance</h3>
+        <select class="examScopeSelect" id="homeAssessScope" style="margin-bottom:8px;"></select>
+        <div id="homeAssessSummary" style="margin-bottom:8px;"></div>
         <div id="homeAssessStat"></div>
         <div class="row wrap" style="margin-top:10px;">
           <span class="hint" style="flex:none;">Compare to:</span>
@@ -2409,28 +2413,41 @@ function daysSince(dateStr) {
   const now = new Date(todayDateStr() + "T00:00:00").getTime();
   return Math.round((now - then) / 86400000);
 }
-function computeDueForReview(limit) {
+function computeDueForReview(limit, scope) {
+  const scopeSet = scope && scope.length ? new Set(scope) : null;
   // Only actually-logged (categorized), unresolved flashcards -- an auto-tracked-but-not-
   // yet-categorized miss belongs in "Tests With Unlogged Mistakes" instead, not here.
-  const fullMistakeLog = loadMistakeLog().filter(e => e.category && !e.resolved);
+  const fullMistakeLog = loadMistakeLog().filter(e => e.category && !e.resolved && (!scopeSet || scopeSet.has(e.source_list)));
 
   const items = [];
   for (const m of fullMistakeLog) {
     items.push({ type: "mistake", stale: daysSince(m.date_logged), repeat: (m.occurrences || []).length || 1, data: m });
   }
   for (const g of getAllGuesses()) {
+    if (scopeSet && !scopeSet.has(g.source_list)) continue;
     const touched = (g.note_entry && g.note_entry.date_logged) || g.date;
     items.push({ type: "guess", stale: daysSince(touched), repeat: 1, data: g });
   }
   items.sort((a, b) => (b.repeat - a.repeat) || (b.stale - a.stale));
+  computeDueForReview.lastTotal = items.length;   // how many are due in this scope, before the display limit
   return items.slice(0, limit);
 }
 function renderDueForReview() {
   const box = $("homeDueContainer");
   box.innerHTML = "";
-  const items = computeDueForReview(8);
+  const ex = getActiveExam(), scope = getScopeSubjects();
+  const items = computeDueForReview(8, scope);
+  const dueTotal = computeDueForReview.lastTotal || 0;
+  const qt = computeExamQuestionTotals(scope);
+  const sum = $("homeDueSummary");
+  const nf = (n) => n.toLocaleString();
+  const breakdown = qt.perSubject.length > 1 && scope
+    ? `<div class="meta" style="margin-top:4px;">${qt.perSubject.map(([n, c]) => `${esc(n)} ${nf(c)}`).join(" &middot; ")}</div>` : "";
+  const missingNote = qt.missing.length ? `<div class="meta" style="margin-top:4px;color:var(--red);">No question list found for: ${esc(qt.missing.join(", "))}</div>` : "";
+  sum.innerHTML = `<div class="list-item"><div class="top-row"><span class="name">${scope && ex ? esc(ex.label) : "All subjects"}</span><span class="exam-days">${dueTotal} due</span></div>
+    <div class="meta"><b>${nf(qt.total)}</b> question${qt.total === 1 ? "" : "s"} in ${scope ? "this exam" : "your question bank"}${scope ? ` &middot; ${scope.length} subject${scope.length === 1 ? "" : "s"}` : ""}</div>${breakdown}${missingNote}</div>`;
   if (!items.length) {
-    box.appendChild(el("div", "empty-state", "Nothing waiting for review right now \u2014 log a mistake or take an assessment to build this up."));
+    box.appendChild(el("div", "empty-state", scope ? "Nothing waiting for review in this exam's subjects right now." : "Nothing waiting for review right now \u2014 log a mistake or take an assessment to build this up."));
     return;
   }
   for (const item of items) {
@@ -2444,6 +2461,17 @@ function scrollHomeTo(id) {
   if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+// Total questions available for an exam = sum of the sizes of its subjects' question lists.
+function computeExamQuestionTotals(scope) {
+  const lists = getAllLists();
+  const names = scope && scope.length ? scope : Object.keys(lists);
+  const perSubject = names.map(n => [n, (lists[n] || []).length]);
+  return {
+    total: perSubject.reduce((a, [, c]) => a + c, 0),
+    perSubject: perSubject.sort((a, b) => b[1] - a[1]),
+    missing: scope ? scope.filter(n => !lists[n]) : [],
+  };
+}
 function computeTotalQuestionsInBank() {
   const lists = getAllLists();
   let total = 0;
@@ -2708,13 +2736,42 @@ function renderHomeTests() {
 }
 $("homeTestsDate").addEventListener("change", renderHomeTests);
 
-function renderHomeAssessments() {
+// Tests re-scored using only the questions from the given subjects (so a mixed test counts
+// just for the part that belongs to the exam). With no scope, returns the history unchanged.
+function scopedAssessmentHistory(scope) {
   const history = loadJson(KEYS.history, []);
+  if (!scope || !scope.length) return history;
+  const scopeSet = new Set(scope);
+  const byId = {};
+  for (const d of loadJson(KEYS.details, [])) byId[d.exam_id] = d;
+  const out = [];
+  for (const h of history) {
+    const d = byId[h.id];
+    if (!d) continue;
+    const items = (d.items || []).filter(it => scopeSet.has(it.source_list));
+    if (!items.length) continue;
+    const correct = items.filter(it => it.is_correct).length;
+    out.push(Object.assign({}, h, { score: correct, total: items.length, pct: correct / items.length * 100 }));
+  }
+  return out;
+}
+let lastAssessScopeKey = null;
+function renderHomeAssessments() {
+  const ex = getActiveExam(), scope = getScopeSubjects();
+  const history = scopedAssessmentHistory(scope);
+  const scopeKey = scope ? (ex ? ex.id : "x") : "all";
+  if (lastAssessScopeKey !== null && lastAssessScopeKey !== scopeKey) $("homeAssessDate").value = "";
+  lastAssessScopeKey = scopeKey;
+  const sumBox = $("homeAssessSummary");
+  if (history.length) {
+    const avgAll = history.reduce((a, h) => a + (h.pct || 0), 0) / history.length;
+    sumBox.innerHTML = `<div class="home-sub">${scope && ex ? `<b>${esc(ex.label)}</b> \u00b7 ` : ""}${history.length} assessment${history.length === 1 ? "" : "s"} counted \u00b7 overall average <b>${avgAll.toFixed(1)}%</b>${scope ? " <span class=\"hint\">(only this exam's subjects are scored)</span>" : ""}</div>`;
+  } else sumBox.innerHTML = "";
   const box = $("homeAssessStat");
   const dateInput = $("homeAssessDate");
   if (!history.length) {
     box.innerHTML = "";
-    box.appendChild(el("div", "empty-state", "Take an assessment to start tracking this."));
+    box.appendChild(el("div", "empty-state", scope ? "No assessments include this exam's subjects yet." : "Take an assessment to start tracking this."));
     return;
   }
   const latest = latestDateFromArray(history, "date");
