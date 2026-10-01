@@ -191,6 +191,14 @@ table.kv-table td:first-child{color:var(--sub);font-family:inherit;font-weight:6
 .chart-legend{display:flex;gap:14px;font-size:.7rem;color:var(--sub);margin-top:6px;flex-wrap:wrap;}
 .chart-legend span{display:inline-flex;align-items:center;gap:5px;}
 .chart-legend .sw{width:12px;height:3px;border-radius:2px;display:inline-block;}
+.chart-legend{gap:8px 14px;}
+.examScopeSelect{width:100%;}
+.tier{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 8px;border-radius:999px;color:#fff;white-space:nowrap;}
+.tier.crit{background:var(--red);}.tier.mid{background:var(--amber);}.tier.ok{background:var(--green);}.tier.none{background:var(--sub);}
+.plan-list{margin:6px 0 0 16px;font-size:.8rem;line-height:1.5;}
+.plan-list li{margin-bottom:3px;}
+.chart-legend span[data-g]{cursor:pointer;padding:2px 4px;border-radius:5px;}
+.chart-legend span[data-g]:hover{background:var(--paper);}
 .home-bignum{font-size:1.9rem;font-weight:700;color:var(--navy);font-family:"IBM Plex Mono",monospace;line-height:1.1;}
 .home-sub{font-size:.78rem;color:var(--sub);margin-top:2px;}
 .home-delta{font-size:.86rem;margin-top:8px;line-height:1.45;}
@@ -378,6 +386,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
 
       <div class="card" id="homeSpotlightCard">
         <h3>Weakest Subject Spotlight</h3>
+        <select class="examScopeSelect" id="homeExamScope" style="margin-bottom:8px;"></select>
         <div id="homeSpotlightStat"></div>
       </div>
 
@@ -447,6 +456,19 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
 
     <!-- ---- Tab: Sample Builder ---- -->
     <section class="panel" id="panel-builder">
+      <div class="card">
+        <h3>Exam Focus</h3>
+        <select class="examScopeSelect" id="builderExamScope"></select>
+        <p class="hint" id="builderExamHint" style="margin-top:6px;"></p>
+        <div id="builderScopedRow" style="display:none;">
+          <label class="row" style="margin-top:8px;font-size:.82rem;color:var(--sub);">
+            <input type="checkbox" id="builderShowAllLists">
+            <span>Also show lists outside this exam</span>
+          </label>
+          <button class="btn primary block" id="btnQuickExamSample" style="margin-top:10px;">Quick Sample From All Exam Subjects &#9654;</button>
+        </div>
+      </div>
+
       <div class="card">
         <h3>Available Lists <span class="count" id="listsCount"></span></h3>
         <div class="row wrap" style="margin-bottom:8px;">
@@ -525,17 +547,23 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
       </div>
       <div class="card">
         <h3>Score Trend</h3>
-        <p class="hint" style="margin-bottom:10px;">Accuracy across every test you've taken, regardless of subject &mdash; the subject-by-subject breakdown lives in Study Priority.</p>
+        <p class="hint" style="margin-bottom:10px;">Score for each test you've taken. Use Select Tests to choose which tests are plotted, and optionally break them down by subject.</p>
         <div class="row wrap" style="margin-bottom:8px;">
-          <button class="btn" id="btnTrendFilterToggle">Filter Subjects</button>
-          <label class="row" style="font-size:.8rem;gap:6px;"><input type="checkbox" id="trendShowOverall" checked><span>Show overall line</span></label>
+          <button class="btn" id="btnTrendFilterToggle">Select Tests</button>
+          <label class="row" style="font-size:.8rem;gap:6px;"><input type="checkbox" id="trendBySubject"><span>Break down by subject</span></label>
         </div>
         <div id="trendFilterBox" class="list-item" style="display:none;margin-bottom:10px;">
           <div class="row wrap" style="margin-bottom:6px;">
             <button class="btn link" id="btnTrendSelectAll">All</button>
             <button class="btn link" id="btnTrendClearAll">None</button>
+            <button class="btn link" id="btnTrendLast5">Last 5</button>
+            <button class="btn link" id="btnTrendLast10">Last 10</button>
           </div>
-          <div id="trendSubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
+          <div id="trendTestChecks" style="max-height:220px;overflow-y:auto;"></div>
+          <div id="trendSubjectWrap" style="display:none;margin-top:10px;border-top:1px solid var(--line);padding-top:8px;">
+            <div class="field-label" style="margin-bottom:6px;">Subjects to draw</div>
+            <div id="trendSubjectChecks" style="max-height:180px;overflow-y:auto;"></div>
+          </div>
         </div>
         <div id="historyTrendTable"></div>
         <div id="historyTrendChart" class="chart-wrap" style="margin-top:12px;"></div>
@@ -552,9 +580,18 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
     <!-- ---- Tab: Study Priority Analysis ---- -->
     <section class="panel" id="panel-analysis">
       <div class="card">
+        <h3>Exam Focus</h3>
+        <select class="examScopeSelect" id="analysisExamScope"></select>
+        <p class="hint" id="analysisScopeHint" style="margin-top:6px;"></p>
+      </div>
+      <div class="card">
         <h3>Study Priority Ranking (most urgent first)</h3>
         <p class="hint" style="margin-bottom:10px;">Ranking uses a confidence-weighted score, not raw accuracy: a correct guess counts for less than a correct answer you were sure about, and a confident wrong answer counts against you more than an uncertain one.</p>
         <div id="rankTable"></div>
+      </div>
+      <div class="card">
+        <h3>Action Plan</h3>
+        <div id="actionPlanBox"></div>
       </div>
       <div class="card">
         <h3>Priority Overview</h3>
@@ -582,7 +619,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
       </div>
       <div class="card">
         <h3>Progression Over Samples</h3>
-        <p class="hint" style="margin-bottom:8px;">Pick one or more subjects to layer their lines on the same graph. Tests where a subject didn't appear leave a gap.</p>
+        <p class="hint" style="margin-bottom:8px;">Pick one or more subjects to layer their lines on the same graph. Lines connect across tests where a subject didn't appear. Tap a legend label to isolate that line.</p>
         <div class="row wrap" style="margin-bottom:8px;">
           <button class="btn" id="btnProgFilterToggle">Select Subjects</button>
           <select id="progressionMetricSelect">
@@ -978,6 +1015,12 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
     <input type="text" id="examDateLabelInput" placeholder="e.g. PRC CBLE Board Exam">
     <label class="field-label">Date</label>
     <input type="date" id="examDateDateInput">
+    <label class="field-label">Subjects on this exam <span class="count" id="examSubjectsCount"></span></label>
+    <div class="row wrap" style="margin-bottom:6px;">
+      <button class="btn link" id="btnExamSubjAll" type="button">All</button>
+      <button class="btn link" id="btnExamSubjNone" type="button">None</button>
+    </div>
+    <div id="examSubjectChecks" style="max-height:200px;overflow-y:auto;border:1px solid var(--line);border-radius:8px;padding:8px;"></div>
     <div class="row" style="margin-top:14px;">
       <button class="btn block" id="btnCancelExamDate">Cancel</button>
       <button class="btn primary block" id="btnSaveExamDate">Save</button>
@@ -1016,6 +1059,7 @@ const KEYS = {
   mistakes: "cble.mistakeLog",
   guessNotes: "cble.guessNotes",
   examDates: "cble.examDates",
+  activeExam: "cble.activeExam",
   topics: "cble.topicsCache",
   githubConfig: "cble.githubConfig",
   examProgress: "cble.examProgress",
@@ -1166,9 +1210,10 @@ function evenSample(allLists, selectedNames, totalCount, preferUnused = true) {
   return shuffle(result);
 }
 
-function saveSampleSet(name, composition, questions) {
+function saveSampleSet(name, composition, questions, examId) {
   const sets = loadJson(KEYS.samples, []);
   const record = { id: uid(), name, created_at: nowIso(), composition, questions };
+  if (examId) record.exam_id = examId;
   sets.push(record);
   saveJson(KEYS.samples, sets);
   scheduleGithubSync();
@@ -1241,7 +1286,8 @@ function saveExamDetails(examId, sourceName, date, items) {
 /* ---------------------------------------------------------------------
    Study Priority Analysis -- exact port of compute_subject_analysis
    --------------------------------------------------------------------- */
-function computeSubjectAnalysis() {
+function computeSubjectAnalysis(scope) {
+  const scopeSet = scope && scope.length ? new Set(scope) : null;
   const details = loadJson(KEYS.details, []);
   const detailsSorted = details.slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
 
@@ -1252,6 +1298,7 @@ function computeSubjectAnalysis() {
     const perSubjectThisExam = {};
     for (const item of (d.items || [])) {
       const subj = item.source_list || "Unknown";
+      if (scopeSet && !scopeSet.has(subj)) continue;
       (perSubjectThisExam[subj] = perSubjectThisExam[subj] || []).push(item);
     }
     for (const subj of Object.keys(perSubjectThisExam)) {
@@ -1454,21 +1501,22 @@ function getAllGuesses() {
    Exam dates -- multiple upcoming exams the person is counting down to.
    --------------------------------------------------------------------- */
 function loadExamDates() { return loadJson(KEYS.examDates, []); }
-function saveExamDate(label, dateStr) {
+function saveExamDate(label, dateStr, subjects) {
   const dates = loadExamDates();
-  const record = { id: uid(), label, date: dateStr };
+  const record = { id: uid(), label, date: dateStr, subjects: subjects || [] };
   dates.push(record);
   saveJson(KEYS.examDates, dates);
   removeTombstone("exam_dates", record.id);
   scheduleGithubSync();
   return record;
 }
-function updateExamDate(id, label, dateStr) {
+function updateExamDate(id, label, dateStr, subjects) {
   const dates = loadExamDates();
   const rec = dates.find(d => d.id === id);
   if (!rec) return null;
   rec.label = label;
   rec.date = dateStr;
+  rec.subjects = subjects || [];
   saveJson(KEYS.examDates, dates);
   scheduleGithubSync();
   return rec;
@@ -1480,6 +1528,59 @@ function deleteExamDateEntry(id) {
   addTombstone("exam_dates", id);
   scheduleGithubSync();
 }
+
+/* ---------------------------------------------------------------------
+   Exam focus -- each exam can carry a list of subjects. Choosing an exam
+   as the "focus" narrows the Sample Builder, Study Priority and the Home
+   spotlight to just that exam's subjects.
+   --------------------------------------------------------------------- */
+function getActiveExam() {
+  let id = null;
+  try { id = localStorage.getItem(KEYS.activeExam); } catch (e) {}
+  if (id === "all") return null;
+  const dates = loadExamDates();
+  const hit = id ? dates.find(d => d.id === id) : null;
+  if (hit) return hit;
+  // Nothing chosen yet (or the chosen exam was deleted): default to the nearest upcoming exam that has subjects.
+  const upcoming = dates.filter(d => (d.subjects || []).length && daysUntil(d.date) >= 0)
+    .sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  return upcoming[0] || null;
+}
+function getScopeSubjects() {
+  const ex = getActiveExam();
+  return ex && (ex.subjects || []).length ? ex.subjects.slice() : null;
+}
+function examScopeLabel(ex) {
+  const n = (ex.subjects || []).length;
+  const d = daysUntil(ex.date);
+  const when = d > 0 ? `${d}d left` : d === 0 ? "today" : "past";
+  return `${ex.label} \u00b7 ${n} subject${n === 1 ? "" : "s"} \u00b7 ${when}`;
+}
+function renderExamScopeSelects() {
+  const dates = loadExamDates().slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  const active = getActiveExam();
+  document.querySelectorAll(".examScopeSelect").forEach(sel => {
+    sel.innerHTML = `<option value="all">All subjects (no exam focus)</option>` +
+      dates.map(ex => `<option value="${esc(ex.id)}">${esc(examScopeLabel(ex))}</option>`).join("");
+    sel.value = active ? active.id : "all";
+  });
+  const scope = getScopeSubjects();
+  let hint;
+  if (!loadExamDates().length) hint = "Add an upcoming exam on Home and assign its subjects to focus the app on it.";
+  else if (active && !scope) hint = "This exam has no subjects yet \u2014 tap it on Home to assign some.";
+  else if (scope) hint = `Showing only: ${scope.join(", ")}`;
+  else hint = "No exam focus \u2014 everything is shown.";
+  for (const id of ["builderExamHint", "analysisScopeHint"]) { const h = document.getElementById(id); if (h) h.textContent = hint; }
+}
+document.addEventListener("change", (e) => {
+  if (!e.target.classList || !e.target.classList.contains("examScopeSelect")) return;
+  try { localStorage.setItem(KEYS.activeExam, e.target.value); } catch (err) {}
+  const sc = getScopeSubjects();
+  if (sc) selectedListNames = new Set(sc);   // pre-select the exam's subjects in the builder
+  refreshHome();
+  refreshListsDisplay();
+  refreshAnalysis();
+});
 
 /* ---------------------------------------------------------------------
    GitHub Sync -- optional durable store. Everything above this still
@@ -2074,12 +2175,37 @@ function daysUntil(dateStr) {
   return Math.round((target - today) / 86400000);
 }
 let editingExamDateId = null;
+let editingExamSubjects = new Set();
+function renderExamSubjectChecks() {
+  const box = $("examSubjectChecks");
+  const names = Object.keys(getAllLists()).sort();
+  const orphans = Array.from(editingExamSubjects).filter(n => !names.includes(n)).sort();
+  box.innerHTML = "";
+  if (!names.length && !orphans.length) box.appendChild(el("div", "empty-state", "No question lists yet \u2014 sync the question bank first."));
+  for (const name of names.concat(orphans)) {
+    const row = el("label", "row");
+    row.style.marginBottom = "6px";
+    row.style.fontSize = ".82rem";
+    const isOrphan = orphans.includes(name);
+    row.innerHTML = `<input type="checkbox" ${editingExamSubjects.has(name) ? "checked" : ""}><span>${esc(name)}${isOrphan ? ' <span style="color:var(--red);">(not in current lists)</span>' : ""}</span>`;
+    row.querySelector("input").addEventListener("change", (e) => {
+      if (e.target.checked) editingExamSubjects.add(name); else editingExamSubjects.delete(name);
+      $("examSubjectsCount").textContent = `(${editingExamSubjects.size} selected)`;
+    });
+    box.appendChild(row);
+  }
+  $("examSubjectsCount").textContent = `(${editingExamSubjects.size} selected)`;
+}
+$("btnExamSubjAll").addEventListener("click", () => { editingExamSubjects = new Set(Object.keys(getAllLists())); renderExamSubjectChecks(); });
+$("btnExamSubjNone").addEventListener("click", () => { editingExamSubjects.clear(); renderExamSubjectChecks(); });
 function openExamDateSheet(existing) {
+  editingExamSubjects = new Set(existing && existing.subjects ? existing.subjects : []);
   editingExamDateId = existing ? existing.id : null;
   $("examDateSheetTitle").textContent = existing ? "Edit Exam Date" : "Add Exam Date";
   $("examDateLabelInput").value = existing ? existing.label : "";
   $("examDateDateInput").value = existing ? existing.date : "";
   $("btnDeleteExamDate").style.display = existing ? "block" : "none";
+  renderExamSubjectChecks();
   openSheet("examDateSheet");
 }
 $("btnAddExamDate").addEventListener("click", () => openExamDateSheet(null));
@@ -2089,10 +2215,15 @@ $("btnSaveExamDate").addEventListener("click", () => {
   const dateStr = $("examDateDateInput").value;
   if (!label) { toast("Give this exam a name."); return; }
   if (!dateStr) { toast("Pick a date."); return; }
-  if (editingExamDateId) updateExamDate(editingExamDateId, label, dateStr);
-  else saveExamDate(label, dateStr);
+  const subjects = Array.from(editingExamSubjects);
+  if (editingExamDateId) updateExamDate(editingExamDateId, label, dateStr, subjects);
+  else {
+    const rec = saveExamDate(label, dateStr, subjects);
+    if (subjects.length) { try { localStorage.setItem(KEYS.activeExam, rec.id); } catch (e) {} }   // focus on the exam you just set up
+  }
   closeSheet("examDateSheet");
   renderExamCountdowns();
+  renderWeakestSubjectSpotlight();
 });
 $("btnDeleteExamDate").addEventListener("click", () => {
   if (!editingExamDateId) return;
@@ -2100,8 +2231,10 @@ $("btnDeleteExamDate").addEventListener("click", () => {
   deleteExamDateEntry(editingExamDateId);
   closeSheet("examDateSheet");
   renderExamCountdowns();
+  renderWeakestSubjectSpotlight();
 });
 function renderExamCountdowns() {
+  renderExamScopeSelects();
   const dates = loadExamDates().slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
   const box = $("homeExamDatesContainer");
   box.innerHTML = "";
@@ -2109,6 +2242,7 @@ function renderExamCountdowns() {
     box.appendChild(el("div", "empty-state", "Add your exam date to see a countdown here \u2014 you can track more than one."));
     return;
   }
+  const activeEx = getActiveExam();
   for (const ex of dates) {
     const days = daysUntil(ex.date);
     let urgency, text;
@@ -2121,7 +2255,7 @@ function renderExamCountdowns() {
 
     const item = el("div", `list-item selectable exam-countdown exam-${urgency}`);
     item.innerHTML = `<div class="top-row"><span class="name">${esc(ex.label)}</span><span class="exam-days">${esc(text)}</span></div>
-      <div class="meta">${esc(formatDateNice(ex.date))}</div>`;
+      <div class="meta">${esc(formatDateNice(ex.date))} &middot; ${(ex.subjects || []).length ? `${ex.subjects.length} subject${ex.subjects.length === 1 ? "" : "s"}` : "no subjects yet"}${activeEx && activeEx.id === ex.id ? " &middot; <b>Focused</b>" : ""}</div>`;
     item.addEventListener("click", () => openExamDateSheet(ex));
     box.appendChild(item);
   }
@@ -2132,21 +2266,30 @@ function renderExamCountdowns() {
    straight to a generated sample ready to start.
    --------------------------------------------------------------------- */
 function renderWeakestSubjectSpotlight() {
-  const { overall } = computeSubjectAnalysis();
+  const scope = getScopeSubjects();
+  const { overall } = computeSubjectAnalysis(scope);
   const subjectEntries = Object.entries(overall);
   const box = $("homeSpotlightStat");
   box.innerHTML = "";
   if (!subjectEntries.length) {
-    box.appendChild(el("div", "empty-state", "Take a few assessments across different subjects to unlock this."));
+    box.appendChild(el("div", "empty-state", scope ? "No results yet for this exam's subjects \u2014 start with a baseline sample." : "Take a few assessments across different subjects to unlock this."));
+    if (scope) {
+      const bb = el("button", "btn primary block", "Baseline Sample For This Exam \u25b6");
+      bb.style.marginTop = "10px";
+      bb.addEventListener("click", () => startBaselineSample(scope));
+      box.appendChild(bb);
+    }
     return;
   }
   subjectEntries.sort((a, b) => a[1].weighted_pct - b[1].weighted_pct);
   const [subjectName, stats] = subjectEntries[0];
   const lists = getAllLists();
   const pool = lists[subjectName] || [];
+  const missing = scope ? scope.filter(n => !overall[n]) : [];
+  const unassessedNote = missing.length ? `<div class="home-sub" style="margin-top:4px;">Not yet assessed: ${esc(missing.join(", "))}</div>` : "";
 
   box.innerHTML = `<div class="home-bignum" style="font-size:1.3rem;">${esc(subjectName)}</div>
-    <div class="home-sub">${stats.weighted_pct.toFixed(1)}% priority score &middot; ${stats.accuracy_pct.toFixed(1)}% raw accuracy &middot; ${stats.total_answered} answered</div>
+    <div class="home-sub">${stats.weighted_pct.toFixed(1)}% priority score &middot; ${stats.accuracy_pct.toFixed(1)}% raw accuracy &middot; ${stats.total_answered} answered</div>${unassessedNote}
     ${pool.length
       ? `<button class="btn primary block" id="btnSpotlightGenerate" style="margin-top:10px;">Generate a 10-Question Sample From This \u25b6</button>`
       : `<p class="hint" style="margin-top:10px;">This subject's original question list isn't available right now (renamed, deleted, or not synced), so a sample can't be generated automatically.</p>`}`;
@@ -2743,13 +2886,17 @@ let generatedComposition = {};
 function refreshListsDisplay() {
   allLists = getAllLists();
   const coverage = computeCoverage(allLists);
-  listNamesOrder = Object.keys(allLists).sort();
-  $("listsCount").textContent = `(${listNamesOrder.length})`;
+  const scopeNow = getScopeSubjects();
+  const showAllLists = $("builderShowAllLists") && $("builderShowAllLists").checked;
+  const everyName = Object.keys(allLists).sort();
+  listNamesOrder = (scopeNow && !showAllLists) ? everyName.filter(n => scopeNow.includes(n)) : everyName;
+  for (const n of Array.from(selectedListNames)) if (!listNamesOrder.includes(n)) selectedListNames.delete(n);
+  $("listsCount").textContent = listNamesOrder.length !== everyName.length ? `(${listNamesOrder.length} of ${everyName.length})` : `(${listNamesOrder.length})`;
 
   const box = $("listsContainer");
   box.innerHTML = "";
   if (listNamesOrder.length === 0) {
-    box.appendChild(el("div", "empty-state", "No question lists yet. Sync the question bank (gear icon) or add a Local Bank."));
+    box.appendChild(el("div", "empty-state", scopeNow && everyName.length ? "None of this exam's subjects match a current question list. Edit the exam on Home, or tick \u201cAlso show lists outside this exam\u201d." : "No question lists yet. Sync the question bank (gear icon) or add a Local Bank."));
   }
   for (const name of listNamesOrder) {
     const cov = coverage[name];
@@ -2764,12 +2911,18 @@ function refreshListsDisplay() {
     });
     box.appendChild(item);
   }
+  renderExamScopeSelects();
+  $("builderScopedRow").style.display = scopeNow ? "block" : "none";
+  if (scopeNow) {
+    const gone = scopeNow.filter(n => !allLists[n]);
+    if (gone.length) $("builderExamHint").textContent += `  (Not found in your lists: ${gone.join(", ")})`;
+  }
   if (document.getElementById("panel-saved").classList.contains("active") || true) refreshSavedSamplesListQuiet();
   refreshEditorBankChoicesQuiet();
 }
 
 $("btnSelectAllLists").addEventListener("click", () => {
-  selectedListNames = new Set(listNamesOrder);
+  selectedListNames = new Set(listNamesOrder);   // only the lists currently shown
   refreshListsDisplay();
 });
 $("btnClearLists").addEventListener("click", () => {
@@ -2777,30 +2930,49 @@ $("btnClearLists").addEventListener("click", () => {
   refreshListsDisplay();
 });
 $("btnRefreshLists").addEventListener("click", refreshListsDisplay);
+$("builderShowAllLists").addEventListener("change", refreshListsDisplay);
 
-$("btnGenerateSample").addEventListener("click", () => {
-  if (selectedListNames.size === 0) { toast("Select at least one list to sample from."); return; }
+let generatedExamId = null;
+function runGenerate(names) {
   const totalCount = parseInt($("totalCountInput").value, 10);
   if (!totalCount || totalCount <= 0) { toast("Enter a positive whole number of questions."); return; }
 
-  const questions = evenSample(allLists, Array.from(selectedListNames), totalCount, $("preferUnusedInput").checked);
+  const questions = evenSample(allLists, names, totalCount, $("preferUnusedInput").checked);
   generatedQuestions = questions;
   const comp = {};
   for (const q of questions) { const k = q._source_list || "?"; comp[k] = (comp[k] || 0) + 1; }
   generatedComposition = comp;
 
-  let preview = `Generated ${questions.length} question(s):\n\n`;
+  // Tag the sample with the focused exam when every subject in it belongs to that exam.
+  const ex = getActiveExam(), sc = getScopeSubjects();
+  generatedExamId = (ex && sc && Object.keys(comp).length && Object.keys(comp).every(k => sc.includes(k))) ? ex.id : null;
+
+  let preview = `Generated ${questions.length} question(s)${generatedExamId ? ` for ${ex.label}` : ""}:\n\n`;
   for (const name of Object.keys(comp).sort()) preview += `  ${name}: ${comp[name]}\n`;
   $("previewBox").textContent = preview;
 
-  if (!$("sampleNameInput").value.trim()) $("sampleNameInput").value = `Sample_${todayStamp()}`;
+  if (!$("sampleNameInput").value.trim()) $("sampleNameInput").value = `${generatedExamId ? ex.label + " - " : ""}Sample_${todayStamp()}`;
+}
+$("btnGenerateSample").addEventListener("click", () => {
+  const names = Array.from(selectedListNames).filter(n => listNamesOrder.includes(n));
+  if (names.length === 0) { toast("Select at least one list to sample from."); return; }
+  runGenerate(names);
+});
+$("btnQuickExamSample").addEventListener("click", () => {
+  const sc = getScopeSubjects();
+  if (!sc) return;
+  const avail = sc.filter(n => allLists[n] && allLists[n].length);
+  if (!avail.length) { toast("None of this exam's subjects have questions available."); return; }
+  selectedListNames = new Set(avail);
+  refreshListsDisplay();
+  runGenerate(avail);
 });
 
 $("btnSaveSample").addEventListener("click", () => {
   if (!generatedQuestions.length) { toast("Generate a sample first."); return; }
   const name = $("sampleNameInput").value.trim();
   if (!name) { toast("Give this sample a name."); return; }
-  saveSampleSet(name, generatedComposition, generatedQuestions);
+  saveSampleSet(name, generatedComposition, generatedQuestions, generatedExamId);
   toast(`Sample '${name}' saved locally.`);
   refreshListsDisplay();
 });
@@ -2842,6 +3014,8 @@ function refreshSavedSamplesList() {
   const history = loadJson(KEYS.history, []);
   const takenCounts = {};
   for (const h of history) takenCounts[h.source] = (takenCounts[h.source] || 0) + 1;
+  const examById = {};
+  for (const ex of loadExamDates()) examById[ex.id] = ex;
 
   for (const s of ordered) {
     const item = el("div", "list-item selectable" + (s.id === selectedSavedId ? " selected" : ""));
@@ -2850,7 +3024,7 @@ function refreshSavedSamplesList() {
       ? `<span class="status-pill status-green">Taken \u00d7${takenCount}</span>`
       : `<span class="status-pill neutral">Not yet taken</span>`;
     item.innerHTML = `<div class="top-row"><span class="name">${esc(s.name || "(unnamed)")}</span>${takenBadge}</div>
-      <div class="meta">${(s.questions || []).length} questions &middot; saved ${esc(s.created_at || "")}</div>`;
+      <div class="meta">${(s.questions || []).length} questions &middot; saved ${esc(s.created_at || "")}${s.exam_id && examById[s.exam_id] ? ` &middot; ${esc(examById[s.exam_id].label)}` : ""}</div>`;
     item.addEventListener("click", () => { selectedSavedId = s.id; refreshSavedSamplesList(); });
     box.appendChild(item);
   }
@@ -2940,10 +3114,21 @@ $("btnRefreshHistory").addEventListener("click", refreshHistoryList);
    Lightweight, dependency-free SVG line graph, reused by Score Trend
    (Test History) and Progression Over Samples (Study Priority).
    --------------------------------------------------------------------- */
+function markerSVG(shape, x, y, r, color, title) {
+  const t = title ? `<title>${esc(title)}</title>` : "";
+  const a = `fill="${color}" stroke="#fff" stroke-width="0.8"`;
+  x = +x.toFixed(1); y = +y.toFixed(1);
+  switch (shape % 4) {
+    case 1: return `<rect x="${x - r}" y="${y - r}" width="${2 * r}" height="${2 * r}" ${a}>${t}</rect>`;
+    case 2: return `<polygon points="${x},${y - r - 1} ${x + r + 1},${y + r} ${x - r - 1},${y + r}" ${a}>${t}</polygon>`;
+    case 3: return `<polygon points="${x},${y - r - 1.2} ${x + r + 1.2},${y} ${x},${y + r + 1.2} ${x - r - 1.2},${y}" ${a}>${t}</polygon>`;
+    default: return `<circle cx="${x}" cy="${y}" r="${r}" ${a}>${t}</circle>`;
+  }
+}
 function buildLineGraphSVG(seriesList, opts) {
   opts = opts || {};
-  const width = opts.width || 320, height = opts.height || 170;
-  const padL = 32, padR = 10, padT = 10, padB = 22;
+  const width = opts.width || 320, height = opts.height || 190;
+  const padL = 32, padR = 12, padT = 10, padB = 26;
   const plotW = width - padL - padR, plotH = height - padT - padB;
   const allPoints = seriesList.flatMap(s => s.points);
   const allY = allPoints.map(p => p.y).filter(y => y !== null && y !== undefined);
@@ -2960,22 +3145,51 @@ function buildLineGraphSVG(seriesList, opts) {
     svg += `<line x1="${padL}" y1="${y.toFixed(1)}" x2="${width - padR}" y2="${y.toFixed(1)}" stroke="#E1E4E9" stroke-width="1"/>`;
     svg += `<text x="${padL - 6}" y="${(y + 3).toFixed(1)}" font-size="8" text-anchor="end" fill="#4B5563" font-family="IBM Plex Mono, monospace">${Math.round(v)}</text>`;
   }
-  for (const s of seriesList) {
+  const labels = opts.xLabels || [];
+  if (labels.length) {
+    const step = Math.max(1, Math.ceil(labels.length / 10));
+    labels.forEach((lab, i) => {
+      if (i % step !== 0 && i !== labels.length - 1) return;
+      svg += `<text x="${xScale(i).toFixed(1)}" y="${height - 8}" font-size="8" text-anchor="middle" fill="#4B5563" font-family="IBM Plex Mono, monospace">${esc(String(lab))}</text>`;
+    });
+  }
+  seriesList.forEach((s, si) => {
+    const g = s.group !== undefined ? s.group : si;
+    const mk = s.marker !== undefined ? s.marker : si;
+    svg += `<g class="ser" data-g="${esc(String(g))}">`;
     const valid = s.points.map((p, i) => ({ i, p })).filter(({ p }) => p.y !== null && p.y !== undefined);
     if (valid.length) {
       const pts = valid.map(({ i, p }) => `${xScale(i).toFixed(1)},${yScale(p.y).toFixed(1)}`).join(" ");
-      svg += `<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="${s.width || 2}" ${s.dash ? `stroke-dasharray="${s.dash}"` : ""} stroke-linejoin="round" stroke-linecap="round"/>`;
-      for (const { i, p } of valid) {
-        svg += `<circle cx="${xScale(i).toFixed(1)}" cy="${yScale(p.y).toFixed(1)}" r="2.6" fill="${s.color}"><title>${esc(p.tooltip || String(p.y))}</title></circle>`;
-      }
+      svg += `<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="${s.width || 2.2}" ${s.dash ? `stroke-dasharray="${s.dash}"` : ""} stroke-linejoin="round" stroke-linecap="round"/>`;
+      for (const { i, p } of valid) svg += markerSVG(mk, xScale(i), yScale(p.y), 3.2, s.color, p.tooltip || String(p.y));
     }
-  }
+    svg += `</g>`;
+  });
   svg += `</svg>`;
   return svg;
 }
 function chartLegendHTML(seriesList) {
-  return `<div class="chart-legend">${seriesList.map(s => `<span><i class="sw" style="background:${s.dash ? "repeating-linear-gradient(90deg," + s.color + " 0 4px,transparent 4px 7px)" : s.color};"></i>${esc(s.label)}</span>`).join("")}</div>`;
+  const items = seriesList.map((s, si) => {
+    const g = s.group !== undefined ? s.group : si;
+    const mk = s.marker !== undefined ? s.marker : si;
+    const glyph = `<svg width="26" height="10" viewBox="0 0 26 10" style="flex:none;"><line x1="0" y1="5" x2="26" y2="5" stroke="${s.color}" stroke-width="2.2" ${s.dash ? `stroke-dasharray="${s.dash}"` : ""}/>${markerSVG(mk, 13, 5, 3.2, s.color)}</svg>`;
+    return `<span data-g="${esc(String(g))}">${glyph}${esc(s.label)}</span>`;
+  }).join("");
+  return `<div class="chart-legend">${items}<span style="opacity:.65;">Tap a label to isolate its line</span></div>`;
 }
+// Tap a legend label to isolate that line (tap again to restore all lines).
+document.addEventListener("click", (e) => {
+  const item = e.target.closest(".chart-legend span[data-g]");
+  if (!item) return;
+  const legend = item.parentElement, holder = legend.parentElement;
+  const svg = holder && holder.querySelector("svg");
+  if (!svg) return;
+  const g = item.dataset.g;
+  const next = legend.dataset.focus === g ? "" : g;
+  legend.dataset.focus = next;
+  svg.querySelectorAll(".ser").forEach(el2 => { el2.style.opacity = (!next || el2.dataset.g === next) ? "1" : "0.12"; });
+  legend.querySelectorAll("span[data-g]").forEach(sp => { sp.style.opacity = (!next || sp.dataset.g === next) ? "1" : "0.4"; });
+});
 
 function computeHistoryTrendStats() {
   const history = loadJson(KEYS.history, []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
@@ -2995,12 +3209,16 @@ function computeHistoryTrendStats() {
   }
   return { history, avg, best, worst, recent, trendLabel, count: history.length };
 }
-const CHART_PALETTE = ["#1E3A8A", "#B45309", "#166534", "#B91C1C", "#5B21B6", "#0E7490", "#BE185D", "#4D7C0F", "#9A3412", "#334155"];
-let trendSelectedSubjects = new Set();   // subjects whose line is drawn in Score Trend
-let trendShowOverall = true;
+// Colorblind-friendly palette (Okabe-Ito based); each series also gets its own marker shape.
+const CHART_PALETTE = ["#0072B2", "#D55E00", "#009E73", "#CC79A7", "#E69F00", "#56B4E9", "#6A3D9A", "#E31A1C", "#8C8C00", "#7F4F24"];
+function legendGlyph(color, markerIdx) {
+  return `<svg width="22" height="10" viewBox="0 0 22 10" style="flex:none;"><line x1="0" y1="5" x2="22" y2="5" stroke="${color}" stroke-width="2.2"/>${markerSVG(markerIdx, 11, 5, 3.2, color)}</svg>`;
+}
+let trendSelectedTests = new Set();   // ids of tests plotted in Score Trend
+let trendTestsTouched = false;        // until the user changes the selection, every test (incl. new ones) is plotted
+let trendSelectedSubjects = new Set();
+let trendBySubject = false;
 
-// Per-test, per-subject accuracy (correct / questions of that subject in the test),
-// aligned to the same chronological test list as the overall line.
 function computeTrendBySubject(history) {
   const details = loadJson(KEYS.details, []);
   const byId = {};
@@ -3020,6 +3238,37 @@ function computeTrendBySubject(history) {
   });
   return { perTest, subjects: Array.from(subjects).sort() };
 }
+function trendStatsFor(list) {
+  if (!list.length) return null;
+  const scores = list.map(h => h.pct || 0);
+  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+  let trendLabel = "Not enough data yet";
+  if (scores.length >= 4) {
+    const half = Math.floor(scores.length / 2);
+    const firstAvg = scores.slice(0, half).reduce((a, b) => a + b, 0) / half;
+    const secondAvg = scores.slice(half).reduce((a, b) => a + b, 0) / (scores.length - half);
+    const diff = secondAvg - firstAvg;
+    trendLabel = diff > 2 ? `Improving (+${diff.toFixed(1)}%)` : diff < -2 ? `Declining (${diff.toFixed(1)}%)` : "Holding steady";
+  }
+  return { count: list.length, avg, best: Math.max(...scores), worst: Math.min(...scores), recent: scores[scores.length - 1], trendLabel };
+}
+function renderTrendTestChecks(all) {
+  const box = $("trendTestChecks");
+  box.innerHTML = "";
+  for (let i = all.length - 1; i >= 0; i--) {   // newest first
+    const h = all[i];
+    const row = el("label", "row");
+    row.style.marginBottom = "6px";
+    row.style.fontSize = ".8rem";
+    row.innerHTML = `<input type="checkbox" ${trendSelectedTests.has(h.id) ? "checked" : ""}><span><b>T${i + 1}</b> ${esc(h.source)} <span style="color:var(--sub);">&middot; ${esc(formatDateNice(dateOnly(h.date)))} &middot; ${(h.pct || 0).toFixed(0)}%</span></span>`;
+    row.querySelector("input").addEventListener("change", (e) => {
+      trendTestsTouched = true;
+      if (e.target.checked) trendSelectedTests.add(h.id); else trendSelectedTests.delete(h.id);
+      renderHistoryTrend();
+    });
+    box.appendChild(row);
+  }
+}
 function renderTrendSubjectChecks(subjects) {
   const box = $("trendSubjectChecks");
   box.innerHTML = "";
@@ -3028,8 +3277,7 @@ function renderTrendSubjectChecks(subjects) {
     const row = el("label", "row");
     row.style.marginBottom = "6px";
     row.style.fontSize = ".82rem";
-    const color = CHART_PALETTE[idx % CHART_PALETTE.length];
-    row.innerHTML = `<input type="checkbox" ${trendSelectedSubjects.has(subj) ? "checked" : ""}><i class="sw" style="width:12px;height:3px;border-radius:2px;background:${color};display:inline-block;"></i><span>${esc(subj)}</span>`;
+    row.innerHTML = `<input type="checkbox" ${trendSelectedSubjects.has(subj) ? "checked" : ""}>${legendGlyph(CHART_PALETTE[idx % CHART_PALETTE.length], idx + 1)}<span>${esc(subj)}</span>`;
     row.querySelector("input").addEventListener("change", (e) => {
       if (e.target.checked) trendSelectedSubjects.add(subj); else trendSelectedSubjects.delete(subj);
       renderHistoryTrend();
@@ -3038,24 +3286,35 @@ function renderTrendSubjectChecks(subjects) {
   });
 }
 function renderHistoryTrend() {
-  const stats = computeHistoryTrendStats();
+  const base = computeHistoryTrendStats();
   const tableBox = $("historyTrendTable");
   const chartBox = $("historyTrendChart");
-  const subjTableBox = $("historyTrendSubjectTable");
-  tableBox.innerHTML = "";
-  chartBox.innerHTML = "";
-  subjTableBox.innerHTML = "";
-  if (!stats) {
+  const detailBox = $("historyTrendSubjectTable");
+  tableBox.innerHTML = ""; chartBox.innerHTML = ""; detailBox.innerHTML = "";
+  if (!base) {
     tableBox.appendChild(el("div", "empty-state", "Take a test to see your score trend here."));
+    $("trendTestChecks").innerHTML = ""; $("trendSubjectChecks").innerHTML = "";
     return;
   }
-  const { perTest, subjects } = computeTrendBySubject(stats.history);
-  for (const s of Array.from(trendSelectedSubjects)) if (!subjects.includes(s)) trendSelectedSubjects.delete(s);
-  renderTrendSubjectChecks(subjects);
-  const colorOf = (subj) => CHART_PALETTE[subjects.indexOf(subj) % CHART_PALETTE.length];
+  const all = base.history;
+  if (!trendTestsTouched) trendSelectedTests = new Set(all.map(h => h.id));
+  else for (const id of Array.from(trendSelectedTests)) if (!all.some(h => h.id === id)) trendSelectedTests.delete(id);
+  const idxOf = new Map(all.map((h, i) => [h.id, i]));
+  const sel = all.filter(h => trendSelectedTests.has(h.id));
 
+  const { perTest, subjects } = computeTrendBySubject(all);
+  for (const s of Array.from(trendSelectedSubjects)) if (!subjects.includes(s)) trendSelectedSubjects.delete(s);
+  renderTrendTestChecks(all);
+  renderTrendSubjectChecks(subjects);
+  $("trendSubjectWrap").style.display = trendBySubject ? "block" : "none";
+
+  if (!sel.length) {
+    tableBox.appendChild(el("div", "empty-state", "No tests selected \u2014 use Select Tests above."));
+    return;
+  }
+  const stats = trendStatsFor(sel);
   tableBox.innerHTML = `<div class="table-wrap"><table class="data-table kv-table">
-    <tr><td>Tests Taken</td><td>${stats.count}</td></tr>
+    <tr><td>Tests Plotted</td><td>${stats.count} of ${all.length}</td></tr>
     <tr><td>Average Score</td><td>${stats.avg.toFixed(1)}%</td></tr>
     <tr><td>Best Score</td><td>${stats.best.toFixed(1)}%</td></tr>
     <tr><td>Worst Score</td><td>${stats.worst.toFixed(1)}%</td></tr>
@@ -3063,45 +3322,51 @@ function renderHistoryTrend() {
     <tr><td>Trend</td><td>${esc(stats.trendLabel)}</td></tr>
   </table></div>`;
 
-  const series = [];
-  if (trendShowOverall || !trendSelectedSubjects.size) {
+  const chosen = trendBySubject ? subjects.filter(s => trendSelectedSubjects.has(s)) : [];
+  const series = [{
+    label: "Overall", group: "overall", color: "#111827", marker: 0, dash: chosen.length ? "5 3" : "",
+    points: sel.map(h => ({ y: h.pct || 0, tooltip: `T${idxOf.get(h.id) + 1} ${h.source} \u2013 Overall: ${(h.pct || 0).toFixed(1)}% (${formatDateNice(dateOnly(h.date))})` })),
+  }];
+  for (const subj of chosen) {
+    const si = subjects.indexOf(subj);
     series.push({
-      label: "Overall", color: "#111827", width: trendSelectedSubjects.size ? 2.4 : 2, dash: trendSelectedSubjects.size ? "5 3" : "",
-      points: stats.history.map(h => ({ y: h.pct || 0, tooltip: `Overall \u2013 ${h.source}: ${(h.pct || 0).toFixed(1)}% (${formatDateNice(dateOnly(h.date))})` })),
+      label: subj, group: subj, color: CHART_PALETTE[si % CHART_PALETTE.length], marker: si + 1,
+      points: sel.map(h => {
+        const o = perTest[idxOf.get(h.id)][subj];
+        if (!o || !o.n) return { y: null };
+        const y = o.correct / o.n * 100;
+        return { y, tooltip: `T${idxOf.get(h.id) + 1} ${h.source} \u2013 ${subj}: ${y.toFixed(1)}% (${o.correct}/${o.n})` };
+      }),
     });
   }
-  const rows = [];
-  for (const subj of subjects.filter(s => trendSelectedSubjects.has(s))) {
-    const pts = stats.history.map((h, i) => {
-      const o = perTest[i][subj];
-      if (!o || !o.n) return { y: null };
-      const y = o.correct / o.n * 100;
-      return { y, tooltip: `${subj} \u2013 ${h.source}: ${y.toFixed(1)}% (${o.correct}/${o.n}, ${formatDateNice(dateOnly(h.date))})` };
-    });
-    series.push({ label: subj, color: colorOf(subj), points: pts });
-    const vals = pts.map(p => p.y).filter(y => y !== null);
-    if (vals.length) {
-      rows.push(`<tr><td style="font-family:inherit;">${esc(subj)}</td><td>${vals.length}</td><td>${(vals.reduce((a, b) => a + b, 0) / vals.length).toFixed(1)}%</td><td>${Math.max(...vals).toFixed(1)}%</td><td>${vals[vals.length - 1].toFixed(1)}%</td></tr>`);
-    }
-  }
-  chartBox.innerHTML = buildLineGraphSVG(series, { yMin: 0, yMax: 100 }) + chartLegendHTML(series);
-  if (trendSelectedSubjects.size) {
-    subjTableBox.innerHTML = rows.length
-      ? `<div class="table-wrap"><table class="data-table"><tr><th>Subject</th><th>Tests</th><th>Avg</th><th>Best</th><th>Latest</th></tr>${rows.join("")}</table></div>
-         <p class="hint" style="margin-top:6px;">Subject scores = correct answers \u00f7 that subject's questions in each test. Tests without that subject leave a gap in the line.</p>`
-      : `<div class="empty-state">No detailed results for the selected subjects yet.</div>`;
-  }
+  chartBox.innerHTML = buildLineGraphSVG(series, { yMin: 0, yMax: 100, xLabels: sel.map(h => "T" + (idxOf.get(h.id) + 1)) }) + chartLegendHTML(series);
+
+  const head = `<tr><th>#</th><th>Test</th><th>Date</th><th>Overall</th>${chosen.map(s => `<th>${esc(s)}</th>`).join("")}</tr>`;
+  const rows = sel.map(h => {
+    const i = idxOf.get(h.id);
+    const cells = chosen.map(s => {
+      const o = perTest[i][s];
+      return `<td>${o && o.n ? `${(o.correct / o.n * 100).toFixed(0)}% (${o.correct}/${o.n})` : "\u2014"}</td>`;
+    }).join("");
+    return `<tr><td>T${i + 1}</td><td style="font-family:inherit;">${esc(h.source)}</td><td>${esc(formatDateNice(dateOnly(h.date)))}</td><td>${(h.pct || 0).toFixed(1)}%</td>${cells}</tr>`;
+  }).join("");
+  detailBox.innerHTML = `<div class="table-wrap" style="max-height:260px;overflow:auto;"><table class="data-table">${head}${rows}</table></div>` +
+    (trendBySubject ? `<p class="hint" style="margin-top:6px;">Subject score = correct answers \u00f7 that subject's questions in the test. Lines connect across tests where the subject didn't appear.${chosen.length ? "" : " Tick subjects under Select Tests to draw them."}</p>` : "");
 }
+function trendAllTests() { const b = computeHistoryTrendStats(); return b ? b.history : []; }
 $("btnTrendFilterToggle").addEventListener("click", () => {
   const box = $("trendFilterBox");
   box.style.display = box.style.display === "none" ? "block" : "none";
 });
-$("trendShowOverall").addEventListener("change", (e) => { trendShowOverall = e.target.checked; renderHistoryTrend(); });
-$("btnTrendSelectAll").addEventListener("click", () => {
-  trendSelectedSubjects = new Set(computeTrendBySubject(computeHistoryTrendStats() ? computeHistoryTrendStats().history : []).subjects);
+$("trendBySubject").addEventListener("change", (e) => {
+  trendBySubject = e.target.checked;
+  if (trendBySubject) $("trendFilterBox").style.display = "block";
   renderHistoryTrend();
 });
-$("btnTrendClearAll").addEventListener("click", () => { trendSelectedSubjects.clear(); renderHistoryTrend(); });
+$("btnTrendSelectAll").addEventListener("click", () => { trendTestsTouched = true; trendSelectedTests = new Set(trendAllTests().map(h => h.id)); renderHistoryTrend(); });
+$("btnTrendClearAll").addEventListener("click", () => { trendTestsTouched = true; trendSelectedTests.clear(); renderHistoryTrend(); });
+$("btnTrendLast5").addEventListener("click", () => { trendTestsTouched = true; trendSelectedTests = new Set(trendAllTests().slice(-5).map(h => h.id)); renderHistoryTrend(); });
+$("btnTrendLast10").addEventListener("click", () => { trendTestsTouched = true; trendSelectedTests = new Set(trendAllTests().slice(-10).map(h => h.id)); renderHistoryTrend(); });
 
 $("btnClearHistory").addEventListener("click", () => {
   if (!confirmDialog("Clear all locally saved test history? This also clears the data behind Study Priority Analysis. This cannot be undone.")) return;
@@ -3180,13 +3445,16 @@ $("prioritySortSelect").addEventListener("change", () => { prioritySortMode = $(
 $("priorityMetricSelect").addEventListener("change", () => { priorityMetric = $("priorityMetricSelect").value; renderPriorityBars(); });
 
 function refreshAnalysis() {
-  const { overall, progression } = computeSubjectAnalysis();
+  const { overall, progression } = computeSubjectAnalysis(getScopeSubjects());
   analysisOverall = overall; analysisProgression = progression;
   const ranked = Object.entries(overall).sort((a, b) => (a[1].weighted_pct - b[1].weighted_pct) || (b[1].overconfident_wrong - a[1].overconfident_wrong));
 
+  const scopeA = getScopeSubjects();
+  const unassessed = scopeA ? scopeA.filter(n => !overall[n]).sort() : [];
+  const unassessedRows = unassessed.map(n => `<tr><td>&ndash;</td><td>${esc(n)}</td><td colspan="5" style="color:var(--sub);">Not yet assessed</td></tr>`).join("");
   const rankBox = $("rankTable");
   rankBox.innerHTML = "";
-  if (!ranked.length) {
+  if (!ranked.length && !unassessed.length) {
     rankBox.appendChild(el("div", "empty-state", "No exam data yet -- take an exam to see priority rankings here."));
   } else {
     const rows = ranked.map(([subj, stats], i) => `<tr>
@@ -3195,7 +3463,7 @@ function refreshAnalysis() {
         <td>${stats.total_answered}</td><td>${stats.n_exams}</td></tr>`).join("");
     rankBox.innerHTML = `<div class="table-wrap"><table class="data-table">
       <tr><th>#</th><th>Subject</th><th>Priority</th><th>Accuracy</th><th>Overconfident</th><th>Answered</th><th>Exams</th></tr>
-      ${rows}
+      ${rows}${unassessedRows}
     </table></div>`;
   }
 
@@ -3211,6 +3479,8 @@ function refreshAnalysis() {
   renderProgSubjectChecks(subjects);
   drawProgressionChart();
   renderAnalysisText(ranked, progression);
+  renderExamScopeSelects();
+  renderActionPlan(overall, progression);
 }
 let progSelectedSubjects = new Set();
 let progTouched = false;   // once the user changes the selection, stop auto-picking the first subject
@@ -3222,8 +3492,7 @@ function renderProgSubjectChecks(subjects) {
     const row = el("label", "row");
     row.style.marginBottom = "6px";
     row.style.fontSize = ".82rem";
-    const color = CHART_PALETTE[idx % CHART_PALETTE.length];
-    row.innerHTML = `<input type="checkbox" ${progSelectedSubjects.has(subj) ? "checked" : ""}><i class="sw" style="width:12px;height:3px;border-radius:2px;background:${color};display:inline-block;"></i><span>${esc(subj)}</span>`;
+    row.innerHTML = `<input type="checkbox" ${progSelectedSubjects.has(subj) ? "checked" : ""}>${legendGlyph(CHART_PALETTE[idx % CHART_PALETTE.length], idx)}<span>${esc(subj)}</span>`;
     row.querySelector("input").addEventListener("change", (e) => {
       progTouched = true;
       if (e.target.checked) progSelectedSubjects.add(subj); else progSelectedSubjects.delete(subj);
@@ -3269,7 +3538,8 @@ function drawProgressionChart() {
 
   const lines = [];
   for (const subj of chosen) {
-    const color = CHART_PALETTE[allSubjects.indexOf(subj) % CHART_PALETTE.length];
+    const si = allSubjects.indexOf(subj);
+    const color = CHART_PALETTE[si % CHART_PALETTE.length];
     for (const def of defs) {
       const pts = ticks.map(() => ({ y: null }));
       for (const e of analysisProgression[subj]) {
@@ -3277,10 +3547,149 @@ function drawProgressionChart() {
         const v = e[def.key];
         pts[i] = { y: v, tooltip: `${subj} \u2013 Sample ${i + 1} (${e.exam_source}): ${def.name} ${v != null ? v.toFixed(1) + "%" : "n/a"}` };
       }
-      lines.push({ label: defs.length > 1 ? `${subj} \u2013 ${def.name}` : subj, color, dash: def.dash, points: pts });
+      lines.push({ label: defs.length > 1 ? `${subj} \u2013 ${def.name}` : subj, group: subj, color, marker: si, dash: def.dash, points: pts });
     }
   }
-  box.innerHTML = buildLineGraphSVG(lines, { yMin: 0, yMax: 100 }) + chartLegendHTML(lines);
+  box.innerHTML = buildLineGraphSVG(lines, { yMin: 0, yMax: 100, xLabels: ticks.map((_, i) => "S" + (i + 1)) }) + chartLegendHTML(lines);
+}
+
+const CATEGORY_TIPS = {
+  "Conceptual Misunderstanding": "re-learn the underlying concept, then explain it in your own words",
+  "Careless / Computational Error": "slow down and re-check your work; redo the computation by hand",
+  "Misread the Question": "underline what is being asked (and units/qualifiers) before answering",
+  "Formula / Equation Error": "rebuild a formula sheet and drill the formulas from memory",
+  "Unfamiliar Topic (Never Studied)": "study this topic from scratch before doing more questions",
+  "Forgot a Concept (Knew It Before)": "revisit it with spaced repetition",
+  "Time Pressure / Rushed": "practice timed sets in this subject",
+};
+function planTier(w) { return w < 40 ? { cls: "crit", label: "Critical" } : w < 70 ? { cls: "mid", label: "Needs work" } : { cls: "ok", label: "On track" }; }
+function planPhase(days) {
+  if (days < 0) return "This exam date has passed.";
+  if (days === 0) return "Exam day \u2014 light review only.";
+  if (days <= 7) return "Final week: favor open mistakes and confident-but-wrong items over new material.";
+  if (days <= 30) return "Closing in: concentrate on your weakest subjects and clear open mistakes.";
+  return "Plenty of runway: build coverage first, then tighten the weak subjects.";
+}
+function shuffleInPlace(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function startBaselineSample(names) {
+  const lists = getAllLists();
+  const avail = names.filter(n => (lists[n] || []).length);
+  if (!avail.length) { toast("No questions available for those subjects."); return; }
+  const poolTotal = avail.reduce((a, n) => a + lists[n].length, 0);
+  const qs = evenSample(lists, avail, Math.min(5 * avail.length, poolTotal), true);
+  const ex = getActiveExam();
+  requestStartExam(`${ex ? ex.label + " - " : ""}Baseline Sample`, qs);
+}
+function renderActionPlan(overall, progression) {
+  const box = $("actionPlanBox");
+  box.innerHTML = "";
+  const ex = getActiveExam(), scope = getScopeSubjects();
+  const lists = getAllLists();
+  const entries = Object.entries(overall).sort((a, b) => (a[1].weighted_pct - b[1].weighted_pct) || (b[1].overconfident_wrong - a[1].overconfident_wrong));
+  const unassessed = scope ? scope.filter(n => !overall[n]).sort() : [];
+  if (!entries.length && !unassessed.length) {
+    box.appendChild(el("div", "empty-state", "Take an assessment and your tailored plan will appear here."));
+    return;
+  }
+
+  // Header: which exam, how long, what phase
+  const head = el("div", "list-item");
+  if (ex && scope) {
+    const d = daysUntil(ex.date);
+    head.innerHTML = `<div class="top-row"><span class="name">${esc(ex.label)}</span><span class="exam-days">${d > 0 ? d + " day" + (d === 1 ? "" : "s") + " left" : d === 0 ? "Today" : "Past"}</span></div>
+      <div class="meta">${esc(planPhase(d))} <i>(guideline)</i></div>`;
+  } else {
+    head.innerHTML = `<div class="top-row"><span class="name">All subjects</span></div><div class="meta">No exam focus selected \u2014 pick an exam above to tailor this plan to it.</div>`;
+  }
+  box.appendChild(head);
+
+  // Suggested study-time split, proportional to how far each subject is from 100%
+  const needs = entries.map(([n, st]) => [n, Math.max(5, 100 - st.weighted_pct)]).concat(unassessed.map(n => [n, 50]));
+  const sumNeed = needs.reduce((a, [, v]) => a + v, 0);
+  if (needs.length > 1) {
+    const split = needs.slice().sort((a, b) => b[1] - a[1]).map(([n, v]) => `${esc(n)} ${Math.round(v / sumNeed * 100)}%`).join(" &middot; ");
+    const sp = el("div", "list-item");
+    sp.innerHTML = `<div class="meta"><b>Suggested study-time split</b> (more time where the gap is bigger; unassessed subjects count as a 50% gap)</div><div style="font-size:.8rem;margin-top:4px;">${split}</div>`;
+    box.appendChild(sp);
+  }
+
+  // Weighted focus sample across the whole scope
+  if (entries.length > 1 || (entries.length && unassessed.length)) {
+    const b = el("button", "btn primary block", "Generate ~30-Question Sample Weighted To Weak Areas \u25b6");
+    b.style.margin = "8px 0";
+    b.addEventListener("click", () => {
+      const ents = needs.map(([name, need]) => ({ name, need })).filter(e => (lists[e.name] || []).length);
+      if (!ents.length) { toast("No question lists available for these subjects."); return; }
+      const total = 30, sumN = ents.reduce((a, e) => a + e.need, 0);
+      let out = [];
+      for (const e of ents) {
+        const n = Math.min(lists[e.name].length, Math.max(1, Math.round(total * e.need / sumN)));
+        out = out.concat(evenSample(lists, [e.name], n, true));
+      }
+      shuffleInPlace(out);
+      requestStartExam(`${ex && scope ? ex.label + " - " : ""}Weighted Focus Sample`, out);
+    });
+    box.appendChild(b);
+  }
+
+  // Mistake log lookups
+  const log = loadMistakeLog().filter(e => e.category);
+
+  // Per-subject plan cards (weakest first; first three get full detail)
+  entries.forEach(([subj, st], idx) => {
+    const tier = planTier(st.weighted_pct);
+    const card = el("div", "list-item");
+    const items = [];
+    if (st.overconfident_wrong > 0) items.push(`${st.overconfident_wrong} answer${st.overconfident_wrong === 1 ? " was" : "s were"} confident but wrong \u2014 these are the riskiest gaps. Re-study the concepts behind them before drilling more questions.`);
+    const mine = log.filter(e => e.source_list === subj);
+    const open = mine.filter(e => !e.resolved);
+    if (open.length) {
+      const counts = {};
+      for (const e of open) counts[e.category] = (counts[e.category] || 0) + 1;
+      const [topCat, topN] = Object.entries(counts).sort((a, b) => b[1] - a[1])[0];
+      const tip = CATEGORY_TIPS[topCat];
+      items.push(`${open.length} open mistake${open.length === 1 ? "" : "s"} in your log. Most common cause: ${topCat} (${topN})${tip ? " \u2192 " + tip : ""}.`);
+    } else if (!mine.length && st.accuracy_pct < 100) {
+      items.push("No mistakes logged for this subject yet \u2014 log your wrong answers in Mistake Log so the cause of each is clear.");
+    }
+    const prog = (progression[subj] || []).map(p => p.weighted_pct).filter(v => v != null);
+    if (prog.length >= 2) {
+      const delta = prog[prog.length - 1] - prog[prog.length - 2];
+      if (delta <= -3) items.push(`Slipping: ${delta.toFixed(1)} points since your previous sample \u2014 revisit recent mistakes.`);
+      else if (delta >= 3) items.push(`Improving: +${delta.toFixed(1)} points since your previous sample \u2014 keep the momentum.`);
+    }
+    if (st.total_answered < 10) items.push(`Only ${st.total_answered} answered so far \u2014 one more sample will make this ranking more reliable.`);
+    if (!items.length) items.push("Nothing urgent here \u2014 keep it fresh with an occasional mixed sample.");
+
+    card.innerHTML = `<div class="top-row"><span class="name">${idx + 1}. ${esc(subj)}</span><span class="tier ${tier.cls}">${tier.label}</span></div>
+      <div class="meta">Priority ${st.weighted_pct.toFixed(1)}% &middot; Accuracy ${st.accuracy_pct.toFixed(1)}% &middot; ${st.total_answered} answered</div>
+      ${idx < 3 || tier.cls !== "ok" ? `<ul class="plan-list">${items.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}`;
+    const pool = lists[subj] || [];
+    if (pool.length && (idx < 3 || tier.cls !== "ok")) {
+      const fb = el("button", "btn block", `Focus Sample: ${Math.min(10, pool.length)} Questions \u25b6`);
+      fb.style.marginTop = "8px";
+      fb.addEventListener("click", () => {
+        const qs = evenSample(lists, [subj], Math.min(10, pool.length), true);
+        if (!qs.length) { toast("Couldn't generate questions from this subject."); return; }
+        requestStartExam(`${subj} Focus Sample`, qs);
+      });
+      card.appendChild(fb);
+    }
+    box.appendChild(card);
+  });
+
+  // Subjects on the exam with no results yet
+  if (unassessed.length) {
+    const card = el("div", "list-item");
+    card.innerHTML = `<div class="top-row"><span class="name">Not yet assessed</span><span class="tier none">No data</span></div>
+      <div class="meta">${esc(unassessed.join(", "))}</div>
+      <ul class="plan-list"><li>You can't rank what you haven't measured \u2014 take a short baseline sample (5 questions per subject) first.</li></ul>`;
+    const bb = el("button", "btn block", "Baseline Sample For These \u25b6");
+    bb.style.marginTop = "8px";
+    bb.addEventListener("click", () => startBaselineSample(unassessed));
+    card.appendChild(bb);
+    box.appendChild(card);
+  }
 }
 
 function renderAnalysisText(ranked, progression) {
@@ -3288,6 +3697,8 @@ function renderAnalysisText(ranked, progression) {
   const sep = "=".repeat(60), sub = "-".repeat(60);
   lines.push(sep, "STUDY PRIORITY ANALYSIS", sep);
   lines.push(`Generated:          ${new Date().toLocaleString()}`);
+  const exA = getActiveExam();
+  if (exA && getScopeSubjects()) lines.push(`Exam focus:         ${exA.label} (${exA.date})`);
   lines.push(`Subjects with data: ${ranked.length}`, "");
   lines.push(sub);
   for (const [rank, [subj, stats]] of ranked.map((r, i) => [i + 1, r])) {
