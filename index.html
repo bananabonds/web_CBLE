@@ -753,8 +753,18 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
       <div class="card">
         <h3>Reviewer</h3>
         <p class="hint">Every question you flagged, hesitated on, guessed, or got wrong with confidence, collected from all your tests. A question you met several times shows once, with its full history.</p>
+        <select class="examScopeSelect" id="reviewerExamScope" style="margin-top:8px;"></select>
+        <div id="rvExamSummary" style="margin-top:8px;"></div>
         <div class="row wrap" style="margin-top:8px;">
           <button class="btn" id="btnRvFilterToggle">Filter Subjects</button>
+        </div>
+        <div style="margin-top:10px;border-top:1px solid var(--line);padding-top:10px;">
+          <label class="row" style="font-size:.8rem;color:var(--sub);margin-bottom:8px;">
+            <input type="checkbox" id="rvPromptDetails" checked>
+            <span>Include my past answers, confidence and notes</span>
+          </label>
+          <button class="btn primary block" id="btnRvCopyPrompt">Copy Unique Questions As Prompt</button>
+          <p class="hint" id="rvPromptHint" style="margin-top:6px;"></p>
         </div>
         <div id="rvFilterBox" class="list-item" style="display:none;margin-top:10px;">
           <div class="row wrap" style="margin-bottom:8px;">
@@ -1584,6 +1594,7 @@ document.addEventListener("change", (e) => {
   refreshHome();
   refreshListsDisplay();
   refreshAnalysis();
+  refreshReviewer();
 });
 
 /* ---------------------------------------------------------------------
@@ -4978,13 +4989,27 @@ function renderReviewerCard(sectionId, g) {
   return card;
 }
 
-function refreshReviewer() {
+// Attempts limited to the focused exam's subjects (everything, if no exam has subjects).
+function scopedReviewerAttempts() {
+  const scope = getScopeSubjects();
   const all = collectReviewerAttempts();
+  return scope ? all.filter(a => scope.includes(a.source_list || "Unknown")) : all;
+}
+function refreshReviewer() {
+  const all = scopedReviewerAttempts();
+  const exR = getActiveExam(), scopeR = getScopeSubjects();
+  renderExamScopeSelects();
+  const qt = computeExamQuestionTotals(scopeR);
+  const uniq = new Set(groupReviewerAttempts(all.filter(a => !reviewerHiddenSubjects.has(a.source_list || "Unknown")),
+    a => REVIEWER_SECTIONS.some(sec => sec.test(a))).map(g => g.key)).size;
+  $("rvExamSummary").innerHTML = `<div class="list-item"><div class="top-row"><span class="name">${scopeR && exR ? esc(exR.label) : "All subjects"}</span><span class="exam-days">${uniq} to review</span></div>
+    <div class="meta"><b>${qt.total.toLocaleString()}</b> question${qt.total === 1 ? "" : "s"} in ${scopeR ? "this exam" : "your question bank"}${scopeR ? ` &middot; ${scopeR.length} subject${scopeR.length === 1 ? "" : "s"}` : ""} &middot; ${uniq} unique question${uniq === 1 ? "" : "s"} flagged below</div></div>`;
+  $("rvPromptHint").textContent = `Copies ${uniq} unique question${uniq === 1 ? "" : "s"} (each once, even if it appears in several sections or tests) with instructions for an AI to build a tailored reviewer.`;
 
   const subjects = Array.from(new Set(all.map(a => a.source_list || "Unknown"))).sort();
   const checks = $("rvSubjectChecks");
   checks.innerHTML = "";
-  if (!subjects.length) checks.appendChild(el("div", "empty-state", "No tests taken yet."));
+  if (!subjects.length) checks.appendChild(el("div", "empty-state", scopeR ? "No tests yet include this exam's subjects." : "No tests taken yet."));
   for (const s of subjects) {
     const row = el("label", "row");
     row.style.marginBottom = "6px"; row.style.fontSize = ".82rem";
@@ -5010,6 +5035,79 @@ function refreshReviewer() {
     wrap.appendChild(card);
   }
 }
+// One entry per unique question across ALL reviewer sections (a question that is both a guess and an
+// overconfident miss, or that shows up in many tests, appears once with every reason attached).
+function buildReviewerPromptData() {
+  const visible = scopedReviewerAttempts().filter(a => !reviewerHiddenSubjects.has(a.source_list || "Unknown"));
+  const groups = groupReviewerAttempts(visible, a => REVIEWER_SECTIONS.some(sec => sec.test(a)));
+  const mlog = loadMistakeLog();
+  const gnotes = loadGuessNotes();
+  const rank = { overconf: 0, flagged: 1, slight: 2, guess: 3 };
+  const entries = groups.map(g => {
+    const tags = REVIEWER_SECTIONS.filter(sec => g.attempts.some(a => sec.test(a))).map(sec => sec.id);
+    const m = findMistakeEntry(mlog, g.source_list, g.reference_no);
+    const notes = gnotes.filter(x => x.source_list === g.source_list && String(x.reference_no) === String(g.reference_no) && x.note).map(x => x.note);
+    return { g, tags, mistake: m, guessNotes: notes };
+  });
+  entries.sort((a, b) => (a.g.source_list || "").localeCompare(b.g.source_list || "")
+    || (Math.min(...a.tags.map(t => rank[t])) - Math.min(...b.tags.map(t => rank[t])))
+    || (b.g.attempts.length - a.g.attempts.length));
+  return entries;
+}
+const RV_TAG_LABEL = { overconf: "confident but wrong", flagged: "flagged", slight: "only slightly confident", guess: "guessed" };
+function buildReviewerPrompt() {
+  const entries = buildReviewerPromptData();
+  const withDetails = $("rvPromptDetails").checked;
+  const ex = getActiveExam(), scope = getScopeSubjects();
+  const L = [];
+  L.push("I'm reviewing for " + (scope && ex ? `my "${ex.label}" exam (${formatDateNice(ex.date)}${daysUntil(ex.date) >= 0 ? `, ${daysUntil(ex.date)} day(s) away` : ""})` : "my board exam") + ".");
+  if (scope) L.push(`Subjects on this exam: ${scope.join(", ")}.`);
+  L.push("",
+    "Below are the questions I struggled with, collected from my practice tests. Each appears once, with the reasons it made the list.",
+    "Using them as a map of my weak spots, create an in-depth, tailored reviewer. For each subject:",
+    "1. Identify the underlying concepts and sub-topics these questions point to, and group the questions by those themes.",
+    "2. Explain each concept clearly, including why the correct answer is right and why my chosen answer was tempting but wrong.",
+    "3. Add closely related facts, formulas or distinctions likely to be tested that I did not directly miss.",
+    "4. Give memory aids (mnemonics, comparison tables, step-by-step methods) where useful.",
+    "5. Finish with new practice questions of the same style, with answers and short explanations.",
+    "Prioritize items marked \"confident but wrong\" and repeated misses, since those are my biggest blind spots.", "");
+  let bySubj = "", n = 0;
+  for (const e of entries) {
+    const g = e.g;
+    if (g.source_list !== bySubj) { bySubj = g.source_list; L.push("", `=== ${bySubj} ===`); }
+    n++;
+    const latest = g.attempts[0];
+    const reasons = e.tags.map(t => RV_TAG_LABEL[t]).join(", ");
+    L.push("", `${n}. [Ref #${g.reference_no}] ${latest.question || "(question text unavailable)"}`);
+    L.push(`   Correct answer: ${latest.correct_answer || "(unknown)"}`);
+    L.push(`   Why it's here: ${reasons}${g.attempts.length > 1 ? `; seen in ${g.attempts.length} tests` : ""}`);
+    if (withDetails) {
+      const mine = g.attempts.map(a => `"${a.your_answer || "(none)"}" (${a.is_correct ? "right" : "wrong"}, ${a.confidence || "no confidence"})`);
+      L.push(`   My answers, newest first: ${mine.join("; ")}`);
+      if (e.mistake && e.mistake.category) L.push(`   Mistake type I logged: ${e.mistake.category}`);
+      if (e.mistake && e.mistake.note) L.push(`   My note: ${e.mistake.note}`);
+      for (const gn of e.guessNotes) L.push(`   My guess note: ${gn}`);
+    }
+  }
+  return { text: L.join("\n"), count: n };
+}
+async function copyTextRobust(text) {
+  try { await navigator.clipboard.writeText(text); return true; } catch (e) {}
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.style.cssText = "position:fixed;opacity:0;top:0;left:0;";
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    const ok = document.execCommand("copy");
+    document.body.removeChild(ta);
+    return ok;
+  } catch (e) { return false; }
+}
+$("btnRvCopyPrompt").addEventListener("click", async () => {
+  const { text, count } = buildReviewerPrompt();
+  if (!count) { toast("Nothing to copy \u2014 no flagged questions for this selection."); return; }
+  const ok = await copyTextRobust(text);
+  toast(ok ? `Copied ${count} unique question${count === 1 ? "" : "s"} (${text.length.toLocaleString()} characters).` : "Couldn't access the clipboard.");
+});
 $("btnRvFilterToggle").addEventListener("click", () => {
   const b = $("rvFilterBox"); b.style.display = b.style.display === "none" ? "block" : "none";
 });
