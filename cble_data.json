@@ -44877,7 +44877,30 @@
     {
       "id": "179058410793063",
       "label": "Chemical Technician Board Exam",
-      "date": "2026-10-12"
+      "date": "2026-10-12",
+      "subjects": [
+        "AI_CT_Chemical_Safety",
+        "AI_CT_General_Chemistry",
+        "AI_CT_Chemical_Waste_Management",
+        "AI_CT_Instrumental_Analysis",
+        "AI_CT_Laboratory_Technology",
+        "AI_CT_Organic_Chemistry",
+        "AI_CT_Organic_Laboratory_Technology",
+        "AI_CT_Reagents_and_QC",
+        "CT_Analytic_Chemistry",
+        "CT_Chemical_Safety",
+        "CT_Chemical_Waste_Management",
+        "CT_Inorganic_Chemistry",
+        "CT_Organic_Chemistry",
+        "CT_PT_Analytical_Chemistry",
+        "CT_PT_Inorganic_Chemistry",
+        "CT_PT_Laboratory_Instrumentation",
+        "CT_PT_Quality_Assurance_Control",
+        "CT_Quality_Control_Assurance",
+        "CT_RE_Analytical_Chemistry",
+        "CT_RE_General_Chemistry",
+        "CT_RE_Laboratory_Quality_Safety"
+      ]
     },
     {
       "id": "1790584132394843",
@@ -44896,5 +44919,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-10-02T03:52:38"
+  "updated_at": "2026-10-02T03:53:15"
 }
