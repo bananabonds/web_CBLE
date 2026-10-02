@@ -3699,27 +3699,39 @@ function renderPlanner() {
     const o = st[sj], c = cov[sj] || { used: 0, total: 0 }, unseen = c.total - c.used;
     const lo = plWilsonLower(o.k, o.n, 1.64), acc = o.n ? o.k / o.n : null;
     const days = o.last ? Math.floor((now - o.last) / 864e5) : null;
-    const score = unseen > 0 ? Math.max(0, target - lo) : 0;
-    let status = "Weak";
+    const gap = o.n ? Math.max(0, target - lo) : target, open = Math.max(0, o.found - o.fixed);
+    let status = "Uncertain";
     if (!o.n) status = "Unexplored";
     else if (lo >= target - 0.03) status = "Converged";
-    else if (c.total && unseen / c.total < 0.1) status = "Needs more questions";
     else if (days !== null && days > half) status = "Stale";
-    return { sj, o, unseen, lo, acc, days, score, status };
+    else if (acc < target - 0.05) status = "Weak";
+    return { sj, o, unseen, lo, acc, days, gap, open, status };
   });
-  const open = rows.filter(r => r.unseen > 0), total = rows.reduce((a, r) => a + r.score, 0);
-  const alloc = {}; rows.forEach(r => alloc[r.sj] = 0);
-  if (open.length) {
-    const nEx = Math.round(N * eps), nEp = N - nEx;
-    if (total > 0) { let left = nEp; open.slice().sort((a, b) => b.score - a.score).forEach(r => { const q = Math.min(left, Math.floor(nEp * r.score / total)); alloc[r.sj] += q; left -= q; }); open.slice().sort((a, b) => b.score - a.score).forEach((r, i, arr) => { if (left > 0) { alloc[r.sj]++; left--; } }); }
-    else for (let i = 0; i < nEp; i++) alloc[open[i % open.length].sj]++;
-    for (let i = 0; i < nEx; i++) alloc[shuffle(open)[0].sj]++;   // random exploration picks
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  const nEx = Math.round(N * eps), nMain = N - nEx, alloc = {}, line = [];
+  const fresh = rows.filter(r => r.unseen > 0);
+  if (fresh.length) {   // normal mode: draw new questions where the gap is largest
+    const W = fresh.reduce((a, r) => a + r.gap, 0) || 1;
+    fresh.forEach(r => alloc[r.sj] = Math.floor(nMain * r.gap / W));
+    let left = nMain - Object.values(alloc).reduce((a, b) => a + b, 0);
+    fresh.slice().sort((a, b) => b.gap - a.gap).forEach(r => { if (left > 0) { alloc[r.sj]++; left--; } });
+    for (let i = 0; i < nEx; i++) { const r = pick(fresh); alloc[r.sj] = (alloc[r.sj] || 0) + 1; }
+    line.push(`New questions (${N}, ${Math.round(eps * 100)}% random): ` + Object.keys(alloc).filter(k => alloc[k]).sort((a, b) => alloc[b] - alloc[a]).map(k => `${esc(k)}: <b>${alloc[k]}</b>`).join(" &middot; "));
+  } else {   // bank used up: retest unfixed mistakes, weighted by gap, plus random spot-checks
+    const m = rows.filter(r => r.open > 0), W = m.reduce((a, r) => a + r.open * (0.5 + r.gap), 0);
+    if (W > 0) m.forEach(r => alloc[r.sj] = Math.min(r.open, Math.round(nMain * r.open * (0.5 + r.gap) / W)));
+    const rt = Object.keys(alloc).filter(k => alloc[k] > 0).sort((a, b) => alloc[b] - alloc[a]);
+    line.push("Question bank is used up. " + (rt.length ? `Retest your unfixed mistakes: ` + rt.map(k => `${esc(k)}: <b>${alloc[k]}</b>`).join(" &middot; ") : "All logged mistakes have been retested correctly."));
+    const pool = rows.filter(r => r.o.n > 0), sc = [];
+    for (let i = 0; i < Math.min(nEx, pool.length); i++) { const r = pick(pool.filter(x => !sc.includes(x))); sc.push(r); }
+    if (sc.length) line.push(`Random spot-checks (${nEx} slots, to catch forgetting): ` + sc.map(r => esc(r.sj)).join(", "));
+    const need = rows.filter(r => r.status === "Weak" || r.status === "Stale").sort((a, b) => b.gap - a.gap).slice(0, 5);
+    if (need.length) line.push("Best places to add NEW questions: " + need.map(r => esc(r.sj)).join(", "));
   }
-  const parts = rows.filter(r => alloc[r.sj] > 0).sort((a, b) => alloc[b.sj] - alloc[a.sj]).map(r => `${esc(r.sj)}: <b>${alloc[r.sj]}</b>`);
-  $("plAlloc").innerHTML = parts.length ? `Suggested split for ${N} questions (${Math.round(eps * 100)}% random exploration): ${parts.join(" &middot; ")}` : "No subjects with unseen questions left.";
+  $("plAlloc").innerHTML = line.join("<br>");
   const pc = v => v === null ? "&ndash;" : (v * 100).toFixed(1) + "%";
-  box.innerHTML = `<div class="table-wrap"><table class="data-table"><tr><th>Subject</th><th>First-seen acc</th><th>Lower bound</th><th>Gap</th><th>Unseen</th><th>Found</th><th>Fixed</th><th>Days</th><th>Status</th></tr>` +
-    rows.sort((a, b) => b.score - a.score).map(r => `<tr><td>${esc(r.sj)}</td><td>${pc(r.acc)}</td><td>${r.o.n ? pc(r.lo) : "&ndash;"}</td><td>${r.unseen > 0 ? pc(r.score) : "&ndash;"}</td><td>${r.unseen}</td><td>${r.o.found}</td><td>${r.o.fixed}</td><td>${r.days === null ? "&ndash;" : r.days}</td><td>${r.status}</td></tr>`).join("") + `</table></div>`;
+  box.innerHTML = `<div class="table-wrap"><table class="data-table"><tr><th>Subject</th><th>First-seen acc</th><th>Lower bound</th><th>Gap</th><th>Unseen</th><th>Found</th><th>Fixed</th><th>Open</th><th>Days</th><th>Status</th></tr>` +
+    rows.sort((a, b) => b.gap - a.gap).map(r => `<tr><td>${esc(r.sj)}</td><td>${pc(r.acc)}</td><td>${r.o.n ? pc(r.lo) : "&ndash;"}</td><td>${pc(r.gap)}</td><td>${r.unseen}</td><td>${r.o.found}</td><td>${r.o.fixed}</td><td>${r.open}</td><td>${r.days === null ? "&ndash;" : r.days}</td><td>${r.status}</td></tr>`).join("") + `</table></div>`;
 }
 function renderActionPlan(overall, progression) {
   const box = $("actionPlanBox");
