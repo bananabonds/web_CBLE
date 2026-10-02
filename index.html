@@ -547,6 +547,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
           <option value="score_high">Sort: Highest Score First</option>
           <option value="score_low">Sort: Lowest Score First</option>
         </select>
+        <p class="hint" style="margin-bottom:8px;">Tap a test to see its composition by subject.</p>
         <div id="historyContainer"></div>
       </div>
       <div class="card">
@@ -1013,6 +1014,14 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
 </div>
 
 <!-- View composition modal -->
+<div class="sheet hidden" id="historyDetailSheet">
+  <div class="sheet-inner">
+    <h2 id="historyDetailTitle">Test</h2>
+    <div id="historyDetailBody"></div>
+    <button class="btn block" id="btnCloseHistoryDetail" style="margin-top:12px;">Close</button>
+  </div>
+</div>
+
 <div class="sheet hidden" id="compositionSheet">
   <div class="sheet-inner">
     <h2 id="compositionTitle">Composition</h2>
@@ -3180,13 +3189,51 @@ function refreshHistoryList() {
   if (!history.length) { box.appendChild(el("div", "empty-state", "No tests taken yet.")); renderHistoryTrend(); return; }
   if (!ordered.length) { box.appendChild(el("div", "empty-state", "No tests match that search.")); renderHistoryTrend(); return; }
   for (const h of ordered) {
-    const item = el("div", "list-item");
+    const item = el("div", "list-item selectable");
     item.innerHTML = `<div class="top-row"><span class="name">${esc(h.source || "")}</span><span class="meta">${esc(h.date || "")}</span></div>
-      <div class="meta">Score ${h.score}/${h.total} (${h.pct}%) &middot; Time used ${fmtDuration(h.time_used_seconds)}</div>`;
+      <div class="meta">Score ${h.score}/${h.total} (${h.pct}%) &middot; Time used ${fmtDuration(h.time_used_seconds)} &middot; <span style="color:var(--navy);">View composition &rsaquo;</span></div>`;
+    item.addEventListener("click", () => openHistoryDetail(h));
     box.appendChild(item);
   }
   renderHistoryTrend();
 }
+function openHistoryDetail(h) {
+  const d = loadJson(KEYS.details, []).find(x => x.exam_id === h.id);
+  $("historyDetailTitle").textContent = h.source || "Test";
+  const items = d ? (d.items || []) : [];
+  let html = `<div class="meta" style="margin-bottom:8px;">${esc(formatDateNice(dateOnly(h.date)))} &middot; Score ${h.score}/${h.total} (${h.pct}%) &middot; Time used ${esc(fmtDuration(h.time_used_seconds))}</div>`;
+  if (!items.length) {
+    html += `<div class="empty-state">No per-question details were saved for this test, so its composition isn't available.</div>`;
+  } else {
+    const by = {};
+    for (const it of items) {
+      const sj = it.source_list || "Unknown";
+      const o = by[sj] = by[sj] || { total: 0, answered: 0, correct: 0, guess: 0, overWrong: 0 };
+      o.total++;
+      if (it.is_answered) {
+        o.answered++;
+        if (it.is_correct) o.correct++;
+        if (it.confidence === "Guess") o.guess++;
+        if (!it.is_correct && (it.confidence === "Confident" || it.confidence === "Sure I'm Right")) o.overWrong++;
+      }
+    }
+    const pc = (k, n) => n ? (k / n * 100).toFixed(0) + "%" : "\u2014";
+    const rows = Object.keys(by).sort((a, b) => by[b].total - by[a].total || a.localeCompare(b)).map(sj => {
+      const o = by[sj];
+      return `<tr><td style="font-family:inherit;">${esc(sj)}</td><td>${o.total}</td><td>${o.answered}</td><td>${o.correct}</td><td>${pc(o.correct, o.answered)}</td><td>${o.guess}</td><td>${o.overWrong}</td></tr>`;
+    }).join("");
+    const tot = Object.values(by).reduce((a, o) => ({ total: a.total + o.total, answered: a.answered + o.answered, correct: a.correct + o.correct, guess: a.guess + o.guess, overWrong: a.overWrong + o.overWrong }), { total: 0, answered: 0, correct: 0, guess: 0, overWrong: 0 });
+    html += `<div class="table-wrap"><table class="data-table">
+      <tr><th>Subject</th><th>Qs</th><th>Answered</th><th>Correct</th><th>Acc</th><th>Guess</th><th>Sure+wrong</th></tr>
+      ${rows}
+      <tr><td style="font-family:inherit;"><b>Total</b></td><td><b>${tot.total}</b></td><td><b>${tot.answered}</b></td><td><b>${tot.correct}</b></td><td><b>${pc(tot.correct, tot.answered)}</b></td><td><b>${tot.guess}</b></td><td><b>${tot.overWrong}</b></td></tr>
+    </table></div>
+    <p class="hint" style="margin-top:6px;">Qs = questions from that subject in the test. Acc = correct \u00f7 answered. Sure+wrong = confident answers that were wrong.</p>`;
+  }
+  $("historyDetailBody").innerHTML = html;
+  openSheet("historyDetailSheet");
+}
+$("btnCloseHistoryDetail").addEventListener("click", () => closeSheet("historyDetailSheet"));
 $("historySearchInput").addEventListener("input", refreshHistoryList);
 $("historySortSelect").addEventListener("change", refreshHistoryList);
 $("btnRefreshHistory").addEventListener("click", refreshHistoryList);
@@ -3603,6 +3650,15 @@ $("btnProgClearAll").addEventListener("click", () => {
 });
 $("progressionMetricSelect").addEventListener("change", drawProgressionChart);
 
+// Stable sample numbers shared by the chart, its key table and the Full Analysis text:
+// S1, S2... follow every test any subject was answered in, in chronological order.
+function progKeyOf(e) { return `${e.date || ""}|${e.exam_source || ""}`; }
+function progressionSamples(progression) {
+  const axis = new Map();
+  for (const subj of Object.keys(progression)) for (const e of progression[subj]) if (!axis.has(progKeyOf(e))) axis.set(progKeyOf(e), e);
+  const ticks = Array.from(axis.entries()).sort((a, b) => (a[1].date || "").localeCompare(b[1].date || ""));
+  return { ticks, sNum: new Map(ticks.map(([k], i) => [k, i + 1])) };
+}
 function drawProgressionChart() {
   const box = $("progressionChart");
   box.innerHTML = "";
@@ -3611,15 +3667,11 @@ function drawProgressionChart() {
   if (!allSubjects.length) { box.appendChild(el("div", "empty-state", "No progression data yet.")); return; }
   if (!chosen.length) { box.appendChild(el("div", "empty-state", "No subjects selected \u2014 use Select Subjects above.")); return; }
 
-  const keyOf = (e) => `${e.date || ""}|${e.exam_source || ""}`;
+  const keyOf = progKeyOf;
   const colorOf = (subj) => CHART_PALETTE[allSubjects.indexOf(subj) % CHART_PALETTE.length];
 
-  // Stable sample numbers: S1, S2... follow every test any subject was answered in (chronological),
-  // so "S5" is the same test no matter which subjects are ticked.
-  const globalAxis = new Map();
-  for (const subj of allSubjects) for (const e of analysisProgression[subj]) if (!globalAxis.has(keyOf(e))) globalAxis.set(keyOf(e), e);
-  const globalTicks = Array.from(globalAxis.entries()).sort((a, b) => (a[1].date || "").localeCompare(b[1].date || ""));
-  const sNum = new Map(globalTicks.map(([k], i) => [k, i + 1]));
+  // "S5" is the same test no matter which subjects are ticked.
+  const { ticks: globalTicks, sNum } = progressionSamples(analysisProgression);
 
   // Shown ticks: only tests that at least one selected subject was answered in.
   const byKey = {};
@@ -3851,11 +3903,13 @@ function renderActionPlan(overall, progression) {
     } else if (!mine.length && st.accuracy_pct < 100) {
       items.push("No mistakes logged for this subject yet \u2014 log your wrong answers in Mistake Log so the cause of each is clear.");
     }
-    const prog = (progression[subj] || []).map(p => p.weighted_pct).filter(v => v != null);
-    if (prog.length >= 2) {
-      const delta = prog[prog.length - 1] - prog[prog.length - 2];
-      if (delta <= -3) items.push(`Slipping: ${delta.toFixed(1)} points since your previous sample \u2014 revisit recent mistakes.`);
-      else if (delta >= 3) items.push(`Improving: +${delta.toFixed(1)} points since your previous sample \u2014 keep the momentum.`);
+    const progE = (progression[subj] || []).filter(p => p.weighted_pct != null);
+    if (progE.length >= 2) {
+      const pa = progE[progE.length - 2], pb = progE[progE.length - 1];
+      const delta = pb.weighted_pct - pa.weighted_pct;
+      const nTxt = ` (n=${pa.n_answered} \u2192 n=${pb.n_answered}${Math.min(pa.n_answered, pb.n_answered) < 5 ? ", small samples \u2014 could be noise" : ""})`;
+      if (delta <= -3) items.push(`Slipping: ${delta.toFixed(1)} points since your previous sample${nTxt} \u2014 revisit recent mistakes.`);
+      else if (delta >= 3) items.push(`Improving: +${delta.toFixed(1)} points since your previous sample${nTxt} \u2014 keep the momentum.`);
     }
     if (st.total_answered < 10) items.push(`Only ${st.total_answered} answered so far \u2014 one more sample will make this ranking more reliable.`);
     if (!items.length) items.push("Nothing urgent here \u2014 keep it fresh with an occasional mixed sample.");
@@ -3901,13 +3955,26 @@ function renderAnalysisText(ranked, progression) {
   lines.push(`Subjects with data: ${ranked.length}`, "");
   lines.push(sub);
   for (const [rank, [subj, stats]] of ranked.map((r, i) => [i + 1, r])) {
-    lines.push(`${rank}. ${subj} -- Priority ${stats.weighted_pct.toFixed(1)}% | RawAcc ${stats.accuracy_pct.toFixed(1)}% | Overconfident ${stats.overconfident_wrong} | Answered ${stats.total_answered} | Exams ${stats.n_exams}`);
+    lines.push(`${rank}. ${subj} -- Priority ${stats.weighted_pct.toFixed(1)}% | RawAcc ${stats.accuracy_pct.toFixed(1)}% (${stats.total_correct}/${stats.total_answered}) | Overconfident ${stats.overconfident_wrong} | Sample size n=${stats.total_answered} answered${stats.total_answered < 10 ? " (LOW - treat with caution)" : ""} | Samples ${stats.n_exams}`);
   }
-  lines.push("", sep, "PROGRESSION PER SUBJECT", sep);
+  const { ticks: sampleTicks, sNum } = progressionSamples(progression);
+  lines.push("", sep, "SAMPLE KEY (S# = the test; n = questions answered per subject)", sep);
+  if (sampleTicks.length) {
+    for (const [k, e0] of sampleTicks) {
+      const per = Object.keys(progression).sort().map(sj => {
+        const e = progression[sj].find(x => progKeyOf(x) === k);
+        return e ? `${sj} n=${e.n_answered}` : null;
+      }).filter(Boolean).join(", ");
+      lines.push(`S${sNum.get(k)}  ${(e0.date || "").slice(0, 10)}  ${e0.exam_source || ""}  [${per}]`);
+    }
+  } else {
+    lines.push("(no exams taken yet)");
+  }
+  lines.push("", sep, "PROGRESSION PER SUBJECT (raw accuracy, n = answered)", sep);
   const subjects = Object.keys(progression).sort();
   if (subjects.length) {
     for (const subj of subjects) {
-      const parts = progression[subj].map((entry, i) => entry.accuracy_pct != null ? `S${i + 1}: ${entry.accuracy_pct.toFixed(1)}%` : `S${i + 1}: n/a`);
+      const parts = progression[subj].map(entry => `S${sNum.get(progKeyOf(entry))}: ${entry.accuracy_pct != null ? entry.accuracy_pct.toFixed(1) + "%" : "n/a"} (n=${entry.n_answered})`);
       lines.push(`${subj}: ` + parts.join(" -> "));
     }
   } else {
