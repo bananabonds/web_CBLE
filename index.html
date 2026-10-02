@@ -1331,6 +1331,7 @@ function computeSubjectAnalysis(scope) {
       const items = perSubjectThisExam[subj];
       const answered = items.filter(it => it.is_answered);
       const nAnswered = answered.length;
+      if (!nAnswered) continue;   // subject was in the sample but nothing was answered: not "taken", so no 0% entry
       const nCorrect = answered.filter(it => it.is_correct).length;
       const accuracyPct = nAnswered ? (nCorrect / nAnswered * 100.0) : null;
 
@@ -3207,8 +3208,10 @@ function markerSVG(shape, x, y, r, color, title) {
 }
 function buildLineGraphSVG(seriesList, opts) {
   opts = opts || {};
-  const width = opts.width || 320, height = opts.height || 190;
-  const padL = 32, padR = 12, padT = 10, padB = 26;
+  const width = opts.width || 320;
+  const subLines = (opts.xSub || []).reduce((m, a) => Math.max(m, a.length), 0);   // extra label lines under each tick
+  const height = (opts.height || 190) + subLines * 10;
+  const padL = 32, padR = 12, padT = 10, padB = 26 + subLines * 10;
   const plotW = width - padL - padR, plotH = height - padT - padB;
   const allPoints = seriesList.flatMap(s => s.points);
   const allY = allPoints.map(p => p.y).filter(y => y !== null && y !== undefined);
@@ -3230,7 +3233,11 @@ function buildLineGraphSVG(seriesList, opts) {
     const step = Math.max(1, Math.ceil(labels.length / 10));
     labels.forEach((lab, i) => {
       if (i % step !== 0 && i !== labels.length - 1) return;
-      svg += `<text x="${xScale(i).toFixed(1)}" y="${height - 8}" font-size="8" text-anchor="middle" fill="#4B5563" font-family="IBM Plex Mono, monospace">${esc(String(lab))}</text>`;
+      const labY = height - padB + 18;
+      svg += `<text x="${xScale(i).toFixed(1)}" y="${labY}" font-size="8" text-anchor="middle" fill="#4B5563" font-family="IBM Plex Mono, monospace">${esc(String(lab))}</text>`;
+      ((opts.xSub || [])[i] || []).forEach((ln, k) => {
+        svg += `<text x="${xScale(i).toFixed(1)}" y="${labY + 10 * (k + 1)}" font-size="8" font-weight="700" text-anchor="middle" fill="${ln.c}" font-family="IBM Plex Mono, monospace">${esc(ln.t)}</text>`;
+      });
     });
   }
   seriesList.forEach((s, si) => {
@@ -3604,11 +3611,24 @@ function drawProgressionChart() {
   if (!allSubjects.length) { box.appendChild(el("div", "empty-state", "No progression data yet.")); return; }
   if (!chosen.length) { box.appendChild(el("div", "empty-state", "No subjects selected \u2014 use Select Subjects above.")); return; }
 
-  // Shared x-axis: every test (chronological) that any selected subject appeared in, so lines line up.
   const keyOf = (e) => `${e.date || ""}|${e.exam_source || ""}`;
-  const axis = new Map();
-  for (const subj of chosen) for (const e of analysisProgression[subj]) if (!axis.has(keyOf(e))) axis.set(keyOf(e), e);
-  const ticks = Array.from(axis.entries()).sort((a, b) => (a[1].date || "").localeCompare(b[1].date || ""));
+  const colorOf = (subj) => CHART_PALETTE[allSubjects.indexOf(subj) % CHART_PALETTE.length];
+
+  // Stable sample numbers: S1, S2... follow every test any subject was answered in (chronological),
+  // so "S5" is the same test no matter which subjects are ticked.
+  const globalAxis = new Map();
+  for (const subj of allSubjects) for (const e of analysisProgression[subj]) if (!globalAxis.has(keyOf(e))) globalAxis.set(keyOf(e), e);
+  const globalTicks = Array.from(globalAxis.entries()).sort((a, b) => (a[1].date || "").localeCompare(b[1].date || ""));
+  const sNum = new Map(globalTicks.map(([k], i) => [k, i + 1]));
+
+  // Shown ticks: only tests that at least one selected subject was answered in.
+  const byKey = {};
+  const shown = new Set();
+  for (const subj of chosen) {
+    byKey[subj] = new Map(analysisProgression[subj].map(e => [keyOf(e), e]));
+    for (const e of analysisProgression[subj]) shown.add(keyOf(e));
+  }
+  const ticks = globalTicks.filter(([k]) => shown.has(k));
   const tickIdx = new Map(ticks.map(([k], i) => [k, i]));
 
   const metric = $("progressionMetricSelect").value;
@@ -3620,18 +3640,39 @@ function drawProgressionChart() {
   const lines = [];
   for (const subj of chosen) {
     const si = allSubjects.indexOf(subj);
-    const color = CHART_PALETTE[si % CHART_PALETTE.length];
+    const color = colorOf(subj);
     for (const def of defs) {
       const pts = ticks.map(() => ({ y: null }));
       for (const e of analysisProgression[subj]) {
         const i = tickIdx.get(keyOf(e));
         const v = e[def.key];
-        pts[i] = { y: v, tooltip: `${subj} \u2013 Sample ${i + 1} (${e.exam_source}): ${def.name} ${v != null ? v.toFixed(1) + "%" : "n/a"}` };
+        pts[i] = { y: v, tooltip: `${subj} \u2013 S${sNum.get(keyOf(e))} (${e.exam_source}): ${def.name} ${v != null ? v.toFixed(1) + "%" : "n/a"} \u00b7 n = ${e.n_answered} answered of ${e.n_questions}` };
       }
       lines.push({ label: defs.length > 1 ? `${subj} \u2013 ${def.name}` : subj, group: subj, color, marker: si, dash: def.dash, points: pts });
     }
   }
-  box.innerHTML = buildLineGraphSVG(lines, { yMin: 0, yMax: 100, xLabels: ticks.map((_, i) => "S" + (i + 1)) }) + chartLegendHTML(lines);
+
+  // X axis: sample number, plus each selected subject's answered-question count (n) in its own colour.
+  const showN = chosen.length <= 4;
+  const xSub = showN ? ticks.map(([k]) => chosen.map(subj => {
+    const e = byKey[subj].get(k);
+    return { t: e ? `n=${e.n_answered}` : "\u2013", c: colorOf(subj) };
+  })) : [];
+  const chartSvg = buildLineGraphSVG(lines, { yMin: 0, yMax: 100, xLabels: ticks.map(([k]) => "S" + sNum.get(k)), xSub });
+
+  // Key: which test each S-number is, and how many questions of each subject were answered in it.
+  const head = `<tr><th>#</th><th>Sample / test</th><th>Date</th>${chosen.map(s => `<th style="color:${colorOf(s)};">${esc(s)} (n)</th>`).join("")}</tr>`;
+  const rows = ticks.map(([k, e0]) => {
+    const cells = chosen.map(subj => {
+      const e = byKey[subj].get(k);
+      if (!e) return `<td style="color:var(--sub);">&ndash;</td>`;
+      return `<td>${e.n_answered}${e.n_answered !== e.n_questions ? ` <span style="color:var(--sub);">of ${e.n_questions}</span>` : ""}</td>`;
+    }).join("");
+    const d = (e0.date || "").slice(0, 10);
+    return `<tr><td>S${sNum.get(k)}</td><td>${esc(e0.exam_source || "")}</td><td>${d ? esc(formatDateNice(d)) : "&ndash;"}</td>${cells}</tr>`;
+  }).join("");
+  const note = `<p class="hint" style="margin:8px 0 6px;">${showN ? "Under each S-number: " : ""}n = questions answered in that subject for that sample. ${showN ? "" : "(Per-subject n is in the table below when more than 4 subjects are selected.) "}Tap a point for details.</p>`;
+  box.innerHTML = chartSvg + chartLegendHTML(lines) + note + `<div class="table-wrap"><table class="data-table">${head}${rows}</table></div>`;
 }
 
 const CATEGORY_TIPS = {
@@ -3767,11 +3808,13 @@ function renderActionPlan(overall, progression) {
   }
 
   // Weighted focus sample across the whole scope
-  if (entries.length > 1 || (entries.length && unassessed.length)) {
+  if (entries.length > 1) {
     const b = el("button", "btn primary block", "Generate ~30-Question Sample Weighted To Weak Areas \u25b6");
-    b.style.margin = "8px 0";
+    b.style.margin = "8px 0 2px";
     b.addEventListener("click", () => {
-      const ents = needs.map(([name, need]) => ({ name, need })).filter(e => (lists[e.name] || []).length);
+      // Only subjects with answered results (inside the exam focus, if one is set). Unassessed subjects
+      // are left out here -- use their "Baseline Sample" button instead.
+      const ents = needs.map(([name, need]) => ({ name, need })).filter(e => overall[e.name] && (lists[e.name] || []).length);
       if (!ents.length) { toast("No question lists available for these subjects."); return; }
       const total = 30, sumN = ents.reduce((a, e) => a + e.need, 0);
       let out = [];
@@ -3783,6 +3826,9 @@ function renderActionPlan(overall, progression) {
       requestStartExam(`${ex && scope ? ex.label + " - " : ""}Weighted Focus Sample`, out);
     });
     box.appendChild(b);
+    const bh = el("p", "hint", "Only draws from subjects you've already answered questions in" + (ex && scope ? " (within this exam)" : "") + ". Unassessed subjects are sampled by the Baseline button below.");
+    bh.style.margin = "0 0 8px";
+    box.appendChild(bh);
   }
 
   // Mistake log lookups
