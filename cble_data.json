@@ -22462,6 +22462,15 @@
       "pct": 96.7,
       "date": "2026-10-02T10:19:07",
       "time_used_seconds": 547.2
+    },
+    {
+      "id": "1790937732717843",
+      "source": "Chemical Technician Board Exam - Weighted Focus Sample",
+      "score": 30,
+      "total": 30,
+      "pct": 100,
+      "date": "2026-10-02T10:42:12",
+      "time_used_seconds": 566.8
     }
   ],
   "exam_details": [
@@ -42266,6 +42275,343 @@
           "correct_answer": "A. C–H"
         }
       ]
+    },
+    {
+      "exam_id": "1790937732717843",
+      "source": "Chemical Technician Board Exam - Weighted Focus Sample",
+      "date": "2026-10-02T10:42:12",
+      "items": [
+        {
+          "source_list": "CT_Inorganic_Chemistry",
+          "reference_no": 43,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Calculate the molecular formula of an organic compound whose percentage composition is C = 70.04%, H = 5.87%, O = 23.52%. The molecular weight of compound is 136 g/mol",
+          "your_answer": "C. C8H8O2",
+          "correct_answer": "C. C8H8O2"
+        },
+        {
+          "source_list": "AI_CT_Organic_Chemistry",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The general formula of alkanes is",
+          "your_answer": "D. CnH2n+2",
+          "correct_answer": "D. CnH2n+2"
+        },
+        {
+          "source_list": "CT_RE_Analytical_Chemistry",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following sets of data is more precise? Set A, in mm: 821, 783, 834, 855 Set B, in mm: 790, 810, 838, 855",
+          "your_answer": "A. Set B",
+          "correct_answer": "A. Set B"
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 92,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Why are heating mantles preferred over open flames for many organic liquids?",
+          "your_answer": "B. They provide an enclosed heating system that reduces ignition hazards.",
+          "correct_answer": "B. They provide an enclosed heating system that reduces ignition hazards."
+        },
+        {
+          "source_list": "CT_RE_Laboratory_Quality_Safety",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is a chemical hazard in a chemical laboratory?",
+          "your_answer": "A. Inhalation of toxic fumes",
+          "correct_answer": "A. Inhalation of toxic fumes"
+        },
+        {
+          "source_list": "CT_PT_Analytical_Chemistry",
+          "reference_no": 77,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "It is the portion of the calibration curve that includes the concentration range in which the analyte can be determined with demonstrated precision, accuracy, and response function.",
+          "your_answer": "C. Working range",
+          "correct_answer": "C. Working range"
+        },
+        {
+          "source_list": "CT_RE_Analytical_Chemistry",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A new gravimetric method is developed for Fe³⁺ determination and compared with the standard precipitation method with ammonia and weighing Fe₂O₃. New method: 22.10, 20.50, 17.65, 20.23, 19.40, 17.99 Standard method: 18.89, 19.20, 19.00, 19.70, 19.40 Based on the results, is the new gravimetric method comparable with the standard method?",
+          "your_answer": "A. The two methods are significantly different.",
+          "correct_answer": "A. The two methods are significantly different."
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The Beer–Lambert law relating absorbance to concentration is",
+          "your_answer": "A. A = εbc",
+          "correct_answer": "A. A = εbc"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In gas chromatography, the mobile phase is",
+          "your_answer": "C. an inert carrier gas such as helium or nitrogen",
+          "correct_answer": "C. an inert carrier gas such as helium or nitrogen"
+        },
+        {
+          "source_list": "CT_PT_Quality_Assurance_Control",
+          "reference_no": 44,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following are characteristics of a QC sample?",
+          "your_answer": "D. All of the above.",
+          "correct_answer": "D. All of the above."
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 40,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The following are properties of an open tubular or capillary column EXCEPT",
+          "your_answer": "A. Poor resolution can be obtained.",
+          "correct_answer": "A. Poor resolution can be obtained."
+        },
+        {
+          "source_list": "AI_CT_General_Chemistry",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Adding a nonvolatile solute to water will",
+          "your_answer": "C. raise its boiling point and lower its freezing point",
+          "correct_answer": "C. raise its boiling point and lower its freezing point"
+        },
+        {
+          "source_list": "CT_Analytic_Chemistry",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following conjugate acid/base pairs should be used to prepare a buffer with pH near 7.15?",
+          "your_answer": "C. Sodium dihydrogen phosphate and sodiumhydrogen phosphate (pKa 7.20)",
+          "correct_answer": "C. Sodium dihydrogen phosphate and sodiumhydrogen phosphate (pKa 7.20)"
+        },
+        {
+          "source_list": "CT_RE_Laboratory_Quality_Safety",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the difference between a fire extinguisher and a fire blanket?",
+          "your_answer": "D. A fire extinguisher is used to put out a fire, while a fire blanket is used to smother a fire.",
+          "correct_answer": "D. A fire extinguisher is used to put out a fire, while a fire blanket is used to smother a fire."
+        },
+        {
+          "source_list": "CT_RE_Laboratory_Quality_Safety",
+          "reference_no": 25,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is an example of an administrative control in a laboratory?",
+          "your_answer": "B. Posting safety signs and labels",
+          "correct_answer": "B. Posting safety signs and labels"
+        },
+        {
+          "source_list": "CT_PT_Quality_Assurance_Control",
+          "reference_no": 47,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Certification confirms that a laboratory’s quality management system is",
+          "your_answer": "A. Fully implemented and compliant with the standard",
+          "correct_answer": "A. Fully implemented and compliant with the standard"
+        },
+        {
+          "source_list": "AI_CT_Reagents_and_QC",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Percent error is computed as",
+          "your_answer": "C. |experimental − true| ÷ true × 100",
+          "correct_answer": "C. |experimental − true| ÷ true × 100"
+        },
+        {
+          "source_list": "CT_PT_Laboratory_Instrumentation",
+          "reference_no": 21,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "An analytical balance should have a precision of at least",
+          "your_answer": "D. 1 part in 10⁵",
+          "correct_answer": "D. 1 part in 10⁵"
+        },
+        {
+          "source_list": "CT_Chemical_Safety",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is a primary safety concern when handling chemicals in the laboratory?",
+          "your_answer": "D. All of the above",
+          "correct_answer": "D. All of the above"
+        },
+        {
+          "source_list": "CT_RE_General_Chemistry",
+          "reference_no": 30,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "It is the most ideal gas element.",
+          "your_answer": "C. Helium",
+          "correct_answer": "C. Helium"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Waste_Management",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "RA 9003 is the",
+          "your_answer": "B. Ecological Solid Waste Management Act of 2000",
+          "correct_answer": "B. Ecological Solid Waste Management Act of 2000"
+        },
+        {
+          "source_list": "CT_RE_Analytical_Chemistry",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is used to express the ppm of a solution?",
+          "your_answer": "B. mg analyte/L solution",
+          "correct_answer": "B. mg analyte/L solution"
+        },
+        {
+          "source_list": "CT_Quality_Control_Assurance",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is/are true about quality assurance? I. QA is a set of activities for ensuring quality in the process by which products are developed II. QA is a corrective tool and product oriented.",
+          "your_answer": "A. I only",
+          "correct_answer": "A. I only"
+        },
+        {
+          "source_list": "CT_Chemical_Waste_Management",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "It is a record (usually a database), which in some cases is a required document for compliance, that lists the chemicals in the laboratory, along with information essential for their proper management",
+          "your_answer": "D. Chemical list",
+          "correct_answer": "D. Chemical list"
+        },
+        {
+          "source_list": "CT_PT_Inorganic_Chemistry",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which chemical may be used to neutralize waste containing phosphoric acid?",
+          "your_answer": "B. Sodium hydroxide",
+          "correct_answer": "B. Sodium hydroxide"
+        },
+        {
+          "source_list": "CT_Organic_Chemistry",
+          "reference_no": 64,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following should not be done when an emulsion is formed during extraction",
+          "your_answer": "D. Shaking the separatory funnel containing the mixture very vigorously",
+          "correct_answer": "D. Shaking the separatory funnel containing the mixture very vigorously"
+        },
+        {
+          "source_list": "AI_CT_Organic_Laboratory_Technology",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "When shaking a separatory funnel containing a volatile solvent, one should",
+          "your_answer": "D. invert and vent frequently to release pressure",
+          "correct_answer": "D. invert and vent frequently to release pressure"
+        },
+        {
+          "source_list": "CT_Chemical_Waste_Management",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "It is an act regulating and modernizing the practice of chemistry in the Philippines, otherwise known as the Chemistry Law of the Philippines.",
+          "your_answer": "C. RA 10657",
+          "correct_answer": "C. RA 10657"
+        },
+        {
+          "source_list": "AI_CT_Laboratory_Technology",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "When reading the volume of a liquid in a graduated cylinder, the eye should be level with",
+          "your_answer": "C. the bottom of the meniscus (for water)",
+          "correct_answer": "C. the bottom of the meniscus (for water)"
+        },
+        {
+          "source_list": "AI_CT_Chemical_Safety",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which GHS pictogram is used for substances that corrode metals and burn skin?",
+          "your_answer": "D. Corrosion",
+          "correct_answer": "D. Corrosion"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -47424,5 +47770,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-10-02T10:21:10"
+  "updated_at": "2026-10-02T10:42:30"
 }
