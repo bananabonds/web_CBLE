@@ -51713,10 +51713,10 @@
       "source_list": "BS_FlashCards",
       "reference_no": 409,
       "question": "The highest apparent analyte concentration expected to be found when replicates of a blank sample containing no analyte are tested.",
-      "category": "",
-      "note": "",
-      "resolved": false,
-      "date_logged": "2026-10-03T13:56:21",
+      "category": "Conceptual Misunderstanding",
+      "note": "Limit of detection is when the analyte is actually present and limit of blank is a function of Load  = LoB +1.645 SD",
+      "resolved": true,
+      "date_logged": "2026-10-03T16:35:05",
       "occurrences": [
         {
           "exam_id": "1791035781516214",
@@ -51726,7 +51726,7 @@
           "correct_answer": "B. Limit of blank"
         }
       ],
-      "updated_at": "2026-10-03T13:56:21"
+      "updated_at": "2026-10-03T16:35:05"
     },
     {
       "id": "1791035781529515",
@@ -52310,5 +52310,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-10-03T16:32:26"
+  "updated_at": "2026-10-03T16:35:13"
 }
