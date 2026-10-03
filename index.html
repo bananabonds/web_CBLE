@@ -412,10 +412,14 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
       <div class="card" id="homeDueCard">
         <div class="row wrap" style="margin-bottom:4px;">
           <h3 style="border:none;padding:0;flex:1;">Due for Review</h3>
+          <button class="btn" id="btnDuePrev" title="Previous batch">&lsaquo;</button>
+          <button class="btn primary" id="btnDueRefresh">&#8635; Next batch</button>
         </div>
         <select class="examScopeSelect" id="homeDueScope" style="margin-bottom:8px;"></select>
         <div id="homeDueSummary" style="margin-bottom:10px;"></div>
-        <p class="hint" style="margin-bottom:10px;">Repeated and stale mistakes and guesses, pulled up so you don't have to go hunting for them. Tap to flip, just like in the Mistake Log.</p>
+        <div id="homeDueProgress" style="margin-bottom:10px;"></div>
+        <p class="hint" style="margin-bottom:6px;">Repeated and stale mistakes and guesses, most-repeated first. Tap Next batch to work through the whole list; it loops back to the start when you reach the end. Tap a card to flip it.</p>
+        <div class="meta" id="homeDueNav" style="margin-bottom:8px;"></div>
         <div id="homeDueContainer"></div>
       </div>
 
@@ -666,6 +670,12 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
 
     <!-- ---- Tab: Mistake Log ---- -->
     <section class="panel" id="panel-mistakes">
+      <div class="card" id="mistakeProgressCard">
+        <h3>Mistake Progress</h3>
+        <select class="examScopeSelect" id="mistakeExamScope" style="margin-bottom:8px;"></select>
+        <div id="mistakeProgressBox"></div>
+        <p class="hint" style="margin-top:6px;">Everything on this tab follows the exam focus: tests, logged mistakes, categories and guesses are limited to that exam's subjects.</p>
+      </div>
       <div class="card">
         <h3>Tests With Unlogged Mistakes <span class="count" id="unloggedTestsCount"></span></h3>
         <p class="hint" style="margin-bottom:10px;">Tap a test to jump straight to its first unlogged mistake &mdash; no need to click through them one by one.</p>
@@ -1107,6 +1117,7 @@ const KEYS = {
   githubConfig: "cble.githubConfig",
   examProgress: "cble.examProgress",
   tombstones: "cble.tombstones",
+  mistakeDrafts: "cble.mistakeDrafts",
 };
 
 /* ---------------------------------------------------------------------
@@ -1479,7 +1490,8 @@ function deleteMistakeEntry(entryId) {
   scheduleGithubSync();
 }
 function computeMistakeInsights() {
-  const log = loadMistakeLog().filter(e => e.category); // only actually-logged flashcards, not auto-tracked-only ones
+  const scopeI = getScopeSubjects(), scopeISet = scopeI ? new Set(scopeI) : null;
+  const log = loadMistakeLog().filter(e => e.category && (!scopeISet || scopeISet.has(e.source_list))); // only actually-logged flashcards, not auto-tracked-only ones
   const catCounts = {}, catUnresolved = {}, subjCounts = {};
   for (const e of log) {
     const cat = e.category || "Uncategorized";
@@ -1628,6 +1640,7 @@ document.addEventListener("change", (e) => {
   refreshListsDisplay();
   refreshAnalysis();
   refreshReviewer();
+  if (typeof refreshMistakeLogTab === "function") refreshMistakeLogTab();
 });
 
 /* ---------------------------------------------------------------------
@@ -1929,7 +1942,15 @@ function refreshAfterSyncChange() {
   if (typeof refreshListsDisplay === "function") refreshListsDisplay();
   if (typeof refreshHome === "function") refreshHome();
   if (typeof refreshHistoryList === "function") refreshHistoryList();
-  if (typeof refreshMistakeLogTab === "function") refreshMistakeLogTab();
+  // The Mistake Log tab refreshes itself when opened. If it is the visible tab, only touch the read-only
+  // lists so the test dropdown and the mistake you're editing are left exactly as they are.
+  const mp = document.getElementById("panel-mistakes");
+  if (mp && mp.classList.contains("active")) {
+    if (typeof refreshAllMistakesTree === "function") refreshAllMistakesTree();
+    if (typeof drawMistakeCategoryChart === "function") drawMistakeCategoryChart();
+    if (typeof renderUnloggedTestsList === "function") renderUnloggedTestsList();
+    if (typeof onLoadExamMistakes === "function") onLoadExamMistakes();
+  }
 }
 function setGithubStatus(text) {
   const el1 = document.getElementById("githubSyncLine");
@@ -2518,16 +2539,60 @@ function computeDueForReview(limit, scope) {
     const touched = (g.note_entry && g.note_entry.date_logged) || g.date;
     items.push({ type: "guess", stale: daysSince(touched), repeat: 1, data: g });
   }
-  items.sort((a, b) => (b.repeat - a.repeat) || (b.stale - a.stale));
-  computeDueForReview.lastTotal = items.length;   // how many are due in this scope, before the display limit
-  return items.slice(0, limit);
+  // Stable order (ties broken by subject + reference) so batches don't reshuffle between refreshes.
+  items.sort((a, b) => (b.repeat - a.repeat) || (b.stale - a.stale)
+    || String(a.data.source_list || "").localeCompare(String(b.data.source_list || "")) || (Number(a.data.reference_no) || 0) - (Number(b.data.reference_no) || 0));
+  computeDueForReview.lastTotal = items.length;
+  return limit ? items.slice(0, limit) : items;
 }
+
+// Mistake progress for the given subjects (or everything when no exam is focused).
+function computeMistakeProgress(scope) {
+  const set = scope && scope.length ? new Set(scope) : null;
+  const log = loadMistakeLog().filter(e => !set || set.has(e.source_list));
+  const logged = log.filter(e => e.category).length;
+  const resolved = log.filter(e => e.resolved).length;
+  const bySubject = {};
+  for (const e of log) {
+    const s = bySubject[e.source_list || "Unknown"] = bySubject[e.source_list || "Unknown"] || { total: 0, resolved: 0 };
+    s.total++; if (e.resolved) s.resolved++;
+  }
+  return { total: log.length, logged, resolved, open: log.length - resolved, unlogged: log.length - logged, bySubject };
+}
+function progressBarRow(label, n, tot, color, valText) {
+  const w = tot ? Math.max(n ? 3 : 0, n / tot * 100) : 0;
+  return `<div class="bar-row"><div class="lbl">${esc(label)}</div><div class="bar-track"><div class="bar-fill" style="width:${w.toFixed(1)}%;background:${color};"></div></div><div class="bar-val">${valText || `${n}/${tot}`}</div></div>`;
+}
+function mistakeProgressHTML(scope, withSubjects) {
+  const p = computeMistakeProgress(scope);
+  if (!p.total) return `<div class="meta">No mistakes tracked${scope ? " for this exam's subjects" : ""} yet.</div>`;
+  let h = progressBarRow("Resolved", p.resolved, p.total, "var(--green)") + progressBarRow("Logged", p.logged, p.total, "var(--navy)");
+  h += `<div class="meta">${p.open} open${p.unlogged ? ` &middot; ${p.unlogged} not yet logged` : ""}${scope ? " &middot; this exam's subjects only" : ""}</div>`;
+  if (withSubjects && Object.keys(p.bySubject).length > 1) {
+    h += `<div class="meta" style="margin:8px 0 4px;font-weight:700;">Resolved by subject</div>`;
+    for (const [s, o] of Object.entries(p.bySubject).sort((a, b) => b[1].total - a[1].total)) {
+      h += progressBarRow(s, o.resolved, o.total, o.resolved === o.total ? "var(--green)" : (o.resolved ? "var(--amber)" : "var(--red)"));
+    }
+  }
+  return h;
+}
+function renderMistakeProgress() {
+  const box = document.getElementById("mistakeProgressBox");
+  if (box) box.innerHTML = mistakeProgressHTML(getScopeSubjects(), true);
+}
+
+const DUE_BATCH = 8;
+let dueOffset = 0, dueScopeKey = null;
+function daysAgoLabel(n) { return n >= 9999 ? "" : n <= 0 ? "today" : n === 1 ? "yesterday" : `${n} days ago`; }
 function renderDueForReview() {
   const box = $("homeDueContainer");
   box.innerHTML = "";
   const ex = getActiveExam(), scope = getScopeSubjects();
-  const items = computeDueForReview(8, scope);
-  const dueTotal = computeDueForReview.lastTotal || 0;
+  const key = scope ? (ex ? ex.id : "x") : "all";
+  if (key !== dueScopeKey) { dueScopeKey = key; dueOffset = 0; }   // new exam focus: start the loop over
+  const all = computeDueForReview(0, scope);
+  const dueTotal = all.length;
+  if (dueOffset >= dueTotal) dueOffset = 0;
   const qt = computeExamQuestionTotals(scope);
   const sum = $("homeDueSummary");
   const nf = (n) => n.toLocaleString();
@@ -2536,15 +2601,50 @@ function renderDueForReview() {
   const missingNote = qt.missing.length ? `<div class="meta" style="margin-top:4px;color:var(--red);">No question list found for: ${esc(qt.missing.join(", "))}</div>` : "";
   sum.innerHTML = `<div class="list-item"><div class="top-row"><span class="name">${scope && ex ? esc(ex.label) : "All subjects"}</span><span class="exam-days">${dueTotal} due</span></div>
     <div class="meta"><b>${nf(qt.total)}</b> question${qt.total === 1 ? "" : "s"} in ${scope ? "this exam" : "your question bank"}${scope ? ` &middot; ${scope.length} subject${scope.length === 1 ? "" : "s"}` : ""}</div>${breakdown}${missingNote}</div>`;
-  if (!items.length) {
+  $("homeDueProgress").innerHTML = mistakeProgressHTML(scope, false);
+
+  const nav = $("homeDueNav"), btnNext = $("btnDueRefresh"), btnPrev = $("btnDuePrev");
+  if (!dueTotal) {
+    nav.textContent = "";
+    btnNext.disabled = true; btnPrev.disabled = true; btnNext.innerHTML = "&#8635; Next batch";
     box.appendChild(el("div", "empty-state", scope ? "Nothing waiting for review in this exam's subjects right now." : "Nothing waiting for review right now \u2014 log a mistake or take an assessment to build this up."));
     return;
   }
-  for (const item of items) {
-    if (item.type === "mistake") box.appendChild(renderMistakeCard(item.data, (item.data.occurrences || []).length || 1));
-    else box.appendChild(renderGuessCard(item.data));
+  const batch = all.slice(dueOffset, dueOffset + DUE_BATCH);
+  const rounds = Math.ceil(dueTotal / DUE_BATCH), round = Math.floor(dueOffset / DUE_BATCH) + 1;
+  nav.textContent = `Showing ${dueOffset + 1}\u2013${dueOffset + batch.length} of ${dueTotal} \u00b7 batch ${round} of ${rounds}`;
+  const single = dueTotal <= DUE_BATCH;
+  btnNext.disabled = single; btnPrev.disabled = single;
+  btnNext.innerHTML = single ? "All shown" : (dueOffset + DUE_BATCH >= dueTotal ? "&#8635; Start over" : "&#8635; Next batch");
+  for (const item of batch) {
+    const wrap = el("div");
+    const d = item.data;
+    const when = daysAgoLabel(item.stale);
+    const why = item.type === "mistake"
+      ? `${esc(d.source_list || "")} \u00b7 missed ${item.repeat}\u00d7${when ? ` \u00b7 last logged ${when}` : ""}`
+      : `${esc(d.source_list || "")} \u00b7 guess (${d.is_correct ? "got it right" : "got it wrong"})${when ? ` \u00b7 ${when}` : ""}`;
+    const tag = el("div", "meta");
+    tag.style.margin = "8px 0 2px";
+    tag.innerHTML = why;
+    wrap.appendChild(tag);
+    wrap.appendChild(item.type === "mistake" ? renderMistakeCard(d, (d.occurrences || []).length || 1) : renderGuessCard(d));
+    box.appendChild(wrap);
   }
 }
+$("btnDueRefresh").addEventListener("click", () => {
+  const total = computeDueForReview(0, getScopeSubjects()).length;
+  if (!total) return;
+  const next = dueOffset + DUE_BATCH;
+  if (next >= total) { dueOffset = 0; toast("Back to the start of your review list."); } else dueOffset = next;
+  renderDueForReview();
+});
+$("btnDuePrev").addEventListener("click", () => {
+  const total = computeDueForReview(0, getScopeSubjects()).length;
+  if (!total) return;
+  dueOffset = dueOffset - DUE_BATCH;
+  if (dueOffset < 0) dueOffset = Math.floor((total - 1) / DUE_BATCH) * DUE_BATCH;   // wrap backwards to the last batch
+  renderDueForReview();
+});
 
 function scrollHomeTo(id) {
   const target = $(id);
@@ -2575,8 +2675,10 @@ function renderHomeOverview() {
   const mistakes = loadMistakeLog();
   const totalTests = history.length;
   const avgScore = totalTests ? (history.reduce((s, h) => s + (h.pct || 0), 0) / totalTests) : null;
-  const resolved = mistakes.filter(m => m.resolved).length;
-  const openCount = mistakes.length - resolved;
+  const scopeH = getScopeSubjects();
+  const mistakesScoped = scopeH ? mistakes.filter(m => scopeH.includes(m.source_list)) : mistakes;
+  const resolved = mistakesScoped.filter(m => m.resolved).length;
+  const openCount = mistakesScoped.length - resolved;
   const { allTime: questionsAnswered, today: answeredToday } = computeQuestionsAnsweredStats();
   const totalQuestionsInBank = computeTotalQuestionsInBank();
   const todayStr = todayDateStr();
@@ -2596,7 +2698,7 @@ function renderHomeOverview() {
     ["Questions Answered", questionsAnswered, `${answeredToday} today`, answeredToday ? "good" : "", () => scrollHomeTo("homeMilestonesCard")],
     ["Total Questions", totalQuestionsInBank, "in your question bank", "", () => switchTab("builder")],
     ["Saved Samples", samples.length, samples.length ? (untakenCount ? `${untakenCount} not yet taken` : "all taken") : "build one", untakenCount ? "needs-action" : (samples.length ? "good" : ""), () => switchTab(samples.length ? "saved" : "builder")],
-    ["Mistakes Resolved", `${resolved}/${mistakes.length}`, mistakes.length ? (openCount ? `${openCount} open` : "all resolved") : "none logged", openCount ? "needs-action" : (mistakes.length ? "good" : ""), () => switchTab("mistakes")],
+    ["Mistakes Resolved", `${resolved}/${mistakesScoped.length}`, mistakesScoped.length ? (openCount ? `${openCount} open${scopeH ? " \u00b7 this exam" : ""}` : "all resolved") : "none logged", openCount ? "needs-action" : (mistakesScoped.length ? "good" : ""), () => switchTab("mistakes")],
   ];
   const box = $("homeOverviewGrid");
   box.innerHTML = "";
@@ -3071,7 +3173,7 @@ $("importFileInput").addEventListener("change", (e) => {
 $("btnClearAllData").addEventListener("click", () => {
   const note = githubConfigured() ? " GitHub is left untouched -- this only clears this browser's copy." : "";
   if (!confirmDialog(`Erase ALL locally saved data -- local banks, saved samples, test history, analysis data, the mistake log, guess notes, and exam dates? This cannot be undone.${note}`)) return;
-  [KEYS.banks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes, KEYS.guessNotes, KEYS.examDates].forEach(k => localStorage.removeItem(k));
+  [KEYS.banks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes, KEYS.guessNotes, KEYS.examDates, KEYS.mistakeDrafts].forEach(k => localStorage.removeItem(k));
   toast("All local data erased.");
   closeSheet("settingsSheet");
   refreshListsDisplay();
@@ -4113,11 +4215,20 @@ let selectedMistakeRow = null;
 $("mistakeCategoryList").innerHTML = MISTAKE_CATEGORIES.map(c => `<option value="${esc(c)}">`).join("");
 
 function refreshMistakeLogTab() {
-  const history = loadJson(KEYS.history, []);
+  let history = loadJson(KEYS.history, []);
+  const scopeNow = getScopeSubjects();
+  if (scopeNow) {
+    const setNow = new Set(scopeNow), dm = {};
+    for (const d of loadJson(KEYS.details, [])) dm[d.exam_id] = d;
+    history = history.filter(h => dm[h.id] && (dm[h.id].items || []).some(it => setNow.has(it.source_list)));
+  }
+  const prevExamId = (mistakeExamOptions[parseInt($("mistakeExamSelect").value, 10)] || {}).id;
   mistakeExamOptions = history.slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""));
   const sel = $("mistakeExamSelect");
   sel.innerHTML = mistakeExamOptions.map((h, i) =>
     `<option value="${i}">${esc(h.date || "")} | ${esc(h.source || "")} | ${h.score}/${h.total}</option>`).join("");
+  const keepIdx = prevExamId ? mistakeExamOptions.findIndex(h => h.id === prevExamId) : -1;
+  if (keepIdx >= 0) sel.value = String(keepIdx);   // stay on the test you were working in
   onLoadExamMistakes();
   refreshAllMistakesTree();
   drawMistakeCategoryChart();
@@ -4131,6 +4242,7 @@ $("mistakeExamSelect").addEventListener("change", onLoadExamMistakes);
    click through the exam dropdown one at a time to find what's left.
    --------------------------------------------------------------------- */
 function computeTestsWithUnloggedMistakes() {
+  const scopeUL = getScopeSubjects() ? new Set(getScopeSubjects()) : null;
   const history = loadJson(KEYS.history, []);
   const details = loadJson(KEYS.details, []);
   // Keyed by subject + reference number only (not by exam) -- a question already
@@ -4142,8 +4254,8 @@ function computeTestsWithUnloggedMistakes() {
   for (const h of history) {
     const d = details.find(dd => dd.exam_id === h.id);
     if (!d) continue;
-    const wrongItems = (d.items || []).filter(it => !it.is_correct);
-    if (!wrongItems.length) continue; // perfect score, nothing to log
+    const wrongItems = (d.items || []).filter(it => !it.is_correct && (!scopeUL || scopeUL.has(it.source_list)));
+    if (!wrongItems.length) continue; // perfect score (or nothing wrong in this exam's subjects)
     const unloggedCount = wrongItems.filter(it => !categorizedByKey[mistakeKey(it.source_list, it.reference_no)]).length;
     if (unloggedCount > 0) rows.push({ examId: h.id, source: h.source, date: h.date, totalWrong: wrongItems.length, unloggedCount });
   }
@@ -4191,7 +4303,8 @@ function refreshGuessesSection() {
     details.map(d => `<option value="${esc(d.exam_id)}">${esc(d.date || "")} | ${esc(d.source || "")}</option>`).join("");
   if (Array.from(sel.options).some(o => o.value === prevVal)) sel.value = prevVal;
 
-  const allGuesses = getAllGuesses();
+  const scopeG = getScopeSubjects(), scopeGSet = scopeG ? new Set(scopeG) : null;
+  const allGuesses = getAllGuesses().filter(g => !scopeGSet || scopeGSet.has(g.source_list));
   renderGuessSubjectChecks(Array.from(new Set(allGuesses.map(g => g.source_list || "Unknown"))));
 
   let guesses = allGuesses;
@@ -4302,7 +4415,18 @@ $("guessesCorrectOnly").addEventListener("change", () => {
   refreshGuessesSection();
 });
 
-function onLoadExamMistakes() {
+// Rebuilds the list of this test's mistakes. Unless opts.reset is set, whichever mistake you were
+// logging stays selected (tab switches, syncs and "Mark Resolved" used to silently deselect it).
+function onLoadExamMistakes(opts) {
+  const prev = (opts && opts.reset) ? null : selectedMistakeRow;
+  const prevLabel = $("mistakeQuestionLbl").textContent;
+  _loadExamMistakesCore();
+  if (prev) {
+    const same = currentExamMistakes.find(r => r.exam_id === prev.exam_id && r.source_list === prev.source_list && String(r.reference_no) === String(prev.reference_no));
+    if (same) { selectedMistakeRow = same; $("mistakeQuestionLbl").textContent = prevLabel; }
+  }
+}
+function _loadExamMistakesCore() {
   currentExamMistakes = [];
   selectedMistakeRow = null;
   $("mistakeQuestionLbl").textContent = "Tap a mistake above to log it.";
@@ -4316,7 +4440,8 @@ function onLoadExamMistakes() {
   const examRecord = mistakeExamOptions[parseInt(selIdx, 10)];
   if (!examRecord) return;
   const examId = examRecord.id;
-  const mistakes = getExamMistakes(examId);
+  const scopeEx = getScopeSubjects(), scopeExSet = scopeEx ? new Set(scopeEx) : null;
+  const mistakes = getExamMistakes(examId).filter(it => !scopeExSet || scopeExSet.has(it.source_list));
   // Looked up globally by subject + reference number -- NOT scoped to this exam -- so a
   // question logged from a different test still shows its existing flashcard here instead
   // of appearing blank. "Logged" specifically means it has a category, not just that it's
@@ -4353,6 +4478,26 @@ function onLoadExamMistakes() {
   });
 }
 
+let mistakeDrafts = loadJson(KEYS.mistakeDrafts, {});
+function saveMistakeDrafts() { saveJson(KEYS.mistakeDrafts, mistakeDrafts); }
+function captureMistakeDraft() {
+  const row = selectedMistakeRow;
+  if (!row) return;
+  mistakeDrafts[mistakeKey(row.source_list, row.reference_no)] = {
+    category: $("mistakeCategoryInput").value, note: $("mistakeNoteInput").value,
+    resolved: $("mistakeResolvedInput").checked, t: Date.now(),
+  };
+  saveMistakeDrafts();
+}
+function clearMistakeDraft(row) {
+  if (!row) return;
+  delete mistakeDrafts[mistakeKey(row.source_list, row.reference_no)];
+  saveMistakeDrafts();
+}
+$("mistakeCategoryInput").addEventListener("input", captureMistakeDraft);
+$("mistakeNoteInput").addEventListener("input", captureMistakeDraft);
+$("mistakeResolvedInput").addEventListener("change", captureMistakeDraft);
+
 function selectMistakeRow(idx) {
   const row = currentExamMistakes[idx];
   if (!row) return;
@@ -4368,9 +4513,16 @@ function selectMistakeRow(idx) {
     label += `\n\n\u{1F501} You've missed this ${fullEntry.occurrences.length} times: ${history}`;
   }
   $("mistakeQuestionLbl").textContent = label;
-  $("mistakeCategoryInput").value = entry ? entry.category : "";
-  $("mistakeResolvedInput").checked = entry ? !!entry.resolved : false;
-  $("mistakeNoteInput").value = entry ? (entry.note || "") : "";
+  const savedCat = entry ? entry.category : "", savedRes = entry ? !!entry.resolved : false, savedNote = entry ? (entry.note || "") : "";
+  const dKey = mistakeKey(row.source_list, row.reference_no);
+  const draft = mistakeDrafts[dKey];
+  const dirty = draft && (draft.category !== savedCat || draft.note !== savedNote || !!draft.resolved !== savedRes);
+  if (draft && !dirty) { delete mistakeDrafts[dKey]; saveMistakeDrafts(); }
+  // Never overwrite what you've typed but not saved yet.
+  $("mistakeCategoryInput").value = dirty ? draft.category : savedCat;
+  $("mistakeResolvedInput").checked = dirty ? !!draft.resolved : savedRes;
+  $("mistakeNoteInput").value = dirty ? draft.note : savedNote;
+  if (dirty) toast("Restored your unsaved edits for this mistake.");
   $("mistakeEditCard").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -4382,6 +4534,7 @@ $("btnSaveMistake").addEventListener("click", () => {
   const note = $("mistakeNoteInput").value.trim();
   saveMistakeEntry(row.exam_id, row.exam_source, row.source_list, row.reference_no, row.question,
     row.your_answer, row.correct_answer, category, note, $("mistakeResolvedInput").checked);
+  clearMistakeDraft(row);
   onLoadExamMistakes();
   refreshAllMistakesTree();
   drawMistakeCategoryChart();
@@ -4394,7 +4547,8 @@ $("btnDeleteMistake").addEventListener("click", () => {
   if (!row || !row.logged_entry) { toast("This mistake hasn't been logged yet."); return; }
   if (!confirmDialog("Delete this mistake's log entry?")) return;
   deleteMistakeEntry(row.logged_entry.id);
-  onLoadExamMistakes();
+  clearMistakeDraft(row);
+  onLoadExamMistakes({ reset: true });
   refreshAllMistakesTree();
   drawMistakeCategoryChart();
   if (typeof renderDueForReview === "function") renderDueForReview();
@@ -4520,7 +4674,9 @@ function renderMistakeGroup(title, entries) {
 function refreshAllMistakesTree() {
   // Only entries that have actually been given a category show up here -- an
   // auto-tracked-but-uncategorized miss lives in "Tests With Unlogged Mistakes" instead.
-  const fullLog = loadMistakeLog().filter(e => e.category);
+  renderMistakeProgress();
+  const scopeT = getScopeSubjects(), scopeTSet = scopeT ? new Set(scopeT) : null;
+  const fullLog = loadMistakeLog().filter(e => e.category && (!scopeTSet || scopeTSet.has(e.source_list)));
 
   renderMistakeSubjectChecks(Array.from(new Set(fullLog.map(e => e.source_list || "Unknown"))));
 
@@ -4571,11 +4727,12 @@ function drawMistakeCategoryChart() {
 
 $("btnCopyMistakeInsights").addEventListener("click", async () => {
   const { byCategory, bySubject } = computeMistakeInsights();
-  const log = loadMistakeLog();
+  const scopeC = getScopeSubjects(), exC = getActiveExam();
+  const log = loadMistakeLog().filter(e => !scopeC || scopeC.includes(e.source_list));
   const lines = [];
   const sep = "=".repeat(60);
   lines.push(sep, "MISTAKE LOG -- ACTIONABLE INSIGHTS", sep);
-  lines.push(`Generated: ${new Date().toLocaleString()}`, `Total mistakes logged: ${log.length}`, "");
+  lines.push(`Generated: ${new Date().toLocaleString()}`, `Total mistakes logged: ${log.length}`, ...(scopeC && exC ? [`Exam focus: ${exC.label} (${scopeC.join(", ")})`] : []), "");
   lines.push("By category (most frequent first):");
   for (const [cat, cnt, unresolved] of byCategory) lines.push(`  - ${cat}: ${cnt} total, ${unresolved} still unresolved`);
   lines.push("", "By subject:");
