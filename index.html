@@ -873,6 +873,14 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
     </div>
     <button class="btn danger block" id="btnDisconnectGithub" style="margin-top:8px;">Disconnect GitHub</button>
 
+    <div style="height:12px;"></div>
+    <button class="btn block" id="btnSyncCheck">Check Sync (compare this device with GitHub)</button>
+    <pre class="mono hint" id="syncCheckOut" style="white-space:pre-wrap;margin:8px 0;"></pre>
+    <div class="row">
+      <button class="btn" id="btnPullReplace">Replace This Device With GitHub Copy</button>
+      <button class="btn danger" id="btnPushReplace">Overwrite GitHub With This Device</button>
+    </div>
+
     <div style="height:16px;"></div>
     <button class="btn block" id="btnExportAll">Export All Data (backup .json)</button>
     <div style="height:8px;"></div>
@@ -1286,7 +1294,7 @@ function renameSampleSet(id, newName) {
     const mistakes = loadMistakeLog();
     changed = false;
     for (const m of mistakes) {
-      for (const o of (m.occurrences || [])) if (o.exam_source === oldName) { o.exam_source = newName; changed = true; }
+      for (const o of (m.occurrences || [])) if (o.exam_source === oldName) { o.exam_source = newName; m.updated_at = nowIso(); changed = true; }
     }
     if (changed) saveJson(KEYS.mistakes, mistakes);
 
@@ -1426,8 +1434,10 @@ function recordMistakeOccurrence(examId, examSource, sourceList, referenceNo, qu
     if (question) entry.question = question;
     if (entry.resolved) { entry.resolved = false; reopened = true; }
   }
+  entry.updated_at = nowIso();
   addMistakeOccurrence(entry, examId, examSource, yourAnswer, correctAnswer);
   saveJson(KEYS.mistakes, log);
+  scheduleGithubSync();
   return { entry, reopened };
 }
 
@@ -1455,6 +1465,7 @@ function saveMistakeEntry(examId, examSource, sourceList, referenceNo, question,
   entry.note = note;
   entry.resolved = resolved;
   entry.date_logged = nowIso();
+  entry.updated_at = nowIso();
   addMistakeOccurrence(entry, examId, examSource, yourAnswer, correctAnswer);
   saveJson(KEYS.mistakes, log);
   scheduleGithubSync();
@@ -1805,16 +1816,19 @@ function buildLocalSnapshot() {
   };
 }
 function applySnapshotToLocal(snap) {
-  if (!snap) return;
-  if (snap.local_banks) saveJson(KEYS.banks, snap.local_banks);
-  if (snap.sample_sets) saveJson(KEYS.samples, snap.sample_sets);
-  if (snap.test_history) saveJson(KEYS.history, snap.test_history);
-  if (snap.exam_details) saveJson(KEYS.details, snap.exam_details);
-  if (snap.mistake_log) saveJson(KEYS.mistakes, snap.mistake_log);
-  if (snap.guess_notes) saveJson(KEYS.guessNotes, snap.guess_notes);
-  if (snap.exam_dates) saveJson(KEYS.examDates, snap.exam_dates);
-  if (snap.tombstones) saveJson(KEYS.tombstones, snap.tombstones);
+  const failed = [];
+  if (!snap) return failed;
+  const put = (key, label, val) => { if (val && !saveJson(key, val)) failed.push(label); };
+  put(KEYS.mistakes, "mistake log", snap.mistake_log);   // most important first, in case storage runs out
+  put(KEYS.history, "test history", snap.test_history);
+  put(KEYS.guessNotes, "guess notes", snap.guess_notes);
+  put(KEYS.examDates, "exam dates", snap.exam_dates);
+  put(KEYS.samples, "saved samples", snap.sample_sets);
+  put(KEYS.banks, "local banks", snap.local_banks);
+  put(KEYS.details, "test details", snap.exam_details);
+  put(KEYS.tombstones, "deletions", snap.tombstones);
   if (snap.mistake_log && typeof migrateMistakeLogIfNeeded === "function") migrateMistakeLogIfNeeded();
+  return failed;
 }
 function mergeById(remoteArr, localArr, idKey, deletedKeys) {
   const dead = new Set(deletedKeys || []);
@@ -1824,6 +1838,25 @@ function mergeById(remoteArr, localArr, idKey, deletedKeys) {
     if (dead.has(l[idKey])) map.delete(l[idKey]); else map.set(l[idKey], l);
   }
   return Array.from(map.values());
+}
+function mergeMistakeLogs(remoteArr, localArr, deletedIds) {
+  const dead = new Set(deletedIds || []);
+  const stampOf = (e) => e.updated_at || "";
+  const byKey = new Map();
+  const add = (e, isLocal) => {
+    if (dead.has(e.id)) return;
+    const k = `${e.source_list}::${e.reference_no}`;
+    const cur = byKey.get(k);
+    if (!cur) { byKey.set(k, Object.assign({}, e)); return; }
+    const newer = (stampOf(e) > stampOf(cur) || (stampOf(e) === stampOf(cur) && isLocal)) ? e : cur;
+    const older = newer === e ? cur : e;
+    const occ = new Map();
+    for (const o of [].concat(older.occurrences || [], newer.occurrences || [])) occ.set(o.exam_id || `${o.date}|${o.exam_source}`, o);
+    byKey.set(k, Object.assign({}, newer, { occurrences: Array.from(occ.values()) }));
+  };
+  for (const r of (remoteArr || [])) add(r, false);
+  for (const l of (localArr || [])) add(l, true);
+  return Array.from(byKey.values());
 }
 function mergeBanks(remoteBanks, localBanks, deletedNames) {
   const dead = new Set(deletedNames || []);
@@ -1839,7 +1872,7 @@ function mergeSnapshots(remote, local) {
     sample_sets: mergeById(remote && remote.sample_sets, local.sample_sets, "id", tomb.sample_sets),
     test_history: mergeById(remote && remote.test_history, local.test_history, "id", tomb.test_history),
     exam_details: mergeById(remote && remote.exam_details, local.exam_details, "exam_id", tomb.exam_details),
-    mistake_log: mergeById(remote && remote.mistake_log, local.mistake_log, "id", tomb.mistake_log),
+    mistake_log: mergeMistakeLogs(remote && remote.mistake_log, local.mistake_log, tomb.mistake_log),
     guess_notes: mergeById(remote && remote.guess_notes, local.guess_notes, "id", tomb.guess_notes),
     exam_dates: mergeById(remote && remote.exam_dates, local.exam_dates, "id", tomb.exam_dates),
     tombstones: tomb,
@@ -1849,6 +1882,8 @@ function mergeSnapshots(remote, local) {
 
 let githubSyncTimer = null;
 let githubSyncInProgress = false;
+let githubSyncQueued = false;
+let githubLastSyncAt = 0;
 function scheduleGithubSync(immediate) {
   if (!githubConfigured()) return;
   clearTimeout(githubSyncTimer);
@@ -1856,23 +1891,45 @@ function scheduleGithubSync(immediate) {
   githubSyncTimer = setTimeout(runGithubSync, 4000);
 }
 async function runGithubSync() {
-  if (!githubConfigured() || githubSyncInProgress) return;
+  if (!githubConfigured()) return;
+  // A save that lands while a sync is running used to be silently dropped; run again afterwards instead.
+  if (githubSyncInProgress) { githubSyncQueued = true; return; }
   githubSyncInProgress = true;
   setGithubStatus("Syncing\u2026");
   try {
-    const { data: remoteData, sha: remoteSha } = await githubGetFile();
-    const merged = mergeSnapshots(remoteData, buildLocalSnapshot());
-    applySnapshotToLocal(merged);
-    await githubPutFile(merged, remoteSha);
-    setGithubStatus(`Synced \u00b7 ${new Date().toLocaleTimeString()}`);
-    if (typeof refreshListsDisplay === "function") refreshListsDisplay();
-    if (typeof refreshHome === "function") refreshHome();
+    let done = false, lastErr = null, merged = null, failed = [];
+    for (let attempt = 0; attempt < 3 && !done; attempt++) {
+      try {
+        const { data: remoteData, sha: remoteSha } = await githubGetFile();
+        merged = mergeSnapshots(remoteData, buildLocalSnapshot());
+        failed = applySnapshotToLocal(merged);
+        await githubPutFile(merged, remoteSha);
+        done = true;
+      } catch (e) {
+        lastErr = e;
+        if (!/^PUT (409|422)/.test(e.message)) throw e;   // only retry "file changed under us" conflicts
+      }
+    }
+    if (!done) throw lastErr;
+    githubLastSyncAt = Date.now();
+    const nm = (merged.mistake_log || []).length;
+    setGithubStatus(failed.length
+      ? `Synced to GitHub, but this device couldn't store: ${failed.join(", ")} (storage full?)`
+      : `Synced \u00b7 ${new Date().toLocaleTimeString()} \u00b7 ${nm} mistake${nm === 1 ? "" : "s"} on this device`);
+    refreshAfterSyncChange();
   } catch (e) {
     console.error("GitHub sync failed:", e);
     setGithubStatus(`Sync failed: ${e.message}`);
   } finally {
     githubSyncInProgress = false;
+    if (githubSyncQueued) { githubSyncQueued = false; scheduleGithubSync(true); }
   }
+}
+function refreshAfterSyncChange() {
+  if (typeof refreshListsDisplay === "function") refreshListsDisplay();
+  if (typeof refreshHome === "function") refreshHome();
+  if (typeof refreshHistoryList === "function") refreshHistoryList();
+  if (typeof refreshMistakeLogTab === "function") refreshMistakeLogTab();
 }
 function setGithubStatus(text) {
   const el1 = document.getElementById("githubSyncLine");
@@ -2898,6 +2955,62 @@ $("btnSaveGithubConfig").addEventListener("click", async () => {
 $("btnSyncNow").addEventListener("click", () => {
   if (!githubConfigured()) { toast("Save your GitHub settings first."); return; }
   scheduleGithubSync(true);
+});
+$("btnSyncCheck").addEventListener("click", async () => {
+  const out = $("syncCheckOut");
+  if (!githubConfigured()) { toast("Save your GitHub settings first."); return; }
+  out.textContent = "Checking\u2026";
+  try {
+    const c = getGithubConfig();
+    const { data: remote } = await githubGetFile();
+    const local = buildLocalSnapshot();
+    const L = [`File: ${c.owner}/${c.repo} @ ${c.branch || "main"} : ${c.path}`];
+    if (!remote) { out.textContent = L.concat("GitHub has no data file at that path yet.").join("\n"); return; }
+    L.push(`GitHub copy last written: ${remote.updated_at || "unknown"}`, "", "                 this device | GitHub");
+    for (const [lab, key] of [["Mistakes", "mistake_log"], ["Tests taken", "test_history"], ["Test details", "exam_details"], ["Saved samples", "sample_sets"], ["Guess notes", "guess_notes"]]) {
+      L.push(`${lab.padEnd(15)}${String((local[key] || []).length).padStart(7)} | ${(remote[key] || []).length}`);
+    }
+    const mk = (e) => `${e.source_list}::${e.reference_no}`;
+    const lm = new Map((local.mistake_log || []).map(e => [mk(e), e]));
+    const rm = new Map((remote.mistake_log || []).map(e => [mk(e), e]));
+    const onlyLocal = Array.from(lm.keys()).filter(k => !rm.has(k));
+    const onlyRemote = Array.from(rm.keys()).filter(k => !lm.has(k));
+    let differ = 0;
+    for (const [k, a] of lm) {
+      const b = rm.get(k); if (!b) continue;
+      if (!!a.resolved !== !!b.resolved || (a.note || "") !== (b.note || "") || (a.category || "") !== (b.category || "") || (a.occurrences || []).length !== (b.occurrences || []).length) differ++;
+    }
+    const newest = (arr) => (arr || []).map(e => e.updated_at || e.date_logged || "").sort().pop() || "n/a";
+    L.push("", `Mistakes only on this device: ${onlyLocal.length}`, `Mistakes only on GitHub: ${onlyRemote.length}`,
+      `On both but different (notes/status/attempts): ${differ}`,
+      `Newest mistake edit \u2014 this device: ${newest(local.mistake_log)} | GitHub: ${newest(remote.mistake_log)}`, "",
+      (onlyLocal.length || onlyRemote.length || differ) ? "They differ. Sync Now merges them; the two buttons below force one side to win." : "Mistake logs match.");
+    out.textContent = L.join("\n");
+  } catch (e) { out.textContent = `Check failed: ${e.message}`; }
+});
+$("btnPullReplace").addEventListener("click", async () => {
+  if (!githubConfigured()) { toast("Save your GitHub settings first."); return; }
+  if (!confirmDialog("Replace everything on THIS device with the copy on GitHub? Anything that only exists on this device (and was never synced) will be lost.")) return;
+  try {
+    const { data: remote } = await githubGetFile();
+    if (!remote) { toast("GitHub has no data file yet."); return; }
+    const failed = applySnapshotToLocal(remote);
+    refreshAfterSyncChange();
+    setGithubStatus(failed.length ? `Pulled, but couldn't store: ${failed.join(", ")} (storage full?)` : `Replaced from GitHub \u00b7 ${new Date().toLocaleTimeString()}`);
+    toast(failed.length ? "Some data didn't fit on this device." : "This device now matches GitHub.");
+  } catch (e) { toast(`Couldn't pull: ${e.message}`); }
+});
+$("btnPushReplace").addEventListener("click", async () => {
+  if (!githubConfigured()) { toast("Save your GitHub settings first."); return; }
+  if (!confirmDialog("Overwrite the GitHub copy with what is on THIS device? Anything only on GitHub (e.g. from your other device) will be lost.")) return;
+  try {
+    const { data: remote, sha } = await githubGetFile();
+    const snap = buildLocalSnapshot();
+    if (remote && remote.tombstones) snap.tombstones = unionTombstones(remote.tombstones, snap.tombstones);
+    await githubPutFile(snap, sha);
+    setGithubStatus(`GitHub overwritten from this device \u00b7 ${new Date().toLocaleTimeString()}`);
+    toast("GitHub now matches this device.");
+  } catch (e) { toast(`Couldn't push: ${e.message}`); }
 });
 $("btnDisconnectGithub").addEventListener("click", () => {
   if (!confirmDialog("Disconnect GitHub sync? Your local data stays put -- this only removes the saved repo/token from this browser.")) return;
@@ -4327,6 +4440,7 @@ function setMistakeResolved(entryId, resolved) {
   const entry = log.find(e => e.id === entryId);
   if (!entry) return;
   entry.resolved = resolved;
+  entry.updated_at = nowIso();
   // Deliberately NOT touching date_logged here -- the list is sorted by it, and
   // bumping it on every resolve toggle used to make rows jump around mid-review.
   saveJson(KEYS.mistakes, log);
@@ -5349,7 +5463,7 @@ function migrateMistakeLogIfNeeded() {
     migrated.push({
       id: primary.id, source_list: primary.source_list, reference_no: primary.reference_no,
       question: primary.question, category: primary.category || "", note, resolved: !!primary.resolved,
-      date_logged: primary.date_logged, occurrences,
+      date_logged: primary.date_logged, updated_at: primary.updated_at, occurrences,
     });
   }
   saveJson(KEYS.mistakes, migrated);
@@ -5380,7 +5494,10 @@ function migrateMistakeLogIfNeeded() {
   const flushOnHide = () => {
     if (!$("examOverlay").classList.contains("hidden")) persistExamProgress();
   };
-  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") flushOnHide(); });
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") flushOnHide();
+    else if (githubConfigured() && Date.now() - githubLastSyncAt > 30000) runGithubSync();   // pick up the other device's changes
+  });
   window.addEventListener("pagehide", flushOnHide);
 })();
 </script>
