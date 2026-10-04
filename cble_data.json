@@ -57425,10 +57425,10 @@
       "source_list": "BS_FlashCards",
       "reference_no": 273,
       "question": "A change in the analytical signal caused by anything in the sample other than the analyte.",
-      "category": "",
-      "note": "",
+      "category": "Conceptual Misunderstanding",
+      "note": "Since a sample is composed of the matrix and analyte, removing the analyte leaves us with the effects caused my the matrix",
       "resolved": false,
-      "date_logged": "2026-10-04T16:39:50",
+      "date_logged": "2026-10-04T17:00:58",
       "occurrences": [
         {
           "exam_id": "1791131990135667",
@@ -57438,7 +57438,7 @@
           "correct_answer": "A. Matrix effect"
         }
       ],
-      "updated_at": "2026-10-04T16:39:50"
+      "updated_at": "2026-10-04T17:00:58"
     },
     {
       "id": "1791131990156420",
@@ -57863,5 +57863,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-10-04T17:00:23"
+  "updated_at": "2026-10-04T17:01:04"
 }
