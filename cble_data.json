@@ -55981,7 +55981,7 @@
       "question": "The test that decides whether a datum from a given set could be rejected or not is:",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Q test is for outlier determination \"datum\" validation means we are evaluating  a single point (outlier classification). T test is for answering whether the mean of two groups is statistically different. Z test is for validation of hypothesis for large sample sizes n>= 30. F test is used to compare the variance (spread) of two population groups",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-04T13:43:53",
       "occurrences": [
         {
@@ -55992,7 +55992,7 @@
           "correct_answer": "C. Q-test"
         }
       ],
-      "updated_at": "2026-10-04T13:43:53"
+      "updated_at": "2026-10-04T14:52:42"
     },
     {
       "id": "1791099624448749",
@@ -56337,5 +56337,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-10-04T14:52:16"
+  "updated_at": "2026-10-04T14:52:49"
 }
