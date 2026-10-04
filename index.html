@@ -371,9 +371,30 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
     <section class="panel active" id="panel-home">
       <div class="card">
         <h3 id="homeGreeting">Your Progress</h3>
+        <select class="examScopeSelect" id="homeProgressScope" style="margin-bottom:8px;"></select>
         <p class="hint" id="homeSubline">Here's where things stand.</p>
         <div id="homeNextUp"></div>
         <div id="homeOverviewGrid"></div>
+      </div>
+
+      <div class="card" id="homePlannerCard">
+        <h3>Adaptive Planner</h3>
+        <p class="hint">Epsilon-greedy over subjects: ranks by (target &minus; pessimistic first-seen accuracy), with old results decayed. Correct guesses count half. The session below is built from real questions: new ones where the gap is biggest, retests of your unfixed mistakes, and random spot-checks once the bank is used up. Follows the exam selected in Your Progress.</p>
+        <div class="field-label" style="margin-top:8px;">Subject status</div>
+        <select id="plSubjectSelect" style="margin-bottom:8px;"></select>
+        <div id="plSubjectStatus" style="margin-bottom:10px;"></div>
+        <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0;">
+          <label>Target % <input type="number" id="plTarget" value="95" min="50" max="100" style="width:64px;" onchange="renderPlanner()"></label>
+          <label>Explore % <input type="number" id="plEps" value="15" min="0" max="100" style="width:64px;" onchange="renderPlanner()"></label>
+          <label>Half-life (days) <input type="number" id="plHalf" value="14" min="1" style="width:64px;" onchange="renderPlanner()"></label>
+          <label>Questions <input type="number" id="plN" value="50" min="1" style="width:64px;" onchange="renderPlanner()"></label>
+          <label>Retest % <input type="number" id="plRe" value="20" min="0" max="100" style="width:64px;" onchange="renderPlanner()"></label>
+        </div>
+        <div id="plAlloc" class="hint" style="margin-bottom:8px;"></div>
+        <details>
+          <summary style="cursor:pointer;font-size:.82rem;font-weight:700;margin-bottom:8px;">All subjects &middot; planner numbers</summary>
+          <div id="plTable"></div>
+        </details>
       </div>
 
       <div class="card">
@@ -636,7 +657,9 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
             <option value="accuracy">Raw Accuracy %</option>
             <option value="both">Both (solid = raw, dashed = weighted)</option>
           </select>
+          <label class="row" style="font-size:.8rem;gap:6px;flex:none;" title="Points where the subject had fewer answered questions than this are hidden">Min n <input type="number" id="progMinN" min="0" step="1" value="5" style="width:64px;"></label>
         </div>
+        <p class="hint" id="progMinNNote" style="margin-bottom:8px;"></p>
         <div id="progFilterBox" class="list-item" style="display:none;margin-bottom:10px;">
           <div class="row wrap" style="margin-bottom:6px;">
             <button class="btn link" id="btnProgSelectAll">All</button>
@@ -645,19 +668,6 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
           <div id="progSubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
         </div>
         <div id="progressionChart"></div>
-      </div>
-      <div class="card">
-        <h3>Adaptive Planner</h3>
-        <p class="hint">Epsilon-greedy over subjects: ranks by (target &minus; pessimistic first-seen accuracy), with old results decayed. Correct guesses count half. The session below is built from real questions: new ones where the gap is biggest, retests of your unfixed mistakes, and random spot-checks once the bank is used up.</p>
-        <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0;">
-          <label>Target % <input type="number" id="plTarget" value="95" min="50" max="100" style="width:64px;" onchange="renderPlanner()"></label>
-          <label>Explore % <input type="number" id="plEps" value="15" min="0" max="100" style="width:64px;" onchange="renderPlanner()"></label>
-          <label>Half-life (days) <input type="number" id="plHalf" value="14" min="1" style="width:64px;" onchange="renderPlanner()"></label>
-          <label>Questions <input type="number" id="plN" value="50" min="1" style="width:64px;" onchange="renderPlanner()"></label>
-          <label>Retest % <input type="number" id="plRe" value="20" min="0" max="100" style="width:64px;" onchange="renderPlanner()"></label>
-        </div>
-        <div id="plAlloc" class="hint" style="margin-bottom:8px;"></div>
-        <div id="plTable"></div>
       </div>
       <div class="card">
         <h3>Full Analysis</h3>
@@ -2272,6 +2282,7 @@ function avgPctOnDate(history, dateStr) {
 
 function refreshHome() {
   renderHomeOverview();
+  renderPlanner();
   renderNextUp();
   renderExamCountdowns();
   renderWeakestSubjectSpotlight();
@@ -2665,25 +2676,35 @@ function computeExamQuestionTotals(scope) {
     missing: scope ? scope.filter(n => !lists[n]) : [],
   };
 }
-function computeTotalQuestionsInBank() {
+function computeTotalQuestionsInBank(scope) {
   const lists = getAllLists();
   let total = 0;
-  for (const name of Object.keys(lists)) total += (lists[name] || []).length;
+  const names = scope && scope.length ? scope.filter(n => lists[n]) : Object.keys(lists);
+  for (const name of names) total += (lists[name] || []).length;
   return total;
+}
+// A saved sample belongs to an exam if it was built for it or draws any question from its subjects.
+function sampleInScope(smp, scope) {
+  if (!scope || !scope.length) return true;
+  const ex = getActiveExam();
+  if (ex && smp.exam_id === ex.id) return true;
+  const set = new Set(scope);
+  return (smp.questions || []).some(q => set.has(q._source_list));
 }
 
 function renderHomeOverview() {
-  const history = loadJson(KEYS.history, []);
-  const samples = loadJson(KEYS.samples, []);
+  const scopeH = getScopeSubjects();
+  const exH = getActiveExam();
+  const history = scopedAssessmentHistory(scopeH);   // per-exam: only this exam's subjects are scored
+  const samples = loadJson(KEYS.samples, []).filter(s => sampleInScope(s, scopeH));
   const mistakes = loadMistakeLog();
   const totalTests = history.length;
   const avgScore = totalTests ? (history.reduce((s, h) => s + (h.pct || 0), 0) / totalTests) : null;
-  const scopeH = getScopeSubjects();
   const mistakesScoped = scopeH ? mistakes.filter(m => scopeH.includes(m.source_list)) : mistakes;
   const resolved = mistakesScoped.filter(m => m.resolved).length;
   const openCount = mistakesScoped.length - resolved;
-  const { allTime: questionsAnswered, today: answeredToday } = computeQuestionsAnsweredStats();
-  const totalQuestionsInBank = computeTotalQuestionsInBank();
+  const { allTime: questionsAnswered, today: answeredToday } = computeQuestionsAnsweredStats(scopeH);
+  const totalQuestionsInBank = computeTotalQuestionsInBank(scopeH);
   const todayStr = todayDateStr();
   const testsToday = history.filter(h => dateOnly(h.date) === todayStr).length;
   const lastTest = history.slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""))[0];
@@ -2692,14 +2713,15 @@ function renderHomeOverview() {
   const lastActivity = [latestDateFromArray(history, "date"), latestDateFromArray(samples, "created_at"), latestDateFromArray(mistakes, "date_logged")]
     .filter(Boolean).sort().pop();
 
-  $("homeSubline").textContent = lastActivity ? `Last activity: ${formatDateNice(lastActivity)}. Tap any tile to dig in.` : "Take an assessment or build a sample to get started.";
+  const scopeTxt = scopeH && exH ? `${exH.label} \u00b7 ${scopeH.length} subject${scopeH.length === 1 ? "" : "s"}. ` : "All subjects. ";
+  $("homeSubline").textContent = scopeTxt + (lastActivity ? `Last activity: ${formatDateNice(lastActivity)}. Tap any tile to dig in.` : "Take an assessment or build a sample to get started.");
 
   // [label, value, subtext, subtext tone, where tapping goes]
   const stats = [
     ["Tests Taken", totalTests, testsToday ? `${testsToday} today` : "none today", testsToday ? "good" : "", () => switchTab("history")],
     ["Average Score", avgScore != null ? `${avgScore.toFixed(1)}%` : "\u2013", lastTest ? `last: ${Math.round(lastTest.pct)}%` : "no tests yet", "", () => switchTab("analysis")],
     ["Questions Answered", questionsAnswered, `${answeredToday} today`, answeredToday ? "good" : "", () => scrollHomeTo("homeMilestonesCard")],
-    ["Total Questions", totalQuestionsInBank, "in your question bank", "", () => switchTab("builder")],
+    ["Total Questions", totalQuestionsInBank, scopeH ? "in this exam's subjects" : "in your question bank", "", () => switchTab("builder")],
     ["Saved Samples", samples.length, samples.length ? (untakenCount ? `${untakenCount} not yet taken` : "all taken") : "build one", untakenCount ? "needs-action" : (samples.length ? "good" : ""), () => switchTab(samples.length ? "saved" : "builder")],
     ["Mistakes Resolved", `${resolved}/${mistakesScoped.length}`, mistakesScoped.length ? (openCount ? `${openCount} open${scopeH ? " \u00b7 this exam" : ""}` : "all resolved") : "none logged", openCount ? "needs-action" : (mistakesScoped.length ? "good" : ""), () => switchTab("mistakes")],
   ];
@@ -2722,8 +2744,9 @@ function renderHomeOverview() {
 function computeNextActions() {
   const actions = [];
   const history = loadJson(KEYS.history, []);
-  const samples = loadJson(KEYS.samples, []);
-  const mistakes = loadMistakeLog();
+  const scopeN = getScopeSubjects();
+  const samples = loadJson(KEYS.samples, []).filter(s => sampleInScope(s, scopeN));
+  const mistakes = scopeN ? loadMistakeLog().filter(m => scopeN.includes(m.source_list)) : loadMistakeLog();
   const activityMap = computeActivityMap();
   const { current: streak } = computeStreaks(activityMap);
   const activeToday = activityMap.has(todayDateStr());
@@ -2816,13 +2839,15 @@ function renderNextUp() {
 const DAILY_MILESTONES = [50, 100, 150, 200, 250, 300, 400, 500, 750, 1000];
 const ALLTIME_MILESTONES = [100, 250, 500, 1000, 2500, 5000, 10000, 25000];
 
-function computeQuestionsAnsweredStats() {
+function computeQuestionsAnsweredStats(scope) {
   const details = loadJson(KEYS.details, []);
   const todayStr = todayDateStr();
+  const scopeSet = scope && scope.length ? new Set(scope) : null;
   let allTime = 0, today = 0;
   for (const d of details) {
     const isToday = dateOnly(d.date) === todayStr;
     for (const item of (d.items || [])) {
+      if (scopeSet && !scopeSet.has(item.source_list)) continue;
       if (item.is_answered) {
         allTime++;
         if (isToday) today++;
@@ -3867,6 +3892,16 @@ $("btnProgClearAll").addEventListener("click", () => {
   renderProgSubjectChecks(Object.keys(analysisProgression).sort()); drawProgressionChart();
 });
 $("progressionMetricSelect").addEventListener("change", drawProgressionChart);
+// Smallest sample size (questions answered in a subject within one test) worth plotting.
+const PROG_MIN_N_KEY = "cble_prog_min_n";
+function getProgMinN() { const v = parseInt($("progMinN").value, 10); return Number.isFinite(v) && v > 0 ? v : 0; }
+(function initProgMinN() {
+  try { const v = localStorage.getItem(PROG_MIN_N_KEY); if (v !== null && v !== "") $("progMinN").value = v; } catch (e) {}
+  $("progMinN").addEventListener("input", () => {
+    try { localStorage.setItem(PROG_MIN_N_KEY, String(getProgMinN())); } catch (e) {}
+    drawProgressionChart();
+  });
+})();
 
 // Stable sample numbers shared by the chart, its key table and the Full Analysis text:
 // S1, S2... follow every test any subject was answered in, in chronological order.
@@ -3888,6 +3923,18 @@ function drawProgressionChart() {
   const keyOf = progKeyOf;
   const colorOf = (subj) => CHART_PALETTE[allSubjects.indexOf(subj) % CHART_PALETTE.length];
 
+  // Small-sample filter: drop points answered on fewer than Min n questions. S-numbers stay based on the full data.
+  const minN = getProgMinN();
+  const prog = {};
+  let hiddenPts = 0, totalPts = 0;
+  for (const subj of chosen) {
+    prog[subj] = analysisProgression[subj].filter(e => { totalPts++; if ((e.n_answered || 0) < minN) { hiddenPts++; return false; } return true; });
+  }
+  $("progMinNNote").textContent = minN
+    ? `Hiding points with fewer than ${minN} answered questions: ${hiddenPts} of ${totalPts} hidden for the selected subjects.`
+    : "Showing every point, however small the sample.";
+  if (!chosen.some(s => prog[s].length)) { box.appendChild(el("div", "empty-state", `Every point for the selected subjects has fewer than ${minN} answered questions. Lower Min n to see them.`)); return; }
+
   // "S5" is the same test no matter which subjects are ticked.
   const { ticks: globalTicks, sNum } = progressionSamples(analysisProgression);
 
@@ -3895,8 +3942,8 @@ function drawProgressionChart() {
   const byKey = {};
   const shown = new Set();
   for (const subj of chosen) {
-    byKey[subj] = new Map(analysisProgression[subj].map(e => [keyOf(e), e]));
-    for (const e of analysisProgression[subj]) shown.add(keyOf(e));
+    byKey[subj] = new Map(prog[subj].map(e => [keyOf(e), e]));
+    for (const e of prog[subj]) shown.add(keyOf(e));
   }
   const ticks = globalTicks.filter(([k]) => shown.has(k));
   const tickIdx = new Map(ticks.map(([k], i) => [k, i]));
@@ -3913,7 +3960,7 @@ function drawProgressionChart() {
     const color = colorOf(subj);
     for (const def of defs) {
       const pts = ticks.map(() => ({ y: null }));
-      for (const e of analysisProgression[subj]) {
+      for (const e of prog[subj]) {
         const i = tickIdx.get(keyOf(e));
         const v = e[def.key];
         pts[i] = { y: v, tooltip: `${subj} \u2013 S${sNum.get(keyOf(e))} (${e.exam_source}): ${def.name} ${v != null ? v.toFixed(1) + "%" : "n/a"} \u00b7 n = ${e.n_answered} answered of ${e.n_questions}` };
@@ -4082,9 +4129,52 @@ function startPlannerSession(only) {
   if (!qs.length) { toast("Nothing to draw for this plan."); return; }
   requestStartExam(`${ex && scope ? ex.label + " - " : ""}${only ? only + " Planner Drill" : "Planner Session"}`, qs);
 }
+let plSelectedSubject = null;
+function plannerSubjectSentences(r, plan) {
+  const pct = v => Math.round(v * 100) + "%", tgt = pct(plan.target), a = plan.A[r.sj], L = [];
+  const dayTxt = r.days === null ? "" : r.days === 0 ? "today" : `${r.days} day${r.days === 1 ? "" : "s"} ago`;
+  if (r.status === "Unexplored") L.push("Not assessed yet, so there is no baseline.");
+  else if (r.status === "Converged") L.push(`Converged: even a cautious estimate (${pct(r.lo)}) is close to your ${tgt} target.`);
+  else if (r.status === "Stale") L.push(`Stale: it was at ${pct(r.acc)}, but it has been ${r.days} day${r.days === 1 ? "" : "s"} since you last practiced it, so it may have faded.`);
+  else if (r.status === "Weak") L.push(`Weak: first-seen accuracy is ${pct(r.acc)}, below your ${tgt} target (cautious estimate ${pct(r.lo)}).`);
+  else L.push(`Uncertain: ${pct(r.acc)} first-seen accuracy, but not enough data yet to trust it.`);
+  if (r.o.n && r.o.n < 8) L.push(`Only about ${Math.max(1, Math.round(r.o.n))} first-seen question${Math.round(r.o.n) === 1 ? "" : "s"} of evidence, so treat this as a rough read.`);
+  L.push(r.unseen > 0 ? `${r.unseen} unseen question${r.unseen === 1 ? "" : "s"} left in the bank.` : "No unseen questions left, so progress now comes from retesting.");
+  if (r.o.found) L.push(`${r.o.found} mistake${r.o.found === 1 ? "" : "s"} found, ${r.o.fixed} fixed, ${r.open} still open.`);
+  else if (r.o.n) L.push("No first-time mistakes recorded.");
+  if (r.status !== "Stale" && dayTxt) L.push(`Last practiced ${dayTxt}.`);
+  L.push(a.total > 0 ? `Next session: ${a.nw} new, ${a.reRefs.length} retest, ${a.spRefs.length} spot-check (${a.act}).` : "Nothing from this subject is scheduled in the next session.");
+  return L;
+}
+function renderPlannerSubjectStatus() {
+  const box = $("plSubjectStatus"), sel = $("plSubjectSelect");
+  if (!box || !sel) return;
+  const plan = plannerPlan;
+  if (!plan) { box.innerHTML = '<div class="empty-state">No subjects loaded.</div>'; return; }
+  const r = plan.rows.find(x => x.sj === sel.value);
+  if (!r) { box.innerHTML = ""; return; }
+  box.innerHTML = `<div class="list-item"><div class="top-row"><span class="name">${esc(r.sj)}</span><span class="exam-days">${esc(r.status)}</span></div>` +
+    `<ul style="margin:6px 0 0 18px;padding:0;font-size:.82rem;line-height:1.5;">${plannerSubjectSentences(r, plan).map(t => `<li>${esc(t)}</li>`).join("")}</ul>` +
+    `<div class="row" style="margin-top:6px;"><button class="btn link" data-pl="drill" data-sj="${esc(r.sj)}">Drill ${esc(r.sj)} &#9654;</button></div></div>`;
+  box.onclick = e => { const b = e.target.closest('[data-pl="drill"]'); if (b) startPlannerSession(b.dataset.sj); };
+}
+(function initPlannerSubjectSelect() {
+  const sel = $("plSubjectSelect");
+  if (sel) sel.addEventListener("change", () => { plSelectedSubject = sel.value; renderPlannerSubjectStatus(); });
+})();
 function renderPlanner() {
   const box = $("plTable"); if (!box) return;
   const plan = plannerPlan = computePlan(), al = $("plAlloc");
+  const subSel = $("plSubjectSelect");
+  if (subSel) {
+    if (plan) {
+      const byGap = plan.rows.slice().sort((a, b) => b.gap - a.gap);
+      if (!plan.rows.some(r => r.sj === plSelectedSubject)) plSelectedSubject = byGap[0].sj;   // default: biggest gap
+      subSel.innerHTML = byGap.map(r => `<option value="${esc(r.sj)}">${esc(r.sj)} \u00b7 ${esc(r.status)}</option>`).join("");
+      subSel.value = plSelectedSubject;
+    } else subSel.innerHTML = "";
+    renderPlannerSubjectStatus();
+  }
   const rebuild = () => { if (window._aRanked) renderAnalysisText(window._aRanked, window._aProg || {}); };
   if (!plan) { box.innerHTML = '<div class="empty-state">No subjects loaded.</div>'; al.innerHTML = ""; rebuild(); return; }
   const rows = plan.rows, pc = v => v === null ? "&ndash;" : (v * 100).toFixed(1) + "%";
