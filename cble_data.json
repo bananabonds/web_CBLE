@@ -24947,6 +24947,15 @@
       "pct": 80,
       "date": "2026-10-03T15:25:04",
       "time_used_seconds": 2071.1
+    },
+    {
+      "id": "1791087578979753",
+      "source": "CT_ChemWaste_S2",
+      "score": 42,
+      "total": 50,
+      "pct": 84,
+      "date": "2026-10-04T04:19:38",
+      "time_used_seconds": 1470.8
     }
   ],
   "exam_details": [
@@ -47096,6 +47105,563 @@
           "correct_answer": "C. Br₂ / UV or light"
         }
       ]
+    },
+    {
+      "exam_id": "1791087578979753",
+      "source": "CT_ChemWaste_S2",
+      "date": "2026-10-04T04:19:38",
+      "items": [
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following carbonyl compounds produces a secondary alcohol with LiAlH₄?",
+          "your_answer": "A. ketone",
+          "correct_answer": "A. ketone"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 26,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "How long should you rinse in an eyewash during accidental chemical splashes on the eyes?",
+          "your_answer": "C. 15 mins",
+          "correct_answer": "C. 15 mins"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which is a primary function of a laboratory chemical hood?",
+          "your_answer": "B. Exhaust hazardous or odorous chemicals",
+          "correct_answer": "B. Exhaust hazardous or odorous chemicals"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 291,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Pre-treatment of solid samples prior to analysis.",
+          "your_answer": "D. All of the above",
+          "correct_answer": "D. All of the above"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 296,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is an example of a crystallisation process?",
+          "your_answer": "A. Purification of alum",
+          "correct_answer": "A. Purification of alum"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 35,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "These are solid particles of a substance or mixture suspended in a gas (usually air).",
+          "your_answer": "B. Dusts",
+          "correct_answer": "B. Dusts"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 35,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which of the following is an example of a characteristic hazardous waste?",
+          "your_answer": "C. Organic food waste",
+          "correct_answer": "A. Used motor oil"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 111,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Raising the temperature of an enclosed gas:",
+          "your_answer": "C. Forces the gas particles to collide with the walls harder",
+          "correct_answer": "C. Forces the gas particles to collide with the walls harder"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 364,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "The maximum amount of solute that will dissolve in a definite amount of solvent to produce a stable system at a specified temperature is called:",
+          "your_answer": "B. Solubility",
+          "correct_answer": "B. Solubility"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 53,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Common hazards posed by different chemicals in the laboratories can be found at ________.",
+          "your_answer": "D. B and C",
+          "correct_answer": "D. B and C"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which sector is a significant source of hazardous waste due to its production of electronic devices?",
+          "your_answer": "B. Information technology",
+          "correct_answer": "B. Information technology"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Large and potentially toxic solid chemical spills should be collected using a special vacuum cleaner equipped with a",
+          "your_answer": "B. High Efficiency Particulate Air (HEPA) filter",
+          "correct_answer": "B. High Efficiency Particulate Air (HEPA) filter"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 23,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "An unknown ester was hydrolyzed with water and acid to produce an acid, X, and alcohol, Y. Oxidation of the alcohol with hot KMnO₄ yielded acid X. Oxidation of the alcohol produced acetaldehyde. Name the ester.",
+          "your_answer": "B. methyl ethanoate",
+          "correct_answer": "D. ethyl ethanoate"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 83,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Liquid chromatography is a technique for separating:",
+          "your_answer": "B. Ions that are dissolved in a solvent",
+          "correct_answer": "B. Ions that are dissolved in a solvent"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 42,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is NOT suitable safety attire when handling a large volume of corrosive liquid?",
+          "your_answer": "C. General safety glasses",
+          "correct_answer": "C. General safety glasses"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 32,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "This general type of reaction results in a sudden rapid rise in temperature upon heating of the material that usually becomes violent.",
+          "your_answer": "C. runaway reaction",
+          "correct_answer": "C. runaway reaction"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 21,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "2-Methyl-2-butene undergoes hydrochlorination in the presence of benzoyl peroxide to form",
+          "your_answer": "B. 2-chloro-3-methylbutane",
+          "correct_answer": "C. 2-chloro-2-methylbutane"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 32,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is not an aliphatic hydrocarbon?",
+          "your_answer": "C. toluene",
+          "correct_answer": "C. toluene"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is an example of an engineering control?",
+          "your_answer": "B. Local exhaust ventilation",
+          "correct_answer": "B. Local exhaust ventilation"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 51,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "For safety, long hair needs to _________.",
+          "your_answer": "A. be tied back",
+          "correct_answer": "A. be tied back"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 20,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is a common source of hazardous waste in households?",
+          "your_answer": "B. Food waste",
+          "correct_answer": "C. Batteries"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "When certain hydrides react with water, they can produce heat and which flammable gas?",
+          "your_answer": "C. Hydrogen",
+          "correct_answer": "C. Hydrogen"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 49,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In which molecule is there a complete linear arrangement of all atoms?",
+          "your_answer": "C. CO2",
+          "correct_answer": "C. CO2"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 55,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "At this concentration, the mixture of flammable liquids is considered too \"lean\" to burn.",
+          "your_answer": "B. below lower explosion limit",
+          "correct_answer": "B. below lower explosion limit"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "How long is flushing recommended for most corrosive substances?",
+          "your_answer": "B. 15 min",
+          "correct_answer": "B. 15 min"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 102,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In chromatography, ____ is carried out on glass plates or strips of plastic or metal coated on one side with a thin layer of adsorbent.",
+          "your_answer": "D. Thin layer chromatography",
+          "correct_answer": "D. Thin layer chromatography"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 112,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "At constant temperature and pressure, the rate of diffusion of a gas varies:",
+          "your_answer": "D. Inversely as the square of its molecular mass",
+          "correct_answer": "D. Inversely as the square of its molecular mass"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 342,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "How would you prepare 500.0 mL of 0.2500 M NaOH solution starting from a concentration of 1.000 M?",
+          "your_answer": "A. Transfer 125 mL from the initial solution (1.000 M) and complete with solvent to 500.0 mL",
+          "correct_answer": "A. Transfer 125 mL from the initial solution (1.000 M) and complete with solvent to 500.0 mL"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which characteristic of hazardous waste refers to its potential to build up in the tissues of organisms over time?",
+          "your_answer": "A. bioaccumulation",
+          "correct_answer": "A. bioaccumulation"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 13,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "According to the Department of Trade and Industry-Bureau of Philippine Standards (DTI-BPS), what color designations correspond to a foam type fire extinguisher?",
+          "your_answer": "C. red body, blue band",
+          "correct_answer": "A. red body, white band"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "During an accidental chemical spill inside a chemical hood, the hood primarily helps by",
+          "your_answer": "B. containing the spill and exhausting fumes away from personnel",
+          "correct_answer": "B. containing the spill and exhausting fumes away from personnel"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 95,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is separated through column chromatography?",
+          "your_answer": "A. Chlorophyll and carotenoids",
+          "correct_answer": "A. Chlorophyll and carotenoids"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What does the GHS use to communicate the hazards of chemicals?",
+          "your_answer": "D. Safety Data Sheets (SDS)",
+          "correct_answer": "D. Safety Data Sheets (SDS)"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Select the one which is wrongly mapped.",
+          "your_answer": "C. Calcium carbonate – slaked lime",
+          "correct_answer": "C. Calcium carbonate – slaked lime"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 30,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "No carbonyl group is found in",
+          "your_answer": "A. ether",
+          "correct_answer": "A. ether"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 34,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Reaction of alcohol and a carboxylic acid is known as ____________.",
+          "your_answer": "A. esterification",
+          "correct_answer": "A. esterification"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Addition of methyl magnesium bromide to acetaldehyde produces",
+          "your_answer": "C. 2-propanol",
+          "correct_answer": "C. 2-propanol"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 37,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Situation: A foam type fire extinguisher (red body with a colored band, as identified under the DTI-BPS color designations) is being considered for use. The foam type fire extinguisher is most appropriately used for which type of fire?",
+          "your_answer": "D. both A and B",
+          "correct_answer": "D. both A and B"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 30,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which physiological class of hazardous material causes depletion of oxygen to the tissues?",
+          "your_answer": "B. Asphyxiants",
+          "correct_answer": "B. Asphyxiants"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 15,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Oxidation of isopropyl alcohol with KMnO₄ will yield",
+          "your_answer": "B. acetone",
+          "correct_answer": "B. acetone"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 45,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which one has both sigma and pi bonds?",
+          "your_answer": "D. NaCN",
+          "correct_answer": "D. NaCN"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 92,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Select the correct statement about column chromatography.",
+          "your_answer": "C. The greater the polarity of the solute, the more strongly it will be adsorbed on a polar surface",
+          "correct_answer": "C. The greater the polarity of the solute, the more strongly it will be adsorbed on a polar surface"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 105,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The phase in which the sample is dissolved may be a gas, liquid, or supercritical fluid.",
+          "your_answer": "D. Mobile phase",
+          "correct_answer": "D. Mobile phase"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 22,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which Philippine legislation establishes the policies and institutional mechanisms for the control and prevention of water pollution?",
+          "your_answer": "B. Republic Act No. 8749",
+          "correct_answer": "D. Republic Act No. 9275"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which characteristic of hazardous waste refers to its ability to catch fire easily?",
+          "your_answer": "B. ignitability",
+          "correct_answer": "B. ignitability"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 25,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Work methods or procedures designed to minimize employee exposure to hazards are classified as",
+          "your_answer": "C. administrative controls",
+          "correct_answer": "C. administrative controls"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 22,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Water cannot function as which one of the following?",
+          "your_answer": "C. A Lewis acid",
+          "correct_answer": "C. A Lewis acid"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 14,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which Philippine law governs the practice of chemistry and regulates the registration and licensure of chemists?",
+          "your_answer": "D. Republic Act No. 10657",
+          "correct_answer": "A. Republic Act No. 754"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 25,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "When ethyl bromide is treated with sodium in dry ether, the product is",
+          "your_answer": "D. ethane",
+          "correct_answer": "C. butane"
+        },
+        {
+          "source_list": "BS_FlashCards",
+          "reference_no": 237,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Reliability of the results decreases with a decrease in the level or concentration of the:",
+          "your_answer": "B. Analyte",
+          "correct_answer": "B. Analyte"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -52720,6 +53286,166 @@
         }
       ],
       "updated_at": "2026-10-03T16:25:16"
+    },
+    {
+      "id": "1791087579233479",
+      "source_list": "CT_RE_Organic_Chem_Waste",
+      "reference_no": 35,
+      "question": "Which of the following is an example of a characteristic hazardous waste?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-04T04:19:39",
+      "occurrences": [
+        {
+          "exam_id": "1791087578979753",
+          "exam_source": "CT_ChemWaste_S2",
+          "date": "2026-10-04T04:19:39",
+          "your_answer": "C. Organic food waste",
+          "correct_answer": "A. Used motor oil"
+        }
+      ],
+      "updated_at": "2026-10-04T04:19:39"
+    },
+    {
+      "id": "1791087579245560",
+      "source_list": "CT_RE_Organic_Chem_Waste",
+      "reference_no": 23,
+      "question": "An unknown ester was hydrolyzed with water and acid to produce an acid, X, and alcohol, Y. Oxidation of the alcohol with hot KMnO₄ yielded acid X. Oxidation of the alcohol produced acetaldehyde. Name the ester.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-04T04:19:39",
+      "occurrences": [
+        {
+          "exam_id": "1791087578979753",
+          "exam_source": "CT_ChemWaste_S2",
+          "date": "2026-10-04T04:19:39",
+          "your_answer": "B. methyl ethanoate",
+          "correct_answer": "D. ethyl ethanoate"
+        }
+      ],
+      "updated_at": "2026-10-04T04:19:39"
+    },
+    {
+      "id": "1791087579258181",
+      "source_list": "CT_RE_Organic_Chem_Waste",
+      "reference_no": 21,
+      "question": "2-Methyl-2-butene undergoes hydrochlorination in the presence of benzoyl peroxide to form",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-04T04:19:39",
+      "occurrences": [
+        {
+          "exam_id": "1791087578979753",
+          "exam_source": "CT_ChemWaste_S2",
+          "date": "2026-10-04T04:19:39",
+          "your_answer": "B. 2-chloro-3-methylbutane",
+          "correct_answer": "C. 2-chloro-2-methylbutane"
+        }
+      ],
+      "updated_at": "2026-10-04T04:19:39"
+    },
+    {
+      "id": "1791087579270274",
+      "source_list": "CT_RE_Organic_Chem_Waste",
+      "reference_no": 20,
+      "question": "Which of the following is a common source of hazardous waste in households?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-04T04:19:39",
+      "occurrences": [
+        {
+          "exam_id": "1791087578979753",
+          "exam_source": "CT_ChemWaste_S2",
+          "date": "2026-10-04T04:19:39",
+          "your_answer": "B. Food waste",
+          "correct_answer": "C. Batteries"
+        }
+      ],
+      "updated_at": "2026-10-04T04:19:39"
+    },
+    {
+      "id": "1791087579282848",
+      "source_list": "CT_PT_Chemical_Safety",
+      "reference_no": 13,
+      "question": "According to the Department of Trade and Industry-Bureau of Philippine Standards (DTI-BPS), what color designations correspond to a foam type fire extinguisher?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-04T04:19:39",
+      "occurrences": [
+        {
+          "exam_id": "1791087578979753",
+          "exam_source": "CT_ChemWaste_S2",
+          "date": "2026-10-04T04:19:39",
+          "your_answer": "C. red body, blue band",
+          "correct_answer": "A. red body, white band"
+        }
+      ],
+      "updated_at": "2026-10-04T04:19:39"
+    },
+    {
+      "id": "1791087579294314",
+      "source_list": "CT_RE_Organic_Chem_Waste",
+      "reference_no": 22,
+      "question": "Which Philippine legislation establishes the policies and institutional mechanisms for the control and prevention of water pollution?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-04T04:19:39",
+      "occurrences": [
+        {
+          "exam_id": "1791087578979753",
+          "exam_source": "CT_ChemWaste_S2",
+          "date": "2026-10-04T04:19:39",
+          "your_answer": "B. Republic Act No. 8749",
+          "correct_answer": "D. Republic Act No. 9275"
+        }
+      ],
+      "updated_at": "2026-10-04T04:19:39"
+    },
+    {
+      "id": "1791087579307821",
+      "source_list": "CT_RE_Organic_Chem_Waste",
+      "reference_no": 14,
+      "question": "Which Philippine law governs the practice of chemistry and regulates the registration and licensure of chemists?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-04T04:19:39",
+      "occurrences": [
+        {
+          "exam_id": "1791087578979753",
+          "exam_source": "CT_ChemWaste_S2",
+          "date": "2026-10-04T04:19:39",
+          "your_answer": "D. Republic Act No. 10657",
+          "correct_answer": "A. Republic Act No. 754"
+        }
+      ],
+      "updated_at": "2026-10-04T04:19:39"
+    },
+    {
+      "id": "1791087579319176",
+      "source_list": "CT_RE_Organic_Chem_Waste",
+      "reference_no": 25,
+      "question": "When ethyl bromide is treated with sodium in dry ether, the product is",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-04T04:19:39",
+      "occurrences": [
+        {
+          "exam_id": "1791087578979753",
+          "exam_source": "CT_ChemWaste_S2",
+          "date": "2026-10-04T04:19:39",
+          "your_answer": "D. ethane",
+          "correct_answer": "C. butane"
+        }
+      ],
+      "updated_at": "2026-10-04T04:19:39"
     }
   ],
   "guess_notes": [
@@ -52923,5 +53649,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-10-04T04:04:43"
+  "updated_at": "2026-10-04T04:19:43"
 }
