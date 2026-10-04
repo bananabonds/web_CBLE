@@ -55107,10 +55107,10 @@
       "source_list": "CT_RE_Organic_Chem_Waste",
       "reference_no": 21,
       "question": "2-Methyl-2-butene undergoes hydrochlorination in the presence of benzoyl peroxide to form",
-      "category": "",
-      "note": "",
+      "category": "Conceptual Misunderstanding",
+      "note": "Benzoyl peroxide only works with HBr to form the anti markovnikov product but HCl yields markovnikov",
       "resolved": false,
-      "date_logged": "2026-10-04T04:19:39",
+      "date_logged": "2026-10-04T14:40:31",
       "occurrences": [
         {
           "exam_id": "1791087578979753",
@@ -55120,7 +55120,7 @@
           "correct_answer": "C. 2-chloro-2-methylbutane"
         }
       ],
-      "updated_at": "2026-10-04T04:19:39"
+      "updated_at": "2026-10-04T14:40:31"
     },
     {
       "id": "1791087579270274",
@@ -55725,5 +55725,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-10-04T14:39:49"
+  "updated_at": "2026-10-04T14:40:39"
 }
