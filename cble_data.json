@@ -55087,10 +55087,10 @@
       "source_list": "CT_RE_Organic_Chem_Waste",
       "reference_no": 23,
       "question": "An unknown ester was hydrolyzed with water and acid to produce an acid, X, and alcohol, Y. Oxidation of the alcohol with hot KMnO₄ yielded acid X. Oxidation of the alcohol produced acetaldehyde. Name the ester.",
-      "category": "",
-      "note": "",
+      "category": "Careless / Computational Error",
+      "note": "Ester is made of an alkoxy group connected to an acyl group which when hydrolyzes becomes carboxylic acid and alcohol. The question says that the alcohol oxidizes to carboxylic acid X which was derived from further oxidation of acetaldehyde (ethanal) turns to ethanoic acid then alcohol Y is ethanol.",
       "resolved": false,
-      "date_logged": "2026-10-04T04:19:39",
+      "date_logged": "2026-10-04T14:34:37",
       "occurrences": [
         {
           "exam_id": "1791087578979753",
@@ -55100,7 +55100,7 @@
           "correct_answer": "D. ethyl ethanoate"
         }
       ],
-      "updated_at": "2026-10-04T04:19:39"
+      "updated_at": "2026-10-04T14:34:37"
     },
     {
       "id": "1791087579258181",
@@ -55725,5 +55725,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-10-04T14:33:55"
+  "updated_at": "2026-10-04T14:34:38"
 }
