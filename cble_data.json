@@ -26786,6 +26786,15 @@
       "pct": 70,
       "date": "2026-10-04T07:40:24",
       "time_used_seconds": 3877.3
+    },
+    {
+      "id": "1791128540619778",
+      "source": "CT_ChemWaste_S3",
+      "score": 42,
+      "total": 50,
+      "pct": 84,
+      "date": "2026-10-04T15:42:20",
+      "time_used_seconds": 1770.5
     }
   ],
   "exam_details": [
@@ -50049,6 +50058,563 @@
           "correct_answer": "D. All of the above"
         }
       ]
+    },
+    {
+      "exam_id": "1791128540619778",
+      "source": "CT_ChemWaste_S3",
+      "date": "2026-10-04T15:42:20",
+      "items": [
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 39,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Examples of activities that require appropriate eye protection include",
+          "your_answer": "D. All of the above",
+          "correct_answer": "D. All of the above"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What does the GHS use to communicate the hazards of chemicals?",
+          "your_answer": "D. Safety Data Sheets (SDS)",
+          "correct_answer": "D. Safety Data Sheets (SDS)"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "How many isomers does xylene have?",
+          "your_answer": "C. 3",
+          "correct_answer": "C. 3"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 33,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which combination describes the appropriate conditions for a chemical storage area?",
+          "your_answer": "B. Well-ventilated, temperature/humidity-controlled, and secured",
+          "correct_answer": "B. Well-ventilated, temperature/humidity-controlled, and secured"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 59,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The area surrounding a safety shower or eyewash _______________________.",
+          "your_answer": "D. both B and C",
+          "correct_answer": "D. both B and C"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What are the components of the fire triangle?",
+          "your_answer": "B. oxygen, fuel, heat",
+          "correct_answer": "B. oxygen, fuel, heat"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 29,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is a characteristic of hazardous waste?",
+          "your_answer": "D. None of the choices",
+          "correct_answer": "D. None of the choices"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 56,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is (are) GOOD practices when using a lab chemical hood?\n\nI. Place chemical sources and apparatus at least 6 cm behind the face. II. Scrubbers must be installed especially when the lab is dealing with highly toxic vapors. III. Avoid opening and closing the sash rapidly. IV. Store odoriferous materials inside the chemical hood to prevent personnel from inhaling the toxic vapors.",
+          "your_answer": "D. II and III",
+          "correct_answer": "B. I, II, and III"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 14,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which Philippine law governs the practice of chemistry and regulates the registration and licensure of chemists?",
+          "your_answer": "D. Republic Act No. 10657",
+          "correct_answer": "A. Republic Act No. 754"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 48,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Chemicals in a storage area should primarily be grouped according to their",
+          "your_answer": "C. compatibilities",
+          "correct_answer": "C. compatibilities"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 43,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "It refers to the production of irreversible damage to the skin; namely, visible necrosis through the epidermis and into the dermis occurring after exposure to a substance or mixture.",
+          "your_answer": "B. Skin corrosion",
+          "correct_answer": "B. Skin corrosion"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 38,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is NOT a GHS pictogram?",
+          "your_answer": "B. gas tank",
+          "correct_answer": "B. gas tank"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 2,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A written program containing procedures, equipment, PPE, and work practices for protecting employees from hazardous chemicals is called the",
+          "your_answer": "A. Safety Data Sheet",
+          "correct_answer": "B. Chemical Hygiene Plan"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 23,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "An unknown ester was hydrolyzed with water and acid to produce an acid, X, and alcohol, Y. Oxidation of the alcohol with hot KMnO₄ yielded acid X. Oxidation of the alcohol produced acetaldehyde. Name the ester.",
+          "your_answer": "D. ethyl ethanoate",
+          "correct_answer": "D. ethyl ethanoate"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which characteristic of hazardous waste refers to its potential to build up in the tissues of organisms over time?",
+          "your_answer": "A. bioaccumulation",
+          "correct_answer": "A. bioaccumulation"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 32,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "This general type of reaction results in a sudden rapid rise in temperature upon heating of the material that usually becomes violent.",
+          "your_answer": "C. runaway reaction",
+          "correct_answer": "C. runaway reaction"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 37,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In the Grignard synthesis of an alkane using sec-butyl bromide, which of the following alkane will be produced?",
+          "your_answer": "C. n-butane",
+          "correct_answer": "C. n-butane"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which type of storage container is commonly used for flammable liquids?",
+          "your_answer": "A. Metal drums",
+          "correct_answer": "A. Metal drums"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 21,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "2-Methyl-2-butene undergoes hydrochlorination in the presence of benzoyl peroxide to form",
+          "your_answer": "C. 2-chloro-2-methylbutane",
+          "correct_answer": "C. 2-chloro-2-methylbutane"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which characteristic of hazardous waste refers to its ability to catch fire easily?",
+          "your_answer": "B. ignitability",
+          "correct_answer": "B. ignitability"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 58,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Flash point is defined in the material as the lowest temperature at 1 atm at which a liquid",
+          "your_answer": "C. releases enough flammable vapor to ignite when an ignition source is applied",
+          "correct_answer": "C. releases enough flammable vapor to ignite when an ignition source is applied"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The following reagents will yield an alkyl halide from an alkene EXCEPT",
+          "your_answer": "C. Br₂ / UV or light",
+          "correct_answer": "C. Br₂ / UV or light"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 29,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "How long is flushing recommended for strong alkalis such as sodium, potassium, or calcium hydroxide?",
+          "your_answer": "B. 15 min",
+          "correct_answer": "C. 30 min"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 45,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "When exposure to hazards cannot be engineered completely out of normal operations, this supplementary method of control can be used.",
+          "your_answer": "D. use of PPE",
+          "correct_answer": "D. use of PPE"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 35,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is an example of a characteristic hazardous waste?",
+          "your_answer": "A. Used motor oil",
+          "correct_answer": "A. Used motor oil"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 22,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Laboratory chemical hoods are BEST placed in a location that is ______________.",
+          "your_answer": "C. away from air diffuser",
+          "correct_answer": "C. away from air diffuser"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 55,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "At this concentration, the mixture of flammable liquids is considered too \"lean\" to burn.",
+          "your_answer": "B. below lower explosion limit",
+          "correct_answer": "B. below lower explosion limit"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 13,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "According to the Department of Trade and Industry-Bureau of Philippine Standards (DTI-BPS), what color designations correspond to a foam type fire extinguisher?",
+          "your_answer": "C. red body, blue band",
+          "correct_answer": "A. red body, white band"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following carbonyl compounds produces a secondary alcohol with LiAlH₄?",
+          "your_answer": "A. ketone",
+          "correct_answer": "A. ketone"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 5,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What is the recommended face velocity for a laboratory chemical fume hood?",
+          "your_answer": "B. 40–60 ft/min",
+          "correct_answer": "D. 80–100 ft/min"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 38,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Hydrogenation of alkenes in the presence of a poisoned palladium catalyst produces",
+          "your_answer": "C. alkane",
+          "correct_answer": "C. alkane"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The following information can be found in a safety data sheet EXCEPT _______.",
+          "your_answer": "D. none of the above",
+          "correct_answer": "D. none of the above"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the purpose of a Material Safety Data Sheet (MSDS)?",
+          "your_answer": "C. To communicate information about hazardous substances",
+          "correct_answer": "C. To communicate information about hazardous substances"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 35,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "These are solid particles of a substance or mixture suspended in a gas (usually air).",
+          "your_answer": "B. Dusts",
+          "correct_answer": "B. Dusts"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 24,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A researcher is working in a lab where hazardous liquid chemicals are present. Which of the following is NOT considered appropriate PPE for this situation?",
+          "your_answer": "A. wire mesh glove",
+          "correct_answer": "A. wire mesh glove"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 34,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Reaction of alcohol and a carboxylic acid is known as ____________.",
+          "your_answer": "A. esterification",
+          "correct_answer": "A. esterification"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 17,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "In an NFPA hazard signal, what does an increasing numerical rating indicate?",
+          "your_answer": "A. Decreasing risk",
+          "correct_answer": "B. Increasing corresponding risk"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 24,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "In Williamson synthesis of methyl isopropyl ether, the alcohol used is",
+          "your_answer": "B. isopropyl alcohol",
+          "correct_answer": "B. isopropyl alcohol"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 57,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Which section of an SDS contains Stability and Reactivity information?",
+          "your_answer": "A. Section 7",
+          "correct_answer": "D. Section 10"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "How long is flushing recommended for most corrosive substances?",
+          "your_answer": "B. 15 min",
+          "correct_answer": "B. 15 min"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 30,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "No carbonyl group is found in",
+          "your_answer": "A. ether",
+          "correct_answer": "A. ether"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Carboxylic acids are reduced by lithium aluminum hydride to the corresponding",
+          "your_answer": "A. primary alcohols",
+          "correct_answer": "A. primary alcohols"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Addition of methyl magnesium bromide to acetaldehyde produces",
+          "your_answer": "C. 2-propanol",
+          "correct_answer": "C. 2-propanol"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 40,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is an example of electronic waste (e-waste)?",
+          "your_answer": "B. Used batteries",
+          "correct_answer": "B. Used batteries"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 34,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "It refers to the production of reversible damage to the skin occurring after exposure to a substance or mixture.",
+          "your_answer": "C. Skin irritation",
+          "correct_answer": "C. Skin irritation"
+        },
+        {
+          "source_list": "CT_PT_Chemical_Safety",
+          "reference_no": 41,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following safety practices implements the substitution method according to the hierarchy of control principle?",
+          "your_answer": "B. Use of mercury thermometer alternatives.",
+          "correct_answer": "B. Use of mercury thermometer alternatives."
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which Philippine legislation is known as the \"Ecological Solid Waste Management Act\" and promotes proper solid waste management practices?",
+          "your_answer": "C. Republic Act No. 9003",
+          "correct_answer": "C. Republic Act No. 9003"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 28,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which section of the Safety Data Sheet (SDS) provides information on first aid measures?",
+          "your_answer": "D. Section 4",
+          "correct_answer": "D. Section 4"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 27,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Part of a molecule where most of its chemical reactions occur",
+          "your_answer": "B. Functional group",
+          "correct_answer": "B. Functional group"
+        },
+        {
+          "source_list": "CT_RE_Organic_Chem_Waste",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Hydrogenation of one mole of allene (CH₂=C=CH₂) with 2 moles of H₂ in the presence of Lindlar catalyst yields",
+          "your_answer": "A. propane",
+          "correct_answer": "A. propane"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -55770,9 +56336,16 @@
           "date": "2026-10-04T04:19:39",
           "your_answer": "C. red body, blue band",
           "correct_answer": "A. red body, white band"
+        },
+        {
+          "exam_id": "1791128540619778",
+          "exam_source": "CT_ChemWaste_S3",
+          "date": "2026-10-04T15:42:20",
+          "your_answer": "C. red body, blue band",
+          "correct_answer": "A. red body, white band"
         }
       ],
-      "updated_at": "2026-10-04T14:42:36"
+      "updated_at": "2026-10-04T15:42:20"
     },
     {
       "id": "1791087579294314",
@@ -55810,9 +56383,16 @@
           "date": "2026-10-04T04:19:39",
           "your_answer": "D. Republic Act No. 10657",
           "correct_answer": "A. Republic Act No. 754"
+        },
+        {
+          "exam_id": "1791128540619778",
+          "exam_source": "CT_ChemWaste_S3",
+          "date": "2026-10-04T15:42:20",
+          "your_answer": "D. Republic Act No. 10657",
+          "correct_answer": "A. Republic Act No. 754"
         }
       ],
-      "updated_at": "2026-10-04T14:44:04"
+      "updated_at": "2026-10-04T15:42:20"
     },
     {
       "id": "1791087579319176",
@@ -56133,6 +56713,126 @@
         }
       ],
       "updated_at": "2026-10-04T14:51:00"
+    },
+    {
+      "id": "1791128540633816",
+      "source_list": "CT_PT_Chemical_Safety",
+      "reference_no": 56,
+      "question": "Which of the following is (are) GOOD practices when using a lab chemical hood?\n\nI. Place chemical sources and apparatus at least 6 cm behind the face. II. Scrubbers must be installed especially when the lab is dealing with highly toxic vapors. III. Avoid opening and closing the sash rapidly. IV. Store odoriferous materials inside the chemical hood to prevent personnel from inhaling the toxic vapors.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-04T15:42:20",
+      "occurrences": [
+        {
+          "exam_id": "1791128540619778",
+          "exam_source": "CT_ChemWaste_S3",
+          "date": "2026-10-04T15:42:20",
+          "your_answer": "D. II and III",
+          "correct_answer": "B. I, II, and III"
+        }
+      ],
+      "updated_at": "2026-10-04T15:42:20"
+    },
+    {
+      "id": "1791128540638632",
+      "source_list": "CT_PT_Chemical_Safety",
+      "reference_no": 2,
+      "question": "A written program containing procedures, equipment, PPE, and work practices for protecting employees from hazardous chemicals is called the",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-04T15:42:20",
+      "occurrences": [
+        {
+          "exam_id": "1791128540619778",
+          "exam_source": "CT_ChemWaste_S3",
+          "date": "2026-10-04T15:42:20",
+          "your_answer": "A. Safety Data Sheet",
+          "correct_answer": "B. Chemical Hygiene Plan"
+        }
+      ],
+      "updated_at": "2026-10-04T15:42:20"
+    },
+    {
+      "id": "1791128540640868",
+      "source_list": "CT_PT_Chemical_Safety",
+      "reference_no": 29,
+      "question": "How long is flushing recommended for strong alkalis such as sodium, potassium, or calcium hydroxide?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-04T15:42:20",
+      "occurrences": [
+        {
+          "exam_id": "1791128540619778",
+          "exam_source": "CT_ChemWaste_S3",
+          "date": "2026-10-04T15:42:20",
+          "your_answer": "B. 15 min",
+          "correct_answer": "C. 30 min"
+        }
+      ],
+      "updated_at": "2026-10-04T15:42:20"
+    },
+    {
+      "id": "1791128540645942",
+      "source_list": "CT_PT_Chemical_Safety",
+      "reference_no": 5,
+      "question": "What is the recommended face velocity for a laboratory chemical fume hood?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-04T15:42:20",
+      "occurrences": [
+        {
+          "exam_id": "1791128540619778",
+          "exam_source": "CT_ChemWaste_S3",
+          "date": "2026-10-04T15:42:20",
+          "your_answer": "B. 40–60 ft/min",
+          "correct_answer": "D. 80–100 ft/min"
+        }
+      ],
+      "updated_at": "2026-10-04T15:42:20"
+    },
+    {
+      "id": "1791128540647181",
+      "source_list": "CT_PT_Chemical_Safety",
+      "reference_no": 17,
+      "question": "In an NFPA hazard signal, what does an increasing numerical rating indicate?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-04T15:42:20",
+      "occurrences": [
+        {
+          "exam_id": "1791128540619778",
+          "exam_source": "CT_ChemWaste_S3",
+          "date": "2026-10-04T15:42:20",
+          "your_answer": "A. Decreasing risk",
+          "correct_answer": "B. Increasing corresponding risk"
+        }
+      ],
+      "updated_at": "2026-10-04T15:42:20"
+    },
+    {
+      "id": "1791128540649339",
+      "source_list": "CT_PT_Chemical_Safety",
+      "reference_no": 57,
+      "question": "Which section of an SDS contains Stability and Reactivity information?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-04T15:42:20",
+      "occurrences": [
+        {
+          "exam_id": "1791128540619778",
+          "exam_source": "CT_ChemWaste_S3",
+          "date": "2026-10-04T15:42:20",
+          "your_answer": "A. Section 7",
+          "correct_answer": "D. Section 10"
+        }
+      ],
+      "updated_at": "2026-10-04T15:42:20"
     }
   ],
   "guess_notes": [
@@ -56337,5 +57037,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-10-04T15:12:40"
+  "updated_at": "2026-10-04T15:42:23"
 }
