@@ -648,22 +648,25 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
       </div>
       <div class="card">
         <h3>Adaptive Planner</h3>
-        <p class="hint">Epsilon-greedy over subjects: ranks by (target &minus; pessimistic first-seen accuracy), with old results decayed. Correct guesses count half.</p>
+        <p class="hint">Epsilon-greedy over subjects: ranks by (target &minus; pessimistic first-seen accuracy), with old results decayed. Correct guesses count half. The session below is built from real questions: new ones where the gap is biggest, retests of your unfixed mistakes, and random spot-checks once the bank is used up.</p>
         <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0;">
           <label>Target % <input type="number" id="plTarget" value="95" min="50" max="100" style="width:64px;" onchange="renderPlanner()"></label>
           <label>Explore % <input type="number" id="plEps" value="15" min="0" max="100" style="width:64px;" onchange="renderPlanner()"></label>
           <label>Half-life (days) <input type="number" id="plHalf" value="14" min="1" style="width:64px;" onchange="renderPlanner()"></label>
           <label>Questions <input type="number" id="plN" value="50" min="1" style="width:64px;" onchange="renderPlanner()"></label>
+          <label>Retest % <input type="number" id="plRe" value="20" min="0" max="100" style="width:64px;" onchange="renderPlanner()"></label>
         </div>
         <div id="plAlloc" class="hint" style="margin-bottom:8px;"></div>
         <div id="plTable"></div>
       </div>
       <div class="card">
         <h3>Full Analysis</h3>
-        <pre class="mono hint" id="analysisText" style="white-space:pre-wrap;max-height:280px;overflow:auto;"></pre>
+        <p class="hint" style="margin-bottom:8px;">Written as a ready-to-paste prompt: context, your data, the planned session, and the questions to ask an AI coach.</p>
+        <label class="row" style="margin-bottom:8px;"><input type="checkbox" id="analysisIncludeMistakes" checked><span style="font-size:.82rem;">Include open mistakes (category + your notes)</span></label>
+        <pre class="mono" id="analysisText" style="white-space:pre-wrap;max-height:420px;overflow:auto;font-size:.75rem;"></pre>
         <div class="row" style="margin-top:10px;">
           <button class="btn" id="btnRefreshAnalysis">Refresh Analysis</button>
-          <button class="btn" id="btnCopyAnalysis">&#128203; Copy</button>
+          <button class="btn primary" id="btnCopyAnalysis">&#128203; Copy as AI Prompt</button>
         </div>
       </div>
     </section>
@@ -3827,7 +3830,7 @@ function refreshAnalysis() {
   if (!progSelectedSubjects.size && !progTouched && subjects.length) progSelectedSubjects.add(subjects[0]);
   renderProgSubjectChecks(subjects);
   drawProgressionChart();
-  renderAnalysisText(ranked, progression);
+  window._aRanked = ranked; window._aProg = progression;   // renderPlanner() rebuilds the prompt text once the session plan exists
   renderExamScopeSelects();
   renderActionPlan(overall, progression);
   renderPlanner();
@@ -3976,7 +3979,7 @@ function plWilsonLower(k, n, z) {
 }
 function computePlannerStats(subjects, target, halfLife) {
   const now = Date.now(), seen = new Set(), st = {}, firstWrong = {};
-  subjects.forEach(sj => st[sj] = { n: 0, k: 0, found: 0, fixed: 0, last: null });
+  subjects.forEach(sj => st[sj] = { n: 0, k: 0, found: 0, fixed: 0, last: null, openRefs: new Set(), okRefs: new Set() });
   const det = loadJson(KEYS.details, []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
   for (const d of det) {
     const t = Date.parse(d.date) || now;
@@ -3989,19 +3992,35 @@ function computePlannerStats(subjects, target, halfLife) {
         seen.add(key);
         const w = Math.pow(0.5, (now - t) / (halfLife * 864e5));
         o.n += w; o.k += w * (it.is_correct ? (it.confidence === "Guess" ? 0.5 : 1) : 0);
-        if (!it.is_correct) { firstWrong[key] = true; o.found++; }
-      } else if (firstWrong[key] === true && it.is_correct) { firstWrong[key] = "fixed"; o.fixed++; }
+        if (!it.is_correct) { firstWrong[key] = true; o.found++; o.openRefs.add(it.reference_no); } else o.okRefs.add(it.reference_no);
+      } else if (firstWrong[key] === true && it.is_correct) { firstWrong[key] = "fixed"; o.fixed++; o.openRefs.delete(it.reference_no); o.okRefs.add(it.reference_no); }
     }
   }
   return st;
 }
-function renderPlanner() {
-  const box = $("plTable"); if (!box) return;
-  const target = (+$("plTarget").value || 95) / 100, eps = Math.min(1, Math.max(0, (+$("plEps").value || 0) / 100));
-  const half = +$("plHalf").value || 14, N = Math.max(1, +$("plN").value || 50);
+// Splits `total` across items by weight, never exceeding cap(item).
+function plSpread(total, items, w, cap) {
+  const out = {}; items.forEach(i => out[i.sj] = 0);
+  let left = total;
+  for (let g = 0; left > 0 && g < 500; g++) {
+    const open = items.filter(i => out[i.sj] < cap(i));
+    if (!open.length) break;
+    const W = open.reduce((a, i) => a + w(i), 0) || 1;
+    let given = 0;
+    open.forEach(i => { const q = Math.min(cap(i) - out[i.sj], Math.floor(left * w(i) / W)); out[i.sj] += q; given += q; });
+    if (!given) { open.sort((a, b) => w(b) - w(a)); out[open[0].sj]++; given = 1; }
+    left -= given;
+  }
+  return out;
+}
+let plannerPlan = null;
+function computePlan() {
+  const g = id => +$(id).value;
+  const target = (g("plTarget") || 95) / 100, eps = Math.min(1, Math.max(0, (g("plEps") || 0) / 100));
+  const rePct = Math.min(1, Math.max(0, (g("plRe") || 0) / 100)), half = g("plHalf") || 14, N = Math.max(1, g("plN") || 50);
   const lists = getAllLists(), cov = computeCoverage(lists), scope = getScopeSubjects();
   const subjects = (scope && scope.length ? scope : Object.keys(lists)).filter(n => lists[n]);
-  if (!subjects.length) { box.innerHTML = '<div class="empty-state">No subjects loaded.</div>'; $("plAlloc").innerHTML = ""; return; }
+  if (!subjects.length) return null;
   const st = computePlannerStats(subjects, target, half), now = Date.now();
   const rows = subjects.map(sj => {
     const o = st[sj], c = cov[sj] || { used: 0, total: 0 }, unseen = c.total - c.used;
@@ -4016,30 +4035,76 @@ function renderPlanner() {
     return { sj, o, unseen, lo, acc, days, gap, open, status };
   });
   const pick = a => a[Math.floor(Math.random() * a.length)];
-  const nEx = Math.round(N * eps), nMain = N - nEx, alloc = {}, line = [];
-  const fresh = rows.filter(r => r.unseen > 0);
-  if (fresh.length) {   // normal mode: draw new questions where the gap is largest
-    const W = fresh.reduce((a, r) => a + r.gap, 0) || 1;
-    fresh.forEach(r => alloc[r.sj] = Math.floor(nMain * r.gap / W));
-    let left = nMain - Object.values(alloc).reduce((a, b) => a + b, 0);
-    fresh.slice().sort((a, b) => b.gap - a.gap).forEach(r => { if (left > 0) { alloc[r.sj]++; left--; } });
-    for (let i = 0; i < nEx; i++) { const r = pick(fresh); alloc[r.sj] = (alloc[r.sj] || 0) + 1; }
-    line.push(`New questions (${N}, ${Math.round(eps * 100)}% random): ` + Object.keys(alloc).filter(k => alloc[k]).sort((a, b) => alloc[b] - alloc[a]).map(k => `${esc(k)}: <b>${alloc[k]}</b>`).join(" &middot; "));
-  } else {   // bank used up: retest unfixed mistakes, weighted by gap, plus random spot-checks
-    const m = rows.filter(r => r.open > 0), W = m.reduce((a, r) => a + r.open * (0.5 + r.gap), 0);
-    if (W > 0) m.forEach(r => alloc[r.sj] = Math.min(r.open, Math.round(nMain * r.open * (0.5 + r.gap) / W)));
-    const rt = Object.keys(alloc).filter(k => alloc[k] > 0).sort((a, b) => alloc[b] - alloc[a]);
-    line.push("Question bank is used up. " + (rt.length ? `Retest your unfixed mistakes: ` + rt.map(k => `${esc(k)}: <b>${alloc[k]}</b>`).join(" &middot; ") : "All logged mistakes have been retested correctly."));
-    const pool = rows.filter(r => r.o.n > 0), sc = [];
-    for (let i = 0; i < Math.min(nEx, pool.length); i++) { const r = pick(pool.filter(x => !sc.includes(x))); sc.push(r); }
-    if (sc.length) line.push(`Random spot-checks (${nEx} slots, to catch forgetting): ` + sc.map(r => esc(r.sj)).join(", "));
-    const need = rows.filter(r => r.status === "Weak" || r.status === "Stale").sort((a, b) => b.gap - a.gap).slice(0, 5);
-    if (need.length) line.push("Best places to add NEW questions: " + need.map(r => esc(r.sj)).join(", "));
+  const A = {}; rows.forEach(r => A[r.sj] = { nw: 0, ex: 0, reRefs: [], spRefs: [] });
+  const nEx = Math.round(N * eps), fresh = rows.filter(r => r.unseen > 0), withOpen = rows.filter(r => r.o.openRefs.size > 0);
+  const totalOpen = withOpen.reduce((a, r) => a + r.o.openRefs.size, 0);
+  const nRe = Math.min(fresh.length ? Math.round(N * rePct) : N - nEx, totalOpen);
+  const reA = plSpread(nRe, withOpen, r => r.open * (0.5 + r.gap) || 0.01, r => r.o.openRefs.size);
+  withOpen.forEach(r => A[r.sj].reRefs = shuffleInPlace(Array.from(r.o.openRefs)).slice(0, reA[r.sj]));
+  let mode = "new", addNew = [];
+  if (fresh.length) {
+    const nwA = plSpread(Math.max(0, N - nRe - nEx), fresh, r => r.gap || 0.01, r => r.unseen);
+    for (let i = 0; i < nEx; i++) { const c = fresh.filter(r => nwA[r.sj] < r.unseen); if (!c.length) break; const r = pick(c); nwA[r.sj]++; A[r.sj].ex++; }
+    fresh.forEach(r => A[r.sj].nw = nwA[r.sj]);
+  } else {
+    mode = "bank used up";
+    const pool = rows.filter(r => r.o.okRefs.size > 0);
+    for (let i = 0; i < nEx && pool.length; i++) {
+      const r = pick(pool), cand = Array.from(r.o.okRefs).filter(x => !A[r.sj].spRefs.includes(x));
+      if (cand.length) A[r.sj].spRefs.push(pick(cand));
+    }
+    addNew = rows.filter(r => r.status === "Weak" || r.status === "Stale").sort((a, b) => b.gap - a.gap).slice(0, 5).map(r => r.sj);
   }
-  $("plAlloc").innerHTML = line.join("<br>");
-  const pc = v => v === null ? "&ndash;" : (v * 100).toFixed(1) + "%";
+  const ACT = { Unexplored: "Baseline", Weak: "Drill + fix", Stale: "Refresh", Converged: "Maintain", Uncertain: "Build confidence" };
+  rows.forEach(r => {
+    const a = A[r.sj];
+    a.total = a.nw + a.reRefs.length + a.spRefs.length;
+    a.act = ACT[r.status];
+    a.why = [r.o.n ? `gap ${(r.gap * 100).toFixed(0)} pts` : "no data yet", r.open ? `${r.open} open` : "", r.days !== null ? `last ${r.days}d ago` : ""].filter(Boolean).join(", ");
+  });
+  const total = rows.reduce((t, r) => t + A[r.sj].total, 0);
+  return { N, target, eps, rows, A, mode, addNew, total, nRe: rows.reduce((t, r) => t + A[r.sj].reRefs.length, 0) };
+}
+function plannerBuildQuestions(plan, only) {
+  const lists = getAllLists(), seen = new Set(), out = [];
+  const add = q => { if (!q) return; const k = q._source_list + "::" + q._source_index; if (seen.has(k)) return; seen.add(k); out.push(q); };
+  for (const r of plan.rows) {
+    if (only && r.sj !== only) continue;
+    const a = plan.A[r.sj];
+    a.reRefs.concat(a.spRefs).forEach(ref => add((lists[r.sj] || [])[+ref - 1]));
+    if (a.nw) evenSample(lists, [r.sj], a.nw, true).forEach(add);
+  }
+  return shuffleInPlace(out);
+}
+function startPlannerSession(only) {
+  if (!plannerPlan) return;
+  const qs = plannerBuildQuestions(plannerPlan, only), ex = getActiveExam(), scope = getScopeSubjects();
+  if (!qs.length) { toast("Nothing to draw for this plan."); return; }
+  requestStartExam(`${ex && scope ? ex.label + " - " : ""}${only ? only + " Planner Drill" : "Planner Session"}`, qs);
+}
+function renderPlanner() {
+  const box = $("plTable"); if (!box) return;
+  const plan = plannerPlan = computePlan(), al = $("plAlloc");
+  const rebuild = () => { if (window._aRanked) renderAnalysisText(window._aRanked, window._aProg || {}); };
+  if (!plan) { box.innerHTML = '<div class="empty-state">No subjects loaded.</div>'; al.innerHTML = ""; rebuild(); return; }
+  const rows = plan.rows, pc = v => v === null ? "&ndash;" : (v * 100).toFixed(1) + "%";
+  const live = rows.filter(r => plan.A[r.sj].total > 0).sort((a, b) => plan.A[b.sj].total - plan.A[a.sj].total);
+  const head = plan.mode === "new"
+    ? `Biggest gaps get the most new questions${plan.nRe ? `; ${plan.nRe} slot${plan.nRe === 1 ? "" : "s"} retest your unfixed mistakes` : ""}; explore slots are random.`
+    : "The question bank is used up: retesting unfixed mistakes plus random spot-checks to catch forgetting." + (plan.addNew.length ? ` Best places to add NEW questions: ${plan.addNew.map(esc).join(", ")}.` : "");
+  al.innerHTML = `<div class="list-item"><div class="top-row"><span class="name">Next session &middot; ${plan.total} question${plan.total === 1 ? "" : "s"}</span><span class="exam-days">${plan.mode}</span></div><div class="meta">${head}</div></div>` +
+    (live.length ? `<div class="table-wrap"><table class="data-table"><tr><th>Subject</th><th>Do</th><th>New</th><th>Retest</th><th>Spot</th><th>Why</th><th></th></tr>` +
+      live.map(r => { const a = plan.A[r.sj]; return `<tr><td>${esc(r.sj)}</td><td>${a.act}</td><td>${a.nw}${a.ex ? ` <span style="color:var(--sub);">(${a.ex} explore)</span>` : ""}</td><td>${a.reRefs.length}</td><td>${a.spRefs.length}</td><td style="color:var(--sub);">${a.why}</td><td><button class="btn link" data-pl="drill" data-sj="${esc(r.sj)}">Drill &#9654;</button></td></tr>`; }).join("") + `</table></div>` : `<div class="empty-state">Nothing to schedule: no unseen questions and no open mistakes.</div>`) +
+    `<div class="row wrap" style="margin-top:8px;"><button class="btn primary" data-pl="start">Start Session &#9654;</button><button class="btn" data-pl="reroll">Re-roll</button></div>`;
+  al.onclick = e => {
+    const b = e.target.closest("[data-pl]"); if (!b) return;
+    if (b.dataset.pl === "start") startPlannerSession();
+    else if (b.dataset.pl === "drill") startPlannerSession(b.dataset.sj);
+    else renderPlanner();
+  };
   box.innerHTML = `<div class="table-wrap"><table class="data-table"><tr><th>Subject</th><th>First-seen acc</th><th>Lower bound</th><th>Gap</th><th>Unseen</th><th>Found</th><th>Fixed</th><th>Open</th><th>Days</th><th>Status</th></tr>` +
-    rows.sort((a, b) => b.gap - a.gap).map(r => `<tr><td>${esc(r.sj)}</td><td>${pc(r.acc)}</td><td>${r.o.n ? pc(r.lo) : "&ndash;"}</td><td>${pc(r.gap)}</td><td>${r.unseen}</td><td>${r.o.found}</td><td>${r.o.fixed}</td><td>${r.open}</td><td>${r.days === null ? "&ndash;" : r.days}</td><td>${r.status}</td></tr>`).join("") + `</table></div>`;
+    rows.slice().sort((a, b) => b.gap - a.gap).map(r => `<tr><td>${esc(r.sj)}</td><td>${pc(r.acc)}</td><td>${r.o.n ? pc(r.lo) : "&ndash;"}</td><td>${pc(r.gap)}</td><td>${r.unseen}</td><td>${r.o.found}</td><td>${r.o.fixed}</td><td>${r.open}</td><td>${r.days === null ? "&ndash;" : r.days}</td><td>${r.status}</td></tr>`).join("") + `</table></div>`;
+  rebuild();
 }
 function renderActionPlan(overall, progression) {
   const box = $("actionPlanBox");
@@ -4161,47 +4226,65 @@ function renderActionPlan(overall, progression) {
 }
 
 function renderAnalysisText(ranked, progression) {
-  const lines = [];
-  const sep = "=".repeat(60), sub = "-".repeat(60);
-  lines.push(sep, "STUDY PRIORITY ANALYSIS", sep);
-  lines.push(`Generated:          ${new Date().toLocaleString()}`);
-  const exA = getActiveExam();
-  if (exA && getScopeSubjects()) lines.push(`Exam focus:         ${exA.label} (${exA.date})`);
-  lines.push(`Subjects with data: ${ranked.length}`, "");
-  lines.push(sub);
-  for (const [rank, [subj, stats]] of ranked.map((r, i) => [i + 1, r])) {
-    lines.push(`${rank}. ${subj} -- Priority ${stats.weighted_pct.toFixed(1)}% | RawAcc ${stats.accuracy_pct.toFixed(1)}% (${stats.total_correct}/${stats.total_answered}) | Overconfident ${stats.overconfident_wrong} | Sample size n=${stats.total_answered} answered${stats.total_answered < 10 ? " (LOW - treat with caution)" : ""} | Samples ${stats.n_exams}`);
-  }
-  const { ticks: sampleTicks, sNum } = progressionSamples(progression);
-  lines.push("", sep, "SAMPLE KEY (S# = the test; n = questions answered per subject)", sep);
-  if (sampleTicks.length) {
-    for (const [k, e0] of sampleTicks) {
-      const per = Object.keys(progression).sort().map(sj => {
-        const e = progression[sj].find(x => progKeyOf(x) === k);
-        return e ? `${sj} n=${e.n_answered}` : null;
-      }).filter(Boolean).join(", ");
-      lines.push(`S${sNum.get(k)}  ${(e0.date || "").slice(0, 10)}  ${e0.exam_source || ""}  [${per}]`);
+  const cut = (t, n) => { t = String(t || "").replace(/\s+/g, " ").trim(); return t.length > n ? t.slice(0, n - 1) + "\u2026" : t; };
+  const ex = getActiveExam(), scope = getScopeSubjects(), P = plannerPlan, L = [];
+  const dl = ex && scope ? daysUntil(ex.date) : null;
+  L.push("You are my board-exam study coach. Analyze my practice-test data below and give me a concrete, prioritized plan.", "", "## CONTEXT");
+  L.push(`- Exam: ${ex && scope ? `${ex.label}, ${ex.date}${dl >= 0 ? ` (${dl} day(s) left)` : " (date has passed)"}` : "board exam (no exam focus selected)"}`);
+  if (scope) L.push(`- Subjects on this exam: ${scope.join(", ")}`);
+  L.push(`- Target per subject: ${P ? Math.round(P.target * 100) : 95}%`, `- Data as of: ${new Date().toLocaleDateString()}`,
+    "- Priority % = confidence-weighted score (a correct guess counts less than a sure correct answer; a confident wrong answer counts against me more). RawAcc = correct/answered. Overconfident = wrong answers I was confident about (my riskiest gaps). n = questions answered; treat n < 10 as unreliable.", "");
+  L.push("## SUBJECT RANKING (most urgent first)");
+  ranked.forEach(([sj, t], i) => L.push(`${i + 1}. ${sj}: Priority ${t.weighted_pct.toFixed(1)}%, RawAcc ${t.accuracy_pct.toFixed(1)}% (${t.total_correct}/${t.total_answered}), Overconfident ${t.overconfident_wrong}, ${t.n_exams} sample(s)${t.total_answered < 10 ? ", LOW n" : ""}`));
+  const un = scope ? scope.filter(n => !ranked.some(r => r[0] === n)) : [];
+  if (un.length) L.push(`Not yet assessed: ${un.join(", ")}`);
+  if (!ranked.length && !un.length) L.push("(no exams taken yet)");
+
+  if ($("analysisIncludeMistakes").checked) {
+    const log = loadMistakeLog().filter(e => !scope || scope.includes(e.source_list));
+    L.push("", "## MISTAKE PATTERNS (from my mistake log)");
+    const subs = Array.from(new Set(log.map(e => e.source_list))).sort();
+    if (!subs.length) L.push("(nothing logged yet)");
+    for (const sj of subs) {
+      const mine = log.filter(e => e.source_list === sj), open = mine.filter(e => !e.resolved), cats = {};
+      open.forEach(e => { const c = e.category || "Not categorized yet"; cats[c] = (cats[c] || 0) + 1; });
+      L.push(`${sj}: ${open.length} open, ${mine.length - open.length} resolved. Open causes: ${Object.entries(cats).sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c} (${n})`).join(", ") || "none"}`);
+      open.filter(e => e.note || e.category).slice(0, 5).forEach(e => L.push(`  - #${e.reference_no} [${e.category || "uncategorized"}] ${cut(e.question, 110)}${e.note ? ` | my note: ${cut(e.note, 140)}` : ""}`));
     }
-  } else {
-    lines.push("(no exams taken yet)");
   }
-  lines.push("", sep, "PROGRESSION PER SUBJECT (raw accuracy, n = answered)", sep);
-  const subjects = Object.keys(progression).sort();
-  if (subjects.length) {
-    for (const subj of subjects) {
-      const parts = progression[subj].map(entry => `S${sNum.get(progKeyOf(entry))}: ${entry.accuracy_pct != null ? entry.accuracy_pct.toFixed(1) + "%" : "n/a"} (n=${entry.n_answered})`);
-      lines.push(`${subj}: ` + parts.join(" -> "));
-    }
-  } else {
-    lines.push("(no exams taken yet)");
+
+  const { ticks, sNum } = progressionSamples(progression), subjects = Object.keys(progression).sort();
+  L.push("", "## TREND (S# = sample/test in date order; n = questions answered in that subject)");
+  if (ticks.length) {
+    ticks.forEach(([k, e0]) => L.push(`S${sNum.get(k)} = ${(e0.date || "").slice(0, 10)} ${e0.exam_source || ""}`));
+    subjects.forEach(sj => L.push(`${sj}: ` + progression[sj].map(e => `S${sNum.get(progKeyOf(e))} ${e.accuracy_pct != null ? e.accuracy_pct.toFixed(0) : "n/a"}% raw / ${e.weighted_pct != null ? e.weighted_pct.toFixed(0) : "n/a"}% wtd (n=${e.n_answered})`).join(" -> ")));
+  } else L.push("(no exams taken yet)");
+
+  if (P) {
+    L.push("", `## PLANNED NEXT SESSION (${P.total} questions, mode: ${P.mode})`);
+    P.rows.filter(r => P.A[r.sj].total > 0).sort((a, b) => P.A[b.sj].total - P.A[a.sj].total).forEach(r => {
+      const a = P.A[r.sj];
+      L.push(`${r.sj}: ${a.act}; ${a.nw} new, ${a.reRefs.length} retest of open mistakes, ${a.spRefs.length} spot-check (${r.status}; ${a.why})`);
+    });
+    if (P.addNew.length) L.push(`Question bank is used up. Subjects most needing NEW material: ${P.addNew.join(", ")}`);
   }
-  const text = lines.join("\n");
+
+  L.push("", "## WHAT I WANT FROM YOU",
+    "1. Diagnose each subject in 1-2 sentences, citing the numbers and flagging any conclusion that rests on a small n.",
+    "2. Name my top 3 priorities and why, weighing overconfident errors above plain low accuracy.",
+    "3. Review the planned next session: keep it, or change it and tell me why.",
+    `4. Give me a day-by-day schedule ${dl !== null && dl > 0 ? `for the ${Math.min(dl, 14)} day(s) ahead (exam in ${dl})` : "for the next 7 days"} with time split per subject, including when to retest old mistakes.`,
+    "5. Find patterns in my mistake causes and give one specific fix per pattern.",
+    "6. Tell me what extra data would make this analysis more reliable.",
+    "Be concise and specific, with no filler. State any assumption you make.");
+  const text = L.join("\n");
   $("analysisText").textContent = text;
   window._analysisReportStr = text;
 }
+$("analysisIncludeMistakes").addEventListener("change", () => { if (window._aRanked) renderAnalysisText(window._aRanked, window._aProg || {}); });
 $("btnRefreshAnalysis").addEventListener("click", refreshAnalysis);
 $("btnCopyAnalysis").addEventListener("click", async () => {
-  try { await navigator.clipboard.writeText(window._analysisReportStr || ""); toast("Copied to clipboard."); }
+  try { await navigator.clipboard.writeText(window._analysisReportStr || ""); toast("Prompt copied to clipboard."); }
   catch (e) { toast("Couldn't access clipboard."); }
 });
 
