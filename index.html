@@ -5707,12 +5707,13 @@ function buildReviewerPrompt() {
   L.push("",
     "Below are the questions I struggled with, collected from my practice tests. Each appears once, with the reasons it made the list.",
     "Using them as a map of my weak spots, create an in-depth, tailored reviewer. For each subject:",
-    "1. Identify the underlying concepts and sub-topics these questions point to, and group the questions by those themes.",
-    "2. Explain each concept clearly, including why the correct answer is right and why my chosen answer was tempting but wrong.",
-    "3. Add closely related facts, formulas or distinctions likely to be tested that I did not directly miss.",
-    "4. Give memory aids (mnemonics, comparison tables, step-by-step methods) where useful.",
-    "5. Finish with new practice questions of the same style, with answers and short explanations.",
-    "Prioritize items marked \"confident but wrong\" and repeated misses, since those are my biggest blind spots.", "");
+    "1. Classify the question contents per subject into the fundamental topics that they covered",
+    "2. Explain, elaborate, and extend the concepts into first principle explanations that will provide and solidify the necessary foundations to increase my first seen accuracy.",
+    "3. Provide explanations that go beyond the syntax of the questions but rather focus in its fundamental learning objectives",
+    "4. Mistakes logged as "Other" is understood to be due to question bank errors and ambiguity, go beyond this and instead extract the underlying concepts instead.",
+    "5. Go beyond the answer keys and instead explain the first principles directly.",
+    "6. Give memory aids (mnemonics, comparison tables, step-by-step methods) where useful.",
+    "Prioritize items marked \"confident but wrong\" and repeated misses, since those are my biggest blind spots while treating slightly confident and guess tags as coverage issues", "");
   let bySubj = "", n = 0;
   for (const e of entries) {
     const g = e.g;
