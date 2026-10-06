@@ -5964,7 +5964,8 @@ function buildReviewerPrompt() {
     "4. Mistakes logged as Other is understood to be due to question bank errors and ambiguity, go beyond this and instead extract the underlying concepts instead.",
     "5. Go beyond the answer keys and instead explain the first principles directly.",
     "6. Give memory aids (mnemonics, comparison tables, step-by-step methods) where useful.",
-    "Prioritize items marked \"confident but wrong\" and repeated misses, since those are my biggest blind spots while treating slightly confident and guess tags as coverage issues", "");
+    "Create a two part reviewer where part 1 prioritizes items marked \"confident but wrong\" and repeated misses, since those are my biggest blind spots while volume 2 is focused on enhancing my coverage in the concepts that questions with slightly confident and guess tags address", "");
+
   let bySubj = "", n = 0;
   for (const e of entries) {
     const g = e.g;
