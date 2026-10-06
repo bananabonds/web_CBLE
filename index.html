@@ -340,6 +340,38 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
 .rv-attempt{font-size:.74rem;color:var(--sub);font-family:"IBM Plex Mono",monospace;padding:4px 0;border-top:1px dashed var(--line);}
 .rv-attempt.ok b{color:var(--green);} .rv-attempt.bad b{color:var(--red);}
 .rv-note{font-size:.78rem;margin-top:6px;white-space:pre-wrap;background:var(--paper);border-radius:6px;padding:6px 8px;}
+/* ---------- Section sidebar (per-tab quick navigation) ---------- */
+.card{scroll-margin-top:calc(124px + env(safe-area-inset-top, 0px));}
+#secNav{display:none;position:fixed;top:140px;left:max(10px, calc(50% - 590px));width:200px;
+  max-height:calc(100vh - 170px);overflow-y:auto;z-index:30;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:8px;}
+#secNav .sn-title,.sn-sheet-title{font-size:.68rem;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.04em;padding:4px 8px 6px;}
+.sn-link{display:block;width:100%;text-align:left;border:none;background:none;color:var(--sub);
+  font-size:.8rem;font-weight:600;line-height:1.3;padding:7px 8px;border-radius:6px;border-left:3px solid transparent;cursor:pointer;}
+.sn-link:hover{background:var(--paper);}
+.sn-link.active{background:#EEF2FF;color:var(--navy);border-left-color:var(--navy);}
+#secNavBtn{position:fixed;right:14px;bottom:calc(18px + env(safe-area-inset-bottom, 0px));z-index:45;
+  background:var(--navy);color:#fff;border:none;border-radius:999px;padding:11px 16px;font-size:.82rem;font-weight:700;
+  box-shadow:0 4px 14px rgba(17,24,39,.28);}
+#secNavBtn:active{background:var(--navy-dark);}
+#secNavSheet .sheet-inner{padding-top:10px;}
+#secNavSheet .sn-link{font-size:.92rem;padding:12px 10px;}
+@media (min-width:1180px){
+  #secNav{display:block;}
+  #secNavBtn{display:none;}
+}
+
+/* ---------- Daily answered bar chart ---------- */
+.dc-range{display:flex;gap:6px;margin-bottom:10px;}
+.dc-range button{flex:1;border:1px solid var(--line);background:var(--paper);color:var(--sub);border-radius:8px;padding:7px 4px;font-size:.78rem;font-weight:700;}
+.dc-range button.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+.dc-stats{display:flex;gap:8px;margin-bottom:8px;}
+.dc-stats > div{flex:1;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:8px 4px;text-align:center;}
+.dc-stats b{display:block;font-family:"IBM Plex Mono",monospace;color:var(--navy);font-size:1rem;}
+.dc-stats span{font-size:.66rem;color:var(--sub);}
+.dc-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.dc-bar{cursor:pointer;}
+#dailyChartTip{min-height:1.2em;margin-top:6px;font-size:.78rem;font-weight:600;color:var(--navy);text-align:center;}
 </style>
 </head>
 <body>
@@ -364,6 +396,15 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
     <button class="tabchip" data-tab="mistakes">Mistake Log</button>
     <button class="tabchip" data-tab="reviewer">Reviewer</button>
     <button class="tabchip" data-tab="editor">Local Banks</button>
+  </div>
+
+  <nav id="secNav" aria-label="Sections on this tab"></nav>
+  <button id="secNavBtn" aria-label="Jump to a section on this tab">&#9776; Sections</button>
+  <div class="sheet hidden" id="secNavSheet">
+    <div class="sheet-inner">
+      <div class="sn-sheet-title">Jump to section</div>
+      <div id="secNavSheetList"></div>
+    </div>
   </div>
 
   <main>
@@ -414,6 +455,19 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
       <div class="card" id="homeMilestonesCard">
         <h3>Questions Answered</h3>
         <div id="homeMilestonesStat"></div>
+      </div>
+
+      <div class="card" id="homeDailyCard">
+        <h3>Questions Answered per Day</h3>
+        <div class="dc-range" id="dailyRange">
+          <button data-days="14">14 days</button>
+          <button data-days="30">30 days</button>
+          <button data-days="0">All time</button>
+        </div>
+        <div id="dailyChartStats"></div>
+        <div class="dc-scroll" id="dailyChartBox"></div>
+        <div id="dailyChartTip">Tap a bar to see that day.</div>
+        <p class="hint" style="margin-top:6px;">Follows the exam focus selected above. Dashed line = daily average over the range; empty days count as zero.</p>
       </div>
 
       <div class="card">
@@ -524,7 +578,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
         <pre class="mono hint" id="previewBox" style="white-space:pre-wrap;">Nothing generated yet.</pre>
       </div>
 
-      <div class="card">
+      <div class="card" data-nav="Save Sample">
         <label class="field-label">Sample name</label>
         <input type="text" id="sampleNameInput" placeholder="Sample_20260101_120000">
         <div class="row" style="margin-top:10px;">
@@ -549,7 +603,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
         </select>
         <div id="savedContainer"></div>
       </div>
-      <div class="card">
+      <div class="card" data-nav="Sample Actions">
         <div class="row wrap">
           <button class="btn success" id="btnStartFromSaved">Start Exam &#9654;</button>
           <button class="btn" id="btnViewComposition">View Composition</button>
@@ -599,7 +653,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
         <div id="historyTrendChart" class="chart-wrap" style="margin-top:12px;"></div>
         <div id="historyTrendSubjectTable" style="margin-top:12px;"></div>
       </div>
-      <div class="card">
+      <div class="card" data-nav="History Actions">
         <div class="row wrap">
           <button class="btn" id="btnRefreshHistory">Refresh</button>
           <button class="btn danger" id="btnClearHistory">Clear History</button>
@@ -2287,6 +2341,7 @@ function refreshHome() {
   renderExamCountdowns();
   renderWeakestSubjectSpotlight();
   renderQuestionsMilestones();
+  renderDailyAnswered();
   renderStreakAndHeatmap();
   renderDueForReview();
   renderHomeMistakes();
@@ -2896,6 +2951,184 @@ function renderQuestionsMilestones() {
     <div class="row wrap" style="margin-top:10px;gap:6px;">${badgeRow}</div>`;
 }
 
+/* =====================================================================
+   Section sidebar: auto-built from the cards of whichever tab is open
+   ===================================================================== */
+const SecNav = (() => {
+  let links = [];            // [{card, label}]
+  let rebuildTimer = null;
+
+  function cardLabel(card, idx) {
+    if (card.dataset.nav) return card.dataset.nav;
+    const h = card.querySelector("h3");
+    if (h) {
+      const c = h.cloneNode(true);
+      c.querySelectorAll(".count").forEach(n => n.remove());
+      const t = c.textContent.replace(/\s+/g, " ").trim();
+      if (t) return t.replace(/\s*\(most urgent first\)|\s*\(most frequent first\)/i, "");
+    }
+    return "Section " + (idx + 1);
+  }
+
+  function visibleCards() {
+    const panel = document.querySelector(".panel.active");
+    if (!panel) return [];
+    return [...panel.querySelectorAll(":scope > .card")].filter(c => c.offsetParent !== null);
+  }
+
+  function build() {
+    const cards = visibleCards();
+    links = cards.map((card, i) => ({ card, label: cardLabel(card, i) }));
+    const mk = (cls) => links.map((l, i) =>
+      `<button class="sn-link ${cls}" data-i="${i}">${esc(l.label)}</button>`).join("");
+    $("secNav").innerHTML = `<div class="sn-title">On this tab</div>` + mk("");
+    $("secNavSheetList").innerHTML = mk("");
+    const show = links.length > 1;
+    $("secNavBtn").style.display = show ? "" : "none";
+    if (!show) $("secNav").style.display = "none"; else $("secNav").style.display = "";
+    spy();
+  }
+
+  function spy() {
+    if (!links.length) return;
+    const line = 150;   // just below the sticky app bar + tab strip
+    let cur = 0;
+    links.forEach((l, i) => { if (l.card.getBoundingClientRect().top <= line + 8) cur = i; });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = links.length - 1;
+    document.querySelectorAll(".sn-link").forEach(b => b.classList.toggle("active", +b.dataset.i === cur));
+    const act = document.querySelector("#secNav .sn-link.active");
+    if (act) { const nav = $("secNav"); const r = act.getBoundingClientRect(), nr = nav.getBoundingClientRect();
+      if (r.top < nr.top || r.bottom > nr.bottom) act.scrollIntoView({ block: "nearest" }); }
+  }
+
+  function go(i) {
+    const l = links[i]; if (!l) return;
+    l.card.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function schedule() { clearTimeout(rebuildTimer); rebuildTimer = setTimeout(build, 120); }
+
+  function init() {
+    const onClick = (e) => {
+      const b = e.target.closest(".sn-link"); if (!b) return;
+      go(+b.dataset.i);
+      $("secNavSheet").classList.add("hidden");
+    };
+    $("secNav").addEventListener("click", onClick);
+    $("secNavSheetList").addEventListener("click", onClick);
+    $("secNavBtn").addEventListener("click", () => { build(); $("secNavSheet").classList.remove("hidden"); });
+    $("secNavSheet").addEventListener("click", (e) => { if (e.target === $("secNavSheet")) $("secNavSheet").classList.add("hidden"); });
+    window.addEventListener("scroll", spy, { passive: true });
+    window.addEventListener("resize", spy);
+    // cards get shown/hidden and re-rendered by each tab's own code, so refresh the list when the panel changes
+    new MutationObserver(schedule).observe(document.querySelector("main"),
+      { childList: true, subtree: true, attributes: true, attributeFilter: ["style", "class", "hidden"] });
+    build();
+  }
+  return { init, build, schedule };
+})();
+
+/* =====================================================================
+   Questions answered per day (bar chart)
+   ===================================================================== */
+const DAILY_RANGE_KEY = "cble.dailyChartRange";
+function getDailyRange() {
+  try { const v = localStorage.getItem(DAILY_RANGE_KEY); if (v !== null && ["0", "14", "30"].includes(v)) return +v; } catch (e) {}
+  return 14;
+}
+function computeAnsweredByDate(scope) {
+  const details = loadJson(KEYS.details, []);
+  const scopeSet = scope && scope.length ? new Set(scope) : null;
+  const byDate = {};
+  for (const d of details) {
+    const day = dateOnly(d.date);
+    if (!day) continue;
+    for (const item of (d.items || [])) {
+      if (scopeSet && !scopeSet.has(item.source_list)) continue;
+      if (item.is_answered) byDate[day] = (byDate[day] || 0) + 1;
+    }
+  }
+  return byDate;
+}
+function addDaysStr(dateStr, n) {
+  const d = new Date(dateStr + "T00:00:00Z"); d.setUTCDate(d.getUTCDate() + n);
+  return d.toISOString().slice(0, 10);
+}
+function renderDailyAnswered() {
+  const box = $("dailyChartBox"); if (!box) return;
+  const range = getDailyRange();
+  document.querySelectorAll("#dailyRange button").forEach(b => b.classList.toggle("active", +b.dataset.days === range));
+
+  const byDate = computeAnsweredByDate(getScopeSubjects());
+  const days = Object.keys(byDate).sort();
+  if (!days.length) {
+    $("dailyChartStats").innerHTML = "";
+    box.innerHTML = `<div class="empty-state">No answered questions yet. Finish a test and your daily totals will show up here.</div>`;
+    $("dailyChartTip").textContent = "";
+    return;
+  }
+  const today = todayDateStr();
+  const end = today > days[days.length - 1] ? today : days[days.length - 1];
+  const start = range ? addDaysStr(end, -(range - 1)) : days[0];
+  const series = [];
+  for (let d = start; d <= end; d = addDaysStr(d, 1)) series.push({ date: d, n: byDate[d] || 0 });
+
+  const total = series.reduce((a, x) => a + x.n, 0);
+  const active = series.filter(x => x.n > 0).length;
+  const avg = total / series.length;
+  const best = series.reduce((a, x) => x.n > a.n ? x : a, series[0]);
+  $("dailyChartStats").innerHTML = `<div class="dc-stats">
+    <div><b>${avg.toFixed(avg < 10 ? 1 : 0)}</b><span>avg / day</span></div>
+    <div><b>${best.n}</b><span>best day</span></div>
+    <div><b>${active}/${series.length}</b><span>days studied</span></div></div>`;
+
+  // SVG bars
+  const padL = 34, padR = 8, padT = 14, padB = 34, H = 200;
+  const avail = (box.clientWidth || 320) - padL - padR;
+  const slot = series.length <= 31 ? Math.max(11, Math.min(26, avail / series.length)) : 14;
+  const W = Math.max(box.clientWidth || 320, padL + padR + slot * series.length);
+  const plotH = H - padT - padB;
+  const rawMax = Math.max(...series.map(x => x.n), 1);
+  const step = rawMax <= 10 ? 2 : rawMax <= 30 ? 5 : rawMax <= 100 ? 20 : rawMax <= 300 ? 50 : 100;
+  const yMax = Math.ceil(rawMax / step) * step;
+  const y = v => padT + plotH - (v / yMax) * plotH;
+  const bw = Math.min(slot - 3, 22);
+  let g = "";
+  for (let v = 0; v <= yMax; v += step) {
+    g += `<line x1="${padL}" x2="${W - padR}" y1="${y(v)}" y2="${y(v)}" stroke="#E1E4E9" stroke-width="1"/>
+      <text x="${padL - 5}" y="${y(v) + 3}" text-anchor="end" font-size="9" fill="#4B5563" font-family="IBM Plex Mono, monospace">${v}</text>`;
+  }
+  const labelEvery = slot >= 20 ? 1 : slot >= 14 ? 2 : 3;
+  series.forEach((x, i) => {
+    const cx = padL + slot * i + slot / 2;
+    const h = (x.n / yMax) * plotH;
+    const isToday = x.date === today;
+    const fill = x.n === 0 ? "#E1E4E9" : (isToday ? "#F59E0B" : "#1E3A8A");
+    g += `<rect class="dc-bar" data-date="${x.date}" data-n="${x.n}" x="${cx - bw / 2}" y="${x.n ? y(x.n) : y(0) - 2}" width="${bw}" height="${x.n ? h : 2}" rx="2" fill="${fill}"></rect>`;
+    if (x.n > 0 && slot >= 18) g += `<text x="${cx}" y="${y(x.n) - 3}" text-anchor="middle" font-size="8.5" fill="#111827" font-family="IBM Plex Mono, monospace">${x.n}</text>`;
+    if (i % labelEvery === 0 || i === series.length - 1) {
+      const dt = new Date(x.date + "T00:00:00Z");
+      g += `<text x="${cx}" y="${H - padB + 13}" text-anchor="middle" font-size="9" fill="#4B5563">${dt.getUTCDate()}</text>`;
+      if (dt.getUTCDate() === 1 || i === 0) g += `<text x="${cx}" y="${H - padB + 25}" text-anchor="middle" font-size="9" font-weight="700" fill="#1E3A8A">${dt.toLocaleDateString(undefined, { month: "short", timeZone: "UTC" })}</text>`;
+    }
+  });
+  g += `<line x1="${padL}" x2="${W - padR}" y1="${y(avg)}" y2="${y(avg)}" stroke="#DC2626" stroke-width="1.2" stroke-dasharray="5 4"/>`;
+  box.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Questions answered per day">${g}</svg>`;
+  if (box.scrollWidth > box.clientWidth) box.scrollLeft = box.scrollWidth;   // show the most recent days first
+  $("dailyChartTip").textContent = "Tap a bar to see that day.";
+}
+document.addEventListener("click", (e) => {
+  const bar = e.target.closest && e.target.closest(".dc-bar");
+  if (!bar) return;
+  const n = +bar.dataset.n;
+  $("dailyChartTip").textContent = `${formatDateNice(bar.dataset.date)}: ${n} question${n === 1 ? "" : "s"} answered`;
+});
+$("dailyRange").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  try { localStorage.setItem(DAILY_RANGE_KEY, b.dataset.days); } catch (err) {}
+  renderDailyAnswered();
+});
+
 function renderHomeMistakes() {
   const mistakes = loadMistakeLog();
   const box = $("homeMistakesStat");
@@ -3029,8 +3262,10 @@ function switchTab(name) {
   document.querySelectorAll(".tabchip").forEach(b => b.classList.toggle("active", b.dataset.tab === name));
   document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === `panel-${name}`));
   if (TAB_REFRESH[name]) TAB_REFRESH[name]();
+  SecNav.build();
 }
 document.querySelectorAll(".tabchip").forEach(btn => btn.addEventListener("click", () => switchTab(btn.dataset.tab)));
+SecNav.init();
 
 /* =====================================================================
    Settings / backup sheet
