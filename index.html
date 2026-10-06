@@ -361,6 +361,18 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
   #secNavBtn{display:none;}
 }
 
+/* ---------- Home: merged activity card ---------- */
+.act-grid{display:grid;grid-template-columns:1fr;gap:0;}
+.act-block{padding:12px 0;border-top:1px solid var(--line);}
+.act-block:first-child{border-top:none;padding-top:0;}
+.act-block:last-child{padding-bottom:0;}
+.act-h{font-size:.72rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;}
+@media (min-width:600px){
+  .act-grid{grid-template-columns:1fr 1fr;column-gap:18px;}
+  .act-block:nth-child(2){border-top:none;padding-top:0;}
+  .act-block:nth-child(odd){padding-right:0;}
+}
+
 /* ---------- Daily answered bar chart ---------- */
 .dc-range{display:flex;gap:6px;margin-bottom:10px;}
 .dc-range button{flex:1;border:1px solid var(--line);background:var(--paper);color:var(--sub);border-radius:8px;padding:7px 4px;font-size:.78rem;font-weight:700;}
@@ -498,41 +510,43 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
         <div id="homeDueContainer"></div>
       </div>
 
-      <div class="card">
-        <h3>Mistakes Logged</h3>
-        <div id="homeMistakesStat"></div>
-        <div class="row wrap" style="margin-top:10px;">
-          <span class="hint" style="flex:none;">Compare to:</span>
-          <input type="date" id="homeMistakesDate">
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Assessment Performance</h3>
-        <select class="examScopeSelect" id="homeAssessScope" style="margin-bottom:8px;"></select>
-        <div id="homeAssessSummary" style="margin-bottom:8px;"></div>
-        <div id="homeAssessStat"></div>
-        <div class="row wrap" style="margin-top:10px;">
-          <span class="hint" style="flex:none;">Compare to:</span>
-          <input type="date" id="homeAssessDate">
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Samples Generated</h3>
-        <div id="homeSamplesStat"></div>
-        <div class="row wrap" style="margin-top:10px;">
-          <span class="hint" style="flex:none;">Compare to:</span>
-          <input type="date" id="homeSamplesDate">
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Tests Taken</h3>
-        <div id="homeTestsStat"></div>
-        <div class="row wrap" style="margin-top:10px;">
-          <span class="hint" style="flex:none;">Compare to:</span>
-          <input type="date" id="homeTestsDate">
+      <div class="card" id="homeActivityCard" data-nav="Activity Overview">
+        <h3>Activity Overview</h3>
+        <div class="act-grid">
+          <div class="act-block">
+            <div class="act-h">Mistakes Logged</div>
+            <div id="homeMistakesStat"></div>
+            <div class="row wrap" style="margin-top:10px;">
+              <span class="hint" style="flex:none;">Compare to:</span>
+              <input type="date" id="homeMistakesDate">
+            </div>
+          </div>
+          <div class="act-block">
+            <div class="act-h">Assessment Performance</div>
+            <select class="examScopeSelect" id="homeAssessScope" style="margin-bottom:8px;"></select>
+            <div id="homeAssessSummary" style="margin-bottom:8px;"></div>
+            <div id="homeAssessStat"></div>
+            <div class="row wrap" style="margin-top:10px;">
+              <span class="hint" style="flex:none;">Compare to:</span>
+              <input type="date" id="homeAssessDate">
+            </div>
+          </div>
+          <div class="act-block">
+            <div class="act-h">Samples Generated</div>
+            <div id="homeSamplesStat"></div>
+            <div class="row wrap" style="margin-top:10px;">
+              <span class="hint" style="flex:none;">Compare to:</span>
+              <input type="date" id="homeSamplesDate">
+            </div>
+          </div>
+          <div class="act-block">
+            <div class="act-h">Tests Taken</div>
+            <div id="homeTestsStat"></div>
+            <div class="row wrap" style="margin-top:10px;">
+              <span class="hint" style="flex:none;">Compare to:</span>
+              <input type="date" id="homeTestsDate">
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2963,7 +2977,6 @@ const SecNav = (() => {
     const h = card.querySelector("h3");
     if (h) {
       const c = h.cloneNode(true);
-      c.querySelectorAll(".count").forEach(n => n.remove());
       const t = c.textContent.replace(/\s+/g, " ").trim();
       if (t) return t.replace(/\s*\(most urgent first\)|\s*\(most frequent first\)/i, "");
     }
@@ -2973,7 +2986,10 @@ const SecNav = (() => {
   function visibleCards() {
     const panel = document.querySelector(".panel.active");
     if (!panel) return [];
-    return [...panel.querySelectorAll(":scope > .card")].filter(c => c.offsetParent !== null);
+    // every card in the panel, including ones rendered inside wrappers (e.g. the Reviewer sections),
+    // but not cards nested inside another card
+    return [...panel.querySelectorAll(".card")]
+      .filter(c => !c.parentElement.closest(".card") && c.offsetParent !== null);
   }
 
   function build() {
