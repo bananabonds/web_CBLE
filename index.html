@@ -156,6 +156,16 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
 
 .progress-track{height:6px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:6px;}
 .progress-fill{height:100%;background:var(--navy);}
+.progress-stack{display:flex;height:6px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:6px;}
+.progress-stack>div{height:100%;}
+.alloc-row{display:none;gap:6px;align-items:center;flex-wrap:wrap;margin-top:8px;font-size:.78rem;color:var(--sub);}
+.list-item.selected .alloc-row{display:flex;}
+.alloc-row select,.alloc-row input{width:auto;min-width:0;padding:5px 7px;font-size:.8rem;}
+.alloc-row input{width:72px;}
+.alloc-row .alloc-hint{font-family:"IBM Plex Mono",monospace;color:var(--navy);font-weight:600;}
+.size-ctl{gap:6px;margin-top:8px;font-size:.8rem;color:var(--sub);flex-wrap:wrap;}
+.size-ctl select,.size-ctl input{width:auto;min-width:0;padding:5px 7px;font-size:.8rem;}
+.size-ctl input{width:72px;}
 
 .empty-state{padding:22px 10px;text-align:center;color:var(--sub);font-size:.85rem;}
 
@@ -432,7 +442,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
 
       <div class="card" id="homePlannerCard">
         <h3>Adaptive Planner</h3>
-        <p class="hint">Epsilon-greedy over subjects: ranks by (target &minus; pessimistic first-seen accuracy), with old results decayed. Correct guesses count half. The session below is built from real questions: new ones where the gap is biggest, retests of your unfixed mistakes, and random spot-checks once the bank is used up. Follows the exam selected in Your Progress.</p>
+        <p class="hint">Epsilon-greedy over subjects: ranks by (target &minus; pessimistic first-seen accuracy), with old results decayed. Correct guesses count half. The same ranking drives Study Priority, so the two tabs always agree. &ldquo;Unseen&rdquo; and bank progress are counted from the questions you actually answered in tests (not from saved samples), and an open mistake is anything you got wrong last time or haven't resolved in the Mistake Log. Follows the exam selected in Your Progress.</p>
         <div class="field-label" style="margin-top:8px;">Subject status</div>
         <select id="plSubjectSelect" style="margin-bottom:8px;"></select>
         <div id="plSubjectStatus" style="margin-bottom:10px;"></div>
@@ -577,13 +587,21 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
       </div>
 
       <div class="card">
-        <h3>Even Sampling Settings</h3>
-        <label class="field-label">Total questions to sample</label>
+        <h3>Sampling Settings</h3>
+        <label class="field-label">Total questions</label>
         <input type="number" id="totalCountInput" value="50" min="1">
-        <label class="row" style="margin-top:10px;font-size:.82rem;color:var(--sub);">
-          <input type="checkbox" id="preferUnusedInput" checked>
-          <span>Prioritize questions not yet included in any saved sample</span>
-        </label>
+        <p class="hint" style="margin:4px 0 0;">Split evenly across lists set to &ldquo;even share&rdquo;, and the base for &ldquo;% of sample total&rdquo;. Tick a list above to set its own size: an exact number of items, a % of that list, or a % of the sample.</p>
+        <label class="field-label" style="margin-top:12px;">Question pool</label>
+        <select id="poolModeSelect"></select>
+        <p class="hint" style="margin:4px 0 0;">&ldquo;Unanswered&rdquo; means never answered in any test (from Test History), whether or not that test came from a saved sample.</p>
+        <label class="field-label" style="margin-top:12px;">Set a size for every selected list</label>
+        <div class="row wrap" style="gap:6px;">
+          <select id="bulkAllocMode" style="width:auto;"></select>
+          <input type="number" id="bulkAllocVal" value="10" min="0" style="width:80px;">
+          <button class="btn" id="btnBulkAlloc">Apply</button>
+          <button class="btn link" id="btnResetAlloc">Reset to even</button>
+        </div>
+        <div class="mono hint" id="allocSummary" style="margin-top:10px;white-space:pre-wrap;"></div>
         <button class="btn primary block" id="btnGenerateSample" style="margin-top:12px;">Generate Sample &#9654;</button>
       </div>
 
@@ -684,7 +702,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
       </div>
       <div class="card">
         <h3>Study Priority Ranking (most urgent first)</h3>
-        <p class="hint" style="margin-bottom:10px;">Ranking uses a confidence-weighted score, not raw accuracy: a correct guess counts for less than a correct answer you were sure about, and a confident wrong answer counts against you more than an uncertain one.</p>
+        <p class="hint" style="margin-bottom:10px;">Ranked by urgency, the same number the Adaptive Planner uses: <b>Gap</b> = your target minus a cautious estimate of how well you know the subject (first-time accuracy, older results fading, small samples penalised). <b>Priority</b> is the confidence-weighted score over every attempt (a correct guess counts less than a sure answer; a confident wrong answer counts against you more), shown alongside for context. <b>Unique / bank</b> and <b>Open</b> come from your test history and Mistake Log.</p>
         <div id="rankTable"></div>
       </div>
       <div class="card">
@@ -696,7 +714,8 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
         <div class="row wrap" style="margin-bottom:10px;">
           <button class="btn" id="btnPriorityFilterToggle">Filter Subjects</button>
           <select id="prioritySortSelect">
-            <option value="priority">Sort: Priority (lowest first)</option>
+            <option value="urgency">Sort: Urgency (biggest gap to target first)</option>
+            <option value="priority">Sort: Priority % (lowest first)</option>
             <option value="accuracy">Sort: Raw Accuracy (lowest first)</option>
             <option value="alpha">Sort: Alphabetical</option>
           </select>
@@ -1199,6 +1218,8 @@ const KEYS = {
   examProgress: "cble.examProgress",
   tombstones: "cble.tombstones",
   mistakeDrafts: "cble.mistakeDrafts",
+  allocSpecs: "cble.allocSpecs",   // per-list sample size choices in the Sample Builder (this device only)
+  sizePrefs: "cble.sizePrefs",     // Action Plan sample sizes + the shared question-pool choice (this device only)
 };
 
 /* ---------------------------------------------------------------------
@@ -1277,28 +1298,71 @@ function getAllLists() {
   return merged;
 }
 
-function getUsedIndicesByList() {
-  const sampleSets = loadJson(KEYS.samples, []);
+/* ---------------------------------------------------------------------
+   Question usage -- built from TEST HISTORY (exam details), not from saved samples.
+   A question counts as "answered" once it was answered in any test, whether or not
+   that test came from a saved sample (Action Plan, Planner and Baseline sessions
+   never create one). Questions sitting in saved-but-untaken samples are tracked
+   separately as "queued".
+   --------------------------------------------------------------------- */
+function refNumOf(it) {
+  const n = Number(it && it.reference_no);
+  return (it && it.reference_no !== "" && it.reference_no != null && Number.isFinite(n) && n >= 1) ? n : null;
+}
+function getAnsweredIndicesByList() {
   const used = {};
-  for (const s of sampleSets) {
-    for (const q of (s.questions || [])) {
-      const ln = q._source_list, idx = q._source_index;
-      if (ln === undefined || idx === undefined) continue;
-      if (!used[ln]) used[ln] = new Set();
-      used[ln].add(idx);
+  for (const d of loadJson(KEYS.details, [])) {
+    for (const it of (d.items || [])) {
+      if (!it.is_answered || it.source_list == null) continue;
+      const ref = refNumOf(it);
+      if (ref === null) continue;
+      (used[it.source_list] = used[it.source_list] || new Set()).add(ref - 1);
     }
   }
   return used;
 }
+function getQueuedIndicesByList() {
+  const taken = new Set(loadJson(KEYS.history, []).map(h => h.source));
+  const queued = {};
+  for (const smp of loadJson(KEYS.samples, [])) {
+    if (taken.has(smp.name)) continue;   // already taken: its answered questions are in the history instead
+    for (const q of (smp.questions || [])) {
+      const ln = q._source_list, idx = q._source_index;
+      if (ln === undefined || idx === undefined) continue;
+      (queued[ln] = queued[ln] || new Set()).add(idx);
+    }
+  }
+  return queued;
+}
+function getOpenMistakeIndicesByList() {
+  const out = {};
+  for (const e of loadMistakeLog()) {
+    if (e.resolved) continue;
+    const ref = Number(e.reference_no);
+    if (!Number.isFinite(ref) || ref < 1) continue;
+    (out[e.source_list] = out[e.source_list] || new Set()).add(ref - 1);
+  }
+  return out;
+}
+// "Used" = answered in a test OR queued in an untaken sample (what "prefer fresh questions" steers away from).
+function getUsedIndicesByList() {
+  const a = getAnsweredIndicesByList(), q = getQueuedIndicesByList(), used = {};
+  for (const src of [a, q]) for (const k of Object.keys(src)) { used[k] = used[k] || new Set(); src[k].forEach(i => used[k].add(i)); }
+  return used;
+}
 
 function computeCoverage(allLists) {
-  const usedByList = getUsedIndicesByList();
+  const ans = getAnsweredIndicesByList(), que = getQueuedIndicesByList();
   const coverage = {};
   for (const name of Object.keys(allLists)) {
     const total = allLists[name].length;
-    const used = (usedByList[name] || new Set()).size;
-    const pct = total ? (used / total * 100.0) : 0.0;
-    coverage[name] = { used, total, pct };
+    const a = ans[name] || new Set(), q = que[name] || new Set();
+    let answered = 0, queued = 0;
+    a.forEach(i => { if (i < total) answered++; });
+    q.forEach(i => { if (i < total && !a.has(i)) queued++; });
+    const pct = total ? (answered / total * 100.0) : 0.0;
+    const queuedPct = total ? (queued / total * 100.0) : 0.0;
+    coverage[name] = { used: answered, answered, queued, total, pct, queuedPct };
   }
   return coverage;
 }
@@ -1315,34 +1379,113 @@ function sampleWithoutReplacement(arr, want) {
   return shuffle(arr).slice(0, want);
 }
 
-function evenSample(allLists, selectedNames, totalCount, preferUnused = true) {
-  selectedNames = selectedNames.filter(n => allLists[n] && allLists[n].length);
-  const nLists = selectedNames.length;
-  if (nLists === 0 || totalCount <= 0) return [];
+/* ---------------------------------------------------------------------
+   Flexible sampling
+   pool mode:  fresh      = unanswered first, then repeats
+               freshOnly  = never repeat an answered question
+               missed     = your open mistakes first, then unanswered
+               any        = fully random
+   size spec (per list): auto | count | pct_list | pct_total
+   --------------------------------------------------------------------- */
+const POOL_MODES = {
+  fresh: "Unanswered first (repeats only if needed)",
+  freshOnly: "Unanswered only (never repeat)",
+  missed: "Open mistakes first, then unanswered",
+  any: "Any question (fully random)",
+};
+const SIZE_MODES = { auto: "even share", count: "items", pct_list: "% of this list", pct_total: "% of sample total" };
+function loadSizePrefs() { return loadJson(KEYS.sizePrefs, {}) || {}; }
+function getPoolMode() { const m = loadSizePrefs().poolMode; return POOL_MODES[m] ? m : "fresh"; }
+function setPoolMode(m) { const p = loadSizePrefs(); p.poolMode = m; saveJson(KEYS.sizePrefs, p); }
+function getSizePref(id, defVal) {
+  const p = (loadSizePrefs().sizes || {})[id];
+  return (p && p.value > 0 && (p.unit === "items" || p.unit === "pct")) ? p : { unit: "items", value: defVal };
+}
+function setSizePref(id, unit, value) { const p = loadSizePrefs(); p.sizes = p.sizes || {}; p.sizes[id] = { unit, value }; saveJson(KEYS.sizePrefs, p); }
+function resolveSize(pref, base) {
+  if (!base || base < 1) return 0;
+  const v = pref.unit === "pct" ? Math.round(Math.min(100, pref.value) / 100 * base) : Math.round(pref.value);
+  return Math.max(1, Math.min(base, v));
+}
 
-  const usedByList = getUsedIndicesByList();
-  const base = Math.floor(totalCount / nLists);
-  const rem = totalCount % nLists;
-  const counts = {};
-  selectedNames.forEach((name, i) => { counts[name] = base + (i < rem ? 1 : 0); });
-
-  let result = [];
-  for (const name of selectedNames) {
-    const pool = allLists[name] || [];
-    const want = Math.min(counts[name] || 0, pool.length);
-    if (want <= 0) continue;
-    let chosen;
-    if (preferUnused) {
-      const usedIdx = usedByList[name] || new Set();
-      const unused = pool.filter(q => !usedIdx.has(q._source_index));
-      const seen = pool.filter(q => usedIdx.has(q._source_index));
-      chosen = shuffle(unused).concat(shuffle(seen)).slice(0, want);
-    } else {
-      chosen = sampleWithoutReplacement(pool, want);
-    }
-    result = result.concat(chosen);
+function samplingContext() { return { answered: getAnsweredIndicesByList(), queued: getQueuedIndicesByList(), missed: getOpenMistakeIndicesByList() }; }
+function poolCapacity(allLists, name, mode, ctx) {
+  const len = (allLists[name] || []).length;
+  if (mode === "freshOnly") {
+    const a = (ctx && ctx.answered[name]) || new Set();
+    let n = 0; a.forEach(i => { if (i < len) n++; });
+    return len - n;
   }
-  return shuffle(result);
+  return len;
+}
+// How many questions each list gives. Pure arithmetic, so the Builder can preview it live.
+function planAllocation(allLists, specs, totalCount, poolMode, ctx) {
+  ctx = ctx || samplingContext();
+  const counts = {}, notes = {}, autos = [];
+  let fixed = 0;
+  for (const sp of specs) {
+    const len = (allLists[sp.name] || []).length;
+    if (!len) continue;
+    const cap = poolCapacity(allLists, sp.name, poolMode, ctx), v = Number(sp.value);
+    let req = null;
+    if (sp.mode === "count") req = Math.round(v);
+    else if (sp.mode === "pct_list") req = Math.round(v / 100 * len);
+    else if (sp.mode === "pct_total") req = Math.round(v / 100 * (totalCount || 0));
+    if (req === null) { autos.push({ name: sp.name, cap }); counts[sp.name] = 0; continue; }
+    if (!Number.isFinite(req) || req < 0) req = 0;
+    const got = Math.min(req, cap);
+    counts[sp.name] = got;
+    if (got < req) notes[sp.name] = `asked ${req}, only ${got} available`;
+    fixed += got;
+  }
+  let short = 0;
+  if (autos.length) {
+    let left = Math.max(0, (totalCount || 0) - fixed);
+    for (let g = 0; left > 0 && g < 200; g++) {
+      const open = autos.filter(a => counts[a.name] < a.cap);
+      if (!open.length) break;
+      const base = Math.floor(left / open.length), rem = left % open.length;
+      let given = 0;
+      open.forEach((a, i) => { const give = Math.min(a.cap - counts[a.name], base + (i < rem ? 1 : 0)); counts[a.name] += give; given += give; });
+      if (!given) break;
+      left -= given;
+    }
+    short = left;
+  }
+  const total = Object.values(counts).reduce((a, b) => a + b, 0);
+  return { counts, notes, total, short, hasAuto: autos.length > 0, fixed };
+}
+function drawFromList(allLists, name, want, mode, ctx) {
+  const pool = allLists[name] || [];
+  want = Math.min(want, pool.length);
+  if (want <= 0) return [];
+  if (mode === "any") return sampleWithoutReplacement(pool, want);
+  ctx = ctx || samplingContext();
+  const ans = ctx.answered[name] || new Set(), que = ctx.queued[name] || new Set(), mis = ctx.missed[name] || new Set();
+  const tiers = [[], [], [], []];   // open mistakes, never seen, queued in an untaken sample, answered before
+  for (const q of pool) {
+    const i = q._source_index;
+    if (mode === "missed" && mis.has(i) && ans.has(i)) tiers[0].push(q);
+    else if (!ans.has(i) && !que.has(i)) tiers[1].push(q);
+    else if (!ans.has(i)) tiers[2].push(q);
+    else tiers[3].push(q);
+  }
+  const order = mode === "freshOnly" ? [tiers[1], tiers[2]] : tiers;
+  return [].concat(...order.map(shuffle)).slice(0, want);
+}
+function drawAllocation(allLists, counts, mode, ctx) {
+  ctx = ctx || samplingContext();
+  let out = [];
+  for (const name of Object.keys(counts)) out = out.concat(drawFromList(allLists, name, counts[name], mode, ctx));
+  return shuffle(out);
+}
+// Back-compat wrapper: even split, "prefer fresh" or fully random.
+function evenSample(allLists, selectedNames, totalCount, preferUnused = true) {
+  const names = selectedNames.filter(n => allLists[n] && allLists[n].length);
+  if (!names.length || totalCount <= 0) return [];
+  const mode = preferUnused ? "fresh" : "any", ctx = samplingContext();
+  const plan = planAllocation(allLists, names.map(n => ({ name: n, mode: "auto", value: 0 })), totalCount, mode, ctx);
+  return drawAllocation(allLists, plan.counts, mode, ctx);
 }
 
 function saveSampleSet(name, composition, questions, examId) {
@@ -2479,25 +2622,26 @@ function renderWeakestSubjectSpotlight() {
     }
     return;
   }
-  subjectEntries.sort((a, b) => a[1].weighted_pct - b[1].weighted_pct);
+  const spRows = new Map(plannerRows(plannerParams()).map(r => [r.sj, r]));
+  subjectEntries.sort(urgencySorter(spRows));   // same order as the Study Priority ranking
   const [subjectName, stats] = subjectEntries[0];
   const lists = getAllLists();
   const pool = lists[subjectName] || [];
+  const spN = resolveSize(getSizePref("focus:" + subjectName, 10), pool.length);
   const missing = scope ? scope.filter(n => !overall[n]) : [];
   const unassessedNote = missing.length ? `<div class="home-sub" style="margin-top:4px;">Not yet assessed: ${esc(missing.join(", "))}</div>` : "";
 
   box.innerHTML = `<div class="home-bignum" style="font-size:1.3rem;">${esc(subjectName)}</div>
-    <div class="home-sub">${stats.weighted_pct.toFixed(1)}% priority score &middot; ${stats.accuracy_pct.toFixed(1)}% raw accuracy &middot; ${stats.total_answered} answered</div>${unassessedNote}
+    <div class="home-sub">${spRows.get(subjectName) ? `${(spRows.get(subjectName).gap * 100).toFixed(0)}-pt gap to target &middot; ` : ""}${stats.weighted_pct.toFixed(1)}% priority score &middot; ${stats.accuracy_pct.toFixed(1)}% raw accuracy &middot; ${stats.total_answered} answered</div>${unassessedNote}
     ${pool.length
-      ? `<button class="btn primary block" id="btnSpotlightGenerate" style="margin-top:10px;">Generate a 10-Question Sample From This \u25b6</button>`
+      ? `<button class="btn primary block" id="btnSpotlightGenerate" style="margin-top:10px;">Generate a ${spN}-Question Sample From This \u25b6</button>`
       : `<p class="hint" style="margin-top:10px;">This subject's original question list isn't available right now (renamed, deleted, or not synced), so a sample can't be generated automatically.</p>`}`;
 
   if (pool.length) {
     $("btnSpotlightGenerate").addEventListener("click", () => {
-      const count = Math.min(10, pool.length);
-      const questions = evenSample(lists, [subjectName], count, true);
+      const questions = drawFromList(lists, subjectName, spN, getPoolMode());
       if (!questions.length) { toast("Couldn't generate questions from this subject."); return; }
-      requestStartExam(`${subjectName} Focus Sample`, questions);
+      requestStartExam(`${subjectName} Focus Sample`, shuffle(questions));
     });
   }
 }
@@ -3466,6 +3610,28 @@ let listNamesOrder = [];
 let selectedListNames = new Set();
 let generatedQuestions = [];
 let generatedComposition = {};
+let listAllocSpecs = loadJson(KEYS.allocSpecs, {}) || {};
+function getAllocSpec(name) { const s = listAllocSpecs[name]; return (s && SIZE_MODES[s.mode]) ? s : { mode: "auto", value: 10 }; }
+function setAllocSpec(name, mode, value) { listAllocSpecs[name] = { mode, value }; saveJson(KEYS.allocSpecs, listAllocSpecs); }
+function currentAllocSpecs(names) { return names.map(n => Object.assign({ name: n }, getAllocSpec(n))); }
+function selectedBuilderNames() { return Array.from(selectedListNames).filter(n => listNamesOrder.includes(n)); }
+function updateAllocSummary() {
+  const box = $("allocSummary");
+  if (!box) return;
+  const names = selectedBuilderNames();
+  const hints = document.querySelectorAll("#listsContainer .alloc-hint");
+  hints.forEach(h => { h.textContent = ""; });
+  if (!names.length) { box.textContent = "Select lists above, then choose how many questions each one contributes."; return; }
+  const total = parseInt($("totalCountInput").value, 10) || 0;
+  const plan = planAllocation(allLists, currentAllocSpecs(names), total, getPoolMode());
+  hints.forEach(h => { if (h.dataset.name in plan.counts) h.textContent = `→ ${plan.counts[h.dataset.name]}${plan.notes[h.dataset.name] ? " (" + plan.notes[h.dataset.name] + ")" : ""}`; });
+  const needsTotal = currentAllocSpecs(names).some(s => s.mode === "auto" || s.mode === "pct_total");
+  let t = `Plan: ${plan.total} question${plan.total === 1 ? "" : "s"} from ${names.length} list${names.length === 1 ? "" : "s"}.`;
+  if (plan.hasAuto) t += ` Lists on "even share" split the remaining ${Math.max(0, total - plan.fixed)}.`;
+  else t += " Every list has its own size, so the total above is ignored" + (needsTotal ? " except for % of sample total." : ".");
+  if (plan.short > 0) t += ` ${plan.short} short of the total: not enough questions left under the current pool setting.`;
+  box.textContent = t;
+}
 
 function refreshListsDisplay() {
   allLists = getAllLists();
@@ -3483,15 +3649,27 @@ function refreshListsDisplay() {
     box.appendChild(el("div", "empty-state", scopeNow && everyName.length ? "None of this exam's subjects match a current question list. Edit the exam on Home, or tick \u201cAlso show lists outside this exam\u201d." : "No question lists yet. Sync the question bank (gear icon) or add a Local Bank."));
   }
   for (const name of listNamesOrder) {
-    const cov = coverage[name];
+    const cov = coverage[name], spec = getAllocSpec(name);
     const item = el("div", "list-item selectable" + (selectedListNames.has(name) ? " selected" : ""));
     item.innerHTML = `
       <div class="top-row"><span class="name">${esc(name)}</span></div>
-      <div class="meta">Total ${cov.total} &middot; Sampled so far ${cov.used}/${cov.total} (${cov.pct.toFixed(1)}%)</div>
-      <div class="progress-track"><div class="progress-fill" style="width:${cov.pct}%;"></div></div>`;
+      <div class="meta">Total ${cov.total} &middot; Answered in tests ${cov.answered}/${cov.total} (${cov.pct.toFixed(1)}%)${cov.queued ? ` &middot; +${cov.queued} queued in untaken samples` : ""}</div>
+      <div class="progress-stack"><div style="width:${cov.pct}%;background:var(--navy);"></div><div style="width:${cov.queuedPct}%;background:var(--amber);opacity:.6;"></div></div>
+      <div class="alloc-row"><span>Take</span>
+        <select class="alloc-mode">${Object.entries(SIZE_MODES).map(([k, v]) => `<option value="${k}">${v}</option>`).join("")}</select>
+        <input type="number" class="alloc-val" min="0" step="1">
+        <span class="alloc-hint"></span></div>`;
+    const row = item.querySelector(".alloc-row"), ms = item.querySelector(".alloc-mode"), vi = item.querySelector(".alloc-val");
+    item.querySelector(".alloc-hint").dataset.name = name;
+    ms.value = spec.mode; vi.value = spec.value; vi.disabled = spec.mode === "auto";
+    row.addEventListener("click", (e) => e.stopPropagation());   // editing a size must not deselect the list
+    const saveSpec = () => { vi.disabled = ms.value === "auto"; setAllocSpec(name, ms.value, Number(vi.value) || 0); updateAllocSummary(); };
+    ms.addEventListener("change", saveSpec);
+    vi.addEventListener("input", saveSpec);
     item.addEventListener("click", () => {
       if (selectedListNames.has(name)) selectedListNames.delete(name); else selectedListNames.add(name);
       item.classList.toggle("selected");
+      updateAllocSummary();
     });
     box.appendChild(item);
   }
@@ -3503,6 +3681,7 @@ function refreshListsDisplay() {
   }
   if (document.getElementById("panel-saved").classList.contains("active") || true) refreshSavedSamplesListQuiet();
   refreshEditorBankChoicesQuiet();
+  updateAllocSummary();
 }
 
 $("btnSelectAllLists").addEventListener("click", () => {
@@ -3518,30 +3697,63 @@ $("builderShowAllLists").addEventListener("change", refreshListsDisplay);
 
 let generatedExamId = null;
 function runGenerate(names) {
-  const totalCount = parseInt($("totalCountInput").value, 10);
-  if (!totalCount || totalCount <= 0) { toast("Enter a positive whole number of questions."); return; }
-
-  const questions = evenSample(allLists, names, totalCount, $("preferUnusedInput").checked);
+  const totalCount = parseInt($("totalCountInput").value, 10) || 0;
+  const specs = currentAllocSpecs(names), poolMode = getPoolMode();
+  if (specs.some(sp => sp.mode === "auto" || sp.mode === "pct_total") && totalCount <= 0) {
+    toast("Enter a positive total, or give every list its own size."); return;
+  }
+  const ctx = samplingContext();
+  const plan = planAllocation(allLists, specs, totalCount, poolMode, ctx);
+  if (!plan.total) { toast("Nothing to draw. Check the sizes and the question pool setting."); return; }
+  const questions = drawAllocation(allLists, plan.counts, poolMode, ctx);
   generatedQuestions = questions;
-  const comp = {};
-  for (const q of questions) { const k = q._source_list || "?"; comp[k] = (comp[k] || 0) + 1; }
+  const comp = {}, repeats = {};
+  for (const q of questions) {
+    const k = q._source_list || "?";
+    comp[k] = (comp[k] || 0) + 1;
+    if ((ctx.answered[k] || new Set()).has(q._source_index)) repeats[k] = (repeats[k] || 0) + 1;
+  }
   generatedComposition = comp;
 
   // Tag the sample with the focused exam when every subject in it belongs to that exam.
   const ex = getActiveExam(), sc = getScopeSubjects();
   generatedExamId = (ex && sc && Object.keys(comp).length && Object.keys(comp).every(k => sc.includes(k))) ? ex.id : null;
 
-  let preview = `Generated ${questions.length} question(s)${generatedExamId ? ` for ${ex.label}` : ""}:\n\n`;
-  for (const name of Object.keys(comp).sort()) preview += `  ${name}: ${comp[name]}\n`;
+  let preview = `Generated ${questions.length} question(s)${generatedExamId ? ` for ${ex.label}` : ""}\nPool: ${POOL_MODES[poolMode]}\n\n`;
+  for (const name of Object.keys(comp).sort()) {
+    const sp = specs.find(x => x.name === name);
+    preview += `  ${name}: ${comp[name]}${sp ? ` (${SIZE_MODES[sp.mode]}${sp.mode === "auto" ? "" : " " + sp.value})` : ""}${repeats[name] ? ` \u00b7 ${repeats[name]} repeat${repeats[name] === 1 ? "" : "s"}` : ""}${plan.notes[name] ? ` \u00b7 ${plan.notes[name]}` : ""}\n`;
+  }
+  if (plan.short > 0) preview += `\nNote: ${plan.short} short of the ${totalCount} total (not enough questions left in the chosen lists).\n`;
   $("previewBox").textContent = preview;
 
   if (!$("sampleNameInput").value.trim()) $("sampleNameInput").value = `${generatedExamId ? ex.label + " - " : ""}Sample_${todayStamp()}`;
 }
 $("btnGenerateSample").addEventListener("click", () => {
-  const names = Array.from(selectedListNames).filter(n => listNamesOrder.includes(n));
+  const names = selectedBuilderNames();
   if (names.length === 0) { toast("Select at least one list to sample from."); return; }
   runGenerate(names);
 });
+(function initSamplingControls() {
+  const ps = $("poolModeSelect");
+  ps.innerHTML = Object.entries(POOL_MODES).map(([k, v]) => `<option value="${k}">${esc(v)}</option>`).join("");
+  ps.value = getPoolMode();
+  ps.addEventListener("change", () => { setPoolMode(ps.value); updateAllocSummary(); });
+  $("totalCountInput").addEventListener("input", updateAllocSummary);
+  $("bulkAllocMode").innerHTML = Object.entries(SIZE_MODES).map(([k, v]) => `<option value="${k}">${v}</option>`).join("");
+  $("bulkAllocMode").addEventListener("change", () => { $("bulkAllocVal").disabled = $("bulkAllocMode").value === "auto"; });
+  $("btnBulkAlloc").addEventListener("click", () => {
+    const names = selectedBuilderNames();
+    if (!names.length) { toast("Select the lists to apply this to first."); return; }
+    const mode = $("bulkAllocMode").value, val = Number($("bulkAllocVal").value) || 0;
+    names.forEach(n => setAllocSpec(n, mode, val));
+    refreshListsDisplay();
+  });
+  $("btnResetAlloc").addEventListener("click", () => {
+    selectedBuilderNames().forEach(n => setAllocSpec(n, "auto", 10));
+    refreshListsDisplay();
+  });
+})();
 $("btnQuickExamSample").addEventListener("click", () => {
   const sc = getScopeSubjects();
   if (!sc) return;
@@ -4008,7 +4220,8 @@ $("btnClearHistory").addEventListener("click", () => {
    ===================================================================== */
 let analysisOverall = {}, analysisProgression = {};
 let priorityHiddenSubjects = new Set(); // subjects unchecked in the Priority Overview filter
-let prioritySortMode = "priority";
+let prioritySortMode = "urgency";
+let analysisRowMap = new Map();   // subject -> planner row (gap, status, counts): the shared evidence
 let priorityMetric = "weighted";
 
 function renderPrioritySubjectChecks(subjects) {
@@ -4037,7 +4250,8 @@ function renderPriorityBars() {
 
   if (prioritySortMode === "alpha") subjects.sort();
   else if (prioritySortMode === "accuracy") subjects.sort((a, b) => overall[a].accuracy_pct - overall[b].accuracy_pct);
-  else subjects.sort((a, b) => overall[a].weighted_pct - overall[b].weighted_pct);
+  else if (prioritySortMode === "priority") subjects.sort((a, b) => overall[a].weighted_pct - overall[b].weighted_pct);
+  else subjects.sort((a, b) => ((analysisRowMap.get(b) || { gap: 0 }).gap - (analysisRowMap.get(a) || { gap: 0 }).gap) || (overall[a].weighted_pct - overall[b].weighted_pct));
 
   const barBox = $("priorityBars");
   barBox.innerHTML = "";
@@ -4075,22 +4289,23 @@ $("priorityMetricSelect").addEventListener("change", () => { priorityMetric = $(
 function refreshAnalysis() {
   const { overall, progression } = computeSubjectAnalysis(getScopeSubjects());
   analysisOverall = overall; analysisProgression = progression;
-  const ranked = Object.entries(overall).sort((a, b) => (a[1].weighted_pct - b[1].weighted_pct) || (b[1].overconfident_wrong - a[1].overconfident_wrong));
+  analysisRowMap = new Map(plannerRows(plannerParams()).map(r => [r.sj, r]));   // same evidence the Planner uses
+  const ranked = Object.entries(overall).sort(urgencySorter(analysisRowMap));
 
   const scopeA = getScopeSubjects();
   const unassessed = scopeA ? scopeA.filter(n => !overall[n]).sort() : [];
-  const unassessedRows = unassessed.map(n => `<tr><td>&ndash;</td><td>${esc(n)}</td><td colspan="5" style="color:var(--sub);">Not yet assessed</td></tr>`).join("");
+  const unassessedRows = unassessed.map(n => `<tr><td>&ndash;</td><td>${esc(n)}</td><td colspan="9" style="color:var(--sub);">Not yet assessed</td></tr>`).join("");
   const rankBox = $("rankTable");
   rankBox.innerHTML = "";
   if (!ranked.length && !unassessed.length) {
     rankBox.appendChild(el("div", "empty-state", "No exam data yet -- take an exam to see priority rankings here."));
   } else {
-    const rows = ranked.map(([subj, stats], i) => `<tr>
-        <td>${i + 1}</td><td>${esc(subj)}</td><td>${stats.weighted_pct.toFixed(1)}%</td>
-        <td>${stats.accuracy_pct.toFixed(1)}%</td><td>${stats.overconfident_wrong}</td>
-        <td>${stats.total_answered}</td><td>${stats.n_exams}</td></tr>`).join("");
+    const rows = ranked.map(([subj, stats], i) => { const r = analysisRowMap.get(subj); return `<tr>
+        <td>${i + 1}</td><td>${esc(subj)}</td><td>${r ? esc(r.status) : "&ndash;"}</td><td>${r ? (r.gap * 100).toFixed(0) + " pts" : "&ndash;"}</td>
+        <td>${stats.weighted_pct.toFixed(1)}%</td><td>${stats.accuracy_pct.toFixed(1)}%</td><td>${stats.overconfident_wrong}</td>
+        <td>${stats.total_answered}</td><td>${r ? r.o.uniq + "/" + r.total : "&ndash;"}</td><td>${r ? r.open : "&ndash;"}</td><td>${stats.n_exams}</td></tr>`; }).join("");
     rankBox.innerHTML = `<div class="table-wrap"><table class="data-table">
-      <tr><th>#</th><th>Subject</th><th>Priority</th><th>Accuracy</th><th>Overconfident</th><th>Answered</th><th>Exams</th></tr>
+      <tr><th>#</th><th>Subject</th><th>Status</th><th>Gap</th><th>Priority</th><th>Accuracy</th><th>Overconfident</th><th>Answered</th><th>Unique / bank</th><th>Open</th><th>Tests</th></tr>
       ${rows}${unassessedRows}
     </table></div>`;
   }
@@ -4265,8 +4480,11 @@ function startBaselineSample(names) {
   const lists = getAllLists();
   const avail = names.filter(n => (lists[n] || []).length);
   if (!avail.length) { toast("No questions available for those subjects."); return; }
-  const poolTotal = avail.reduce((a, n) => a + lists[n].length, 0);
-  const qs = evenSample(lists, avail, Math.min(5 * avail.length, poolTotal), true);
+  const pref = getSizePref("baseline", 5), mode = getPoolMode(), ctx = samplingContext();
+  const counts = {};
+  avail.forEach(n => counts[n] = Math.min(resolveSize(pref, lists[n].length), poolCapacity(lists, n, mode, ctx)));
+  const qs = drawAllocation(lists, counts, mode, ctx);
+  if (!qs.length) { toast("Nothing left to draw under the current pool setting."); return; }
   const ex = getActiveExam();
   requestStartExam(`${ex ? ex.label + " - " : ""}Baseline Sample`, qs);
 }
@@ -4275,26 +4493,90 @@ function plWilsonLower(k, n, z) {
   const p = k / n, z2 = z * z;
   return (p + z2 / (2 * n) - z * Math.sqrt((p * (1 - p) + z2 / (4 * n)) / n)) / (1 + z2 / n);
 }
+// One pass over the test history = the single evidence base for the Planner, the Study Priority
+// ranking, the Action Plan and the Full Analysis text. Counts here use the same filters as
+// computeSubjectAnalysis (answered items only, same scope), so the two can no longer disagree.
+//   n/k      : decayed, first-seen-only evidence (a correct guess counts half)
+//   att/uniq : all answered attempts / distinct questions answered
+//   open     : latest attempt wrong or still unresolved in the Mistake Log, minus anything resolved there
 function computePlannerStats(subjects, target, halfLife) {
-  const now = Date.now(), seen = new Set(), st = {}, firstWrong = {};
-  subjects.forEach(sj => st[sj] = { n: 0, k: 0, found: 0, fixed: 0, last: null, openRefs: new Set(), okRefs: new Set() });
+  const now = Date.now(), st = {};
+  subjects.forEach(sj => st[sj] = { n: 0, k: 0, att: 0, uniq: 0, nTests: 0, found: 0, fixed: 0, openN: 0, last: null,
+    openRefs: new Set(), okRefs: new Set(), _seen: new Set(), _wrong: new Set(), _latest: new Map(), _tests: new Set() });
   const det = loadJson(KEYS.details, []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
   for (const d of det) {
     const t = Date.parse(d.date) || now;
     for (const it of (d.items || [])) {
-      const sj = it.source_list;
-      if (!st[sj] || !it.is_answered) continue;
-      const key = sj + "::" + it.reference_no, o = st[sj];
+      const sj = it.source_list, o = st[sj];
+      if (!o || !it.is_answered) continue;
+      const ref = refNumOf(it), key = ref !== null ? ref : "q:" + (it.question || "");
+      o.att++; o._tests.add(d.exam_id || d.date);
       if (!o.last || t > o.last) o.last = t;
-      if (!seen.has(key)) {   // first-seen only: repeats would inflate accuracy
-        seen.add(key);
+      if (!o._seen.has(key)) {   // first-seen only: repeats would inflate accuracy
+        o._seen.add(key);
         const w = Math.pow(0.5, (now - t) / (halfLife * 864e5));
         o.n += w; o.k += w * (it.is_correct ? (it.confidence === "Guess" ? 0.5 : 1) : 0);
-        if (!it.is_correct) { firstWrong[key] = true; o.found++; o.openRefs.add(it.reference_no); } else o.okRefs.add(it.reference_no);
-      } else if (firstWrong[key] === true && it.is_correct) { firstWrong[key] = "fixed"; o.fixed++; o.openRefs.delete(it.reference_no); o.okRefs.add(it.reference_no); }
+      }
+      if (!it.is_correct) o._wrong.add(key);
+      o._latest.set(key, { ref, correct: !!it.is_correct });
     }
   }
+  const mlog = loadMistakeLog();
+  for (const sj of subjects) {
+    const o = st[sj];
+    o.uniq = o._seen.size; o.nTests = o._tests.size;
+    let openUnref = 0;
+    o._latest.forEach((v) => {
+      if (v.ref !== null) { if (v.correct) o.okRefs.add(v.ref); else o.openRefs.add(v.ref); }
+      else if (!v.correct) openUnref++;
+    });
+    // The Mistake Log is the user's own record: resolved there = fixed; logged and unresolved there = still open.
+    for (const e of mlog) {
+      if (e.source_list !== sj) continue;
+      const ref = Number(e.reference_no);
+      if (!Number.isFinite(ref) || ref < 1) continue;
+      if (e.resolved) { if (o.openRefs.delete(ref)) o.okRefs.add(ref); }
+      else if (e.category && !o.openRefs.has(ref)) { o.openRefs.add(ref); o.okRefs.delete(ref); o._wrong.add(ref); }
+    }
+    o.openN = o.openRefs.size + openUnref;
+    o.found = Math.max(o._wrong.size, o.openN);
+    o.fixed = Math.max(0, o.found - o.openN);
+  }
   return st;
+}
+function plannerParams() {
+  const g = id => { const e = $(id); return e ? +e.value : 0; };
+  return { target: (g("plTarget") || 95) / 100, eps: Math.min(1, Math.max(0, (g("plEps") || 0) / 100)),
+    rePct: Math.min(1, Math.max(0, (g("plRe") || 0) / 100)), half: g("plHalf") || 14, N: Math.max(1, g("plN") || 50) };
+}
+// Per-subject status rows. Everything that ranks or describes a subject reads from here.
+function plannerRows(P) {
+  const lists = getAllLists(), cov = computeCoverage(lists), scope = getScopeSubjects();
+  const { overall } = computeSubjectAnalysis(scope);
+  const subjects = scope && scope.length ? scope.slice() : Array.from(new Set(Object.keys(lists).concat(Object.keys(overall))));
+  if (!subjects.length) return [];
+  const st = computePlannerStats(subjects, P.target, P.half), now = Date.now();
+  return subjects.map(sj => {
+    const o = st[sj], c = cov[sj] || { answered: 0, total: 0, pct: 0, queued: 0 }, unseen = Math.max(0, c.total - c.answered);
+    const lo = plWilsonLower(o.k, o.n, 1.64), acc = o.n ? o.k / o.n : null;
+    const days = o.last ? Math.floor((now - o.last) / 864e5) : null;
+    const gap = o.n ? Math.max(0, P.target - lo) : P.target, open = o.openN;
+    let status = "Uncertain";
+    if (!o.n) status = "Unexplored";
+    else if (lo >= P.target - 0.03) status = "Converged";
+    else if (days !== null && days > P.half) status = "Stale";
+    else if (acc < P.target - 0.05) status = "Weak";
+    return { sj, o, unseen, total: c.total, bankPct: c.pct, queued: c.queued, lo, acc, days, gap, open, status, ov: overall[sj] || null };
+  });
+}
+function urgencySorter(rowMap) {
+  return (a, b) => ((rowMap.get(b[0]) ? rowMap.get(b[0]).gap : 0) - (rowMap.get(a[0]) ? rowMap.get(a[0]).gap : 0))
+    || (a[1].weighted_pct - b[1].weighted_pct) || (b[1].overconfident_wrong - a[1].overconfident_wrong);
+}
+function tierFromRow(r) {
+  if (!r || !r.o.n) return { cls: "none", label: "No data" };
+  if (r.status === "Converged") return { cls: "ok", label: "On track" };
+  return r.lo < 0.6 ? { cls: "crit", label: "Critical" } : { cls: "mid", label: "Needs work" };
 }
 // Splits `total` across items by weight, never exceeding cap(item).
 function plSpread(total, items, w, cap) {
@@ -4313,25 +4595,9 @@ function plSpread(total, items, w, cap) {
 }
 let plannerPlan = null;
 function computePlan() {
-  const g = id => +$(id).value;
-  const target = (g("plTarget") || 95) / 100, eps = Math.min(1, Math.max(0, (g("plEps") || 0) / 100));
-  const rePct = Math.min(1, Math.max(0, (g("plRe") || 0) / 100)), half = g("plHalf") || 14, N = Math.max(1, g("plN") || 50);
-  const lists = getAllLists(), cov = computeCoverage(lists), scope = getScopeSubjects();
-  const subjects = (scope && scope.length ? scope : Object.keys(lists)).filter(n => lists[n]);
-  if (!subjects.length) return null;
-  const st = computePlannerStats(subjects, target, half), now = Date.now();
-  const rows = subjects.map(sj => {
-    const o = st[sj], c = cov[sj] || { used: 0, total: 0 }, unseen = c.total - c.used;
-    const lo = plWilsonLower(o.k, o.n, 1.64), acc = o.n ? o.k / o.n : null;
-    const days = o.last ? Math.floor((now - o.last) / 864e5) : null;
-    const gap = o.n ? Math.max(0, target - lo) : target, open = Math.max(0, o.found - o.fixed);
-    let status = "Uncertain";
-    if (!o.n) status = "Unexplored";
-    else if (lo >= target - 0.03) status = "Converged";
-    else if (days !== null && days > half) status = "Stale";
-    else if (acc < target - 0.05) status = "Weak";
-    return { sj, o, unseen, lo, acc, days, gap, open, status };
-  });
+  const P = plannerParams(), target = P.target, eps = P.eps, rePct = P.rePct, half = P.half, N = P.N;
+  const rows = plannerRows(P);
+  if (!rows.length) return null;
   const pick = a => a[Math.floor(Math.random() * a.length)];
   const A = {}; rows.forEach(r => A[r.sj] = { nw: 0, ex: 0, reRefs: [], spRefs: [] });
   const nEx = Math.round(N * eps), fresh = rows.filter(r => r.unseen > 0), withOpen = rows.filter(r => r.o.openRefs.size > 0);
@@ -4390,7 +4656,8 @@ function plannerSubjectSentences(r, plan) {
   else if (r.status === "Weak") L.push(`Weak: first-seen accuracy is ${pct(r.acc)}, below your ${tgt} target (cautious estimate ${pct(r.lo)}).`);
   else L.push(`Uncertain: ${pct(r.acc)} first-seen accuracy, but not enough data yet to trust it.`);
   if (r.o.n && r.o.n < 8) L.push(`Only about ${Math.max(1, Math.round(r.o.n))} first-seen question${Math.round(r.o.n) === 1 ? "" : "s"} of evidence, so treat this as a rough read.`);
-  L.push(r.unseen > 0 ? `${r.unseen} unseen question${r.unseen === 1 ? "" : "s"} left in the bank.` : "No unseen questions left, so progress now comes from retesting.");
+  if (r.o.att) L.push(`${r.o.att} answer${r.o.att === 1 ? "" : "s"} across ${r.o.uniq} of ${r.total} question${r.total === 1 ? "" : "s"} in the bank (${r.bankPct.toFixed(0)}%), counted from your test history.`);
+  L.push(r.unseen > 0 ? `${r.unseen} unanswered question${r.unseen === 1 ? "" : "s"} left in the bank.` : "No unanswered questions left, so progress now comes from retesting.");
   if (r.o.found) L.push(`${r.o.found} mistake${r.o.found === 1 ? "" : "s"} found, ${r.o.fixed} fixed, ${r.open} still open.`);
   else if (r.o.n) L.push("No first-time mistakes recorded.");
   if (r.status !== "Stale" && dayTxt) L.push(`Last practiced ${dayTxt}.`);
@@ -4443,16 +4710,38 @@ function renderPlanner() {
     else if (b.dataset.pl === "drill") startPlannerSession(b.dataset.sj);
     else renderPlanner();
   };
-  box.innerHTML = `<div class="table-wrap"><table class="data-table"><tr><th>Subject</th><th>First-seen acc</th><th>Lower bound</th><th>Gap</th><th>Unseen</th><th>Found</th><th>Fixed</th><th>Open</th><th>Days</th><th>Status</th></tr>` +
-    rows.slice().sort((a, b) => b.gap - a.gap).map(r => `<tr><td>${esc(r.sj)}</td><td>${pc(r.acc)}</td><td>${r.o.n ? pc(r.lo) : "&ndash;"}</td><td>${pc(r.gap)}</td><td>${r.unseen}</td><td>${r.o.found}</td><td>${r.o.fixed}</td><td>${r.open}</td><td>${r.days === null ? "&ndash;" : r.days}</td><td>${r.status}</td></tr>`).join("") + `</table></div>`;
+  box.innerHTML = `<div class="table-wrap"><table class="data-table"><tr><th>Subject</th><th>First-seen acc</th><th>Lower bound</th><th>Gap</th><th>Priority</th><th>Answered</th><th>Bank done</th><th>Unseen</th><th>Found</th><th>Fixed</th><th>Open</th><th>Days</th><th>Status</th></tr>` +
+    rows.slice().sort((a, b) => b.gap - a.gap).map(r => `<tr><td>${esc(r.sj)}</td><td>${pc(r.acc)}</td><td>${r.o.n ? pc(r.lo) : "&ndash;"}</td><td>${pc(r.gap)}</td><td>${r.ov ? r.ov.weighted_pct.toFixed(1) + "%" : "&ndash;"}</td><td>${r.o.att}</td><td>${r.o.uniq}/${r.total}</td><td>${r.unseen}</td><td>${r.o.found}</td><td>${r.o.fixed}</td><td>${r.open}</td><td>${r.days === null ? "&ndash;" : r.days}</td><td>${r.status}</td></tr>`).join("") + `</table></div>`;
   rebuild();
+}
+// A size box (number + items/% unit) whose choice is remembered per id. get() resolves it against the base.
+function sizeCtl(prefId, defVal, baseFn, noun, approx) {
+  const pref = getSizePref(prefId, defVal);
+  const wrap = el("div", "row size-ctl");
+  const inp = document.createElement("input");
+  inp.type = "number"; inp.min = "1"; inp.step = "1"; inp.value = pref.value;
+  const sel = document.createElement("select");
+  sel.innerHTML = `<option value="items">items</option><option value="pct">% of ${esc(noun || "list")}</option>`;
+  sel.value = pref.unit;
+  const out = el("span", "hint"); out.style.margin = "0";
+  const cur = () => ({ unit: sel.value, value: Math.max(1, Number(inp.value) || defVal) });
+  const upd = () => {
+    const c = cur(), n = resolveSize(c, baseFn());
+    setSizePref(prefId, c.unit, c.value);
+    out.textContent = `${approx && c.unit === "pct" ? "\u2248 " : "= "}${n} question${n === 1 ? "" : "s"}${approx ? " per subject" : ""}`;
+  };
+  inp.addEventListener("input", upd); sel.addEventListener("change", upd);
+  wrap.appendChild(el("span", "", "Size")); wrap.appendChild(inp); wrap.appendChild(sel); wrap.appendChild(out);
+  upd();
+  return { wrap, get: () => resolveSize(cur(), baseFn()) };
 }
 function renderActionPlan(overall, progression) {
   const box = $("actionPlanBox");
   box.innerHTML = "";
   const ex = getActiveExam(), scope = getScopeSubjects();
   const lists = getAllLists();
-  const entries = Object.entries(overall).sort((a, b) => (a[1].weighted_pct - b[1].weighted_pct) || (b[1].overconfident_wrong - a[1].overconfident_wrong));
+  const P = plannerParams(), rowMap = analysisRowMap.size ? analysisRowMap : new Map(plannerRows(P).map(r => [r.sj, r]));
+  const entries = Object.entries(overall).sort(urgencySorter(rowMap));   // most urgent first, same order as the ranking table
   const unassessed = scope ? scope.filter(n => !overall[n]).sort() : [];
   if (!entries.length && !unassessed.length) {
     box.appendChild(el("div", "empty-state", "Take an assessment and your tailored plan will appear here."));
@@ -4470,36 +4759,49 @@ function renderActionPlan(overall, progression) {
   }
   box.appendChild(head);
 
-  // Suggested study-time split, proportional to how far each subject is from 100%
-  const needs = entries.map(([n, st]) => [n, Math.max(5, 100 - st.weighted_pct)]).concat(unassessed.map(n => [n, 50]));
+  // Where sampled questions come from (shared with the Sample Builder)
+  const poolBox = el("div", "list-item");
+  poolBox.innerHTML = `<div class="meta"><b>Question pool for the samples below</b> (counted from your test history)</div>`;
+  const ps = document.createElement("select");
+  ps.style.marginTop = "6px";
+  ps.innerHTML = Object.entries(POOL_MODES).map(([k, v]) => `<option value="${k}">${esc(v)}</option>`).join("");
+  ps.value = getPoolMode();
+  ps.addEventListener("change", () => setPoolMode(ps.value));
+  poolBox.appendChild(ps);
+  box.appendChild(poolBox);
+
+  // Suggested study-time split, proportional to each subject's gap to the target (same gap as the ranking)
+  const needs = entries.map(([n]) => [n, Math.max(5, ((rowMap.get(n) || { gap: 0.5 }).gap) * 100)]).concat(unassessed.map(n => [n, Math.min(50, P.target * 100)]));
   const sumNeed = needs.reduce((a, [, v]) => a + v, 0);
   if (needs.length > 1) {
     const split = needs.slice().sort((a, b) => b[1] - a[1]).map(([n, v]) => `${esc(n)} ${Math.round(v / sumNeed * 100)}%`).join(" &middot; ");
     const sp = el("div", "list-item");
-    sp.innerHTML = `<div class="meta"><b>Suggested study-time split</b> (more time where the gap is bigger; unassessed subjects count as a 50% gap)</div><div style="font-size:.8rem;margin-top:4px;">${split}</div>`;
+    sp.innerHTML = `<div class="meta"><b>Suggested study-time split</b> (more time where the gap to your ${Math.round(P.target * 100)}% target is bigger; unassessed subjects count as up to a 50-point gap)</div><div style="font-size:.8rem;margin-top:4px;">${split}</div>`;
     box.appendChild(sp);
   }
 
-  // Weighted focus sample across the whole scope
+  // Weighted focus sample across the whole scope, with an adjustable size
   if (entries.length > 1) {
-    const b = el("button", "btn primary block", "Generate ~30-Question Sample Weighted To Weak Areas \u25b6");
-    b.style.margin = "8px 0 2px";
+    const ents = entries.map(([name]) => ({ sj: name, need: Math.max(5, ((rowMap.get(name) || { gap: 0.5 }).gap) * 100) })).filter(e => (lists[e.sj] || []).length);
+    const baseTotal = ents.reduce((a, e) => a + lists[e.sj].length, 0);
+    const wCtl = sizeCtl("weighted", 30, () => baseTotal, "these subjects' questions");
+    wCtl.wrap.style.marginTop = "10px";
+    box.appendChild(wCtl.wrap);
+    const b = el("button", "btn primary block", "Generate Sample Weighted To Weak Areas \u25b6");
+    b.style.margin = "6px 0 2px";
     b.addEventListener("click", () => {
       // Only subjects with answered results (inside the exam focus, if one is set). Unassessed subjects
       // are left out here -- use their "Baseline Sample" button instead.
-      const ents = needs.map(([name, need]) => ({ name, need })).filter(e => overall[e.name] && (lists[e.name] || []).length);
       if (!ents.length) { toast("No question lists available for these subjects."); return; }
-      const total = 30, sumN = ents.reduce((a, e) => a + e.need, 0);
-      let out = [];
-      for (const e of ents) {
-        const n = Math.min(lists[e.name].length, Math.max(1, Math.round(total * e.need / sumN)));
-        out = out.concat(evenSample(lists, [e.name], n, true));
-      }
-      shuffleInPlace(out);
+      const mode = getPoolMode(), ctx = samplingContext(), total = wCtl.get();
+      const alloc = plSpread(total, ents, e => e.need, e => poolCapacity(lists, e.sj, mode, ctx));
+      const out = drawAllocation(lists, alloc, mode, ctx);
+      if (!out.length) { toast("Nothing left to draw under the current pool setting."); return; }
+      if (out.length < total) toast(`Only ${out.length} question${out.length === 1 ? "" : "s"} available under this pool setting.`);
       requestStartExam(`${ex && scope ? ex.label + " - " : ""}Weighted Focus Sample`, out);
     });
     box.appendChild(b);
-    const bh = el("p", "hint", "Only draws from subjects you've already answered questions in" + (ex && scope ? " (within this exam)" : "") + ". Unassessed subjects are sampled by the Baseline button below.");
+    const bh = el("p", "hint", "Questions are split by each subject's gap to target. Only draws from subjects you've already answered questions in" + (ex && scope ? " (within this exam)" : "") + ". Unassessed subjects are sampled by the Baseline button below.");
     bh.style.margin = "0 0 8px";
     box.appendChild(bh);
   }
@@ -4507,11 +4809,13 @@ function renderActionPlan(overall, progression) {
   // Mistake log lookups
   const log = loadMistakeLog().filter(e => e.category);
 
-  // Per-subject plan cards (weakest first; first three get full detail)
+  // Per-subject plan cards (most urgent first; first three get full detail)
   entries.forEach(([subj, st], idx) => {
-    const tier = planTier(st.weighted_pct);
+    const r = rowMap.get(subj);
+    const tier = tierFromRow(r);
     const card = el("div", "list-item");
     const items = [];
+    if (r && r.status === "Stale") items.push(`Stale: last practiced ${r.days} day${r.days === 1 ? "" : "s"} ago, so it may have faded. A short refresh beats new material here.`);
     if (st.overconfident_wrong > 0) items.push(`${st.overconfident_wrong} answer${st.overconfident_wrong === 1 ? " was" : "s were"} confident but wrong \u2014 these are the riskiest gaps. Re-study the concepts behind them before drilling more questions.`);
     const mine = log.filter(e => e.source_list === subj);
     const open = mine.filter(e => !e.resolved);
@@ -4533,19 +4837,24 @@ function renderActionPlan(overall, progression) {
       else if (delta >= 3) items.push(`Improving: +${delta.toFixed(1)} points since your previous sample${nTxt} \u2014 keep the momentum.`);
     }
     if (st.total_answered < 10) items.push(`Only ${st.total_answered} answered so far \u2014 one more sample will make this ranking more reliable.`);
+    if (r && r.total && r.unseen === 0) items.push("Every question in the bank has been answered, so progress now comes from retesting mistakes.");
     if (!items.length) items.push("Nothing urgent here \u2014 keep it fresh with an occasional mixed sample.");
 
     card.innerHTML = `<div class="top-row"><span class="name">${idx + 1}. ${esc(subj)}</span><span class="tier ${tier.cls}">${tier.label}</span></div>
-      <div class="meta">Priority ${st.weighted_pct.toFixed(1)}% &middot; Accuracy ${st.accuracy_pct.toFixed(1)}% &middot; ${st.total_answered} answered</div>
+      <div class="meta">${r ? `Gap ${(r.gap * 100).toFixed(0)} pts &middot; ` : ""}Priority ${st.weighted_pct.toFixed(1)}% &middot; Accuracy ${st.accuracy_pct.toFixed(1)}% &middot; ${st.total_answered} answered${r && r.total ? ` &middot; ${r.o.uniq}/${r.total} of bank (${r.bankPct.toFixed(0)}%)` : ""}</div>
       ${idx < 3 || tier.cls !== "ok" ? `<ul class="plan-list">${items.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}`;
     const pool = lists[subj] || [];
     if (pool.length && (idx < 3 || tier.cls !== "ok")) {
-      const fb = el("button", "btn block", `Focus Sample: ${Math.min(10, pool.length)} Questions \u25b6`);
+      const fCtl = sizeCtl("focus:" + subj, 10, () => pool.length, "this list");
+      card.appendChild(fCtl.wrap);
+      const fb = el("button", "btn block", "Start Focus Sample \u25b6");
       fb.style.marginTop = "8px";
       fb.addEventListener("click", () => {
-        const qs = evenSample(lists, [subj], Math.min(10, pool.length), true);
-        if (!qs.length) { toast("Couldn't generate questions from this subject."); return; }
-        requestStartExam(`${subj} Focus Sample`, qs);
+        const n = fCtl.get(), mode = getPoolMode(), ctx = samplingContext();
+        const qs = drawFromList(lists, subj, n, mode, ctx);
+        if (!qs.length) { toast("Nothing left to draw from this subject under the current pool setting."); return; }
+        if (qs.length < n) toast(`Only ${qs.length} question${qs.length === 1 ? "" : "s"} available under this pool setting.`);
+        requestStartExam(`${subj} Focus Sample`, shuffle(qs));
       });
       card.appendChild(fb);
     }
@@ -4557,7 +4866,10 @@ function renderActionPlan(overall, progression) {
     const card = el("div", "list-item");
     card.innerHTML = `<div class="top-row"><span class="name">Not yet assessed</span><span class="tier none">No data</span></div>
       <div class="meta">${esc(unassessed.join(", "))}</div>
-      <ul class="plan-list"><li>You can't rank what you haven't measured \u2014 take a short baseline sample (5 questions per subject) first.</li></ul>`;
+      <ul class="plan-list"><li>You can't rank what you haven't measured \u2014 take a short baseline sample first.</li></ul>`;
+    const avgLen = Math.round(unassessed.reduce((a, n) => a + (lists[n] || []).length, 0) / unassessed.length);
+    const bCtl = sizeCtl("baseline", 5, () => avgLen, "each list", true);
+    card.appendChild(bCtl.wrap);
     const bb = el("button", "btn block", "Baseline Sample For These \u25b6");
     bb.style.marginTop = "8px";
     bb.addEventListener("click", () => startBaselineSample(unassessed));
@@ -4573,10 +4885,17 @@ function renderAnalysisText(ranked, progression) {
   L.push("You are my board-exam study coach. Analyze my practice-test data below and give me a concrete, prioritized plan.", "", "## CONTEXT");
   L.push(`- Exam: ${ex && scope ? `${ex.label}, ${ex.date}${dl >= 0 ? ` (${dl} day(s) left)` : " (date has passed)"}` : "board exam (no exam focus selected)"}`);
   if (scope) L.push(`- Subjects on this exam: ${scope.join(", ")}`);
+  const rowMap = new Map((P ? P.rows : []).map(r => [r.sj, r]));
   L.push(`- Target per subject: ${P ? Math.round(P.target * 100) : 95}%`, `- Data as of: ${new Date().toLocaleDateString()}`,
-    "- Priority % = confidence-weighted score (a correct guess counts less than a sure correct answer; a confident wrong answer counts against me more). RawAcc = correct/answered. Overconfident = wrong answers I was confident about (my riskiest gaps). n = questions answered; treat n < 10 as unreliable.", "");
+    "- Subjects are ranked by URGENCY = gap between my target and a cautious (lower-bound) estimate of my first-time accuracy, with older results decayed and small samples penalised. My Adaptive Planner uses the same numbers.",
+    "- Priority % = confidence-weighted score over ALL my attempts (a correct guess counts less than a sure correct answer; a confident wrong answer counts against me more). RawAcc = correct/answered over all attempts, repeats included. First-time acc = accuracy the first time I met each question. Overconfident = wrong answers I was confident about (my riskiest gaps). Bank = distinct questions I've answered / questions in that subject's bank, counted from my test history. Open = wrong last time or unresolved in my mistake log. n = questions answered; treat n < 10 as unreliable.", "");
   L.push("## SUBJECT RANKING (most urgent first)");
-  ranked.forEach(([sj, t], i) => L.push(`${i + 1}. ${sj}: Priority ${t.weighted_pct.toFixed(1)}%, RawAcc ${t.accuracy_pct.toFixed(1)}% (${t.total_correct}/${t.total_answered}), Overconfident ${t.overconfident_wrong}, ${t.n_exams} sample(s)${t.total_answered < 10 ? ", LOW n" : ""}`));
+  ranked.forEach(([sj, t], i) => {
+    const r = rowMap.get(sj);
+    const low = t.total_answered < 10 ? ", LOW n" : "";
+    if (!r) { L.push(`${i + 1}. ${sj}: Priority ${t.weighted_pct.toFixed(1)}%, RawAcc ${t.accuracy_pct.toFixed(1)}% (${t.total_correct}/${t.total_answered}), Overconfident ${t.overconfident_wrong}, ${t.n_exams} test(s)${low}`); return; }
+    L.push(`${i + 1}. ${sj}: ${r.status}, gap ${(r.gap * 100).toFixed(0)} pts (cautious est ${(r.lo * 100).toFixed(0)}%); Priority ${t.weighted_pct.toFixed(1)}%, RawAcc ${t.accuracy_pct.toFixed(1)}% (${t.total_correct}/${t.total_answered}), first-time acc ${r.acc != null ? (r.acc * 100).toFixed(0) + "%" : "n/a"} on ${r.o.uniq} unique Qs; Overconfident ${t.overconfident_wrong}; bank ${r.o.uniq}/${r.total} answered (${r.unseen} unanswered); open mistakes ${r.open}; ${t.n_exams} test(s)${low}`);
+  });
   const un = scope ? scope.filter(n => !ranked.some(r => r[0] === n)) : [];
   if (un.length) L.push(`Not yet assessed: ${un.join(", ")}`);
   if (!ranked.length && !un.length) L.push("(no exams taken yet)");
