@@ -62394,7 +62394,7 @@
       "question": "You have a stock solution of 15.8 M HNO3. How many mL of this solution should you dilute, using only a graduated pipette, to make 100.0 mL of 0.250 M HNO3?",
       "category": "Careless / Computational Error",
       "note": "Consider the significant numbers of the given values. Since the values has a 3 significant numbers as its lowest precision the answer must be 3 sigfigs too",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-06T07:31:09",
       "occurrences": [
         {
@@ -62405,7 +62405,7 @@
           "correct_answer": "A. 1.58"
         }
       ],
-      "updated_at": "2026-10-06T07:31:09"
+      "updated_at": "2026-10-07T05:24:12"
     },
     {
       "id": "1791220234220958",
@@ -63058,5 +63058,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-10-07T05:24:00"
+  "updated_at": "2026-10-07T05:24:20"
 }
