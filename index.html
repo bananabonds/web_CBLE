@@ -452,6 +452,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
           <label>Half-life (days) <input type="number" id="plHalf" value="14" min="1" style="width:64px;" onchange="renderPlanner()"></label>
           <label>Questions <input type="number" id="plN" value="50" min="1" style="width:64px;" onchange="renderPlanner()"></label>
           <label>Retest % <input type="number" id="plRe" value="20" min="0" max="100" style="width:64px;" onchange="renderPlanner()"></label>
+          <label class="row" style="flex:none;gap:6px;"><input type="checkbox" id="plUnsure" onchange="setUnsureFirst(this.checked);renderPlanner()"> <span>Retest low-confidence answers first</span></label>
         </div>
         <div id="plAlloc" class="hint" style="margin-bottom:8px;"></div>
         <details>
@@ -843,7 +844,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
       </div>
       <div class="card">
         <h3>Guesses You Made <span class="count" id="guessesCount"></span></h3>
-        <p class="hint" style="margin-bottom:10px;">Every question you flagged "Guess" confidence on, right or wrong &mdash; a good source of flashcards even when you happened to get lucky. Tap one to jot a note; tap again to see/hide it.</p>
+        <p class="hint" style="margin-bottom:10px;">Every question you flagged "Guess" confidence on, right or wrong &mdash; a good source of flashcards even when you happened to get lucky. With &ldquo;All tests&rdquo; each question shows once (its latest guess, with a &times;N badge if you guessed it more than once), most-repeated first. Pick a single test to see everything from that sitting. Tap one to jot a note; tap again to see/hide it.</p>
         <select id="guessesExamSelect" style="margin-bottom:10px;">
           <option value="all">All tests</option>
         </select>
@@ -857,6 +858,16 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
             <button class="btn link" id="btnGuessSubjectsNone">None</button>
           </div>
           <div id="guessSubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
+        </div>
+        <div class="row wrap" style="margin-bottom:6px;">
+          <label class="row" style="flex:none;">
+            <input type="checkbox" id="guessesHideResolved" checked>
+            <span style="font-size:.82rem;">Hide ones I resolved in the Mistake Log</span>
+          </label>
+          <label class="row" style="flex:none;">
+            <input type="checkbox" id="guessesHideLearned" checked>
+            <span style="font-size:.82rem;">Hide ones I later answered confidently</span>
+          </label>
         </div>
         <div class="row wrap" style="margin-bottom:10px;">
           <label class="row" style="flex:none;">
@@ -1366,6 +1377,44 @@ function itemExcluded(exc, it) {
   const ref = refNumOf(it), set = exc[it.source_list];
   return ref !== null && !!set && set.has(ref - 1);
 }
+// Correct answers you weren't fully sure about, from your latest attempt at each question:
+// tier 0 = Guess, 1 = Slightly Confident, 2 = Confident ("Sure I'm Right" is considered learned).
+// A question you resolved in the Mistake Log after that attempt is left out, so it doesn't clutter the list.
+function confTier(c) { return c === "Guess" ? 0 : c === "Slightly Confident" ? 1 : c === "Confident" ? 2 : null; }
+function getResolvedStamps() {
+  const m = new Map();
+  for (const e of loadMistakeLog()) {
+    if (!e.resolved) continue;
+    const ref = Number(e.reference_no);
+    if (!Number.isFinite(ref) || ref < 1) continue;
+    const stamp = Date.parse(e.updated_at || e.date_logged);
+    m.set(e.source_list + "::" + ref, Number.isFinite(stamp) ? stamp : Infinity);
+  }
+  return m;
+}
+function getUnsureByList() {
+  const det = loadJson(KEYS.details, []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  const exc = getExcludedIndicesByList(), latest = new Map();
+  for (const d of det) {
+    const t = Date.parse(d.date) || 0;
+    for (const it of (d.items || [])) {
+      if (!it.is_answered) continue;
+      const ref = refNumOf(it);
+      if (ref === null || itemExcluded(exc, it)) continue;
+      latest.set(it.source_list + "::" + ref, { list: it.source_list, ref, correct: !!it.is_correct, conf: it.confidence, t });
+    }
+  }
+  const resolved = getResolvedStamps(), out = {};
+  latest.forEach((v, key) => {
+    if (!v.correct) return;
+    const tier = confTier(v.conf);
+    if (tier === null) return;
+    const rs = resolved.get(key);
+    if (rs !== undefined && v.t <= rs) return;
+    (out[v.list] = out[v.list] || []).push({ ref: v.ref, tier, t: v.t });
+  });
+  return out;
+}
 // "Used" = answered in a test OR queued in an untaken sample (what "prefer fresh questions" steers away from).
 function getUsedIndicesByList() {
   const a = getAnsweredIndicesByList(), q = getQueuedIndicesByList(), used = {};
@@ -1414,11 +1463,14 @@ function sampleWithoutReplacement(arr, want) {
 const POOL_MODES = {
   fresh: "Unanswered first (repeats only if needed)",
   freshOnly: "Unanswered only (never repeat)",
+  unsure: "Unsure first: correct guesses, then slightly confident, then confident",
   missed: "Open mistakes first, then unanswered",
   any: "Any question (fully random)",
 };
 const SIZE_MODES = { auto: "even share", count: "items", pct_list: "% of this list", pct_total: "% of sample total" };
 function loadSizePrefs() { return loadJson(KEYS.sizePrefs, {}) || {}; }
+function getUnsureFirst() { return !!loadSizePrefs().unsureFirst; }
+function setUnsureFirst(v) { const p = loadSizePrefs(); p.unsureFirst = !!v; saveJson(KEYS.sizePrefs, p); }
 function getPoolMode() { const m = loadSizePrefs().poolMode; return POOL_MODES[m] ? m : "fresh"; }
 function setPoolMode(m) { const p = loadSizePrefs(); p.poolMode = m; saveJson(KEYS.sizePrefs, p); }
 function getSizePref(id, defVal) {
@@ -1432,7 +1484,7 @@ function resolveSize(pref, base) {
   return Math.max(1, Math.min(base, v));
 }
 
-function samplingContext() { return { answered: getAnsweredIndicesByList(), queued: getQueuedIndicesByList(), missed: getOpenMistakeIndicesByList(), excluded: getExcludedIndicesByList() }; }
+function samplingContext() { return { answered: getAnsweredIndicesByList(), queued: getQueuedIndicesByList(), missed: getOpenMistakeIndicesByList(), excluded: getExcludedIndicesByList(), unsure: Object.fromEntries(Object.entries(getUnsureByList()).map(([k, v]) => [k, new Map(v.map(u => [u.ref - 1, u.tier]))])) }; }
 function usableCount(allLists, name, ctx) {
   const len = (allLists[name] || []).length, x = (ctx && ctx.excluded && ctx.excluded[name]) || new Set();
   let n = 0; x.forEach(i => { if (i < len) n++; });
@@ -1492,13 +1544,18 @@ function drawFromList(allLists, name, want, mode, ctx) {
   if (want <= 0) return [];
   if (mode === "any") return sampleWithoutReplacement(pool, want);
   const ans = ctx.answered[name] || new Set(), que = ctx.queued[name] || new Set(), mis = ctx.missed[name] || new Set();
-  const tiers = [[], [], [], []];   // open mistakes, never seen, queued in an untaken sample, answered before
+  // "unsure" mode: tiers 0-2 = correct guess / slightly confident / confident, then 3-5 = never seen / queued / answered.
+  // Other modes: tier 0 = open mistakes (missed mode only), then 1-3 = never seen / queued / answered before.
+  const unsure = (ctx.unsure && ctx.unsure[name]) || new Map();
+  const tiers = mode === "unsure" ? [[], [], [], [], [], []] : [[], [], [], []];
+  const base = mode === "unsure" ? 3 : 1;
   for (const q of pool) {
     const i = q._source_index;
     if (mode === "missed" && mis.has(i) && ans.has(i)) tiers[0].push(q);
-    else if (!ans.has(i) && !que.has(i)) tiers[1].push(q);
-    else if (!ans.has(i)) tiers[2].push(q);
-    else tiers[3].push(q);
+    else if (mode === "unsure" && unsure.has(i)) tiers[unsure.get(i)].push(q);
+    else if (!ans.has(i) && !que.has(i)) tiers[base].push(q);
+    else if (!ans.has(i)) tiers[base + 1].push(q);
+    else tiers[base + 2].push(q);
   }
   const order = mode === "freshOnly" ? [tiers[1], tiers[2]] : tiers;
   return [].concat(...order.map(shuffle)).slice(0, want);
@@ -1792,24 +1849,50 @@ function saveGuessNote(examId, examSource, sourceList, referenceNo, question, yo
   scheduleGithubSync();
   return record;
 }
-function getAllGuesses() {
-  const details = loadJson(KEYS.details, []);
+// One entry per occurrence, or (collapse) one per QUESTION: its latest guess, with how many times you guessed it.
+// In collapsed mode, questions you've already dealt with are left out so they don't dilute the list:
+//   hideResolved: resolved in the Mistake Log after you guessed it
+//   hideLearned : since answered correctly with "Confident" or "Sure I'm Right"
+// Questions flagged as bank issues ("Other") never show.
+function getAllGuesses(opts) {
+  opts = Object.assign({ collapse: true, hideResolved: true, hideLearned: true }, opts || {});
+  const details = loadJson(KEYS.details, []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
   const notesByKey = {};
   for (const n of loadGuessNotes()) notesByKey[guessKey(n.exam_id, n.source_list, n.reference_no)] = n;
-  const out = [];
+  const exc = getExcludedIndicesByList(), latest = new Map(), occ = [];
   for (const d of details) {
+    const t = Date.parse(d.date) || 0;
     for (const item of (d.items || [])) {
-      if (item.confidence === "Guess") {
-        const key = guessKey(d.exam_id, item.source_list, item.reference_no);
-        out.push({
-          exam_id: d.exam_id, exam_source: d.source, date: d.date,
-          source_list: item.source_list, reference_no: item.reference_no,
-          question: item.question, your_answer: item.your_answer, correct_answer: item.correct_answer,
-          is_correct: item.is_correct, note_entry: notesByKey[key] || null,
-        });
-      }
+      const ref = refNumOf(item);
+      if (item.is_answered && ref !== null) latest.set(item.source_list + "::" + ref, { correct: !!item.is_correct, conf: item.confidence, t });
+      if (item.confidence !== "Guess" || itemExcluded(exc, item)) continue;
+      occ.push({
+        exam_id: d.exam_id, exam_source: d.source, date: d.date, _t: t,
+        source_list: item.source_list, reference_no: item.reference_no,
+        question: item.question, your_answer: item.your_answer, correct_answer: item.correct_answer,
+        is_correct: item.is_correct, note_entry: notesByKey[guessKey(d.exam_id, item.source_list, item.reference_no)] || null,
+      });
     }
   }
+  if (!opts.collapse) return occ;
+  const groups = new Map();
+  for (const g of occ) {
+    const k = g.source_list + "::" + g.reference_no;
+    const cur = groups.get(k);
+    if (!cur) groups.set(k, { last: g, times: 1, note: g.note_entry });
+    else {
+      cur.times++; cur.last = g;   // occ is oldest -> newest
+      if (g.note_entry && (!cur.note || (g.note_entry.date_logged || "") >= (cur.note.date_logged || ""))) cur.note = g.note_entry;
+      else if (!g.note_entry && cur.note) { /* keep older note */ }
+    }
+  }
+  const resolved = opts.hideResolved ? getResolvedStamps() : null, out = [];
+  groups.forEach((grp, k) => {
+    const g = grp.last;
+    if (resolved) { const rs = resolved.get(g.source_list + "::" + Number(g.reference_no)); if (rs !== undefined && g._t <= rs) return; }
+    if (opts.hideLearned) { const lt = latest.get(g.source_list + "::" + Number(g.reference_no)); if (lt && lt.t > g._t && lt.correct && (lt.conf === "Confident" || lt.conf === "Sure I'm Right")) return; }
+    out.push(Object.assign({}, g, { times: grp.times, note_entry: grp.note }));
+  });
   return out;
 }
 
@@ -2794,10 +2877,12 @@ function computeDueForReview(limit, scope) {
   for (const m of fullMistakeLog) {
     items.push({ type: "mistake", stale: daysSince(m.date_logged), repeat: (m.occurrences || []).length || 1, data: m });
   }
+  const shownAsMistake = new Set(fullMistakeLog.map(m => m.source_list + "::" + Number(m.reference_no)));
   for (const g of getAllGuesses()) {
     if (scopeSet && !scopeSet.has(g.source_list)) continue;
+    if (shownAsMistake.has(g.source_list + "::" + Number(g.reference_no))) continue;   // its mistake card already covers it
     const touched = (g.note_entry && g.note_entry.date_logged) || g.date;
-    items.push({ type: "guess", stale: daysSince(touched), repeat: 1, data: g });
+    items.push({ type: "guess", stale: daysSince(touched), repeat: g.times || 1, data: g });
   }
   // Stable order (ties broken by subject + reference) so batches don't reshuffle between refreshes.
   items.sort((a, b) => (b.repeat - a.repeat) || (b.stale - a.stale)
@@ -3768,6 +3853,7 @@ $("btnGenerateSample").addEventListener("click", () => {
   runGenerate(names);
 });
 (function initSamplingControls() {
+  $("plUnsure").checked = getUnsureFirst();
   const ps = $("poolModeSelect");
   ps.innerHTML = Object.entries(POOL_MODES).map(([k, v]) => `<option value="${k}">${esc(v)}</option>`).join("");
   ps.value = getPoolMode();
@@ -4535,8 +4621,8 @@ function plWilsonLower(k, n, z) {
 function computePlannerStats(subjects, target, halfLife) {
   const now = Date.now(), st = {};
   subjects.forEach(sj => st[sj] = { n: 0, k: 0, att: 0, uniq: 0, nTests: 0, found: 0, fixed: 0, openN: 0, last: null,
-    openRefs: new Set(), okRefs: new Set(), _seen: new Set(), _wrong: new Set(), _latest: new Map(), _tests: new Set() });
-  const det = loadJson(KEYS.details, []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || "")), exc = getExcludedIndicesByList();
+    unsure: [], openRefs: new Set(), okRefs: new Set(), _seen: new Set(), _wrong: new Set(), _latest: new Map(), _tests: new Set() });
+  const det = loadJson(KEYS.details, []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || "")), exc = getExcludedIndicesByList(), unsureMap = getUnsureByList();
   for (const d of det) {
     const t = Date.parse(d.date) || now;
     for (const it of (d.items || [])) {
@@ -4558,6 +4644,7 @@ function computePlannerStats(subjects, target, halfLife) {
   for (const sj of subjects) {
     const o = st[sj];
     o.uniq = o._seen.size; o.nTests = o._tests.size;
+    o.unsure = (unsureMap[sj] || []).slice();
     let openUnref = 0;
     o._latest.forEach((v) => {
       if (v.ref !== null) { if (v.correct) o.okRefs.add(v.ref); else o.openRefs.add(v.ref); }
@@ -4635,9 +4722,24 @@ function computePlan() {
   const A = {}; rows.forEach(r => A[r.sj] = { nw: 0, ex: 0, reRefs: [], spRefs: [] });
   const nEx = Math.round(N * eps), fresh = rows.filter(r => r.unseen > 0), withOpen = rows.filter(r => r.o.openRefs.size > 0);
   const totalOpen = withOpen.reduce((a, r) => a + r.o.openRefs.size, 0);
-  const nRe = Math.min(fresh.length ? Math.round(N * rePct) : N - nEx, totalOpen);
-  const reA = plSpread(nRe, withOpen, r => r.open * (0.5 + r.gap) || 0.01, r => r.o.openRefs.size);
-  withOpen.forEach(r => A[r.sj].reRefs = shuffleInPlace(Array.from(r.o.openRefs)).slice(0, reA[r.sj]));
+  const unsureOn = getUnsureFirst();
+  let nRe;
+  if (unsureOn) {
+    // Low-confidence mode: retest slots go to correct-but-unsure answers first (guess, then slightly confident,
+    // then confident; subjects with the bigger gap first within a tier), then to your open mistakes.
+    const cand = new Map();
+    rows.forEach(r => {
+      r.o.unsure.forEach(u => cand.set(r.sj + "::" + u.ref, { sj: r.sj, ref: u.ref, tier: u.tier, g: r.gap }));
+      r.o.openRefs.forEach(ref => { const k = r.sj + "::" + ref; if (!cand.has(k)) cand.set(k, { sj: r.sj, ref, tier: 3, g: r.gap }); });
+    });
+    const ordered = shuffleInPlace(Array.from(cand.values())).sort((a, b) => (a.tier - b.tier) || (b.g - a.g));
+    nRe = Math.min(fresh.length ? Math.round(N * rePct) : N - nEx, ordered.length);
+    ordered.slice(0, nRe).forEach(c => A[c.sj].reRefs.push(c.ref));
+  } else {
+    nRe = Math.min(fresh.length ? Math.round(N * rePct) : N - nEx, totalOpen);
+    const reA = plSpread(nRe, withOpen, r => r.open * (0.5 + r.gap) || 0.01, r => r.o.openRefs.size);
+    withOpen.forEach(r => A[r.sj].reRefs = shuffleInPlace(Array.from(r.o.openRefs)).slice(0, reA[r.sj]));
+  }
   let mode = "new", addNew = [];
   if (fresh.length) {
     const nwA = plSpread(Math.max(0, N - nRe - nEx), fresh, r => r.gap || 0.01, r => r.unseen);
@@ -4660,7 +4762,7 @@ function computePlan() {
     a.why = [r.o.n ? `gap ${(r.gap * 100).toFixed(0)} pts` : "no data yet", r.open ? `${r.open} open` : "", r.days !== null ? `last ${r.days}d ago` : ""].filter(Boolean).join(", ");
   });
   const total = rows.reduce((t, r) => t + A[r.sj].total, 0);
-  return { N, target, eps, rows, A, mode, addNew, total, nRe: rows.reduce((t, r) => t + A[r.sj].reRefs.length, 0) };
+  return { N, target, eps, rows, A, mode, addNew, total, unsureOn, nRe: rows.reduce((t, r) => t + A[r.sj].reRefs.length, 0) };
 }
 function plannerBuildQuestions(plan, only) {
   const lists = getAllLists(), seen = new Set(), out = [];
@@ -4691,6 +4793,7 @@ function plannerSubjectSentences(r, plan) {
   if (r.o.n && r.o.n < 8) L.push(`Only about ${Math.max(1, Math.round(r.o.n))} first-seen question${Math.round(r.o.n) === 1 ? "" : "s"} of evidence, so treat this as a rough read.`);
   if (r.o.att) L.push(`${r.o.att} answer${r.o.att === 1 ? "" : "s"} across ${r.o.uniq} of ${r.total} question${r.total === 1 ? "" : "s"} in the bank (${r.bankPct.toFixed(0)}%), counted from your test history.`);
   L.push(r.unseen > 0 ? `${r.unseen} unanswered question${r.unseen === 1 ? "" : "s"} left in the bank.` : "No unanswered questions left, so progress now comes from retesting.");
+  if (r.o.unsure.length) { const c = [0, 0, 0]; r.o.unsure.forEach(u => c[u.tier]++); L.push(`${r.o.unsure.length} correct answer${r.o.unsure.length === 1 ? "" : "s"} you weren't sure about (${c[0]} guess, ${c[1]} slightly confident, ${c[2]} confident).`); }
   if (r.o.found) L.push(`${r.o.found} mistake${r.o.found === 1 ? "" : "s"} found, ${r.o.fixed} fixed, ${r.open} still open.`);
   else if (r.o.n) L.push("No first-time mistakes recorded.");
   if (r.status !== "Stale" && dayTxt) L.push(`Last practiced ${dayTxt}.`);
@@ -4731,7 +4834,7 @@ function renderPlanner() {
   const rows = plan.rows, pc = v => v === null ? "&ndash;" : (v * 100).toFixed(1) + "%";
   const live = rows.filter(r => plan.A[r.sj].total > 0).sort((a, b) => plan.A[b.sj].total - plan.A[a.sj].total);
   const head = plan.mode === "new"
-    ? `Biggest gaps get the most new questions${plan.nRe ? `; ${plan.nRe} slot${plan.nRe === 1 ? "" : "s"} retest your unfixed mistakes` : ""}; explore slots are random.`
+    ? `Biggest gaps get the most new questions${plan.nRe ? `; ${plan.nRe} slot${plan.nRe === 1 ? "" : "s"} retest ${plan.unsureOn ? "answers you weren't sure about (guesses first), then unfixed mistakes" : "your unfixed mistakes"}` : ""}; explore slots are random.`
     : "The question bank is used up: retesting unfixed mistakes plus random spot-checks to catch forgetting." + (plan.addNew.length ? ` Best places to add NEW questions: ${plan.addNew.map(esc).join(", ")}.` : "");
   al.innerHTML = `<div class="list-item"><div class="top-row"><span class="name">Next session &middot; ${plan.total} question${plan.total === 1 ? "" : "s"}</span><span class="exam-days">${plan.mode}</span></div><div class="meta">${head}</div></div>` +
     (live.length ? `<div class="table-wrap"><table class="data-table"><tr><th>Subject</th><th>Do</th><th>New</th><th>Retest</th><th>Spot</th><th>Why</th><th></th></tr>` +
@@ -4869,6 +4972,7 @@ function renderActionPlan(overall, progression) {
       if (delta <= -3) items.push(`Slipping: ${delta.toFixed(1)} points since your previous sample${nTxt} \u2014 revisit recent mistakes.`);
       else if (delta >= 3) items.push(`Improving: +${delta.toFixed(1)} points since your previous sample${nTxt} \u2014 keep the momentum.`);
     }
+    if (r && r.o.unsure.length) { const c = [0, 0, 0]; r.o.unsure.forEach(u => c[u.tier]++); items.push(`${r.o.unsure.length} correct answer${r.o.unsure.length === 1 ? "" : "s"} you weren't sure about (${c[0]} guess, ${c[1]} slightly confident, ${c[2]} confident). Choose "Unsure first" as the question pool to retest those first.`); }
     if (st.total_answered < 10) items.push(`Only ${st.total_answered} answered so far \u2014 one more sample will make this ranking more reliable.`);
     if (r && r.total && r.unseen === 0) items.push("Every question in the bank has been answered, so progress now comes from retesting mistakes.");
     if (!items.length) items.push("Nothing urgent here \u2014 keep it fresh with an occasional mixed sample.");
@@ -5080,7 +5184,9 @@ function refreshGuessesSection() {
   if (Array.from(sel.options).some(o => o.value === prevVal)) sel.value = prevVal;
 
   const scopeG = getScopeSubjects(), scopeGSet = scopeG ? new Set(scopeG) : null;
-  const allGuesses = getAllGuesses().filter(g => !scopeGSet || scopeGSet.has(g.source_list));
+  const oneTest = sel.value !== "all";   // a single test shows its full record; "All tests" shows each question once
+  const allGuesses = getAllGuesses({ collapse: !oneTest, hideResolved: $("guessesHideResolved").checked, hideLearned: $("guessesHideLearned").checked })
+    .filter(g => !scopeGSet || scopeGSet.has(g.source_list));
   renderGuessSubjectChecks(Array.from(new Set(allGuesses.map(g => g.source_list || "Unknown"))));
 
   let guesses = allGuesses;
@@ -5088,7 +5194,7 @@ function refreshGuessesSection() {
   guesses = guesses.filter(g => !guessHiddenSubjects.has(g.source_list || "Unknown")); // subject filter
   if ($("guessesWrongOnly").checked) guesses = guesses.filter(g => !g.is_correct);
   if ($("guessesCorrectOnly").checked) guesses = guesses.filter(g => g.is_correct);
-  guesses.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  guesses.sort((a, b) => (b.times || 1) - (a.times || 1) || (b.date || "").localeCompare(a.date || ""));
 
   $("guessesCount").textContent = `(${guesses.length})`;
   const box = $("guessesContainer");
@@ -5140,6 +5246,7 @@ function renderGuessCard(g) {
 
   let inner = `<div class="top-row"><span class="name">Ref #${esc(g.reference_no)} &middot; ${esc(g.source_list)}</span>
       <span class="row" style="gap:4px;flex:none;">
+        ${g.times > 1 ? `<span class="status-pill repeat-pill">\u{1F501} \u00d7${g.times}</span>` : ""}
         ${hasNote ? `<span class="status-pill" style="background:var(--violet);color:#fff;">\u{1F4DD}</span>` : ""}
         <span class="status-pill ${statusClass}">${g.is_correct ? "Guessed Right" : "Guessed Wrong"}</span>
       </span></div>
@@ -5182,6 +5289,8 @@ function renderGuessCard(g) {
   return card;
 }
 $("guessesExamSelect").addEventListener("change", refreshGuessesSection);
+$("guessesHideResolved").addEventListener("change", refreshGuessesSection);
+$("guessesHideLearned").addEventListener("change", refreshGuessesSection);
 $("guessesWrongOnly").addEventListener("change", () => {
   if ($("guessesWrongOnly").checked) $("guessesCorrectOnly").checked = false;
   refreshGuessesSection();
