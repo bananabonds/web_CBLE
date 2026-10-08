@@ -516,7 +516,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
         <select class="examScopeSelect" id="homeDueScope" style="margin-bottom:8px;"></select>
         <div id="homeDueSummary" style="margin-bottom:10px;"></div>
         <div id="homeDueProgress" style="margin-bottom:10px;"></div>
-        <p class="hint" style="margin-bottom:6px;">Repeated and stale mistakes and guesses, most-repeated first. Tap Next batch to work through the whole list; it loops back to the start when you reach the end. Tap a card to flip it.</p>
+        <p class="hint" style="margin-bottom:6px;">Repeated and stale mistakes and guesses, most-repeated first, followed by correct answers you were only slightly confident about, then ones you were confident about (oldest first). Anything you resolved in the Mistake Log, flagged as a bank issue, or later answered with full confidence is left out. Tap Next batch to work through the whole list; it loops back to the start when you reach the end. Tap a card to flip it.</p>
         <div class="meta" id="homeDueNav" style="margin-bottom:8px;"></div>
         <div id="homeDueContainer"></div>
       </div>
@@ -2867,6 +2867,38 @@ function daysSince(dateStr) {
   const now = new Date(todayDateStr() + "T00:00:00").getTime();
   return Math.round((now - then) / 86400000);
 }
+// Correct answers you weren't fully sure about (tier 1 = Slightly Confident, tier 2 = Confident), one per question,
+// from your latest attempt. Guesses are covered by getAllGuesses(). getUnsureByList() already leaves out questions
+// resolved in the Mistake Log, ones you've since answered as "Sure I'm Right", and ones flagged as bank issues.
+function getUnsureReviewItems() {
+  const unsure = getUnsureByList(), want = new Map();
+  for (const [list, arr] of Object.entries(unsure)) for (const u of arr) if (u.tier >= 1) want.set(list + "::" + u.ref, u.tier);
+  if (!want.size) return [];
+  const det = loadJson(KEYS.details, []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  const rec = new Map();
+  for (const d of det) for (const it of (d.items || [])) {
+    const ref = refNumOf(it);
+    if (!it.is_answered || ref === null) continue;
+    const k = it.source_list + "::" + ref;
+    if (want.has(k)) rec.set(k, { d, it, ref });
+  }
+  const notes = new Map();   // latest flashcard note per question, whichever test it was written in
+  for (const n of loadGuessNotes()) {
+    const k = n.source_list + "::" + Number(n.reference_no), cur = notes.get(k);
+    if (!cur || (n.date_logged || "") >= (cur.date_logged || "")) notes.set(k, n);
+  }
+  const out = [];
+  want.forEach((tier, k) => {
+    const r = rec.get(k);
+    if (!r) return;
+    out.push({
+      exam_id: r.d.exam_id, exam_source: r.d.source, date: r.d.date, source_list: r.it.source_list, reference_no: r.it.reference_no,
+      question: r.it.question, your_answer: r.it.your_answer, correct_answer: r.it.correct_answer, is_correct: true,
+      note_entry: notes.get(k) || null, tier, conf_label: tier === 1 ? "slightly confident" : "confident",
+    });
+  });
+  return out;
+}
 function computeDueForReview(limit, scope) {
   const scopeSet = scope && scope.length ? new Set(scope) : null;
   // Only actually-logged (categorized), unresolved flashcards -- an auto-tracked-but-not-
@@ -2875,17 +2907,25 @@ function computeDueForReview(limit, scope) {
 
   const items = [];
   for (const m of fullMistakeLog) {
-    items.push({ type: "mistake", stale: daysSince(m.date_logged), repeat: (m.occurrences || []).length || 1, data: m });
+    items.push({ type: "mistake", group: 0, stale: daysSince(m.date_logged), repeat: (m.occurrences || []).length || 1, data: m });
   }
   const shownAsMistake = new Set(fullMistakeLog.map(m => m.source_list + "::" + Number(m.reference_no)));
   for (const g of getAllGuesses()) {
     if (scopeSet && !scopeSet.has(g.source_list)) continue;
     if (shownAsMistake.has(g.source_list + "::" + Number(g.reference_no))) continue;   // its mistake card already covers it
     const touched = (g.note_entry && g.note_entry.date_logged) || g.date;
-    items.push({ type: "guess", stale: daysSince(touched), repeat: g.times || 1, data: g });
+    items.push({ type: "guess", group: 0, stale: daysSince(touched), repeat: g.times || 1, data: g });
+  }
+  // Then correct-but-unsure answers: slightly confident, then confident (same anti-dilution rules as guesses).
+  for (const g of getUnsureReviewItems()) {
+    if (scopeSet && !scopeSet.has(g.source_list)) continue;
+    if (shownAsMistake.has(g.source_list + "::" + Number(g.reference_no))) continue;
+    const touched = (g.note_entry && g.note_entry.date_logged) || g.date;
+    items.push({ type: "unsure", group: g.tier, stale: daysSince(touched), repeat: 1, data: g });
   }
   // Stable order (ties broken by subject + reference) so batches don't reshuffle between refreshes.
-  items.sort((a, b) => (b.repeat - a.repeat) || (b.stale - a.stale)
+  // Mistakes + guesses first (most-repeated, then oldest), then slightly confident, then confident (oldest first).
+  items.sort((a, b) => (a.group - b.group) || (b.repeat - a.repeat) || (b.stale - a.stale)
     || String(a.data.source_list || "").localeCompare(String(b.data.source_list || "")) || (Number(a.data.reference_no) || 0) - (Number(b.data.reference_no) || 0));
   computeDueForReview.lastTotal = items.length;
   return limit ? items.slice(0, limit) : items;
@@ -2967,7 +3007,9 @@ function renderDueForReview() {
     const when = daysAgoLabel(item.stale);
     const why = item.type === "mistake"
       ? `${esc(d.source_list || "")} \u00b7 missed ${item.repeat}\u00d7${when ? ` \u00b7 last logged ${when}` : ""}`
-      : `${esc(d.source_list || "")} \u00b7 guess (${d.is_correct ? "got it right" : "got it wrong"})${when ? ` \u00b7 ${when}` : ""}`;
+      : item.type === "unsure"
+        ? `${esc(d.source_list || "")} \u00b7 ${d.conf_label} (got it right)${when ? ` \u00b7 ${when}` : ""}`
+        : `${esc(d.source_list || "")} \u00b7 guess (${d.is_correct ? "got it right" : "got it wrong"})${when ? ` \u00b7 ${when}` : ""}`;
     const tag = el("div", "meta");
     tag.style.margin = "8px 0 2px";
     tag.innerHTML = why;
@@ -5248,7 +5290,7 @@ function renderGuessCard(g) {
       <span class="row" style="gap:4px;flex:none;">
         ${g.times > 1 ? `<span class="status-pill repeat-pill">\u{1F501} \u00d7${g.times}</span>` : ""}
         ${hasNote ? `<span class="status-pill" style="background:var(--violet);color:#fff;">\u{1F4DD}</span>` : ""}
-        <span class="status-pill ${statusClass}">${g.is_correct ? "Guessed Right" : "Guessed Wrong"}</span>
+        <span class="status-pill ${statusClass}">${g.conf_label ? "Right \u00b7 " + g.conf_label.replace(/^./, c => c.toUpperCase()) : g.is_correct ? "Guessed Right" : "Guessed Wrong"}</span>
       </span></div>
     <div class="meta">${esc(g.exam_source || "")} &middot; ${esc(g.date || "")}</div>`;
 
