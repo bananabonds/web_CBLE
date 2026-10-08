@@ -31379,6 +31379,15 @@
       "pct": 100,
       "date": "2026-10-08T07:04:57",
       "time_used_seconds": 691.7
+    },
+    {
+      "id": "1791460463839483",
+      "source": "CT_Chemical_Waste_Management Focus Sample",
+      "score": 9,
+      "total": 10,
+      "pct": 90,
+      "date": "2026-10-08T11:54:23",
+      "time_used_seconds": 136.7
     }
   ],
   "exam_details": [
@@ -60703,6 +60712,123 @@
           "correct_answer": "C. Alcoholysis"
         }
       ]
+    },
+    {
+      "exam_id": "1791460463839483",
+      "source": "CT_Chemical_Waste_Management Focus Sample",
+      "date": "2026-10-08T11:54:23",
+      "items": [
+        {
+          "source_list": "CT_Chemical_Waste_Management",
+          "reference_no": 5,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "This refers to the net result of uptake, transformation and elimination of a substance in an organism due to all routes of exposure",
+          "your_answer": "A. Bioaccumulation",
+          "correct_answer": "B. Bioavailability"
+        },
+        {
+          "source_list": "CT_Chemical_Waste_Management",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "It is an act regulating and modernizing the practice of chemistry in the Philippines, otherwise known as the Chemistry Law of the Philippines.",
+          "your_answer": "C. RA 10657",
+          "correct_answer": "C. RA 10657"
+        },
+        {
+          "source_list": "CT_Chemical_Waste_Management",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Sodium metal should be best stored in ___:",
+          "your_answer": "B. Closed container under kerosene, or mineral oil",
+          "correct_answer": "B. Closed container under kerosene, or mineral oil"
+        },
+        {
+          "source_list": "CT_Chemical_Waste_Management",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "It is a record (usually a database), which in some cases is a required document for compliance, that lists the chemicals in the laboratory, along with information essential for their proper management",
+          "your_answer": "D. Chemical list",
+          "correct_answer": "D. Chemical list"
+        },
+        {
+          "source_list": "CT_Chemical_Waste_Management",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following acids are stored properly?",
+          "your_answer": "C. Lactic acid, acetic acid, trichloroacetic acid",
+          "correct_answer": "C. Lactic acid, acetic acid, trichloroacetic acid"
+        },
+        {
+          "source_list": "CT_Chemical_Waste_Management",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A hazardous waste characteristic that refers to substances that are unstable under normal conditions and readily undergo violent reaction without detonation",
+          "your_answer": "C. Reactivity",
+          "correct_answer": "C. Reactivity"
+        },
+        {
+          "source_list": "CT_Chemical_Waste_Management",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What type of container must be used to store waste such as paints and solvents?",
+          "your_answer": "B. Metal drum",
+          "correct_answer": "B. Metal drum"
+        },
+        {
+          "source_list": "CT_Chemical_Waste_Management",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "When collecting waste in the laboratory a good way to reduce the expense of waste management is to",
+          "your_answer": "D. All of these",
+          "correct_answer": "D. All of these"
+        },
+        {
+          "source_list": "CT_Chemical_Waste_Management",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following laboratory activities practices green chemistry? I. Waste prevention II. Microscale work III. Use of digital thermometers IV. Catalysis",
+          "your_answer": "D. I, II, III, and IV",
+          "correct_answer": "D. I, II, III, and IV"
+        },
+        {
+          "source_list": "CT_Chemical_Waste_Management",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "An “alkali waste” has a pH of ___",
+          "your_answer": "D. ≥ 12.5",
+          "correct_answer": "D. ≥ 12.5"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -68557,6 +68683,26 @@
         }
       ],
       "updated_at": "2026-10-08T07:09:26"
+    },
+    {
+      "id": "1791460463853435",
+      "source_list": "CT_Chemical_Waste_Management",
+      "reference_no": 5,
+      "question": "This refers to the net result of uptake, transformation and elimination of a substance in an organism due to all routes of exposure",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-08T11:54:23",
+      "occurrences": [
+        {
+          "exam_id": "1791460463839483",
+          "exam_source": "CT_Chemical_Waste_Management Focus Sample",
+          "date": "2026-10-08T11:54:23",
+          "your_answer": "A. Bioaccumulation",
+          "correct_answer": "B. Bioavailability"
+        }
+      ],
+      "updated_at": "2026-10-08T11:54:23"
     }
   ],
   "guess_notes": [
@@ -68789,5 +68935,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-10-08T11:52:21"
+  "updated_at": "2026-10-08T11:54:26"
 }
