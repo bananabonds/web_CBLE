@@ -31388,6 +31388,15 @@
       "pct": 90,
       "date": "2026-10-08T11:54:23",
       "time_used_seconds": 136.7
+    },
+    {
+      "id": "1791460659366645",
+      "source": "AI_CT_Instrumental_Analysis Focus Sample",
+      "score": 10,
+      "total": 10,
+      "pct": 100,
+      "date": "2026-10-08T11:57:39",
+      "time_used_seconds": 69.7
     }
   ],
   "exam_details": [
@@ -60829,6 +60838,123 @@
           "correct_answer": "D. ≥ 12.5"
         }
       ]
+    },
+    {
+      "exam_id": "1791460659366645",
+      "source": "AI_CT_Instrumental_Analysis Focus Sample",
+      "date": "2026-10-08T11:57:39",
+      "items": [
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A blank solution in a spectrophotometer is used to",
+          "your_answer": "D. set the instrument to zero absorbance (100 %T)",
+          "correct_answer": "D. set the instrument to zero absorbance (100 %T)"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is an electroanalytical method?",
+          "your_answer": "C. Potentiometry using a pH meter",
+          "correct_answer": "C. Potentiometry using a pH meter"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 15,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In HPLC, the mobile phase is",
+          "your_answer": "C. a liquid pumped at high pressure",
+          "correct_answer": "C. a liquid pumped at high pressure"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which cuvette material is required for measurements in the ultraviolet region?",
+          "your_answer": "D. Quartz",
+          "correct_answer": "D. Quartz"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Deviations from the Beer–Lambert law are most common at",
+          "your_answer": "A. high concentrations",
+          "correct_answer": "A. high concentrations"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The Beer–Lambert law relating absorbance to concentration is",
+          "your_answer": "A. A = εbc",
+          "correct_answer": "A. A = εbc"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The conductivity of a solution generally",
+          "your_answer": "B. increases with increasing temperature",
+          "correct_answer": "B. increases with increasing temperature"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In colorimetric analysis, measurements are normally made at",
+          "your_answer": "B. the wavelength of maximum absorbance",
+          "correct_answer": "B. the wavelength of maximum absorbance"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The reference electrode commonly built into a combination pH electrode is",
+          "your_answer": "A. Ag/AgCl",
+          "correct_answer": "A. Ag/AgCl"
+        },
+        {
+          "source_list": "AI_CT_Instrumental_Analysis",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In TLC, the Rf value is equal to",
+          "your_answer": "C. distance traveled by the spot ÷ distance traveled by the solvent front",
+          "correct_answer": "C. distance traveled by the spot ÷ distance traveled by the solvent front"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -68935,5 +69061,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-10-08T11:55:31"
+  "updated_at": "2026-10-08T11:57:43"
 }
