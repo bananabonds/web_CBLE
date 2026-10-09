@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T16:02:13",
+  "updated_at": "2026-10-09T17:03:59",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -1614,6 +1614,208 @@
           "B. Soaps contain no carbon-hydrogen bonds.",
           "C. Free fatty acids are highly basic compounds.",
           "D. Soaps are covalent gases at room temperature."
+        ],
+        "correct": 0
+      }
+    ],
+    "TOS3_Section1": [
+      {
+        "text": "What term refers to the clear liquid that passes through the filter medium during a filtration procedure?",
+        "options": [
+          "A. Residue",
+          "B. Precipitate",
+          "C. Filtrate",
+          "D. Supernatant"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Why is fluted filter paper preferred over quadrant-folded filter paper in gravity filtration?",
+        "options": [
+          "A. It increases the surface area and creates channels for air passage, speeding up the filtration rate.",
+          "B. It prevents the passage of fine colloidal particles better than flat paper.",
+          "C. It reacts chemically with impurities to remove them from solution.",
+          "D. It holds more solid residue without tearing."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is the primary purpose of adding a filter aid such as Celite (diatomaceous earth) during a difficult filtration?",
+        "options": [
+          "A. To dissolve the precipitate",
+          "B. To prevent fine or gelatinous precipitates from clogging the pores of the filter paper",
+          "C. To lower the boiling point of the filtrate",
+          "D. To act as a chemical indicator"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which technique should be used when the desired product is dissolved in a hot liquid and you want to remove insoluble impurities or decolorizing charcoal?",
+        "options": [
+          "A. Vacuum filtration using a Hirsch funnel",
+          "B. Hot gravity filtration using a stemless funnel",
+          "C. Centrifugation followed by decantation",
+          "D. Cold vacuum filtration with a Büchner funnel"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "In hot gravity filtration, why is a stemless or short-stem funnel used instead of a long-stem funnel?",
+        "options": [
+          "A. To allow easier attachment of a vacuum hose",
+          "B. To prevent premature crystallization of the dissolved solute inside the stem as it cools",
+          "C. To increase the volume capacity of the funnel",
+          "D. To hold larger diameter filter paper"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What critical step prevents 'suck-back' of water from a water aspirator into the filter flask when ending a vacuum filtration?",
+        "options": [
+          "A. Turn off the water aspirator tap first, then disconnect the vacuum hose.",
+          "B. Disconnect the vacuum hose from the flask or open the trap valve before turning off the water tap.",
+          "C. Pour hot solvent through the funnel before turning off the water.",
+          "D. Clamp the vacuum tubing tightly while the water is still running."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why must the filter paper in a Büchner funnel be wetted with a small amount of solvent prior to pouring the slurry?",
+        "options": [
+          "A. To dissolve coarse impurities on the paper",
+          "B. To create a tight seal over all the perforations so solid doesn't bypass the paper",
+          "C. To activate the cellulose fibers for absorption",
+          "D. To cool down the funnel temperature"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which piece of glassware is essential between the vacuum source (e.g., water aspirator) and the filter flask to prevent contamination?",
+        "options": [
+          "A. Separatory funnel",
+          "B. Vacuum trap (trap flask)",
+          "C. Condenser",
+          "D. Claisen adapter"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "When washing collected crystals on a Büchner funnel during vacuum filtration, which solvent should be used?",
+        "options": [
+          "A. A large volume of hot solvent in which the compound is soluble",
+          "B. A small amount of ice-cold solvent in which the compound is insoluble or sparingly soluble",
+          "C. Concentrated sulfuric acid",
+          "D. Boiling water regardless of compound solubility"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which type of filter paper is specifically used in gravimetric analysis because it leaves negligible inorganic residue (< 0.0001 g) upon ignition?",
+        "options": [
+          "A. Qualitative filter paper",
+          "B. Ashless quantitative filter paper",
+          "C. Fluted filter paper",
+          "D. Glass fiber filter pad"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why should thin-walled Erlenmeyer flasks never be used for vacuum (suction) filtration?",
+        "options": [
+          "A. They absorb the solvent vapors.",
+          "B. They cannot withstand the reduced internal pressure and may implode, causing hazardous flying glass.",
+          "C. They melt easily under mild heat.",
+          "D. The liquid level cannot be read accurately."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What filtration device is most suitable for collecting small amounts (microscale, < 100 mg) of solid crystals under vacuum?",
+        "options": [
+          "A. Büchner funnel",
+          "B. Hirsch funnel",
+          "C. Gooch crucible",
+          "D. Separatory funnel"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What simple method involves carefully pouring off the clear supernatant liquid without disturbing the dense settled solid at the bottom?",
+        "options": [
+          "A. Decantation",
+          "B. Centrifugation",
+          "C. Suction filtration",
+          "D. Sublimation"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "In a gravimetric determination where a precipitate will be ignited at high temperatures (> 500 °C) in a furnace, which filtration equipment is preferred?",
+        "options": [
+          "A. Plastic funnel with qualitative paper",
+          "B. Gooch crucible or sintered-glass crucible",
+          "C. Separatory funnel",
+          "D. Hirsch funnel with rubber policeman"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "How should filter paper be fitted inside a Büchner funnel?",
+        "options": [
+          "A. Folded into quarters like a cone",
+          "B. Lying completely flat, covering all holes without curling up the side walls",
+          "C. Wrapped around the outside stem of the funnel",
+          "D. Fluted into multiple pleats"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the primary operational order when starting a vacuum filtration?",
+        "options": [
+          "A. Pour the mixture into the funnel, then turn on the vacuum source.",
+          "B. Apply the vacuum first, wet the filter paper with solvent to seal it, then pour the mixture.",
+          "C. Wash the solid with hot solvent, then turn on the vacuum.",
+          "D. Turn off the vacuum, add the mixture, then disconnect the hose."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What happens if you choose a filter paper with a pore size significantly larger than the particle size of your precipitate?",
+        "options": [
+          "A. The filtration will stop entirely.",
+          "B. Precipitate particles will pass through into the filtrate, causing yield loss and poor separation.",
+          "C. The filter paper will tear immediately under suction.",
+          "D. The precipitate will dissolve instantly."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "During hot gravity filtration, why is a small excess of solvent often added to the hot solution prior to filtering?",
+        "options": [
+          "A. To prevent the solute from crystallizing on the filter paper or funnel during filtration",
+          "B. To speed up the evaporation rate",
+          "C. To lower the temperature of the mixture",
+          "D. To react with the insoluble impurities"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which filtration apparatus consists of a thick-walled glass flask with a sidearm designed to connect to vacuum tubing?",
+        "options": [
+          "A. Volumetric flask",
+          "B. Filter flask (Büchner flask)",
+          "C. Round-bottom flask",
+          "D. Erlenmeyer flask"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "If a precipitate is colloidal and continually clogs the filter paper, which technique speeds up separation by forcing the solid down with high centrifugal force?",
+        "options": [
+          "A. Centrifugation",
+          "B. Gravity filtration",
+          "C. Hot gravity filtration",
+          "D. Simple distillation"
         ],
         "correct": 0
       }
