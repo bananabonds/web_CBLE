@@ -196,6 +196,11 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
 .qb-formats pre{white-space:pre-wrap;font-size:.72rem;background:var(--paper);padding:8px;border-radius:8px;margin:6px 0;}
 .qb-prev-row{display:flex;gap:8px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line);font-size:.8rem;}
 .qb-prev-row select{width:auto;padding:3px 6px;font-size:.78rem;}
+.pe{margin:8px 0 10px;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:#fff;}
+.pe>summary{cursor:pointer;font-size:.8rem;font-weight:600;color:var(--navy);}
+.pe-text{font-family:"IBM Plex Mono",monospace;font-size:.74rem;line-height:1.45;}
+.pe-fixed{font-size:.72rem;color:var(--sub);background:var(--paper);border-radius:8px;padding:6px 8px;margin:6px 0;}
+.note-display{margin-top:8px;padding:8px 10px;border-radius:8px;background:var(--violet-bg);border-left:4px solid var(--violet);font-size:.82rem;white-space:pre-wrap;word-break:break-word;}
 
 .empty-state{padding:22px 10px;text-align:center;color:var(--sub);font-size:.85rem;}
 
@@ -791,6 +796,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
         <h3>Full Analysis</h3>
         <p class="hint" style="margin-bottom:8px;">Written as a ready-to-paste prompt: context, your data, the planned session, and the questions to ask an AI coach.</p>
         <label class="row" style="margin-bottom:8px;"><input type="checkbox" id="analysisIncludeMistakes" checked><span style="font-size:.82rem;">Include open mistakes (category + your notes)</span></label>
+        <div id="promptEditor-analysis"></div>
         <pre class="mono" id="analysisText" style="white-space:pre-wrap;max-height:420px;overflow:auto;font-size:.75rem;"></pre>
         <div class="row" style="margin-top:10px;">
           <button class="btn" id="btnRefreshAnalysis">Refresh Analysis</button>
@@ -917,7 +923,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
     <section class="panel" id="panel-reviewer">
       <div class="card">
         <h3>Reviewer</h3>
-        <p class="hint">Every question you flagged, hesitated on, guessed, or got wrong with confidence, collected from all your tests. A question you met several times shows once, with its full history.</p>
+        <p class="hint">Every question you hesitated on, guessed, or got wrong with confidence, collected from all your tests. <b>Each question appears once</b>, under its most serious tag (Overconfident, then Guess, then Slightly confident), with its full history. Flagged questions are listed separately and may also appear in a section above.</p>
         <select class="examScopeSelect" id="reviewerExamScope" style="margin-top:8px;"></select>
         <div id="rvExamSummary" style="margin-top:8px;"></div>
         <div class="row wrap" style="margin-top:8px;">
@@ -928,6 +934,14 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
             <input type="checkbox" id="rvPromptDetails" checked>
             <span>Include my past answers, confidence and notes</span>
           </label>
+          <div id="promptEditor-reviewer"></div>
+          <div class="hint" style="margin-bottom:4px;">Include these tags in the prompt:</div>
+          <div class="row wrap" id="rvPromptTags" style="gap:12px;margin-bottom:10px;">
+            <label class="row" style="flex:none;gap:5px;font-size:.8rem;"><input type="checkbox" data-rvtag="overconf"><span>Overconfident</span></label>
+            <label class="row" style="flex:none;gap:5px;font-size:.8rem;"><input type="checkbox" data-rvtag="guess"><span>Guess</span></label>
+            <label class="row" style="flex:none;gap:5px;font-size:.8rem;"><input type="checkbox" data-rvtag="slight"><span>Slightly confident</span></label>
+            <label class="row" style="flex:none;gap:5px;font-size:.8rem;"><input type="checkbox" data-rvtag="flagged"><span>Flagged</span></label>
+          </div>
           <button class="btn primary block" id="btnRvCopyPrompt">Copy Unique Questions As Prompt</button>
           <p class="hint" id="rvPromptHint" style="margin-top:6px;"></p>
         </div>
@@ -1324,6 +1338,9 @@ const KEYS = {
   examProgress: "cble.examProgress",
   tombstones: "cble.tombstones",
   mistakeDrafts: "cble.mistakeDrafts",
+  promptSets: "cble.promptSets",             // saved prompt command sets (commands only, never questions/data); synced
+  promptWork: "cble.promptWork",             // unsaved edits in the prompt editors (this device)
+  guessNoteDrafts: "cble.guessNoteDrafts",   // unsaved flashcard-note text, so a re-render or reload never loses it
   allocSpecs: "cble.allocSpecs",   // per-list sample size choices in the Sample Builder (this device only)
   sizePrefs: "cble.sizePrefs",     // Action Plan sample sizes + the shared question-pool choice (this device only)
 };
@@ -2315,7 +2332,7 @@ async function pushCsvReportToGithub() {
    subtracting that from every future merge, is what makes Delete
    actually stick once GitHub sync is involved.
    --------------------------------------------------------------------- */
-const TOMBSTONE_COLLECTIONS = ["sample_sets", "test_history", "exam_details", "mistake_log", "guess_notes", "local_banks", "exam_dates"];
+const TOMBSTONE_COLLECTIONS = ["sample_sets", "test_history", "exam_details", "mistake_log", "guess_notes", "local_banks", "exam_dates", "prompt_sets"];
 function emptyTombstones() {
   const t = {};
   for (const c of TOMBSTONE_COLLECTIONS) t[c] = [];
@@ -2352,6 +2369,7 @@ function buildLocalSnapshot() {
     mistake_log: loadJson(KEYS.mistakes, []),
     guess_notes: loadJson(KEYS.guessNotes, []),
     exam_dates: loadJson(KEYS.examDates, []),
+    prompt_sets: loadJson(KEYS.promptSets, []),
     tombstones: loadTombstones(),
     updated_at: nowIso(),
   };
@@ -2364,6 +2382,7 @@ function applySnapshotToLocal(snap) {
   put(KEYS.history, "test history", snap.test_history);
   put(KEYS.guessNotes, "guess notes", snap.guess_notes);
   put(KEYS.examDates, "exam dates", snap.exam_dates);
+  put(KEYS.promptSets, "prompt sets", snap.prompt_sets);
   put(KEYS.samples, "saved samples", snap.sample_sets);
   put(KEYS.banks, "local banks", snap.local_banks);
   put(KEYS.details, "test details", snap.exam_details);
@@ -2378,6 +2397,17 @@ function mergeById(remoteArr, localArr, idKey, deletedKeys) {
   for (const l of (localArr || [])) { // local wins on same-id conflict
     if (dead.has(l[idKey])) map.delete(l[idKey]); else map.set(l[idKey], l);
   }
+  return Array.from(map.values());
+}
+// Like mergeById, but the most recently edited copy wins (a stale device can't overwrite a newer edit).
+function mergeByStamp(remoteArr, localArr, idKey, deletedKeys) {
+  const dead = new Set(deletedKeys || []), map = new Map();
+  const add = (x, isLocal) => {
+    if (dead.has(x[idKey])) return;
+    const cur = map.get(x[idKey]);
+    if (!cur || (x.updated_at || "") > (cur.updated_at || "") || ((x.updated_at || "") === (cur.updated_at || "") && isLocal)) map.set(x[idKey], x);
+  };
+  (remoteArr || []).forEach(x => add(x, false)); (localArr || []).forEach(x => add(x, true));
   return Array.from(map.values());
 }
 function mergeMistakeLogs(remoteArr, localArr, deletedIds) {
@@ -2416,6 +2446,7 @@ function mergeSnapshots(remote, local) {
     mistake_log: mergeMistakeLogs(remote && remote.mistake_log, local.mistake_log, tomb.mistake_log),
     guess_notes: mergeById(remote && remote.guess_notes, local.guess_notes, "id", tomb.guess_notes),
     exam_dates: mergeById(remote && remote.exam_dates, local.exam_dates, "id", tomb.exam_dates),
+    prompt_sets: mergeByStamp(remote && remote.prompt_sets, local.prompt_sets, "id", tomb.prompt_sets),
     tombstones: tomb,
     updated_at: nowIso(),
   };
@@ -2467,6 +2498,7 @@ async function runGithubSync() {
   }
 }
 function refreshAfterSyncChange() {
+  if (typeof refreshAllPromptEditors === "function") refreshAllPromptEditors();   // never overwrites text you're typing
   if (typeof refreshListsDisplay === "function") refreshListsDisplay();
   if (typeof refreshHome === "function") refreshHome();
   if (typeof refreshHistoryList === "function") refreshHistoryList();
@@ -2795,6 +2827,12 @@ function avgPctOnDate(history, dateStr) {
   return { avg, count: matches.length };
 }
 
+// True while the cursor is inside a note/text box on the review cards. Background refreshes (GitHub sync,
+// returning to the tab) must not rebuild the list under it: that is what wiped the note and flickered the pointer.
+function isTypingInReviewCards() {
+  const a = document.activeElement;
+  return !!(a && /^(TEXTAREA|INPUT)$/.test(a.tagName) && a.closest && a.closest("#homeDueContainer, #guessesContainer"));
+}
 function refreshHome() {
   renderHomeOverview();
   renderPlanner();
@@ -2804,7 +2842,7 @@ function refreshHome() {
   renderQuestionsMilestones();
   renderDailyAnswered();
   renderStreakAndHeatmap();
-  renderDueForReview();
+  if (!isTypingInReviewCards()) renderDueForReview();
   renderHomeMistakes();
   renderHomeAssessments();
   renderHomeSamples();
@@ -3950,7 +3988,7 @@ $("importFileInput").addEventListener("change", (e) => {
 $("btnClearAllData").addEventListener("click", () => {
   const note = githubConfigured() ? " GitHub is left untouched -- this only clears this browser's copy." : "";
   if (!confirmDialog(`Erase ALL locally saved data -- local banks, saved samples, test history, analysis data, the mistake log, guess notes, and exam dates? This cannot be undone.${note}`)) return;
-  [KEYS.banks, KEYS.repoBanks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes, KEYS.guessNotes, KEYS.examDates, KEYS.mistakeDrafts].forEach(k => localStorage.removeItem(k));
+  [KEYS.banks, KEYS.repoBanks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes, KEYS.guessNotes, KEYS.examDates, KEYS.mistakeDrafts, KEYS.guessNoteDrafts, KEYS.promptSets, KEYS.promptWork].forEach(k => localStorage.removeItem(k));
   toast("All local data erased.");
   closeSheet("settingsSheet");
   refreshListsDisplay();
@@ -5255,7 +5293,7 @@ function renderAnalysisText(ranked, progression) {
   const cut = (t, n) => { t = String(t || "").replace(/\s+/g, " ").trim(); return t.length > n ? t.slice(0, n - 1) + "\u2026" : t; };
   const ex = getActiveExam(), scope = getScopeSubjects(), P = plannerPlan, L = [];
   const dl = ex && scope ? daysUntil(ex.date) : null;
-  L.push("You are my board-exam study coach. Analyze my practice-test data below and give me a concrete, prioritized plan.", "", "## CONTEXT");
+  L.push("## CONTEXT");
   L.push(`- Exam: ${ex && scope ? `${ex.label}, ${ex.date}${dl >= 0 ? ` (${dl} day(s) left)` : " (date has passed)"}` : "board exam (no exam focus selected)"}`);
   if (scope) L.push(`- Subjects on this exam: ${scope.join(", ")}`);
   const rowMap = new Map((P ? P.rows : []).map(r => [r.sj, r]));
@@ -5302,15 +5340,8 @@ function renderAnalysisText(ranked, progression) {
     if (P.addNew.length) L.push(`Question bank is used up. Subjects most needing NEW material: ${P.addNew.join(", ")}`);
   }
 
-  L.push("", "## WHAT I WANT FROM YOU",
-    "1. Diagnose each subject in 1-2 sentences, citing the numbers and flagging any conclusion that rests on a small n.",
-    "2. Name my top 3 priorities and why, weighing overconfident errors above plain low accuracy.",
-    "3. Review the planned next session: keep it, or change it and tell me why.",
-    `4. Give me a day-by-day schedule ${dl !== null && dl > 0 ? `for the ${Math.min(dl, 14)} day(s) ahead (exam in ${dl})` : "for the next 7 days"} with time split per subject, including when to retest old mistakes.`,
-    "5. Find patterns in my mistake causes and give one specific fix per pattern.",
-    "6. Tell me what extra data would make this analysis more reliable.",
-    "Be concise and specific, with no filler. State any assumption you make.");
-  const text = L.join("\n");
+  const scheduleWindow = dl !== null && dl > 0 ? `for the ${Math.min(dl, 14)} day(s) ahead (exam in ${dl})` : "for the next 7 days";
+  const text = expandPromptTemplate("analysis", { schedule_window: scheduleWindow }, L.join("\n"));
   $("analysisText").textContent = text;
   window._analysisReportStr = text;
 }
@@ -5409,7 +5440,10 @@ function jumpToExamInMistakeLog(examId) {
    Guesses You Made -- flashcard-style, same interaction pattern as the
    mistake cards but keyed on confidence="Guess" rather than wrong answers.
    --------------------------------------------------------------------- */
-let guessCardState = {}; // guessKey -> 0 (collapsed) | 1 (details) | 2 (note editor)
+let guessCardState = {}; // guessKey -> 0 (collapsed) | 1 (flashcard open: question, answers, note)
+let guessNoteEditing = {}; // guessKey -> true while that card's note editor is open
+let guessNoteDrafts = loadJson(KEYS.guessNoteDrafts, {}) || {};   // guessKey -> unsaved text
+function saveGuessNoteDrafts() { saveJson(KEYS.guessNoteDrafts, guessNoteDrafts); }
 
 function refreshGuessesSection() {
   const details = loadJson(KEYS.details, []).slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""));
@@ -5472,11 +5506,16 @@ function renderGuessSubjectChecks(subjects) {
   }
 }
 
+// Flashcard: tap to open/close. Notes are optional: a saved note is shown read-only, and a box only appears
+// after you press Add / Edit. What you type is kept as a draft until you Save or Cancel.
 function renderGuessCard(g) {
   const key = guessKey(g.exam_id, g.source_list, g.reference_no);
-  const state = guessCardState[key] || 0;
+  const expanded = (guessCardState[key] || 0) >= 1;
+  const saved = (g.note_entry && g.note_entry.note) || "";
+  const hasNote = !!saved;
+  const draft = guessNoteDrafts[key];
+  const editing = expanded && (!!guessNoteEditing[key] || draft !== undefined);
   const statusClass = g.is_correct ? "status-green" : "status-red";
-  const hasNote = !!(g.note_entry && g.note_entry.note);
   const card = el("div", `list-item flashcard ${statusClass}`);
   card.style.marginBottom = "6px";
 
@@ -5487,41 +5526,58 @@ function renderGuessCard(g) {
         <span class="status-pill ${statusClass}">${g.conf_label ? "Right \u00b7 " + g.conf_label.replace(/^./, c => c.toUpperCase()) : g.is_correct ? "Guessed Right" : "Guessed Wrong"}</span>
       </span></div>
     <div class="meta">${esc(g.exam_source || "")} &middot; ${esc(g.date || "")}</div>`;
-
-  if (state >= 1) {
+  if (expanded) {
     inner += `<div class="meta" style="margin-top:6px;">${esc(g.question || "(question text unavailable)")}</div>
       <div class="meta">Your answer: ${esc(g.your_answer || "(none)")}</div>
       <div class="meta">Correct answer: ${esc(g.correct_answer || "(unknown)")}</div>`;
-  }
-  if (state >= 2) {
-    inner += `<label class="field-label" style="margin-top:8px;">Flashcard note</label>
-      <textarea class="guess-note-input" rows="3"></textarea>
-      <div class="row" style="margin-top:6px;">
-        <button class="btn primary" data-save-guess="1">Save Note</button>
-      </div>`;
+    if (editing) {
+      inner += `<label class="field-label" style="margin-top:8px;">Flashcard note <span class="hint">(optional)</span></label>
+        <textarea class="guess-note-input" rows="3" placeholder="Write a note for this card&hellip;"></textarea>
+        <div class="row wrap" style="margin-top:6px;">
+          <button class="btn primary" data-save-guess="1">Save note</button>
+          <button class="btn" data-cancel-note="1">Cancel</button>
+          ${hasNote ? `<button class="btn danger" data-delete-note="1">Delete note</button>` : ""}
+        </div>`;
+    } else if (hasNote) {
+      inner += `<div class="note-display">${esc(saved)}</div>
+        <div class="row" style="margin-top:6px;"><button class="btn" data-edit-note="1">Edit note</button></div>`;
+    } else {
+      inner += `<div class="row" style="margin-top:8px;"><button class="btn" data-edit-note="1">+ Add a note (optional)</button></div>`;
+    }
   } else {
-    inner += `<div class="hint" style="margin-top:6px;">${state === 0 ? "Tap for details" : "Tap again to add a note"}</div>`;
+    inner += `<div class="hint" style="margin-top:6px;">${draft !== undefined ? "Unsaved note draft \u2014 tap to continue" : "Tap for details"}</div>`;
   }
   card.innerHTML = inner;
-  if (state >= 2) card.querySelector(".guess-note-input").value = (g.note_entry && g.note_entry.note) || "";
 
-  card.addEventListener("click", (ev) => {
-    if (ev.target.closest("textarea") || ev.target.closest("[data-save-guess]")) return;
-    guessCardState[key] = ((guessCardState[key] || 0) + 1) % 3;
-    refreshGuessesSection();
-    if (typeof renderDueForReview === "function") renderDueForReview();
-  });
-  const saveBtn = card.querySelector("[data-save-guess]");
-  if (saveBtn) {
-    saveBtn.addEventListener("click", (ev) => {
-      ev.stopPropagation();
-      const textarea = card.querySelector(".guess-note-input");
-      saveGuessNote(g.exam_id, g.exam_source, g.source_list, g.reference_no, g.question, g.your_answer, g.correct_answer, g.is_correct, textarea.value.trim());
-      toast("Note saved.");
-      refreshGuessesSection();
-      if (typeof renderDueForReview === "function") renderDueForReview();
+  // Redraw just this card (not the whole list), so nothing else moves or flickers.
+  const rerender = (focusNote) => {
+    const fresh = renderGuessCard(g);
+    card.replaceWith(fresh);
+    if (focusNote) { const t = fresh.querySelector(".guess-note-input"); if (t) { t.focus(); t.setSelectionRange(t.value.length, t.value.length); } }
+  };
+  const ta = card.querySelector(".guess-note-input");
+  if (ta) {
+    ta.value = draft !== undefined ? draft : saved;
+    ta.addEventListener("input", () => {
+      if (ta.value === saved) delete guessNoteDrafts[key]; else guessNoteDrafts[key] = ta.value;
+      saveGuessNoteDrafts();
     });
   }
+  card.addEventListener("click", (ev) => {
+    if (ev.target.closest("textarea") || ev.target.closest("button")) return;
+    guessCardState[key] = expanded ? 0 : 1;
+    rerender(false);
+  });
+  const on = (sel, fn) => { const b = card.querySelector(sel); if (b) b.addEventListener("click", (ev) => { ev.stopPropagation(); fn(); }); };
+  const finishEditing = () => { delete guessNoteDrafts[key]; delete guessNoteEditing[key]; saveGuessNoteDrafts(); };
+  const commit = (text, msg) => {
+    g.note_entry = saveGuessNote(g.exam_id, g.exam_source, g.source_list, g.reference_no, g.question, g.your_answer, g.correct_answer, g.is_correct, text);
+    finishEditing(); toast(msg); rerender(false);
+  };
+  on("[data-edit-note]", () => { guessNoteEditing[key] = true; rerender(true); });
+  on("[data-cancel-note]", () => { finishEditing(); rerender(false); });
+  on("[data-save-guess]", () => { const v = ta.value.trim(); commit(v, v ? "Note saved." : "Note removed."); });
+  on("[data-delete-note]", () => { if (confirmDialog("Delete this note?")) commit("", "Note removed."); });
   return card;
 }
 $("guessesExamSelect").addEventListener("change", refreshGuessesSection);
@@ -7080,22 +7136,177 @@ $("btnBackToWorkbench").addEventListener("click", () => {
 });
 
 /* =====================================================================
+   Prompt commands: editable in the UI, saved as named sets.
+   Only the COMMANDS are editable/saved. Your questions and data are inserted at {questions} / {data} when
+   the prompt is built, and are never stored in a prompt set.
+   ===================================================================== */
+const PROMPT_DEFAULTS = {
+  reviewer: [
+    "Below are the questions I struggled with, collected from my practice tests. Each appears once, with the reasons it made the list.",
+    "Using them as a map of my weak spots, create an in-depth, tailored reviewer. For each subject:",
+    "1. Classify the question contents per subject into the fundamental topics that they covered",
+    "2. Explain, elaborate, and extend the concepts into first principle explanations that will provide and solidify the necessary foundations to increase my first seen accuracy.",
+    "3. Provide explanations that go beyond the syntax of the questions but rather focus in its fundamental learning objectives",
+    "4. Mistakes logged as Other is understood to be due to question bank errors and ambiguity, go beyond this and instead extract the underlying concepts instead.",
+    "5. Go beyond the answer keys and instead explain the first principles directly.",
+    "6. Give memory aids (mnemonics, comparison tables, step-by-step methods) where useful.",
+    "{structure}",
+    "",
+    "{questions}",
+  ].join("\n"),
+  analysis: [
+    "You are my board-exam study coach. Analyze my practice-test data below and give me a concrete, prioritized plan.",
+    "",
+    "{data}",
+    "",
+    "## WHAT I WANT FROM YOU",
+    "1. Diagnose each subject in 1-2 sentences, citing the numbers and flagging any conclusion that rests on a small n.",
+    "2. Name my top 3 priorities and why, weighing overconfident errors above plain low accuracy.",
+    "3. Review the planned next session: keep it, or change it and tell me why.",
+    "4. Give me a day-by-day schedule {schedule_window} with time split per subject, including when to retest old mistakes.",
+    "5. Find patterns in my mistake causes and give one specific fix per pattern.",
+    "6. Tell me what extra data would make this analysis more reliable.",
+    "Be concise and specific, with no filler. State any assumption you make.",
+  ].join("\n"),
+};
+const PROMPT_KINDS = {
+  reviewer: { label: "Reviewer prompt", bigKey: "questions", bigNote: "where your flagged questions are inserted",
+    tokens: [["{questions}", "where your flagged questions are inserted"], ["{structure}", "one line describing the reviewer's parts; it adapts to the tags you tick"]] },
+  analysis: { label: "Full Analysis prompt", bigKey: "data", bigNote: "where your numbers, ranking, mistakes and planned session are inserted",
+    tokens: [["{data}", "where your numbers, ranking, mistakes and planned session are inserted"], ["{schedule_window}", "the number of days to schedule, based on your exam date"]] },
+};
+function loadAllPromptSets() { return loadJson(KEYS.promptSets, []) || []; }
+function loadPromptSets(kind) { return loadAllPromptSets().filter(p => p.kind === kind).sort((a, b) => a.name.localeCompare(b.name)); }
+function getActivePromptId(kind) { const id = (loadSizePrefs().promptActive || {})[kind]; return loadPromptSets(kind).some(p => p.id === id) ? id : "default"; }
+function setActivePromptId(kind, id) { const p = loadSizePrefs(); p.promptActive = Object.assign({}, p.promptActive, { [kind]: id }); saveJson(KEYS.sizePrefs, p); }
+function promptBaseText(kind) { const id = getActivePromptId(kind), set = loadPromptSets(kind).find(p => p.id === id); return set ? set.text : PROMPT_DEFAULTS[kind]; }
+function getPromptWork(kind) { const w = loadJson(KEYS.promptWork, {}) || {}; return typeof w[kind] === "string" ? w[kind] : null; }
+function setPromptWork(kind, text) { const w = loadJson(KEYS.promptWork, {}) || {}; if (text === null) delete w[kind]; else w[kind] = text; saveJson(KEYS.promptWork, w); }
+// What the prompt is built from: what is in the editor (even if unsaved), else the active set, else the default.
+function getPromptTemplate(kind) { const w = getPromptWork(kind); return w !== null ? w : promptBaseText(kind); }
+function expandPromptTemplate(kind, vars, bigText) {
+  let t = getPromptTemplate(kind).replace(/\{(structure|schedule_window)\}/g, (m, k) => (k in vars ? vars[k] : m));
+  const marker = "{" + PROMPT_KINDS[kind].bigKey + "}", i = t.indexOf(marker);
+  if (i >= 0) return t.slice(0, i) + bigText + t.slice(i + marker.length);
+  return t.replace(/\s+$/, "") + "\n\n" + bigText;   // no placeholder: the data goes at the end
+}
+function validatePromptText(text) {
+  if (!text.trim()) return "The commands are empty.";
+  if (text.length > 8000) return "That's very long (over 8,000 characters). Trim it down.";
+  if (/\[Ref #\d+\]/.test(text) || /^=== .+ ===$/m.test(text)) return "That looks like it contains question data. Prompt sets store commands only; use the placeholder instead.";
+  return "";
+}
+const peUi = {};
+function mountPromptEditor(kind, host) {
+  const K = PROMPT_KINDS[kind];
+  host.innerHTML = `<details class="pe"><summary>\u270E Customize the ${esc(K.label)}</summary>
+    <div class="pe-fixed">Only the <b>commands</b> are editable and saved. ${kind === "reviewer" ? "Your questions" : "Your data"} are added automatically at <b>${esc(K.tokens[0][0])}</b> when you copy, and are never stored in a prompt set.</div>
+    <label class="field-label">Prompt set</label>
+    <select class="pe-set"></select>
+    <label class="field-label" style="margin-top:8px;">Commands <span class="pe-state hint"></span></label>
+    <textarea class="pe-text" rows="12" spellcheck="false"></textarea>
+    <div class="hint pe-tokens" style="margin-top:4px;"></div>
+    <div class="row wrap" style="margin-top:8px;">
+      <button class="btn primary pe-save">Save changes</button>
+      <button class="btn pe-reset">Discard changes</button>
+      <button class="btn danger pe-delete">Delete set</button>
+    </div>
+    <label class="field-label" style="margin-top:10px;">Save the current commands as a new set</label>
+    <div class="row"><input type="text" class="pe-name" placeholder="Name, e.g. Short summary"><button class="btn violet pe-saveas">Save as new</button></div>
+  </details>`;
+  const q = sel => host.querySelector(sel);
+  const ui = peUi[kind] = { host, sel: q(".pe-set"), ta: q(".pe-text"), state: q(".pe-state"), tokens: q(".pe-tokens"), save: q(".pe-save"), reset: q(".pe-reset"), del: q(".pe-delete"), name: q(".pe-name"), saveas: q(".pe-saveas") };
+  ui.tokens.innerHTML = "Placeholders: " + K.tokens.map(([t, d]) => `<b>${esc(t)}</b> ${esc(d)}`).join("; ") + ".";
+  const work = getPromptWork(kind);
+  ui.ta.value = work !== null ? work : promptBaseText(kind);
+  ui.ta.addEventListener("input", () => { setPromptWork(kind, ui.ta.value === promptBaseText(kind) ? null : ui.ta.value); refreshPromptEditor(kind); promptEditorChanged(kind); });
+  ui.sel.addEventListener("change", () => {
+    const dirty = getPromptWork(kind) !== null;
+    if (dirty && !confirmDialog("Discard your unsaved changes to the commands?")) { refreshPromptEditor(kind); return; }
+    setActivePromptId(kind, ui.sel.value); setPromptWork(kind, null);
+    ui.ta.value = promptBaseText(kind); refreshPromptEditor(kind); promptEditorChanged(kind);
+  });
+  ui.reset.addEventListener("click", () => {
+    if (getPromptWork(kind) !== null && !confirmDialog("Discard your unsaved changes to the commands?")) return;
+    setPromptWork(kind, null); ui.ta.value = promptBaseText(kind); refreshPromptEditor(kind); promptEditorChanged(kind);
+  });
+  ui.save.addEventListener("click", () => {
+    const id = getActivePromptId(kind), all = loadAllPromptSets(), set = all.find(p => p.id === id);
+    if (!set) { toast("The built-in default can't be overwritten. Use \u201cSave as new\u201d."); return; }
+    const bad = validatePromptText(ui.ta.value); if (bad) { toast(bad, 3600); return; }
+    if (!confirmDialog(`Save these changes to the prompt set \u201c${set.name}\u201d? It replaces the commands saved in that set.`)) return;
+    set.text = ui.ta.value; set.updated_at = nowIso();
+    saveJson(KEYS.promptSets, all); setPromptWork(kind, null); scheduleGithubSync();
+    toast(`Saved \u201c${set.name}\u201d.`); refreshPromptEditor(kind); promptEditorChanged(kind);
+  });
+  ui.saveas.addEventListener("click", () => {
+    const name = ui.name.value.trim();
+    if (!name) { toast("Give the new set a name first."); ui.name.focus(); return; }
+    const all = loadAllPromptSets();
+    if (all.some(p => p.kind === kind && p.name.toLowerCase() === name.toLowerCase())) { toast("A set with that name already exists. Pick a different name, or select it and use Save changes."); return; }
+    const bad = validatePromptText(ui.ta.value); if (bad) { toast(bad, 3600); return; }
+    if (!confirmDialog(`Save the current commands as a new prompt set named \u201c${name}\u201d?`)) return;
+    const rec = { id: uid(), kind, name, text: ui.ta.value, updated_at: nowIso() };
+    all.push(rec); saveJson(KEYS.promptSets, all);
+    setActivePromptId(kind, rec.id); setPromptWork(kind, null); ui.name.value = ""; scheduleGithubSync();
+    toast(`Saved \u201c${name}\u201d.`); refreshPromptEditor(kind); promptEditorChanged(kind);
+  });
+  ui.del.addEventListener("click", () => {
+    const id = getActivePromptId(kind), all = loadAllPromptSets(), set = all.find(p => p.id === id);
+    if (!set) return;
+    if (!confirmDialog(`Delete the prompt set \u201c${set.name}\u201d? This can't be undone.`)) return;
+    saveJson(KEYS.promptSets, all.filter(p => p.id !== id)); addTombstone("prompt_sets", id);
+    setActivePromptId(kind, "default"); setPromptWork(kind, null); scheduleGithubSync();
+    ui.ta.value = PROMPT_DEFAULTS[kind]; toast(`Deleted \u201c${set.name}\u201d.`); refreshPromptEditor(kind); promptEditorChanged(kind);
+  });
+  refreshPromptEditor(kind);
+}
+function refreshPromptEditor(kind) {
+  const ui = peUi[kind];
+  if (!ui) return;
+  const K = PROMPT_KINDS[kind], sets = loadPromptSets(kind), active = getActivePromptId(kind);
+  ui.sel.innerHTML = "";
+  const add = (v, t) => { const o = document.createElement("option"); o.value = v; o.textContent = t; ui.sel.appendChild(o); };
+  add("default", "Built-in default");
+  sets.forEach(p => add(p.id, p.name));
+  ui.sel.value = active;
+  const base = promptBaseText(kind), dirty = getPromptWork(kind) !== null;   // unsaved edits are tracked in promptWork
+  if (!dirty && document.activeElement !== ui.ta && ui.ta.value !== base) ui.ta.value = base;   // pick up a set edited on another device
+  const marker = "{" + K.bigKey + "}";
+  ui.state.textContent = dirty ? "\u25CF unsaved changes" : (active === "default" ? "(built-in default)" : "(saved)");
+  ui.state.style.color = dirty ? "var(--amber)" : "";
+  ui.save.disabled = !(dirty && active !== "default");
+  ui.reset.disabled = !dirty;
+  ui.del.style.display = active === "default" ? "none" : "";
+  ui.tokens.innerHTML = "Placeholders: " + K.tokens.map(([t, d]) => `<b>${esc(t)}</b> ${esc(d)}`).join("; ") + "." + (ui.ta.value.includes(marker) ? "" : ` <span style="color:var(--red);">No ${esc(marker)} in the text, so it will be added at the end.</span>`);
+  ui.save.title = active === "default" ? "The built-in default can't be overwritten; use Save as new." : "";
+}
+function promptEditorChanged(kind) {
+  if (kind === "analysis" && window._aRanked) renderAnalysisText(window._aRanked, window._aProg || {});
+}
+function refreshAllPromptEditors() { Object.keys(peUi).forEach(refreshPromptEditor); }
+
+/* =====================================================================
    Tab: Reviewer
    ===================================================================== */
 const REVIEWER_SECTIONS = [
   { id: "overconf", title: "Overconfident Misses",
     hint: "Wrong answers you marked Confident or Sure I'm Right. These are your riskiest blind spots.",
     test: a => a.is_answered && !a.is_correct && (a.confidence === "Confident" || a.confidence === "Sure I'm Right") },
-  { id: "flagged", title: "Flagged Questions",
-    hint: "Questions you flagged during a test. Only tests taken after this update record flags.",
-    test: a => !!a.is_flagged },
-  { id: "slight", title: "Slightly Confident",
-    hint: "Answers you weren't fully sure about, whether or not you got them right.",
-    test: a => a.confidence === "Slightly Confident" },
   { id: "guess", title: "Guesses",
-    hint: "Everything you tagged Guess, right or wrong. Repeats are merged into one card.",
+    hint: "Questions you tagged Guess, right or wrong, that aren't overconfident misses. You can keep a note on each card.",
     test: a => a.confidence === "Guess" },
+  { id: "slight", title: "Slightly Confident",
+    hint: "Questions you weren't fully sure about that aren't overconfident misses or guesses. You can keep a note on each card.",
+    test: a => a.confidence === "Slightly Confident" },
+  { id: "flagged", title: "Flagged Questions",
+    hint: "Questions you flagged during a test. These can also appear in a section above. Only tests taken after this update record flags.",
+    test: a => !!a.is_flagged },
 ];
+// A question lives in the FIRST of these it qualifies for (any attempt counts), so it never repeats across them.
+const RV_CONF_ORDER = ["overconf", "guess", "slight"];
+function getRvTagPrefs() { return Object.assign({ overconf: true, guess: true, slight: true, flagged: true }, loadSizePrefs().rvTags || {}); }
+function setRvTagPref(tag, on) { const p = loadSizePrefs(); p.rvTags = Object.assign(getRvTagPrefs(), { [tag]: !!on }); saveJson(KEYS.sizePrefs, p); }
 let reviewerHiddenSubjects = new Set();
 let reviewerOpen = {};
 
@@ -7123,6 +7334,34 @@ function groupReviewerAttempts(attempts, test) {
   return list;
 }
 
+// One group per question, holding its FULL attempt history, with the tag it is filed under.
+function buildReviewerGroups(attempts) {
+  const byKey = new Map();
+  for (const a of attempts) {
+    if (!byKey.has(a.key)) byKey.set(a.key, { key: a.key, source_list: a.source_list, reference_no: a.reference_no, attempts: [] });
+    byKey.get(a.key).attempts.push(a);
+  }
+  const out = [];
+  byKey.forEach(g => {
+    g.attempts.sort((x, y) => (y.date || "").localeCompare(x.date || ""));
+    const tags = REVIEWER_SECTIONS.filter(sec => g.attempts.some(a => sec.test(a))).map(sec => sec.id);
+    g.primary = RV_CONF_ORDER.find(id => tags.includes(id)) || null;
+    g.flagged = tags.includes("flagged");
+    g.attempts = g.attempts.filter(a => a.is_answered || a.is_flagged);   // history: skip never-seen skips
+    if ((g.primary || g.flagged) && g.attempts.length) out.push(g);
+  });
+  return out;
+}
+function reviewerGroupsForSection(groups, sec) {
+  const mine = groups.filter(g => sec.id === "flagged" ? g.flagged : g.primary === sec.id);
+  const score = g => g.attempts.filter(sec.test).length;   // how often it hit this tag
+  return mine.sort((a, b) => (score(b) - score(a)) || (b.attempts[0].date || "").localeCompare(a.attempts[0].date || ""));
+}
+// Flashcard notes for Guess / Slightly confident cards are per question (the newest one is the one you edit).
+function rvQuestionNotes(g) {
+  return loadGuessNotes().filter(x => x.source_list === g.source_list && String(x.reference_no) === String(g.reference_no) && x.note)
+    .sort((a, b) => (b.date_logged || "").localeCompare(a.date_logged || ""));
+}
 function renderReviewerCard(sectionId, g) {
   const id = `${sectionId}::${g.key}`;
   const open = !!reviewerOpen[id];
@@ -7131,13 +7370,22 @@ function renderReviewerCard(sectionId, g) {
   const cls = latest.is_correct ? "status-green" : "status-red";
   const card = el("div", `list-item flashcard ${cls}${n > 1 ? " repeated" : ""}`);
   card.style.marginBottom = "6px";
+  const noteable = g.primary === "guess" || g.primary === "slight";
+  const dk = "rv::" + g.key;
+  const notes = noteable ? rvQuestionNotes(g) : [];
+  const saved = notes.length ? notes[0].note : "";
+  const draft = guessNoteDrafts[dk];
+  const editing = open && noteable && (!!guessNoteEditing[dk] || draft !== undefined);
+  const tagLabel = { overconf: "Overconfident", guess: "Guess", slight: "Slightly confident" }[g.primary] || "Flagged";
 
   let html = `<div class="top-row"><span class="name">Ref #${esc(g.reference_no)} &middot; ${esc(g.source_list)}</span>
     <span class="row" style="gap:4px;flex:none;">
       ${n > 1 ? `<span class="status-pill repeat-pill">\u{1F501} \u00d7${n}</span>` : ""}
+      ${saved ? `<span class="status-pill" style="background:var(--violet);color:#fff;">\u{1F4DD}</span>` : ""}
+      ${g.flagged ? `<span class="status-pill">\u{1F3F3}</span>` : ""}
       <span class="status-pill ${cls}">${latest.is_correct ? "Last: Right" : "Last: Wrong"}</span>
     </span></div>
-    <div class="meta">${esc(latest.exam_source || "")} &middot; ${esc(formatDateNice(dateOnly(latest.date)))}</div>`;
+    <div class="meta">${esc(tagLabel)} &middot; ${esc(latest.exam_source || "")} &middot; ${esc(formatDateNice(dateOnly(latest.date)))}</div>`;
 
   if (open) {
     html += `<div class="meta" style="margin-top:6px;">${esc(latest.question || "(question text unavailable)")}</div>
@@ -7147,16 +7395,64 @@ function renderReviewerCard(sectionId, g) {
         ${esc(a.exam_source || "")} (${esc(formatDateNice(dateOnly(a.date)))}) &middot;
         <b>${a.is_correct ? "\u2713" : "\u2717"}</b> "${esc(a.your_answer || "(none)")}" &middot;
         ${esc(a.confidence || "no confidence")}${a.is_flagged ? " &middot; \u{1F3F3} flagged" : ""}</div>`).join("") + `</div>`;
-
     const mEntry = findMistakeEntry(loadMistakeLog(), g.source_list, g.reference_no);
     if (mEntry && mEntry.note) html += `<div class="rv-note"><b>Mistake note:</b> ${esc(mEntry.note)}</div>`;
-    const gNotes = loadGuessNotes().filter(x => x.source_list === g.source_list && String(x.reference_no) === String(g.reference_no) && x.note);
-    for (const gn of gNotes) html += `<div class="rv-note"><b>Guess note (${esc(gn.exam_source || "")}):</b> ${esc(gn.note)}</div>`;
+    if (noteable) {
+      if (editing) {
+        html += `<label class="field-label" style="margin-top:8px;">Flashcard note <span class="hint">(optional)</span></label>
+          <textarea class="guess-note-input" rows="3" placeholder="Write a note for this card&hellip;"></textarea>
+          <div class="row wrap" style="margin-top:6px;">
+            <button class="btn primary" data-save-guess="1">Save note</button>
+            <button class="btn" data-cancel-note="1">Cancel</button>
+            ${saved ? `<button class="btn danger" data-delete-note="1">Delete note</button>` : ""}
+          </div>`;
+      } else if (saved) {
+        html += `<div class="note-display">${esc(saved)}</div>
+          <div class="row" style="margin-top:6px;"><button class="btn" data-edit-note="1">Edit note</button></div>`;
+      } else {
+        html += `<div class="row" style="margin-top:8px;"><button class="btn" data-edit-note="1">+ Add a note (optional)</button></div>`;
+      }
+      for (const gn of notes.slice(1)) html += `<div class="rv-note"><b>Earlier note (${esc(gn.exam_source || "")}):</b> ${esc(gn.note)}</div>`;
+    } else {
+      const gNotes = loadGuessNotes().filter(x => x.source_list === g.source_list && String(x.reference_no) === String(g.reference_no) && x.note);
+      for (const gn of gNotes) html += `<div class="rv-note"><b>Guess note (${esc(gn.exam_source || "")}):</b> ${esc(gn.note)}</div>`;
+    }
   } else {
-    html += `<div class="hint" style="margin-top:6px;">Tap for details and history</div>`;
+    html += `<div class="hint" style="margin-top:6px;">${draft !== undefined ? "Unsaved note draft \u2014 tap to continue" : "Tap for details and history"}</div>`;
   }
   card.innerHTML = html;
-  card.addEventListener("click", () => { reviewerOpen[id] = !reviewerOpen[id]; refreshReviewer(); });
+
+  const rerender = (focus) => {
+    const fresh = renderReviewerCard(sectionId, g);
+    card.replaceWith(fresh);
+    if (focus) { const t = fresh.querySelector(".guess-note-input"); if (t) { t.focus(); t.setSelectionRange(t.value.length, t.value.length); } }
+  };
+  const ta = card.querySelector(".guess-note-input");
+  if (ta) {
+    ta.value = draft !== undefined ? draft : saved;
+    ta.addEventListener("input", () => {
+      if (ta.value === saved) delete guessNoteDrafts[dk]; else guessNoteDrafts[dk] = ta.value;
+      saveGuessNoteDrafts();
+    });
+  }
+  card.addEventListener("click", (ev) => {
+    if (ev.target.closest("textarea") || ev.target.closest("button")) return;
+    reviewerOpen[id] = !reviewerOpen[id];
+    rerender(false);
+  });
+  const on = (sel, fn) => { const b = card.querySelector(sel); if (b) b.addEventListener("click", (ev) => { ev.stopPropagation(); fn(); }); };
+  const finishEditing = () => { delete guessNoteDrafts[dk]; delete guessNoteEditing[dk]; saveGuessNoteDrafts(); };
+  const commit = (text, msg) => {
+    // Update the newest existing note in place; otherwise attach it to the latest guess/slightly-confident attempt.
+    const t = notes[0] ? { exam_id: notes[0].exam_id, exam_source: notes[0].exam_source }
+      : (g.attempts.find(a => a.confidence === "Guess" || a.confidence === "Slightly Confident") || latest);
+    saveGuessNote(t.exam_id, t.exam_source, g.source_list, g.reference_no, latest.question, latest.your_answer, latest.correct_answer, !!latest.is_correct, text);
+    finishEditing(); toast(msg); rerender(false);
+  };
+  on("[data-edit-note]", () => { guessNoteEditing[dk] = true; rerender(true); });
+  on("[data-cancel-note]", () => { finishEditing(); rerender(false); });
+  on("[data-save-guess]", () => { const v = ta.value.trim(); commit(v, v ? "Note saved." : "Note removed."); });
+  on("[data-delete-note]", () => { if (confirmDialog("Delete this note?")) commit("", "Note removed."); });
   return card;
 }
 
@@ -7171,11 +7467,13 @@ function refreshReviewer() {
   const exR = getActiveExam(), scopeR = getScopeSubjects();
   renderExamScopeSelects();
   const qt = computeExamQuestionTotals(scopeR);
-  const uniq = new Set(groupReviewerAttempts(all.filter(a => !reviewerHiddenSubjects.has(a.source_list || "Unknown")),
-    a => REVIEWER_SECTIONS.some(sec => sec.test(a))).map(g => g.key)).size;
+  const uniq = buildReviewerGroups(all.filter(a => !reviewerHiddenSubjects.has(a.source_list || "Unknown"))).length;
+  const promptN = buildReviewerPromptData().length;
   $("rvExamSummary").innerHTML = `<div class="list-item"><div class="top-row"><span class="name">${scopeR && exR ? esc(exR.label) : "All subjects"}</span><span class="exam-days">${uniq} to review</span></div>
     <div class="meta"><b>${qt.total.toLocaleString()}</b> question${qt.total === 1 ? "" : "s"} in ${scopeR ? "this exam" : "your question bank"}${scopeR ? ` &middot; ${scopeR.length} subject${scopeR.length === 1 ? "" : "s"}` : ""} &middot; ${uniq} unique question${uniq === 1 ? "" : "s"} flagged below</div></div>`;
-  $("rvPromptHint").textContent = `Copies ${uniq} unique question${uniq === 1 ? "" : "s"} (each once, even if it appears in several sections or tests) with instructions for an AI to build a tailored reviewer.`;
+  const tp = getRvTagPrefs();
+  document.querySelectorAll("#rvPromptTags input").forEach(cb => { cb.checked = !!tp[cb.dataset.rvtag]; });
+  $("rvPromptHint").textContent = `Copies ${promptN} unique question${promptN === 1 ? "" : "s"} (each once, even if it appears in several tests) with instructions for an AI to build a tailored reviewer.${promptN === uniq ? "" : ` ${uniq - promptN} left out by the tags you unticked.`}`;
 
   const subjects = Array.from(new Set(all.map(a => a.source_list || "Unknown"))).sort();
   const checks = $("rvSubjectChecks");
@@ -7195,8 +7493,9 @@ function refreshReviewer() {
   const visible = all.filter(a => !reviewerHiddenSubjects.has(a.source_list || "Unknown"));
   const wrap = $("rvSections");
   wrap.innerHTML = "";
+  const allGroups = buildReviewerGroups(visible);
   for (const sec of REVIEWER_SECTIONS) {
-    const groups = groupReviewerAttempts(visible, sec.test);
+    const groups = reviewerGroupsForSection(allGroups, sec);
     const card = el("div", "card");
     card.innerHTML = `<h3>${esc(sec.title)} <span class="count">(${groups.length})</span></h3><p class="hint" style="margin-bottom:10px;">${esc(sec.hint)}</p>`;
     const list = el("div");
@@ -7210,59 +7509,64 @@ function refreshReviewer() {
 // overconfident miss, or that shows up in many tests, appears once with every reason attached).
 function buildReviewerPromptData() {
   const visible = scopedReviewerAttempts().filter(a => !reviewerHiddenSubjects.has(a.source_list || "Unknown"));
-  const groups = groupReviewerAttempts(visible, a => REVIEWER_SECTIONS.some(sec => sec.test(a)));
+  const groups = buildReviewerGroups(visible);
+  const on = getRvTagPrefs();
   const mlog = loadMistakeLog();
   const gnotes = loadGuessNotes();
-  const rank = { overconf: 0, flagged: 1, slight: 2, guess: 3 };
-  const entries = groups.map(g => {
-    const tags = REVIEWER_SECTIONS.filter(sec => g.attempts.some(a => sec.test(a))).map(sec => sec.id);
+  const rank = { overconf: 0, guess: 1, slight: 2, flagged: 3 };   // priority: overconfident > guess > slightly confident
+  const entries = [];
+  for (const g of groups) {
+    const tags = [];
+    if (g.primary && on[g.primary]) tags.push(g.primary);
+    if (g.flagged && on.flagged) tags.push("flagged");
+    if (!tags.length) continue;   // every tag this question has is switched off
     const m = findMistakeEntry(mlog, g.source_list, g.reference_no);
     const notes = gnotes.filter(x => x.source_list === g.source_list && String(x.reference_no) === String(g.reference_no) && x.note).map(x => x.note);
-    return { g, tags, mistake: m, guessNotes: notes };
-  });
+    entries.push({ g, tags, mistake: m, guessNotes: notes });
+  }
   entries.sort((a, b) => (a.g.source_list || "").localeCompare(b.g.source_list || "")
     || (Math.min(...a.tags.map(t => rank[t])) - Math.min(...b.tags.map(t => rank[t])))
     || (b.g.attempts.length - a.g.attempts.length));
   return entries;
 }
 const RV_TAG_LABEL = { overconf: "confident but wrong", flagged: "flagged", slight: "only slightly confident", guess: "guessed" };
+function rvStructureLine() {
+  const on = getRvTagPrefs();
+  const soft = [on.guess ? "guess" : null, on.slight ? "slightly confident" : null].filter(Boolean).join(" and ");
+  if (on.overconf && soft) return `Create a two part reviewer where part 1 prioritizes items marked "confident but wrong" and repeated misses, since those are my biggest blind spots while volume 2 is focused on enhancing my coverage in the concepts that questions with ${soft} tags address`;
+  if (on.overconf) return `Prioritize items marked "confident but wrong" and repeated misses, since those are my biggest blind spots.`;
+  if (soft) return `Focus the reviewer on enhancing my coverage in the concepts that the ${soft} questions address.`;
+  return "Focus the reviewer on the concepts these flagged questions address.";
+}
 function buildReviewerPrompt() {
   const entries = buildReviewerPromptData();
   const withDetails = $("rvPromptDetails").checked;
   const ex = getActiveExam(), scope = getScopeSubjects();
-  const L = [];
-  L.push("I'm reviewing for " + (scope && ex ? `my "${ex.label}" exam (${formatDateNice(ex.date)}${daysUntil(ex.date) >= 0 ? `, ${daysUntil(ex.date)} day(s) away` : ""})` : "my board exam") + ".");
-  if (scope) L.push(`Subjects on this exam: ${scope.join(", ")}.`);
-  L.push("",
-    "Below are the questions I struggled with, collected from my practice tests. Each appears once, with the reasons it made the list.",
-    "Using them as a map of my weak spots, create an in-depth, tailored reviewer. For each subject:",
-    "1. Classify the question contents per subject into the fundamental topics that they covered",
-    "2. Explain, elaborate, and extend the concepts into first principle explanations that will provide and solidify the necessary foundations to increase my first seen accuracy.",
-    "3. Provide explanations that go beyond the syntax of the questions but rather focus in its fundamental learning objectives",
-    "4. Mistakes logged as Other is understood to be due to question bank errors and ambiguity, go beyond this and instead extract the underlying concepts instead.",
-    "5. Go beyond the answer keys and instead explain the first principles directly.",
-    "6. Give memory aids (mnemonics, comparison tables, step-by-step methods) where useful.",
-    "Create a two part reviewer where part 1 prioritizes items marked \"confident but wrong\" and repeated misses, since those are my biggest blind spots while volume 2 is focused on enhancing my coverage in the concepts that questions with slightly confident and guess tags address", "");
+  const H = [];
+  H.push("I'm reviewing for " + (scope && ex ? `my "${ex.label}" exam (${formatDateNice(ex.date)}${daysUntil(ex.date) >= 0 ? `, ${daysUntil(ex.date)} day(s) away` : ""})` : "my board exam") + ".");
+  if (scope) H.push(`Subjects on this exam: ${scope.join(", ")}.`);
 
+  const Q = [];
   let bySubj = "", n = 0;
   for (const e of entries) {
     const g = e.g;
-    if (g.source_list !== bySubj) { bySubj = g.source_list; L.push("", `=== ${bySubj} ===`); }
+    if (g.source_list !== bySubj) { bySubj = g.source_list; Q.push("", `=== ${bySubj} ===`); }
     n++;
     const latest = g.attempts[0];
     const reasons = e.tags.map(t => RV_TAG_LABEL[t]).join(", ");
-    L.push("", `${n}. [Ref #${g.reference_no}] ${latest.question || "(question text unavailable)"}`);
-    L.push(`   Correct answer: ${latest.correct_answer || "(unknown)"}`);
-    L.push(`   Why it's here: ${reasons}${g.attempts.length > 1 ? `; seen in ${g.attempts.length} tests` : ""}`);
+    Q.push("", `${n}. [Ref #${g.reference_no}] ${latest.question || "(question text unavailable)"}`);
+    Q.push(`   Correct answer: ${latest.correct_answer || "(unknown)"}`);
+    Q.push(`   Why it's here: ${reasons}${g.attempts.length > 1 ? `; seen in ${g.attempts.length} tests` : ""}`);
     if (withDetails) {
       const mine = g.attempts.map(a => `"${a.your_answer || "(none)"}" (${a.is_correct ? "right" : "wrong"}, ${a.confidence || "no confidence"})`);
-      L.push(`   My answers, newest first: ${mine.join("; ")}`);
-      if (e.mistake && e.mistake.category) L.push(`   Mistake type I logged: ${e.mistake.category}`);
-      if (e.mistake && e.mistake.note) L.push(`   My note: ${e.mistake.note}`);
-      for (const gn of e.guessNotes) L.push(`   My guess note: ${gn}`);
+      Q.push(`   My answers, newest first: ${mine.join("; ")}`);
+      if (e.mistake && e.mistake.category) Q.push(`   Mistake type I logged: ${e.mistake.category}`);
+      if (e.mistake && e.mistake.note) Q.push(`   My note: ${e.mistake.note}`);
+      for (const gn of e.guessNotes) Q.push(`   My guess note: ${gn}`);
     }
   }
-  return { text: L.join("\n"), count: n };
+  const commands = expandPromptTemplate("reviewer", { structure: rvStructureLine() }, Q.join("\n").replace(/^\n/, ""));
+  return { text: H.join("\n") + "\n\n" + commands, count: n };
 }
 async function copyTextRobust(text) {
   try { await navigator.clipboard.writeText(text); return true; } catch (e) {}
@@ -7277,10 +7581,13 @@ async function copyTextRobust(text) {
 }
 $("btnRvCopyPrompt").addEventListener("click", async () => {
   const { text, count } = buildReviewerPrompt();
-  if (!count) { toast("Nothing to copy \u2014 no flagged questions for this selection."); return; }
+  if (!count) { toast("Nothing to copy \u2014 no questions match the selected subjects and tags."); return; }
   const ok = await copyTextRobust(text);
   toast(ok ? `Copied ${count} unique question${count === 1 ? "" : "s"} (${text.length.toLocaleString()} characters).` : "Couldn't access the clipboard.");
 });
+mountPromptEditor("reviewer", $("promptEditor-reviewer"));
+mountPromptEditor("analysis", $("promptEditor-analysis"));
+document.querySelectorAll("#rvPromptTags input").forEach(cb => cb.addEventListener("change", () => { setRvTagPref(cb.dataset.rvtag, cb.checked); refreshReviewer(); }));
 $("btnRvFilterToggle").addEventListener("click", () => {
   const b = $("rvFilterBox"); b.style.display = b.style.display === "none" ? "block" : "none";
 });
