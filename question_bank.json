@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T13:07:17",
+  "updated_at": "2026-10-09T15:45:49",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -1210,6 +1210,208 @@
           "B. Magnesium (Mg)",
           "C. Copper (Cu)",
           "D. Iron (Fe)"
+        ],
+        "correct": 0
+      }
+    ],
+    "TOS2_Section4": [
+      {
+        "text": "How does a lower pKa value relate to the strength of an organic acid?",
+        "options": [
+          "A. A lower pKa indicates a weaker acid.",
+          "B. A lower pKa indicates a stronger acid.",
+          "C. A lower pKa indicates the acid is completely insoluble in water.",
+          "D. pKa has no mathematical relationship to acid strength."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which of the following ranks the relative acidity of organic classes correctly from STRONGEST to WEAKEST?",
+        "options": [
+          "A. Alcohols > Phenols > Carboxylic acids",
+          "B. Carboxylic acids > Phenols > Alcohols",
+          "C. Phenols > Carboxylic acids > Alcohols",
+          "D. Alcohols > Carboxylic acids > Phenols"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why is trichloroacetic acid (CCl₃COOH) significantly more acidic than acetic acid (CH₃COOH)?",
+        "options": [
+          "A. Chlorine atoms donate electron density to stabilize the carboxylic acid.",
+          "B. Chlorine atoms exert an electron-withdrawing inductive effect that stabilizes the carboxylate conjugate base.",
+          "C. Acetic acid forms stronger intramolecular hydrogen bonds.",
+          "D. Chlorine atoms increase the pKa of the molecule."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which property allows you to chemically distinguish a carboxylic acid from a phenol in the laboratory?",
+        "options": [
+          "A. Carboxylic acids react with aqueous NaHCO₃ to release CO₂ gas, whereas phenols do not.",
+          "B. Phenols react with aqueous NaHCO₃ to produce hydrogen gas, whereas carboxylic acids do not.",
+          "C. Carboxylic acids turn red litmus paper blue.",
+          "D. Phenols are completely neutral compounds with pKa = 14."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which factor makes aliphatic amines (like methylamine, CH₃NH₂) STRONGER Brønsted bases than ammonia (NH₃)?",
+        "options": [
+          "A. Alkyl groups exert an electron-donating inductive effect, increasing electron density on the nitrogen lone pair.",
+          "B. Alkyl groups withdraw electron density away from the nitrogen atom.",
+          "C. Ammonia is an aromatic compound.",
+          "D. Methylamine cannot accept a proton."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Why is aniline (C₆H₅NH₂) a WEAKER base than cyclohexylamine (C₆H₁₁NH₂)?",
+        "options": [
+          "A. The lone pair on the nitrogen in aniline is delocalized into the aromatic pi system by resonance.",
+          "B. Aniline is nonpolar and insoluble in water.",
+          "C. Cyclohexylamine contains an aromatic ring.",
+          "D. Nitrogen in aniline lacks a lone pair of electrons."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Why are amides (like acetamide, CH₃CONH₂) essentially neutral in aqueous solution rather than basic like amines?",
+        "options": [
+          "A. The nitrogen lone pair is strongly delocalized into the adjacent carbonyl double bond (C=O) via resonance.",
+          "B. Amides contain no nitrogen atoms.",
+          "C. Amides rapidly dissociate into hydrogen ions.",
+          "D. Amides react with water to form strong mineral acids."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What product is formed when a water-insoluble amine like triethylamine reacts with aqueous hydrochloric acid (HCl)?",
+        "options": [
+          "A. A water-soluble alkylammonium chloride salt",
+          "B. A neutral ester and water",
+          "C. An insoluble alkoxide precipitate",
+          "D. Gaseous ammonia and chloromethane"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which organic acid is the simplest carboxylic acid, found naturally in ant venom, with the formula HCOOH?",
+        "options": [
+          "A. Acetic acid",
+          "B. Formic acid",
+          "C. Benzoic acid",
+          "D. Oxalic acid"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which combination of chemical species acts as an effective organic buffer solution around pH 4.75?",
+        "options": [
+          "A. Acetic acid (CH₃COOH) and Sodium acetate (CH₃COONa)",
+          "B. Hydrochloric acid (HCl) and Sodium chloride (NaCl)",
+          "C. Sodium hydroxide (NaOH) and Ethanol (C₂H₅OH)",
+          "D. Methylamine (CH₃NH₂) and Sodium hydroxide (NaOH)"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "In a Lewis acid-base context, how is an organic amine classified?",
+        "options": [
+          "A. Lewis acid, because it donates an electron pair.",
+          "B. Lewis base, because it donates an electron pair.",
+          "C. Lewis base, because it accepts a proton.",
+          "D. Lewis acid, because it accepts an electron pair."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What happens to the pH at the equivalence point when a weak organic acid (like acetic acid) is titrated with a strong base (like NaOH)?",
+        "options": [
+          "A. pH < 7.0 (acidic due to surplus protons)",
+          "B. pH = 7.0 (strictly neutral)",
+          "C. pH > 7.0 (basic due to hydrolysis of the conjugate base anion)",
+          "D. pH = 0.0"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which substituent group attached to a benzoic acid ring will INCREASE the overall acidity of the compound?",
+        "options": [
+          "A. -CH₃ (methyl group)",
+          "B. -OCH₃ (methoxy group)",
+          "C. -NO₂ (nitro group)",
+          "D. -NH₂ (amino group)"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Chemical soaps are structurally defined as:",
+        "options": [
+          "A. Esters formed from short-chain alcohols and mineral acids.",
+          "B. Sodium or potassium salts of long-chain fatty acids.",
+          "C. Free quaternary ammonium cations dissolved in water.",
+          "D. Chlorinated aromatic hydrocarbons."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which organic dicarboxylic acid with the formula HOOC-COOH is found in rhubarb and spinach, and can act as a primary standard in redox titrations?",
+        "options": [
+          "A. Oxalic acid",
+          "B. Citric acid",
+          "C. Lactic acid",
+          "D. Tartaric acid"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is the conjugate base of acetic acid (CH₃COOH)?",
+        "options": [
+          "A. CH₃COOH₂⁺",
+          "B. CH₃COO⁻ (Acetate ion)",
+          "C. CH₃OH",
+          "D. OH⁻"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which organic acid contains both a carboxylic acid group and a phenol group, commonly used as a precursor to aspirin?",
+        "options": [
+          "A. Lactic acid",
+          "B. Salicylic acid",
+          "C. Tartaric acid",
+          "D. Citric acid"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which compound is the STRONGEST base among the given choices?",
+        "options": [
+          "A. Aniline",
+          "B. Acetamide",
+          "C. Dimethylamine",
+          "D. Pyridine"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "What effect does adding an electron-donating group (such as -CH₃) have on the Ka and pKa of a carboxylic acid?",
+        "options": [
+          "A. Ka increases and pKa decreases (stronger acid).",
+          "B. Ka decreases and pKa increases (weaker acid).",
+          "C. Both Ka and pKa increase.",
+          "D. Both Ka and pKa decrease."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which hydroxy carboxylic acid accumulates in muscle tissue during strenuous anaerobic exercise?",
+        "options": [
+          "A. Lactic acid",
+          "B. Formic acid",
+          "C. Benzoic acid",
+          "D. Oxalic acid"
         ],
         "correct": 0
       }
