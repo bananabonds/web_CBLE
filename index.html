@@ -166,6 +166,36 @@ button.link{background:none;border:none;color:var(--navy);font-weight:600;font-s
 .size-ctl{gap:6px;margin-top:8px;font-size:.8rem;color:var(--sub);flex-wrap:wrap;}
 .size-ctl select,.size-ctl input{width:auto;min-width:0;padding:5px 7px;font-size:.8rem;}
 .size-ctl input{width:72px;}
+/* Question Bank tab: Repository (navy) and Local (violet) are colour-coded everywhere */
+.qb-seg{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.qb-dest{border:2px solid var(--line);background:#fff;border-radius:var(--radius);padding:10px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:3px;color:var(--ink);}
+.qb-dest b{font-size:.92rem;}
+.qb-dest small{font-size:.7rem;color:var(--sub);line-height:1.3;}
+.qb-dest[data-dest="repo"].active{border-color:var(--navy);background:#EEF2FF;}
+.qb-dest[data-dest="local"].active{border-color:var(--violet);background:var(--violet-bg);}
+.qb-banner{margin-top:10px;padding:9px 11px;border-radius:8px;font-size:.8rem;line-height:1.45;}
+.qb-banner.repo{background:#EEF2FF;color:var(--navy);border-left:4px solid var(--navy);}
+.qb-banner.local{background:var(--violet-bg);color:var(--violet);border-left:4px solid var(--violet);}
+.qb-badge{display:inline-block;border-radius:999px;padding:2px 9px;font-size:.66rem;font-weight:700;color:#fff;vertical-align:middle;}
+.qb-badge.repo{background:var(--navy);}
+.qb-badge.local{background:var(--violet);}
+.qb-badge.builtin{background:var(--sub);}
+.qb-badge.warn{background:var(--amber);}
+.qb-badge.retired{background:var(--sub);}
+.qb-chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;}
+.qb-chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 11px;font-size:.74rem;cursor:pointer;color:var(--ink);}
+.qb-chip.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+.qb-q.retired{opacity:.62;}
+.qb-q.flagged{border-left:4px solid var(--amber);}
+.qb-opts{margin:6px 0 4px;padding-left:0;list-style:none;font-size:.8rem;}
+.qb-opts li{padding:2px 0;}
+.qb-opts li.correct{color:var(--green);font-weight:600;}
+.qb-savebar{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:5;margin-top:10px;padding:10px;border-radius:10px;background:#fff;border:2px solid var(--amber);box-shadow:0 4px 14px rgba(0,0,0,.15);}
+.qb-savebar.repo{border-color:var(--navy);}
+.qb-savebar.local{border-color:var(--violet);}
+.qb-formats pre{white-space:pre-wrap;font-size:.72rem;background:var(--paper);padding:8px;border-radius:8px;margin:6px 0;}
+.qb-prev-row{display:flex;gap:8px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line);font-size:.8rem;}
+.qb-prev-row select{width:auto;padding:3px 6px;font-size:.78rem;}
 
 .empty-state{padding:22px 10px;text-align:center;color:var(--sub);font-size:.85rem;}
 
@@ -417,7 +447,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
     <button class="tabchip" data-tab="analysis">Study Priority</button>
     <button class="tabchip" data-tab="mistakes">Mistake Log</button>
     <button class="tabchip" data-tab="reviewer">Reviewer</button>
-    <button class="tabchip" data-tab="editor">Local Banks</button>
+    <button class="tabchip" data-tab="editor">Question Bank</button>
   </div>
 
   <nav id="secNav" aria-label="Sections on this tab"></nav>
@@ -913,27 +943,84 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
       <div id="rvSections"></div>
     </section>
 
-    <!-- ---- Tab: Local Bank Editor ---- -->
+    <!-- ---- Tab: Question Bank ---- -->
     <section class="panel" id="panel-editor">
-      <div class="card">
-        <h3>Bank name</h3>
-        <input list="editorBankList" id="editorBankInput" placeholder="My Local Bank">
-        <datalist id="editorBankList"></datalist>
-        <div class="row" style="margin-top:10px;">
-          <button class="btn" id="btnLoadEditorBank">Load</button>
-          <button class="btn" id="btnNewEditorBank">New / Clear</button>
+      <div class="card" id="qbDestCard">
+        <h3>Where are you saving?</h3>
+        <div class="qb-seg">
+          <button class="qb-dest" data-dest="repo"><span><span class="qb-badge repo">REPOSITORY</span></span><b>&#9729; GitHub file</b><small>Committed to a shared question-bank file in your repo. Every device pulls it.</small></button>
+          <button class="qb-dest" data-dest="local"><span><span class="qb-badge local">LOCAL</span></span><b>&#128241; This device</b><small>Kept in this browser (and in your private data sync). Not in the shared file.</small></button>
+        </div>
+        <div class="qb-banner" id="qbBanner"></div>
+        <div class="hint" id="qbSources" style="margin-top:8px;"></div>
+      </div>
+
+      <div class="card" id="qbPickCard">
+        <h3>Bank <span class="count" id="qbBankCount"></span></h3>
+        <select id="qbBankSelect"></select>
+        <div id="qbNewRow" style="display:none;margin-top:8px;">
+          <label class="field-label">Name for the new bank</label>
+          <input type="text" id="qbNewName" placeholder="e.g. Pharmacology Set 2">
+          <p class="hint" style="margin-top:4px;">A bank's name can't be changed later (your history and mistake log refer to it by name).</p>
+        </div>
+        <div class="row wrap" style="margin-top:10px;">
+          <button class="btn" id="qbBtnPull">&#8635; Pull latest from GitHub</button>
+          <button class="btn danger" id="qbBtnDeleteBank">Delete bank</button>
+        </div>
+        <div class="hint" id="qbPullInfo" style="margin-top:6px;"></div>
+      </div>
+
+      <div class="card" id="qbPasteCard">
+        <h3>Add questions by pasting <span class="qb-badge" id="qbPasteDest"></span></h3>
+        <p class="hint" style="margin-bottom:8px;">Paste, check the preview, then press the button. <b>Nothing is saved until you press it, and then it is saved immediately</b> (no extra Save step).</p>
+        <details class="qb-formats">
+          <summary class="hint" style="cursor:pointer;">Accepted formats</summary>
+          <pre class="mono">Plain text (blank line or numbering between questions)
+1. Which drug class ends in -pril?
+A. Beta blockers
+B. ACE inhibitors
+C. Statins
+D. Diuretics
+Answer: B
+
+Mark the right option with * instead of an Answer line:
+A. Liver
+B. Kidney *
+
+Start a new bank inside one paste with a header line:
+# Pharmacology
+
+JSON: [{"text":"...","options":["a","b","c","d"],"correct":1}]
+   or {"Bank name":[ ...questions... ]}
+Python: Bank_Name = [ {"text":"...","options":[...],"correct":0}, ... ]
+(correct is the position of the right option, counting from 0)</pre>
+        </details>
+        <textarea id="qbPasteInput" rows="8" placeholder="Paste questions here&hellip;"></textarea>
+        <div class="row wrap" style="margin-top:6px;">
+          <button class="btn" id="qbBtnParse">Preview</button>
+          <button class="btn link" id="qbBtnClearPaste">Clear</button>
+        </div>
+        <div id="qbPreview" style="margin-top:8px;"></div>
+        <button class="btn primary block" id="qbBtnCommitPaste" style="margin-top:10px;" disabled>Add</button>
+      </div>
+
+      <div class="card" id="qbEditCard">
+        <h3>Questions in this bank <span class="count" id="qbEditCount"></span> <span class="qb-badge" id="qbEditDest"></span></h3>
+        <div class="hint" style="margin-bottom:6px;">Edits here are staged: nothing is saved until you press the Save / Commit button that appears at the bottom. Questions are never deleted or reordered (your history refers to them by position); <b>Retire</b> hides a question from all samples instead.</div>
+        <div class="row wrap"><button class="btn violet" id="qbBtnAdd">+ Add question</button></div>
+        <div class="qb-chips" id="qbChips"></div>
+        <input type="text" id="qbSearch" placeholder="Search this bank&hellip;">
+        <div id="qbList" style="margin-top:8px;"></div>
+        <div class="qb-savebar" id="qbSaveBar" style="display:none;">
+          <div class="hint" id="qbSaveInfo" style="margin-bottom:8px;"></div>
+          <div class="row wrap"><button class="btn" id="qbBtnDiscard">Discard</button><button class="btn primary" id="qbBtnSave">Save</button></div>
         </div>
       </div>
-      <div class="card">
-        <h3>Questions in This Bank <span class="count" id="editorCount"></span></h3>
-        <div id="editorContainer"></div>
-      </div>
-      <div class="card">
-        <div class="row wrap">
-          <button class="btn violet" id="btnAddQuestion">+ Add Question</button>
-          <button class="btn primary" id="btnSaveEditorBank">Save Bank</button>
-          <button class="btn danger" id="btnDeleteEditorBank">Delete Bank</button>
-        </div>
+
+      <div class="card" id="qbProblemsCard">
+        <h3>Bank problems <span class="count" id="qbProblemCount"></span></h3>
+        <p class="hint" style="margin-bottom:8px;">Questions you tagged <b>Other</b> (or told to skip) in the Mistake Log. They stay out of samples until you fix them. Fix a Local or Repository question, then press <b>Mark fixed</b> to put it back. Built-in questions can't be edited, so make a corrected copy instead.</p>
+        <div id="qbProblems"></div>
       </div>
     </section>
   </main>
@@ -985,6 +1072,8 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
     <input type="text" id="ghBranchInput" placeholder="main" value="main">
     <label class="field-label">File path in the repo</label>
     <input type="text" id="ghPathInput" placeholder="cble_data.json" value="cble_data.json">
+    <label class="field-label">Question bank file (the Question Bank tab commits Repository banks here)</label>
+    <input type="text" id="ghBankPathInput" placeholder="question_bank.json" value="question_bank.json">
     <label class="field-label">CSV reports folder (each exam's report is auto-saved here as a .csv on submit)</label>
     <input type="text" id="ghCsvFolderInput" placeholder="reports" value="reports">
     <label class="field-label">Fine-grained Personal Access Token (Contents: Read and write, scoped to this one repo)</label>
@@ -1132,10 +1221,14 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
 <div class="sheet hidden" id="questionSheet">
   <div class="sheet-inner">
     <h2 id="questionSheetTitle">Add Question</h2>
+    <div class="qb-banner" id="qeDestLine" style="margin:6px 0 10px;"></div>
     <label class="field-label">Question text</label>
     <textarea id="qeText" rows="4"></textarea>
     <label class="field-label">Answer options (select the correct one)</label>
     <div id="qeOptions"></div>
+    <button class="btn" id="btnQeAddOption" style="margin-top:2px;">+ Add option</button>
+    <label class="field-label" style="margin-top:10px;">Note (optional)</label>
+    <input type="text" id="qeNote" placeholder="e.g. answer key disputed, source page">
     <div class="row" style="margin-top:14px;">
       <button class="btn block" id="btnCancelQuestion">Cancel</button>
       <button class="btn primary block" id="btnSubmitQuestion">Save Question</button>
@@ -1218,6 +1311,7 @@ const MISTAKE_CATEGORIES = [
 
 const KEYS = {
   banks: "cble.localBanks",
+  repoBanks: "cble.repoBanks",     // cached copy of the Repository question-bank file (pulled from GitHub)
   samples: "cble.sampleSets",
   history: "cble.testHistory",
   details: "cble.examDetails",
@@ -1278,9 +1372,16 @@ function loadLocalBanks() {
   for (const name of Object.keys(raw)) tagged[name] = tagSource(raw[name], `[Local] ${name}`);
   return tagged;
 }
+// A stored question. Extra fields: retired (hidden from every sample) and note (free text). Position never changes.
+function cleanBankQuestion(q) {
+  const out = { text: String(q.text == null ? "" : q.text).trim(), options: (q.options || []).map(o => String(o == null ? "" : o).trim()), correct: Number.isInteger(Number(q.correct)) ? Number(q.correct) : 0 };
+  if (q.retired) out.retired = true;
+  if (q.note && String(q.note).trim()) out.note = String(q.note).trim();
+  return out;
+}
 function saveLocalBank(bankName, questions) {
   const raw = loadLocalBanksRaw();
-  raw[bankName] = questions.map(q => ({ text: q.text, options: q.options.slice(), correct: q.correct }));
+  raw[bankName] = questions.map(cleanBankQuestion);
   saveJson(KEYS.banks, raw);
   removeTombstone("local_banks", bankName); // in case this name was deleted before and is now being recreated
   scheduleGithubSync();
@@ -1295,6 +1396,79 @@ function deleteLocalBank(bankName) {
   }
 }
 
+/* ---------------------------------------------------------------------
+   Repository banks: one JSON file in YOUR GitHub repo ( { version, updated_at, banks: { name: [questions] } } ).
+   Pulled into a local cache; edits are committed straight to the file. Lists are named "[Repo] name".
+   --------------------------------------------------------------------- */
+const LOCAL_PREFIX = "[Local] ", REPO_PREFIX = "[Repo] ";
+function repoBankPath() { const c = getGithubConfig(); return (c && c.bankPath) || "question_bank.json"; }
+function loadRepoBankCache() { const c = loadJson(KEYS.repoBanks, null); return (c && c.banks && typeof c.banks === "object") ? c : { banks: {}, sha: null, fetchedAt: null }; }
+function loadRepoBanksRaw() { return loadRepoBankCache().banks; }
+function loadRepoBanks() {
+  const raw = loadRepoBanksRaw(), tagged = {};
+  for (const name of Object.keys(raw)) tagged[name] = tagSource(raw[name], REPO_PREFIX + name);
+  return tagged;
+}
+function normalizeRepoFile(data) {
+  const src = data && typeof data === "object" ? (data.banks && typeof data.banks === "object" ? data.banks : {}) : {};
+  const banks = {};
+  for (const [name, arr] of Object.entries(src)) if (Array.isArray(arr)) banks[name] = arr.filter(q => q && Array.isArray(q.options)).map(cleanBankQuestion);
+  return { version: 1, updated_at: (data && data.updated_at) || null, banks };
+}
+async function githubGetJsonAtPath(path) {
+  const c = getGithubConfig();
+  const hdr = { "Authorization": `Bearer ${c.token}`, "Accept": "application/vnd.github+json" };
+  const res = await fetch(githubContentsUrl(path, c.branch || "main"), { headers: hdr, cache: "no-store" });
+  if (res.status === 404) return { data: null, sha: null };
+  if (!res.ok) throw new Error(`GET ${res.status} ${(await res.text().catch(() => "")).slice(0, 150)}`);
+  const json = await res.json();
+  let text;
+  if (json.content && json.encoding === "base64") text = b64DecodeUnicode(json.content);
+  else {
+    const blobRes = await fetch(`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/git/blobs/${json.sha}`, { headers: hdr, cache: "no-store" });
+    if (!blobRes.ok) throw new Error(`Blob GET ${blobRes.status}`);
+    text = b64DecodeUnicode((await blobRes.json()).content);
+  }
+  let data;
+  try { data = JSON.parse(text); } catch (e) { throw new Error(`${path} isn't valid JSON`); }
+  return { data, sha: json.sha };
+}
+async function pullRepoBanks(showToast) {
+  if (!githubConfigured()) { if (showToast) toast("Connect GitHub in Settings first."); return false; }
+  try {
+    const { data, sha } = await githubGetJsonAtPath(repoBankPath());
+    const file = normalizeRepoFile(data);
+    saveJson(KEYS.repoBanks, { banks: file.banks, sha, fetchedAt: nowIso(), path: repoBankPath() });
+    if (showToast) toast(`Pulled ${Object.keys(file.banks).length} repository bank(s).`);
+    return true;
+  } catch (e) {
+    console.error("Repo bank pull failed:", e);
+    if (showToast) toast(`Couldn't pull the repository banks: ${e.message}`, 3200);
+    return false;
+  }
+}
+// Read-modify-write against the latest file on GitHub. mutate(banks) edits the bank map in place (and may throw to abort).
+async function commitRepoBanks(mutate, message) {
+  if (!githubConfigured()) throw new Error("GitHub isn't connected");
+  const path = repoBankPath();
+  let lastErr = null;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const { data, sha } = await githubGetJsonAtPath(path);
+    const file = normalizeRepoFile(data);
+    mutate(file.banks);
+    file.updated_at = nowIso();
+    try {
+      const newSha = await githubPutFileAtPath(path, JSON.stringify(file, null, 2), sha, message);
+      saveJson(KEYS.repoBanks, { banks: file.banks, sha: newSha, fetchedAt: nowIso(), path });
+      return file;
+    } catch (e) {
+      lastErr = e;
+      if (!/PUT (409|422)/.test(e.message)) throw e;   // someone else committed first: reload the latest and re-apply
+    }
+  }
+  throw lastErr;
+}
+
 let _topicCache = null; // in-memory per session, mirrors _topic_cache
 function getRemoteTopics() {
   if (_topicCache) return _topicCache;
@@ -1305,6 +1479,8 @@ function getAllLists() {
   const merged = {};
   const remote = getRemoteTopics();
   for (const name of Object.keys(remote)) merged[name] = remote[name];
+  const repoB = loadRepoBanks();
+  for (const name of Object.keys(repoB)) merged[REPO_PREFIX + name] = repoB[name];
   const local = loadLocalBanks();
   for (const name of Object.keys(local)) merged[`[Local] ${name}`] = local[name];
   return merged;
@@ -1363,8 +1539,20 @@ function isExcludedEntry(e) {
   if (e.skip_in_samples === false) return false;
   return String(e.category || "").trim().toLowerCase() === "other";
 }
+let _retiredMemo = { key: null, val: null };
+function getRetiredIndicesByList() {
+  const key = (localStorage.getItem(KEYS.banks) || "") + "\u0001" + (localStorage.getItem(KEYS.repoBanks) || "");
+  if (_retiredMemo.key === key) return _retiredMemo.val;
+  const out = {};
+  const scan = (raw, prefix) => { for (const [name, qs] of Object.entries(raw || {})) (qs || []).forEach((q, i) => { if (q && q.retired) (out[prefix + name] = out[prefix + name] || new Set()).add(i); }); };
+  scan(loadLocalBanksRaw(), LOCAL_PREFIX); scan(loadRepoBanksRaw(), REPO_PREFIX);
+  _retiredMemo = { key, val: out };
+  return out;
+}
 function getExcludedIndicesByList() {
   const out = {};
+  const ret = getRetiredIndicesByList();
+  for (const k of Object.keys(ret)) out[k] = new Set(ret[k]);
   for (const e of loadMistakeLog()) {
     if (!isExcludedEntry(e)) continue;
     const ref = Number(e.reference_no);
@@ -3601,12 +3789,15 @@ $("btnSettings").addEventListener("click", () => {
   $("ghBranchInput").value = c ? (c.branch || "main") : "main";
   $("ghPathInput").value = c ? (c.path || "cble_data.json") : "cble_data.json";
   $("ghCsvFolderInput").value = c ? (c.csvFolder || "reports") : "reports";
+  $("ghBankPathInput").value = c ? (c.bankPath || "question_bank.json") : "question_bank.json";
   $("ghTokenInput").value = c ? c.token || "" : "";
   setGithubStatus(githubConfigured() ? "connected, not yet synced this session" : "not connected");
   openSheet("settingsSheet");
 });
 $("btnCloseSettings").addEventListener("click", () => closeSheet("settingsSheet"));
-$("btnRefreshBank").addEventListener("click", () => refreshQuestionBank(true));
+$("btnRefreshBank").addEventListener("click", () => {
+  refreshQuestionBank(true).then(() => pullRepoBanks(false)).then(() => { refreshListsDisplay(); renderQB(); });
+});
 
 $("btnSaveGithubConfig").addEventListener("click", async () => {
   const owner = $("ghOwnerInput").value.trim();
@@ -3615,8 +3806,10 @@ $("btnSaveGithubConfig").addEventListener("click", async () => {
   const path = $("ghPathInput").value.trim() || "cble_data.json";
   const csvFolder = $("ghCsvFolderInput").value.trim().replace(/^\/+|\/+$/g, "") || "reports";
   const token = $("ghTokenInput").value.trim();
+  const bankPath = $("ghBankPathInput").value.trim().replace(/^\/+/, "") || "question_bank.json";
   if (!owner || !repo || !token) { toast("Fill in owner, repo, and a token at minimum."); return; }
-  saveGithubConfigRaw({ owner, repo, branch, path, csvFolder, token });
+  if (bankPath === path) { toast("The question bank file must be a different file from the data file."); return; }
+  saveGithubConfigRaw({ owner, repo, branch, path, csvFolder, bankPath, token });
   setGithubStatus("Testing connection\u2026");
   try {
     const { data, sha } = await githubGetFile();
@@ -3631,6 +3824,7 @@ $("btnSaveGithubConfig").addEventListener("click", async () => {
       await runGithubSync();
       toast("GitHub connected and synced.");
     }
+    pullRepoBanks(false).then(ok => { if (ok) { refreshListsDisplay(); renderQB(); } });
   } catch (e) {
     console.error(e);
     setGithubStatus(`Connection failed: ${e.message}`);
@@ -3756,7 +3950,7 @@ $("importFileInput").addEventListener("change", (e) => {
 $("btnClearAllData").addEventListener("click", () => {
   const note = githubConfigured() ? " GitHub is left untouched -- this only clears this browser's copy." : "";
   if (!confirmDialog(`Erase ALL locally saved data -- local banks, saved samples, test history, analysis data, the mistake log, guess notes, and exam dates? This cannot be undone.${note}`)) return;
-  [KEYS.banks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes, KEYS.guessNotes, KEYS.examDates, KEYS.mistakeDrafts].forEach(k => localStorage.removeItem(k));
+  [KEYS.banks, KEYS.repoBanks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes, KEYS.guessNotes, KEYS.examDates, KEYS.mistakeDrafts].forEach(k => localStorage.removeItem(k));
   toast("All local data erased.");
   closeSheet("settingsSheet");
   refreshListsDisplay();
@@ -3806,7 +4000,7 @@ function refreshListsDisplay() {
   const box = $("listsContainer");
   box.innerHTML = "";
   if (listNamesOrder.length === 0) {
-    box.appendChild(el("div", "empty-state", scopeNow && everyName.length ? "None of this exam's subjects match a current question list. Edit the exam on Home, or tick \u201cAlso show lists outside this exam\u201d." : "No question lists yet. Sync the question bank (gear icon) or add a Local Bank."));
+    box.appendChild(el("div", "empty-state", scopeNow && everyName.length ? "None of this exam's subjects match a current question list. Edit the exam on Home, or tick \u201cAlso show lists outside this exam\u201d." : "No question lists yet. Sync the question bank (gear icon) or add a bank in the Question Bank tab."));
   }
   for (const name of listNamesOrder) {
     const cov = coverage[name], spec = getAllocSpec(name);
@@ -5700,98 +5894,637 @@ $("btnCopyMistakeInsights").addEventListener("click", async () => {
 });
 
 /* =====================================================================
-   Tab 6: Local Bank Editor
+   Tab 6: Question Bank
+   Three kinds of lists exist and the tab keeps them visibly apart:
+     Built-in    plain names    ARCLectureBank.py (read-only here)
+     Repository  "[Repo] name"  question_bank.json in YOUR GitHub repo; saving = a GitHub commit
+     Local       "[Local] name" this browser (plus your private data sync); saving = this device only
+   Questions are referenced by position (history, mistakes), so they are never deleted or reordered: Retire hides one.
    ===================================================================== */
-let editorQuestions = [];
+var qb = {
+  dest: null, name: "", isNew: false, work: [], baseJson: "[]", filter: "all", search: "", shown: 50,
+  parsed: null, busy: false, parseTimer: null,
+};
+const QB_DEST = {
+  repo: { label: "Repository", prefix: REPO_PREFIX },
+  local: { label: "Local", prefix: LOCAL_PREFIX },
+};
+(function qbDestInit() {
+  const p = loadSizePrefs().qbDest;
+  qb.dest = (p === "repo" || p === "local") ? p : (githubConfigured() ? "repo" : "local");
+})();
 
-function refreshEditorBankChoicesQuiet() {
-  const raw = loadJson(KEYS.banks, {});
-  $("editorBankList").innerHTML = Object.keys(raw).sort().map(n => `<option value="${esc(n)}">`).join("");
+function qbBanksRaw(dest) { return (dest || qb.dest) === "repo" ? loadRepoBanksRaw() : loadLocalBanksRaw(); }
+function qbNorm(t) { return String(t || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim(); }
+function qbCurrentBankName() { return qb.isNew ? $("qbNewName").value.trim() : qb.name; }
+function qbCleanArr(arr) { return (arr || []).map(cleanBankQuestion); }
+function qbDirtyCount() {
+  const base = JSON.parse(qb.baseJson) || [], work = qbCleanArr(qb.work);
+  let n = Math.abs(work.length - base.length);
+  for (let i = 0; i < Math.min(work.length, base.length); i++) if (JSON.stringify(work[i]) !== JSON.stringify(base[i])) n++;
+  return n;
 }
-function refreshEditorBankChoices() { refreshEditorBankChoicesQuiet(); }
+function qbDirty() { return qbDirtyCount() > 0; }
+function qbKind(listName) { return listName.startsWith(REPO_PREFIX) ? "repo" : listName.startsWith(LOCAL_PREFIX) ? "local" : "builtin"; }
+function qbBadge(kind) { return `<span class="qb-badge ${kind}">${kind === "repo" ? "REPOSITORY" : kind === "local" ? "LOCAL" : "BUILT-IN"}</span>`; }
+function qbBannerHtml(dest) {
+  if (dest === "repo") {
+    const c = getGithubConfig();
+    return githubConfigured()
+      ? `<b>&#9729; REPOSITORY.</b> Changes are <b>committed to GitHub</b>: <span class="mono">${esc(c.owner)}/${esc(c.repo)}</span> &rsaquo; <span class="mono">${esc(repoBankPath())}</span> on <span class="mono">${esc(c.branch || "main")}</span>. Every device that pulls the file gets them.`
+      : `<b>&#9729; REPOSITORY.</b> GitHub isn't connected yet, so nothing can be committed. Open Settings (gear icon) &rsaquo; GitHub Sync, then come back.`;
+  }
+  return `<b>&#128241; LOCAL.</b> Changes are <b>saved on this device only</b> (and backed up in your private data file if GitHub sync is on). They are <b>not</b> added to the shared question-bank file.`;
+}
+function qbActionLabel(n, verb) {
+  const dest = qb.dest;
+  const what = n == null ? "" : ` ${n} question${n === 1 ? "" : "s"}`;
+  if (verb === "save") return dest === "repo" ? "Commit to GitHub" : "Save to this device";
+  return dest === "repo" ? `Commit${what} to GitHub now` : `Save${what} to this device now`;
+}
 
-$("btnNewEditorBank").addEventListener("click", () => {
-  $("editorBankInput").value = "";
-  editorQuestions = [];
-  refreshEditorListbox();
+/* ---------- master render ---------- */
+function renderQB() {
+  if (!qb || !$("qbDestCard")) return;
+  qbRenderDest(); qbRenderPicker(); qbRenderPasteHeader(); qbRenderPreview(); qbRenderEditor(); qbRenderProblems();
+}
+function qbRefreshPickers() {   // called whenever lists change elsewhere; never touches the working copy
+  if (!qb || !$("qbDestCard")) return;
+  qbRenderDest(); qbRenderPicker(); qbRenderProblems();
+}
+function refreshEditorBankChoicesQuiet() { qbRefreshPickers(); }
+function refreshEditorBankChoices() { renderQB(); }
+
+function qbRenderDest() {
+  document.querySelectorAll(".qb-dest").forEach(b => b.classList.toggle("active", b.dataset.dest === qb.dest));
+  $("qbBanner").className = `qb-banner ${qb.dest}`;
+  $("qbBanner").innerHTML = qbBannerHtml(qb.dest);
+  const rc = loadRepoBankCache(), lraw = loadLocalBanksRaw(), all = getAllLists();
+  const sum = o => Object.values(o).reduce((a, q) => a + q.length, 0);
+  const builtin = Object.keys(all).filter(k => qbKind(k) === "builtin").length;
+  $("qbSources").innerHTML = `${qbBadge("builtin")} ${builtin} list${builtin === 1 ? "" : "s"} (read-only) &nbsp; ${qbBadge("repo")} ${Object.keys(rc.banks).length} bank${Object.keys(rc.banks).length === 1 ? "" : "s"} &middot; ${sum(rc.banks)} Qs &nbsp; ${qbBadge("local")} ${Object.keys(lraw).length} bank${Object.keys(lraw).length === 1 ? "" : "s"} &middot; ${sum(lraw)} Qs`;
+}
+function qbRenderPicker() {
+  const sel = $("qbBankSelect"), raw = qbBanksRaw();
+  const names = Object.keys(raw).sort((a, b) => a.localeCompare(b));
+  sel.innerHTML = "";
+  const add = (v, t) => { const o = document.createElement("option"); o.value = v; o.textContent = t; sel.appendChild(o); };
+  add("", `Choose a ${QB_DEST[qb.dest].label.toLowerCase()} bank\u2026`);
+  names.forEach(n => add(n, `${n} (${raw[n].length})`));
+  add("__new__", `\uff0b New ${QB_DEST[qb.dest].label.toLowerCase()} bank\u2026`);
+  sel.value = qb.isNew ? "__new__" : (names.includes(qb.name) ? qb.name : "");
+  if (!qb.isNew && !names.includes(qb.name) && qb.name && !qbDirty()) qb.name = "";
+  $("qbNewRow").style.display = qb.isNew ? "" : "none";
+  $("qbBtnPull").style.display = qb.dest === "repo" ? "" : "none";
+  $("qbBtnDeleteBank").style.display = (!qb.isNew && qb.name) ? "" : "none";
+  const rc = loadRepoBankCache();
+  $("qbPullInfo").textContent = qb.dest === "repo" ? (rc.fetchedAt ? `Last pulled ${new Date(rc.fetchedAt).toLocaleString()}` : "Not pulled yet.") : "";
+  $("qbBankCount").textContent = `(${names.length})`;
+}
+function qbRenderPasteHeader() {
+  const b = $("qbPasteDest");
+  b.className = `qb-badge ${qb.dest}`;
+  b.textContent = qb.dest === "repo" ? "\u2192 REPOSITORY" : "\u2192 LOCAL";
+}
+
+/* ---------- destination + bank selection ---------- */
+function qbConfirmDiscard() { return !qbDirty() || confirmDialog("You have unsaved edits to this bank. Discard them?"); }
+function qbResetEditor() { qb.name = ""; qb.isNew = false; qb.work = []; qb.baseJson = "[]"; qb.filter = "all"; qb.search = ""; qb.shown = 50; if ($("qbSearch")) $("qbSearch").value = ""; }
+function qbSetDest(d) {
+  if (d === qb.dest) return;
+  if (!qbConfirmDiscard()) return;
+  qb.dest = d;
+  const p = loadSizePrefs(); p.qbDest = d; saveJson(KEYS.sizePrefs, p);
+  qbResetEditor(); qb.parsed = null;
+  renderQB();
+}
+function qbLoadBank(name) {
+  const arr = qbCleanArr(qbBanksRaw()[name] || []);
+  qb.name = name; qb.isNew = false; qb.work = arr.map(q => Object.assign({}, q));
+  qb.baseJson = JSON.stringify(arr); qb.filter = "all"; qb.search = ""; qb.shown = 50;
+  if ($("qbSearch")) $("qbSearch").value = "";
+}
+document.querySelectorAll(".qb-dest").forEach(b => b.addEventListener("click", () => qbSetDest(b.dataset.dest)));
+$("qbBankSelect").addEventListener("change", () => {
+  const v = $("qbBankSelect").value;
+  if (!qbConfirmDiscard()) { qbRenderPicker(); return; }
+  if (v === "__new__") { qbResetEditor(); qb.isNew = true; }
+  else if (!v) qbResetEditor();
+  else qbLoadBank(v);
+  renderQB();
+  if (qb.isNew) $("qbNewName").focus();
 });
-$("btnLoadEditorBank").addEventListener("click", () => {
-  const name = $("editorBankInput").value.trim();
-  if (!name) { toast("Type or pick a bank name to load."); return; }
-  const raw = loadJson(KEYS.banks, {});
-  editorQuestions = (raw[name] || []).map(q => Object.assign({}, q));
-  refreshEditorListbox();
+$("qbNewName").addEventListener("input", () => { qbRenderPreview(); qbRenderEditor(); });
+$("qbBtnPull").addEventListener("click", async () => {
+  if (!qbConfirmDiscard()) return;
+  const keep = qb.name, was = qb.isNew;
+  $("qbBtnPull").disabled = true;
+  const ok = await pullRepoBanks(true);
+  $("qbBtnPull").disabled = false;
+  if (ok) { if (!was && keep && loadRepoBanksRaw()[keep]) qbLoadBank(keep); refreshListsDisplay(); renderQB(); }
 });
-function refreshEditorListbox() {
-  $("editorCount").textContent = `(${editorQuestions.length})`;
-  const box = $("editorContainer");
+$("qbBtnDeleteBank").addEventListener("click", async () => {
+  const name = qb.name;
+  if (!name) return;
+  const where = qb.dest === "repo" ? `from the GitHub file (${repoBankPath()})` : "from this device";
+  if (!confirmDialog(`Delete the ${QB_DEST[qb.dest].label.toLowerCase()} bank '${name}' ${where}? Your history and mistake log keep their records of it, but its questions are gone.`)) return;
+  try {
+    if (qb.dest === "local") deleteLocalBank(name);
+    else await commitRepoBanks(banks => { delete banks[name]; }, `Question Bank: delete "${name}"`);
+    qbResetEditor(); refreshListsDisplay(); renderQB();
+    toast(`Deleted '${name}'.`);
+  } catch (e) { toast(`Couldn't delete: ${e.message}`, 3200); }
+});
+
+/* ---------- parsing pasted text ---------- */
+function qbNormalizeQuestion(o) {
+  if (!o || typeof o !== "object" || Array.isArray(o)) return null;
+  const text = String(o.text != null ? o.text : (o.question != null ? o.question : (o.q != null ? o.q : ""))).trim();
+  let options = o.options != null ? o.options : (o.choices != null ? o.choices : (o.answers != null ? o.answers : o.opts));
+  if (!Array.isArray(options)) return null;
+  options = options.map(x => String(x == null ? "" : x).trim());
+  const c = o.correct != null ? o.correct : (o.answer != null ? o.answer : (o.ans != null ? o.ans : o.correct_index));
+  let idx = null;
+  if (typeof c === "number" && Number.isInteger(c)) idx = c;
+  else if (typeof c === "string" && c.trim()) {
+    const t = c.trim();
+    if (/^[A-Ha-h]$/.test(t)) idx = t.toUpperCase().charCodeAt(0) - 65;
+    else { const k = options.findIndex(op => qbNorm(op) === qbNorm(t)); idx = k >= 0 ? k : (/^\d+$/.test(t) ? Number(t) : null); }
+  }
+  const q = { text, options, correct: idx };
+  if (o.note) q.note = String(o.note);
+  return q;
+}
+function qbParseText(src, res) {
+  res.format = "Text";
+  const lines = src.replace(/\r/g, "").split("\n");
+  const optRe = /^\s*[\(\[]?([A-Ha-h])[\)\]\.:]\s+(\S.*)$/;
+  const ansRe = /^\s*(?:correct\s*answer|right\s*answer|answer|ans|key|correct)\s*(?:is)?\s*[:\-=]?\s*[\(\[]?([A-Ha-h])[\)\]\.]?(?=\s|$)/i;
+  const ansTextRe = /^\s*(?:correct\s*answer|answer|ans|key|correct)\s*[:\-=]\s*(\S.*)$/i;
+  const numRe = /^\s*(?:Q(?:uestion)?\.?\s*)?(\d{1,4})\s*[\.\):\-]\s+(\S.*)$/i;
+  const hdrRe = /^\s*#{1,3}\s+(\S.*?)\s*#*\s*$/;
+  const markRe = /(?:\s+\*|\s*\u2713|\s*\u2714|\s*\(correct\))\s*$/i;
+  let bank = null, cur = null;
+  const start = (stemLine) => { cur = { stem: stemLine != null ? [stemLine] : [], options: [], answer: null, mark: null, phase: "stem", bank }; };
+  const finish = () => {
+    if (!cur) return;
+    const stem = cur.stem.join("\n").trim();
+    let correct = cur.answer !== null ? cur.answer : cur.mark;
+    if (correct !== null && correct >= cur.options.length) correct = null;
+    if (stem || cur.options.length) {
+      const q = { text: stem, options: cur.options.slice(), correct };
+      if (cur.bank) (res.banks[cur.bank] = res.banks[cur.bank] || []).push(q); else res.loose.push(q);
+    }
+    cur = null;
+  };
+  for (const raw of lines) {
+    const line = raw.replace(/\s+$/, "");
+    const h = hdrRe.exec(line);
+    if (h && (!cur || cur.phase !== "stem" || !cur.stem.join("").trim())) { finish(); bank = h[1]; continue; }
+    if (!line.trim()) {
+      if (cur) { if (cur.phase === "stem") cur.stem.push(""); else if (cur.phase === "opts" && cur.options.length >= 2) cur.phase = "done"; }
+      continue;
+    }
+    if (cur && cur.options.length >= 2) {
+      const a = ansRe.exec(line);
+      if (a) { cur.answer = a[1].toUpperCase().charCodeAt(0) - 65; cur.phase = "done"; continue; }
+      const at = ansTextRe.exec(line);
+      if (at) {
+        const k = cur.options.findIndex(op => qbNorm(op) === qbNorm(at[1]));
+        if (k >= 0) { cur.answer = k; cur.phase = "done"; continue; }
+      }
+    }
+    const o = optRe.exec(line);
+    if (o) {
+      const letterIdx = o[1].toUpperCase().charCodeAt(0) - 65;
+      if (cur && cur.phase === "done" && !(cur.answer === null && cur.mark === null && letterIdx === cur.options.length)) finish();
+      if (!cur) start(null);
+      let txt = o[2];
+      if (markRe.test(txt)) { txt = txt.replace(markRe, ""); cur.mark = cur.options.length; }
+      cur.options.push(txt.trim()); cur.phase = "opts";
+      continue;
+    }
+    const n = numRe.exec(line);
+    if (n && (!cur || cur.phase !== "stem")) { finish(); start(n[2]); continue; }
+    if (!cur) { start(line.trim()); continue; }
+    if (cur.phase === "done") { finish(); start(line.trim()); continue; }
+    if (cur.phase === "stem") cur.stem.push(line.trim());
+    else cur.options[cur.options.length - 1] += " " + line.trim();
+  }
+  finish();
+}
+function qbParseInput(src) {
+  const res = { banks: {}, loose: [], warnings: [], format: "" };
+  const t = String(src || "").replace(/^\uFEFF/, "").trim();
+  if (!t) return res;
+  const addList = (name, arr) => {
+    const out = arr.map(qbNormalizeQuestion).filter(Boolean);
+    if (!out.length) return;
+    if (name) (res.banks[name] = res.banks[name] || []).push(...out); else res.loose.push(...out);
+  };
+  const any = () => res.loose.length || Object.keys(res.banks).length;
+  if (/^[\[{]/.test(t)) {
+    try {
+      const j = JSON.parse(t);
+      res.format = "JSON";
+      if (Array.isArray(j)) addList(null, j);
+      else if (j && typeof j === "object") {
+        const root = (j.banks && typeof j.banks === "object" && !Array.isArray(j.banks)) ? j.banks : j;
+        if (Array.isArray(root.questions)) addList(null, root.questions);
+        else if (qbNormalizeQuestion(j)) addList(null, [j]);
+        else for (const [k, v] of Object.entries(root)) if (Array.isArray(v)) addList(k, v);
+      }
+      if (any()) return res;
+    } catch (e) { /* not JSON; maybe a Python literal */ }
+  }
+  if (/^[ \t]*[A-Za-z_]\w*[ \t]*=[ \t]*[\[{]/m.test(t)) {
+    try {
+      const ns = parsePythonModule(t);
+      res.format = "Python";
+      for (const [k, v] of Object.entries(ns)) if (!k.startsWith("__") && Array.isArray(v)) addList(k, v);
+      if (any()) return res;
+    } catch (e) { res.warnings.push("Looked like Python but couldn't be read, so it was treated as plain text."); }
+  }
+  res.banks = {}; res.loose = [];
+  qbParseText(t, res);
+  return res;
+}
+function qbIssues(q) {
+  const out = [];
+  if (!q.text) out.push("no question text");
+  if (!q.options || q.options.length < 2) out.push("needs 2+ options");
+  else if (q.options.some(o => !o)) out.push("empty option");
+  if (q.correct === null || q.correct === undefined || !(q.correct >= 0 && q.correct < (q.options || []).length)) out.push("no answer");
+  return out;
+}
+
+/* ---------- paste preview + commit ---------- */
+function qbBuildRows() {
+  const res = qbParseInput($("qbPasteInput").value);
+  const rows = [];
+  for (const [bank, arr] of Object.entries(res.banks)) arr.forEach(q => rows.push({ q, bank }));
+  res.loose.forEach(q => rows.push({ q, bank: null }));
+  qb.parsed = { rows, format: res.format, warnings: res.warnings, text: $("qbPasteInput").value.trim() };
+  qbRecheckRows();
+}
+function qbRecheckRows() {
+  const p = qb.parsed;
+  if (!p) return;
+  const seen = {};
+  p.rows.forEach(r => {
+    const target = r.bank || qbCurrentBankName();
+    r.issues = qbIssues(r.q);
+    const existing = new Set(qbCleanArr(qbBanksRaw()[target] || []).map(x => qbNorm(x.text)));
+    seen[target] = seen[target] || new Set();
+    const k = qbNorm(r.q.text);
+    r.dup = !!k && (existing.has(k) || seen[target].has(k));
+    seen[target].add(k);
+    if (r.include === undefined || r.issues.length) r.include = !r.issues.length && !r.dup;
+  });
+}
+function qbRenderPreview() {
+  const box = $("qbPreview"), btn = $("qbBtnCommitPaste");
+  if (!box) return;
+  qbRecheckRows();
+  const p = qb.parsed;
+  btn.className = `btn block ${qb.dest === "repo" ? "primary" : "violet"}`;
+  if (!p || !p.text) { box.innerHTML = ""; btn.disabled = true; btn.textContent = qbActionLabel(null); return; }
+  if (!p.rows.length) { box.innerHTML = `<div class="hint">Nothing recognised yet. Each question needs its text, at least two options (A., B., \u2026) and an Answer line.</div>`; btn.disabled = true; btn.textContent = qbActionLabel(null); return; }
+  const ready = p.rows.filter(r => r.include && !r.issues.length).length;
+  const bad = p.rows.filter(r => r.issues.length).length, dups = p.rows.filter(r => r.dup && !r.issues.length && !r.include).length;
+  box.innerHTML = `<div class="hint" style="margin-bottom:6px;">Detected <b>${esc(p.format)}</b> &middot; ${p.rows.length} question${p.rows.length === 1 ? "" : "s"} &middot; <b>${ready} ready</b>${bad ? ` &middot; <span style="color:var(--red);">${bad} need fixing</span>` : ""}${dups ? ` &middot; ${dups} duplicate${dups === 1 ? "" : "s"} skipped` : ""}</div>${p.warnings.map(w => `<div class="hint" style="color:var(--amber-ink);">${esc(w)}</div>`).join("")}`;
+  let lastBank = undefined;
+  p.rows.forEach((r, i) => {
+    const target = r.bank || qbCurrentBankName();
+    if (r.bank !== lastBank) {
+      lastBank = r.bank;
+      const h = el("div", "hint", `${r.bank ? `Bank <b>${esc(r.bank)}</b>` : `Into <b>${esc(target || "(choose or name a bank above)")}</b>`}`);
+      h.style.margin = "8px 0 2px";
+      box.appendChild(h);
+    }
+    const row = el("div", "qb-prev-row");
+    const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = !!r.include; cb.disabled = r.issues.length > 0;
+    cb.addEventListener("change", () => { r.include = cb.checked; qbRenderPreviewSummaryOnly(); });
+    const body = el("div"); body.style.flex = "1";
+    body.innerHTML = `<div>${i + 1}. ${esc((r.q.text || "(no text)").slice(0, 110).replace(/\n/g, " "))}</div><div class="hint">${r.q.options.length} option${r.q.options.length === 1 ? "" : "s"}${r.dup ? ` &middot; <span class="qb-badge warn">duplicate</span>` : ""}${r.issues.map(x => ` &middot; <span style="color:var(--red);">${esc(x)}</span>`).join("")}</div>`;
+    row.appendChild(cb); row.appendChild(body);
+    if (r.q.options.length >= 2) {
+      const sel = document.createElement("select");
+      const none = document.createElement("option"); none.value = ""; none.textContent = "Answer\u2026"; sel.appendChild(none);
+      r.q.options.forEach((_, k) => { const o = document.createElement("option"); o.value = String(k); o.textContent = String.fromCharCode(65 + k); sel.appendChild(o); });
+      sel.value = (r.q.correct !== null && r.q.correct >= 0 && r.q.correct < r.q.options.length) ? String(r.q.correct) : "";
+      sel.addEventListener("change", () => { r.q.correct = sel.value === "" ? null : Number(sel.value); r.include = undefined; qbRenderPreview(); });
+      row.appendChild(sel);
+    }
+    box.appendChild(row);
+  });
+  const nSel = p.rows.filter(r => r.include && !r.issues.length).length;
+  btn.disabled = !nSel || qb.busy;
+  btn.textContent = qbActionLabel(nSel);
+}
+function qbRenderPreviewSummaryOnly() {
+  const p = qb.parsed, btn = $("qbBtnCommitPaste");
+  const n = p ? p.rows.filter(r => r.include && !r.issues.length).length : 0;
+  btn.disabled = !n || qb.busy; btn.textContent = qbActionLabel(n);
+}
+$("qbPasteInput").addEventListener("input", () => {
+  clearTimeout(qb.parseTimer);
+  qb.parseTimer = setTimeout(() => { qbBuildRows(); qbRenderPreview(); }, 350);
+});
+$("qbBtnParse").addEventListener("click", () => { qbBuildRows(); qbRenderPreview(); });
+$("qbBtnClearPaste").addEventListener("click", () => { $("qbPasteInput").value = ""; qb.parsed = null; qbRenderPreview(); });
+$("qbBtnCommitPaste").addEventListener("click", () => qbCommitPaste());
+
+async function qbCommitPaste() {
+  const p = qb.parsed;
+  if (!p || qb.busy) return;
+  qbRecheckRows();
+  const chosen = p.rows.filter(r => r.include && !r.issues.length);
+  if (!chosen.length) return;
+  const groups = new Map();
+  for (const r of chosen) {
+    const name = r.bank || qbCurrentBankName();
+    if (!name) { toast("Choose a bank (or name a new one) first."); $("qbPickCard").scrollIntoView({ behavior: "smooth" }); return; }
+    if (!groups.has(name)) groups.set(name, []);
+    groups.get(name).push({ q: cleanBankQuestion(r.q), allowDup: !!r.dup });
+  }
+  if (qb.dest === "repo" && !githubConfigured()) { toast("Connect GitHub in Settings first."); return; }
+  if (qbDirty() && groups.has(qb.name)) { toast("Save or discard your unsaved edits to this bank first."); return; }
+  qb.busy = true; qbRenderPreviewSummaryOnly();
+  let added = 0, skipped = 0;
+  const merge = (arr, items) => {
+    const have = new Set(arr.map(x => qbNorm(x.text)));
+    for (const it of items) {
+      const k = qbNorm(it.q.text);
+      if (have.has(k) && !it.allowDup) { skipped++; continue; }
+      arr.push(it.q); have.add(k); added++;
+    }
+  };
+  try {
+    if (qb.dest === "local") {
+      const raw = loadLocalBanksRaw();
+      for (const [name, items] of groups) { const arr = qbCleanArr(raw[name] || []); merge(arr, items); saveLocalBank(name, arr); }
+    } else {
+      toast("Committing to GitHub\u2026", 4000);
+      await commitRepoBanks(banks => {
+        added = 0; skipped = 0;
+        for (const [name, items] of groups) { banks[name] = banks[name] || []; merge(banks[name], items); }
+      }, `Question Bank: add ${chosen.length} question${chosen.length === 1 ? "" : "s"} (${Array.from(groups.keys()).join(", ")})`);
+    }
+    const target = Array.from(groups.keys())[0];
+    $("qbPasteInput").value = ""; qb.parsed = null;
+    qb.isNew = false; qbLoadBank(target);
+    refreshListsDisplay(); renderQB();
+    toast(`${qb.dest === "repo" ? "Committed" : "Saved"} ${added} question${added === 1 ? "" : "s"} to ${QB_DEST[qb.dest].label.toLowerCase()} bank${groups.size > 1 ? "s" : ` '${target}'`}${skipped ? ` (${skipped} duplicate${skipped === 1 ? "" : "s"} skipped)` : ""}.`, 3200);
+  } catch (e) {
+    console.error(e);
+    toast(`Couldn't ${qb.dest === "repo" ? "commit" : "save"}: ${e.message}`, 4000);
+  } finally {
+    qb.busy = false; qbRenderPreview();
+  }
+}
+
+/* ---------- editor: staged edits, saved/committed with one button ---------- */
+function qbProblemMap() {
+  const m = new Map();
+  for (const e of loadMistakeLog()) if (isExcludedEntry(e)) m.set(e.source_list + "::" + Number(e.reference_no), e);
+  return m;
+}
+function qbRenderEditor() {
+  const has = qb.isNew || !!qb.name;
+  const kind = qb.dest;
+  $("qbEditDest").className = `qb-badge ${kind}`;
+  $("qbEditDest").textContent = kind === "repo" ? "REPOSITORY" : "LOCAL";
+  $("qbEditCount").textContent = has ? `(${qb.work.length})` : "";
+  $("qbBtnAdd").disabled = !has;
+  const list = $("qbList"), chips = $("qbChips");
+  list.innerHTML = ""; chips.innerHTML = "";
+  if (!has) {
+    list.appendChild(el("div", "empty-state", "Choose a bank above (or create a new one) to edit its questions."));
+    $("qbSaveBar").style.display = "none";
+    return;
+  }
+  const listName = QB_DEST[kind].prefix + qbCurrentBankName();
+  const probs = qbProblemMap();
+  const flagged = qb.work.map((q, i) => probs.has(listName + "::" + (i + 1))).filter(Boolean).length;
+  const retired = qb.work.filter(q => q.retired).length;
+  [["all", `All (${qb.work.length})`], ["flagged", `Flagged (${flagged})`], ["retired", `Retired (${retired})`]].forEach(([k, t]) => {
+    const c = el("button", "qb-chip" + (qb.filter === k ? " active" : ""), t);
+    c.addEventListener("click", () => { qb.filter = k; qb.shown = 50; qbRenderEditor(); });
+    chips.appendChild(c);
+  });
+  const term = qbNorm(qb.search), baseArr = JSON.parse(qb.baseJson) || [];
+  const idxs = [];
+  qb.work.forEach((q, i) => {
+    if (qb.filter === "flagged" && !probs.has(listName + "::" + (i + 1))) return;
+    if (qb.filter === "retired" && !q.retired) return;
+    if (term && !qbNorm(q.text + " " + q.options.join(" ")).includes(term)) return;
+    idxs.push(i);
+  });
+  if (!idxs.length) list.appendChild(el("div", "empty-state", qb.work.length ? "No questions match." : "No questions yet. Paste some above, or press + Add question."));
+  idxs.slice(0, qb.shown).forEach(i => {
+    const q = qb.work[i], prob = probs.get(listName + "::" + (i + 1));
+    const item = el("div", "list-item qb-q" + (q.retired ? " retired" : "") + (prob ? " flagged" : ""));
+    const base = baseArr[i];
+    const changed = !base || JSON.stringify(cleanBankQuestion(q)) !== JSON.stringify(base);
+    item.innerHTML = `<div class="top-row"><span class="name">#${i + 1}</span><span>${prob ? `<span class="qb-badge warn">&#9888; flagged</span> ` : ""}${q.retired ? `<span class="qb-badge retired">retired</span> ` : ""}${changed ? `<span class="qb-badge warn">edited</span>` : ""}</span></div>
+      <div style="font-size:.84rem;margin:4px 0;">${esc(q.text).replace(/\n/g, "<br>")}</div>
+      <ul class="qb-opts">${q.options.map((o, k) => `<li class="${k === q.correct ? "correct" : ""}">${String.fromCharCode(65 + k)}. ${esc(o)}${k === q.correct ? " &#10003;" : ""}</li>`).join("")}</ul>
+      ${q.note ? `<div class="hint">Note: ${esc(q.note)}</div>` : ""}
+      ${prob && prob.note ? `<div class="hint">Your mistake-log note: ${esc(prob.note)}</div>` : ""}`;
+    const row = el("div", "row wrap"); row.style.marginTop = "6px";
+    const eb = el("button", "btn", "Edit"); eb.addEventListener("click", () => qeOpen({ mode: "edit", idx: i }));
+    const rb = el("button", "btn", q.retired ? "Restore" : "Retire");
+    rb.addEventListener("click", () => { qb.work[i] = Object.assign({}, q, { retired: !q.retired }); if (!qb.work[i].retired) delete qb.work[i].retired; qbRenderEditor(); });
+    row.appendChild(eb); row.appendChild(rb);
+    if (prob) {
+      const fb = el("button", "btn success", "Mark fixed");
+      fb.addEventListener("click", () => { qbMarkFixed(prob.id); });
+      row.appendChild(fb);
+    }
+    item.appendChild(row);
+    list.appendChild(item);
+  });
+  if (idxs.length > qb.shown) {
+    const more = el("button", "btn block", `Show ${Math.min(50, idxs.length - qb.shown)} more (${idxs.length - qb.shown} left)`);
+    more.addEventListener("click", () => { qb.shown += 50; qbRenderEditor(); });
+    list.appendChild(more);
+  }
+  const n = qbDirtyCount(), bar = $("qbSaveBar");
+  bar.className = `qb-savebar ${kind}`;
+  bar.style.display = (n > 0) ? "" : "none";
+  const nm = qbCurrentBankName();
+  $("qbSaveInfo").innerHTML = `${qbBadge(kind)} <b>${n} unsaved change${n === 1 ? "" : "s"}</b> to ${esc(nm || "the new bank")}. ${kind === "repo" ? "Pressing Commit writes to GitHub." : "Pressing Save writes to this device only."}`;
+  $("qbBtnSave").className = `btn ${kind === "repo" ? "primary" : "violet"}`;
+  $("qbBtnSave").textContent = qbActionLabel(null, "save");
+}
+$("qbSearch").addEventListener("input", () => { qb.search = $("qbSearch").value; qb.shown = 50; qbRenderEditor(); });
+$("qbBtnAdd").addEventListener("click", () => qeOpen({ mode: "add" }));
+$("qbBtnDiscard").addEventListener("click", () => {
+  if (!confirmDialog("Discard all unsaved edits to this bank?")) return;
+  if (qb.isNew) qb.work = []; else qbLoadBank(qb.name);
+  renderQB();
+});
+$("qbBtnSave").addEventListener("click", () => qbSave(false));
+async function qbSave(force) {
+  if (qb.busy) return;
+  const name = qbCurrentBankName();
+  if (!name) { toast("Give the new bank a name first."); $("qbNewName").focus(); return; }
+  if (!qb.work.length) { toast("Add at least one question first."); return; }
+  const cleaned = qbCleanArr(qb.work);
+  qb.busy = true; $("qbBtnSave").disabled = true;
+  try {
+    if (qb.dest === "local") {
+      if (qb.isNew && loadLocalBanksRaw()[name]) { toast("A local bank with that name already exists. Pick it from the list instead."); return; }
+      saveLocalBank(name, cleaned);
+    } else {
+      toast("Committing to GitHub\u2026", 4000);
+      await commitRepoBanks(banks => {
+        const remote = banks[name] ? JSON.stringify(qbCleanArr(banks[name])) : null;
+        if (!force) {
+          if (qb.isNew && banks[name]) throw new Error("EXISTS");
+          if (!qb.isNew && remote !== qb.baseJson) throw new Error("CONFLICT");
+        }
+        banks[name] = cleaned;
+      }, `Question Bank: update "${name}" (${cleaned.length} question${cleaned.length === 1 ? "" : "s"})`);
+    }
+    qb.isNew = false; qbLoadBank(name);
+    refreshListsDisplay(); renderQB();
+    toast(qb.dest === "repo" ? `Committed '${name}' to GitHub.` : `Saved '${name}' on this device.`);
+  } catch (e) {
+    if (e.message === "EXISTS") toast("A repository bank with that name already exists. Pick it from the list instead.", 3600);
+    else if (e.message === "CONFLICT") {
+      qb.busy = false; $("qbBtnSave").disabled = false;
+      if (confirmDialog("The repository copy of this bank changed since you loaded it (another device, or an edit on GitHub).\n\nOK = overwrite it with your version.\nCancel = keep their version and discard your edits.")) { setTimeout(() => qbSave(true), 0); return; }
+      await pullRepoBanks(false); qbLoadBank(qb.name); refreshListsDisplay(); renderQB();
+      toast("Reloaded the latest repository version.");
+    } else { console.error(e); toast(`Couldn't ${qb.dest === "repo" ? "commit" : "save"}: ${e.message}`, 4000); }
+  } finally { qb.busy = false; $("qbBtnSave").disabled = false; }
+}
+
+/* ---------- question modal (add / edit / corrected copy) ---------- */
+var qe = { mode: "add", idx: -1, opts: ["", "", "", ""], correct: 0 };
+function qeCollect() {
+  qe.opts = Array.from(document.querySelectorAll(".qe-opt-input")).map(i => i.value);
+  const r = document.querySelector('input[name="qeCorrect"]:checked');
+  qe.correct = r ? parseInt(r.value, 10) : 0;
+}
+function qeRenderOptions() {
+  const box = $("qeOptions");
   box.innerHTML = "";
-  if (!editorQuestions.length) { box.appendChild(el("div", "empty-state", "No questions in this bank yet.")); return; }
-  editorQuestions.forEach((q, i) => {
+  qe.opts.forEach((val, i) => {
+    const row = el("div", "row");
+    row.style.marginBottom = "8px";
+    row.innerHTML = `<input type="radio" name="qeCorrect" value="${i}" ${i === qe.correct ? "checked" : ""}><b style="width:16px;">${String.fromCharCode(65 + i)}.</b><input type="text" class="qe-opt-input" placeholder="Option ${String.fromCharCode(65 + i)}">`;
+    row.querySelector(".qe-opt-input").value = val;
+    if (qe.opts.length > 2) {
+      const x = el("button", "btn", "\u2715"); x.style.padding = "4px 8px";
+      x.addEventListener("click", () => { qeCollect(); qe.opts.splice(i, 1); if (qe.correct >= qe.opts.length) qe.correct = qe.opts.length - 1; else if (qe.correct > i) qe.correct--; qeRenderOptions(); });
+      row.appendChild(x);
+    }
+    box.appendChild(row);
+  });
+  $("btnQeAddOption").style.display = qe.opts.length >= 8 ? "none" : "";
+}
+function qeOpen(opts) {
+  qe.mode = opts.mode; qe.idx = opts.idx != null ? opts.idx : -1;
+  const q = opts.q || (opts.mode === "edit" ? qb.work[qe.idx] : null);
+  $("questionSheetTitle").textContent = opts.mode === "edit" ? `Edit question #${qe.idx + 1}` : opts.mode === "copy" ? "Corrected copy" : "Add Question";
+  $("qeText").value = q ? q.text : "";
+  $("qeNote").value = q && q.note ? q.note : "";
+  qe.opts = q ? q.options.slice() : ["", "", "", ""];
+  while (qe.opts.length < 2) qe.opts.push("");
+  qe.correct = q && q.correct >= 0 && q.correct < qe.opts.length ? q.correct : 0;
+  const dest = qb.dest, nm = qbCurrentBankName() || "(new bank)";
+  $("qeDestLine").className = `qb-banner ${dest}`;
+  $("qeDestLine").innerHTML = opts.mode === "copy"
+    ? `${qbBadge(dest)} This <b>saves immediately</b> as a new question at the end of ${esc(QB_DEST[dest].label.toLowerCase())} bank <b>${esc(nm)}</b>${dest === "repo" ? " (a GitHub commit)" : ""}.`
+    : `${qbBadge(dest)} Staged in ${esc(QB_DEST[dest].label.toLowerCase())} bank <b>${esc(nm)}</b>. Nothing is ${dest === "repo" ? "committed" : "saved"} until you press ${dest === "repo" ? "Commit to GitHub" : "Save to this device"}.`;
+  $("btnSubmitQuestion").textContent = opts.mode === "copy" ? (dest === "repo" ? "Commit corrected copy" : "Save corrected copy") : "Done";
+  qeRenderOptions();
+  openSheet("questionSheet");
+}
+$("btnQeAddOption").addEventListener("click", () => { qeCollect(); if (qe.opts.length < 8) qe.opts.push(""); qeRenderOptions(); });
+$("btnCancelQuestion").addEventListener("click", () => closeSheet("questionSheet"));
+$("btnSubmitQuestion").addEventListener("click", async () => {
+  qeCollect();
+  const text = $("qeText").value.trim(), options = qe.opts.map(o => o.trim());
+  if (!text) { toast("Enter the question text."); return; }
+  if (options.length < 2 || options.some(o => !o)) { toast("Fill in every answer option (or remove the empty ones)."); return; }
+  const note = $("qeNote").value.trim();
+  const q = { text, options, correct: qe.correct };
+  if (note) q.note = note;
+  if (qe.mode === "edit") {
+    const old = qb.work[qe.idx] || {};
+    qb.work[qe.idx] = Object.assign({}, q, old.retired ? { retired: true } : {});
+    closeSheet("questionSheet"); qbRenderEditor(); return;
+  }
+  if (qe.mode === "add") { qb.work.push(q); closeSheet("questionSheet"); qb.filter = "all"; qb.shown = Math.max(qb.shown, qb.work.length); qbRenderEditor(); return; }
+  // copy: append straight away to the selected bank, using the same path as pasting
+  const name = qbCurrentBankName();
+  if (!name) { toast("Choose or name the bank that should receive the copy first."); closeSheet("questionSheet"); $("qbPickCard").scrollIntoView({ behavior: "smooth" }); return; }
+  if (qbDirty()) { toast("Save or discard your unsaved edits first."); return; }
+  try {
+    if (qb.dest === "local") { const arr = qbCleanArr(loadLocalBanksRaw()[name] || []); arr.push(cleanBankQuestion(q)); saveLocalBank(name, arr); }
+    else await commitRepoBanks(banks => { (banks[name] = banks[name] || []).push(cleanBankQuestion(q)); }, `Question Bank: corrected copy in "${name}"`);
+    closeSheet("questionSheet"); qb.isNew = false; qbLoadBank(name); refreshListsDisplay(); renderQB();
+    toast(`Corrected copy added to '${name}' as #${qb.work.length}.`);
+  } catch (e) { toast(`Couldn't add the copy: ${e.message}`, 3600); }
+});
+
+/* ---------- bank problems (questions flagged in the Mistake Log) ---------- */
+function qbMarkFixed(entryId) {
+  const log = loadMistakeLog(), e = log.find(x => x.id === entryId);
+  if (!e) return;
+  e.skip_in_samples = false; e.resolved = true; e.updated_at = nowIso();
+  saveJson(KEYS.mistakes, log); scheduleGithubSync();
+  toast("Marked fixed. It can be sampled again.");
+  refreshListsDisplay(); renderQB();
+}
+function qbRenderProblems() {
+  const box = $("qbProblems");
+  if (!box) return;
+  const entries = loadMistakeLog().filter(isExcludedEntry);
+  const lists = getAllLists();
+  $("qbProblemCount").textContent = `(${entries.length})`;
+  box.innerHTML = "";
+  if (!entries.length) { box.appendChild(el("div", "empty-state", "No flagged questions. Tag a mistake as \u201cOther\u201d in the Mistake Log to flag a bank problem.")); return; }
+  entries.sort((a, b) => (a.source_list || "").localeCompare(b.source_list || "") || Number(a.reference_no) - Number(b.reference_no)).forEach(e => {
+    const kind = qbKind(e.source_list || ""), idx = Number(e.reference_no) - 1;
+    const q = (lists[e.source_list] || [])[idx];
     const item = el("div", "list-item");
-    item.innerHTML = `<div class="top-row"><span class="name">${i + 1}.</span>
-        <button class="btn danger" style="padding:4px 9px;font-size:.72rem;" data-i="${i}">Delete</button></div>
-      <div class="meta">${esc((q.text || "").slice(0, 90).replace(/\n/g, " "))}</div>`;
-    item.querySelector("button").addEventListener("click", (ev) => {
-      ev.stopPropagation();
-      editorQuestions.splice(i, 1);
-      refreshEditorListbox();
-    });
+    item.innerHTML = `<div class="top-row"><span class="name">${esc(e.source_list)} #${esc(e.reference_no)}</span>${qbBadge(kind)}</div>
+      <div style="font-size:.84rem;margin:4px 0;">${esc(q ? q.text : (e.question || "(question text unavailable)")).slice(0, 400)}</div>
+      ${e.note ? `<div class="hint">Your note: ${esc(e.note)}</div>` : ""}`;
+    const row = el("div", "row wrap"); row.style.marginTop = "6px";
+    if (kind === "builtin") {
+      const cb = el("button", "btn", "Make corrected copy");
+      cb.addEventListener("click", () => {
+        if (!q) { toast("That question isn't in the loaded bank."); return; }
+        if (!qbCurrentBankName()) { toast("Choose or name the bank that should receive the corrected copy first."); $("qbPickCard").scrollIntoView({ behavior: "smooth" }); return; }
+        qeOpen({ mode: "copy", q: { text: q.text, options: q.options.slice(), correct: q.correct } });
+      });
+      row.appendChild(cb);
+    } else if (q) {
+      const fx = el("button", "btn", "Fix question");
+      fx.addEventListener("click", () => {
+        if (kind !== qb.dest) { if (!qbConfirmDiscard()) return; qb.dest = kind; const p = loadSizePrefs(); p.qbDest = kind; saveJson(KEYS.sizePrefs, p); qbResetEditor(); }
+        else if (qb.name !== e.source_list.slice(QB_DEST[kind].prefix.length) && !qbConfirmDiscard()) return;
+        const name = e.source_list.slice(QB_DEST[kind].prefix.length);
+        if (qb.name !== name || qb.isNew) qbLoadBank(name);
+        renderQB();
+        qeOpen({ mode: "edit", idx });
+      });
+      row.appendChild(fx);
+    }
+    const done = el("button", "btn success", "Mark fixed");
+    done.addEventListener("click", () => qbMarkFixed(e.id));
+    row.appendChild(done);
+    item.appendChild(row);
     box.appendChild(item);
   });
 }
-$("btnAddQuestion").addEventListener("click", () => openQuestionEntry());
-$("btnSaveEditorBank").addEventListener("click", () => {
-  const name = $("editorBankInput").value.trim();
-  if (!name) { toast("Give this local bank a name."); return; }
-  if (!editorQuestions.length) { toast("Add at least one question first."); return; }
-  saveLocalBank(name, editorQuestions);
-  toast(`Local bank '${name}' saved with ${editorQuestions.length} question(s).`);
-  refreshEditorBankChoices();
-  refreshListsDisplay();
-});
-$("btnDeleteEditorBank").addEventListener("click", () => {
-  const name = $("editorBankInput").value.trim();
-  if (!name) return;
-  if (!confirmDialog(`Delete local bank '${name}'? This cannot be undone.`)) return;
-  deleteLocalBank(name);
-  $("editorBankInput").value = "";
-  editorQuestions = [];
-  refreshEditorListbox();
-  refreshEditorBankChoices();
-  refreshListsDisplay();
-});
-
-/* Question entry modal */
-function openQuestionEntry() {
-  $("questionSheetTitle").textContent = "Add Question";
-  $("qeText").value = "";
-  const optsBox = $("qeOptions");
-  optsBox.innerHTML = "";
-  const letters = ["A", "B", "C", "D"];
-  letters.forEach((letter, i) => {
-    const row = el("div", "row", "");
-    row.style.marginBottom = "8px";
-    row.innerHTML = `<input type="radio" name="qeCorrect" value="${i}" ${i === 0 ? "checked" : ""}>
-      <b style="width:16px;">${letter}.</b>
-      <input type="text" class="qe-opt-input" data-i="${i}" placeholder="Option ${letter}">`;
-    optsBox.appendChild(row);
-  });
-  openSheet("questionSheet");
-}
-$("btnCancelQuestion").addEventListener("click", () => closeSheet("questionSheet"));
-$("btnSubmitQuestion").addEventListener("click", () => {
-  const text = $("qeText").value.trim();
-  const inputs = Array.from(document.querySelectorAll(".qe-opt-input"));
-  const options = inputs.map(inp => inp.value.trim());
-  if (!text) { toast("Enter the question text."); return; }
-  if (options.some(o => !o)) { toast("Fill in all four answer options."); return; }
-  const correctRadio = document.querySelector('input[name="qeCorrect"]:checked');
-  const correct = correctRadio ? parseInt(correctRadio.value, 10) : 0;
-  editorQuestions.push({ text, options, correct });
-  refreshEditorListbox();
-  closeSheet("questionSheet");
-});
+renderQB();
 
 /* =====================================================================
    Duration picker -> Exam launch
@@ -5802,6 +6535,16 @@ const DURATION_PRESETS = {
 };
 let pendingExamLabel = null, pendingExamQuestions = null;
 
+// Questions copied into saved samples keep the wording they had back then; use the bank's current (fixed) version.
+function refreshQuestionsFromBanks(questions) {
+  const lists = getAllLists();
+  return questions.map(q => {
+    const n = q._source_list || "";
+    if (!n.startsWith(LOCAL_PREFIX) && !n.startsWith(REPO_PREFIX)) return q;
+    const cur = (lists[n] || [])[q._source_index];
+    return cur ? Object.assign({}, q, { text: cur.text, options: cur.options.slice(), correct: cur.correct }) : q;
+  });
+}
 function requestStartExam(label, questions) {
   if (!questions || !questions.length) { toast("There are no questions to start an exam with."); return; }
   // Catch flagged bank issues that were already baked into an older saved sample.
@@ -5812,6 +6555,7 @@ function requestStartExam(label, questions) {
     toast(`Left out ${questions.length - kept.length} question${questions.length - kept.length === 1 ? "" : "s"} you flagged as bank issues.`, 3200);
     questions = kept;
   }
+  questions = refreshQuestionsFromBanks(questions);
   pendingExamLabel = label;
   pendingExamQuestions = questions;
   openSheet("durationSheet");
@@ -6599,6 +7343,7 @@ function migrateMistakeLogIfNeeded() {
     setSyncStatus("Not synced yet");
   }
   refreshQuestionBank(false).then(refreshListsDisplay);
+  if (githubConfigured()) pullRepoBanks(false).then(ok => { if (ok) { refreshListsDisplay(); renderQB(); } });
 
   if (githubConfigured()) {
     runGithubSync();
