@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T18:21:15",
+  "updated_at": "2026-10-09T18:39:12",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -2422,6 +2422,208 @@
           "B. Heating mantle, steam bath, or hot water bath",
           "C. Alcohol lamp",
           "D. Direct blowtorch"
+        ],
+        "correct": 1
+      }
+    ],
+    "TOS3_Section5": [
+      {
+        "text": "What visual observation in the flask indicates that a sufficient amount of drying agent has been added to an wet organic liquid?",
+        "options": [
+          "A. All of the drying agent dissolves completely in the organic solvent.",
+          "B. The drying agent forms a solid, hard crust stuck firmly to the bottom.",
+          "C. Some drying agent remains fine and free-flowing like a 'snow globe' when swirled.",
+          "D. The liquid turns from completely clear to cloudy and opaque."
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Why is washing an organic extract with saturated aqueous sodium chloride (brine) performed BEFORE adding a solid drying agent?",
+        "options": [
+          "A. Brine lowers the boiling point of the organic solvent for distillation.",
+          "B. Brine uses an osmotic effect to pre-extract the bulk of bulk dissolved water, saving drying agent capacity.",
+          "C. Brine neutralizes all basic impurities present in the organic phase.",
+          "D. Brine converts organic alcohols into insoluble alkyl halides."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why should anhydrous calcium chloride (CaCl₂) NOT be used to dry solutions containing alcohols, amines, or carbonyl compounds?",
+        "options": [
+          "A. CaCl₂ oxidizes alcohols into explosive peroxides.",
+          "B. CaCl₂ forms insoluble Lewis acid-base adduct complexes with oxygen and nitrogen nucleophiles.",
+          "C. CaCl₂ lowers the pH of the solution to 0.",
+          "D. CaCl₂ causes amines to polymerize instantly."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which drying agent is mild, neutral, inexpensive, and possesses a high capacity for water, making it a very common general choice?",
+        "options": [
+          "A. Anhydrous sodium sulfate (Na₂SO₄)",
+          "B. Sodium metal (Na)",
+          "C. Phosphorus pentoxide (P₄O₁₀)",
+          "D. Potassium hydroxide (KOH)"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Why is metallic sodium (or sodium hydride) strictly FORBIDDEN for drying chlorinated solvents like dichloromethane or chloroform?",
+        "options": [
+          "A. Sodium dissolves in chlorinated solvents to form a toxic green gas.",
+          "B. It causes violent, explosive reactions due to radical halogen abstraction.",
+          "C. It converts chlorinated solvents into water.",
+          "D. Sodium has no effect on water in halogenated liquids."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which basic drying agent is specifically recommended for drying basic organic liquids such as aliphatic amines or pyridines?",
+        "options": [
+          "A. Phosphorus pentoxide (P₄O₁₀)",
+          "B. Potassium carbonate (K₂CO₃) or KOH/NaOH pellets",
+          "C. Concentrated sulfuric acid (H₂SO₄)",
+          "D. Calcium sulfate (Drierite)"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "How does anhydrous magnesium sulfate (MgSO₄) compare to anhydrous sodium sulfate (Na₂SO₄) as a drying agent?",
+        "options": [
+          "A. MgSO₄ works much faster and has a higher capacity, but is a fine powder requiring careful filtration.",
+          "B. MgSO₄ is neutral, whereas Na₂SO₄ is strongly acidic.",
+          "C. MgSO₄ dissolves in ethanol, while Na₂SO₄ does not.",
+          "D. Na₂SO₄ is an active metallic reductant."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What chemical transformation allows anhydrous drying agents to capture and bind water molecules in organic solvents?",
+        "options": [
+          "A. Reversible formation of solid inorganic hydrates (e.g., Na₂SO₄·10H₂O)",
+          "B. Covalent bonding via addition reactions",
+          "C. Free-radical substitution",
+          "D. Acid-base neutralization forming salt precipitates"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which highly efficient, synthetic crystalline aluminosilicate drying agent relies on pore size (e.g., 3Å or 4Å) to selectively trap water molecules?",
+        "options": [
+          "A. Celite",
+          "B. Molecular sieves",
+          "C. Silica gel",
+          "D. Activated charcoal"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What color change is typically observed when cobalt chloride-indicated silica gel or Drierite changes from dry to spent (wet)?",
+        "options": [
+          "A. Pink to yellow",
+          "B. Blue to pink",
+          "C. Green to clear",
+          "D. White to jet black"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the standard procedure for separating a dried organic liquid from a solid drying agent like Na₂SO₄ or MgSO₄?",
+        "options": [
+          "A. Boiling off the liquid and keeping the residue",
+          "B. Decanting the liquid carefully or gravity-filtering through fluted paper",
+          "C. Adding water until the drying agent dissolves",
+          "D. Extracting with concentrated sodium hydroxide"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which apparatus setup is used for continuous azeotropic removal of water during a synthesis reaction (such as esterification) using toluene?",
+        "options": [
+          "A. Soxhlet extractor",
+          "B. Dean-Stark trap",
+          "C. Vigreux column",
+          "D. Thiele tube"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why must reactive metal hydride drying agents like calcium hydride (CaH₂) NOT be used to dry alcohols?",
+        "options": [
+          "A. CaH₂ reacts violently with the acidic -OH group of alcohols, releasing flammable hydrogen gas.",
+          "B. CaH₂ oxidizes alcohols to aldehydes.",
+          "C. CaH₂ freezes the alcohol solid at room temperature.",
+          "D. CaH₂ forms a permanent homogeneous solution with alcohols."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What does a cloudy or turbid appearance in a freshly extracted organic liquid typically signify?",
+        "options": [
+          "A. The liquid is extremely dry and ready for distillation.",
+          "B. Micro-droplets of emulsified or dissolved water are suspended in the organic phase.",
+          "C. The organic compound has completely decomposed.",
+          "D. The liquid is saturated with nitrogen gas."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Does a completely clear, transparent organic liquid guarantee that it is 100% free of dissolved water?",
+        "options": [
+          "A. Yes, clarity is a definitive test for zero water content.",
+          "B. No, many organic solvents dissolve small percentages of water while remaining visibly clear.",
+          "C. Yes, water always forms a visible separate layer in all solvents.",
+          "D. No, clarity only indicates the presence of peroxides."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which acidic, extremely aggressive drying agent reacts with water to form phosphoric acid and is reserved for rigorous drying of non-basic gases and liquids?",
+        "options": [
+          "A. Phosphorus pentoxide (P₄O₁₀)",
+          "B. Potassium hydroxide (KOH)",
+          "C. Calcium carbonate (CaCO₃)",
+          "D. Sodium sulfate (Na₂SO₄)"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which sealed laboratory vessel contains a drying agent at the bottom and is used to store moisture-sensitive solid samples in a dry atmosphere?",
+        "options": [
+          "A. Separatory funnel",
+          "B. Desiccator",
+          "C. Auto-titrator",
+          "D. Condenser"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why is Calcium Sulfate (Drierite) often placed inside desiccators or drying tubes rather than used for bulk liquid extraction drying?",
+        "options": [
+          "A. It works very rapidly but has a low total water capacity per gram.",
+          "B. It dissolves instantly in all organic solvents.",
+          "C. It reacts explosively with atmospheric oxygen.",
+          "D. It is highly basic and decomposes glass."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What happens when a solid drying agent clumps together into a large sticky mass at the bottom of the flask during addition?",
+        "options": [
+          "A. It indicates the solution is completely dry.",
+          "B. The drying agent has absorbed its capacity of water and more fresh drying agent is required.",
+          "C. The solvent is boiling off too fast.",
+          "D. The drying agent is decomposing into a gas."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Proper disposal of spent drying agents (like hydrated MgSO₄ or Na₂SO₄) contaminated with organic solvent residue requires:",
+        "options": [
+          "A. Washing them down the sink with tap water",
+          "B. Placing them in designated solid chemical waste containers according to safety regulations",
+          "C. Burning them in an open beaker on the benchtop",
+          "D. Throwing them directly into regular paper trash bins"
         ],
         "correct": 1
       }
