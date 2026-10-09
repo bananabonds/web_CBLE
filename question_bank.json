@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T17:44:44",
+  "updated_at": "2026-10-09T18:21:15",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -2220,6 +2220,208 @@
           "B. They lower (depress) the melting point and broaden the melting point range.",
           "C. They raise the melting point significantly.",
           "D. They have no effect on melting behavior."
+        ],
+        "correct": 1
+      }
+    ],
+    "TOS3_Section4": [
+      {
+        "text": "What effect does the presence of a soluble chemical impurity generally have on the melting point of a solid compound?",
+        "options": [
+          "A. It raises the melting point and sharpens the melting range.",
+          "B. It lowers (depresses) the melting point and broadens the melting range.",
+          "C. It leaves the melting point unchanged but shifts the boiling point.",
+          "D. It eliminates the liquid phase completely."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "In a mixed melting point experiment, an unknown sample is mixed 1:1 with an authentic sample of benzoic acid. The mixture melts sharply at 122 °C (the literature value for benzoic acid). What conclusion can be drawn?",
+        "options": [
+          "A. The unknown compound is different from benzoic acid.",
+          "B. The unknown compound is identical to benzoic acid.",
+          "C. The unknown compound decomposed during mixing.",
+          "D. The unknown compound is an azeotrope."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "When measuring a melting point using a capillary tube, why must the heating rate be slowed down to approximately 1–2 °C per minute as the melting point is approached?",
+        "options": [
+          "A. To prevent the glass capillary from shattering.",
+          "B. To ensure accurate thermal equilibrium between the sample, bath, and thermometer.",
+          "C. To prevent the compound from undergoing sublimation.",
+          "D. To increase the boiling point of the heating oil."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Where should the thermometer bulb be positioned in a standard distillation apparatus setup?",
+        "options": [
+          "A. Submerged completely at the bottom of the distillation flask liquid.",
+          "B. Just below the side-arm opening of the distillation head so it measures condensing vapor.",
+          "C. Inside the receiving flask.",
+          "D. Halfway down the water condenser."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "How should cooling water flow through a Liebig distillation condenser?",
+        "options": [
+          "A. In from the top jacket port and out through the bottom jacket port.",
+          "B. In from the bottom jacket port (lowest point) and out through the top jacket port (highest point).",
+          "C. Filled once and sealed off at both ends.",
+          "D. Water flow direction makes no operational difference."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why must boiling chips or a magnetic stir bar be added to a distillation flask before heating commences?",
+        "options": [
+          "A. To increase the total heat capacity of the liquid.",
+          "B. To provide nucleation sites that prevent superheating and violent sudden boiling (bumping).",
+          "C. To react with non-volatile impurities.",
+          "D. To lower the vapor pressure of the solution."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What dangerous error occurs if boiling chips are added to a liquid that is ALREADY near or at its boiling point?",
+        "options": [
+          "A. The liquid will immediately freeze solid.",
+          "B. It causes instantaneous, violent boiling and eruption of hot liquid (bumping).",
+          "C. The boiling chips will dissolve completely.",
+          "D. The thermometer bulb will break from cold thermal shock."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why should a distillation flask NEVER be distilled completely to dryness?",
+        "options": [
+          "A. The glass will dissolve in the remaining residue.",
+          "B. High temperatures can cause residual heavy organic compounds or accumulated peroxides to explode.",
+          "C. The condenser water will stop flowing.",
+          "D. It ruins the calibration of the receiving flask."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which distillation technique is best suited for separating two miscible liquids whose boiling points differ by only 15 °C?",
+        "options": [
+          "A. Simple distillation",
+          "B. Fractional distillation",
+          "C. Steam distillation",
+          "D. Vacuum distillation with a short-path adapter"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the function of a fractionating column (e.g., Vigreux column) in fractional distillation?",
+        "options": [
+          "A. To lower the external pressure inside the system.",
+          "B. To provide multiple successive vaporization-condensation cycles (theoretical plates).",
+          "C. To prevent water from entering the receiving flask.",
+          "D. To raise the boiling point of the more volatile component."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which distillation method is specifically chosen to purify heat-sensitive compounds with very high normal boiling points (> 200 °C) without thermal decomposition?",
+        "options": [
+          "A. Simple distillation at atmospheric pressure",
+          "B. Vacuum (reduced pressure) distillation",
+          "C. Azeotropic distillation",
+          "D. Micro-scale boiling point distillation"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Steam distillation is ideal for isolating heat-sensitive, water-immiscible organic compounds (like essential oils) because:",
+        "options": [
+          "A. The mixture boils at a temperature below the boiling point of water (< 100 °C).",
+          "B. Steam acts as a chemical catalyst to speed up oxidation.",
+          "C. Water forms a homogeneous solution with the organic oil.",
+          "D. The organic oil boils at 300 °C under steam pressure."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is an azeotrope?",
+        "options": [
+          "A. A pure liquid that boils over a wide 20 °C temperature range.",
+          "B. A liquid mixture that boils at a constant temperature with a constant vapor and liquid composition.",
+          "C. A solid compound that undergoes direct sublimation.",
+          "D. A solution that can be separated 100% by simple distillation."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why can ethanol not be purified beyond ~95.6% by ordinary fractional distillation from an ethanol-water mixture?",
+        "options": [
+          "A. Water evaporates faster than ethanol at all temperatures.",
+          "B. Ethanol forms a minimum-boiling azeotrope with water at 95.6% concentration.",
+          "C. The fractionating column becomes clogged with water crystals.",
+          "D. Ethanol decomposes into ethene at 78 °C."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the eutectic composition of a two-component solid mixture?",
+        "options": [
+          "A. The composition at which the mixture exhibits the highest possible melting point.",
+          "B. The specific ratio at which the mixture melts sharply at the lowest possible temperature.",
+          "C. The point where the mixture decomposes without melting.",
+          "D. The composition where both solids sublime instantly."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why must a standard distillation setup ALWAYS remain open to the atmosphere (or connected to a regulated vacuum source)?",
+        "options": [
+          "A. To allow oxygen to react with the condensing vapors.",
+          "B. Heating a closed system creates dangerous pressure buildup leading to violent explosion.",
+          "C. To prevent vapors from reaching the condenser.",
+          "D. To keep the thermometer from overheating."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the recommended liquid level filling capacity for a distillation flask prior to heating?",
+        "options": [
+          "A. Completely full to the neck (100%)",
+          "B. Between 1/3 and 2/3 full",
+          "C. Less than 5% full",
+          "D. Exactly 90% full"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "According to Raoult's law for ideal solutions, the vapor phase above a boiling liquid mixture of two miscible liquids will always be richer in:",
+        "options": [
+          "A. The higher-boiling (less volatile) component",
+          "B. The lower-boiling (more volatile) component",
+          "C. The component with the higher molecular mass",
+          "D. Equal 50:50 proportions regardless of liquid composition"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why should a re-melted sample in a capillary tube NOT be used for an accurate melting point determination?",
+        "options": [
+          "A. The capillary tube glass contracts after cooling.",
+          "B. The sample may have undergone thermal decomposition or structural change during the first melt.",
+          "C. The sample expands and blocks heat transfer.",
+          "D. The thermometer loses calibration after one run."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What heating source is safest to use when distilling a highly flammable organic solvent like diethyl ether or pentane?",
+        "options": [
+          "A. Open Bunsen burner flame",
+          "B. Heating mantle, steam bath, or hot water bath",
+          "C. Alcohol lamp",
+          "D. Direct blowtorch"
         ],
         "correct": 1
       }
