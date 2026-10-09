@@ -31424,6 +31424,15 @@
       "pct": 95,
       "date": "2026-10-09T07:53:22",
       "time_used_seconds": 591.9
+    },
+    {
+      "id": "1791539715235869",
+      "source": "Chemical Technician Board Exam - [Repo] TOS1_Section3 Planner Drill",
+      "score": 16,
+      "total": 20,
+      "pct": 80,
+      "date": "2026-10-09T09:55:15",
+      "time_used_seconds": 5089.5
     }
   ],
   "exam_details": [
@@ -61663,6 +61672,233 @@
           "correct_answer": "A. Chloroform"
         }
       ]
+    },
+    {
+      "exam_id": "1791539715235869",
+      "source": "Chemical Technician Board Exam - [Repo] TOS1_Section3 Planner Drill",
+      "date": "2026-10-09T09:55:15",
+      "items": [
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Among the constitutional isomers of hexane (C₆H₁₄), which isomer is expected to have the LOWEST boiling point?",
+          "your_answer": "D. 2,2-Dimethylbutane",
+          "correct_answer": "D. 2,2-Dimethylbutane"
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "How many constitutional isomers exist for the alkane formula C₆H₁₄?",
+          "your_answer": "C. 5",
+          "correct_answer": "C. 5"
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which requirement must be met for an alkene to exhibit geometric (cis/trans or E/Z) isomerism?",
+          "your_answer": "B. Each carbon of the double bond must be attached to two different groups.",
+          "correct_answer": "B. Each carbon of the double bond must be attached to two different groups."
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 12,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Which pair of molecular types demonstrates chain isomerism?",
+          "your_answer": "D. Propanoic acid and Methyl ethanoate",
+          "correct_answer": "B. Pentane and 2,2-Dimethylpropane"
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Why does increased branching in alkane isomers generally lead to lower boiling points?",
+          "your_answer": "B. Branching reduces surface area, weakening London dispersion forces.",
+          "correct_answer": "B. Branching reduces surface area, weakening London dispersion forces."
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 19,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "How many total constitutional alkane isomers exist for C₇H₁₆?",
+          "your_answer": "C. 9",
+          "correct_answer": "C. 9"
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 1,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "How many constitutional (structural) isomers exist for the alkane with molecular formula C₄H₁₀?",
+          "your_answer": "B. 3",
+          "correct_answer": "A. 2"
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What type of conformational isomer of butane represents the most stable (lowest energy) state?",
+          "your_answer": "C. Anti (staggered)",
+          "correct_answer": "C. Anti (staggered)"
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "How do enantiomers differ from one another in terms of physical properties?",
+          "your_answer": "C. They rotate plane-polarized light in opposite directions by equal angles.",
+          "correct_answer": "C. They rotate plane-polarized light in opposite directions by equal angles."
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which conformation of cyclohexane is the most stable with the lowest torsional and steric strain?",
+          "your_answer": "C. Chair",
+          "correct_answer": "C. Chair"
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the maximum number of stereoisomers possible for a molecule containing 3 non-identical chiral centers?",
+          "your_answer": "C. 8",
+          "correct_answer": "C. 8"
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which alkene can exist as geometric (cis/trans) isomers?",
+          "your_answer": "D. 2-Butene",
+          "correct_answer": "D. 2-Butene"
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 2,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "How many constitutional isomers exist for pentane (C₅H₁₂)?",
+          "your_answer": "C. 4",
+          "correct_answer": "B. 3"
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 15,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "How many constitutional isomers exist for the molecular formula C₂H₆O?",
+          "your_answer": "C. 3",
+          "correct_answer": "B. 2"
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Propanal and propanone are best classified as which type of isomers?",
+          "your_answer": "C. Functional group isomers",
+          "correct_answer": "C. Functional group isomers"
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "An equimolar mixture of a pair of enantiomers that exhibits zero net optical rotation is called a:",
+          "your_answer": "C. Racemic mixture",
+          "correct_answer": "C. Racemic mixture"
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which statement best describes a meso compound?",
+          "your_answer": "B. An achiral compound that contains chiral centers but possesses an internal plane of symmetry.",
+          "correct_answer": "B. An achiral compound that contains chiral centers but possesses an internal plane of symmetry."
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Which pair of compounds represents functional group isomers?",
+          "your_answer": "A. Ethanol and Dimethyl ether",
+          "correct_answer": "A. Ethanol and Dimethyl ether"
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which condition is essential for a carbon atom to be classified as a chiral center (stereocenter)?",
+          "your_answer": "B. It must be bonded to four different groups or atoms.",
+          "correct_answer": "B. It must be bonded to four different groups or atoms."
+        },
+        {
+          "source_list": "[Repo] TOS1_Section3",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Stereoisomers that are non-superimposable and are NOT mirror images of each other are classified as:",
+          "your_answer": "B. Diastereomers",
+          "correct_answer": "B. Diastereomers"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -69577,6 +69813,86 @@
         }
       ],
       "updated_at": "2026-10-09T07:54:51"
+    },
+    {
+      "id": "1791539715253471",
+      "source_list": "[Repo] TOS1_Section3",
+      "reference_no": 12,
+      "question": "Which pair of molecular types demonstrates chain isomerism?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-09T09:55:15",
+      "occurrences": [
+        {
+          "exam_id": "1791539715235869",
+          "exam_source": "Chemical Technician Board Exam - [Repo] TOS1_Section3 Planner Drill",
+          "date": "2026-10-09T09:55:15",
+          "your_answer": "D. Propanoic acid and Methyl ethanoate",
+          "correct_answer": "B. Pentane and 2,2-Dimethylpropane"
+        }
+      ],
+      "updated_at": "2026-10-09T09:55:15"
+    },
+    {
+      "id": "1791539715257206",
+      "source_list": "[Repo] TOS1_Section3",
+      "reference_no": 1,
+      "question": "How many constitutional (structural) isomers exist for the alkane with molecular formula C₄H₁₀?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-09T09:55:15",
+      "occurrences": [
+        {
+          "exam_id": "1791539715235869",
+          "exam_source": "Chemical Technician Board Exam - [Repo] TOS1_Section3 Planner Drill",
+          "date": "2026-10-09T09:55:15",
+          "your_answer": "B. 3",
+          "correct_answer": "A. 2"
+        }
+      ],
+      "updated_at": "2026-10-09T09:55:15"
+    },
+    {
+      "id": "1791539715260634",
+      "source_list": "[Repo] TOS1_Section3",
+      "reference_no": 2,
+      "question": "How many constitutional isomers exist for pentane (C₅H₁₂)?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-09T09:55:15",
+      "occurrences": [
+        {
+          "exam_id": "1791539715235869",
+          "exam_source": "Chemical Technician Board Exam - [Repo] TOS1_Section3 Planner Drill",
+          "date": "2026-10-09T09:55:15",
+          "your_answer": "C. 4",
+          "correct_answer": "B. 3"
+        }
+      ],
+      "updated_at": "2026-10-09T09:55:15"
+    },
+    {
+      "id": "1791539715263959",
+      "source_list": "[Repo] TOS1_Section3",
+      "reference_no": 15,
+      "question": "How many constitutional isomers exist for the molecular formula C₂H₆O?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-09T09:55:15",
+      "occurrences": [
+        {
+          "exam_id": "1791539715235869",
+          "exam_source": "Chemical Technician Board Exam - [Repo] TOS1_Section3 Planner Drill",
+          "date": "2026-10-09T09:55:15",
+          "your_answer": "C. 3",
+          "correct_answer": "B. 2"
+        }
+      ],
+      "updated_at": "2026-10-09T09:55:15"
     }
   ],
   "guess_notes": [
@@ -69825,5 +70141,5 @@
     "local_banks": [],
     "exam_dates": []
   },
-  "updated_at": "2026-10-09T09:45:40"
+  "updated_at": "2026-10-09T09:55:17"
 }
