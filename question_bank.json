@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T10:03:58",
+  "updated_at": "2026-10-09T10:04:36",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -606,6 +606,208 @@
           "D. Branching increases molecular mass."
         ],
         "correct": 1
+      }
+    ],
+    "TOS2_Section1": [
+      {
+        "text": "Which reagent test can be used to distinguish an unsaturated aliphatic hydrocarbon (alkene) from a saturated alkane by a color change from purple to brown precipitate?",
+        "options": [
+          "A. Tollen's test",
+          "B. Fehling's test",
+          "C. Baeyer's test (cold dilute KMnO₄)",
+          "D. Lucas test"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "According to Markovnikov's rule, when an unsymmetrical acid halide like HCl adds to an alkene, where does the hydrogen atom attach?",
+        "options": [
+          "A. To the carbon with fewer hydrogen atoms",
+          "B. To the carbon with more hydrogen atoms",
+          "C. To the central carbon of the alkane chain",
+          "D. Equimolar addition to both double-bonded carbons"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why does acetylene (ethyne) react with strong bases to form acetylide ions, whereas ethene does not?",
+        "options": [
+          "A. Acetylene is more sterically hindered.",
+          "B. The C-H bond in terminal alkynes has greater s-character (sp hybridized), making it more acidic.",
+          "C. Acetylene contains resonance-stabilized aromatic pi bonds.",
+          "D. Ethene undergoes rapid addition with bases."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which cycloalkane possesses the highest ring strain per CH₂ unit due to severe angle and torsional strain?",
+        "options": [
+          "A. Cyclopropane",
+          "B. Cyclopentane",
+          "C. Cyclohexane",
+          "D. Cyclooctane"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which condition must be met for a cyclic planar compound to be classified as aromatic under Hückel's rule?",
+        "options": [
+          "A. It must contain 4n pi electrons.",
+          "B. It must contain (4n + 2) pi electrons.",
+          "C. It must undergo addition reactions rapidly.",
+          "D. It must contain sp³ hybridized ring atoms."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What type of characteristic reaction mechanism does benzene undergo when reacting with nitric acid in the presence of sulfuric acid?",
+        "options": [
+          "A. Free-radical addition",
+          "B. Electrophilic aromatic substitution",
+          "C. Nucleophilic addition",
+          "D. Elimination-addition"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which of the following substituent groups on a benzene ring acts as a strong deactivating group and directs incoming substituents to the meta position?",
+        "options": [
+          "A. -OH",
+          "B. -NH₂",
+          "C. -CH₃",
+          "D. -NO₂"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "How do halogens (-Cl, -Br) behave as substituents in electrophilic aromatic substitution?",
+        "options": [
+          "A. Activating and meta-directing",
+          "B. Activating and ortho/para-directing",
+          "C. Deactivating and meta-directing",
+          "D. Deactivating and ortho/para-directing"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "What product is formed when toluene is treated with a strong oxidizing agent like hot acidic KMnO₄?",
+        "options": [
+          "A. Benzene",
+          "B. Phenol",
+          "C. Benzoic acid",
+          "D. Benzyl alcohol"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which chemical property is generally typical of chlorinated organic solvents compared to non-halogenated aliphatic hydrocarbons?",
+        "options": [
+          "A. They are less dense than water.",
+          "B. They are highly flammable.",
+          "C. They are denser than water.",
+          "D. They have lower boiling points than alkanes of similar molar mass."
+        ],
+        "correct": 2
+      },
+      {
+        "text": "What is the order of leaving group ability in nucleophilic substitution (Sₙ1/Sₙ2) reactions among alkyl halides?",
+        "options": [
+          "A. F⁻ > Cl⁻ > Br⁻ > I⁻",
+          "B. I⁻ > Br⁻ > Cl⁻ > F⁻",
+          "C. Cl⁻ > Br⁻ > I⁻ > F⁻",
+          "D. Br⁻ > I⁻ > Cl⁻ > F⁻"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What toxic gas can form when chloroform (CHCl₃) is exposed to oxygen and light, or when chlorinated solvents are overheated?",
+        "options": [
+          "A. Mustard gas",
+          "B. Phosgene (COCl₂)",
+          "C. Chlorine gas (Cl₂)",
+          "D. Cyanogen bromide"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why are chlorofluorocarbons (CFCs) regulated and restricted internationally under environmental protocols?",
+        "options": [
+          "A. They cause immediate high acidity in rainwater.",
+          "B. They release chlorine radicals in the stratosphere, destroying the ozone layer.",
+          "C. They convert oxygen gas directly into carbon dioxide.",
+          "D. They polymerize rapidly in surface runoff waters."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "In a chemical laboratory, why must halogenated solvent waste be strictly segregated from non-halogenated waste?",
+        "options": [
+          "A. Halogenated waste reacts violently with non-halogenated waste at room temperature.",
+          "B. Halogenated waste requires distinct, specialized incineration and handling to prevent toxic emissions.",
+          "C. Halogenated waste is non-hazardous and can be safely poured down the drain.",
+          "D. Non-halogenated waste spontaneously solidifies when mixed with chlorinated solvents."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which class of persistent organic pollutants (POPs) is known for environmental bioaccumulation and historic use as insecticides?",
+        "options": [
+          "A. CFCs",
+          "B. DDT",
+          "C. Freons",
+          "D. Acetylene derivatives"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What type of reaction occurs when methane reacts with chlorine gas in the presence of ultraviolet light?",
+        "options": [
+          "A. Electrophilic addition",
+          "B. Free-radical substitution",
+          "C. Nucleophilic addition",
+          "D. Cycloaddition"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which compound is widely recognized as a potent human carcinogen requiring strict exposure limits in industrial laboratories?",
+        "options": [
+          "A. Methane",
+          "B. Benzene",
+          "C. Cyclohexane",
+          "D. Ethanol"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Phenol is noticeably more acidic than aliphatic alcohols like ethanol primarily because:",
+        "options": [
+          "A. Phenol contains a carboxylic acid group.",
+          "B. The phenoxide ion is stabilized by resonance over the aromatic ring.",
+          "C. The hydroxyl group in phenol is sp³ hybridized.",
+          "D. Phenol cannot form intermolecular hydrogen bonds."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What happens when bromine water (Br₂/H₂O) is added to an alkene at room temperature?",
+        "options": [
+          "A. A purple solution turns clear with no reaction.",
+          "B. The reddish-brown color disappears rapidly as an addition product forms.",
+          "C. A thick black precipitate of carbon forms.",
+          "D. Bubbles of hydrogen gas are violently evolved."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which reaction converts benzene into ethylbenzene using ethyl chloride and an aluminum chloride catalyst?",
+        "options": [
+          "A. Friedel-Crafts Alkylation",
+          "B. Friedel-Crafts Acylation",
+          "C. Clemmensen Reduction",
+          "D. Reimer-Tiemann Reaction"
+        ],
+        "correct": 0
       }
     ]
   }
