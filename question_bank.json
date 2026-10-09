@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T17:03:59",
+  "updated_at": "2026-10-09T17:21:13",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -1818,6 +1818,208 @@
           "D. Simple distillation"
         ],
         "correct": 0
+      }
+    ],
+    "TOS3_Section2": [
+      {
+        "text": "What is the mathematical definition of the partition coefficient (K) in liquid-liquid extraction?",
+        "options": [
+          "A. K = C(aqueous) / C(organic)",
+          "B. K = C(organic) / C(aqueous)",
+          "C. K = Volume(organic) / Volume(aqueous)",
+          "D. K = Mass(solute) × Volume(solvent)"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why is performing multiple extractions with small volumes of solvent more efficient than a single extraction with the total volume?",
+        "options": [
+          "A. Multiple extractions change the chemical equilibrium constant K.",
+          "B. It maximizes the cumulative mass of solute transferred into the organic phase based on partition equilibrium.",
+          "C. It prevents the formation of emulsions entirely.",
+          "D. Single extractions cause the solvent to boil instantly."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why must you vent a separatory funnel frequently while shaking, especially when using aqueous sodium bicarbonate (NaHCO₃)?",
+        "options": [
+          "A. To prevent solvent from evaporating completely.",
+          "B. To relieve internal pressure built up by solvent vapor and carbon dioxide gas release.",
+          "C. To allow atmospheric oxygen into the mixture.",
+          "D. To cool down the temperature of the separatory funnel."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "In a liquid-liquid extraction using water and dichloromethane (CH₂Cl₂), which layer will be at the bottom of the separatory funnel?",
+        "options": [
+          "A. Aqueous layer, because water is denser than dichloromethane.",
+          "B. Dichloromethane layer, because chlorinated organic solvents are denser than water.",
+          "C. Emulsion layer, because both solvents react completely.",
+          "D. The layers invert randomly depending on room light."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "If you are unsure which layer in a separatory funnel is the organic layer and which is the aqueous layer, what simple test should you perform?",
+        "options": [
+          "A. Heat the separatory funnel to boiling.",
+          "B. Add a few drops of water and observe which layer increases in volume.",
+          "C. Drain both layers completely and weigh them on an analytical balance.",
+          "D. Add concentrated sulfuric acid directly to the funnel."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What crucial step must be performed before draining the lower layer through the stopcock of a separatory funnel?",
+        "options": [
+          "A. Heat the funnel with a Bunsen burner.",
+          "B. Remove the top stopper to prevent a vacuum from preventing liquid flow.",
+          "C. Add ice to solidify the top layer.",
+          "D. Connect a vacuum pump to the stopcock."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "How should the top organic layer be collected after draining the bottom aqueous layer from a separatory funnel?",
+        "options": [
+          "A. Drain it out through the bottom stopcock.",
+          "B. Pour it out through the top neck of the funnel to avoid contamination from the stopcock stem.",
+          "C. Evaporate it directly inside the separatory funnel.",
+          "D. Suction it out using a vacuum line."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "How can a carboxylic acid (R-COOH) be selectively extracted from an organic solvent layer into an aqueous layer?",
+        "options": [
+          "A. Extract with 5% aqueous HCl.",
+          "B. Extract with 5% aqueous NaOH or NaHCO₃ to convert it into a water-soluble carboxylate salt.",
+          "C. Extract with pure hexane.",
+          "D. Extract with concentrated H₂SO₄."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "How can a neutral compound be separated from a basic amine in an organic solvent using acid-base extraction?",
+        "options": [
+          "A. Extract with dilute aqueous HCl to convert the amine into a water-soluble ammonium salt, leaving the neutral compound in the organic layer.",
+          "B. Extract with aqueous NaHCO₃ to precipitate the amine.",
+          "C. Extract with diethyl ether.",
+          "D. Distill the mixture at 300 °C."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "How do you recover a benzoic acid product after it has been extracted into an aqueous sodium hydroxide layer as sodium benzoate?",
+        "options": [
+          "A. Evaporate the water completely.",
+          "B. Acidify the aqueous layer with HCl to reprecipitate free benzoic acid.",
+          "C. Add more sodium hydroxide.",
+          "D. Extract with additional aqueous NaHCO₃."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the difference between a 'phenol' and a 'carboxylic acid' in acid-base extraction using aqueous NaHCO₃?",
+        "options": [
+          "A. Carboxylic acids react with NaHCO₃ to form soluble salts, whereas phenols are generally too weakly acidic to react with NaHCO₃.",
+          "B. Phenols react with NaHCO₃ to produce CO₂ gas, whereas carboxylic acids do not.",
+          "C. Phenols form water-insoluble salts with NaHCO₃.",
+          "D. Both react identically with NaHCO₃."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "In extraction terminology, what is the process of 'washing' an organic layer?",
+        "options": [
+          "A. Pulling the desired organic solute out of an aqueous solution.",
+          "B. Adding an aqueous solution to remove unwanted impurities or residual reagents from the organic layer.",
+          "C. Washing the outside of the separatory funnel with soap.",
+          "D. Rinsing the glassware with acetone prior to extraction."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which technique is effective for breaking up a stubborn emulsion formed inside a separatory funnel?",
+        "options": [
+          "A. Shake the separatory funnel vigorously for another 10 minutes.",
+          "B. Add saturated aqueous sodium chloride (brine) or filter through glass wool.",
+          "C. Heat the separatory funnel with an open flame.",
+          "D. Add concentrated sodium hydroxide."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the phenomenon of 'salting out' in liquid-liquid extraction?",
+        "options": [
+          "A. Adding an inorganic salt (like NaCl) to the aqueous phase to decrease the solubility of the organic solute in water, driving it into the organic layer.",
+          "B. Adding salt to precipitate the organic solvent.",
+          "C. Evaporating solvent until salt crystals form.",
+          "D. Dissolving organic compounds directly in solid NaCl."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which specialized extraction apparatus is used for continuous solid-liquid extraction by repeatedly cycling hot condensed solvent through a solid sample?",
+        "options": [
+          "A. Büchner funnel",
+          "B. Soxhlet extractor",
+          "C. Vigreux column",
+          "D. Dean-Stark trap"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which organic solvent will FLOAT on top of an aqueous layer in a separatory funnel?",
+        "options": [
+          "A. Chloroform (CHCl₃)",
+          "B. Diethyl ether",
+          "C. Carbon tetrachloride (CCl₄)",
+          "D. Dichloromethane (CH₂Cl₂)"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "When venting a separatory funnel during an extraction procedure, where should the tip of the funnel be pointed?",
+        "options": [
+          "A. Directly toward your face to inspect for vapor release.",
+          "B. Away from yourself and anyone else, preferably inside a fume hood.",
+          "C. Toward an open flame to ignite escaping vapors.",
+          "D. Straight down into a beaker."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why is diethyl ether widely used as an extraction solvent despite its flammability?",
+        "options": [
+          "A. It has a high density and low volatility.",
+          "B. It dissolves a wide range of organic compounds and has a low boiling point (35 °C), making it easy to remove.",
+          "C. It reacts irreversibly with water.",
+          "D. It is non-flammable and non-toxic."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What should be done with the two layers in an extraction until the final pure product is isolated and accounted for?",
+        "options": [
+          "A. Discard the aqueous layer down the drain immediately.",
+          "B. Keep both layers until the product identity and yield are verified.",
+          "C. Pour all layers into halogenated waste immediately.",
+          "D. Mix both layers with concentrated acid."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which reagent will convert an insoluble organic amine (R-NH₂) into a water-soluble ammonium salt (R-NH₃⁺ Cl⁻)?",
+        "options": [
+          "A. Sodium hydroxide (NaOH)",
+          "B. Hydrochloric acid (HCl)",
+          "C. Sodium bicarbonate (NaHCO₃)",
+          "D. Sodium chloride (NaCl)"
+        ],
+        "correct": 1
       }
     ]
   }
