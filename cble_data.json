@@ -32543,6 +32543,15 @@
       "pct": 95,
       "date": "2026-10-10T08:14:41",
       "time_used_seconds": 4134.8
+    },
+    {
+      "id": "1791624148880160",
+      "source": "TOS5_Section2",
+      "score": 19,
+      "total": 20,
+      "pct": 95,
+      "date": "2026-10-10T09:22:28",
+      "time_used_seconds": 2306.3
     }
   ],
   "exam_details": [
@@ -66180,6 +66189,233 @@
           "correct_answer": "B. Basic alumina"
         }
       ]
+    },
+    {
+      "exam_id": "1791624148880160",
+      "source": "TOS5_Section2",
+      "date": "2026-10-10T09:22:28",
+      "items": [
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is a major advantage of the Thermal Conductivity Detector (TCD) over a Flame Ionization Detector (FID)?",
+          "your_answer": "B. TCD is universal (detects any substance with thermal conductivity different from carrier gas) and is non-destructive.",
+          "correct_answer": "B. TCD is universal (detects any substance with thermal conductivity different from carrier gas) and is non-destructive."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which GC detector is destructive, highly sensitive to organic compounds containing C-H bonds, but completely insensitive to water and permanent inorganic gases?",
+          "your_answer": "C. Flame Ionization Detector (FID)",
+          "correct_answer": "C. Flame Ionization Detector (FID)"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the fundamental difference in sample capability between Gas Chromatography (GC) and High-Performance Liquid Chromatography (HPLC)?",
+          "your_answer": "A. GC requires volatile and thermally stable analytes with a gas mobile phase, whereas HPLC handles non-volatile, polar, or thermally unstable compounds with a liquid mobile phase.",
+          "correct_answer": "A. GC requires volatile and thermally stable analytes with a gas mobile phase, whereas HPLC handles non-volatile, polar, or thermally unstable compounds with a liquid mobile phase."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "According to the 'like dissolves like' principle in GC stationary phase selection, how should a polar stationary phase column be used?",
+          "your_answer": "B. To effectively retain and separate polar analytes (such as alcohols and amines) through dipole-dipole or hydrogen-bonding interactions",
+          "correct_answer": "B. To effectively retain and separate polar analytes (such as alcohols and amines) through dipole-dipole or hydrogen-bonding interactions"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Why is a 'split injection' technique commonly used when introducing liquid samples into a high-efficiency capillary GC column?",
+          "your_answer": "B. To prevent column overload by venting a major fraction of the vaporized sample out the split vent, allowing only a small fraction onto the column",
+          "correct_answer": "B. To prevent column overload by venting a major fraction of the vaporized sample out the split vent, allowing only a small fraction onto the column"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What phenomenon is indicated by a gradually rising baseline accompanied by baseline noise during high-temperature programmed GC runs?",
+          "your_answer": "A. Column bleed (loss of stationary phase degradation products at elevated temperatures)",
+          "correct_answer": "A. Column bleed (loss of stationary phase degradation products at elevated temperatures)"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What does the 'dead time' ($t_m$ or $t_0$) represent in gas chromatography?",
+          "your_answer": "B. The elution time of an unretained, non-interacting marker compound through the column",
+          "correct_answer": "B. The elution time of an unretained, non-interacting marker compound through the column"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the purpose of employing 'temperature programming' during a GC run of a sample containing compounds with a very wide boiling point range?",
+          "your_answer": "B. To gradually increase the oven temperature over time, sharpening late-eluting peaks and reducing analysis time",
+          "correct_answer": "B. To gradually increase the oven temperature over time, sharpening late-eluting peaks and reducing analysis time"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is a primary cause of 'peak tailing' in a gas chromatogram?",
+          "your_answer": "B. Active adsorption sites (such as silanol groups) on the column wall, column overloading, or dead volume",
+          "correct_answer": "B. Active adsorption sites (such as silanol groups) on the column wall, column overloading, or dead volume"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What fundamental analytical information does the retention time ($t_r$) of a chromatographic peak provide in gas chromatography?",
+          "your_answer": "B. Qualitative identification by comparison with known standards under identical conditions",
+          "correct_answer": "B. Qualitative identification by comparison with known standards under identical conditions"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which primary requirement must an organic analyte satisfy to be successfully analyzed directly by standard gas chromatography?",
+          "your_answer": "B. It must be sufficiently volatile and thermally stable without decomposing at vaporization temperatures.",
+          "correct_answer": "B. It must be sufficiently volatile and thermally stable without decomposing at vaporization temperatures."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 19,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "When using hydrogen gas as a carrier gas in GC, what critical safety precaution must be strictly maintained?",
+          "your_answer": "B. Rigorous leak-testing must be performed regularly because hydrogen forms explosive mixtures with air.",
+          "correct_answer": "B. Rigorous leak-testing must be performed regularly because hydrogen forms explosive mixtures with air."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What are 'ghost peaks' in gas chromatography?",
+          "your_answer": "B. Spurious peaks resulting from system contamination, septum bleed, or carryover from a previous injection",
+          "correct_answer": "B. Spurious peaks resulting from system contamination, septum bleed, or carryover from a previous injection"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 15,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Why is an 'internal standard calibration method' superior to external standard calibration for quantitative GC analysis?",
+          "your_answer": "B. Adding a fixed amount of internal standard corrects for minor variations in manual injection volume and instrumental drift.",
+          "correct_answer": "B. Adding a fixed amount of internal standard corrects for minor variations in manual injection volume and instrumental drift."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "In quantitative gas chromatography, what physical attribute of a chromatographic peak is directly proportional to the amount (concentration) of the analyte?",
+          "your_answer": "B. Peak area or peak height",
+          "correct_answer": "B. Peak area or peak height"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What is the correct sequential order of component parts through which the carrier gas and sample flow in a gas chromatograph?",
+          "your_answer": "B. Carrier gas supply -> Injection port -> Column in temperature-controlled oven -> Detector -> Data system",
+          "correct_answer": "B. Carrier gas supply -> Injection port -> Column in temperature-controlled oven -> Detector -> Data system"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which property is essential for a carrier gas used in gas-liquid chromatography (GLC)?",
+          "your_answer": "B. It must be completely inert, pure, dry, and chemically compatible with the detector.",
+          "correct_answer": "B. It must be completely inert, pure, dry, and chemically compatible with the detector."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which GC detector exhibits extreme sensitivity and selectivity toward halogenated organic compounds, such as chlorinated pesticides and solvents?",
+          "your_answer": "B. Electron Capture Detector (ECD)",
+          "correct_answer": "B. Electron Capture Detector (ECD)"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "How do open tubular (capillary) columns compare functionally to packed columns in gas chromatography?",
+          "your_answer": "B. Capillary columns provide significantly higher theoretical plate efficiency and resolution, but have lower sample capacity.",
+          "correct_answer": "B. Capillary columns provide significantly higher theoretical plate efficiency and resolution, but have lower sample capacity."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section2",
+          "reference_no": 4,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "On a standard nonpolar capillary column (e. g., polydimethylsiloxane), in what general order do organic compounds elute?",
+          "your_answer": "B. In order of increasing water solubility",
+          "correct_answer": "A. In order of increasing boiling point"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -74474,6 +74710,26 @@
         }
       ],
       "updated_at": "2026-10-10T08:42:59"
+    },
+    {
+      "id": "1791624148983335",
+      "source_list": "[Repo] TOS5_Section2",
+      "reference_no": 4,
+      "question": "On a standard nonpolar capillary column (e. g., polydimethylsiloxane), in what general order do organic compounds elute?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-10T09:22:28",
+      "occurrences": [
+        {
+          "exam_id": "1791624148880160",
+          "exam_source": "TOS5_Section2",
+          "date": "2026-10-10T09:22:28",
+          "your_answer": "B. In order of increasing water solubility",
+          "correct_answer": "A. In order of increasing boiling point"
+        }
+      ],
+      "updated_at": "2026-10-10T09:22:28"
     }
   ],
   "guess_notes": [
@@ -74752,5 +75008,5 @@
     "exam_dates": [],
     "prompt_sets": []
   },
-  "updated_at": "2026-10-10T08:44:11"
+  "updated_at": "2026-10-10T09:22:53"
 }
