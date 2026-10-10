@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T04:32:45",
+  "updated_at": "2026-10-10T04:34:16",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -4038,6 +4038,208 @@
           "D. An isolated quaternary ammonium ion"
         ],
         "correct": 0
+      }
+    ],
+    "TOS7_Section1": [
+      {
+        "text": "What is the primary rationale for segregating laboratory chemical wastes by hazard category?",
+        "options": [
+          "A. To make waste containers heavier and easier to transport",
+          "B. To prevent dangerous exothermic or gas-evolving reactions between incompatible wastes and lower overall disposal costs",
+          "C. To allow all waste to be poured down the municipal sewer system safely",
+          "D. To eliminate the need for container labeling"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which four core characteristics define hazardous waste under standard regulatory classifications?",
+        "options": [
+          "A. Sweet, sour, salty, and bitter",
+          "B. Ignitable, corrosive, reactive, and toxic",
+          "C. Transparent, dense, volatile, and viscous",
+          "D. Metallic, organic, aqueous, and solid"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why must halogenated organic solvents (e.g., dichloromethane, chloroform) be strictly segregated from non-halogenated organic solvents (e.g., acetone, hexane)?",
+        "options": [
+          "A. Halogenated solvents freeze solid at room temperature.",
+          "B. Halogenated solvents require specialized high-temperature incineration to prevent dangerous acid gas and dioxin emissions and are more costly to dispose of.",
+          "C. Halogenated solvents react with glass to form permanent gels.",
+          "D. Mixing them causes an immediate explosion."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What happens if even a small volume of a halogenated solvent is mixed into a drum of non-halogenated organic solvent waste?",
+        "options": [
+          "A. The entire drum must be reclassified and disposed of as more expensive halogenated waste.",
+          "B. The solvents automatically neutralize each other into pure water.",
+          "C. The mixture becomes non-hazardous and can be poured down the drain.",
+          "D. The volume doubles instantly."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Why must cyanide-containing or sulfide-containing aqueous wastes be kept strictly alkaline and separated from acidic waste streams?",
+        "options": [
+          "A. Acidification releases extremely toxic hydrogen cyanide (HCN) or hydrogen sulfide (H₂S) gases.",
+          "B. Acids cause cyanide solutions to crystallize into solid diamonds.",
+          "C. Alkalinity prevents cyanide from dissolving in water.",
+          "D. Acids turn cyanide into harmless table salt."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "How should chemical oxidizers (such as nitrates, perchlorates, permanganates, and peroxides) be stored and managed relative to organic compounds?",
+        "options": [
+          "A. Mixed directly with organic solvents to stabilize them",
+          "B. Stored strictly separate from organics and reducing agents to prevent fire or explosion",
+          "C. Used as daily cleaning solutions for lab benches",
+          "D. Stored in unsealed open containers"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What primary hazard is associated with old, opened containers of liquid ethers (like diethyl ether or THF) left sitting on a shelf?",
+        "options": [
+          "A. They absorb nitrogen gas and turn blue.",
+          "B. They form shock-sensitive, potentially explosive organic peroxides over time.",
+          "C. They spontaneously freeze into hard plastics.",
+          "D. They lose all chemical reactivity instantly."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Where should chemically contaminated solid items such as used filter paper, silica gel, drying agents, and contaminated gloves be disposed of?",
+        "options": [
+          "A. Ordinary municipal paper trash bins",
+          "B. Dedicated solid chemical waste containers",
+          "C. Down the sink with warm tap water",
+          "D. Recycled as clean office paper"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the correct procedure for handling an unknown, unlabeled chemical discovered in a fume hood?",
+        "options": [
+          "A. Pour it down the sink drain with plenty of water.",
+          "B. Mix it into the general organic waste carboy.",
+          "C. Treat it as hazardous waste, never mix it, label it clearly as an 'unknown', and identify it before disposal.",
+          "D. Evaporate it rapidly using a heat gun."
+        ],
+        "correct": 2
+      },
+      {
+        "text": "What hazard arises when strong acids and strong bases are inadvertently mixed together in an unmanaged container?",
+        "options": [
+          "A. A violent, highly exothermic neutralization reaction that can cause boiling and splattering",
+          "B. Total freezing of the liquid mixture",
+          "C. Complete conversion into unreactive carbon dioxide gas",
+          "D. Generation of pure electrical current"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What toxic gas is produced when household bleach (sodium hypochlorite solution) is accidentally mixed with an acid or an ammonia-containing cleaning product?",
+        "options": [
+          "A. Carbon monoxide or carbon dioxide",
+          "B. Chlorine gas ($Cl_2$) or toxic chloramine vapors",
+          "C. Pure oxygen gas",
+          "D. Nitrogen trifluoride"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why is it dangerous to store corrosive acidic waste solutions in metal cans or drums?",
+        "options": [
+          "A. Acids dissolve the metal, causing container leaks and generating flammable hydrogen gas.",
+          "B. Metal turns acids into solid crystals.",
+          "C. Acids make metal magnetic.",
+          "D. Metal neutralizes acids instantly."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What material is generally recommended for manufacturing waste carboys and containers holding aqueous acids or bases?",
+        "options": [
+          "A. Thin sheet aluminum",
+          "B. High-Density Polyethylene (HDPE) or approved chemical-resistant polymers",
+          "C. Untreated paperboard",
+          "D. Ordinary food-grade cardboard"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "To what maximum level should liquid hazardous waste carboys be filled to allow adequate safety headspace for thermal expansion and vapor pressure?",
+        "options": [
+          "A. 100% full right up to the threads",
+          "B. Typically 75% to 90% full (leaving proper headspace)",
+          "C. Exactly 20% full",
+          "D. Headspace is unnecessary for liquid wastes."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which information must be explicitly displayed on a hazardous waste container label in a chemical laboratory?",
+        "options": [
+          "A. Market retail price and supplier catalog number",
+          "B. The words 'Hazardous Waste', full chemical names (no formulas/abbreviations), approximate percentages, and start date",
+          "C. Instructor's home telephone number",
+          "D. Molecular weight and boiling point only"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the purpose of placing hazardous waste containers inside secondary containment trays or tubs?",
+        "options": [
+          "A. To catch and contain any leaks or spills from the primary container and segregate incompatible chemical classes",
+          "B. To heat the waste to boiling",
+          "C. To weigh the waste automatically",
+          "D. To insulate the waste from room lighting"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "How should broken glass contaminated with hazardous chemicals be discarded?",
+        "options": [
+          "A. Thrown into regular black plastic trash bags",
+          "B. Placed into a dedicated, puncture-resistant rigid container specifically labeled for chemically contaminated broken glass",
+          "C. Swept under the lab bench",
+          "D. Washed in the sink and put back in glassware drawers"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What reaction occurs when concentrated nitric acid is mixed with common organic solvents like acetone or ethanol?",
+        "options": [
+          "A. A violent, potentially explosive oxidation-reduction reaction",
+          "B. Formation of a stable cooling solution",
+          "C. Dilution into harmless soap",
+          "D. Complete polymerization into solid plastic"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "How should heavy-metal waste solutions containing mercury, lead, cadmium, or chromium be handled?",
+        "options": [
+          "A. Diluted with tap water and poured down the sink",
+          "B. Collected separately in dedicated hazardous metal waste streams and never poured down the drain",
+          "C. Evaporated to dryness in an open evaporating dish on the bench",
+          "D. Mixed with organic solvents for fuel blending"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What safety practice must be maintained regarding funnels used to pour liquid waste into a carboy?",
+        "options": [
+          "A. Leave the funnel resting in the carboy opening permanently so anyone can dump waste at any time.",
+          "B. Remove the funnel immediately after pouring and secure the container cap tightly closed.",
+          "C. Seal the top of the funnel with electrical tape.",
+          "D. Heat the funnel with a Bunsen burner to evaporate drips."
+        ],
+        "correct": 1
       }
     ]
   }
