@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T04:32:23",
+  "updated_at": "2026-10-10T04:32:45",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -3836,6 +3836,208 @@
           "D. Above 3.00"
         ],
         "correct": 1
+      }
+    ],
+    "TOS6_Section2": [
+      {
+        "text": "What physical phenomenon does infrared (IR) spectroscopy measure when interacting with a molecule?",
+        "options": [
+          "A. Excitation of valence electrons to higher energy orbitals",
+          "B. Changes in molecular vibrations (stretching and bending modes)",
+          "C. Nuclear spin-flips in a magnetic field",
+          "D. Total molecular fragmentation and ionization"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "How are wavenumbers ($\tilde{\nu}$) in units of cm⁻¹ mathematically related to the frequency and energy of infrared radiation?",
+        "options": [
+          "A. Wavenumbers are inversely proportional to energy.",
+          "B. Higher wavenumber corresponds to higher frequency and higher energy.",
+          "C. Wavenumbers measure the absolute mass of the molecule.",
+          "D. Wavenumbers have no direct relation to light frequency."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What fundamental selection rule governs whether a particular molecular vibration is active in the infrared spectrum?",
+        "options": [
+          "A. The vibration must involve a net change in molecular dipole moment during the vibration.",
+          "B. The molecule must be a homonuclear diatomic gas like $N_2$ or $O_2$.",
+          "C. The molecule must absorb visible light simultaneously.",
+          "D. The dipole moment must remain strictly zero at all times."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "In an IR spectrum, approximately where is the characteristic diagnostic functional group region located?",
+        "options": [
+          "A. 400 to 400ynth cm⁻¹",
+          "B. 4000 to 1500 cm⁻¹",
+          "C. 1500 to 400 cm⁻¹",
+          "D. 8000 to 5000 cm⁻¹"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which characteristic absorption band in the IR spectrum indicates the presence of a hydrogen-bonded alcohol or phenol O-H stretch?",
+        "options": [
+          "A. Sharp peak at 2250 cm⁻¹",
+          "B. Broad, strong band around 3200 to 3600 cm⁻¹",
+          "C. Sharp doublet at 1600 cm⁻¹",
+          "D. Very weak peak at 700 cm⁻¹"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What distinguishes the appearance of a carboxylic acid O-H stretch from an alcohol O-H stretch in an IR spectrum?",
+        "options": [
+          "A. Carboxylic acid O-H is very broad (2500–3300 cm⁻¹) and often overlaps the C-H stretching region.",
+          "B. Carboxylic acid O-H appears as a sharp singlet at 4000 cm⁻¹.",
+          "C. Carboxylic acid O-H is completely invisible in IR.",
+          "D. Carboxylic acid O-H appears above 3800 cm⁻¹."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "How can primary, secondary, and tertiary amines be distinguished by their N-H stretching absorptions in the 3300 to 3500 cm⁻¹ region?",
+        "options": [
+          "A. Primary shows two bands (doublet), secondary shows one band (singlet), and tertiary shows no N-H band.",
+          "B. Tertiary shows three bands, while primary shows none.",
+          "C. All amines show identical single peaks at 1710 cm⁻¹.",
+          "D. Amines do not absorb infrared radiation."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What approximate wavenumber range corresponds to the highly diagnostic carbonyl (C=O) stretching absorption?",
+        "options": [
+          "A. 3300 to 3500 cm⁻¹",
+          "B. 2100 to 2260 cm⁻¹",
+          "C. 1650 to 1800 cm⁻¹",
+          "D. 600 to 800 cm⁻¹"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "How does electronic conjugation with a double bond or aromatic ring affect the stretching frequency of a neighboring carbonyl (C=O) group?",
+        "options": [
+          "A. It raises the C=O frequency by 100 cm⁻¹.",
+          "B. It lowers the C=O stretching frequency by roughly 20 to 30 cm⁻¹ due to increased single-bond character.",
+          "C. It shifts the C=O peak into the fingerprint region.",
+          "D. It eliminates the C=O peak entirely."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which functional group class exhibits two characteristic weak C-H stretching bands around 2720 and 2820 cm⁻¹ on the right side of the sp³ C-H stretch?",
+        "options": [
+          "A. Ketones",
+          "B. Esters",
+          "C. Aldehydes",
+          "D. Alkynes"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Why must water and aqueous solutions NEVER be used with sodium chloride (NaCl) or potassium bromide (KBr) IR sample plates?",
+        "options": [
+          "A. Water turns NaCl plates bright red.",
+          "B. Water dissolves the ionic salt plates instantly, and water absorbs strongly in the IR region.",
+          "C. Water reacts with NaCl to form chlorine gas.",
+          "D. Water coats the plates with a non-removable polymer."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the primary advantage of Fourier Transform Infrared (FTIR) spectrometers over older dispersive IR instruments?",
+        "options": [
+          "A. FTIR uses a Michelson interferometer and computer to collect all wavelengths simultaneously, providing faster scans with higher signal-to-noise ratio.",
+          "B. FTIR requires radioactive carbon sources.",
+          "C. FTIR can only analyze solid samples in water.",
+          "D. FTIR eliminates the need for any background scan."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "When preparing a solid sample as a Nujol mull, why is it impossible to reliably identify alkane C-H stretching peaks in the sample?",
+        "options": [
+          "A. Nujol is pure mineral oil (a saturated alkane), which produces heavy absorption bands in the exact same C-H region (2850–2950 cm⁻¹).",
+          "B. Nujol dissolves the sample completely into a gas.",
+          "C. Nujol reacts with the salt plates to form an opaque crust.",
+          "D. Nujol absorbs all light below 400 cm⁻¹."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is the purpose of running a background scan prior to acquiring an FTIR sample spectrum?",
+        "options": [
+          "A. To measure room temperature",
+          "B. To measure and subtract the absorption contributions of atmospheric moisture (water vapor) and carbon dioxide ($CO_2$)",
+          "C. To calibrate the sample mass on a balance",
+          "D. To reset the interferometer mirror to zero"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which molecule is completely IR-INACTIVE because its symmetrical stretching vibration produces zero net change in dipole moment?",
+        "options": [
+          "A. Carbon monoxide (CO)",
+          "B. Hydrogen chloride (HCl)",
+          "C. Nitrogen gas ($N_2$, homonuclear diatomic)",
+          "D. Acetone ($CH_3COCH_3$)"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "What is the primary role of the 'fingerprint region' (approx. 1500 to 400 cm⁻¹) in an IR spectrum?",
+        "options": [
+          "A. Identifying the molecular mass precisely",
+          "B. Providing a complex, unique spectral pattern used to confirm molecular identity by direct reference matching",
+          "C. Measuring melting point depression",
+          "D. Detecting inorganic heavy metal cations"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why must KBr (potassium bromide) used for making pressed IR pellets be thoroughly dried and handled carefully?",
+        "options": [
+          "A. Wet KBr explodes under hydraulic pressure.",
+          "B. KBr is extremely hygroscopic and absorbed moisture introduces broad interfering O-H peaks around 3400 cm⁻¹.",
+          "C. Dry KBr is highly flammable.",
+          "D. Moisture converts KBr into liquid bromine."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Rank the following carbonyl stretching frequencies (C=O) from HIGHEST wavenumber to LOWEST wavenumber:",
+        "options": [
+          "A. Amide > Ketone > Ester > Acid chloride",
+          "B. Acid chloride (~1800) > Ester (~1740) > Ketone (~1715) > Amide (~1680)",
+          "C. Ketone > Amide > Acid chloride > Ester",
+          "D. Ester > Acid chloride > Amide > Ketone"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the fundamental spectroscopic technique used in an Attenuated Total Reflectance (ATR) accessory for IR analysis?",
+        "options": [
+          "A. Total internal reflection of an IR beam through a high-refractive-index crystal where an evanescent wave interacts directly with pressed sample contact.",
+          "B. Transmission of IR light through 10 meters of liquid gas.",
+          "C. Scattering of monochromatic X-rays off crystal planes.",
+          "D. Laser ablation of solid powders."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What structural feature gives rise to sharp, strong C≡N (nitrile) stretching absorptions appearing near 2210 to 2260 cm⁻¹?",
+        "options": [
+          "A. A carbon-nitrogen triple bond with strong dipole moment change",
+          "B. A carbon-oxygen single bond in a ring",
+          "C. A symmetrical aromatic ring vibration",
+          "D. An isolated quaternary ammonium ion"
+        ],
+        "correct": 0
       }
     ]
   }
