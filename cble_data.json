@@ -32283,6 +32283,15 @@
       "pct": 97.5,
       "date": "2026-10-10T06:13:52",
       "time_used_seconds": 3096.7
+    },
+    {
+      "id": "1791620081842369",
+      "source": "TOS5_Section1",
+      "score": 19,
+      "total": 20,
+      "pct": 95,
+      "date": "2026-10-10T08:14:41",
+      "time_used_seconds": 4134.8
     }
   ],
   "exam_details": [
@@ -65693,6 +65702,233 @@
           "correct_answer": "B. Keep a suitable cooling bath prepared nearby, add reagents slowly with stirring, and monitor temperature."
         }
       ]
+    },
+    {
+      "exam_id": "1791620081842369",
+      "source": "TOS5_Section1",
+      "date": "2026-10-10T08:14:41",
+      "items": [
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Why must the initial liquid solvent level in a developing TLC chamber be maintained strictly BELOW the pencil baseline where spots are applied?",
+          "your_answer": "A. To prevent the spots from dissolving directly into the solvent pool rather than traveling by capillary action.",
+          "correct_answer": "A. To prevent the spots from dissolving directly into the solvent pool rather than traveling by capillary action."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Calculate the Retention Factor ($R_f$) for a compound whose spot traveled 4.5 cm from the baseline, while the solvent front migrated 7.5 cm.",
+          "your_answer": "A. 0.60",
+          "correct_answer": "A. 0.60"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the key operational feature of 'flash chromatography' compared to standard gravity column chromatography?",
+          "your_answer": "A. It uses compressed air or nitrogen gas to force solvent through the column rapidly, improving speed and resolution.",
+          "correct_answer": "A. It uses compressed air or nitrogen gas to force solvent through the column rapidly, improving speed and resolution."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "If an organic compound yields only a single spot on a TLC plate developed in three different solvent systems, what preliminary conclusion can be drawn?",
+          "your_answer": "B. The compound is likely pure or consists of components with identical $R_f$ values in those systems.",
+          "correct_answer": "B. The compound is likely pure or consists of components with identical $R_f$ values in those systems."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is considered the ideal $R_f$ range for a target compound when optimizing solvent polarity for a column chromatography separation?",
+          "your_answer": "B. 0.2 to 0.4",
+          "correct_answer": "B. 0.2 to 0.4"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In column chromatography using silica gel, which type of compound elutes from the column first?",
+          "your_answer": "B. The least polar (nonpolar) compound",
+          "correct_answer": "B. The least polar (nonpolar) compound"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 9,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which chemical visualization reagent is specifically used on TLC plates to detect amino acids and amines, yielding purple or brown spots?",
+          "your_answer": "C. Potassium permanganate (KMnO₄)",
+          "correct_answer": "B. Ninhydrin"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Why must a TLC plate baseline always be drawn using a pencil rather than a standard ink pen?",
+          "your_answer": "B. Ink components are organic dyes that would dissolve in the developing solvent and run up the plate along with the sample.",
+          "correct_answer": "B. Ink components are organic dyes that would dissolve in the developing solvent and run up the plate along with the sample."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Arrange the following common chromatography solvents in order of INCREASING eluent strength (polarity):",
+          "your_answer": "B. Hexane < Dichloromethane < Ethyl acetate < Water",
+          "correct_answer": "B. Hexane < Dichloromethane < Ethyl acetate < Water"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 15,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "How should a solid sample be loaded onto the top of a column chromatography bed for optimal band resolution?",
+          "your_answer": "B. Dissolved in the minimum possible volume of starting solvent (or dry-loaded onto silica) to form a very narrow, concentrated band.",
+          "correct_answer": "B. Dissolved in the minimum possible volume of starting solvent (or dry-loaded onto silica) to form a very narrow, concentrated band."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which design modification increases the resolving power (separation efficiency) of a column chromatography system?",
+          "your_answer": "B. Using a longer, narrower column with smaller, uniform adsorbent particles.",
+          "correct_answer": "B. Using a longer, narrower column with smaller, uniform adsorbent particles."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In normal-phase adsorption thin-layer chromatography (TLC) using a polar stationary phase like silica gel, how do polar and nonpolar compounds behave?",
+          "your_answer": "B. Polar compounds interact more strongly with the stationary phase and move slower, while nonpolar compounds move faster.",
+          "correct_answer": "B. Polar compounds interact more strongly with the stationary phase and move slower, while nonpolar compounds move faster."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the primary cause of 'streaking' or 'tailing' of spots on a TLC plate?",
+          "your_answer": "B. Overloading the sample spot, presence of acidic/basic compounds, or using a spotting solvent that is too polar.",
+          "correct_answer": "B. Overloading the sample spot, presence of acidic/basic compounds, or using a spotting solvent that is too polar."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which class of organic compounds generally exhibits the highest polarity and slowest migration on a normal-phase silica TLC plate?",
+          "your_answer": "C. Carboxylic acids",
+          "correct_answer": "C. Carboxylic acids"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the purpose of 'co-spotting' an unknown sample alongside an authentic reference standard on a TLC plate?",
+          "your_answer": "B. To confirm identity; if both travel as a single, uniform spot in multiple solvent systems, they are likely the same compound.",
+          "correct_answer": "B. To confirm identity; if both travel as a single, uniform spot in multiple solvent systems, they are likely the same compound."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What catastrophic problem occurs if a chromatography column is allowed to 'run dry' (solvent level drops below the top of the silica bed)?",
+          "your_answer": "B. Cracks and air channels form in the silica bed, destroying uniform flow and ruining the separation.",
+          "correct_answer": "B. Cracks and air channels form in the silica bed, destroying uniform flow and ruining the separation."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Why is the wet (slurry) packing method generally preferred over dry packing when preparing a silica gel chromatography column?",
+          "your_answer": "A. Wet packing completely eliminates air bubbles and micro-channels that ruin separation efficiency.",
+          "correct_answer": "A. Wet packing completely eliminates air bubbles and micro-channels that ruin separation efficiency."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 19,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What primary health and safety hazard is associated with handling fine, dry silica gel powder during column preparation?",
+          "your_answer": "B. Severe respiratory hazard (silicosis/lung irritation from fine dust inhalation)",
+          "correct_answer": "B. Severe respiratory hazard (silicosis/lung irritation from fine dust inhalation)"
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What distinguishes reversed-phase chromatography from normal-phase chromatography?",
+          "your_answer": "A. Reversed-phase uses a nonpolar stationary phase (such as C18) with a polar mobile phase, causing polar compounds to elute first.",
+          "correct_answer": "A. Reversed-phase uses a nonpolar stationary phase (such as C18) with a polar mobile phase, causing polar compounds to elute first."
+        },
+        {
+          "source_list": "[Repo] TOS5_Section1",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "When purifying a basic amine compound that might bind too strongly to acidic silica gel, which stationary phase grade of alumina is most appropriate?",
+          "your_answer": "B. Basic alumina",
+          "correct_answer": "B. Basic alumina"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -73967,6 +74203,26 @@
         }
       ],
       "updated_at": "2026-10-10T06:18:53"
+    },
+    {
+      "id": "1791620081901314",
+      "source_list": "[Repo] TOS5_Section1",
+      "reference_no": 9,
+      "question": "Which chemical visualization reagent is specifically used on TLC plates to detect amino acids and amines, yielding purple or brown spots?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-10T08:14:41",
+      "occurrences": [
+        {
+          "exam_id": "1791620081842369",
+          "exam_source": "TOS5_Section1",
+          "date": "2026-10-10T08:14:41",
+          "your_answer": "C. Potassium permanganate (KMnO₄)",
+          "correct_answer": "B. Ninhydrin"
+        }
+      ],
+      "updated_at": "2026-10-10T08:14:41"
     }
   ],
   "guess_notes": [
@@ -74245,5 +74501,5 @@
     "exam_dates": [],
     "prompt_sets": []
   },
-  "updated_at": "2026-10-10T08:14:16"
+  "updated_at": "2026-10-10T08:14:47"
 }
