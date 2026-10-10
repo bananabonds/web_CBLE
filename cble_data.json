@@ -35071,6 +35071,15 @@
       "pct": 75,
       "date": "2026-10-10T10:42:47",
       "time_used_seconds": 700.7
+    },
+    {
+      "id": "1791631697178520",
+      "source": "TOS6_Section2",
+      "score": 17,
+      "total": 20,
+      "pct": 85,
+      "date": "2026-10-10T11:28:17",
+      "time_used_seconds": 1011.5
     }
   ],
   "exam_details": [
@@ -69162,6 +69171,233 @@
           "correct_answer": "C. Quartz or fused silica"
         }
       ]
+    },
+    {
+      "exam_id": "1791631697178520",
+      "source": "TOS6_Section2",
+      "date": "2026-10-10T11:28:17",
+      "items": [
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the primary advantage of Fourier Transform Infrared (FTIR) spectrometers over older dispersive IR instruments?",
+          "your_answer": "A. FTIR uses a Michelson interferometer and computer to collect all wavelengths simultaneously, providing faster scans with higher signal-to-noise ratio.",
+          "correct_answer": "A. FTIR uses a Michelson interferometer and computer to collect all wavelengths simultaneously, providing faster scans with higher signal-to-noise ratio."
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What structural feature gives rise to sharp, strong C≡N (nitrile) stretching absorptions appearing near 2210 to 2260 cm⁻¹?",
+          "your_answer": "A. A carbon-nitrogen triple bond with strong dipole moment change",
+          "correct_answer": "A. A carbon-nitrogen triple bond with strong dipole moment change"
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 10,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Which functional group class exhibits two characteristic weak C-H stretching bands around 2720 and 2820 cm⁻¹ on the right side of the sp³ C-H stretch?",
+          "your_answer": "B. Esters",
+          "correct_answer": "C. Aldehydes"
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 19,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What is the fundamental spectroscopic technique used in an Attenuated Total Reflectance (ATR) accessory for IR analysis?",
+          "your_answer": "A. Total internal reflection of an IR beam through a high-refractive-index crystal where an evanescent wave interacts directly with pressed sample contact.",
+          "correct_answer": "A. Total internal reflection of an IR beam through a high-refractive-index crystal where an evanescent wave interacts directly with pressed sample contact."
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "How are wavenumbers ($ ilde{ u}$) in units of cm⁻¹ mathematically related to the frequency and energy of infrared radiation?",
+          "your_answer": "B. Higher wavenumber corresponds to higher frequency and higher energy.",
+          "correct_answer": "B. Higher wavenumber corresponds to higher frequency and higher energy."
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Why must water and aqueous solutions NEVER be used with sodium chloride (NaCl) or potassium bromide (KBr) IR sample plates?",
+          "your_answer": "B. Water dissolves the ionic salt plates instantly, and water absorbs strongly in the IR region.",
+          "correct_answer": "B. Water dissolves the ionic salt plates instantly, and water absorbs strongly in the IR region."
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 15,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which molecule is completely IR-INACTIVE because its symmetrical stretching vibration produces zero net change in dipole moment?",
+          "your_answer": "C. Nitrogen gas ($N_2$, homonuclear diatomic)",
+          "correct_answer": "C. Nitrogen gas ($N_2$, homonuclear diatomic)"
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the purpose of running a background scan prior to acquiring an FTIR sample spectrum?",
+          "your_answer": "B. To measure and subtract the absorption contributions of atmospheric moisture (water vapor) and carbon dioxide ($CO_2$)",
+          "correct_answer": "B. To measure and subtract the absorption contributions of atmospheric moisture (water vapor) and carbon dioxide ($CO_2$)"
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "How can primary, secondary, and tertiary amines be distinguished by their N-H stretching absorptions in the 3300 to 3500 cm⁻¹ region?",
+          "your_answer": "A. Primary shows two bands (doublet), secondary shows one band (singlet), and tertiary shows no N-H band.",
+          "correct_answer": "A. Primary shows two bands (doublet), secondary shows one band (singlet), and tertiary shows no N-H band."
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What distinguishes the appearance of a carboxylic acid O-H stretch from an alcohol O-H stretch in an IR spectrum?",
+          "your_answer": "A. Carboxylic acid O-H is very broad (2500–3300 cm⁻¹) and often overlaps the C-H stretching region.",
+          "correct_answer": "A. Carboxylic acid O-H is very broad (2500–3300 cm⁻¹) and often overlaps the C-H stretching region."
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Why must KBr (potassium bromide) used for making pressed IR pellets be thoroughly dried and handled carefully?",
+          "your_answer": "B. KBr is extremely hygroscopic and absorbed moisture introduces broad interfering O-H peaks around 3400 cm⁻¹.",
+          "correct_answer": "B. KBr is extremely hygroscopic and absorbed moisture introduces broad interfering O-H peaks around 3400 cm⁻¹."
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 8,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What approximate wavenumber range corresponds to the highly diagnostic carbonyl (C=O) stretching absorption?",
+          "your_answer": "B. 2100 to 2260 cm⁻¹",
+          "correct_answer": "C. 1650 to 1800 cm⁻¹"
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Rank the following carbonyl stretching frequencies (C=O) from HIGHEST wavenumber to LOWEST wavenumber:",
+          "your_answer": "B. Acid chloride (~1800) > Ester (~1740) > Ketone (~1715) > Amide (~1680)",
+          "correct_answer": "B. Acid chloride (~1800) > Ester (~1740) > Ketone (~1715) > Amide (~1680)"
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What physical phenomenon does infrared (IR) spectroscopy measure when interacting with a molecule?",
+          "your_answer": "B. Changes in molecular vibrations (stretching and bending modes)",
+          "correct_answer": "B. Changes in molecular vibrations (stretching and bending modes)"
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the primary role of the 'fingerprint region' (approx. 1500 to 400 cm⁻¹) in an IR spectrum?",
+          "your_answer": "B. Providing a complex, unique spectral pattern used to confirm molecular identity by direct reference matching",
+          "correct_answer": "B. Providing a complex, unique spectral pattern used to confirm molecular identity by direct reference matching"
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What fundamental selection rule governs whether a particular molecular vibration is active in the infrared spectrum?",
+          "your_answer": "A. The vibration must involve a net change in molecular dipole moment during the vibration.",
+          "correct_answer": "A. The vibration must involve a net change in molecular dipole moment during the vibration."
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 4,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In an IR spectrum, approximately where is the characteristic diagnostic functional group region located?",
+          "your_answer": "C. 1500 to 400 cm⁻¹",
+          "correct_answer": "B. 4000 to 1500 cm⁻¹"
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which characteristic absorption band in the IR spectrum indicates the presence of a hydrogen-bonded alcohol or phenol O-H stretch?",
+          "your_answer": "B. Broad, strong band around 3200 to 3600 cm⁻¹",
+          "correct_answer": "B. Broad, strong band around 3200 to 3600 cm⁻¹"
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "How does electronic conjugation with a double bond or aromatic ring affect the stretching frequency of a neighboring carbonyl (C=O) group?",
+          "your_answer": "B. It lowers the C=O stretching frequency by roughly 20 to 30 cm⁻¹ due to increased single-bond character.",
+          "correct_answer": "B. It lowers the C=O stretching frequency by roughly 20 to 30 cm⁻¹ due to increased single-bond character."
+        },
+        {
+          "source_list": "[Repo] TOS6_Section2",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "When preparing a solid sample as a Nujol mull, why is it impossible to reliably identify alkane C-H stretching peaks in the sample?",
+          "your_answer": "A. Nujol is pure mineral oil (a saturated alkane), which produces heavy absorption bands in the exact same C-H region (2850–2950 cm⁻¹).",
+          "correct_answer": "A. Nujol is pure mineral oil (a saturated alkane), which produces heavy absorption bands in the exact same C-H region (2850–2950 cm⁻¹)."
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -77576,6 +77812,66 @@
         }
       ],
       "updated_at": "2026-10-10T10:42:47"
+    },
+    {
+      "id": "1791631697196423",
+      "source_list": "[Repo] TOS6_Section2",
+      "reference_no": 10,
+      "question": "Which functional group class exhibits two characteristic weak C-H stretching bands around 2720 and 2820 cm⁻¹ on the right side of the sp³ C-H stretch?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-10T11:28:17",
+      "occurrences": [
+        {
+          "exam_id": "1791631697178520",
+          "exam_source": "TOS6_Section2",
+          "date": "2026-10-10T11:28:17",
+          "your_answer": "B. Esters",
+          "correct_answer": "C. Aldehydes"
+        }
+      ],
+      "updated_at": "2026-10-10T11:28:17"
+    },
+    {
+      "id": "179163169720052",
+      "source_list": "[Repo] TOS6_Section2",
+      "reference_no": 8,
+      "question": "What approximate wavenumber range corresponds to the highly diagnostic carbonyl (C=O) stretching absorption?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-10T11:28:17",
+      "occurrences": [
+        {
+          "exam_id": "1791631697178520",
+          "exam_source": "TOS6_Section2",
+          "date": "2026-10-10T11:28:17",
+          "your_answer": "B. 2100 to 2260 cm⁻¹",
+          "correct_answer": "C. 1650 to 1800 cm⁻¹"
+        }
+      ],
+      "updated_at": "2026-10-10T11:28:17"
+    },
+    {
+      "id": "1791631697202182",
+      "source_list": "[Repo] TOS6_Section2",
+      "reference_no": 4,
+      "question": "In an IR spectrum, approximately where is the characteristic diagnostic functional group region located?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-10T11:28:17",
+      "occurrences": [
+        {
+          "exam_id": "1791631697178520",
+          "exam_source": "TOS6_Section2",
+          "date": "2026-10-10T11:28:17",
+          "your_answer": "C. 1500 to 400 cm⁻¹",
+          "correct_answer": "B. 4000 to 1500 cm⁻¹"
+        }
+      ],
+      "updated_at": "2026-10-10T11:28:17"
     }
   ],
   "guess_notes": [
@@ -77854,5 +78150,5 @@
     "exam_dates": [],
     "prompt_sets": []
   },
-  "updated_at": "2026-10-10T11:17:40"
+  "updated_at": "2026-10-10T11:28:19"
 }
