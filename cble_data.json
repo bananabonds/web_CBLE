@@ -35403,6 +35403,15 @@
       "pct": 100,
       "date": "2026-10-10T13:57:28",
       "time_used_seconds": 371.5
+    },
+    {
+      "id": "1791652891265740",
+      "source": "TOS10_Section1B",
+      "score": 16,
+      "total": 20,
+      "pct": 80,
+      "date": "2026-10-10T17:21:31",
+      "time_used_seconds": 750.1
     }
   ],
   "exam_details": [
@@ -71537,6 +71546,233 @@
           "correct_answer": "C. 16 sections"
         }
       ]
+    },
+    {
+      "exam_id": "1791652891265740",
+      "source": "TOS10_Section1B",
+      "date": "2026-10-10T17:21:31",
+      "items": [
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 9,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "When preparing a solid sample for trace metal analysis, which grinding material should be avoided to prevent iron, chromium, and nickel contamination?",
+          "your_answer": "A. Agate",
+          "correct_answer": "B. Stainless steel"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 15,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the main purpose of adding sodium thiosulfate to a water sample prior to analysis?",
+          "your_answer": "B. Neutralize residual chlorine",
+          "correct_answer": "B. Neutralize residual chlorine"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 19,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which quality control sample involves passing clean water through cleaned sampling apparatus in the field to confirm effective decontamination?",
+          "your_answer": "A. Equipment (rinsate) blank",
+          "correct_answer": "A. Equipment (rinsate) blank"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 17,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which quality control sample travels sealed from the laboratory to the field site and back to detect contamination during transport and storage?",
+          "your_answer": "A. Field duplicate",
+          "correct_answer": "C. Trip blank"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the primary characteristic of a representative sample?",
+          "your_answer": "B. Its composition accurately reflects the composition of the entire lot",
+          "correct_answer": "B. Its composition accurately reflects the composition of the entire lot"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 8,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Which solid sample reduction technique uses a chute with alternating opposite-facing slots to yield two equal halves?",
+          "your_answer": "B. Rotary sample divider",
+          "correct_answer": "C. Riffle splitter"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Why is taking a single scoop from the top of a bag or pile of solid material considered unrepresentative?",
+          "your_answer": "B. Particles segregate by size and density during handling",
+          "correct_answer": "B. Particles segregate by size and density during handling"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Which term refers to the actual small portion of material that is directly measured or analyzed in the laboratory?",
+          "your_answer": "C. Test sample",
+          "correct_answer": "C. Test sample"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Why are glass containers preferred over plastic containers for collecting samples intended for organic compound analysis?",
+          "your_answer": "B. Plastic can leach phthalates or adsorb organic species",
+          "correct_answer": "B. Plastic can leach phthalates or adsorb organic species"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 10,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "When sampling water for volatile organic compounds (VOCs) or dissolved gases, how should the sample bottle be filled?",
+          "your_answer": "C. Left with a 10% volume headspace for expansion",
+          "correct_answer": "B. Filled completely with zero headspace or air bubbles"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "When collecting a water sample from a flowing stream or river, how should the container be oriented relative to the current?",
+          "your_answer": "B. Opening facing upstream, into the current",
+          "correct_answer": "B. Opening facing upstream, into the current"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What sampling device is used to collect solid increments across different depths of a stationary powder or grain pile?",
+          "your_answer": "B. Sampling thief (spear or probe)",
+          "correct_answer": "B. Sampling thief (spear or probe)"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What type of sample is collected at a single specific time and location to measure instantaneous conditions?",
+          "your_answer": "B. Grab sample",
+          "correct_answer": "B. Grab sample"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which parameter must be measured on-site immediately after collection due to rapid changes?",
+          "your_answer": "B. Dissolved oxygen",
+          "correct_answer": "B. Dissolved oxygen"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What quality control tool documents every individual who handled a sample, along with transfer dates and times, to maintain legal and technical traceability?",
+          "your_answer": "C. Chain of custody",
+          "correct_answer": "C. Chain of custody"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What action should be performed before collecting a tap water sample for chemical analysis?",
+          "your_answer": "B. Flush the line to clear stagnant water",
+          "correct_answer": "B. Flush the line to clear stagnant water"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What term describes the maximum permissible elapsed time between sample collection and laboratory analysis?",
+          "your_answer": "C. Holding time",
+          "correct_answer": "C. Holding time"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "How do sampling variance and analytical variance interact to determine total variance?",
+          "your_answer": "B. total variance = sampling variance + analytical variance",
+          "correct_answer": "B. total variance = sampling variance + analytical variance"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the standard preservation method for preserving metal analytes in water samples to prevent precipitation and adsorption to container walls?",
+          "your_answer": "B. Addition of HNO3 to pH less than 2",
+          "correct_answer": "B. Addition of HNO3 to pH less than 2"
+        },
+        {
+          "source_list": "[Repo] TOS10_Section1B",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which sampling strategy divides a population with distinct zones or layers into sub-groups before sampling each group?",
+          "your_answer": "C. Stratified sampling",
+          "correct_answer": "C. Stratified sampling"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -80091,6 +80327,86 @@
         }
       ],
       "updated_at": "2026-10-10T16:54:35"
+    },
+    {
+      "id": "1791652891282961",
+      "source_list": "[Repo] TOS10_Section1B",
+      "reference_no": 9,
+      "question": "When preparing a solid sample for trace metal analysis, which grinding material should be avoided to prevent iron, chromium, and nickel contamination?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-10T17:21:31",
+      "occurrences": [
+        {
+          "exam_id": "1791652891265740",
+          "exam_source": "TOS10_Section1B",
+          "date": "2026-10-10T17:21:31",
+          "your_answer": "A. Agate",
+          "correct_answer": "B. Stainless steel"
+        }
+      ],
+      "updated_at": "2026-10-10T17:21:31"
+    },
+    {
+      "id": "1791652891287307",
+      "source_list": "[Repo] TOS10_Section1B",
+      "reference_no": 17,
+      "question": "Which quality control sample travels sealed from the laboratory to the field site and back to detect contamination during transport and storage?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-10T17:21:31",
+      "occurrences": [
+        {
+          "exam_id": "1791652891265740",
+          "exam_source": "TOS10_Section1B",
+          "date": "2026-10-10T17:21:31",
+          "your_answer": "A. Field duplicate",
+          "correct_answer": "C. Trip blank"
+        }
+      ],
+      "updated_at": "2026-10-10T17:21:31"
+    },
+    {
+      "id": "1791652891294136",
+      "source_list": "[Repo] TOS10_Section1B",
+      "reference_no": 8,
+      "question": "Which solid sample reduction technique uses a chute with alternating opposite-facing slots to yield two equal halves?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-10T17:21:31",
+      "occurrences": [
+        {
+          "exam_id": "1791652891265740",
+          "exam_source": "TOS10_Section1B",
+          "date": "2026-10-10T17:21:31",
+          "your_answer": "B. Rotary sample divider",
+          "correct_answer": "C. Riffle splitter"
+        }
+      ],
+      "updated_at": "2026-10-10T17:21:31"
+    },
+    {
+      "id": "1791652891297471",
+      "source_list": "[Repo] TOS10_Section1B",
+      "reference_no": 10,
+      "question": "When sampling water for volatile organic compounds (VOCs) or dissolved gases, how should the sample bottle be filled?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-10T17:21:31",
+      "occurrences": [
+        {
+          "exam_id": "1791652891265740",
+          "exam_source": "TOS10_Section1B",
+          "date": "2026-10-10T17:21:31",
+          "your_answer": "C. Left with a 10% volume headspace for expansion",
+          "correct_answer": "B. Filled completely with zero headspace or air bubbles"
+        }
+      ],
+      "updated_at": "2026-10-10T17:21:31"
     }
   ],
   "guess_notes": [
@@ -80370,5 +80686,5 @@
     "exam_dates": [],
     "prompt_sets": []
   },
-  "updated_at": "2026-10-10T17:16:13"
+  "updated_at": "2026-10-10T17:21:34"
 }
