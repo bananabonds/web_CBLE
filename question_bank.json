@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T17:08:12",
+  "updated_at": "2026-10-10T17:31:38",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -5854,6 +5854,208 @@
           "B. Opening facing upstream, into the current",
           "C. Opening facing toward the river bank",
           "D. Container held horizontally at the water surface film"
+        ],
+        "correct": 1
+      }
+    ],
+    "TOS10_Section2B": [
+      {
+        "text": "What is the primary goal of sample preparation before analysis?",
+        "options": [
+          "A. To completely eliminate all matrix components except the container",
+          "B. To convert the sample into a suitable form (usually a clear solution) free of interferences without losing or adding the analyte",
+          "C. To maximize the concentration of all components equally",
+          "D. To increase the total mass of the test sample for easier weighing"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the typical temperature range used for oven drying most solid samples to constant mass?",
+        "options": [
+          "A. 25 to 30 °C",
+          "B. 50 to 60 °C",
+          "C. 105 to 110 °C",
+          "D. 450 to 600 °C"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which acid is specifically used to dissolve silicates, but requires plastic labware and special precautions due to high toxicity?",
+        "options": [
+          "A. Nitric acid (HNO3)",
+          "B. Hydrofluoric acid (HF)",
+          "C. Perchloric acid (HClO4)",
+          "D. Sulfuric acid (H2SO4)"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why must perchloric acid (HClO4) never be used directly with organic samples without adding nitric acid first?",
+        "options": [
+          "A. It precipitates all metals instantly",
+          "B. It can cause explosions when reacting with organics",
+          "C. It instantly neutralizes into water and salt",
+          "D. It freezes at room temperature"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is a major limitation or risk associated with dry ashing samples in a muffle furnace (450 to 600 °C)?",
+        "options": [
+          "A. Complete inability to destroy organic matrices",
+          "B. Loss of volatile elements such as Hg, As, Se, Pb, and Cd",
+          "C. High risk of hydrofluoric acid gas release",
+          "D. Excessive dilution of the final solution"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What does Kjeldahl digestion primarily measure after converting organic nitrogen to ammonium?",
+        "options": [
+          "A. Total halogens",
+          "B. Protein and nitrogen",
+          "C. Silicate content",
+          "D. Chemical oxygen demand"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What are the correct sequential operational steps for Solid-Phase Extraction (SPE)?",
+        "options": [
+          "A. Load, condition, wash, elute",
+          "B. Condition, load, wash, elute",
+          "C. Wash, elute, condition, load",
+          "D. Elute, condition, load, wash"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the main purpose of derivatization in sample preparation for gas chromatography (GC)?",
+        "options": [
+          "A. To increase sample moisture content",
+          "B. To chemically modify an analyte to make it volatile and stable",
+          "C. To precipitate inorganic salts",
+          "D. To adjust the sample pH to exactly 7.0"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "In water analysis, how are \"dissolved\" metals operationally distinguished from \"total\" metals?",
+        "options": [
+          "A. Dissolved metals pass through a 0.45 micrometer filter before acidification; total metals use an unfiltered sample that is digested.",
+          "B. Dissolved metals are digested without filtering; total metals are filtered at 0.22 micrometer.",
+          "C. Dissolved metals are measured by gravimetry; total metals are measured by titrimetry.",
+          "D. Dissolved metals require no preservation; total metals require freezing."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is the typical membrane filter pore size used to prepare HPLC and other instrument samples to remove particulate matter?",
+        "options": [
+          "A. 10 micrometers or 5 micrometers",
+          "B. 0.45 micrometers or 0.22 micrometers",
+          "C. 1.0 mm or 2.0 mm",
+          "D. 0.01 micrometers or 0.005 micrometers"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which typical sample preparation is required for Atomic Absorption (AA) or ICP analysis of metal samples?",
+        "options": [
+          "A. Dry ashing followed by extraction with cold water",
+          "B. Digesting to a clear acidic solution (usually dilute HNO3), filtering, and diluting into the working range",
+          "C. Silylation followed by direct gas chromatography injection",
+          "D. Precipitation with excess silver nitrate"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the function of a masking agent added during sample preparation or analysis?",
+        "options": [
+          "A. To hold interfering ions so they do not react with the titrant or indicator",
+          "B. To speed up solvent evaporation during rotary evaporation",
+          "C. To increase particle size during coning and quartering",
+          "D. To act as a universal pH indicator"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "How should glassware be cleaned for trace metal analysis to prevent contamination?",
+        "options": [
+          "A. Rinsed with tap water and air-dried at room temperature",
+          "B. Soaked in about 10% nitric acid and rinsed with deionized water",
+          "C. Heated in a muffle furnace at 900 °C for 24 hours",
+          "D. Washed with strong soap and rinsed with acetone only"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the purpose of carrying a reagent blank through all sample preparation steps?",
+        "options": [
+          "A. To calibrate the analytical instrument's wavelength scale",
+          "B. To check for contamination from reagents, glassware, and the environment",
+          "C. To replace the need for calibration standards",
+          "D. To adjust the final solution volume to exactly 100 mL"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "When is a fusion (flux) method using fluxes like sodium carbonate or lithium tetraborate typically employed?",
+        "options": [
+          "A. To extract volatile organics from liquid samples",
+          "B. To decompose resistant, insoluble materials like silicates and refractory oxides at high temperatures",
+          "C. To measure biochemical oxygen demand in wastewater",
+          "D. To filter suspended solids from aqueous streams"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is a major advantage of closed-vessel microwave digestion over open-vessel digestion?",
+        "options": [
+          "A. It eliminates the need for any acid reagents",
+          "B. It is slower, allowing more time for manual intervention",
+          "C. It reduces losses of volatile elements (such as Hg and As) and lowers contamination",
+          "D. It operates at room temperature without heating"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "What does matrix matching involve during sample preparation or standard calibration?",
+        "options": [
+          "A. Matching the physical color of the sample container to the blank",
+          "B. Preparing standards in a matrix similar to the sample (same acid concentration and background salts) so responses are comparable",
+          "C. Ensuring the sample mass equals the standard mass exactly",
+          "D. Using identical sample weights for all replicates"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which preparation step is typically required for samples analyzed by Gas Chromatography (GC)?",
+        "options": [
+          "A. Dissolving entirely in concentrated sulfuric acid",
+          "B. Extracting into a volatile organic solvent, drying with anhydrous Na2SO4, concentrating, and derivatizing if needed",
+          "C. Filtering through a 0.22 micrometer aqueous membrane without solvent extraction",
+          "D. Centrifuging to remove all organic molecules"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "When concentrating an extract by evaporating a solvent, what critical precaution must be taken?",
+        "options": [
+          "A. Take the sample completely to dry residue to maximize recovery",
+          "B. Avoid losing volatile analytes or taking the sample to complete dryness",
+          "C. Heat the extract with a direct open flame in a glass beaker",
+          "D. Add excess water during the evaporation stage"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "How are solid samples commonly prepared for Infrared (IR) spectroscopy according to the notes?",
+        "options": [
+          "A. Digestion with hot concentrated perchloric acid",
+          "B. Preparation as a KBr pellet, mull, thin film, or ATR contact after ensuring the sample is dry",
+          "C. Dissolution in 0.1 M sodium hydroxide followed by filtration at 0.45 micrometers",
+          "D. Incineration in a muffle furnace at 600 °C"
         ],
         "correct": 1
       }
