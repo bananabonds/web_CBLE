@@ -471,6 +471,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
         <h3 id="homeGreeting">Your Progress</h3>
         <select class="examScopeSelect" id="homeProgressScope" style="margin-bottom:8px;"></select>
         <p class="hint" id="homeSubline">Here's where things stand.</p>
+        <div class="hint" id="homeScopeNote" style="display:none;margin:-2px 0 8px;padding:7px 10px;border-radius:8px;background:var(--violet-bg);"></div>
         <div id="homeNextUp"></div>
         <div id="homeOverviewGrid"></div>
       </div>
@@ -1333,6 +1334,7 @@ const KEYS = {
   guessNotes: "cble.guessNotes",
   examDates: "cble.examDates",
   activeExam: "cble.activeExam",
+  activeExamAt: "cble.activeExamAt",   // when the focus was last chosen (lets the newest choice win across devices)
   topics: "cble.topicsCache",
   githubConfig: "cble.githubConfig",
   examProgress: "cble.examProgress",
@@ -2138,6 +2140,10 @@ function deleteExamDateEntry(id) {
    as the "focus" narrows the Sample Builder, Study Priority and the Home
    spotlight to just that exam's subjects.
    --------------------------------------------------------------------- */
+function setActiveExamId(id) {
+  try { localStorage.setItem(KEYS.activeExam, id); localStorage.setItem(KEYS.activeExamAt, nowIso()); } catch (e) {}
+  if (typeof scheduleGithubSync === "function") scheduleGithubSync();
+}
 function getActiveExam() {
   let id = null;
   try { id = localStorage.getItem(KEYS.activeExam); } catch (e) {}
@@ -2178,7 +2184,10 @@ function renderExamScopeSelects() {
 }
 document.addEventListener("change", (e) => {
   if (!e.target.classList || !e.target.classList.contains("examScopeSelect")) return;
-  try { localStorage.setItem(KEYS.activeExam, e.target.value); } catch (err) {}
+  setActiveExamId(e.target.value);
+  afterExamFocusChanged();
+});
+function afterExamFocusChanged() {
   const sc = getScopeSubjects();
   if (sc) selectedListNames = new Set(sc);   // pre-select the exam's subjects in the builder
   refreshHome();
@@ -2186,7 +2195,7 @@ document.addEventListener("change", (e) => {
   refreshAnalysis();
   refreshReviewer();
   if (typeof refreshMistakeLogTab === "function") refreshMistakeLogTab();
-});
+}
 
 /* ---------------------------------------------------------------------
    GitHub Sync -- optional durable store. Everything above this still
@@ -2370,9 +2379,22 @@ function buildLocalSnapshot() {
     guess_notes: loadJson(KEYS.guessNotes, []),
     exam_dates: loadJson(KEYS.examDates, []),
     prompt_sets: loadJson(KEYS.promptSets, []),
+    settings: buildSettingsSnapshot(),
     tombstones: loadTombstones(),
     updated_at: nowIso(),
   };
+}
+// Only an explicit choice of exam focus is synced. (A device that never chose one defaults to the nearest
+// upcoming exam, which used to make a fresh phone show different Home stats from the PC.)
+function buildSettingsSnapshot() {
+  let id = null, at = null;
+  try { id = localStorage.getItem(KEYS.activeExam); at = localStorage.getItem(KEYS.activeExamAt); } catch (e) {}
+  if (id && !at) { at = nowIso(); try { localStorage.setItem(KEYS.activeExamAt, at); } catch (e) {} }   // stamp a pre-existing choice once
+  return { active_exam: id || null, active_exam_at: at || null };
+}
+function mergeSettings(remote, local) {
+  const r = remote || {}, l = local || {};
+  return (r.active_exam_at || "") > (l.active_exam_at || "") ? Object.assign({}, l, r) : Object.assign({}, r, l);
 }
 function applySnapshotToLocal(snap) {
   const failed = [];
@@ -2383,6 +2405,9 @@ function applySnapshotToLocal(snap) {
   put(KEYS.guessNotes, "guess notes", snap.guess_notes);
   put(KEYS.examDates, "exam dates", snap.exam_dates);
   put(KEYS.promptSets, "prompt sets", snap.prompt_sets);
+  if (snap.settings && snap.settings.active_exam && snap.settings.active_exam_at) {
+    try { localStorage.setItem(KEYS.activeExam, snap.settings.active_exam); localStorage.setItem(KEYS.activeExamAt, snap.settings.active_exam_at); } catch (e) {}
+  }
   put(KEYS.samples, "saved samples", snap.sample_sets);
   put(KEYS.banks, "local banks", snap.local_banks);
   put(KEYS.details, "test details", snap.exam_details);
@@ -2447,6 +2472,7 @@ function mergeSnapshots(remote, local) {
     guess_notes: mergeById(remote && remote.guess_notes, local.guess_notes, "id", tomb.guess_notes),
     exam_dates: mergeById(remote && remote.exam_dates, local.exam_dates, "id", tomb.exam_dates),
     prompt_sets: mergeByStamp(remote && remote.prompt_sets, local.prompt_sets, "id", tomb.prompt_sets),
+    settings: mergeSettings(remote && remote.settings, local.settings),
     tombstones: tomb,
     updated_at: nowIso(),
   };
@@ -2902,7 +2928,7 @@ $("btnSaveExamDate").addEventListener("click", () => {
   if (editingExamDateId) updateExamDate(editingExamDateId, label, dateStr, subjects);
   else {
     const rec = saveExamDate(label, dateStr, subjects);
-    if (subjects.length) { try { localStorage.setItem(KEYS.activeExam, rec.id); } catch (e) {} }   // focus on the exam you just set up
+    if (subjects.length) setActiveExamId(rec.id);   // focus on the exam you just set up
   }
   closeSheet("examDateSheet");
   renderExamCountdowns();
@@ -3312,6 +3338,18 @@ function renderHomeOverview() {
   const lastActivity = [latestDateFromArray(history, "date"), latestDateFromArray(samples, "created_at"), latestDateFromArray(mistakes, "date_logged")]
     .filter(Boolean).sort().pop();
 
+  const allHist = loadJson(KEYS.history, []);
+  const noteEl = $("homeScopeNote");
+  if (scopeH && exH) {
+    const detailIds = new Set(loadJson(KEYS.details, []).map(d => d.exam_id));
+    const noDetail = allHist.filter(h => !detailIds.has(h.id)).length;
+    noteEl.style.display = "";
+    noteEl.innerHTML = `Filtered to <b>${esc(exH.label)}</b>: ${history.length} of ${allHist.length} tests count here (only tests with questions from this exam's subjects${noDetail ? `; ${noDetail} older test${noDetail === 1 ? " has" : "s have"} no question-level data, so can't be filtered` : ""}). `;
+    const showAll = el("button", "btn", "Show all tests");
+    showAll.style.cssText = "padding:3px 10px;font-size:.74rem;margin-left:4px;";
+    showAll.addEventListener("click", () => { setActiveExamId("all"); afterExamFocusChanged(); });
+    noteEl.appendChild(showAll);
+  } else noteEl.style.display = "none";
   const scopeTxt = scopeH && exH ? `${exH.label} \u00b7 ${scopeH.length} subject${scopeH.length === 1 ? "" : "s"}. ` : "All subjects. ";
   $("homeSubline").textContent = scopeTxt + (lastActivity ? `Last activity: ${formatDateNice(lastActivity)}. Tap any tile to dig in.` : "Take an assessment or build a sample to get started.");
 
@@ -3883,10 +3921,20 @@ $("btnSyncCheck").addEventListener("click", async () => {
     const local = buildLocalSnapshot();
     const L = [`File: ${c.owner}/${c.repo} @ ${c.branch || "main"} : ${c.path}`];
     if (!remote) { out.textContent = L.concat("GitHub has no data file at that path yet.").join("\n"); return; }
-    L.push(`GitHub copy last written: ${remote.updated_at || "unknown"}`, "", "                 this device | GitHub");
-    for (const [lab, key] of [["Mistakes", "mistake_log"], ["Tests taken", "test_history"], ["Test details", "exam_details"], ["Saved samples", "sample_sets"], ["Guess notes", "guess_notes"]]) {
-      L.push(`${lab.padEnd(15)}${String((local[key] || []).length).padStart(7)} | ${(remote[key] || []).length}`);
+    L.push(`GitHub copy last written: ${remote.updated_at || "unknown"}`, "", "                    this device | GitHub");
+    let diffs = 0;
+    const rows = [["Tests taken", "test_history"], ["Test details", "exam_details"], ["Mistakes", "mistake_log"], ["Saved samples", "sample_sets"], ["Guess notes", "guess_notes"], ["Exam dates", "exam_dates"], ["Prompt sets", "prompt_sets"]];
+    for (const [lab, key] of rows) {
+      const a = (local[key] || []).length, b = (remote[key] || []).length;
+      if (a !== b) diffs++;
+      L.push(`${a === b ? "\u2713" : "\u2717"} ${lab.padEnd(14)}${String(a).padStart(7)} | ${b}`);
     }
+    const lb = Object.keys(local.local_banks || {}).length, rb = Object.keys(remote.local_banks || {}).length;
+    if (lb !== rb) diffs++;
+    L.push(`${lb === rb ? "\u2713" : "\u2717"} ${"Local banks".padEnd(14)}${String(lb).padStart(7)} | ${rb}`);
+    // Details that exist for a test? A test with no details can't be scored per exam.
+    const hasDet = (snap) => { const ids = new Set((snap.exam_details || []).map(d => d.exam_id)); return (snap.test_history || []).filter(h => !ids.has(h.id)).length; };
+    L.push("", `Tests with no question-level details: ${hasDet(local)} | ${hasDet(remote)}`);
     const mk = (e) => `${e.source_list}::${e.reference_no}`;
     const lm = new Map((local.mistake_log || []).map(e => [mk(e), e]));
     const rm = new Map((remote.mistake_log || []).map(e => [mk(e), e]));
@@ -3897,11 +3945,16 @@ $("btnSyncCheck").addEventListener("click", async () => {
       const b = rm.get(k); if (!b) continue;
       if (!!a.resolved !== !!b.resolved || (a.note || "") !== (b.note || "") || (a.category || "") !== (b.category || "") || (a.occurrences || []).length !== (b.occurrences || []).length) differ++;
     }
-    const newest = (arr) => (arr || []).map(e => e.updated_at || e.date_logged || "").sort().pop() || "n/a";
-    L.push("", `Mistakes only on this device: ${onlyLocal.length}`, `Mistakes only on GitHub: ${onlyRemote.length}`,
-      `On both but different (notes/status/attempts): ${differ}`,
-      `Newest mistake edit \u2014 this device: ${newest(local.mistake_log)} | GitHub: ${newest(remote.mistake_log)}`, "",
-      (onlyLocal.length || onlyRemote.length || differ) ? "They differ. Sync Now merges them; the two buttons below force one side to win." : "Mistake logs match.");
+    const mdiff = onlyLocal.length + onlyRemote.length + differ;
+    if (mdiff) diffs++;
+    L.push(`Mistakes only here: ${onlyLocal.length} \u00b7 only on GitHub: ${onlyRemote.length} \u00b7 same but different: ${differ}`);
+    // The view settings that change what Home shows
+    const focusName = (id) => { if (id === "all") return "All subjects"; if (!id) return "not chosen"; const e = loadExamDates().find(x => x.id === id); return e ? e.label : "an exam not on this device"; };
+    const ls = local.settings || {}, rs = remote.settings || {};
+    L.push("", `Exam focus (filters Home stats): ${focusName(ls.active_exam)}${ls.active_exam ? "" : ` (defaults to ${(getActiveExam() || { label: "all subjects" }).label})`} | ${focusName(rs.active_exam)}`);
+    const ex = getActiveExam();
+    L.push(`Home on this device is showing: ${ex && getScopeSubjects() ? `only "${ex.label}" (${scopedAssessmentHistory(getScopeSubjects()).length} of ${(local.test_history || []).length} tests)` : `everything (${(local.test_history || []).length} tests)`}`);
+    L.push("", diffs ? "\u2717 The data differs. Sync Now merges both sides; the two buttons below force one side to win." : "\u2713 The data matches. If Home still looks different, compare the Exam focus line above: Home only counts the focused exam's subjects.");
     out.textContent = L.join("\n");
   } catch (e) { out.textContent = `Check failed: ${e.message}`; }
 });
@@ -7282,7 +7335,7 @@ function refreshPromptEditor(kind) {
   ui.save.title = active === "default" ? "The built-in default can't be overwritten; use Save as new." : "";
 }
 function promptEditorChanged(kind) {
-  if (kind === "analysis" && window._aRanked) renderAnalysisText(window._aRanked, window._aProg || {});
+  if (kind === "analysis") { if (window._aRanked) renderAnalysisText(window._aRanked, window._aProg || {}); else refreshAnalysis(); }
 }
 function refreshAllPromptEditors() { Object.keys(peUi).forEach(refreshPromptEditor); }
 
