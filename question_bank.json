@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T04:39:46",
+  "updated_at": "2026-10-10T04:40:31",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -5450,6 +5450,208 @@
           "B. To establish a unified, internationally harmonized standard for communicating chemical hazards globally",
           "C. To reduce the cost of printing labels in black ink",
           "D. To eliminate all warning symbols for non-hazardous reagents"
+        ],
+        "correct": 1
+      }
+    ],
+    "TOS8_Section6": [
+      {
+        "text": "How many standardized sections comprise a modern Globally Harmonized System (GHS) compliant Safety Data Sheet (SDS)?",
+        "options": [
+          "A. 8 sections",
+          "B. 12 sections",
+          "C. 16 sections",
+          "D. 20 sections"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "What is the primary purpose of a Safety Data Sheet (SDS) in chemical management?",
+        "options": [
+          "A. To provide retail marketing brochures and pricing lists",
+          "B. To provide comprehensive, detailed information regarding chemical hazards, safe handling, storage, emergency measures, and regulatory compliance",
+          "C. To serve as a legal receipt for tax deductions",
+          "D. To list the molecular weights of all known elements"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which section of a standard GHS Safety Data Sheet covers First-Aid Measures?",
+        "options": [
+          "A. Section 2",
+          "B. Section 4",
+          "C. Section 8",
+          "D. Section 13"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Where on an SDS would you look to find specific information regarding recommended Personal Protective Equipment (PPE) and occupational exposure limits (such as TLV or PEL)?",
+        "options": [
+          "A. Section 1: Identification",
+          "B. Section 5: Fire-Fighting Measures",
+          "C. Section 8: Exposure Controls/Personal Protection",
+          "D. Section 12: Ecological Information"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which SDS section details physical and chemical properties of the substance, including flash point, boiling point, vapor pressure, and appearance?",
+        "options": [
+          "A. Section 3",
+          "B. Section 7",
+          "C. Section 9",
+          "D. Section 15"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Where should a laboratory worker look on an SDS to identify incompatible materials, conditions to avoid, and hazardous thermal decomposition products?",
+        "options": [
+          "A. Section 2: Hazard Identification",
+          "B. Section 6: Accidental Release Measures",
+          "C. Section 10: Stability and Reactivity",
+          "D. Section 14: Transport Information"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which SDS section contains toxicological data, including routes of exposure, acute toxicity estimates (such as $LD_{50}$), and carcinogenicity evaluations?",
+        "options": [
+          "A. Section 11",
+          "B. Section 4",
+          "C. Section 9",
+          "D. Section 16"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What information is provided in Section 13 of an SDS?",
+        "options": [
+          "A. Transport UN classification numbers",
+          "B. Disposal considerations and waste management guidance",
+          "C. Retail supplier telephone numbers",
+          "D. Detailed chemical synthesis pathways"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What does a CAS number uniquely identify when referenced on an SDS and chemical container label?",
+        "options": [
+          "A. The highway shipping route code",
+          "B. A unique numerical identifier assigned by the Chemical Abstracts Service to every specific chemical substance",
+          "C. The manufacturing plant building number",
+          "D. The maximum legal storage temperature in Celsius"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Who is legally and primarily responsible for authoring and providing the Safety Data Sheet for a chemical product?",
+        "options": [
+          "A. The chemical supplier, manufacturer, or importer",
+          "B. The municipal fire department",
+          "C. The individual undergraduate student worker",
+          "D. The local water district authority"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is the fundamental operational difference between a chemical product container label and its complete Safety Data Sheet (SDS)?",
+        "options": [
+          "A. The label provides a quick, concise summary of key hazards, while the SDS provides comprehensive, detailed technical documentation.",
+          "B. Labels are confidential and hidden, whereas SDS documents are public.",
+          "C. Labels contain 16 sections, while SDS documents contain only one.",
+          "D. There is no difference; they are identical documents."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What critical item of documentation should always be brought along when seeking medical attention following a chemical exposure or injury?",
+        "options": [
+          "A. The company's annual financial report",
+          "B. A copy of the chemical's Safety Data Sheet (SDS)",
+          "C. A blank laboratory notebook",
+          "D. The employee's driver's license"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which SDS section outlines appropriate steps for spill cleanup, containment procedures, and emergency evacuation protocols?",
+        "options": [
+          "A. Section 6: Accidental Release Measures",
+          "B. Section 2: Hazard Identification",
+          "C. Section 10: Stability and Reactivity",
+          "D. Section 15: Regulatory Information"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What does the abbreviation 'SDS' stand for, replacing what older terminology?",
+        "options": [
+          "A. Standardized Data System, replacing Material Data Sheets",
+          "B. Safety Data Sheet, replacing Material Safety Data Sheet (MSDS)",
+          "C. Solute Density Specification, replacing Mass Solution Data",
+          "D. Systematic Diagnostic Sheet, replacing Medical Safety Diagnosis"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Where on an SDS would you find transport-specific regulatory details such as the UN shipping identification number and packing group?",
+        "options": [
+          "A. Section 3",
+          "B. Section 11",
+          "C. Section 14",
+          "D. Section 16"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "What is the purpose of Section 1 (Identification) on an SDS?",
+        "options": [
+          "A. To list acute oral rat $LD_{50}$ values",
+          "B. To provide the product identifier, manufacturer name, address, recommended use, and emergency telephone contact",
+          "C. To detail fire extinguisher types",
+          "D. To provide ecological half-life data in soil"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Under worker 'Right-to-Know' and hazard communication standards, who must have ready and immediate access to Safety Data Sheets in the workplace?",
+        "options": [
+          "A. Only corporate board executives",
+          "B. All workers who handle or may be exposed to hazardous chemical substances",
+          "C. General public visitors touring the building lobby",
+          "D. Only certified safety inspectors"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which SDS section details appropriate fire-fighting measures, including suitable extinguishing media and hazardous combustion byproducts?",
+        "options": [
+          "A. Section 5",
+          "B. Section 2",
+          "C. Section 12",
+          "D. Section 7"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Why is it important to verify the revision date listed on an SDS before relying on its data?",
+        "options": [
+          "A. Outdated sheets may contain old hazard classifications or obsolete exposure limits as toxicological knowledge evolves.",
+          "B. SDS documents expire legally after exactly 24 hours.",
+          "C. Revision dates determine the market price of the chemical.",
+          "D. Older sheets transform into colored paper."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What information is summarized in Section 2 of an GHS-compliant SDS?",
+        "options": [
+          "A. Chemical composition formulas",
+          "B. Hazard identification, classification, signal words, pictograms, hazard statements (H-codes), and precautionary statements (P-codes)",
+          "C. Physical melting and boiling temperatures",
+          "D. Supplier corporate history"
         ],
         "correct": 1
       }
