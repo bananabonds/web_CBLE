@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T17:31:38",
+  "updated_at": "2026-10-10T17:53:39",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -6058,6 +6058,1064 @@
           "D. Incineration in a muffle furnace at 600 °C"
         ],
         "correct": 1
+      }
+    ],
+    "CT_Board_Exam_2023": [
+      {
+        "text": "In using fume hoods, the following shall be done, except for:",
+        "options": [
+          "A. Ensure the exhaust is operating before using the hood.",
+          "B. The hood shall be kept closed, except during apparatus set-up or when working within the hood.",
+          "C. The hood may be used as a permanent storage area for volatile chemicals when an appropriate storage cabinet is not available.",
+          "D. Items contaminated with odorous or hazardous materials should be removed from the hood only after decontamination or if placed in a closed outer container to avoid releasing contaminants into the laboratory air."
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The following are good sampling practices except:",
+        "options": [
+          "A. Take several increments and composite them to form the sample.",
+          "B. If possible, mix the material before getting the sample.",
+          "C. Collect the sample in a container made of material that will chemically react with the sample.",
+          "D. Sample frequently enough to allow for the identification of process cycles."
+        ],
+        "correct": 2
+      },
+      {
+        "text": "In handling acid wastes, what type of protective gloves should be used?",
+        "options": [
+          "A. Cloth gloves",
+          "B. Surgical gloves",
+          "C. Rubber gloves",
+          "D. Disposable plastic gloves"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The following are the minimum requirements for Hazardous Waste storage facilities except:",
+        "options": [
+          "A. Accessible in cases of emergency and for purposes of inspection and monitoring.",
+          "B. Enclosed and should be ventilated.",
+          "C. Have floors that are impermeable to liquids and resistant to attack by chemicals, not slippery, and constructed to retain spillages.",
+          "D. Be properly secured and easily accessed by unauthorized persons."
+        ],
+        "correct": 3
+      },
+      {
+        "text": "It is a hazardous waste characteristic which applies to wastes that have the potential to contaminate groundwater if improperly disposed of. These materials are regulated as hazardous waste due to their potential to leach out specific toxic substances in a landfill.",
+        "options": [
+          "A. Ignitability",
+          "B. Reactivity",
+          "C. Corrosivity",
+          "D. Toxicity"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Which of the following practices must be avoided in handling liquid chemicals?",
+        "options": [
+          "A. Wear goggles, face shield, rubber gloves, gum boots and aprons while handling against splashing.",
+          "B. Treat all liquids as dangerous, until you know that they are safe.",
+          "C. Handle very carefully the bottles / containers which have no labels.",
+          "D. Carry acid in an open container."
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Which of the following instruments uses a cuvette?",
+        "options": [
+          "A. Flame-AAS",
+          "B. UV-Vis Spectrophotometer",
+          "C. Gas Chromatograph",
+          "D. pH Meter"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which of the following should not be done in using a cuvette?",
+        "options": [
+          "A. Use a brush to clean the insides of the cuvette",
+          "B. Fill the cuvette about 3/4 full of the solution you wish to test.",
+          "C. Wipe the outside of the cuvette with a lint-free, soft tissue to remove any moisture or fingerprints from the outside surface.",
+          "D. Do not clean your cuvettes in an ultrasonic cleaning bath."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "It is the measure of hydrogen ion activity in aqueous solutions.",
+        "options": [
+          "A. Conductivity",
+          "B. Viscosity",
+          "C. pH",
+          "D. Solubility"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Law that states the linear relationship between absorbance and concentration of an absorbing species.",
+        "options": [
+          "A. Beer-Lambert's Law",
+          "B. Charles' Law",
+          "C. Boyle's Law",
+          "D. Avogadro's Law"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "A clean sample (e.g., distilled water) processed through the instrumental steps of the measurement process to determine instrument contamination.",
+        "options": [
+          "A. Method Blank",
+          "B. Instrument Blank",
+          "C. Surrogate",
+          "D. Reagent Blank"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Minimum concentration of a substance that can be measured and reported with 99% confidence that the analyte concentration is greater than zero.",
+        "options": [
+          "A. Limit of Quantitation",
+          "B. Lower Control Limit",
+          "C. Lower Warning Limit",
+          "D. Method Detection Limit"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Series of analytical measurements used to assess the quality of the analytical data.",
+        "options": [
+          "A. Quality Assurance",
+          "B. Quality Control",
+          "C. Analytical run",
+          "D. Fortification"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Determine the actual volume contained in a 50.0 mL volumetric flask given the following data: Mass of water: 50.1227 g; Density of water at 25 deg C: 0.99707 g/mL.",
+        "options": [
+          "A. 50.45 mL",
+          "B. 50.27 mL",
+          "C. 50.37 mL",
+          "D. 50.17 mL"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Preservation technique for water samples intended for metals determination that cannot be analyzed immediately.",
+        "options": [
+          "A. Acidify with 1 mL HNO3 to pH < 2",
+          "B. Adjust pH to > 11.5 with NaOH",
+          "C. Filter and preserve with zinc acetate",
+          "D. Add PbCO3"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which of the following chemicals may be used to neutralize waste containing caustic soda?",
+        "options": [
+          "A. Potassium Hydroxide",
+          "B. Ammonia",
+          "C. Hydrochloric Acid",
+          "D. Buffer 10 Solution"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which of the following chemicals may be used to neutralize waste containing phosphoric acid?",
+        "options": [
+          "A. Hydrochloric acid",
+          "B. Sodium hydroxide",
+          "C. Distilled water",
+          "D. Acetone"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Symbols indicated in waste labels that instantly identify the kind of hazard the chemical possesses.",
+        "options": [
+          "A. Signal Words",
+          "B. Pictogram",
+          "C. Precautionary Statements",
+          "D. Hazard Statement"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the minimum concentration of cyanide contained in a waste to be classified under A101 (wastes containing cyanide)?",
+        "options": [
+          "A. 20 ppm",
+          "B. 100 ppm",
+          "C. 200 ppm",
+          "D. 1000 ppm"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "According to Revised DAO 04-36, the appropriate waste labels shall include:",
+        "options": [
+          "A. Volume of Waste",
+          "B. Generator ID Number",
+          "C. Container Material",
+          "D. Source of Waste"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Benzene and its derivatives undergo substitution reactions instead of addition reactions because:",
+        "options": [
+          "A. the integrity of the benzene ring and the stable pi-bonding pattern remains intact",
+          "B. the hydrogens of benzene are relatively loosely bound",
+          "C. the benzene ring is sterically crowded hence only substitution can occur",
+          "D. the benzene ring is electron rich"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "In the decomposition and dissolution of solids during sample preparation, which of the following is expensive and often the last resort?",
+        "options": [
+          "A. Acid treatment using oxidation",
+          "B. Fusion technique",
+          "C. Dissolution using ultrasound & appropriate solvent",
+          "D. Simple dissolution"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "It is important to discard containers that are scratched or abraded on their interior surfaces. The internal surface area of a container, whether used for sample preparation or storage, may cause loss of:",
+        "options": [
+          "A. matrix",
+          "B. analyte",
+          "C. weight",
+          "D. ash"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Glass container is not suitable for:",
+        "options": [
+          "A. inorganic trace analyses",
+          "B. oil and grease determination",
+          "C. microbiological analyses",
+          "D. all of the above"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "A solution has been prepared by transferring 60 mL of Ortho-phosphoric acid 85% (v/v) H3PO4 and diluting it to 1.0 L. What is the concentration of the new solution?",
+        "options": [
+          "A. 10.10%",
+          "B. 9.25%",
+          "C. 12.2%",
+          "D. 5.10%"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "A student has three stock standard solutions of 3 different elements: zinc (Zn) 2000 ppm, cadmium (Cd) 1500 ppm and lead (Pb) 1000 ppm. The student took 10 mL from each solution and transferred it to a 200 mL volumetric flask, then completed to total volume with solvent. What is the final concentration of each element in the diluted mixed solution?",
+        "options": [
+          "A. 50 ppm Zn, 32 ppm Cd, 25 ppm Pb",
+          "B. 100 ppm Zn, 75 ppm Cd, 50 ppm Pb",
+          "C. 75 ppm Zn, 75 ppm Cd, 50 ppm Pb",
+          "D. 100 ppm Zn, 25 ppm Cd, 25 ppm Pb"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "In AAS method, if the sample concentration is too high to permit accurate analysis in the linear response range, there are alternatives that may help bring the absorbance into the optimum working range.",
+        "options": [
+          "A. sample dilution",
+          "B. using an alternative wavelength having a lower absorptivity",
+          "C. reducing the path length by rotating the burner head",
+          "D. increasing wavelength range"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "A buffer solution may be a mixture of:",
+        "options": [
+          "A. a weak acid and its salt",
+          "B. a weak base and its salt",
+          "C. an excess of a weak acid with a strong base",
+          "D. all of the above"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Which of the following chemicals may be used to neutralize waste containing caustic soda?",
+        "options": [
+          "A. Potassium Hydroxide",
+          "B. Ammonia",
+          "C. Hydrochloric Acid",
+          "D. Buffer 10 Solution"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "According to Revised DAO 04-36, the appropriate waste labels shall include:",
+        "options": [
+          "A. Volume of Waste",
+          "B. Generator ID Number",
+          "C. Container Material",
+          "D. Source of Waste"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "What type of GHS hazard symbol is shown? (Figure: a red-bordered diamond-shaped pictogram showing liquid dripping from two test tubes onto a hand and onto a metal surface, both being eaten away.)",
+        "options": [
+          "A. Corrosive",
+          "B. Flammable",
+          "C. Oxidizer",
+          "D. Explosive"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Quantitative chemical analysis of weighing a sample, usually of a separated and dried precipitate.",
+        "options": [
+          "A. Titrimetric analysis",
+          "B. Volumetric analysis",
+          "C. Gravimetric analysis",
+          "D. Elemental analysis"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The substance which does the dissolving and must be greater than 50% of the solution.",
+        "options": [
+          "A. Solvent",
+          "B. Solute",
+          "C. Mixture",
+          "D. Solution"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which of the following is NOT an acid-base conjugate pair?",
+        "options": [
+          "A. HCN and CN-",
+          "B. H2O and OH-",
+          "C. H2S and OH-",
+          "D. NH3 and NH4+"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Predict the products of the following acid-base reaction: NH3(aq) + HNO3(aq) -->",
+        "options": [
+          "A. NH2OH(aq) + HNO2(aq)",
+          "B. NH4NO3(aq)",
+          "C. NH4OH(aq)",
+          "D. No reaction takes place"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which of the following is not separated through the distillation process?",
+        "options": [
+          "A. Acetone and water",
+          "B. Aniline and chloroform",
+          "C. Impurities in seawater",
+          "D. Milk and water"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Which equipment must be used in the detection of Pb2+ in blood?",
+        "options": [
+          "A. AAS",
+          "B. NMR Spectrometer",
+          "C. IR Spectrometer",
+          "D. Mass Spectrometer"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is the most common isotope of hydrogen?",
+        "options": [
+          "A. H has only one isotope",
+          "B. Protium",
+          "C. Deuterium",
+          "D. Tritium"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A 22/24 stopper is used in a volumetric flask. Which of the following is true?",
+        "options": [
+          "A. The diameter is 24 cm and the height is 22 cm.",
+          "B. The diameter is 22 cm and the height is 24 cm.",
+          "C. The diameter is 24 mm and the height is 22 mm.",
+          "D. The diameter is 22 mm and the height is 24 mm."
+        ],
+        "correct": 3
+      },
+      {
+        "text": "The components of the mixture in column chromatography are eluted in order of:",
+        "options": [
+          "A. increasing polarity and increasing distribution ratio.",
+          "B. increasing polarity and decreasing distribution ratio.",
+          "C. decreasing polarity and increasing distribution ratio.",
+          "D. decreasing polarity and decreasing distribution ratio."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "This type of glass is commonly used for laboratory glassware.",
+        "options": [
+          "A. Amber",
+          "B. Quartz",
+          "C. Fused silica",
+          "D. Borosilicate"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Why is there a need to separate halogenated waste from non-halogenated waste?",
+        "options": [
+          "A. Halogenated waste disposal is more costly.",
+          "B. Non-halogenated wastes are more toxic.",
+          "C. They are not compatible.",
+          "D. They will react."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which of the following can be disposed down the drain?",
+        "options": [
+          "A. 1 g/L PCl5",
+          "B. 1 M H2SO4",
+          "C. 200 g/L PCl5",
+          "D. None of the above"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "In an ideal gas of volume V and temperature T, what happens to T when the volume is doubled under constant pressure?",
+        "options": [
+          "A. Increases slightly",
+          "B. Halved",
+          "C. Remains the same",
+          "D. Doubled"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Water is a good solvent for benzoic acid recrystallization. What is the correct preparation of the benzoic acid solution for recrystallization?",
+        "options": [
+          "A. Add benzoic acid to minimum hot water with stirring",
+          "B. Add room temperature water to benzoic acid while stirring until dissolved",
+          "C. Add maximum hot water to benzoic acid while stirring",
+          "D. Add small portions of hot water to benzoic acid while stirring until dissolved"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "How do you balance the equation H2O --> O2 + H2?",
+        "options": [
+          "A. Change the coefficient of O2 to 2",
+          "B. Change the coefficient of H2 to 2",
+          "C. Change the coefficients of both H2O and H2 to 2",
+          "D. Change the coefficients of both H2O and O2 to 1/2"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which is not a constitutional isomer of 2-butene (C4H8)? Skeletal structures: A = a four-carbon chain with a terminal double bond (1-butene); B = a three-carbon skeleton with a double bond and a methyl branch on the same carbon (2-methylpropene / isobutylene); C = a plain four-membered ring (cyclobutane); D = a four-membered ring containing one C=C double bond (cyclobutene).",
+        "options": [
+          "A. 1-butene (terminal double bond, 4-carbon chain)",
+          "B. 2-methylpropene (isobutylene)",
+          "C. Cyclobutane",
+          "D. Cyclobutene (four-membered ring with a C=C double bond)"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "What is the IUPAC name of the compound CH3CH2CH=C(CH2CH3)CH3? (Structure: a double bond between C-3 of the main chain and a carbon bearing both a CH3 and a CH2CH3 group; i.e., CH3CH2CH=C(CH3)CH2CH3.)",
+        "options": [
+          "A. 4-ethyl-pent-3-ene",
+          "B. 2-ethyl-pent-2-ene",
+          "C. 3-methyl-hex-3-ene",
+          "D. 4-methyl-hex-3-ene"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Presence of a functional group in a compound can be established by using:",
+        "options": [
+          "A. Chromatography",
+          "B. IR Spectroscopy",
+          "C. Mass Spectroscopy",
+          "D. X-Ray diffraction"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "When doing chemical reactions in microscale, the volume of a liquid is accurately measured using:",
+        "options": [
+          "A. Micropipette",
+          "B. Graduated cylinder",
+          "C. Electronic balance",
+          "D. A small beaker"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which of the following is not a suitable carrier gas for Gas Chromatography?",
+        "options": [
+          "A. H2",
+          "B. He",
+          "C. N2",
+          "D. O2"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "What does ST24/40 in the glassware mean? (Figure: a glass distillation adapter with a vertical standard-taper ground glass joint at the top marked ST24/40, a side arm ending in another ground joint, and a ground male joint at the bottom.)",
+        "options": [
+          "A. It represents the diameter and the length of the ground glass surface, respectively.",
+          "B. It represents the length and the diameter of the ground glass surface, respectively.",
+          "C. It is the part number of the glassware.",
+          "D. The values are calibration data (capacity and tolerance) of the glassware."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "In cases of acid spills, which of the following can be applied to the spill before treating it with adsorbent material?",
+        "options": [
+          "A. Sodium bicarbonate",
+          "B. Water",
+          "C. Acetic acid",
+          "D. Sodium bisulfite"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What should be the burette reading as shown? (Figure: a burette scale with the 22 mL mark near the top and the 23 mL mark near the bottom, ten small graduations between them, and the bottom of the meniscus sitting at about the 6th graduation below 22.)",
+        "options": [
+          "A. 22.40",
+          "B. 22.30",
+          "C. 22.3",
+          "D. 22.36"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "What functional class is represented by the alkaloid coniine? (Structure: a saturated six-membered ring containing one NH nitrogen [a piperidine ring] with a propyl side chain on the carbon adjacent to the nitrogen.)",
+        "options": [
+          "A. Amine",
+          "B. Amide",
+          "C. Nitrile",
+          "D. Aromatic hydrocarbons",
+          "E. Alcohol"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is the IUPAC name for CH3CH2C(CH3)2CH2CH(CH3)2?",
+        "options": [
+          "A. 3,3,5-trimethylhexane",
+          "B. 2,2,5-trimethylhexane",
+          "C. 2,4,4-trimethylhexane",
+          "D. 1,1,3,3-tetramethylhexane"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "An organic chemist is conducting synthesis for antibiotics. His procedure calls for boiling the solvent mixture to 100 deg C before adding a liquid reagent. Which of the following should he use for his set up?",
+        "options": [
+          "A. A single neck round bottom flask equipped with a condenser.",
+          "B. A three neck round bottom flask with a condenser and a ground glass separatory funnel.",
+          "C. A single neck round bottom flask equipped with an air condenser.",
+          "D. A three neck round bottom flask with an air condenser and a ground glass separatory funnel."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Five grams of an organic solid was dissolved in 100 mL of distilled water. Which of the following extraction methods can remove the largest amount of organic solid from an aqueous solution?",
+        "options": [
+          "A. Extracting the aqueous solution with three 50-mL portions of ether",
+          "B. Extracting the aqueous solution with a 150-mL portion of ether",
+          "C. Extracting the aqueous solution with three 50-mL portions of acetic acid",
+          "D. Extracting the aqueous solution with a 150-mL portion of acetic acid"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which of the following funnels should be used to filter hot mother liquor during recrystallization?",
+        "options": [
+          "A. Long stem funnel",
+          "B. Short stem funnel",
+          "C. Buchner funnel",
+          "D. Hirsch funnel"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A chemist has an unknown mixture which was spotted on a TLC plate. After development, three spots appeared under the UV lamp. Spot A has the largest Rf value, followed by spot B, then spot C. Which of the following statements is correct?",
+        "options": [
+          "A. Compound A is the most polar compound.",
+          "B. Compound B is a neutral compound.",
+          "C. Compound C is the most polar compound.",
+          "D. Compound A elutes the slowest."
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A mixture containing benzoic acid, naphthalene and p-amino benzoic acid was separated using reverse phase chromatography. Predict the order of elution.",
+        "options": [
+          "A. Benzoic acid first, naphthalene second and p-amino benzoic acid third",
+          "B. Naphthalene first, benzoic acid second and p-amino benzoic acid third",
+          "C. p-amino benzoic acid first, benzoic acid second and naphthalene third",
+          "D. Benzoic acid first, p-nitrobenzoic acid second and naphthalene third"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Benzene has a smaller distribution ratio [D = (concentration of sample in stationary phase) / (concentration of sample in mobile phase)] in squalene than cyclohexane. Squalene is an aliphatic type of hydrocarbon. What is the order of elution of the two compounds from the GC column?",
+        "options": [
+          "A. Cyclohexane will be eluted first",
+          "B. Benzene will be eluted first",
+          "C. The two peaks will overlap",
+          "D. The order of elution cannot be determined",
+          "E. Benzene and cyclohexane cannot be analyzed using GC."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which is the correct increasing polarity of the solvents used in column chromatography?",
+        "options": [
+          "A. Petroleum ether < carbon tetrachloride < chloroform < water",
+          "B. Water < petroleum ether < chloroform < carbon tetrachloride",
+          "C. Chloroform < carbon tetrachloride < petroleum ether < water",
+          "D. Carbon tetrachloride < chloroform < petroleum ether < water"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which of the following characteristics is/are not considered hazardous waste?",
+        "options": [
+          "A. Unstable substances",
+          "B. Corrosive",
+          "C. Oxidizers",
+          "D. Solutions with pH 6-9.5",
+          "E. None of the above"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "What type of eye protection is best when you are working with sputtering liquids?",
+        "options": [
+          "A. Face shield",
+          "B. Prescription glasses",
+          "C. Safety goggles",
+          "D. Safety glasses",
+          "E. All of the above"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "When a chemical splashes in the eye, how many seconds or minutes of rinsing are recommended?",
+        "options": [
+          "A. 10 seconds",
+          "B. 30 seconds",
+          "C. 5 minutes",
+          "D. 15 minutes"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "What is the most important route of toxic exposure in industry?",
+        "options": [
+          "A. Ingestion",
+          "B. Inhalation",
+          "C. Absorption",
+          "D. Injection"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A supposedly gold nugget is tested to determine its density. It is found to displace 19.3 mL of water. If it is gold, what should its mass be? (Density of gold at 20 deg C = 19.3 g/cm3)",
+        "options": [
+          "A. 19.3 g",
+          "B. 37.2 g",
+          "C. 193 g",
+          "D. 370 g",
+          "E. 372 g"
+        ],
+        "correct": 4
+      },
+      {
+        "text": "What does ST24/40 in the glassware mean?",
+        "options": [
+          "A. 24/40 represents the length and the diameter of the ground glass surface, respectively",
+          "B. 24/40 is the part number of the glassware",
+          "C. 24/40 represents the diameter and the length of the ground glass surface, respectively",
+          "D. The values are calibration data of the glassware"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The addition of potassium chloride (KCl), a nonvolatile solute, to water:",
+        "options": [
+          "A. increases the boiling point of water",
+          "B. decreases the boiling point of water",
+          "C. increases the freezing point of water",
+          "D. keeps the freezing point of water constant",
+          "E. increases the vapor pressure of water"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is the concentration of an aqueous HCl solution that has a pH of 4.55?",
+        "options": [
+          "A. 3.6 x 10^-10 M",
+          "B. 6.6 x 10^-1 M",
+          "C. 0.66 M",
+          "D. 2.8 x 10^-5 M"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Which of the following types of errors can be traced to a defect in the measuring instrument?",
+        "options": [
+          "A. Systematic",
+          "B. Random",
+          "C. Methodic",
+          "D. Proportional"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Reagents with the highest purity are:",
+        "options": [
+          "A. CP",
+          "B. ACS",
+          "C. USP",
+          "D. Primary standard grade"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "A young chemist used 9.25 (+/-0.02) mL of HCl with a molarity of 1.05 (+/-0.02) M to reach the end point for the titration of an unknown base solution. The number of moles of base present and the uncertainty of this number is best reported by which of the following?",
+        "options": [
+          "A. 9.71 (+/-0.03) moles",
+          "B. 9.71 (+/-0.02) moles",
+          "C. 0.00971 (+/-0.02) moles",
+          "D. 0.00971 (+/-0.0002) moles"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Errors due to the presence of slight impurities in the reagent can be minimized by the use of:",
+        "options": [
+          "A. reagent blank",
+          "B. triplicate trials",
+          "C. recrystallizing the reagent",
+          "D. determining the percentage of the impurity"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which of the following will result if samples are injected slowly?",
+        "options": [
+          "A. Retention time will be lower",
+          "B. Samples will elute faster",
+          "C. Band broadening",
+          "D. Peak will be more symmetric"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which method of environmental control is probably the least expensive yet the most effective way to minimize waste generation?",
+        "options": [
+          "A. Personal protective equipment",
+          "B. Engineering control",
+          "C. Substitution",
+          "D. Isolation"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Reliability of the results decreases with a decrease in the level or concentration of the:",
+        "options": [
+          "A. matrix",
+          "B. analyte",
+          "C. reactant",
+          "D. product"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "In liquid-liquid extraction, it is often necessary to determine which liquid is aqueous and which liquid is nonaqueous. To test the liquids, add a drop of water to the top layer. If the drop dissolves in the top layer, the top layer is:",
+        "options": [
+          "A. nonaqueous",
+          "B. aqueous",
+          "C. miscible",
+          "D. denser"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Process by which a sample population is reduced in size to an amount of homogeneous material that can be conveniently handled in the lab in which the composition is representative of the population.",
+        "options": [
+          "A. Selection",
+          "B. Monitoring",
+          "C. Sampling",
+          "D. Segregation"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Glass container is not suitable for:",
+        "options": [
+          "A. inorganic trace analyses",
+          "B. oil and grease determination",
+          "C. microbiological analyses",
+          "D. all of the above"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Quantitative chemical analysis of weighing a sample, usually of a separated and dried precipitate.",
+        "options": [
+          "A. Titrimetric analysis",
+          "B. Volumetric analysis",
+          "C. Gravimetric analysis",
+          "D. Elemental analysis"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which of the following is a primary standard for use in standardizing bases?",
+        "options": [
+          "A. Ammonium hydroxide",
+          "B. Sulfuric acid",
+          "C. Acetic acid",
+          "D. Potassium hydrogen phthalate"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "A student has three stock standard solutions of 3 different elements: zinc (Zn) 2000 ppm, cadmium (Cd) 1500 ppm and lead (Pb) 1000 ppm. The student took 10 mL from each solution and transferred it to a 200 mL volumetric flask, then completed to total volume with solvent. What is the final concentration of each element in the diluted mixed solution?",
+        "options": [
+          "A. 50 ppm Zn, 32 ppm Cd, 25 ppm Pb",
+          "B. 100 ppm Zn, 75 ppm Cd, 50 ppm Pb",
+          "C. 75 ppm Zn, 75 ppm Cd, 50 ppm Pb",
+          "D. 100 ppm Zn, 25 ppm Cd, 25 ppm Pb"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Naphthalene (C10H8) is one of the aromatic hydrocarbons measured by GC-MS. If the molecular weight of naphthalene is 128.6 g/mol, how many milligrams are required to prepare 100 mL of 2,000 ppb stock standard solution of naphthalene from powder naphthalene (purity of 91.5% w/w)?",
+        "options": [
+          "A. 2.18",
+          "B. 2.1858",
+          "C. 2.186",
+          "D. 2.1859"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A 0.217 g sample of HgO (molar mass = 217 g/mol) reacts with excess iodide ions according to the reaction HgO + 4 I- + H2O --> HgI4(2-) + 2 OH-. Titration of the resulting solution requires how many mL of 0.10 M HCl to reach the equivalence point?",
+        "options": [
+          "A. 1.0 mL",
+          "B. 10 mL",
+          "C. 20 mL",
+          "D. 50 mL"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Requirements of a primary standard:",
+        "options": [
+          "A. High purity, 99.9% or better",
+          "B. Stability in air",
+          "C. Absence of hydrate water",
+          "D. All of the above"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "What is the relationship between the temperature and the solubility of a solid in a liquid?",
+        "options": [
+          "A. Directly proportional",
+          "B. Inversely proportional",
+          "C. No relationship",
+          "D. Geometric"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is boiling point elevation?",
+        "options": [
+          "A. It is the difference between the boiling points of a pure solvent and a solution.",
+          "B. It is the sum of the boiling points of a pure solvent and a solution.",
+          "C. It is the difference between the boiling points of a pure solute and a pure solvent.",
+          "D. It is the boiling point of a solution."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "A polar solute usually dissolves in a polar solvent and a nonpolar solute usually dissolves in a nonpolar solvent. This is:",
+        "options": [
+          "A. the solubility rule",
+          "B. the 'like dissolves like' rule",
+          "C. Henry's law",
+          "D. Hund's rule"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Ambient laboratory conditions are not the same as standard conditions, therefore the volumes dispensed in volumetric glassware are often not the same as the manufacturer's specifications, but within some acceptable limits determined by the manufacturer. This slight variation in volume will cause a _________ error in concentrations based on volume-volume or mass-volume.",
+        "options": [
+          "A. random",
+          "B. systematic",
+          "C. gross",
+          "D. all of the above"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "In making standard solutions, ______ are used for measuring liquid with high accuracy.",
+        "options": [
+          "A. beakers",
+          "B. volumetric flasks",
+          "C. Erlenmeyer flasks",
+          "D. Nessler's tubes"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Used for vacuum filtration using filter paper.",
+        "options": [
+          "A. Gooch crucible",
+          "B. Buchner funnel",
+          "C. Rotary evaporator",
+          "D. Rubber aspirator"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A food scientist has a sample of a plant oil and wants to determine if the oil contains saturated or unsaturated fatty acids. Which of the following spectroscopic techniques would be most useful for this purpose?",
+        "options": [
+          "A. Ultraviolet spectroscopy",
+          "B. Visible spectroscopy",
+          "C. Infrared spectroscopy",
+          "D. Mass spectroscopy"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "What is the path of light through a spectrophotometer?",
+        "options": [
+          "A. meter, photodetector, filter, sample, light source",
+          "B. meter, filter, sample, photodetector, light source",
+          "C. light source, filter, sample, photodetector, meter",
+          "D. light source, sample, filter, photodetector, meter"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The highest apparent analyte concentration expected to be found when replicates of a blank sample containing no analyte are tested.",
+        "options": [
+          "A. Limit of Detection",
+          "B. Limit of Blank",
+          "C. Limit of Linearity",
+          "D. Limit of Quantitation"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "The pH meter glass probe has two electrodes: one is a glass sensor electrode and the other is a _______ electrode.",
+        "options": [
+          "A. reference",
+          "B. anode",
+          "C. cathode",
+          "D. none of the above"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which of the following is NOT an acid-base conjugate pair?",
+        "options": [
+          "A. HCN and CN-",
+          "B. H2O and OH-",
+          "C. H2S and OH-",
+          "D. NH3 and NH4+"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Predict the products of the following acid-base reaction: NH3(aq) + HNO3(aq) -->",
+        "options": [
+          "A. NH2OH(aq) + HNO2(aq)",
+          "B. NH4NO3(aq)",
+          "C. NH4OH(aq)",
+          "D. No reaction takes place"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which of the following is a buffer?",
+        "options": [
+          "A. NaCl/NH4Cl",
+          "B. NH3/NH4Cl",
+          "C. NH3/CH3COOH",
+          "D. CH3COOH/NaOH"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "We have a 5.43 x 10^-4 M solution of HNO3 at 25 deg C. What is the [OH-] in this solution?",
+        "options": [
+          "A. 1.84 x 10^-11 M",
+          "B. 5.43 x 10^-10 M",
+          "C. 5.43 x 10^-4 M",
+          "D. 3.67 x 10^-6 M"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Acids and Bases: Which statement is true?",
+        "options": [
+          "A. The value of the equilibrium constant increases with the addition of a catalyst",
+          "B. A catalyst speeds up both the forward and reverse reaction rates",
+          "C. The greater the activation energy, the faster the rate of reaction.",
+          "D. A catalyst increases the rate of reaction by decreasing the number of collisions"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "The following are observed characteristics of gases except for:",
+        "options": [
+          "A. gases can be compressed by application of pressure",
+          "B. gases diffuse and spontaneously mix with each other",
+          "C. pressure exerted by a gas decreases with increase in temperature",
+          "D. there is negligible attraction between particles of an ideal gas"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Molecular oxygen is highly soluble in the blood because:",
+        "options": [
+          "A. the hemoglobin molecule can bind up to four oxygen molecules",
+          "B. the solubility of oxygen is increased by the higher temperature of the body",
+          "C. pressure is increased inside the body",
+          "D. pressure inside the body is different from outside of it"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "A fatal condition known as 'bends' occurs when a diver ascends too quickly to the surface of the water. This is due to:",
+        "options": [
+          "A. nitrogen in the blood boiling off rapidly as its partial pressure decreases, forming bubbles in the blood",
+          "B. lack of oxygen in water at depths of more than 15 meters",
+          "C. the solubility of oxygen gas being very much decreased at greater depths",
+          "D. the solubility of oxygen decreasing in the blood as the diver ascends"
+        ],
+        "correct": 0
       }
     ]
   }
