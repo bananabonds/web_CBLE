@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T04:40:31",
+  "updated_at": "2026-10-10T17:08:12",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -5652,6 +5652,208 @@
           "B. Hazard identification, classification, signal words, pictograms, hazard statements (H-codes), and precautionary statements (P-codes)",
           "C. Physical melting and boiling temperatures",
           "D. Supplier corporate history"
+        ],
+        "correct": 1
+      }
+    ],
+    "TOS10_Section1B": [
+      {
+        "text": "What is the primary characteristic of a representative sample?",
+        "options": [
+          "A. It is taken exclusively from the top layer of a bulk shipment",
+          "B. Its composition accurately reflects the composition of the entire lot",
+          "C. It consists of a single increment collected at a random time",
+          "D. It has been completely dissolved and diluted prior to measurement"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which term refers to the actual small portion of material that is directly measured or analyzed in the laboratory?",
+        "options": [
+          "A. Gross sample",
+          "B. Increment",
+          "C. Test sample",
+          "D. Lot"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "How do sampling variance and analytical variance interact to determine total variance?",
+        "options": [
+          "A. total variance = sampling variance * analytical variance",
+          "B. total variance = sampling variance + analytical variance",
+          "C. total variance = sampling variance - analytical variance",
+          "D. total variance = sampling variance / analytical variance"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why is taking a single scoop from the top of a bag or pile of solid material considered unrepresentative?",
+        "options": [
+          "A. Volatile components always evaporate from the surface",
+          "B. Particles segregate by size and density during handling",
+          "C. Top layers absorb atmospheric nitrogen rapidly",
+          "D. Surface particles naturally undergo oxidation"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which sampling strategy divides a population with distinct zones or layers into sub-groups before sampling each group?",
+        "options": [
+          "A. Systematic sampling",
+          "B. Simple random sampling",
+          "C. Stratified sampling",
+          "D. Judgmental sampling"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "What type of sample is collected at a single specific time and location to measure instantaneous conditions?",
+        "options": [
+          "A. Composite sample",
+          "B. Grab sample",
+          "C. Aliquot sample",
+          "D. Integrated sample"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What sampling device is used to collect solid increments across different depths of a stationary powder or grain pile?",
+        "options": [
+          "A. Cross-cut sampler",
+          "B. Sampling thief (spear or probe)",
+          "C. Gas-sampling bulb",
+          "D. Niskin bottle"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which solid sample reduction technique uses a chute with alternating opposite-facing slots to yield two equal halves?",
+        "options": [
+          "A. Coning and quartering",
+          "B. Rotary sample divider",
+          "C. Riffle splitter",
+          "D. Mortar and pestle"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "When preparing a solid sample for trace metal analysis, which grinding material should be avoided to prevent iron, chromium, and nickel contamination?",
+        "options": [
+          "A. Agate",
+          "B. Stainless steel",
+          "C. Ceramic",
+          "D. Tungsten carbide"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "When sampling water for volatile organic compounds (VOCs) or dissolved gases, how should the sample bottle be filled?",
+        "options": [
+          "A. Filled to 50% capacity to allow oxygen exposure",
+          "B. Filled completely with zero headspace or air bubbles",
+          "C. Left with a 10% volume headspace for expansion",
+          "D. Kept unstoppered until arrival at the laboratory"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What action should be performed before collecting a tap water sample for chemical analysis?",
+        "options": [
+          "A. Rinse the container with nitric acid",
+          "B. Flush the line to clear stagnant water",
+          "C. Boil the water to eliminate dissolved gases",
+          "D. Filter the water through a 0.2 micrometer membrane on-site"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which parameter must be measured on-site immediately after collection due to rapid changes?",
+        "options": [
+          "A. Total mercury",
+          "B. Dissolved oxygen",
+          "C. Organochlorine pesticides",
+          "D. Heavy metal content"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the standard preservation method for preserving metal analytes in water samples to prevent precipitation and adsorption to container walls?",
+        "options": [
+          "A. Addition of NaOH to pH greater than 12",
+          "B. Addition of HNO3 to pH less than 2",
+          "C. Addition of Na2S2O3",
+          "D. Storage at room temperature in open clear glass"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why are glass containers preferred over plastic containers for collecting samples intended for organic compound analysis?",
+        "options": [
+          "A. Plastic can shatter under refrigeration",
+          "B. Plastic can leach phthalates or adsorb organic species",
+          "C. Glass shields the sample from ambient magnetic fields",
+          "D. Glass reacts with organic solvents to stabilize them"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the main purpose of adding sodium thiosulfate to a water sample prior to analysis?",
+        "options": [
+          "A. Lower the pH below 2.0",
+          "B. Neutralize residual chlorine",
+          "C. Digest suspended insoluble organic particles",
+          "D. Prevent metal ion oxidation"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What term describes the maximum permissible elapsed time between sample collection and laboratory analysis?",
+        "options": [
+          "A. Retention period",
+          "B. Chain of custody",
+          "C. Holding time",
+          "D. Shelf life"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which quality control sample travels sealed from the laboratory to the field site and back to detect contamination during transport and storage?",
+        "options": [
+          "A. Field duplicate",
+          "B. Equipment blank",
+          "C. Trip blank",
+          "D. Method blank"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "What quality control tool documents every individual who handled a sample, along with transfer dates and times, to maintain legal and technical traceability?",
+        "options": [
+          "A. Sampling plan",
+          "B. Safety Data Sheet",
+          "C. Chain of custody",
+          "D. Standard operating procedure"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which quality control sample involves passing clean water through cleaned sampling apparatus in the field to confirm effective decontamination?",
+        "options": [
+          "A. Equipment (rinsate) blank",
+          "B. Trip blank",
+          "C. Field blank",
+          "D. Blind spike"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "When collecting a water sample from a flowing stream or river, how should the container be oriented relative to the current?",
+        "options": [
+          "A. Opening facing downstream, away from the current",
+          "B. Opening facing upstream, into the current",
+          "C. Opening facing toward the river bank",
+          "D. Container held horizontally at the water surface film"
         ],
         "correct": 1
       }
