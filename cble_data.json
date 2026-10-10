@@ -31848,6 +31848,257 @@
         }
       ],
       "exam_id": "179058410793063"
+    },
+    {
+      "id": "1791624209738557",
+      "name": "TOS6_Section1",
+      "created_at": "2026-10-10T09:23:29",
+      "composition": {
+        "[Repo] TOS6_Section1": 20
+      },
+      "questions": [
+        {
+          "text": "What wavelength range is typically covered by ultraviolet (UV) spectroscopy in organic analysis?",
+          "options": [
+            "A. 10 to 100 nm",
+            "B. 200 to 400 nm",
+            "C. 400 to 700 nm",
+            "D. 800 to 2500 nm"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 0
+        },
+        {
+          "text": "Which lamp source is required to provide continuous ultraviolet radiation in a UV-Vis spectrophotometer?",
+          "options": [
+            "A. Tungsten-halogen lamp",
+            "B. Deuterium (or hydrogen) arc lamp",
+            "C. Sodium vapor lamp",
+            "D. Carbon-zinc dry cell"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 8
+        },
+        {
+          "text": "According to the Beer-Lambert law ($A = \\varepsilon b c$), what does the symbol $\\varepsilon$ represent?",
+          "options": [
+            "A. Optical path length in cm",
+            "B. Molar absorptivity (molar extinction coefficient)",
+            "C. Percent transmittance",
+            "D. Frequency of incident light"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 6
+        },
+        {
+          "text": "What term describes a bathochromic shift in UV-Vis spectroscopy?",
+          "options": [
+            "A. A red shift toward a longer wavelength",
+            "B. A blue shift toward a shorter wavelength",
+            "C. An increase in transmittance percentage",
+            "D. A decrease in molar absorptivity"
+          ],
+          "correct": 0,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 5
+        },
+        {
+          "text": "What common factor causes deviations from Beer's law at high analyte concentrations (typically when absorbance exceeds 1.0 to 1.5)?",
+          "options": [
+            "A. Solute-solute intermolecular interactions, association/dissociation equilibria, and stray light",
+            "B. Complete freezing of the solvent molecules",
+            "C. Zero path length in the cuvette",
+            "D. Infinite expansion of molar absorptivity"
+          ],
+          "correct": 0,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 13
+        },
+        {
+          "text": "What is defined as a functional group or structural moiety within a molecule that absorbs light (e.g., C=C, C=O, aromatic rings)?",
+          "options": [
+            "A. Auxochrome",
+            "B. Chromophore",
+            "C. Free radical",
+            "D. Chiral center"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 2
+        },
+        {
+          "text": "What is the correct sequential order of components along the optical light path of a standard single-beam spectrophotometer?",
+          "options": [
+            "A. Detector -> Sample -> Monochromator -> Light Source",
+            "B. Light Source -> Monochromator -> Sample Cuvette -> Detector -> Readout",
+            "C. Sample -> Light Source -> Detector -> Monochromator",
+            "D. Readout -> Detector -> Light Source -> Sample"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 16
+        },
+        {
+          "text": "What is considered the optimal, most accurate absorbance range for quantitative spectrophotometric analysis?",
+          "options": [
+            "A. 0.00 to 0.10",
+            "B. 0.20 to 0.80",
+            "C. 1.50 to 2.00",
+            "D. Above 3.00"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 19
+        },
+        {
+          "text": "If a chemical solution exhibits a Percent Transmittance (%T) of 10%, what is its calculated Absorbance (A)?",
+          "options": [
+            "A. 0.10",
+            "B. 1.00",
+            "C. 2.00",
+            "D. 10.0"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 7
+        },
+        {
+          "text": "What is the primary function of measuring a 'blank' solution (pure solvent) before reading samples in a spectrophotometer?",
+          "options": [
+            "A. To calibrate the temperature of the sample compartment",
+            "B. To zero the instrument, compensating for solvent absorption and cuvette reflection/scattering",
+            "C. To precipitate out interfering inorganic ions",
+            "D. To clean the internal monochromator grating"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 11
+        },
+        {
+          "text": "At what wavelength is quantitative absorbance measurements ideally performed to ensure maximum sensitivity and minimal analytical error?",
+          "options": [
+            "A. Exactly 500 nm",
+            "B. At the wavelength of maximum absorbance ($\\lambda_{max}$)",
+            "C. At the lowest possible UV cutoff wavelength",
+            "D. At 0 nm"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 12
+        },
+        {
+          "text": "What term describes a hypsochromic shift in absorption?",
+          "options": [
+            "A. A shift toward a longer wavelength (red shift)",
+            "B. A shift toward a shorter wavelength (blue shift)",
+            "C. An increase in peak absorbance intensity",
+            "D. A broadening of the absorption band"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 15
+        },
+        {
+          "text": "What role does an auxochrome (such as -OH or -NH₂) play when attached to a chromophore?",
+          "options": [
+            "A. It absorbs light strongly below 200 nm by itself and destroys the chromophore.",
+            "B. It does not absorb strongly on its own, but shifts or intensifies the absorption wavelength of the chromophore.",
+            "C. It converts organic compounds into inorganic salts.",
+            "D. It eliminates all electronic transitions."
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 3
+        },
+        {
+          "text": "Why must solvents like acetone or toluene be avoided when preparing samples for UV spectroscopy?",
+          "options": [
+            "A. They react violently with quartz cuvettes.",
+            "B. They absorb strongly in the ultraviolet region, masking the analyte's peaks.",
+            "C. They cause immediate precipitation of the solute.",
+            "D. They are completely insoluble in water."
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 10
+        },
+        {
+          "text": "If a colored chemical solution absorbs light strongly in the blue region of the spectrum, what apparent color will it appear to human eyes?",
+          "options": [
+            "A. Pure blue",
+            "B. Yellow-orange (complementary color)",
+            "C. Deep violet",
+            "D. Pitch black"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 14
+        },
+        {
+          "text": "Which cuvette material must be used when recording absorption spectra in the UV region (below 350 nm)?",
+          "options": [
+            "A. Ordinary optical window glass",
+            "B. Standard polystyrene plastic",
+            "C. Quartz or fused silica",
+            "D. Soft lead glass"
+          ],
+          "correct": 2,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 9
+        },
+        {
+          "text": "How should optical cuvettes be handled correctly during sample loading and placement into the spectrophotometer?",
+          "options": [
+            "A. Held firmly by the clear optical window faces with bare fingers",
+            "B. Handled exclusively by the frosted side walls, wiping clear faces with lens paper",
+            "C. Dropped directly into the sample holder from a height",
+            "D. Cleaned with abrasive steel wool before each reading"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 17
+        },
+        {
+          "text": "Which electronic transitions fall within the standard 200 to 800 nm UV-Vis spectral region for most organic molecules?",
+          "options": [
+            "A. \\sigma \\rightarrow \\sigma^* and n \\rightarrow \\sigma^*",
+            "B. \\pi \\rightarrow \\pi^* and n \\rightarrow \\pi^*",
+            "C. Core electron shell excitation",
+            "D. Spin-flip nuclear magnetic resonance"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 1
+        },
+        {
+          "text": "How does extended conjugation in a polyene system affect its absorption maximum ($\\lambda_{max}$)?",
+          "options": [
+            "A. It shifts absorption to a shorter wavelength (higher energy).",
+            "B. It shifts absorption to a longer wavelength (lower energy / smaller energy gap).",
+            "C. It eliminates absorption entirely.",
+            "D. It shifts absorption into the X-ray region."
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 4
+        },
+        {
+          "text": "Which electronic transition requires the highest energy photons and appears at the shortest vacuum-UV wavelengths (below 200 nm)?",
+          "options": [
+            "A. \\sigma \\rightarrow \\sigma^*",
+            "B. n \\rightarrow \\pi^*",
+            "C. \\pi \\rightarrow \\pi^*",
+            "D. d \\rightarrow d transition"
+          ],
+          "correct": 0,
+          "_source_list": "[Repo] TOS6_Section1",
+          "_source_index": 18
+        }
+      ],
+      "exam_id": "179058410793063"
     }
   ],
   "test_history": [
@@ -75008,5 +75259,5 @@
     "exam_dates": [],
     "prompt_sets": []
   },
-  "updated_at": "2026-10-10T09:22:53"
+  "updated_at": "2026-10-10T09:24:55"
 }
