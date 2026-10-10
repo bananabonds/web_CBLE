@@ -35107,6 +35107,15 @@
       "pct": 100,
       "date": "2026-10-10T12:26:14",
       "time_used_seconds": 509.5
+    },
+    {
+      "id": "1791636412511936",
+      "source": "TOS8_Section2",
+      "score": 20,
+      "total": 20,
+      "pct": 100,
+      "date": "2026-10-10T12:46:52",
+      "time_used_seconds": 1187.4
     }
   ],
   "exam_details": [
@@ -70106,6 +70115,233 @@
           "correct_answer": "B. Methanol"
         }
       ]
+    },
+    {
+      "exam_id": "1791636412511936",
+      "source": "TOS8_Section2",
+      "date": "2026-10-10T12:46:52",
+      "items": [
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the correct operational procedure when working with volatile toxic substances inside a chemical fume hood?",
+          "your_answer": "B. Work at least 15 cm (6 inches) inside the hood sash, keep the sash at its designated working height, and avoid blocking airflow slots.",
+          "correct_answer": "B. Work at least 15 cm (6 inches) inside the hood sash, keep the sash at its designated working height, and avoid blocking airflow slots."
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the correct protocol for transporting heavy compressed gas cylinders across a facility corridor?",
+          "your_answer": "C. Use an approved dedicated cylinder cart with the cylinder securely strapped and valve safety caps screwed on.",
+          "correct_answer": "C. Use an approved dedicated cylinder cart with the cylinder securely strapped and valve safety caps screwed on."
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 19,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the primary function of secondary containment trays (bunding) beneath stored chemical containers?",
+          "your_answer": "A. To catch and hold liquid leaks or spills, preventing intermixing of incompatible chemicals or escape into drains",
+          "correct_answer": "A. To catch and hold liquid leaks or spills, preventing intermixing of incompatible chemicals or escape into drains"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What strict rule applies regarding working alone in an organic chemistry laboratory handling hazardous reagents?",
+          "your_answer": "B. Never work alone; a second person must always be present or within immediate contact in case of emergency.",
+          "correct_answer": "B. Never work alone; a second person must always be present or within immediate contact in case of emergency."
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What safety precaution must be implemented when transferring flammable liquid solvents between two metal containers to prevent static electricity ignition?",
+          "your_answer": "B. Ground and bond both metal containers together electrically.",
+          "correct_answer": "B. Ground and bond both metal containers together electrically."
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Why must laboratory aisles, exits, and safety equipment access points (such as eyewash stations and fire extinguishers) remain completely unobstructed?",
+          "your_answer": "A. To ensure quick emergency evacuation and immediate access to safety gear during an incident",
+          "correct_answer": "A. To ensure quick emergency evacuation and immediate access to safety gear during an incident"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What rule governs leaving active heating apparatus or chemical reactions unattended in the laboratory?",
+          "your_answer": "B. Never leave active heating, refluxing, or hazardous chemical reactions unattended; establish monitoring protocols.",
+          "correct_answer": "B. Never leave active heating, refluxing, or hazardous chemical reactions unattended; establish monitoring protocols."
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 15,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What key safety practice should be followed when executing a chemical reaction known to be moderately exothermic?",
+          "your_answer": "B. Scale up gradually, add reagents slowly with stirring, and have an appropriate cooling bath prepared and ready.",
+          "correct_answer": "B. Scale up gradually, add reagents slowly with stirring, and have an appropriate cooling bath prepared and ready."
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which control measure exemplifies 'Substitution' in the hierarchy of controls when evaluating solvent toxicity?",
+          "your_answer": "B. Replacing known human carcinogen benzene with less toxic toluene",
+          "correct_answer": "B. Replacing known human carcinogen benzene with less toxic toluene"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Why is Personal Protective Equipment (PPE) always placed at the very bottom (least effective rank) of the hazard control hierarchy?",
+          "your_answer": "B. PPE does not eliminate or reduce the hazard itself; it relies entirely on human compliance and can fail or degrade upon exposure.",
+          "correct_answer": "B. PPE does not eliminate or reduce the hazard itself; it relies entirely on human compliance and can fail or degrade upon exposure."
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "How should large, heavy glass chemical bottles (e. g., 4-liter acid or solvent bottles) be stored on chemical storage shelving?",
+          "your_answer": "B. On low shelves near the floor to minimize drop distances and tipping risks",
+          "correct_answer": "B. On low shelves near the floor to minimize drop distances and tipping risks"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What appropriate personal protective equipment and handling precautions must be used when working with cryogenic liquids like liquid nitrogen?",
+          "your_answer": "B. Insulated cryogenic gloves, face shield, eye protection, and containers that are never tightly sealed against pressure buildup",
+          "correct_answer": "B. Insulated cryogenic gloves, face shield, eye protection, and containers that are never tightly sealed against pressure buildup"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What does 'Administrative Controls' encompass in the safety hierarchy?",
+          "your_answer": "B. Standard operating procedures (SOPs), safety training, signage, labeling, and work scheduling rules",
+          "correct_answer": "B. Standard operating procedures (SOPs), safety training, signage, labeling, and work scheduling rules"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which chemical storage pairing represents a severe safety incompatibility that must be strictly segregated?",
+          "your_answer": "B. Storing strong oxidizing agents directly next to flammable organic solvents",
+          "correct_answer": "B. Storing strong oxidizing agents directly next to flammable organic solvents"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which option is an example of an 'Engineering Control' in laboratory safety management?",
+          "your_answer": "B. Installing chemical fume hoods, safety shields, and automatic fire suppression systems",
+          "correct_answer": "B. Installing chemical fume hoods, safety shields, and automatic fire suppression systems"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What protective limitation applies to a standard chemical fume hood in terms of external lab safety?",
+          "your_answer": "B. A fume hood provides zero protection against chemical hazards or dust generated outside the hood in the general room environment.",
+          "correct_answer": "B. A fume hood provides zero protection against chemical hazards or dust generated outside the hood in the general room environment."
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "According to the industrial hygiene hierarchy of controls, what is the MOST effective method for controlling workplace and laboratory hazards?",
+          "your_answer": "B. Elimination (physically removing the hazard entirely)",
+          "correct_answer": "B. Elimination (physically removing the hazard entirely)"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Why is perchloric acid strictly prohibited from being used in standard laboratory fume hoods without a specialized washdown system?",
+          "your_answer": "B. Perchloric acid vapors react with metal ductwork to form shock-sensitive, highly explosive metal perchlorates that can detonate upon vibration.",
+          "correct_answer": "B. Perchloric acid vapors react with metal ductwork to form shock-sensitive, highly explosive metal perchlorates that can detonate upon vibration."
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the very FIRST step in conducting a comprehensive laboratory risk assessment before starting an unfamiliar or modified experiment?",
+          "your_answer": "B. Identifying hazards (reviewing SDS, procedures, and potential risks)",
+          "correct_answer": "B. Identifying hazards (reviewing SDS, procedures, and potential risks)"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section2",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "How should compressed gas cylinders be stored and secured safely in the laboratory at all times?",
+          "your_answer": "B. Secured upright with sturdy chains or straps to a wall or bench, with safety valve caps in place when not in use",
+          "correct_answer": "B. Secured upright with sturdy chains or straps to a wall or bench, with safety valve caps in place when not in use"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -78858,5 +79094,5 @@
     "exam_dates": [],
     "prompt_sets": []
   },
-  "updated_at": "2026-10-10T12:41:33"
+  "updated_at": "2026-10-10T12:46:56"
 }
