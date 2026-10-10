@@ -31597,6 +31597,257 @@
         }
       ],
       "exam_id": "179058410793063"
+    },
+    {
+      "id": "1791621839825563",
+      "name": "TOS5_Section2",
+      "created_at": "2026-10-10T08:43:59",
+      "composition": {
+        "[Repo] TOS5_Section2": 20
+      },
+      "questions": [
+        {
+          "text": "What phenomenon is indicated by a gradually rising baseline accompanied by baseline noise during high-temperature programmed GC runs?",
+          "options": [
+            "A. Column bleed (loss of stationary phase degradation products at elevated temperatures)",
+            "B. Complete exhaustion of the carrier gas cylinder",
+            "C. Air leakage into the electron capture detector",
+            "D. Water condensation inside the injection port septum"
+          ],
+          "correct": 0,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 13
+        },
+        {
+          "text": "According to the 'like dissolves like' principle in GC stationary phase selection, how should a polar stationary phase column be used?",
+          "options": [
+            "A. To analyze nonpolar saturated alkanes exclusively",
+            "B. To effectively retain and separate polar analytes (such as alcohols and amines) through dipole-dipole or hydrogen-bonding interactions",
+            "C. To prevent all compounds from eluting",
+            "D. To convert polar compounds into halogenated derivatives"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 19
+        },
+        {
+          "text": "What is the purpose of employing 'temperature programming' during a GC run of a sample containing compounds with a very wide boiling point range?",
+          "options": [
+            "A. To keep the column temperature permanently frozen at -20 °C",
+            "B. To gradually increase the oven temperature over time, sharpening late-eluting peaks and reducing analysis time",
+            "C. To prevent the carrier gas from expanding",
+            "D. To melt the silica stationary phase"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 9
+        },
+        {
+          "text": "What is a major advantage of the Thermal Conductivity Detector (TCD) over a Flame Ionization Detector (FID)?",
+          "options": [
+            "A. TCD is 1,000 times more sensitive than FID.",
+            "B. TCD is universal (detects any substance with thermal conductivity different from carrier gas) and is non-destructive.",
+            "C. TCD does not require a carrier gas.",
+            "D. TCD operates at room temperature without electrical power."
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 5
+        },
+        {
+          "text": "What is a primary cause of 'peak tailing' in a gas chromatogram?",
+          "options": [
+            "A. Using an excessively fast carrier gas flow rate",
+            "B. Active adsorption sites (such as silanol groups) on the column wall, column overloading, or dead volume",
+            "C. Operating the oven at a constant isothermal temperature",
+            "D. Using helium as a carrier gas instead of nitrogen"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 12
+        },
+        {
+          "text": "How do open tubular (capillary) columns compare functionally to packed columns in gas chromatography?",
+          "options": [
+            "A. Capillary columns have lower efficiency and much higher sample capacity.",
+            "B. Capillary columns provide significantly higher theoretical plate efficiency and resolution, but have lower sample capacity.",
+            "C. Capillary columns cannot be used with mass spectrometers.",
+            "D. Capillary columns require liquid mobile phases."
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 2
+        },
+        {
+          "text": "Which GC detector is destructive, highly sensitive to organic compounds containing C-H bonds, but completely insensitive to water and permanent inorganic gases?",
+          "options": [
+            "A. Thermal Conductivity Detector (TCD)",
+            "B. Electron Capture Detector (ECD)",
+            "C. Flame Ionization Detector (FID)",
+            "D. Nitrogen-Phosphorus Detector (NPD)"
+          ],
+          "correct": 2,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 4
+        },
+        {
+          "text": "What is the correct sequential order of component parts through which the carrier gas and sample flow in a gas chromatograph?",
+          "options": [
+            "A. Column oven -> Injection port -> Detector -> Carrier gas supply",
+            "B. Carrier gas supply -> Injection port -> Column in temperature-controlled oven -> Detector -> Data system",
+            "C. Detector -> Column -> Injection port -> Gas supply -> Recorder",
+            "D. Injection port -> Detector -> Column -> Gas cylinder"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 0
+        },
+        {
+          "text": "Which primary requirement must an organic analyte satisfy to be successfully analyzed directly by standard gas chromatography?",
+          "options": [
+            "A. It must be ionic and water-soluble.",
+            "B. It must be sufficiently volatile and thermally stable without decomposing at vaporization temperatures.",
+            "C. It must be a high-molecular-weight polymer.",
+            "D. It must absorb ultraviolet light strongly."
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 10
+        },
+        {
+          "text": "On a standard nonpolar capillary column (e.g., polydimethylsiloxane), in what general order do organic compounds elute?",
+          "options": [
+            "A. In order of increasing boiling point",
+            "B. In order of increasing water solubility",
+            "C. In order of decreasing molecular weight",
+            "D. Strictly by decreasing dipole moment"
+          ],
+          "correct": 0,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 3
+        },
+        {
+          "text": "What are 'ghost peaks' in gas chromatography?",
+          "options": [
+            "A. Peaks representing radioactive decay products",
+            "B. Spurious peaks resulting from system contamination, septum bleed, or carryover from a previous injection",
+            "C. Negative peaks caused by air bubbles in the detector",
+            "D. Theoretical plates calculated by software"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 17
+        },
+        {
+          "text": "What does the 'dead time' ($t_m$ or $t_0$) represent in gas chromatography?",
+          "options": [
+            "A. The time required for the instrument to power down",
+            "B. The elution time of an unretained, non-interacting marker compound through the column",
+            "C. The total time spent heating the injection port",
+            "D. The half-life of the detector filament"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 16
+        },
+        {
+          "text": "When using hydrogen gas as a carrier gas in GC, what critical safety precaution must be strictly maintained?",
+          "options": [
+            "A. Hydrogen lines must be operated above 500 psi.",
+            "B. Rigorous leak-testing must be performed regularly because hydrogen forms explosive mixtures with air.",
+            "C. Hydrogen must be mixed with 50% carbon dioxide.",
+            "D. The column oven door must remain wide open during analysis."
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 18
+        },
+        {
+          "text": "Why is an 'internal standard calibration method' superior to external standard calibration for quantitative GC analysis?",
+          "options": [
+            "A. Internal standards eliminate the need for any reference compounds.",
+            "B. Adding a fixed amount of internal standard corrects for minor variations in manual injection volume and instrumental drift.",
+            "C. Internal standards make detectors infinitely sensitive.",
+            "D. External standards cannot be measured by peak area."
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 14
+        },
+        {
+          "text": "What is the fundamental difference in sample capability between Gas Chromatography (GC) and High-Performance Liquid Chromatography (HPLC)?",
+          "options": [
+            "A. GC requires volatile and thermally stable analytes with a gas mobile phase, whereas HPLC handles non-volatile, polar, or thermally unstable compounds with a liquid mobile phase.",
+            "B. GC can only analyze inorganic salts, while HPLC analyzes gases.",
+            "C. HPLC uses helium carrier gas at 300 psi.",
+            "D. There are no operational differences between GC and HPLC."
+          ],
+          "correct": 0,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 15
+        },
+        {
+          "text": "What fundamental analytical information does the retention time ($t_r$) of a chromatographic peak provide in gas chromatography?",
+          "options": [
+            "A. Quantitative concentration based on peak height",
+            "B. Qualitative identification by comparison with known standards under identical conditions",
+            "C. Purity percentage of the carrier gas",
+            "D. Total molecular mass of the sample ion"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 7
+        },
+        {
+          "text": "Which GC detector exhibits extreme sensitivity and selectivity toward halogenated organic compounds, such as chlorinated pesticides and solvents?",
+          "options": [
+            "A. Flame Ionization Detector (FID)",
+            "B. Electron Capture Detector (ECD)",
+            "C. Thermal Conductivity Detector (TCD)",
+            "D. Flame Photometric Detector (FPD)"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 6
+        },
+        {
+          "text": "Which property is essential for a carrier gas used in gas-liquid chromatography (GLC)?",
+          "options": [
+            "A. It must be a strongly reactive oxidizing agent.",
+            "B. It must be completely inert, pure, dry, and chemically compatible with the detector.",
+            "C. It must have a high boiling point above 250 °C.",
+            "D. It must be colored to track flow visually."
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 1
+        },
+        {
+          "text": "In quantitative gas chromatography, what physical attribute of a chromatographic peak is directly proportional to the amount (concentration) of the analyte?",
+          "options": [
+            "A. Peak width at half-height only",
+            "B. Peak area or peak height",
+            "C. Total retention time",
+            "D. Dead time of the column"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 8
+        },
+        {
+          "text": "Why is a 'split injection' technique commonly used when introducing liquid samples into a high-efficiency capillary GC column?",
+          "options": [
+            "A. To divide the sample into two separate detectors simultaneously",
+            "B. To prevent column overload by venting a major fraction of the vaporized sample out the split vent, allowing only a small fraction onto the column",
+            "C. To split the carrier gas into hydrogen and oxygen",
+            "D. To freeze the sample before injection"
+          ],
+          "correct": 1,
+          "_source_list": "[Repo] TOS5_Section2",
+          "_source_index": 11
+        }
+      ],
+      "exam_id": "179058410793063"
     }
   ],
   "test_history": [
@@ -74501,5 +74752,5 @@
     "exam_dates": [],
     "prompt_sets": []
   },
-  "updated_at": "2026-10-10T08:43:16"
+  "updated_at": "2026-10-10T08:44:11"
 }
