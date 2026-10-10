@@ -35143,6 +35143,15 @@
       "pct": 90,
       "date": "2026-10-10T13:51:06",
       "time_used_seconds": 343.2
+    },
+    {
+      "id": "1791640648079240",
+      "source": "TOS8_Section6",
+      "score": 20,
+      "total": 20,
+      "pct": 100,
+      "date": "2026-10-10T13:57:28",
+      "time_used_seconds": 371.5
     }
   ],
   "exam_details": [
@@ -71050,6 +71059,233 @@
           "correct_answer": "B. Health hazard"
         }
       ]
+    },
+    {
+      "exam_id": "1791640648079240",
+      "source": "TOS8_Section6",
+      "date": "2026-10-10T13:57:28",
+      "items": [
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which SDS section contains toxicological data, including routes of exposure, acute toxicity estimates (such as $LD_{50}$), and carcinogenicity evaluations?",
+          "your_answer": "A. Section 11",
+          "correct_answer": "A. Section 11"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Where on an SDS would you look to find specific information regarding recommended Personal Protective Equipment (PPE) and occupational exposure limits (such as TLV or PEL)?",
+          "your_answer": "C. Section 8: Exposure Controls/Personal Protection",
+          "correct_answer": "C. Section 8: Exposure Controls/Personal Protection"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which SDS section details physical and chemical properties of the substance, including flash point, boiling point, vapor pressure, and appearance?",
+          "your_answer": "C. Section 9",
+          "correct_answer": "C. Section 9"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the fundamental operational difference between a chemical product container label and its complete Safety Data Sheet (SDS)?",
+          "your_answer": "A. The label provides a quick, concise summary of key hazards, while the SDS provides comprehensive, detailed technical documentation.",
+          "correct_answer": "A. The label provides a quick, concise summary of key hazards, while the SDS provides comprehensive, detailed technical documentation."
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What information is summarized in Section 2 of an GHS-compliant SDS?",
+          "your_answer": "B. Hazard identification, classification, signal words, pictograms, hazard statements (H-codes), and precautionary statements (P-codes)",
+          "correct_answer": "B. Hazard identification, classification, signal words, pictograms, hazard statements (H-codes), and precautionary statements (P-codes)"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 19,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Why is it important to verify the revision date listed on an SDS before relying on its data?",
+          "your_answer": "A. Outdated sheets may contain old hazard classifications or obsolete exposure limits as toxicological knowledge evolves.",
+          "correct_answer": "A. Outdated sheets may contain old hazard classifications or obsolete exposure limits as toxicological knowledge evolves."
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What does the abbreviation 'SDS' stand for, replacing what older terminology?",
+          "your_answer": "B. Safety Data Sheet, replacing Material Safety Data Sheet (MSDS)",
+          "correct_answer": "B. Safety Data Sheet, replacing Material Safety Data Sheet (MSDS)"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which section of a standard GHS Safety Data Sheet covers First-Aid Measures?",
+          "your_answer": "B. Section 4",
+          "correct_answer": "B. Section 4"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the purpose of Section 1 (Identification) on an SDS?",
+          "your_answer": "B. To provide the product identifier, manufacturer name, address, recommended use, and emergency telephone contact",
+          "correct_answer": "B. To provide the product identifier, manufacturer name, address, recommended use, and emergency telephone contact"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Where should a laboratory worker look on an SDS to identify incompatible materials, conditions to avoid, and hazardous thermal decomposition products?",
+          "your_answer": "C. Section 10: Stability and Reactivity",
+          "correct_answer": "C. Section 10: Stability and Reactivity"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What information is provided in Section 13 of an SDS?",
+          "your_answer": "B. Disposal considerations and waste management guidance",
+          "correct_answer": "B. Disposal considerations and waste management guidance"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What does a CAS number uniquely identify when referenced on an SDS and chemical container label?",
+          "your_answer": "B. A unique numerical identifier assigned by the Chemical Abstracts Service to every specific chemical substance",
+          "correct_answer": "B. A unique numerical identifier assigned by the Chemical Abstracts Service to every specific chemical substance"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which SDS section outlines appropriate steps for spill cleanup, containment procedures, and emergency evacuation protocols?",
+          "your_answer": "A. Section 6: Accidental Release Measures",
+          "correct_answer": "A. Section 6: Accidental Release Measures"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 15,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Where on an SDS would you find transport-specific regulatory details such as the UN shipping identification number and packing group?",
+          "your_answer": "C. Section 14",
+          "correct_answer": "C. Section 14"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Who is legally and primarily responsible for authoring and providing the Safety Data Sheet for a chemical product?",
+          "your_answer": "A. The chemical supplier, manufacturer, or importer",
+          "correct_answer": "A. The chemical supplier, manufacturer, or importer"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "What is the primary purpose of a Safety Data Sheet (SDS) in chemical management?",
+          "your_answer": "B. To provide comprehensive, detailed information regarding chemical hazards, safe handling, storage, emergency measures, and regulatory compliance",
+          "correct_answer": "B. To provide comprehensive, detailed information regarding chemical hazards, safe handling, storage, emergency measures, and regulatory compliance"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which SDS section details appropriate fire-fighting measures, including suitable extinguishing media and hazardous combustion byproducts?",
+          "your_answer": "A. Section 5",
+          "correct_answer": "A. Section 5"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Under worker 'Right-to-Know' and hazard communication standards, who must have ready and immediate access to Safety Data Sheets in the workplace?",
+          "your_answer": "B. All workers who handle or may be exposed to hazardous chemical substances",
+          "correct_answer": "B. All workers who handle or may be exposed to hazardous chemical substances"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What critical item of documentation should always be brought along when seeking medical attention following a chemical exposure or injury?",
+          "your_answer": "B. A copy of the chemical's Safety Data Sheet (SDS)",
+          "correct_answer": "B. A copy of the chemical's Safety Data Sheet (SDS)"
+        },
+        {
+          "source_list": "[Repo] TOS8_Section6",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "How many standardized sections comprise a modern Globally Harmonized System (GHS) compliant Safety Data Sheet (SDS)?",
+          "your_answer": "C. 16 sections",
+          "correct_answer": "C. 16 sections"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -79882,5 +80118,5 @@
     "exam_dates": [],
     "prompt_sets": []
   },
-  "updated_at": "2026-10-10T13:51:16"
+  "updated_at": "2026-10-10T13:57:31"
 }
