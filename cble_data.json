@@ -83726,7 +83726,18 @@
   ],
   "prompt_sets": [],
   "flash_decks": [],
-  "flash_srs": {},
+  "flash_srs": {
+    "rv::D1_L2_Environmental_EngSci::100": {
+      "ease": 2.5,
+      "int": 1,
+      "reps": 1,
+      "lapses": 0,
+      "first": "2026-10-15",
+      "n": 1,
+      "due": "2026-10-16",
+      "last": "2026-10-15"
+    }
+  },
   "settings": {
     "active_exam": "1790584132394843",
     "active_exam_at": "2026-10-14T12:50:05"
@@ -83745,5 +83756,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-14T19:51:17"
+  "updated_at": "2026-10-14T19:52:42"
 }
