@@ -264,6 +264,45 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
 .bar-ci{position:absolute;top:50%;height:2px;margin-top:-1px;background:rgba(0,0,0,.55);}
 .bar-ci::before,.bar-ci::after{content:"";position:absolute;top:-4px;height:10px;width:2px;background:inherit;}
 .bar-ci::before{left:0;}.bar-ci::after{right:0;}
+.fc-seg{display:flex;gap:6px;margin:8px 0;}
+.fc-seg button{flex:1;padding:9px 6px;border-radius:8px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:.82rem;color:var(--sub);}
+.fc-seg button.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+.fc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0;}
+.fc-stat{background:var(--paper);border-radius:8px;padding:8px 4px;text-align:center;}
+.fc-stat b{display:block;font-size:1.2rem;font-family:"IBM Plex Mono",monospace;}
+.fc-stat span{font-size:.68rem;color:var(--sub);}
+.fc-overlay{z-index:105;}
+.fc-top{display:flex;align-items:center;gap:10px;padding:calc(10px + env(safe-area-inset-top)) 12px 8px;}
+.fc-top button{width:38px;height:38px;border-radius:8px;border:1px solid var(--line);background:#fff;font-size:1rem;}
+.fc-progress{flex:1;height:8px;background:var(--line);border-radius:999px;overflow:hidden;}
+#fcBar{height:100%;background:var(--navy);width:0;transition:width .2s;}
+.fc-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 4px;}
+.fc-chip{font-size:.7rem;padding:3px 9px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--sub);font-weight:600;}
+.fc-chip.group{background:var(--navy);color:#fff;border-color:var(--navy);}
+.fc-next{font-size:.7rem;color:var(--sub);padding:0 14px 6px;display:flex;gap:4px;flex-wrap:wrap;align-items:center;}
+.fc-dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;}
+.fc-body{flex:1;overflow-y:auto;padding:8px 14px;display:flex;}
+.fc-card{margin:auto;width:100%;max-width:640px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 18px;box-shadow:0 4px 18px rgba(17,24,39,.07);min-height:220px;cursor:pointer;}
+.fc-label{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--sub);margin-bottom:6px;}
+.fc-text{font-size:1.05rem;line-height:1.5;white-space:pre-wrap;}
+.fc-ans{font-size:1.05rem;font-weight:700;color:var(--green);margin-bottom:8px;white-space:pre-wrap;}
+.fc-opts div{font-size:.84rem;padding:2px 0;color:var(--sub);}
+.fc-opts div.ok{color:var(--green);font-weight:700;}
+.fc-sep{border-top:1px dashed var(--line);margin:14px 0;}
+.fc-actions{display:flex;gap:8px;padding:10px 14px calc(14px + env(safe-area-inset-bottom));max-width:672px;width:100%;margin:0 auto;}
+.fc-actions button{flex:1;padding:12px 4px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:700;font-size:.85rem;}
+.fc-actions button small{display:block;font-weight:500;font-size:.66rem;color:var(--sub);}
+.fc-actions .g0{border-color:#F3C6C6;color:var(--red);}
+.fc-actions .g1{border-color:#FCD9A0;color:var(--amber-ink);}
+.fc-actions .g2{border-color:#9FD8B0;color:var(--green);}
+.fc-actions .g3{border-color:var(--navy);color:var(--navy);}
+.fc-fcast{display:flex;gap:6px;align-items:flex-end;}
+.fc-fcast div{flex:1;text-align:center;font-size:.64rem;color:var(--sub);display:flex;flex-direction:column;justify-content:flex-end;}
+.fc-fcast i{display:block;background:var(--navy);border-radius:3px 3px 0 0;min-height:2px;margin:2px 0;}
+details.rv-fold{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);margin:0 0 10px;padding:0 14px;}
+details.rv-fold > summary{cursor:pointer;font-weight:600;font-size:.88rem;color:var(--navy);padding:12px 0;}
+details.rv-fold[open] > summary{border-bottom:1px solid var(--line);margin-bottom:10px;}
+details.rv-fold > .rv-body{padding-bottom:12px;}
 .saved-group{font-size:.72rem;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.04em;margin:14px 0 6px;}
 
 /* ---------- Modal / overlay ---------- */
@@ -459,6 +498,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
     <button class="tabchip" data-tab="analysis">Study Priority</button>
     <button class="tabchip" data-tab="mistakes">Mistake Log</button>
     <button class="tabchip" data-tab="reviewer">Reviewer</button>
+    <button class="tabchip" data-tab="flashcards">Flashcards</button>
     <button class="tabchip" data-tab="editor">Question Bank</button>
   </div>
 
@@ -963,38 +1003,60 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
     <section class="panel" id="panel-reviewer">
       <div class="card">
         <h3>Reviewer</h3>
-        <p class="hint">Every question you hesitated on, guessed, or got wrong with confidence, collected from all your tests. <b>Each question appears once</b>, under its most serious tag (Overconfident, then Guess, then Slightly confident), with its full history. Flagged questions are listed separately and may also appear in a section above.</p>
+        <p class="hint">Your guessed, hesitant and confidently-wrong questions as flashcards. Related subjects (names that start the same) are interleaved instead of drilled in blocks, and each answer schedules the card's next review. Build your own decks in the <b>Flashcards</b> tab.</p>
         <select class="examScopeSelect" id="reviewerExamScope" style="margin-top:8px;"></select>
         <div id="rvExamSummary" style="margin-top:8px;"></div>
-        <div class="row wrap" style="margin-top:8px;">
-          <button class="btn" id="btnRvFilterToggle">Filter Subjects</button>
-        </div>
-        <div style="margin-top:10px;border-top:1px solid var(--line);padding-top:10px;">
-          <label class="row" style="font-size:.8rem;color:var(--sub);margin-bottom:8px;">
-            <input type="checkbox" id="rvPromptDetails" checked>
-            <span>Include my past answers, confidence and notes</span>
-          </label>
-          <div id="promptEditor-reviewer"></div>
-          <div class="hint" style="margin-bottom:4px;">Include these tags in the prompt:</div>
+        <div id="rvFocusBox" style="margin-top:10px;"></div>
+      </div>
+      <details class="rv-fold" id="rvFoldCards" data-nav="Which questions become cards">
+        <summary>Which questions become cards</summary>
+        <div class="rv-body">
+          <div class="hint" style="margin-bottom:4px;">Include these tags (also used by the AI prompt below):</div>
           <div class="row wrap" id="rvPromptTags" style="gap:12px;margin-bottom:10px;">
             <label class="row" style="flex:none;gap:5px;font-size:.8rem;"><input type="checkbox" data-rvtag="overconf"><span>Overconfident</span></label>
             <label class="row" style="flex:none;gap:5px;font-size:.8rem;"><input type="checkbox" data-rvtag="guess"><span>Guess</span></label>
             <label class="row" style="flex:none;gap:5px;font-size:.8rem;"><input type="checkbox" data-rvtag="slight"><span>Slightly confident</span></label>
             <label class="row" style="flex:none;gap:5px;font-size:.8rem;"><input type="checkbox" data-rvtag="flagged"><span>Flagged</span></label>
           </div>
+          <button class="btn" id="btnRvFilterToggle">Filter Subjects (browse list)</button>
+          <div id="rvFilterBox" class="list-item" style="display:none;margin-top:10px;">
+            <div class="row wrap" style="margin-bottom:8px;">
+              <b style="font-size:.8rem;flex:1;">Choose subjects to show</b>
+              <button class="btn link" id="btnRvAll">All</button>
+              <button class="btn link" id="btnRvNone">None</button>
+            </div>
+            <div id="rvSubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
+          </div>
+        </div>
+      </details>
+      <details class="rv-fold" id="rvFoldBrowse" data-nav="Browse flagged questions">
+        <summary>Browse all flagged questions</summary>
+        <div class="rv-body"><p class="hint" style="margin-bottom:8px;"><b>Each question appears once</b>, under its most serious tag (Overconfident, then Guess, then Slightly confident), with its full history. Tap a card to see details and keep notes.</p><div id="rvSections"></div></div>
+      </details>
+      <details class="rv-fold" id="rvFoldPrompt" data-nav="AI reviewer prompt">
+        <summary>AI reviewer prompt</summary>
+        <div class="rv-body">
+          <label class="row" style="font-size:.8rem;color:var(--sub);margin-bottom:8px;">
+            <input type="checkbox" id="rvPromptDetails" checked>
+            <span>Include my past answers, confidence and notes</span>
+          </label>
+          <div id="promptEditor-reviewer"></div>
           <button class="btn primary block" id="btnRvCopyPrompt">Copy Unique Questions As Prompt</button>
           <p class="hint" id="rvPromptHint" style="margin-top:6px;"></p>
         </div>
-        <div id="rvFilterBox" class="list-item" style="display:none;margin-top:10px;">
-          <div class="row wrap" style="margin-bottom:8px;">
-            <b style="font-size:.8rem;flex:1;">Choose subjects to show</b>
-            <button class="btn link" id="btnRvAll">All</button>
-            <button class="btn link" id="btnRvNone">None</button>
-          </div>
-          <div id="rvSubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
-        </div>
+      </details>
+    </section>
+
+    <!-- ---- Tab: Flashcards ---- -->
+    <section class="panel" id="panel-flashcards">
+      <div class="card">
+        <h3>Flashcards</h3>
+        <select class="examScopeSelect" id="fcExamScope"></select>
+        <div class="fc-seg" id="fcSeg"><button data-fcp="today" class="active">Today</button><button data-fcp="decks">Decks</button><button data-fcp="groups">Topic groups</button></div>
       </div>
-      <div id="rvSections"></div>
+      <div id="fcPaneToday"></div>
+      <div id="fcPaneDecks" style="display:none;"></div>
+      <div id="fcPaneGroups" style="display:none;"></div>
     </section>
 
     <!-- ---- Tab: Question Bank ---- -->
@@ -1343,6 +1405,13 @@ Python: Bank_Name = [ {"text":"...","options":[...],"correct":0}, ... ]
 
 <div id="toast"></div>
 
+<div id="fcOverlay" class="overlay fc-overlay hidden">
+  <div class="fc-top"><button id="fcClose" aria-label="Close">&#10005;</button><div class="fc-progress"><div id="fcBar"></div></div><span id="fcCount" class="mono" style="font-size:.78rem;"></span></div>
+  <div class="fc-chips" id="fcChips"></div>
+  <div class="fc-next" id="fcNext"></div>
+  <div class="fc-body"><div class="fc-card" id="fcCard"></div></div>
+  <div class="fc-actions" id="fcActions"></div>
+</div>
 <script>
 "use strict";
 /* =====================================================================
@@ -1383,6 +1452,9 @@ const KEYS = {
   promptWork: "cble.promptWork",             // unsaved edits in the prompt editors (this device)
   guessNoteDrafts: "cble.guessNoteDrafts",   // unsaved flashcard-note text, so a re-render or reload never loses it
   allocSpecs: "cble.allocSpecs",   // per-list sample size choices in the Sample Builder (this device only)
+  flashDecks: "cble.flashDecks",   // custom flashcard decks (synced)
+  flashSrs: "cble.flashSrs",       // spaced-repetition state per card (synced)
+  flashPrefs: "cble.flashPrefs",   // schedule + interleaving settings (this device only)
   sizePrefs: "cble.sizePrefs",     // Action Plan sample sizes + the shared question-pool choice (this device only)
 };
 
@@ -2253,6 +2325,7 @@ function afterExamFocusChanged() {
   refreshListsDisplay();
   refreshAnalysis();
   refreshReviewer();
+  if (typeof refreshFlashcards === "function" && document.getElementById("panel-flashcards").classList.contains("active")) refreshFlashcards();
   if (typeof refreshSavedSamplesList === "function") refreshSavedSamplesList();
   if (typeof refreshMistakeLogTab === "function") refreshMistakeLogTab();
 }
@@ -2401,7 +2474,7 @@ async function pushCsvReportToGithub() {
    subtracting that from every future merge, is what makes Delete
    actually stick once GitHub sync is involved.
    --------------------------------------------------------------------- */
-const TOMBSTONE_COLLECTIONS = ["sample_sets", "test_history", "exam_details", "mistake_log", "guess_notes", "local_banks", "exam_dates", "prompt_sets"];
+const TOMBSTONE_COLLECTIONS = ["sample_sets", "test_history", "exam_details", "mistake_log", "guess_notes", "local_banks", "exam_dates", "prompt_sets", "flash_decks"];
 function emptyTombstones() {
   const t = {};
   for (const c of TOMBSTONE_COLLECTIONS) t[c] = [];
@@ -2439,6 +2512,8 @@ function buildLocalSnapshot() {
     guess_notes: loadJson(KEYS.guessNotes, []),
     exam_dates: loadJson(KEYS.examDates, []),
     prompt_sets: loadJson(KEYS.promptSets, []),
+    flash_decks: loadJson(KEYS.flashDecks, []),
+    flash_srs: loadJson(KEYS.flashSrs, {}),
     settings: buildSettingsSnapshot(),
     tombstones: loadTombstones(),
     updated_at: nowIso(),
@@ -2465,6 +2540,8 @@ function applySnapshotToLocal(snap) {
   put(KEYS.guessNotes, "guess notes", snap.guess_notes);
   put(KEYS.examDates, "exam dates", snap.exam_dates);
   put(KEYS.promptSets, "prompt sets", snap.prompt_sets);
+  put(KEYS.flashDecks, "flashcard decks", snap.flash_decks);
+  put(KEYS.flashSrs, "flashcard schedule", snap.flash_srs);
   if (snap.settings && snap.settings.active_exam && snap.settings.active_exam_at) {
     try { localStorage.setItem(KEYS.activeExam, snap.settings.active_exam); localStorage.setItem(KEYS.activeExamAt, snap.settings.active_exam_at); } catch (e) {}
   }
@@ -2532,6 +2609,8 @@ function mergeSnapshots(remote, local) {
     guess_notes: mergeById(remote && remote.guess_notes, local.guess_notes, "id", tomb.guess_notes),
     exam_dates: mergeById(remote && remote.exam_dates, local.exam_dates, "id", tomb.exam_dates),
     prompt_sets: mergeByStamp(remote && remote.prompt_sets, local.prompt_sets, "id", tomb.prompt_sets),
+    flash_decks: mergeByStamp(remote && remote.flash_decks, local.flash_decks, "id", tomb.flash_decks),
+    flash_srs: fcMergeSrs(remote && remote.flash_srs, local.flash_srs),
     settings: mergeSettings(remote && remote.settings, local.settings),
     tombstones: tomb,
     updated_at: nowIso(),
@@ -3910,6 +3989,7 @@ const TAB_REFRESH = {
   analysis: refreshAnalysis,
   mistakes: refreshMistakeLogTab,
   reviewer: refreshReviewer,
+  flashcards: () => refreshFlashcards(),
   editor: refreshEditorBankChoices,
 };
 function switchTab(name) {
@@ -4070,6 +4150,8 @@ $("btnExportAll").addEventListener("click", () => {
     mistake_log: loadJson(KEYS.mistakes, []),
     guess_notes: loadJson(KEYS.guessNotes, []),
     exam_dates: loadJson(KEYS.examDates, []),
+    flash_decks: loadJson(KEYS.flashDecks, []),
+    flash_srs: loadJson(KEYS.flashSrs, {}),
     tombstones: loadTombstones(),
   };
   const blob = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" });
@@ -4095,6 +4177,8 @@ $("importFileInput").addEventListener("change", (e) => {
       if (data.mistake_log) { saveJson(KEYS.mistakes, data.mistake_log); migrateMistakeLogIfNeeded(); }
       if (data.guess_notes) saveJson(KEYS.guessNotes, data.guess_notes);
       if (data.exam_dates) saveJson(KEYS.examDates, data.exam_dates);
+      if (data.flash_decks) saveJson(KEYS.flashDecks, data.flash_decks);
+      if (data.flash_srs) saveJson(KEYS.flashSrs, data.flash_srs);
       if (data.tombstones) saveJson(KEYS.tombstones, unionTombstones(loadTombstones(), data.tombstones));
       toast("Backup imported.");
       closeSheet("settingsSheet");
@@ -4111,7 +4195,7 @@ $("importFileInput").addEventListener("change", (e) => {
 $("btnClearAllData").addEventListener("click", () => {
   const note = githubConfigured() ? " GitHub is left untouched -- this only clears this browser's copy." : "";
   if (!confirmDialog(`Erase ALL locally saved data -- local banks, saved samples, test history, analysis data, the mistake log, guess notes, and exam dates? This cannot be undone.${note}`)) return;
-  [KEYS.banks, KEYS.repoBanks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes, KEYS.guessNotes, KEYS.examDates, KEYS.mistakeDrafts, KEYS.guessNoteDrafts, KEYS.promptSets, KEYS.promptWork].forEach(k => localStorage.removeItem(k));
+  [KEYS.banks, KEYS.repoBanks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes, KEYS.guessNotes, KEYS.examDates, KEYS.mistakeDrafts, KEYS.guessNoteDrafts, KEYS.promptSets, KEYS.promptWork, KEYS.flashDecks, KEYS.flashSrs, KEYS.flashPrefs].forEach(k => localStorage.removeItem(k));
   toast("All local data erased.");
   closeSheet("settingsSheet");
   refreshListsDisplay();
@@ -8037,6 +8121,7 @@ function refreshReviewer() {
     card.appendChild(list);
     wrap.appendChild(card);
   }
+  if (typeof renderReviewerFocus === "function") renderReviewerFocus();
 }
 // One entry per unique question across ALL reviewer sections (a question that is both a guess and an
 // overconfident miss, or that shows up in many tests, appears once with every reason attached).
@@ -8129,6 +8214,435 @@ $("btnRvNone").addEventListener("click", () => {
   reviewerHiddenSubjects = new Set(collectReviewerAttempts().map(a => a.source_list || "Unknown"));
   refreshReviewer();
 });
+
+/* =====================================================================
+   Flashcards: topic groups, interleaving, spaced repetition, decks
+   ===================================================================== */
+/*PURE-START*/
+const FC_TAG_NAMES = { overconf: "Overconfident", guess: "Guess", slight: "Slightly confident" };
+function fcFmt(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+function fcToday() { return fcFmt(new Date()); }
+function fcAddDays(iso, n) { const p = iso.split("-").map(Number); return fcFmt(new Date(p[0], p[1] - 1, p[2] + n)); }
+function fcCleanName(s) { return String(s || "").replace(/^\s*\[[^\]]*\]\s*/, "").trim(); }
+// Ways a subject name can "start like" another one, most specific first.
+function fcCandidates(name) {
+  const c = fcCleanName(name), out = [];
+  const m = c.match(/^(.+?)\s*[-\u2013\u2014:_\/|]\s*\S/);
+  if (m && m[1].trim().length >= 2) out.push(m[1].trim());
+  const w = (c.split(/\s+/)[0] || "").replace(/[^A-Za-z0-9]+$/, "");
+  if (w.length >= 2) out.push(w);
+  const a = c.match(/^[A-Za-z]{2,}/);
+  if (a) out.push(a[0]);
+  if (c.length >= 3) out.push(c.slice(0, 3));
+  return Array.from(new Set(out.map(x => x.toUpperCase())));
+}
+// subject -> topic group. n > 0: the first n characters. n = 0: auto-detect the shared starting characters.
+function fcGroupMap(subjects, n) {
+  const map = new Map(), uniq = Array.from(new Set(subjects.filter(Boolean)));
+  if (n > 0) { uniq.forEach(s => map.set(s, fcCleanName(s).slice(0, n).trim().toUpperCase() || s)); return map; }
+  const cands = new Map(uniq.map(s => [s, fcCandidates(s)])), count = new Map();
+  cands.forEach(list => list.forEach(k => count.set(k, (count.get(k) || 0) + 1)));
+  uniq.forEach(s => map.set(s, cands.get(s).find(k => count.get(k) >= 2) || fcCleanName(s).toUpperCase() || s));
+  return map;
+}
+// Reorders items so the same key is kept apart as much as possible, spreading the biggest buckets evenly.
+function fcSpread(items, keyFn) {
+  const buckets = new Map();
+  for (const it of items) { const k = keyFn(it); if (!buckets.has(k)) buckets.set(k, []); buckets.get(k).push(it); }
+  const out = []; let last;
+  while (out.length < items.length) {
+    const live = Array.from(buckets.entries()).filter(e => e[1].length);
+    let pool = live.filter(e => e[0] !== last); if (!pool.length) pool = live;
+    const mx = Math.max(...pool.map(e => e[1].length)), top = pool.filter(e => e[1].length === mx);
+    const pick = top[Math.floor(Math.random() * top.length)];
+    out.push(pick[1].shift()); last = pick[0];
+  }
+  return out;
+}
+// mixed: rotate topic groups, and subjects inside each group.  grouped: finish each group (subjects mixed) before the next.  blocked: one subject at a time.
+function fcInterleave(cards, mode) {
+  if (mode === "blocked") return cards.slice().sort((a, b) => (a.subject || "").localeCompare(b.subject || ""));
+  const byGroup = new Map();
+  cards.forEach(c => { if (!byGroup.has(c.group)) byGroup.set(c.group, []); byGroup.get(c.group).push(c); });
+  const seqs = new Map(); byGroup.forEach((arr, g) => seqs.set(g, fcSpread(arr, c => c.subject)));
+  if (mode === "grouped") return [].concat(...Array.from(seqs.values()).sort((a, b) => b.length - a.length));
+  const used = {};
+  return fcSpread(cards.map(c => ({ g: c.group })), x => x.g).map(x => { used[x.g] = used[x.g] || 0; return seqs.get(x.g)[used[x.g]++]; });
+}
+function fcNextInterval(s, g) {
+  if (g === 0) return 0;
+  const reps = s ? s.reps || 0 : 0, ease = s ? s.ease || 2.5 : 2.5, iv = s ? s.int || 0 : 0;
+  if (reps === 0) return [0, 1, 1, 3][g];
+  if (reps === 1) return [0, 2, 4, 6][g];
+  return Math.max(iv + 1, Math.round(iv * [0, 1.2, ease, ease * 1.3][g]));
+}
+function fcApplyGrade(srs, key, g, today) {
+  const s = srs[key] || { ease: 2.5, int: 0, reps: 0, lapses: 0, first: today, n: 0 };
+  if (g === 0) { s.lapses++; s.reps = 0; s.int = 0; s.due = today; s.ease = Math.max(1.3, s.ease - 0.2); }
+  else { const iv = fcNextInterval(s, g); s.ease = Math.max(1.3, s.ease + [0, -0.15, 0, 0.15][g]); s.int = iv; s.reps++; s.due = fcAddDays(today, iv); }
+  s.last = today; s.n = (s.n || 0) + 1; srs[key] = s; return s;
+}
+function fcFmtInt(n) { return n <= 0 ? "soon" : n === 1 ? "1d" : n < 30 ? n + "d" : n < 365 ? Math.round(n / 30) + "mo" : (n / 365).toFixed(1) + "y"; }
+function fcMergeSrs(remote, local) {
+  const out = Object.assign({}, remote || {});
+  for (const k of Object.keys(local || {})) if (!out[k] || (local[k].last || "") >= (out[k].last || "")) out[k] = local[k];
+  return out;
+}
+/*PURE-END*/
+
+function fcPrefs() { return Object.assign({ mode: "mixed", daily: 20, newPerDay: 8, groupN: 0, useReviewer: true, useDecks: true }, loadJson(KEYS.flashPrefs, {})); }
+function fcSetPref(k, v) { const p = fcPrefs(); p[k] = v; saveJson(KEYS.flashPrefs, p); }
+function fcLoadDecks() { return loadJson(KEYS.flashDecks, []); }
+function fcSaveDecks(d) { saveJson(KEYS.flashDecks, d); scheduleGithubSync(); }
+function fcLoadSrs() { return loadJson(KEYS.flashSrs, {}); }
+function fcSaveSrs(s) { saveJson(KEYS.flashSrs, s); scheduleGithubSync(); }
+let fcCidN = 0;
+function fcCid() { return uid() + "-" + (fcCidN++); }
+function fcGroupColor(g) { let h = 0; for (const ch of String(g)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return CHART_PALETTE[h % CHART_PALETTE.length]; }
+function fcAllSubjects() {
+  const s = new Set(Object.keys(getAllLists()));
+  fcLoadDecks().forEach(d => { s.add(d.name); (d.cards || []).forEach(c => c.topic && s.add(c.topic.trim())); });
+  (getScopeSubjects() || []).forEach(x => s.add(x));
+  return Array.from(s);
+}
+function fcAttachGroups(cards) {
+  const map = fcGroupMap(fcAllSubjects().concat(cards.map(c => c.subject)), fcPrefs().groupN);
+  cards.forEach(c => { c.group = map.get(c.subject) || c.subject; });
+  return cards;
+}
+function fcReviewerPool() {
+  if (!fcPrefs().useReviewer) return [];
+  const on = getRvTagPrefs(), rank = { overconf: 0, guess: 1, slight: 2 };
+  return buildReviewerGroups(scopedReviewerAttempts()).filter(g => (g.primary && on[g.primary]) || (g.flagged && on.flagged)).map(g => ({
+    key: "rv::" + g.key, kind: "rv", subject: g.source_list || "Unknown", g,
+    front: g.attempts[0].question || "(question text unavailable)", prio: g.primary ? rank[g.primary] : 3,
+  }));
+}
+function fcDeckPool(onlyId) {
+  const out = [];
+  for (const d of fcLoadDecks()) {
+    if (onlyId ? d.id !== onlyId : !d.auto) continue;
+    (d.cards || []).forEach((c, i) => out.push({ key: `dk::${d.id}::${c.id}`, kind: "deck", deckId: d.id, deckName: d.name, subject: (c.topic || "").trim() || d.name, front: c.front, back: c.back, prio: 4, ord: i }));
+  }
+  return out;
+}
+// opts: onlyGroup, onlyDeckId, cram (everything in the deck), ahead (cards not yet due)
+function fcBuildQueue(opts) {
+  opts = opts || {};
+  const p = fcPrefs(), srs = fcLoadSrs(), today = fcToday();
+  let pool = opts.onlyDeckId ? fcDeckPool(opts.onlyDeckId) : fcReviewerPool().concat(p.useDecks ? fcDeckPool() : []);
+  fcAttachGroups(pool);
+  if (opts.onlyGroup) pool = pool.filter(c => c.group === opts.onlyGroup);
+  const due = [], fresh = [], later = [];
+  for (const c of pool) { const s = srs[c.key]; if (!s) fresh.push(c); else if (s.due <= today) due.push(c); else later.push(c); }
+  due.sort((a, b) => srs[a.key].due.localeCompare(srs[b.key].due));
+  fresh.sort((a, b) => (a.prio - b.prio) || ((a.ord || 0) - (b.ord || 0)));
+  later.sort((a, b) => srs[a.key].due.localeCompare(srs[b.key].due));
+  const newToday = Object.values(srs).filter(s => s.first === today).length;
+  const cap = opts.cram ? 1e9 : Math.max(1, p.daily);
+  const newAllowed = opts.cram ? fresh.length : Math.max(0, p.newPerDay - newToday);
+  let take;
+  if (opts.cram) take = pool.slice();
+  else if (opts.ahead) take = later.slice(0, cap);
+  else { take = due.slice(0, cap); take = take.concat(fresh.slice(0, Math.min(newAllowed, Math.max(0, cap - take.length)))); }
+  return { cards: fcInterleave(take, p.mode), pool, counts: { due: due.length, fresh: fresh.length, newAllowed, later: later.length } };
+}
+
+/* ---------- Session overlay ---------- */
+let fcS = null;
+function fcStart(cards) {
+  if (!cards.length) { toast("No cards to review right now."); return; }
+  fcS = { cards: cards.slice(), i: 0, flipped: false, done: 0, total: cards.length, log: [] };
+  $("fcOverlay").classList.remove("hidden");
+  fcRender();
+}
+function fcBackHtml(c) {
+  if (c.kind === "deck") return `<div class="fc-text">${esc(c.back)}</div>`;
+  const g = c.g, latest = g.attempts[0];
+  const q = (getAllLists()[g.source_list] || [])[Number(g.reference_no) - 1];
+  let h = `<div class="fc-ans">${esc(latest.correct_answer || "(unknown)")}</div>`;
+  if (q && Array.isArray(q.options) && q.options.length > 1) h += `<div class="fc-opts">${q.options.map((o, i) => `<div class="${i === q.correct ? "ok" : ""}">${String.fromCharCode(65 + i)}. ${esc(o)}</div>`).join("")}</div>`;
+  h += `<div class="fc-sep"></div><div class="fc-label">Your past answers</div>` + g.attempts.slice(0, 4).map(a =>
+    `<div class="rv-attempt ${a.is_correct ? "ok" : "bad"}">${a.is_correct ? "\u2713" : "\u2717"} "${esc(a.your_answer || "(none)")}" &middot; ${esc(a.confidence || "no confidence")} &middot; ${esc(formatDateNice(dateOnly(a.date)))}</div>`).join("");
+  const m = findMistakeEntry(loadMistakeLog(), g.source_list, g.reference_no);
+  if (m && m.note) h += `<div class="rv-note"><b>Mistake note:</b> ${esc(m.note)}</div>`;
+  for (const n of rvQuestionNotes(g).slice(0, 2)) h += `<div class="rv-note"><b>Note:</b> ${esc(n.note)}</div>`;
+  return h;
+}
+function fcRender() {
+  const s = fcS; if (!s) return;
+  if (s.i >= s.cards.length) { fcFinish(); return; }
+  const c = s.cards[s.i], col = fcGroupColor(c.group), srs = fcLoadSrs()[c.key];
+  $("fcCount").textContent = `${s.done}/${s.total}`;
+  $("fcBar").style.width = Math.round(s.done / s.total * 100) + "%";
+  const tag = c.kind === "rv" ? `<span class="fc-chip">${esc(FC_TAG_NAMES[c.g.primary] || "Flagged")}</span>` : `<span class="fc-chip">Deck: ${esc(c.deckName)}</span>`;
+  $("fcChips").innerHTML = `<span class="fc-chip group" style="background:${col};border-color:${col};">${esc(c.group)}</span><span class="fc-chip">${esc(c.subject)}</span>${tag}`;
+  const up = s.cards.slice(s.i + 1, s.i + 9).map(x => `<span class="fc-dot" style="background:${fcGroupColor(x.group)}" title="${esc(x.subject)}"></span>`).join("");
+  $("fcNext").innerHTML = up ? `Up next ${up}` : "Last card";
+  $("fcCard").innerHTML = `<div class="fc-label">Question</div><div class="fc-text">${esc(c.front)}</div>` +
+    (s.flipped ? `<div class="fc-sep"></div><div class="fc-label">Answer</div>${fcBackHtml(c)}` : `<div class="hint" style="margin-top:18px;">Try to recall the answer, then tap to reveal.</div>`);
+  $("fcActions").innerHTML = s.flipped
+    ? ["Again", "Hard", "Good", "Easy"].map((n, g) => `<button class="g${g}" data-fcg="${g}">${n}<small>${fcFmtInt(fcNextInterval(srs, g))}</small></button>`).join("")
+    : `<button data-fcskip="1" style="flex:0 0 28%;">Skip</button><button class="g3" data-fcflip="1" style="flex:1;background:var(--navy);color:#fff;">Show answer</button>`;
+}
+function fcAnswer(g) {
+  const s = fcS; if (!s || !s.flipped) return;
+  const c = s.cards[s.i], srs = fcLoadSrs();
+  fcApplyGrade(srs, c.key, g, fcToday()); fcSaveSrs(srs);
+  s.log.push({ c, g });
+  if (g === 0) s.cards.splice(Math.min(s.cards.length, s.i + 5), 0, c); else s.done++;   // "Again" comes back a few cards later
+  s.i++; s.flipped = false; fcRender();
+}
+function fcFinish() {
+  const s = fcS, cnt = [0, 0, 0, 0], grp = new Map();
+  s.log.forEach(x => { cnt[x.g]++; const k = x.c.group; const o = grp.get(k) || { n: 0, ok: 0 }; o.n++; if (x.g >= 2) o.ok++; grp.set(k, o); });
+  const tomorrow = fcAddDays(fcToday(), 1), srs = fcLoadSrs();
+  const dueTomorrow = Object.values(srs).filter(x => x.due <= tomorrow).length;
+  $("fcBar").style.width = "100%"; $("fcCount").textContent = `${s.total}/${s.total}`;
+  $("fcChips").innerHTML = ""; $("fcNext").innerHTML = "";
+  $("fcCard").innerHTML = `<div class="fc-label">Session complete</div><div class="fc-text" style="font-weight:700;">${s.total} card${s.total === 1 ? "" : "s"} reviewed</div>
+    <div class="fc-stats" style="grid-template-columns:repeat(4,1fr);margin-top:12px;">${["Again", "Hard", "Good", "Easy"].map((n, i) => `<div class="fc-stat"><b>${cnt[i]}</b><span>${n}</span></div>`).join("")}</div>
+    <div class="fc-label" style="margin-top:12px;">Recall by topic group</div>` +
+    Array.from(grp.entries()).sort((a, b) => b[1].n - a[1].n).map(([k, o]) => `<div class="bar-row"><div class="lbl">${esc(k)}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.max(2, o.ok / o.n * 100)}%;background:${fcGroupColor(k)};"></div></div><div class="bar-val">${Math.round(o.ok / o.n * 100)}%</div></div>`).join("") +
+    `<div class="hint" style="margin-top:10px;">${dueTomorrow} card${dueTomorrow === 1 ? " is" : "s are"} due by tomorrow. Cards you rated Again return in the next session.</div>`;
+  $("fcActions").innerHTML = `<button class="g3" data-fcclose="1" style="background:var(--navy);color:#fff;">Done</button>`;
+}
+function fcClose() { fcS = null; $("fcOverlay").classList.add("hidden"); fcRefreshAll(); }
+function fcRefreshAll() {
+  if (typeof renderReviewerFocus === "function") renderReviewerFocus();
+  if ($("panel-flashcards").classList.contains("active")) refreshFlashcards();
+}
+$("fcClose").addEventListener("click", fcClose);
+$("fcOverlay").addEventListener("click", (e) => {
+  if (e.target.closest("#fcClose")) return;
+  const b = e.target.closest("[data-fcg],[data-fcflip],[data-fcskip],[data-fcclose]");
+  if (b) {
+    if (b.dataset.fcg !== undefined) fcAnswer(+b.dataset.fcg);
+    else if (b.dataset.fcflip) { if (fcS) { fcS.flipped = true; fcRender(); } }
+    else if (b.dataset.fcskip) { const s = fcS; if (s && s.cards.length - s.i > 1) { s.cards.push(s.cards.splice(s.i, 1)[0]); fcRender(); } }
+    else fcClose();
+    return;
+  }
+  if (e.target.closest("#fcCard") && fcS && !fcS.flipped && fcS.i < fcS.cards.length) { fcS.flipped = true; fcRender(); }
+});
+document.addEventListener("keydown", (e) => {
+  if (!fcS || $("fcOverlay").classList.contains("hidden")) return;
+  if (e.key === "Escape") { fcClose(); return; }
+  if (fcS.i >= fcS.cards.length) return;
+  if (!fcS.flipped && (e.key === " " || e.key === "Enter")) { e.preventDefault(); fcS.flipped = true; fcRender(); }
+  else if (fcS.flipped && /^[1-4]$/.test(e.key)) fcAnswer(+e.key - 1);
+});
+
+/* ---------- Reviewer tab: focused review ---------- */
+const FC_MODE_LABEL = { mixed: "Interleaved: rotate topic groups and subjects", grouped: "Grouped: one topic group at a time, subjects mixed", blocked: "Blocked: one subject at a time (no interleaving)" };
+function fcModeSelect(id) { const m = fcPrefs().mode; return `<select id="${id}">${Object.keys(FC_MODE_LABEL).map(k => `<option value="${k}"${k === m ? " selected" : ""}>${esc(FC_MODE_LABEL[k])}</option>`).join("")}</select>`; }
+function fcGroupStats(pool) {
+  const srs = fcLoadSrs(), today = fcToday(), out = new Map();
+  for (const c of pool) {
+    const o = out.get(c.group) || { n: 0, due: 0, fresh: 0, subjects: new Set() };
+    const s = srs[c.key]; o.n++; o.subjects.add(c.subject);
+    if (!s) o.fresh++; else if (s.due <= today) o.due++;
+    out.set(c.group, o);
+  }
+  return out;
+}
+function renderReviewerFocus() {
+  const box = $("rvFocusBox"); if (!box) return;
+  const q = fcBuildQueue({}), c = q.counts, n = q.cards.length;
+  const stats = fcGroupStats(q.pool);
+  const chips = Array.from(stats.entries()).sort((a, b) => (b[1].due + b[1].fresh) - (a[1].due + a[1].fresh)).map(([g, o]) =>
+    `<button class="btn" data-fcgroup="${esc(g)}" style="border-left:4px solid ${fcGroupColor(g)};">${esc(g)} <span style="color:var(--sub);">${o.subjects.size > 1 ? o.subjects.size + " subjects \u00b7 " : ""}${o.due} due \u00b7 ${o.fresh} new</span></button>`).join("");
+  const preview = q.cards.slice(0, 14).map(x => `<span class="fc-dot" style="background:${fcGroupColor(x.group)}" title="${esc(x.subject)}"></span>`).join("");
+  box.innerHTML = `<div class="fc-stats"><div class="fc-stat"><b>${c.due}</b><span>due</span></div><div class="fc-stat"><b>${Math.min(c.newAllowed, c.fresh)}</b><span>new today</span></div><div class="fc-stat"><b>${q.pool.length}</b><span>cards total</span></div></div>` +
+    (n ? `<button class="btn primary block" data-fcstart="1">Start review &middot; ${n} card${n === 1 ? "" : "s"} ${n ? "\u25B6" : ""}</button>${preview ? `<div class="fc-next" style="padding:6px 0 0;">Order preview ${preview}<span style="margin-left:4px;">(colour = topic group)</span></div>` : ""}`
+      : `<div class="empty-state">${q.pool.length ? "Nothing due right now." : "No cards yet. Take a test, or create a deck in the Flashcards tab."}</div>${c.later ? `<button class="btn block" data-fcahead="1">Practice ahead &middot; ${c.later} not yet due</button>` : ""}`) +
+    `<div class="field-label" style="margin-top:12px;">Study order</div>${fcModeSelect("rvFcMode")}` +
+    (chips ? `<div class="field-label" style="margin-top:12px;">Or focus on one topic group <span class="hint">(subjects whose names start the same are grouped)</span></div><div class="row wrap" style="gap:6px;">${chips}</div>` : "");
+  box.onclick = (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    if (b.dataset.fcstart) fcStart(fcBuildQueue({}).cards);
+    else if (b.dataset.fcahead) fcStart(fcBuildQueue({ ahead: true }).cards);
+    else if (b.dataset.fcgroup) fcStart(fcBuildQueue({ onlyGroup: b.dataset.fcgroup }).cards);
+  };
+  const sel = $("rvFcMode"); if (sel) sel.onchange = () => { fcSetPref("mode", sel.value); fcRefreshAll(); };
+}
+
+/* ---------- Flashcards tab ---------- */
+let fcPane = "today", fcDeckSel = null, fcEditId = null;
+function refreshFlashcards() {
+  renderExamScopeSelects();
+  document.querySelectorAll("#fcSeg button").forEach(b => b.classList.toggle("active", b.dataset.fcp === fcPane));
+  ["today", "decks", "groups"].forEach(p => { $("fcPane" + p[0].toUpperCase() + p.slice(1)).style.display = p === fcPane ? "" : "none"; });
+  if (fcPane === "today") fcRenderToday(); else if (fcPane === "decks") fcRenderDecks(); else fcRenderGroups();
+}
+$("fcSeg").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; fcPane = b.dataset.fcp; refreshFlashcards(); });
+
+function fcRenderToday() {
+  const box = $("fcPaneToday"), p = fcPrefs(), q = fcBuildQueue({}), c = q.counts, srs = fcLoadSrs(), today = fcToday();
+  const reviewed = Object.values(srs).filter(s => s.last === today).length;
+  const mix = new Map();
+  q.cards.forEach(x => { if (!mix.has(x.group)) mix.set(x.group, new Map()); const m = mix.get(x.group); m.set(x.subject, (m.get(x.subject) || 0) + 1); });
+  const mixRows = Array.from(mix.entries()).map(([g, m]) => Array.from(m.entries()).map(([s, n], i) => `<tr><td>${i === 0 ? `<b style="color:${fcGroupColor(g)};">${esc(g)}</b>` : ""}</td><td>${esc(s)}</td><td>${n}</td></tr>`).join("")).join("");
+  const days = [0, 1, 2, 3, 4, 5, 6].map(i => ({ d: fcAddDays(today, i), n: 0 }));
+  q.pool.forEach(x => { const s = srs[x.key]; if (!s) return; days.forEach((dd, i) => { if (i === 0 ? s.due <= dd.d : s.due === dd.d) dd.n++; }); });
+  const mx = Math.max(1, ...days.map(d => d.n));
+  const seq = q.cards.slice(0, 30).map(x => `<span class="fc-dot" style="background:${fcGroupColor(x.group)}" title="${esc(x.subject)}"></span>`).join("");
+  box.innerHTML = `<div class="card"><h3>Today's schedule</h3>
+      <div class="fc-stats"><div class="fc-stat"><b>${c.due}</b><span>due</span></div><div class="fc-stat"><b>${Math.min(c.newAllowed, c.fresh)}</b><span>new today</span></div><div class="fc-stat"><b>${reviewed}</b><span>reviewed today</span></div></div>
+      ${q.cards.length ? `<button class="btn primary block" data-fcstart="1">Start today's session &middot; ${q.cards.length} card${q.cards.length === 1 ? "" : "s"} &#9654;</button>` : `<div class="empty-state">${q.pool.length ? "You're all caught up for today." : "No cards yet. Cards appear here from your Reviewer pool and from decks set to auto-schedule."}</div>${c.later ? `<button class="btn block" data-fcahead="1">Practice ahead &middot; ${c.later} not yet due</button>` : ""}`}
+      ${seq ? `<div class="fc-next" style="padding:8px 0 0;">Session order ${seq}</div>` : ""}</div>
+    <div class="card"><h3>Schedule settings</h3>
+      <div class="row wrap" style="gap:10px;margin-bottom:8px;"><label>Cards per day <input type="number" id="fcDaily" min="1" value="${p.daily}" style="width:70px;"></label><label>New per day <input type="number" id="fcNewDay" min="0" value="${p.newPerDay}" style="width:70px;"></label></div>
+      <label class="field-label">Study order</label>${fcModeSelect("fcModeSel")}
+      <div class="row wrap" style="gap:14px;margin-top:8px;"><label class="row" style="flex:none;gap:6px;"><input type="checkbox" id="fcUseRv" ${p.useReviewer ? "checked" : ""}><span>Reviewer questions (misses, guesses, flags)</span></label><label class="row" style="flex:none;gap:6px;"><input type="checkbox" id="fcUseDecks" ${p.useDecks ? "checked" : ""}><span>Decks set to auto-schedule</span></label></div>
+      <p class="hint" style="margin-top:8px;">Overdue cards come first, then new cards (confident-but-wrong, then guesses, then slightly confident, then deck cards) up to your daily limits. The session is then interleaved so related topics alternate instead of being drilled in blocks, and answers set each card's next review date (Again = back today, Hard / Good / Easy = longer gaps).</p></div>
+    <div class="card"><h3>What's in today's mix</h3>${mixRows ? `<div class="table-wrap"><table class="data-table"><tr><th>Group</th><th>Subject</th><th>Cards</th></tr>${mixRows}</table></div>` : `<div class="empty-state">Nothing scheduled.</div>`}</div>
+    <div class="card"><h3>Next 7 days</h3><div class="fc-fcast">${days.map((d, i) => `<div><span>${d.n}</span><i style="height:${Math.round(d.n / mx * 48)}px"></i>${i === 0 ? "Today" : new Date(d.d + "T00:00:00").toLocaleDateString(undefined, { weekday: "short" })}</div>`).join("")}</div><p class="hint" style="margin-top:6px;">Cards already in the schedule only; new cards are added as you go.</p></div>`;
+  box.onclick = (e) => { const b = e.target.closest("button"); if (!b) return; if (b.dataset.fcstart) fcStart(fcBuildQueue({}).cards); else if (b.dataset.fcahead) fcStart(fcBuildQueue({ ahead: true }).cards); };
+  const num = (id, key, min) => $(id).addEventListener("change", () => { fcSetPref(key, Math.max(min, parseInt($(id).value, 10) || min)); refreshFlashcards(); });
+  num("fcDaily", "daily", 1); num("fcNewDay", "newPerDay", 0);
+  $("fcModeSel").addEventListener("change", () => { fcSetPref("mode", $("fcModeSel").value); refreshFlashcards(); });
+  $("fcUseRv").addEventListener("change", () => { fcSetPref("useReviewer", $("fcUseRv").checked); refreshFlashcards(); });
+  $("fcUseDecks").addEventListener("change", () => { fcSetPref("useDecks", $("fcUseDecks").checked); refreshFlashcards(); });
+}
+
+function fcRenderGroups() {
+  const box = $("fcPaneGroups"), p = fcPrefs();
+  const subjects = fcAllSubjects(), map = fcGroupMap(subjects, p.groupN);
+  const pool = fcAttachGroups(fcReviewerPool().concat(fcDeckPool()));
+  const cnt = {}; pool.forEach(c => cnt[c.subject] = (cnt[c.subject] || 0) + 1);
+  const groups = new Map();
+  subjects.forEach(s => { const g = map.get(s); if (!groups.has(g)) groups.set(g, []); groups.get(g).push(s); });
+  const rows = Array.from(groups.entries()).map(([g, subs]) => ({ g, subs, n: subs.reduce((a, s) => a + (cnt[s] || 0), 0) })).sort((a, b) => (b.n - a.n) || (b.subs.length - a.subs.length) || a.g.localeCompare(b.g));
+  box.innerHTML = `<div class="card"><h3>Topic groups</h3>
+      <p class="hint" style="margin-bottom:8px;">Subjects whose names start with the same characters are treated as one topic family (for example <i>ESAS - Thermodynamics</i> and <i>ESAS - Fluids</i>). Interleaving then alternates between subjects in a family, which is where mixing similar material helps the most, and rotates between families.</p>
+      <div class="row wrap" style="gap:10px;"><label>Group by <select id="fcGroupMode"><option value="0"${p.groupN === 0 ? " selected" : ""}>Auto-detect the shared start</option><option value="n"${p.groupN > 0 ? " selected" : ""}>First N characters</option></select></label>
+      <label id="fcGroupNWrap" style="${p.groupN > 0 ? "" : "display:none;"}">N <input type="number" id="fcGroupN" min="1" max="20" value="${p.groupN || 4}" style="width:64px;"></label></div></div>
+    <div class="card"><h3>Detected groups <span class="count">(${rows.length})</span></h3>${rows.map(r => `<div class="list-item" style="border-left:4px solid ${fcGroupColor(r.g)};"><div class="top-row"><span class="name">${esc(r.g)}</span><span class="meta">${r.subs.length} subject${r.subs.length === 1 ? "" : "s"} &middot; ${r.n} card${r.n === 1 ? "" : "s"}</span></div><div class="meta" style="margin-top:4px;">${r.subs.slice().sort().map(esc).join(" &middot; ")}</div></div>`).join("") || `<div class="empty-state">No subjects yet.</div>`}</div>`;
+  const apply = () => { const m = $("fcGroupMode").value; fcSetPref("groupN", m === "n" ? Math.max(1, parseInt($("fcGroupN").value, 10) || 4) : 0); refreshFlashcards(); };
+  $("fcGroupMode").addEventListener("change", apply);
+  $("fcGroupN").addEventListener("change", apply);
+}
+
+/* ---------- Decks ---------- */
+function fcMutateDeck(id, fn) { const decks = fcLoadDecks(), d = decks.find(x => x.id === id); if (!d) return; fn(d); d.updated_at = nowIso(); fcSaveDecks(decks); }
+function fcCardObj(front, back, topic) { return { id: fcCid(), front: front, back: back, topic: (topic || "").trim(), created: nowIso() }; }
+function fcDeckDue(d) { const srs = fcLoadSrs(), t = fcToday(); return (d.cards || []).filter(c => { const s = srs[`dk::${d.id}::${c.id}`]; return !s || s.due <= t; }).length; }
+function fcRenderDecks() {
+  const box = $("fcPaneDecks"), decks = fcLoadDecks(), deck = decks.find(d => d.id === fcDeckSel);
+  if (!deck) { fcDeckSel = null; fcRenderDeckList(box, decks); } else fcRenderDeckDetail(box, deck);
+}
+function fcRenderDeckList(box, decks) {
+  box.innerHTML = `<div class="card"><h3>New deck</h3>
+      <input type="text" id="fcNdName" placeholder="Deck name (e.g. Thermodynamics formulas)" style="margin-bottom:6px;">
+      <input type="text" id="fcNdDesc" placeholder="Description (optional)" style="margin-bottom:6px;">
+      <label class="row" style="gap:6px;margin-bottom:8px;"><input type="checkbox" id="fcNdAuto" checked><span style="font-size:.82rem;">Include in the daily schedule</span></label>
+      <button class="btn primary block" id="fcNdCreate">Create deck</button></div>
+    <div class="card"><h3>Your decks <span class="count">(${decks.length})</span></h3>${decks.length ? "" : `<div class="empty-state">No decks yet. Create one above, then add cards by hand, by pasting, from your reviewer questions or from the question bank.</div>`}<div id="fcDeckList"></div></div>`;
+  const list = $("fcDeckList");
+  decks.slice().sort((a, b) => a.name.localeCompare(b.name)).forEach(d => {
+    const it = el("div", "list-item selectable");
+    it.innerHTML = `<div class="top-row"><span class="name">${esc(d.name)}</span><span class="status-pill ${d.auto ? "status-green" : "neutral"}">${d.auto ? "Auto-scheduled" : "Manual only"}</span></div><div class="meta">${(d.cards || []).length} card${(d.cards || []).length === 1 ? "" : "s"} &middot; ${fcDeckDue(d)} due or new${d.desc ? " &middot; " + esc(d.desc) : ""}</div>`;
+    it.addEventListener("click", () => { fcDeckSel = d.id; fcEditId = null; fcRenderDecks(); });
+    list.appendChild(it);
+  });
+  $("fcNdCreate").addEventListener("click", () => {
+    const name = $("fcNdName").value.trim(); if (!name) { toast("Give the deck a name first."); return; }
+    const d = { id: uid(), name, desc: $("fcNdDesc").value.trim(), auto: $("fcNdAuto").checked, cards: [], created: nowIso(), updated_at: nowIso() };
+    const all = fcLoadDecks(); all.push(d); fcSaveDecks(all); fcDeckSel = d.id; fcRenderDecks();
+  });
+}
+function fcRenderDeckDetail(box, deck) {
+  const srs = fcLoadSrs(), today = fcToday(), edit = (deck.cards || []).find(c => c.id === fcEditId) || null;
+  const lists = getAllLists(), bankNames = Object.keys(lists).sort();
+  const dueLabel = (c) => { const s = srs[`dk::${deck.id}::${c.id}`]; return !s ? "new" : s.due <= today ? "due" : "due " + formatDateNice(s.due); };
+  box.innerHTML = `<div class="card"><button class="btn link" id="fcBack">&larr; All decks</button>
+      <input type="text" id="fcDName" value="${esc(deck.name)}" style="margin:8px 0 6px;"><input type="text" id="fcDDesc" value="${esc(deck.desc || "")}" placeholder="Description (optional)" style="margin-bottom:6px;">
+      <label class="row" style="gap:6px;margin-bottom:8px;"><input type="checkbox" id="fcDAuto" ${deck.auto ? "checked" : ""}><span style="font-size:.82rem;">Include in the daily schedule</span></label>
+      <div class="row wrap" style="gap:6px;"><button class="btn" id="fcDSave">Save details</button>
+      <button class="btn primary" id="fcDStudy">Study due &amp; new</button><button class="btn" id="fcDCram">Study all (cram)</button><button class="btn danger" id="fcDDelete">Delete deck</button></div>
+      <p class="hint" style="margin-top:6px;">${(deck.cards || []).length} cards. Give cards a topic (a subject name) and they are interleaved with the other topics in this deck and grouped by the same starting characters as your subjects.</p></div>
+    <div class="card"><h3>${edit ? "Edit card" : "Add cards"}</h3>
+      <details ${edit ? "open" : "open"}><summary style="cursor:pointer;font-weight:600;font-size:.84rem;">${edit ? "Editing" : "Write a card"}</summary>
+        <textarea id="fcCFront" rows="3" placeholder="Front (question / prompt)" style="margin:8px 0 6px;">${esc(edit ? edit.front : "")}</textarea>
+        <textarea id="fcCBack" rows="3" placeholder="Back (answer)" style="margin-bottom:6px;">${esc(edit ? edit.back : "")}</textarea>
+        <input type="text" id="fcCTopic" list="fcTopicList" placeholder="Topic / subject (optional)" value="${esc(edit ? edit.topic : "")}" style="margin-bottom:6px;"><datalist id="fcTopicList">${bankNames.map(n => `<option value="${esc(n)}">`).join("")}</datalist>
+        <div class="row wrap"><button class="btn primary" id="fcCSave">${edit ? "Save changes" : "Add card"}</button>${edit ? `<button class="btn" id="fcCCancel">Cancel</button>` : ""}</div></details>
+      <details style="margin-top:10px;"><summary style="cursor:pointer;font-weight:600;font-size:.84rem;">Paste many cards</summary>
+        <p class="hint" style="margin:6px 0;">One card per line: <code>front | back | topic</code> (topic optional; a tab also works as the separator).</p>
+        <textarea id="fcBulk" rows="5" placeholder="What is Reynolds number? | Ratio of inertial to viscous forces | Fluids"></textarea><button class="btn" id="fcBulkAdd" style="margin-top:6px;">Add pasted cards</button></details>
+      <details style="margin-top:10px;"><summary style="cursor:pointer;font-weight:600;font-size:.84rem;">Add from my reviewer questions</summary>
+        <div class="row wrap" style="gap:12px;margin:8px 0;">${["overconf", "guess", "slight", "flagged"].map(t => `<label class="row" style="flex:none;gap:5px;font-size:.8rem;"><input type="checkbox" data-fcrv="${t}" ${t === "flagged" ? "" : "checked"}><span>${esc(FC_TAG_NAMES[t] || "Flagged")}</span></label>`).join("")}</div>
+        <button class="btn" id="fcRvAdd">Add them as cards</button><p class="hint" style="margin-top:4px;">Follows the exam focus. Copies the question and the correct answer; questions already in this deck are skipped.</p></details>
+      <details style="margin-top:10px;"><summary style="cursor:pointer;font-weight:600;font-size:.84rem;">Add from the question bank</summary>
+        <select id="fcBkSubj" style="margin:8px 0 6px;">${bankNames.map(n => `<option value="${esc(n)}">${esc(n)} (${lists[n].length})</option>`).join("")}</select>
+        <div class="row wrap" style="gap:8px;"><label>How many <input type="number" id="fcBkN" min="1" value="10" style="width:70px;"></label><select id="fcBkMode"><option value="random">Random</option><option value="missed">Ones I've missed</option></select><button class="btn" id="fcBkAdd">Add</button></div></details></div>
+    <div class="card"><h3>Cards <span class="count">(${(deck.cards || []).length})</span></h3><input type="text" id="fcCardFilter" placeholder="Search cards&hellip;" style="margin-bottom:8px;"><div id="fcCardList"></div></div>`;
+  const goList = () => { fcEditId = null; fcRenderDecks(); };
+  $("fcBack").addEventListener("click", () => { fcDeckSel = null; fcEditId = null; fcRenderDecks(); });
+  $("fcDSave").addEventListener("click", () => { const nm = $("fcDName").value.trim(); if (!nm) { toast("Deck needs a name."); return; } fcMutateDeck(deck.id, d => { d.name = nm; d.desc = $("fcDDesc").value.trim(); d.auto = $("fcDAuto").checked; }); toast("Deck saved."); fcRenderDecks(); });
+  $("fcDStudy").addEventListener("click", () => fcStart(fcBuildQueue({ onlyDeckId: deck.id }).cards));
+  $("fcDCram").addEventListener("click", () => fcStart(fcBuildQueue({ onlyDeckId: deck.id, cram: true }).cards));
+  $("fcDDelete").addEventListener("click", () => {
+    if (!confirmDialog(`Delete the deck "${deck.name}" and its ${(deck.cards || []).length} cards? This cannot be undone.`)) return;
+    const all = fcLoadDecks().filter(d => d.id !== deck.id); fcSaveDecks(all); addTombstone("flash_decks", deck.id);
+    const s = fcLoadSrs(); Object.keys(s).forEach(k => { if (k.startsWith(`dk::${deck.id}::`)) delete s[k]; }); fcSaveSrs(s);
+    goList(); fcDeckSel = null; fcRenderDecks();
+  });
+  $("fcCSave").addEventListener("click", () => {
+    const f = $("fcCFront").value.trim(), b = $("fcCBack").value.trim();
+    if (!f || !b) { toast("A card needs both a front and a back."); return; }
+    fcMutateDeck(deck.id, d => { if (edit) { const c = d.cards.find(x => x.id === edit.id); if (c) { c.front = f; c.back = b; c.topic = $("fcCTopic").value.trim(); } } else d.cards.push(fcCardObj(f, b, $("fcCTopic").value)); });
+    toast(edit ? "Card updated." : "Card added."); fcEditId = null; fcRenderDecks();
+  });
+  if (edit) $("fcCCancel").addEventListener("click", goList);
+  $("fcBulkAdd").addEventListener("click", () => {
+    const cards = $("fcBulk").value.split(/\r?\n/).map(l => l.split(/\t|\|/).map(x => x.trim())).filter(a => a[0] && a[1]).map(a => fcCardObj(a[0], a[1], a[2]));
+    if (!cards.length) { toast("Nothing to add. Use: front | back | topic"); return; }
+    fcMutateDeck(deck.id, d => d.cards.push(...cards)); toast(`Added ${cards.length} card${cards.length === 1 ? "" : "s"}.`); fcRenderDecks();
+  });
+  $("fcRvAdd").addEventListener("click", () => {
+    const tags = Array.from(box.querySelectorAll("[data-fcrv]")).filter(x => x.checked).map(x => x.dataset.fcrv);
+    const have = new Set((deck.cards || []).map(c => c.front));
+    const cards = buildReviewerGroups(scopedReviewerAttempts()).filter(g => tags.includes(g.primary) || (g.flagged && tags.includes("flagged"))).map(g => {
+      const l = g.attempts[0], mine = g.attempts.slice(0, 3).map(a => `"${a.your_answer || "(none)"}" (${a.is_correct ? "right" : "wrong"}, ${a.confidence || "no confidence"})`).join("; ");
+      return fcCardObj(l.question || "", `${l.correct_answer || "(unknown)"}\n\nMy answers: ${mine}`, g.source_list);
+    }).filter(c => c.front && !have.has(c.front));
+    if (!cards.length) { toast("No new questions to add for those tags."); return; }
+    fcMutateDeck(deck.id, d => d.cards.push(...cards)); toast(`Added ${cards.length} card${cards.length === 1 ? "" : "s"}.`); fcRenderDecks();
+  });
+  $("fcBkAdd").addEventListener("click", () => {
+    const subj = $("fcBkSubj").value, n = Math.max(1, parseInt($("fcBkN").value, 10) || 10), have = new Set((deck.cards || []).map(c => c.front));
+    let qs = lists[subj] || [];
+    if ($("fcBkMode").value === "missed") {
+      const refs = new Set();
+      for (const d of loadJson(KEYS.details, [])) for (const it of (d.items || [])) if (it.source_list === subj && it.is_answered && !it.is_correct) { const r = refNumOf(it); if (r !== null) refs.add(r); }
+      qs = Array.from(refs).map(r => qs[r - 1]).filter(Boolean);
+    }
+    const pick = shuffle(qs.slice()).filter(q => q && q.text && !have.has(q.text)).slice(0, n);
+    if (!pick.length) { toast("No matching questions to add."); return; }
+    const cards = pick.map(q => { const ok = Number.isInteger(q.correct) && q.options ? q.options[q.correct] : ""; return fcCardObj(q.text, ok ? `${String.fromCharCode(65 + q.correct)}. ${ok}` : "(no answer recorded)", subj); });
+    fcMutateDeck(deck.id, d => d.cards.push(...cards)); toast(`Added ${cards.length} card${cards.length === 1 ? "" : "s"}.`); fcRenderDecks();
+  });
+  const paint = () => {
+    const f = $("fcCardFilter").value.trim().toLowerCase(), list = $("fcCardList"); list.innerHTML = "";
+    const cards = (deck.cards || []).filter(c => !f || (c.front + " " + c.back + " " + c.topic).toLowerCase().includes(f));
+    if (!cards.length) { list.appendChild(el("div", "empty-state", (deck.cards || []).length ? "No cards match." : "No cards yet.")); return; }
+    cards.slice(0, 200).forEach(c => {
+      const it = el("div", "list-item");
+      it.innerHTML = `<div class="top-row"><span class="name" style="font-size:.84rem;">${esc(c.front.length > 90 ? c.front.slice(0, 90) + "\u2026" : c.front)}</span><span class="meta">${esc(dueLabel(c))}</span></div><div class="meta">${esc(c.back.length > 80 ? c.back.slice(0, 80) + "\u2026" : c.back)}${c.topic ? " &middot; " + esc(c.topic) : ""}</div><div class="row" style="margin-top:6px;gap:6px;"><button class="btn" data-e="1">Edit</button><button class="btn danger" data-d="1">Delete</button></div>`;
+      it.querySelector("[data-e]").addEventListener("click", () => { fcEditId = c.id; fcRenderDecks(); window.scrollTo({ top: 0, behavior: "smooth" }); });
+      it.querySelector("[data-d]").addEventListener("click", () => {
+        if (!confirmDialog("Delete this card?")) return;
+        fcMutateDeck(deck.id, d => { d.cards = d.cards.filter(x => x.id !== c.id); });
+        const s = fcLoadSrs(); delete s[`dk::${deck.id}::${c.id}`]; fcSaveSrs(s); fcRenderDecks();
+      });
+      list.appendChild(it);
+    });
+    if (cards.length > 200) list.appendChild(el("div", "hint", `Showing 200 of ${cards.length}. Search to narrow.`));
+  };
+  $("fcCardFilter").addEventListener("input", paint); paint();
+}
 
 /* =====================================================================
    Boot
