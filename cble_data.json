@@ -83771,6 +83771,26 @@
         }
       ],
       "updated_at": "2026-10-15T06:12:50"
+    },
+    {
+      "id": "1792044983938279",
+      "source_list": "D1_L7_Biochemistry",
+      "reference_no": 41,
+      "question": "Initiation of eukaryotic translation begins when the",
+      "category": "Conceptual Misunderstanding",
+      "note": "It starts holding the initiator RNA them binds 5' to 3'",
+      "resolved": false,
+      "date_logged": "2026-10-15T06:16:23",
+      "occurrences": [
+        {
+          "exam_id": "1790666420761332",
+          "exam_source": "D1_S6",
+          "date": "2026-10-15T06:16:23",
+          "your_answer": "C. ribosome binds to the start codon and an initiator tRNA enters the ribosome.",
+          "correct_answer": "B. ribosomal small subunit holding an initiator tRNA binds to the 5u2019 end of mRNA."
+        }
+      ],
+      "updated_at": "2026-10-15T06:16:23"
     }
   ],
   "guess_notes": [
@@ -84255,5 +84275,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-15T06:12:59"
+  "updated_at": "2026-10-15T06:16:37"
 }
