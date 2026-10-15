@@ -83651,6 +83651,46 @@
         }
       ],
       "updated_at": "2026-10-15T05:56:39"
+    },
+    {
+      "id": "1792044014682819",
+      "source_list": "D1_L4_Organic_Chemistry",
+      "reference_no": 102,
+      "question": "Which of the following is aromatic? Structures: a = an open-chain conjugated triene (hexa-1,3,5-triene); b = a six-membered ring with two C=C bonds and a carbanion (lone pair, negative charge) on a ring carbon (cyclohexadienyl anion); c = a three-membered ring containing one C=C and a positively charged carbon (cyclopropenyl cation); d = a five-membered ring with two C=C bonds and a positively charged carbon (cyclopentadienyl cation); e = a four-membered ring with two C=C bonds (cyclobutadiene).",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Aromatic conditions must be cyclic, planar, fully conjugated and obeys huckels rule",
+      "resolved": false,
+      "date_logged": "2026-10-15T06:00:14",
+      "occurrences": [
+        {
+          "exam_id": "1790666420761332",
+          "exam_source": "D1_S6",
+          "date": "2026-10-15T06:00:14",
+          "your_answer": "E. cyclobutadiene",
+          "correct_answer": "C. cyclopropenyl cation"
+        }
+      ],
+      "updated_at": "2026-10-15T06:00:14"
+    },
+    {
+      "id": "1792044138642144",
+      "source_list": "D1_L3_Analytical_Chemistry",
+      "reference_no": 22,
+      "question": "Given that K_sp for AgCl is 1.8x10⁻¹⁰, what is the molar solubility of AgCl in pure water?",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Molar solubility is just the unit that same in Ksp equation Ksp = [Ag][Cl] thus s = √Ksp",
+      "resolved": false,
+      "date_logged": "2026-10-15T06:02:18",
+      "occurrences": [
+        {
+          "exam_id": "1790666420761332",
+          "exam_source": "D1_S6",
+          "date": "2026-10-15T06:02:18",
+          "your_answer": "D. 1.8x10⁻¹⁰ M",
+          "correct_answer": "A. 1.3x10⁻⁵ M"
+        }
+      ],
+      "updated_at": "2026-10-15T06:02:18"
     }
   ],
   "guess_notes": [
@@ -84135,5 +84175,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-15T05:57:01"
+  "updated_at": "2026-10-15T06:02:38"
 }
