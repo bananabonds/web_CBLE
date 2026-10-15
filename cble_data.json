@@ -84124,7 +84124,15 @@
       ]
     }
   ],
-  "prompt_sets": [],
+  "prompt_sets": [
+    {
+      "id": "1792076468709535",
+      "kind": "analysis",
+      "name": "Data Only",
+      "text": "\n{data}",
+      "updated_at": "2026-10-15T15:01:08"
+    }
+  ],
   "flash_decks": [],
   "flash_srs": {
     "rv::D1_L2_Environmental_EngSci::100": {
@@ -84346,5 +84354,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-15T15:00:21"
+  "updated_at": "2026-10-15T15:01:16"
 }
