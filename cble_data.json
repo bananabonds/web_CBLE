@@ -83691,6 +83691,26 @@
         }
       ],
       "updated_at": "2026-10-15T06:02:18"
+    },
+    {
+      "id": "1792044500777360",
+      "source_list": "D1_L3_Analytical_Chemistry",
+      "reference_no": 43,
+      "question": "A mixture of pure LiCl (42.394) and BaI₂ (391.136) weighing 0.6 g is treated with 45.15 mL of 0.2 M AgNO₃ solution, and the excess silver is then titrated with 25 mL of KSCN at 0.1 M with ferric alum as an indicator. Find the percentage of iodine (126.904) in the mixture.",
+      "category": "Formula / Equation Error",
+      "note": "Get mols Ag get excess Ag get reacted Ag. let x be licl and y be bai2 hence x + y = 0.6 Then x/MW LiCl + y/MW BaI2 = reacted Ag substitute x as y. Solve for y then find percent I",
+      "resolved": false,
+      "date_logged": "2026-10-15T06:08:20",
+      "occurrences": [
+        {
+          "exam_id": "1790666420761332",
+          "exam_source": "D1_S6",
+          "date": "2026-10-15T06:08:20",
+          "your_answer": "B. 23.5%",
+          "correct_answer": "D. 44.6%"
+        }
+      ],
+      "updated_at": "2026-10-15T06:08:20"
     }
   ],
   "guess_notes": [
@@ -84175,5 +84195,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-15T06:02:38"
+  "updated_at": "2026-10-15T06:08:32"
 }
