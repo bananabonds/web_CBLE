@@ -83811,6 +83811,26 @@
         }
       ],
       "updated_at": "2026-10-15T06:24:59"
+    },
+    {
+      "id": "1792045767990435",
+      "source_list": "D1_L6_Physical_Chemistry",
+      "reference_no": 62,
+      "question": "A constant current was passed through a solution of CuSO4 for 1 hr and 0.04 g of copper was deposited. What is the current?",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "m = I * t * M / z * F is faradays first law substitute the values then solve for I. Where z is charge",
+      "resolved": false,
+      "date_logged": "2026-10-15T06:29:27",
+      "occurrences": [
+        {
+          "exam_id": "1790666420761332",
+          "exam_source": "D1_S6",
+          "date": "2026-10-15T06:29:27",
+          "your_answer": "C. 8.44 mA",
+          "correct_answer": "A. 33.74 mA"
+        }
+      ],
+      "updated_at": "2026-10-15T06:29:27"
     }
   ],
   "guess_notes": [
@@ -84295,5 +84315,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-15T06:25:09"
+  "updated_at": "2026-10-15T06:30:25"
 }
