@@ -83571,6 +83571,46 @@
         }
       ],
       "updated_at": "2026-10-15T05:48:43"
+    },
+    {
+      "id": "1792043491601471",
+      "source_list": "D1_L4_Organic_Chemistry",
+      "reference_no": 93,
+      "question": "Which of the following compounds is not named correctly? A = a cyclopentane ring bearing a COOH group and, on the ring carbon 1,3 to it, two CH₃ groups, named \"3,3-dimethylcyclopentanecarboxylic acid\". B = a benzene ring bearing an ethyl ester group (–C(=O)OC₂H₅) and a Br meta to it, named \"ethyl meta-bromobenzoate\". C = (CH₃)₂C=CH–CH₂–C(=O)NH₂ (an amide with a C=C bearing two CH₃ groups at the far end of the chain), named \"2-methyl-2-pentenamide\". D = a chain carrying three COOH groups (at the left end, at a middle carbon, and at the right end), named \"1,2,4-pentanetricarboxylic acid\".",
+      "category": "Conceptual Misunderstanding",
+      "note": "Amide > alkene and the carbon count starts at the amide carbon",
+      "resolved": false,
+      "date_logged": "2026-10-15T05:51:31",
+      "occurrences": [
+        {
+          "exam_id": "1790666420761332",
+          "exam_source": "D1_S6",
+          "date": "2026-10-15T05:51:31",
+          "your_answer": "A. 3,3-dimethylcyclopentanecarboxylic acid",
+          "correct_answer": "C. 2-methyl-2-pentenamide"
+        }
+      ],
+      "updated_at": "2026-10-15T05:51:31"
+    },
+    {
+      "id": "1792043599397442",
+      "source_list": "D1_L4_Organic_Chemistry",
+      "reference_no": 91,
+      "question": "What is the carboxylic acid derivative given by CH₃CONHCH₂CH₃?",
+      "category": "Conceptual Misunderstanding",
+      "note": "Ethyl acetamide is incomplete since it doesn't address where the nitrogen in connected",
+      "resolved": false,
+      "date_logged": "2026-10-15T05:53:19",
+      "occurrences": [
+        {
+          "exam_id": "1790666420761332",
+          "exam_source": "D1_S6",
+          "date": "2026-10-15T05:53:19",
+          "your_answer": "A. ethyl acetamide",
+          "correct_answer": "B. N-ethylethanamide"
+        }
+      ],
+      "updated_at": "2026-10-15T05:53:19"
     }
   ],
   "guess_notes": [
@@ -84055,5 +84095,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-15T05:48:55"
+  "updated_at": "2026-10-15T05:53:41"
 }
