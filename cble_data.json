@@ -83611,6 +83611,26 @@
         }
       ],
       "updated_at": "2026-10-15T05:53:19"
+    },
+    {
+      "id": "1792043666209380",
+      "source_list": "D1_L5_Material_Science_Engineering",
+      "reference_no": 18,
+      "question": "Which crystal system has the lowest symmetry?",
+      "category": "Conceptual Misunderstanding",
+      "note": "Monoclinic has no equal sides but all 90 deg angles while triclinic has no equal sides nor angles",
+      "resolved": false,
+      "date_logged": "2026-10-15T05:54:26",
+      "occurrences": [
+        {
+          "exam_id": "1790666420761332",
+          "exam_source": "D1_S6",
+          "date": "2026-10-15T05:54:26",
+          "your_answer": "C. Monoclinic",
+          "correct_answer": "B. Triclinic"
+        }
+      ],
+      "updated_at": "2026-10-15T05:54:26"
     }
   ],
   "guess_notes": [
@@ -84095,5 +84115,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-15T05:53:41"
+  "updated_at": "2026-10-15T05:54:45"
 }
