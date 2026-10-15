@@ -83891,6 +83891,26 @@
         }
       ],
       "updated_at": "2026-10-15T15:24:50"
+    },
+    {
+      "id": "1792078523377178",
+      "source_list": "D3_L15_Engineering_Mechanics",
+      "reference_no": 45,
+      "question": "A motorcycle moving at 5 m/s accelerates uniformly at 3 m/s² for 4 s. Find the total distance traveled.",
+      "category": "Formula / Equation Error",
+      "note": "memorize kinematic equations where distance is s = ut + 0.5at^2, where u is velocity",
+      "resolved": false,
+      "date_logged": "2026-10-15T15:35:23",
+      "occurrences": [
+        {
+          "exam_id": "1790149661027511",
+          "exam_source": "D3_S2",
+          "date": "2026-10-15T15:35:23",
+          "your_answer": "D. 48 m",
+          "correct_answer": "C. 44 m"
+        }
+      ],
+      "updated_at": "2026-10-15T15:35:23"
     }
   ],
   "guess_notes": [
@@ -84394,5 +84414,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-15T15:35:09"
+  "updated_at": "2026-10-15T15:35:30"
 }
