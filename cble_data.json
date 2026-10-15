@@ -83551,6 +83551,26 @@
         }
       ],
       "updated_at": "2026-10-15T05:38:53"
+    },
+    {
+      "id": "1792043323476818",
+      "source_list": "D1_L4_Organic_Chemistry",
+      "reference_no": 58,
+      "question": "What is the elimination reaction mechanism of the following reaction? CH₃CH₂O⁻ + (CH₃)₃CBr → ? (ethoxide ion reacting with tert-butyl bromide)",
+      "category": "Conceptual Misunderstanding",
+      "note": "Despite tertiary carbonation E1 is not possible since the nucleophile is too strong. It's unhindered too meaning it forms the zaitsev product",
+      "resolved": false,
+      "date_logged": "2026-10-15T05:48:43",
+      "occurrences": [
+        {
+          "exam_id": "1790666420761332",
+          "exam_source": "D1_S6",
+          "date": "2026-10-15T05:48:43",
+          "your_answer": "B. E1",
+          "correct_answer": "A. E2"
+        }
+      ],
+      "updated_at": "2026-10-15T05:48:43"
     }
   ],
   "guess_notes": [
@@ -84035,5 +84055,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-15T05:47:26"
+  "updated_at": "2026-10-15T05:48:55"
 }
