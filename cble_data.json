@@ -83451,6 +83451,106 @@
         }
       ],
       "updated_at": "2026-10-10T17:21:31"
+    },
+    {
+      "id": "1792041635499125",
+      "source_list": "D1_L7_Biochemistry",
+      "reference_no": 87,
+      "question": "Which of the following binds to an enzyme at its active site?",
+      "category": "Conceptual Misunderstanding",
+      "note": "Not only reversible inhibitors bind to the active sites. They can also be irreversible inhibitors and other molecules",
+      "resolved": false,
+      "date_logged": "2026-10-15T05:20:35",
+      "occurrences": [
+        {
+          "exam_id": "1790666420761332",
+          "exam_source": "D1_S6",
+          "date": "2026-10-15T05:20:35",
+          "your_answer": "B. reversible competitive inhibitor",
+          "correct_answer": "D. more than one correct response"
+        }
+      ],
+      "updated_at": "2026-10-15T05:20:35"
+    },
+    {
+      "id": "1792041767059876",
+      "source_list": "D1_L7_Biochemistry",
+      "reference_no": 71,
+      "question": "Which of the following could be a component of a conjugated enzyme?",
+      "category": "Conceptual Misunderstanding",
+      "note": "Conjugated enzyme is a holoenzyme which consists of apoenzyme, coenzyme, cofactor",
+      "resolved": false,
+      "date_logged": "2026-10-15T05:22:47",
+      "occurrences": [
+        {
+          "exam_id": "1790666420761332",
+          "exam_source": "D1_S6",
+          "date": "2026-10-15T05:22:47",
+          "your_answer": "A. coenzyme",
+          "correct_answer": "D. more than one correct response"
+        }
+      ],
+      "updated_at": "2026-10-15T05:22:47"
+    },
+    {
+      "id": "1792042224875123",
+      "source_list": "D1_L6_Physical_Chemistry",
+      "reference_no": 36,
+      "question": "(Situation: N2O4 gas is 18.46% dissociated to NO2 at 298.15 K and 1 bar in equilibrium.) Calculate KP at the normal boiling point of water, assuming u0394H = 57.2 kJ/mol over that range.",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Let a be percent dissociation  thus [N2O4]= 1-a/1+a, [NO2]=2a/1+a equating via equilibrium constant Kp = [NO2]^2/[N2O4]. Use vant hoff factor equation ln(Kp2/Kp1)=∆H/R * (1/T1 - 1/T2)\nThen solve for Kp2 algebraically.",
+      "resolved": false,
+      "date_logged": "2026-10-15T05:31:40",
+      "occurrences": [
+        {
+          "exam_id": "1790666420761332",
+          "exam_source": "D1_S6",
+          "date": "2026-10-15T05:30:24",
+          "your_answer": "C. 57.9 atm",
+          "correct_answer": "A. 14.4 atm"
+        }
+      ],
+      "updated_at": "2026-10-15T05:31:40"
+    },
+    {
+      "id": "1792042385164402",
+      "source_list": "D1_L5_Material_Science_Engineering",
+      "reference_no": 55,
+      "question": "Which metal is most commonly used as a matrix in metal matrix composites?",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Aluminum is lightweight and corrosion resistant thus has large volume of MMCs",
+      "resolved": false,
+      "date_logged": "2026-10-15T05:33:05",
+      "occurrences": [
+        {
+          "exam_id": "1790666420761332",
+          "exam_source": "D1_S6",
+          "date": "2026-10-15T05:33:05",
+          "your_answer": "A. copper",
+          "correct_answer": "B. aluminum"
+        }
+      ],
+      "updated_at": "2026-10-15T05:33:05"
+    },
+    {
+      "id": "1792042733793660",
+      "source_list": "D1_L3_Analytical_Chemistry",
+      "reference_no": 7,
+      "question": "If one gallon of blood was added in three gallons of water, and one ounce of that dilution was added to 9 ounces of water, what is the final dilution when 7 mL of that dilution was added to 563 mL of water?",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Calculate dilution ratios the find their product. Total dilution = 1/(1+3) * 1/(1+9) * 7/(7+563)",
+      "resolved": false,
+      "date_logged": "2026-10-15T05:38:53",
+      "occurrences": [
+        {
+          "exam_id": "1790666420761332",
+          "exam_source": "D1_S6",
+          "date": "2026-10-15T05:38:53",
+          "your_answer": "B. 2.24x10⁻⁴",
+          "correct_answer": "D. 3.07x10⁻⁴"
+        }
+      ],
+      "updated_at": "2026-10-15T05:38:53"
     }
   ],
   "guess_notes": [
@@ -83670,19 +83770,8 @@
         "[Repo] TOS8_Section4",
         "[Repo] TOS8_Section5",
         "[Repo] TOS8_Section6",
-        "[Repo] TOS10_Section1B",
         "[Repo] TOS10_Section2B",
-        "[Repo] CT_Board_Exam_2023",
-        "[Repo] PB2024_Analytical_Calculations",
-        "[Repo] PB2024_Chemical_Safety",
-        "[Repo] PB2024_Chromatography",
-        "[Repo] PB2024_Electrochemistry",
-        "[Repo] PB2024_Lab_Operations_Instruments",
-        "[Repo] PB2024_Organic_Chemistry",
-        "[Repo] PB2024_Past_Exam_2024",
-        "[Repo] PB2024_Physical_Properties_Solutions",
-        "[Repo] PB2024_Spectroscopy",
-        "[Repo] PB2024_Separation_Distillation_Sampling"
+        "[Repo] TOS10_Section1B"
       ]
     },
     {
@@ -83946,5 +84035,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-14T20:04:06"
+  "updated_at": "2026-10-15T05:44:29"
 }
