@@ -607,6 +607,8 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
 
       <div class="card" id="homeActivityCard" data-nav="Activity Overview">
         <h3>Activity Overview</h3>
+        <select class="examScopeSelect" id="homeAssessScope" style="margin-bottom:6px;"></select>
+        <p class="hint" id="homeActivityScopeNote" style="margin-bottom:10px;"></p>
         <div class="act-grid">
           <div class="act-block">
             <div class="act-h">Mistakes Logged</div>
@@ -618,7 +620,6 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
           </div>
           <div class="act-block">
             <div class="act-h">Assessment Performance</div>
-            <select class="examScopeSelect" id="homeAssessScope" style="margin-bottom:8px;"></select>
             <div id="homeAssessSummary" style="margin-bottom:8px;"></div>
             <div id="homeAssessStat"></div>
             <div class="row wrap" style="margin-top:10px;">
@@ -3883,12 +3884,13 @@ $("dailyRange").addEventListener("click", (e) => {
 });
 
 function renderHomeMistakes() {
-  const mistakes = loadMistakeLog();
+  const { ex, scope } = activityScope();
+  const mistakes = scope ? loadMistakeLog().filter(m => scope.includes(m.source_list)) : loadMistakeLog();
   const box = $("homeMistakesStat");
   const dateInput = $("homeMistakesDate");
   if (!mistakes.length) {
     box.innerHTML = "";
-    box.appendChild(el("div", "empty-state", "Log a mistake to start tracking this."));
+    box.appendChild(el("div", "empty-state", scope ? "No mistakes logged for this exam's subjects yet." : "Log a mistake to start tracking this."));
     return;
   }
   const latest = latestDateFromArray(mistakes, "date_logged");
@@ -3897,19 +3899,27 @@ function renderHomeMistakes() {
   const current = mistakes.length;
   const baseline = countUpTo(mistakes, "date_logged", selected);
   const delta = current - baseline;
-  box.innerHTML = `<div class="home-bignum">${current}</div><div class="home-sub">mistakes logged in total</div>
+  box.innerHTML = `<div class="home-bignum">${current}</div><div class="home-sub">mistakes logged ${scope && ex ? "for " + esc(ex.label) : "in total"}</div>
     <div class="home-delta${delta > 0 ? " positive" : ""}">You've logged <b>${delta}</b> more mistake${delta === 1 ? "" : "s"} since ${esc(formatDateNice(selected))} <span class="hint">(${baseline} logged by then)</span></div>`;
 }
 $("homeMistakesDate").addEventListener("change", renderHomeMistakes);
 
 function renderHomeSamples() {
-  const samples = loadJson(KEYS.samples, []);
+  const { ex, scope } = activityScope();
+  const allSamples = loadJson(KEYS.samples, []);
+  const known = scope ? exKnownSubjects() : [];
+  const samples = scope ? allSamples.filter(s => categorizeSample(sampleSubjects(s, known), scope).cat !== "out") : allSamples;   // same subject recognition as the Saved Samples tab
   const box = $("homeSamplesStat");
   const dateInput = $("homeSamplesDate");
   if (!samples.length) {
     box.innerHTML = "";
-    box.appendChild(el("div", "empty-state", "Generate and save a sample to start tracking this."));
+    box.appendChild(el("div", "empty-state", scope ? "No saved samples include this exam's subjects yet." : "Generate and save a sample to start tracking this."));
     return;
+  }
+  let mixedNote = "";
+  if (scope) {
+    const mixed = samples.filter(s => categorizeSample(sampleSubjects(s, known), scope).cat === "partial").length;
+    if (mixed) mixedNote = ` <span class="hint">${samples.length - mixed} entirely from this exam, ${mixed} mixed</span>`;
   }
   const latest = latestDateFromArray(samples, "created_at");
   if (!dateInput.value) dateInput.value = latest;
@@ -3917,27 +3927,30 @@ function renderHomeSamples() {
   const current = samples.length;
   const baseline = countUpTo(samples, "created_at", selected);
   const delta = current - baseline;
-  box.innerHTML = `<div class="home-bignum">${current}</div><div class="home-sub">samples generated in total</div>
+  box.innerHTML = `<div class="home-bignum">${current}</div><div class="home-sub">samples generated ${scope && ex ? "for " + esc(ex.label) : "in total"}</div>${mixedNote}
     <div class="home-delta${delta > 0 ? " positive" : ""}">You've generated <b>${delta}</b> more sample${delta === 1 ? "" : "s"} since ${esc(formatDateNice(selected))} <span class="hint">(${baseline} by then)</span></div>`;
 }
 $("homeSamplesDate").addEventListener("change", renderHomeSamples);
 
 function renderHomeTests() {
-  const history = loadJson(KEYS.history, []);
+  const { ex, scope } = activityScope();
+  const history = scopedAssessmentHistory(scope);
   const box = $("homeTestsStat");
   const dateInput = $("homeTestsDate");
   if (!history.length) {
     box.innerHTML = "";
-    box.appendChild(el("div", "empty-state", "Take an assessment to start tracking this."));
+    box.appendChild(el("div", "empty-state", scope ? "No tests include this exam's subjects yet." : "Take an assessment to start tracking this."));
     return;
   }
+  const totalAll = loadJson(KEYS.history, []).length;
+  const tNote = scope && history.length !== totalAll ? ` <span class="hint">${history.length} of your ${totalAll} tests include this exam's subjects</span>` : "";
   const latest = latestDateFromArray(history, "date");
   if (!dateInput.value) dateInput.value = latest;
   const selected = dateInput.value || latest;
   const current = history.length;
   const baseline = countUpTo(history, "date", selected);
   const delta = current - baseline;
-  box.innerHTML = `<div class="home-bignum">${current}</div><div class="home-sub">tests taken in total</div>
+  box.innerHTML = `<div class="home-bignum">${current}</div><div class="home-sub">tests taken ${scope && ex ? "for " + esc(ex.label) : "in total"}</div>${tNote}
     <div class="home-delta${delta > 0 ? " positive" : ""}">You've taken <b>${delta}</b> more test${delta === 1 ? "" : "s"} since ${esc(formatDateNice(selected))} <span class="hint">(${baseline} by then)</span></div>`;
 }
 $("homeTestsDate").addEventListener("change", renderHomeTests);
@@ -3962,12 +3975,21 @@ function scopedAssessmentHistory(scope) {
   return out;
 }
 let lastAssessScopeKey = null;
-function renderHomeAssessments() {
+// The exam every Activity Overview block is measured against. Changing it clears the "Compare to" dates.
+function activityScope() {
   const ex = getActiveExam(), scope = getScopeSubjects();
+  const key = scope ? (ex ? ex.id : "x") : "all";
+  if (lastAssessScopeKey !== null && lastAssessScopeKey !== key) ["homeMistakesDate", "homeAssessDate", "homeSamplesDate", "homeTestsDate"].forEach(id => { $(id).value = ""; });
+  lastAssessScopeKey = key;
+  const note = $("homeActivityScopeNote");
+  if (note) note.textContent = scope && ex
+    ? `Every number below is for ${ex.label} (${scope.length} subject${scope.length === 1 ? "" : "s"}). Tests and samples count when they include its subjects, and mixed tests are scored on this exam's questions only.`
+    : "Showing everything, across all subjects. Pick an exam above to see only its activity.";
+  return { ex, scope };
+}
+function renderHomeAssessments() {
+  const { ex, scope } = activityScope();
   const history = scopedAssessmentHistory(scope);
-  const scopeKey = scope ? (ex ? ex.id : "x") : "all";
-  if (lastAssessScopeKey !== null && lastAssessScopeKey !== scopeKey) $("homeAssessDate").value = "";
-  lastAssessScopeKey = scopeKey;
   const sumBox = $("homeAssessSummary");
   if (history.length) {
     const totQ = history.reduce((a, h) => a + (h.total || 0), 0), totC = history.reduce((a, h) => a + (h.score || 0), 0);
