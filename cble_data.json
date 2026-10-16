@@ -84131,6 +84131,26 @@
         }
       ],
       "updated_at": "2026-10-16T10:17:38"
+    },
+    {
+      "id": "17921467837015",
+      "source_list": "D3_L6_AnalyticGeometry",
+      "reference_no": 26,
+      "question": "Find the center of the circle x^2 + y^2 u2013 6x + 4y u2013 23 = 0.",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Standard form of circle (x-h)^2 + (y-k)^2 = r^2. Group the terms (x^2 - 6x) + (y^2 +4y) = 23. Complete the square (x-3)^2 + (y+2)^2 = 36. Get the correct arithmetic sign where -h = -3, thus h = 3 and -k = 2 thus k = -2",
+      "resolved": false,
+      "date_logged": "2026-10-16T10:33:03",
+      "occurrences": [
+        {
+          "exam_id": "1790149661027511",
+          "exam_source": "D3_S2",
+          "date": "2026-10-16T10:33:03",
+          "your_answer": "D. (-3, -2)",
+          "correct_answer": "A. (3, -2)"
+        }
+      ],
+      "updated_at": "2026-10-16T10:33:03"
     }
   ],
   "guess_notes": [
@@ -84634,5 +84654,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-16T10:31:56"
+  "updated_at": "2026-10-16T10:33:10"
 }
