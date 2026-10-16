@@ -84091,6 +84091,26 @@
         }
       ],
       "updated_at": "2026-10-16T09:54:27"
+    },
+    {
+      "id": "1792145334063584",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 54,
+      "question": "(Torricelli's law) A cylindrical keg with radius 10cm and height 25cm has a drain hole at the bottom with an area of 2cm². How long does it take for the keg to drain?",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Ideal drain time is A * dh/dt = -a * sqrt(2gh). Solve via variable separable then account for coefficient of discharge, assumed to be 0.6 in standard sharp orifice thus t = t_ideal / 0.6",
+      "resolved": false,
+      "date_logged": "2026-10-16T10:08:54",
+      "occurrences": [
+        {
+          "exam_id": "1790149661027511",
+          "exam_source": "D3_S2",
+          "date": "2026-10-16T10:08:54",
+          "your_answer": "A. 56.1s",
+          "correct_answer": "D. 59.1s"
+        }
+      ],
+      "updated_at": "2026-10-16T10:08:54"
     }
   ],
   "guess_notes": [
@@ -84594,5 +84614,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-16T10:07:37"
+  "updated_at": "2026-10-16T10:09:01"
 }
