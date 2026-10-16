@@ -83971,6 +83971,26 @@
         }
       ],
       "updated_at": "2026-10-16T08:38:30"
+    },
+    {
+      "id": "1792140875976590",
+      "source_list": "D3_L12_EngineeringEconomics",
+      "reference_no": 80,
+      "question": "The nominal rate of return on the bonds of Steve's boat is 7.75%. The real rate of return is 4.4%. What is the rate of inflation?",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "True Fischer Equation (1+R)=(1+r)(1+h), Where R is the nominal rate and r is the rate of return and h is the rate of inflation. Fischer approximate is R = r+h it becomes less accurate as interest grows",
+      "resolved": false,
+      "date_logged": "2026-10-16T08:54:35",
+      "occurrences": [
+        {
+          "exam_id": "1790149661027511",
+          "exam_source": "D3_S2",
+          "date": "2026-10-16T08:54:35",
+          "your_answer": "A. 3.35%",
+          "correct_answer": "C. 3.21%"
+        }
+      ],
+      "updated_at": "2026-10-16T08:54:35"
     }
   ],
   "guess_notes": [
@@ -84474,5 +84494,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-16T08:54:09"
+  "updated_at": "2026-10-16T08:54:42"
 }
