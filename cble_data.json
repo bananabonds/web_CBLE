@@ -84491,6 +84491,26 @@
         }
       ],
       "updated_at": "2026-10-16T17:20:15"
+    },
+    {
+      "id": "1792171696515924",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 73,
+      "question": "Consider air at 1 atm, 35 C and 40% relative humidity: Using: psychrometric chart, determine The specific humidity",
+      "category": "Formula / Equation Error",
+      "note": "Use Grosvenor Chart",
+      "resolved": false,
+      "date_logged": "2026-10-16T17:28:16",
+      "occurrences": [
+        {
+          "exam_id": "1790316144805377",
+          "exam_source": "D2_S2",
+          "date": "2026-10-16T17:28:16",
+          "your_answer": "A. 0.025",
+          "correct_answer": "C. 0.014"
+        }
+      ],
+      "updated_at": "2026-10-16T17:28:16"
     }
   ],
   "guess_notes": [
@@ -84983,5 +85003,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-16T17:28:08"
+  "updated_at": "2026-10-16T17:28:23"
 }
