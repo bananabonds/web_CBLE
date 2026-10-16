@@ -84291,6 +84291,26 @@
         }
       ],
       "updated_at": "2026-10-16T13:22:18"
+    },
+    {
+      "id": "1792158101409372",
+      "source_list": "D2_L4_Momentum_Transfer",
+      "reference_no": 61,
+      "question": "A sharp edged orifice meter is to be fabricated to measure water flowing at a rate not exceed 1200 cfh with a differential head of 30 inHg. What orifice diameter in inches is required if D2/D1 = 1/5",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Orifice formula. Q = C_o * A_2 * (1/sqrt(1-B^4)) * sqrt(2 * g * dH). Where C_o is discharge coefficient standard = 0.6. B = diameter ratio D2/D1. Convert units. Solve for A_2. Solve for D_2",
+      "resolved": false,
+      "date_logged": "2026-10-16T13:41:41",
+      "occurrences": [
+        {
+          "exam_id": "1790316144805377",
+          "exam_source": "D2_S2",
+          "date": "2026-10-16T13:41:41",
+          "your_answer": "C. 2",
+          "correct_answer": "A. 1.5"
+        }
+      ],
+      "updated_at": "2026-10-16T13:41:41"
     }
   ],
   "guess_notes": [
@@ -84794,5 +84814,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-16T13:41:10"
+  "updated_at": "2026-10-16T13:41:57"
 }
