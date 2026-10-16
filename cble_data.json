@@ -84231,6 +84231,26 @@
         }
       ],
       "updated_at": "2026-10-16T12:33:17"
+    },
+    {
+      "id": "1792154565199520",
+      "source_list": "D3_L13_EngineeringDataAnalysis",
+      "reference_no": 52,
+      "question": "Given the PMF of a discrete random variable X: P(X=1)=0.2, P(X=2)=0.3, P(X=3)=0.5, and 0 otherwise. What is the mean (μ) of the random variable X?",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "The mean of the probability mass function is u = summation of (x*P(X=x)). u = (0.2*1) + (0.3*2) + (0.5*3)",
+      "resolved": false,
+      "date_logged": "2026-10-16T12:42:45",
+      "occurrences": [
+        {
+          "exam_id": "1790149661027511",
+          "exam_source": "D3_S2",
+          "date": "2026-10-16T12:42:45",
+          "your_answer": "C. 2.2",
+          "correct_answer": "A. 2.3"
+        }
+      ],
+      "updated_at": "2026-10-16T12:42:45"
     }
   ],
   "guess_notes": [
@@ -84734,5 +84754,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-16T12:41:40"
+  "updated_at": "2026-10-16T12:43:00"
 }
