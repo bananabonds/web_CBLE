@@ -898,6 +898,48 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         </div>
         <div id="progressionChart"></div>
       </div>
+      <div class="card" id="pfCard" data-nav="Score Forecast">
+        <h3>Score Forecast (probability of each possible score)</h3>
+        <p class="hint" style="margin-bottom:8px;">Each subject's true chance of getting a fresh question right is estimated from your first-seen answers (older results fade). That gives a probability for every possible number-correct on the real exam (a PMF), summed across subjects. The shaded chart below projects it forward to exam day. Everything here is a model with adjustable assumptions &mdash; open <b>Settings &amp; assumptions</b> to change them.</p>
+        <div id="pfSummary"></div>
+        <div class="field-label" style="margin:12px 0 4px;">Score probability by day (darker = more likely)</div>
+        <div id="pfContour" class="chart-wrap"></div>
+        <div id="pfLegend" class="chart-legend"></div>
+        <div style="margin:12px 0 4px;">
+          <div class="field-label" id="pfSliceLabel" style="margin-bottom:4px;"></div>
+          <input type="range" id="pfSlice" min="0" max="0" value="0" step="1">
+        </div>
+        <div id="pfSliceStats" class="hint" style="margin:4px 0 6px;"></div>
+        <div id="pfPmf" class="chart-wrap"></div>
+        <div id="pfSubjects" style="margin-top:12px;"></div>
+        <p class="hint" id="pfNotes" style="margin-top:8px;"></p>
+        <details id="pfSettings" style="margin-top:10px;">
+          <summary style="font-weight:700;font-size:.85rem;cursor:pointer;color:var(--navy);">Settings &amp; assumptions</summary>
+          <p class="hint" style="margin:8px 0;">Defaults are placeholders, not official rules. Change them to match your exam; they are saved on this device.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <label class="field-label">Pass: average score (%)<input type="number" data-pf="pass" min="1" max="100" step="1"></label>
+            <label class="field-label">Minimum per subject (%)<input type="number" data-pf="floor" min="0" max="100" step="1"></label>
+            <label class="field-label" style="grid-column:1/-1;display:flex;gap:6px;align-items:center;"><input type="checkbox" data-pf="floorOn" style="width:auto;"><span>Must also reach the per-subject minimum to pass</span></label>
+            <label class="field-label">Questions per subject (default)<input type="number" data-pf="q" min="1" max="500" step="1"></label>
+            <label class="field-label">Days until exam<input type="number" data-pf="days" min="0" max="365" step="1" id="pfDaysIn"></label>
+            <label class="field-label">Starting belief: avg accuracy (%)<input type="number" data-pf="priorM" min="1" max="99" step="1"></label>
+            <label class="field-label">Starting belief strength (questions)<input type="number" data-pf="priorS" min="0.5" max="100" step="0.5"></label>
+            <label class="field-label">Evidence half-life (days)<input type="number" data-pf="half" min="1" max="365" step="1" id="pfHalfIn"></label>
+            <label class="field-label">Real exam vs your bank (pts, + = easier)<input type="number" data-pf="offset" min="-30" max="30" step="1"></label>
+            <label class="field-label">Improvement trend
+              <select data-pf="trend"><option value="auto">Auto (estimated from your tests)</option><option value="flat">Flat (no improvement)</option><option value="manual">Manual</option></select></label>
+            <label class="field-label">Manual trend (pts / week)<input type="number" data-pf="manual" min="-10" max="10" step="0.5"></label>
+            <label class="field-label">Prior trend, auto mode (pts / week)<input type="number" data-pf="priorTrend" min="-10" max="10" step="0.5"></label>
+            <label class="field-label">Study intensity (&times; trend)<input type="number" data-pf="intens" min="0" max="3" step="0.1"></label>
+            <label class="field-label">Accuracy ceiling (%)<input type="number" data-pf="ceil" min="50" max="100" step="1"></label>
+          </div>
+          <details style="margin-top:10px;">
+            <summary style="font-size:.82rem;cursor:pointer;color:var(--navy);">Questions per subject on the real exam (optional overrides)</summary>
+            <div id="pfQList" style="display:grid;gap:6px;margin-top:8px;"></div>
+          </details>
+          <div class="row" style="margin-top:10px;"><button class="btn danger" id="pfReset">Reset forecast settings</button></div>
+        </details>
+      </div>
       <div class="card">
         <h3>Full Analysis</h3>
         <p class="hint" style="margin-bottom:8px;">Written as a ready-to-paste prompt: context, your data, the planned session, and the questions to ask an AI coach.</p>
@@ -1483,6 +1525,7 @@ const KEYS = {
   flashDecks: "cble.flashDecks",   // custom flashcard decks (synced)
   flashSrs: "cble.flashSrs",       // spaced-repetition state per card (synced)
   flashPrefs: "cble.flashPrefs",   // schedule + interleaving settings (this device only)
+  predPrefs: "cble.predPrefs",     // Score Forecast settings: pass rule, question counts, model assumptions (this device only)
   sizePrefs: "cble.sizePrefs",     // Action Plan sample sizes + the shared question-pool choice (this device only)
 };
 
@@ -5101,6 +5144,7 @@ function refreshAnalysis() {
   renderPrioritySubjectChecks(Object.keys(overall));
   renderPriorityBars();
   renderCalibrationAndLeeches();
+  try { pfRender(); } catch (e) { console.error("Forecast render failed", e); }
   if (!ranked.length) barBox.appendChild(el("div", "empty-state", "No data yet."));
 
   const subjects = Object.keys(progression).sort();
@@ -9206,6 +9250,284 @@ function migrateMistakeLogIfNeeded() {
   });
   window.addEventListener("pagehide", flushOnHide);
 })();
+
+/* =====================================================================
+   Score Forecast
+   Model: per subject, true first-attempt accuracy p ~ Beta(a, b), updated by decayed first-seen answers.
+   Score on m fresh questions ~ Beta-Binomial(m, a, b)  (this is the PMF).
+   Exam total = convolution of the subject PMFs. Future days: the logit of p drifts at a shared, uncertain
+   learning rate g (5-point quadrature over g), so the fan widens with time and subjects move together.
+   ===================================================================== */
+const PF_DEFAULTS = { days: "", pass: 75, floor: 50, floorOn: true, q: 50, qBy: {}, priorM: 60, priorS: 6, half: "",
+  offset: 0, intens: 1, trend: "auto", manual: 1, priorTrend: 1, ceil: 97 };
+const PF_GH = { z: [-2.856970013872805, -1.355626179974266, 0, 1.355626179974266, 2.856970013872805],
+  w: [0.011257411327720, 0.222075922005613, 0.533333333333333, 0.222075922005613, 0.011257411327720] };
+const PF_NB = 50, PF_TAU = 0.02;   // score bins of 2 points; prior sd of the learning rate (logit/day, about +-3 pts/week)
+let pfCache = null, pfSliceIdx = null;
+
+function pfNum(v, d, lo, hi) { const x = parseFloat(v); return isFinite(x) ? Math.min(hi, Math.max(lo, x)) : d; }
+function pfPtsWk(x) { return x / 100 / 7 / 0.21; }          // pts/week near 70% accuracy -> logit/day
+function pfToPtsWk(g) { return g * 0.21 * 7 * 100; }
+function pfLogit(p) { return Math.log(p / (1 - p)); }
+function pfRawPrefs() { return Object.assign({}, PF_DEFAULTS, loadJson(KEYS.predPrefs, {}) || {}); }
+function pfParams() {
+  const p = pfRawPrefs(), ex = getActiveExam();
+  const dd = parseFloat(p.days), manualDays = p.days !== "" && p.days !== null && isFinite(dd);
+  let D = manualDays ? dd : (ex && ex.date && daysUntil(ex.date) >= 0 ? daysUntil(ex.date) : 30);
+  const plHalf = plannerParams().half;
+  return { D: Math.round(Math.min(365, Math.max(0, D))), dAuto: !manualDays, dFromExam: !manualDays && !!(ex && ex.date && daysUntil(ex.date) >= 0),
+    pass: pfNum(p.pass, 75, 1, 100), floor: pfNum(p.floor, 50, 0, 100), floorOn: !!p.floorOn,
+    q: Math.round(pfNum(p.q, 50, 1, 500)), qBy: p.qBy || {}, priorM: pfNum(p.priorM, 60, 1, 99) / 100, priorS: pfNum(p.priorS, 6, 0.5, 100),
+    half: pfNum(p.half, plHalf, 1, 365), halfAuto: !(p.half !== "" && isFinite(parseFloat(p.half))), offset: pfNum(p.offset, 0, -30, 30),
+    intens: pfNum(p.intens, 1, 0, 3), trend: ["auto", "flat", "manual"].includes(p.trend) ? p.trend : "auto",
+    manual: pfNum(p.manual, 1, -10, 10), priorTrend: pfNum(p.priorTrend, 1, -10, 10), ceil: pfNum(p.ceil, 97, 50, 100) / 100 };
+}
+function pfLgamma(x) {
+  const c = [76.18009172947146, -86.50532032941677, 24.01409824083091, -1.231739572450155, 0.1208650973866179e-2, -0.5395239384953e-5];
+  let y = x, t = x + 5.5; t -= (x + 0.5) * Math.log(t);
+  let s = 1.000000000190015; for (let j = 0; j < 6; j++) { y += 1; s += c[j] / y; }
+  return -t + Math.log(2.5066282746310005 * s / x);
+}
+function pfBetaBinom(m, a, b) {
+  const lb = (x, y) => pfLgamma(x) + pfLgamma(y) - pfLgamma(x + y), base = lb(a, b), lm = pfLgamma(m + 1), out = new Array(m + 1);
+  let sum = 0;
+  for (let k = 0; k <= m; k++) { out[k] = Math.exp(lm - pfLgamma(k + 1) - pfLgamma(m - k + 1) + lb(k + a, m - k + b) - base); sum += out[k]; }
+  for (let k = 0; k <= m; k++) out[k] /= sum;
+  return out;
+}
+function pfConv(A, B) {
+  const out = new Array(A.length + B.length - 1).fill(0);
+  for (let i = 0; i < A.length; i++) { const ai = A[i]; if (!ai) continue; for (let j = 0; j < B.length; j++) out[i + j] += ai * B[j]; }
+  return out;
+}
+function pfQuant(pmf, M, p) { let c = 0; for (let s = 0; s < pmf.length; s++) { c += pmf[s]; if (c >= p - 1e-12) return 100 * s / M; } return 100; }
+function pfEvidence(entries, half, now) {
+  let n = 0, k = 0, rn = 0, rk = 0;
+  for (const e of entries || []) {
+    if (!e.fs_n) continue;
+    const t = Date.parse(e.date) || now, w = Math.pow(0.5, Math.max(0, now - t) / (half * 864e5));
+    n += w * e.fs_n; k += w * e.fs_k; rn += e.fs_n; rk += e.fs_k;
+  }
+  return { n, k, rn, rk };
+}
+// Pooled learning rate: within-subject weighted regression of empirical-logit accuracy on date, then shrunk toward a prior.
+function pfTrendFor(prog, subjects, P) {
+  let Sxx = 0, Sxy = 0, pts = 0;
+  for (const s of subjects) {
+    const rows = (prog[s] || []).filter(e => e.fs_n >= 5 && Date.parse(e.date)).map(e => {
+      const a = e.fs_k + 0.5, b = e.fs_n - e.fs_k + 0.5;
+      return { t: Date.parse(e.date) / 864e5, y: Math.log(a / b), w: 1 / (1 / a + 1 / b) };
+    });
+    if (rows.length < 2) continue;
+    const W = rows.reduce((x, r) => x + r.w, 0), tb = rows.reduce((x, r) => x + r.w * r.t, 0) / W, yb = rows.reduce((x, r) => x + r.w * r.y, 0) / W;
+    for (const r of rows) { Sxx += r.w * (r.t - tb) * (r.t - tb); Sxy += r.w * (r.t - tb) * (r.y - yb); }
+    pts += rows.length;
+  }
+  const has = Sxx > 1e-9, ghat = has ? Sxy / Sxx : 0, vhat = has ? 1 / Sxx : Infinity, g0 = pfPtsWk(P.priorTrend);
+  let g, sd;
+  if (P.trend === "flat") { g = 0; sd = 0; }
+  else if (P.trend === "manual") { g = pfPtsWk(P.manual); sd = PF_TAU / 2; }
+  else {
+    const prec = (has ? 1 / vhat : 0) + 1 / (PF_TAU * PF_TAU);
+    g = ((has ? ghat / vhat : 0) + g0 / (PF_TAU * PF_TAU)) / prec; sd = 1 / Math.sqrt(prec);
+  }
+  return { g: g * P.intens, sd: sd * P.intens, ghat: has ? ghat : null, sdhat: has ? Math.sqrt(vhat) : null, pts };
+}
+function pfCompute() {
+  const P = pfParams(), scope = getScopeSubjects();
+  const { progression } = computeSubjectAnalysis(scope);
+  const subjects = scope && scope.length ? scope.slice() : Object.keys(progression).sort();
+  if (!subjects.length) return { empty: true, P };
+  const now = Date.now(), a0 = P.priorM * P.priorS, b0 = (1 - P.priorM) * P.priorS;
+  const subj = subjects.map(s => {
+    const ev = pfEvidence(progression[s], P.half, now), a = a0 + ev.k, b = b0 + (ev.n - ev.k), kap = a + b;
+    const mu0 = Math.min(0.98, Math.max(0.02, a / kap + P.offset / 100));
+    const m = Math.max(1, Math.round(+P.qBy[s] || P.q));
+    return { name: s, ev, kap, mu0, m, minK: P.floorOn ? Math.ceil(P.floor / 100 * m - 1e-9) : 0 };
+  });
+  const tr = pfTrendFor(progression, subjects, P);
+  const M = subj.reduce((x, s) => x + s.m, 0), passK = Math.ceil(P.pass / 100 * M - 1e-9);
+  const step = Math.max(1, Math.ceil(P.D / 40)), ts = [];
+  for (let t = 0; t <= P.D; t += step) ts.push(t);
+  if (ts[ts.length - 1] !== P.D) ts.push(P.D);
+  const nodes = tr.sd > 0 ? PF_GH.z.map((z, i) => ({ g: tr.g + z * tr.sd, w: PF_GH.w[i] })) : [{ g: tr.g, w: 1 }];
+  const cols = ts.map(t => {
+    const tot = new Array(M + 1).fill(0), totF = new Array(M + 1).fill(0), sp = subj.map(s => new Array(s.m + 1).fill(0));
+    for (const nd of nodes) {
+      let acc = [1], accF = [1];
+      subj.forEach((s, i) => {
+        let mu = 1 / (1 + Math.exp(-(pfLogit(s.mu0) + nd.g * t)));
+        mu = Math.max(0.01, Math.min(mu, Math.max(P.ceil, s.mu0)));
+        const pmf = pfBetaBinom(s.m, mu * s.kap, (1 - mu) * s.kap);
+        for (let k = 0; k <= s.m; k++) sp[i][k] += nd.w * pmf[k];
+        acc = pfConv(acc, pmf);
+        accF = pfConv(accF, s.minK ? pmf.map((v, k) => k >= s.minK ? v : 0) : pmf);
+      });
+      for (let s = 0; s <= M; s++) { tot[s] += nd.w * acc[s]; totF[s] += nd.w * accF[s]; }
+    }
+    const bins = new Array(PF_NB).fill(0);
+    let mean = 0, pPass = 0, pFloors = 0, pAvg = 0;
+    for (let s = 0; s <= M; s++) {
+      bins[Math.min(PF_NB - 1, Math.floor(100 * s / M / (100 / PF_NB)))] += tot[s];
+      mean += tot[s] * 100 * s / M;
+      if (s >= passK) { pPass += totF[s]; pAvg += tot[s]; }
+      pFloors += totF[s];
+    }
+    return { t, tot, sp, bins, mean, pPass, pAvg, pFloors, q05: pfQuant(tot, M, .05), q10: pfQuant(tot, M, .10), q25: pfQuant(tot, M, .25),
+      q50: pfQuant(tot, M, .50), q75: pfQuant(tot, M, .75), q90: pfQuant(tot, M, .90), q95: pfQuant(tot, M, .95) };
+  });
+  return { P, subj, tr, M, passK, ts, cols, D: P.D, now };
+}
+const PF_AX = `font-size="8" fill="#4B5563" font-family="IBM Plex Mono, monospace"`;
+function pfContourSVG(R) {
+  const W = 360, H = 250, pL = 34, pR = 8, pT = 8, pB = 34, iw = W - pL - pR, ih = H - pT - pB, D = R.D, cols = R.cols, n = cols.length;
+  if (n < 2) return `<div class="empty-state">The exam is today, so there is no time to project. The distribution for today is shown below.</div>`;
+  const lo = Math.min(...cols.map(c => c.q05), R.P.pass);
+  let y0 = Math.max(0, Math.floor((lo - 6) / 10) * 10); const y1 = 100; if (y1 - y0 < 30) y0 = y1 - 30;
+  const X = t => pL + t / D * iw, Y = v => pT + (1 - (v - y0) / (y1 - y0)) * ih;
+  let mx = 0; cols.forEach(c => c.bins.forEach(v => { if (v > mx) mx = v; }));
+  const lv = [0.04, 0.12, 0.25, 0.42, 0.62, 0.82], al = [0.10, 0.22, 0.38, 0.56, 0.76, 0.95];
+  let g = "";
+  for (let v = Math.ceil(y0 / 10) * 10; v <= 100; v += 10) g += `<line x1="${pL}" y1="${Y(v).toFixed(1)}" x2="${W - pR}" y2="${Y(v).toFixed(1)}" stroke="#E1E4E9"/><text x="${pL - 5}" y="${(Y(v) + 3).toFixed(1)}" text-anchor="end" ${PF_AX}>${v}</text>`;
+  cols.forEach((c, i) => {
+    const xl = i === 0 ? X(0) : (X(cols[i - 1].t) + X(c.t)) / 2, xr = i === n - 1 ? X(D) : (X(c.t) + X(cols[i + 1].t)) / 2;
+    c.bins.forEach((v, b) => {
+      const bl = b * (100 / PF_NB), bh = bl + 100 / PF_NB;
+      if (bh <= y0) return;
+      let L = 0; for (let k = 0; k < lv.length; k++) if (v / mx >= lv[k]) L = k + 1;
+      if (!L) return;
+      const yt = Y(Math.min(100, bh)), yb = Y(Math.max(y0, bl));
+      g += `<rect x="${xl.toFixed(1)}" y="${yt.toFixed(1)}" width="${(xr - xl + 0.6).toFixed(1)}" height="${(yb - yt + 0.4).toFixed(1)}" fill="rgb(30,58,138)" fill-opacity="${al[L - 1]}"/>`;
+    });
+  });
+  const line = (key, w, dash, col) => `<polyline fill="none" stroke="${col}" stroke-width="${w}" ${dash ? `stroke-dasharray="${dash}"` : ""} points="${cols.map(c => X(c.t).toFixed(1) + "," + Y(c[key]).toFixed(1)).join(" ")}"/>`;
+  g += line("q05", 1, "1.5 2.5", "#F59E0B") + line("q95", 1, "1.5 2.5", "#F59E0B") + line("q25", 1.2, "4 3", "#F59E0B") + line("q75", 1.2, "4 3", "#F59E0B") + line("q50", 2.2, "", "#F59E0B");
+  if (R.P.pass >= y0) g += `<line x1="${pL}" y1="${Y(R.P.pass).toFixed(1)}" x2="${W - pR}" y2="${Y(R.P.pass).toFixed(1)}" stroke="#DC2626" stroke-width="1.4" stroke-dasharray="5 3"/><text x="${W - pR - 2}" y="${(Y(R.P.pass) - 3).toFixed(1)}" text-anchor="end" font-size="8" fill="#DC2626" font-family="IBM Plex Mono, monospace">pass ${R.P.pass}%</text>`;
+  const sel = R.cols[Math.min(pfSliceIdx === null ? n - 1 : pfSliceIdx, n - 1)];
+  g += `<line x1="${X(sel.t).toFixed(1)}" y1="${pT}" x2="${X(sel.t).toFixed(1)}" y2="${pT + ih}" stroke="#111827" stroke-width="1.2"/>`;
+  const ticks = [0, D / 2, D];
+  ticks.forEach((t, i) => { g += `<text x="${X(t).toFixed(1)}" y="${H - 18}" text-anchor="${i === 0 ? "start" : i === 2 ? "end" : "middle"}" ${PF_AX}>${i === 0 ? "today" : "+" + Math.round(t) + "d"}</text>`; });
+  g += `<text x="${pL + iw / 2}" y="${H - 5}" text-anchor="middle" ${PF_AX}>days from today (tap to inspect a day)</text><text x="9" y="${pT + ih / 2}" text-anchor="middle" transform="rotate(-90 9 ${pT + ih / 2})" ${PF_AX}>predicted score %</text>`;
+  return `<svg id="pfContourSvg" viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;display:block;cursor:crosshair;" data-pl="${pL}" data-iw="${iw}" data-w="${W}" role="img" aria-label="Predicted score probability by day">${g}</svg>`;
+}
+function pfPmfSVG(R, c) {
+  const W = 360, H = 170, pL = 30, pR = 8, pT = 8, pB = 26, iw = W - pL - pR, ih = H - pT - pB, M = R.M;
+  let lo = 0, hi = M; while (lo < M && c.tot[lo] < 0.0005) lo++; while (hi > lo && c.tot[hi] < 0.0005) hi--;
+  lo = Math.max(0, lo - 1); hi = Math.min(M, hi + 1);
+  const span = hi - lo + 1, grp = Math.max(1, Math.ceil(span / 90)), bars = [];
+  for (let s = lo; s <= hi; s += grp) { let v = 0; for (let j = s; j < Math.min(hi + 1, s + grp); j++) v += c.tot[j]; bars.push({ s, v }); }
+  const mx = Math.max(...bars.map(b => b.v)) || 1, bw = iw / bars.length;
+  let g = "";
+  for (let k = 0; k <= 4; k++) { const v = mx * k / 4, y = pT + ih - ih * k / 4; g += `<line x1="${pL}" y1="${y.toFixed(1)}" x2="${W - pR}" y2="${y.toFixed(1)}" stroke="#E1E4E9"/><text x="${pL - 4}" y="${(y + 3).toFixed(1)}" text-anchor="end" ${PF_AX}>${(v * 100).toFixed(v * 100 >= 10 ? 0 : 1)}</text>`; }
+  bars.forEach((b, i) => {
+    const h = b.v / mx * ih, ok = b.s >= R.passK;
+    g += `<rect x="${(pL + i * bw + 0.3).toFixed(1)}" y="${(pT + ih - h).toFixed(1)}" width="${Math.max(0.5, bw - 0.6).toFixed(1)}" height="${h.toFixed(1)}" fill="${ok ? "#166534" : "#1E3A8A"}" fill-opacity="${ok ? 0.85 : 0.75}"><title>${b.s}${grp > 1 ? "-" + Math.min(hi, b.s + grp - 1) : ""} of ${M} correct: ${(b.v * 100).toFixed(1)}%</title></rect>`;
+  });
+  const px = pL + (R.passK - lo) / (bars.length * grp) * iw;
+  if (R.passK >= lo && R.passK <= hi + 1) g += `<line x1="${px.toFixed(1)}" y1="${pT}" x2="${px.toFixed(1)}" y2="${pT + ih}" stroke="#DC2626" stroke-width="1.4" stroke-dasharray="5 3"/>`;
+  const nt = 5;
+  for (let k = 0; k <= nt; k++) { const s = Math.round(lo + (hi - lo) * k / nt); g += `<text x="${(pL + (s - lo) / (bars.length * grp) * iw).toFixed(1)}" y="${H - 12}" text-anchor="middle" ${PF_AX}>${(100 * s / M).toFixed(0)}%</text>`; }
+  g += `<text x="${pL + iw / 2}" y="${H - 2}" text-anchor="middle" ${PF_AX}>score (of ${M} questions) &middot; bar height = probability %${grp > 1 ? " per " + grp + " scores" : ""}</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;display:block;" role="img" aria-label="Probability of each possible score">${g}</svg>`;
+}
+function pfTone(p) { return p >= 0.7 ? "var(--green)" : p >= 0.4 ? "var(--amber-ink)" : "var(--red)"; }
+function pfTile(R, c, title) {
+  const P = R.P;
+  return `<div class="list-item" style="flex:1;min-width:140px;margin-bottom:0;">
+    <div style="font-size:.7rem;color:var(--sub);">${esc(title)}</div>
+    <div style="font-size:1.35rem;font-weight:700;color:${pfTone(c.pPass)};">${(c.pPass * 100).toFixed(0)}%</div>
+    <div style="font-size:.72rem;color:var(--sub);">chance to pass</div>
+    <div style="font-size:.78rem;margin-top:4px;">median <b>${c.q50.toFixed(0)}%</b> &middot; likely ${c.q10.toFixed(0)}&ndash;${c.q90.toFixed(0)}%</div>
+    ${P.floorOn ? `<div style="font-size:.7rem;color:var(--sub);margin-top:2px;">average alone: ${(c.pAvg * 100).toFixed(0)}% &middot; all subjects &ge; ${P.floor}%: ${(c.pFloors * 100).toFixed(0)}%</div>` : ""}</div>`;
+}
+function pfRenderQList(R) {
+  const box = $("pfQList"); if (!box || box.contains(document.activeElement)) return;
+  const P = R.P;
+  box.innerHTML = R.subj.map(s => `<label class="field-label" style="display:flex;justify-content:space-between;align-items:center;gap:8px;">${esc(s.name)}<input type="number" min="1" max="500" data-pfq="${esc(s.name)}" value="${P.qBy[s.name] ? esc(P.qBy[s.name]) : ""}" placeholder="${P.q}" style="width:76px;"></label>`).join("");
+}
+function pfSyncInputs() {
+  const p = pfRawPrefs(), P = pfParams();
+  document.querySelectorAll("#pfCard [data-pf]").forEach(inp => {
+    if (document.activeElement === inp) return;
+    const k = inp.dataset.pf;
+    if (inp.type === "checkbox") inp.checked = !!p[k]; else inp.value = (p[k] === null || p[k] === undefined) ? "" : p[k];
+  });
+  const d = $("pfDaysIn"), h = $("pfHalfIn");
+  if (d) d.placeholder = P.dFromExam ? `auto: ${P.D} (exam date)` : `auto: ${P.D}`;
+  if (h) h.placeholder = `auto: ${P.half} (Planner)`;
+}
+function pfRenderSlice() {
+  const R = pfCache; if (!R || R.empty) return;
+  const n = R.cols.length, idx = Math.min(pfSliceIdx === null ? n - 1 : pfSliceIdx, n - 1), c = R.cols[idx];
+  const sl = $("pfSlice"); sl.max = String(n - 1); sl.value = String(idx); sl.disabled = n < 2;
+  const when = new Date(R.now + c.t * 864e5).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+  $("pfSliceLabel").innerHTML = c.t === 0 ? `Distribution if the exam were <b>today</b>` : `Distribution on <b>day +${c.t}</b> (${esc(when)})${c.t === R.D ? " &mdash; exam day" : ""}`;
+  $("pfSliceStats").innerHTML = `Expected score <b>${c.mean.toFixed(1)}%</b> &middot; median ${c.q50.toFixed(0)}% &middot; 50% range ${c.q25.toFixed(0)}&ndash;${c.q75.toFixed(0)}% &middot; 90% range ${c.q05.toFixed(0)}&ndash;${c.q95.toFixed(0)}% &middot; pass chance <b>${(c.pPass * 100).toFixed(0)}%</b>`;
+  $("pfPmf").innerHTML = pfPmfSVG(R, c);
+  if (R.cols.length > 1) $("pfContour").innerHTML = pfContourSVG(R);
+  const P = R.P;
+  const rows = R.subj.map((s, i) => {
+    const pmf = c.sp[i], mean = pmf.reduce((x, v, k) => x + v * k, 0) / s.m * 100;
+    const pf = P.floorOn ? pmf.reduce((x, v, k) => x + (k >= s.minK ? v : 0), 0) : null;
+    const thin = s.ev.rn < 20;
+    return `<tr><td style="font-family:inherit;">${esc(s.name)}</td><td>${s.m}</td><td>${s.ev.rn ? s.ev.rk + "/" + s.ev.rn : "&ndash;"}${thin ? ` <span style="color:var(--amber-ink);" title="Fewer than 20 first-seen answers: the forecast leans on your starting belief">&#9888;</span>` : ""}</td><td><b>${mean.toFixed(0)}%</b></td><td>${pfQuant(pmf, s.m, .10).toFixed(0)}&ndash;${pfQuant(pmf, s.m, .90).toFixed(0)}%</td>${pf === null ? "" : `<td style="color:${pfTone(pf)};">${(pf * 100).toFixed(0)}%</td>`}</tr>`;
+  }).join("");
+  $("pfSubjects").innerHTML = `<div class="field-label" style="margin-bottom:4px;">By subject (same day as above)</div><div class="table-wrap"><table class="data-table"><tr><th>Subject</th><th>Qs</th><th>First-seen right</th><th>Expected</th><th>80% range</th>${P.floorOn ? `<th>P(&ge; ${P.floor}%)</th>` : ""}</tr>${rows}</table></div>`;
+}
+function pfRender() {
+  const card = $("pfCard"); if (!card) return;
+  const R = pfCompute(); pfCache = R;
+  pfSyncInputs();
+  if (R.empty) {
+    $("pfSummary").innerHTML = `<div class="empty-state">No subjects in view yet. Take a test or pick an exam focus to see a forecast.</div>`;
+    ["pfContour", "pfLegend", "pfPmf", "pfSubjects", "pfSliceStats", "pfSliceLabel", "pfNotes"].forEach(id => { const e = $(id); if (e) e.innerHTML = ""; });
+    return;
+  }
+  const P = R.P, last = R.cols[R.cols.length - 1], first = R.cols[0];
+  $("pfSummary").innerHTML = `<div style="display:flex;gap:8px;flex-wrap:wrap;">${pfTile(R, first, "If the exam were today")}${R.cols.length > 1 ? pfTile(R, last, `On exam day (+${R.D}d)`) : ""}</div>`;
+  $("pfContour").innerHTML = pfContourSVG(R);
+  $("pfLegend").innerHTML = `<span><i class="sw" style="background:#F59E0B;height:3px;"></i>median</span><span><i class="sw" style="background:repeating-linear-gradient(90deg,#F59E0B 0 4px,transparent 4px 7px);"></i>50% range</span><span><i class="sw" style="background:repeating-linear-gradient(90deg,#F59E0B 0 2px,transparent 2px 5px);"></i>90% range</span><span><i class="sw" style="background:#DC2626;"></i>pass line</span><span><i class="sw" style="background:#1E3A8A;height:8px;"></i>darker = more likely</span>`;
+  pfRenderQList(R);
+  pfRenderSlice();
+  const tr = R.tr, wk = pfToPtsWk(tr.g);
+  const trendTxt = P.trend === "flat" ? "no improvement assumed" : P.trend === "manual" ? `${wk >= 0 ? "+" : ""}${wk.toFixed(1)} pts/week (manual)`
+    : `${wk >= 0 ? "+" : ""}${wk.toFixed(1)} pts/week` + (tr.ghat === null ? " (not enough dated tests, using your prior)" : ` (your tests suggest ${pfToPtsWk(tr.ghat) >= 0 ? "+" : ""}${(pfToPtsWk(tr.ghat) / Math.max(0.0001, P.intens || 1)).toFixed(1)}, pulled toward the prior; ${tr.pts} test points)`);
+  const noData = R.subj.filter(s => !s.ev.rn).map(s => s.name);
+  $("pfNotes").innerHTML = `Trend used: ${esc(trendTxt)}${P.intens !== 1 ? ` &times; intensity ${P.intens}` : ""}. Half-life ${P.half}d${P.halfAuto ? " (from the Planner)" : ""}. ` +
+    (noData.length ? `<b>No first-seen data yet for:</b> ${esc(noData.join(", "))} &mdash; those use only your starting belief. ` : "") +
+    `The forecast improves as first-seen answers accumulate; the future part rests on the trend assumption.`;
+}
+(function pfWire() {
+  const card = $("pfCard"); if (!card) return;
+  card.addEventListener("change", (e) => {
+    const t = e.target, p = loadJson(KEYS.predPrefs, {}) || {};
+    if (t.dataset && t.dataset.pf) {
+      const k = t.dataset.pf;
+      if (t.type === "checkbox") p[k] = t.checked; else if (t.tagName === "SELECT") p[k] = t.value; else p[k] = t.value === "" ? "" : parseFloat(t.value);
+      if (p[k] !== "" && typeof p[k] === "number" && !isFinite(p[k])) p[k] = "";
+      saveJson(KEYS.predPrefs, p); pfSliceIdx = null; pfRender();
+    } else if (t.dataset && t.dataset.pfq !== undefined) {
+      p.qBy = p.qBy || {};
+      const v = parseInt(t.value, 10);
+      if (isFinite(v) && v > 0) p.qBy[t.dataset.pfq] = v; else delete p.qBy[t.dataset.pfq];
+      saveJson(KEYS.predPrefs, p); pfRender();
+    }
+  });
+  $("pfSlice").addEventListener("input", (e) => { pfSliceIdx = parseInt(e.target.value, 10) || 0; pfRenderSlice(); });
+  $("pfContour").addEventListener("click", (e) => {
+    const svg = e.target.closest ? e.target.closest("#pfContourSvg") : null; if (!svg || !pfCache || pfCache.empty) return;
+    const r = svg.getBoundingClientRect(), W = +svg.dataset.w, pL = +svg.dataset.pl, iw = +svg.dataset.iw;
+    const x = (e.clientX - r.left) / r.width * W, t = Math.min(pfCache.D, Math.max(0, (x - pL) / iw * pfCache.D));
+    let best = 0, bd = 1e9; pfCache.cols.forEach((c, i) => { const d = Math.abs(c.t - t); if (d < bd) { bd = d; best = i; } });
+    pfSliceIdx = best; pfRenderSlice();
+  });
+  $("pfReset").addEventListener("click", () => {
+    if (!confirm("Reset the forecast settings to their defaults?")) return;
+    try { localStorage.removeItem(KEYS.predPrefs); } catch (e) {}
+    pfSliceIdx = null; pfRender();
+  });
+})();
+try { pfRender(); } catch (e) { console.error("Forecast render failed", e); }
 </script>
 </body>
 </html>
