@@ -84251,6 +84251,26 @@
         }
       ],
       "updated_at": "2026-10-16T12:42:45"
+    },
+    {
+      "id": "1792156597940256",
+      "source_list": "D3_L13_EngineeringDataAnalysis",
+      "reference_no": 80,
+      "question": "[Questions 31-39 refer to the following: The times required by three workers to perform an assembly-line task were recorded on five randomly selected occasions. Worker 1: 8, 10, 9, 11, 10. Worker 2: 8, 9, 9, 8, 10. Worker 3: 10, 9, 10, 11, 9.] Compute the F-statistic.",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Get group means. Get grand mean. Get SSB = n* summation ( Xi - X_grand)^2 ). Get MSB = SSB/DoF, where DoF = k-1, k is no. of groups. Get each group sum of square W1_SSW = summation (entry - W1_mean)^2. Get SSW = W1_SSW + W2_SSW +W3_SSW. Get MSW = SSW/DoF_within, where DoF = N-k, where N is no. of entries. Get F-statistic = MSB/MSW",
+      "resolved": false,
+      "date_logged": "2026-10-16T13:16:37",
+      "occurrences": [
+        {
+          "exam_id": "1790149661027511",
+          "exam_source": "D3_S2",
+          "date": "2026-10-16T13:16:37",
+          "your_answer": "B. 0.9",
+          "correct_answer": "C. 1.56"
+        }
+      ],
+      "updated_at": "2026-10-16T13:16:37"
     }
   ],
   "guess_notes": [
@@ -84754,5 +84774,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-16T13:14:07"
+  "updated_at": "2026-10-16T13:16:56"
 }
