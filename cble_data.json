@@ -84211,6 +84211,26 @@
         }
       ],
       "updated_at": "2026-10-16T11:53:45"
+    },
+    {
+      "id": "1792153997026443",
+      "source_list": "D3_L5_Geometry",
+      "reference_no": 24,
+      "question": "A circle whose area is 452 cm square is cut into two segments by a chord whose distance from the center of the circle is 6 cm. Find the area of the larger segment in cm square.",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Get the radius of the circle from area. The chord forms a central angle creating two right triangles having r = hyp. Find the angle of the right triangles. Then get the area of the circle that is encompassed by the central angle by ratioing the angles (percent of circle it occupies). Then find the area of the triangle by A = 0.5bh, get the base from pythagorean theorem then subtract this from te central angle area then A_major = A_circle - A_minor",
+      "resolved": false,
+      "date_logged": "2026-10-16T12:33:17",
+      "occurrences": [
+        {
+          "exam_id": "1790149661027511",
+          "exam_source": "D3_S2",
+          "date": "2026-10-16T12:33:17",
+          "your_answer": "C. 368.4",
+          "correct_answer": "B. 363.6"
+        }
+      ],
+      "updated_at": "2026-10-16T12:33:17"
     }
   ],
   "guess_notes": [
@@ -84714,5 +84734,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-16T12:28:02"
+  "updated_at": "2026-10-16T12:33:22"
 }
