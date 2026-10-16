@@ -84271,6 +84271,26 @@
         }
       ],
       "updated_at": "2026-10-16T13:16:37"
+    },
+    {
+      "id": "1792156915043506",
+      "source_list": "D3_L4_Trigonometry",
+      "reference_no": 8,
+      "question": "Simplify: cos x / (sin x + 1) + tan x",
+      "category": "Formula / Equation Error",
+      "note": "Simplify and use trig identities",
+      "resolved": false,
+      "date_logged": "2026-10-16T13:21:55",
+      "occurrences": [
+        {
+          "exam_id": "1790149661027511",
+          "exam_source": "D3_S2",
+          "date": "2026-10-16T13:21:55",
+          "your_answer": "C. cot x",
+          "correct_answer": "B. sec x"
+        }
+      ],
+      "updated_at": "2026-10-16T13:21:55"
     }
   ],
   "guess_notes": [
@@ -84774,5 +84794,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-16T13:21:28"
+  "updated_at": "2026-10-16T13:22:11"
 }
