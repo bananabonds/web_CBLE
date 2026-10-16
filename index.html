@@ -773,7 +773,13 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
       </div>
       <div class="card">
         <h3>Score Trend</h3>
-        <p class="hint" style="margin-bottom:10px;">Score for each test you've taken. Use Select Tests to choose which tests are plotted, and optionally break them down by subject.</p>
+        <p class="hint" style="margin-bottom:10px;">Tests whose names start the same (for example Sample 1, Sample 2, Sample 3) are recognised as one series and drawn together, lined up by attempt number so you can see progression across the series. Switch to date order to see every test, pick tests, and break scores down by subject.</p>
+        <select id="trendModeSelect" style="margin-bottom:8px;">
+          <option value="series">Graph: Group tests by name prefix (aligned by attempt)</option>
+          <option value="time">Graph: Every test in date order</option>
+        </select>
+        <div id="trendSeriesChips" class="row wrap" style="gap:6px;margin-bottom:8px;"></div>
+        <div id="trendClassicControls">
         <div class="row wrap" style="margin-bottom:8px;">
           <button class="btn" id="btnTrendFilterToggle">Select Tests</button>
           <label class="row" style="font-size:.8rem;gap:6px;"><input type="checkbox" id="trendBySubject"><span>Break down by subject</span></label>
@@ -790,6 +796,7 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
             <div class="field-label" style="margin-bottom:6px;">Subjects to draw</div>
             <div id="trendSubjectChecks" style="max-height:180px;overflow-y:auto;"></div>
           </div>
+        </div>
         </div>
         <div id="historyTrendTable"></div>
         <div id="historyTrendChart" class="chart-wrap" style="margin-top:12px;"></div>
@@ -4836,6 +4843,10 @@ function renderTrendSubjectChecks(subjects) {
 }
 function renderHistoryTrend() {
   const base = computeHistoryTrendStats();
+  const seriesMode = $("trendModeSelect").value === "series";
+  $("trendClassicControls").style.display = seriesMode ? "none" : "";
+  $("trendSeriesChips").style.display = seriesMode ? "" : "none";
+  if (seriesMode) { renderSeriesTrend(base); return; }
   const tableBox = $("historyTrendTable");
   const chartBox = $("historyTrendChart");
   const detailBox = $("historyTrendSubjectTable");
@@ -8934,6 +8945,84 @@ function renderLeeches() {
 }
 function renderCalibrationAndLeeches() { renderCalibration(); renderLeeches(); }
 $("calibFirstOnly").addEventListener("change", renderCalibration);
+
+/* =====================================================================
+   Test series: tests whose names start the same are one progression
+   ===================================================================== */
+// "Sample 3" -> "Sample", "ESAS Mock Exam #2 (retake)" -> "ESAS Mock Exam"
+function testSeriesBase(name) {
+  let s = fcCleanName(name).replace(/\.(json|csv|txt|pdf)$/i, "").trim();
+  for (let i = 0; i < 4; i++) {
+    const t = s.replace(/\s*[(\[][^)\]]*[)\]]\s*$/, "").replace(/[\s\-_#:.,|]*(?:no\.?|number)?[\s\-_#:.]*\d+\s*$/i, "").replace(/[\s\-_:|,]+$/, "").trim();
+    if (t === s || t.length < 2) break;
+    s = t;
+  }
+  return s;
+}
+function testSeriesCandidates(name) {
+  const base = testSeriesBase(name).toUpperCase();
+  return Array.from(new Set([base].concat(fcCandidates(name)).filter(x => x && x.length >= 2)));
+}
+// id -> series key; a key must be shared by at least two tests to count as a series.
+function testSeriesMap(tests) {
+  const cands = new Map(tests.map(h => [h.id, testSeriesCandidates(h.source)])), count = new Map();
+  cands.forEach(list => list.forEach(k => count.set(k, (count.get(k) || 0) + 1)));
+  const out = new Map();
+  for (const h of tests) out.set(h.id, cands.get(h.id).find(k => count.get(k) >= 2) || ("\u0000" + h.id));
+  return out;
+}
+let trendSeriesOff = new Set(), trendSeriesTouched = false;
+(function initTrendMode() {
+  try { const v = localStorage.getItem("cble_trend_mode"); if (v === "series" || v === "time") $("trendModeSelect").value = v; } catch (e) {}
+  $("trendModeSelect").addEventListener("change", () => { try { localStorage.setItem("cble_trend_mode", $("trendModeSelect").value); } catch (e) {} renderHistoryTrend(); });
+})();
+function renderSeriesTrend(base) {
+  const chips = $("trendSeriesChips"), table = $("historyTrendTable"), chart = $("historyTrendChart"), detail = $("historyTrendSubjectTable");
+  chips.innerHTML = ""; table.innerHTML = ""; chart.innerHTML = ""; detail.innerHTML = "";
+  if (!base) { table.appendChild(el("div", "empty-state", "Take a test to see your score trend here.")); return; }
+  const map = testSeriesMap(base.history), by = new Map();
+  base.history.forEach(h => { const k = map.get(h.id); if (!by.has(k)) by.set(k, []); by.get(k).push(h); });
+  const display = (k, tests) => { const first = testSeriesBase(tests[0].source); return first && first.toUpperCase() === k ? first : k.replace(/^\u0000/, ""); };
+  const series = Array.from(by.entries()).filter(([, t]) => t.length >= 2).map(([k, t]) => ({ key: k, label: display(k, t), tests: t }))
+    .sort((a, b) => (b.tests.length - a.tests.length) || a.label.localeCompare(b.label));
+  const loose = base.history.length - series.reduce((a, s) => a + s.tests.length, 0);
+  if (!series.length) {
+    table.appendChild(el("div", "empty-state", "No related tests yet. Tests whose names start the same (for example Sample 1, Sample 2) are drawn together as one progression once you've taken two or more. Switch the graph to \"Every test in date order\" to see them all now."));
+    return;
+  }
+  if (!trendSeriesTouched) trendSeriesOff = new Set();
+  const on = (s) => !trendSeriesOff.has(s.key);
+  const colorOf = (i) => CHART_PALETTE[i % CHART_PALETTE.length];
+  series.forEach((s, i) => {
+    const b = el("button", "btn");
+    b.style.cssText = `border-left:4px solid ${colorOf(i)};${on(s) ? "background:var(--navy);color:#fff;" : ""}`;
+    b.textContent = `${s.label} \u00b7 ${s.tests.length}`;
+    b.title = `${s.tests.length} tests: ${s.tests.map(h => h.source).join(", ")}`;
+    b.addEventListener("click", () => { trendSeriesTouched = true; if (on(s)) trendSeriesOff.add(s.key); else trendSeriesOff.delete(s.key); renderHistoryTrend(); });
+    chips.appendChild(b);
+  });
+  const quick = (txt, fn) => { const b = el("button", "btn link"); b.textContent = txt; b.addEventListener("click", () => { trendSeriesTouched = true; fn(); renderHistoryTrend(); }); chips.appendChild(b); };
+  quick("All", () => { trendSeriesOff = new Set(); });
+  quick("None", () => { trendSeriesOff = new Set(series.map(s => s.key)); });
+  const shown = series.map((s, i) => ({ s, i })).filter(x => on(x.s));
+  if (!shown.length) { table.appendChild(el("div", "empty-state", "No series selected \u2014 tap one above.")); return; }
+  const maxN = Math.max(...shown.map(x => x.s.tests.length));
+  const lines = shown.map(({ s, i }) => ({
+    label: s.label, group: s.label, color: colorOf(i), marker: i, dash: "",
+    points: Array.from({ length: maxN }, (_, j) => { const h = s.tests[j]; return h ? { y: h.pct || 0, tooltip: `${s.label} #${j + 1} \u2013 ${h.source}: ${(h.pct || 0).toFixed(1)}% (${h.score}/${h.total}, ${formatDateNice(dateOnly(h.date))})` } : { y: null }; }),
+  }));
+  chart.innerHTML = buildLineGraphSVG(lines, { yMin: 0, yMax: 100, xLabels: Array.from({ length: maxN }, (_, j) => "#" + (j + 1)) }) + chartLegendHTML(lines);
+  const rows = shown.map(({ s, i }) => {
+    const a = s.tests[0], z = s.tests[s.tests.length - 1], d = (z.pct || 0) - (a.pct || 0);
+    const p1 = (a.pct || 0) / 100, p2 = (z.pct || 0) / 100;
+    const m = a.total > 0 && z.total > 0 ? 1.64 * Math.sqrt(p1 * (1 - p1) / a.total + p2 * (1 - p2) / z.total) * 100 : null;
+    const verdict = m == null ? "" : Math.abs(d) < m ? " <span style=\"color:var(--sub);\">(within noise)</span>" : "";
+    const best = Math.max(...s.tests.map(h => h.pct || 0));
+    return `<tr><td style="font-family:inherit;"><span class="fc-dot" style="background:${colorOf(i)};margin-right:5px;"></span>${esc(s.label)}</td><td>${s.tests.length}</td><td>${(a.pct || 0).toFixed(0)}%</td><td>${(z.pct || 0).toFixed(0)}%</td><td>${d >= 0 ? "+" : ""}${d.toFixed(0)} pts${m != null ? ` (&plusmn;${m.toFixed(0)})` : ""}${verdict}</td><td>${best.toFixed(0)}%</td></tr>`;
+  }).join("");
+  table.innerHTML = `<div class="table-wrap"><table class="data-table"><tr><th>Series</th><th>Tests</th><th>First</th><th>Latest</th><th>Change</th><th>Best</th></tr>${rows}</table></div>
+    <p class="hint" style="margin-top:6px;">Each line is one series of tests whose names start the same, in the order you took them (#1 = first test of that series), so series with different start dates line up by attempt. &plusmn; is the margin of error from the number of questions in the first and latest test; a change smaller than it may just be chance.${loose ? ` ${loose} other test${loose === 1 ? " has" : "s have"} no related test yet and ${loose === 1 ? "isn't" : "aren't"} shown.` : ""}</p>`;
+}
 
 /* =====================================================================
    Boot
