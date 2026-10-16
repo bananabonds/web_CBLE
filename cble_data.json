@@ -83991,6 +83991,26 @@
         }
       ],
       "updated_at": "2026-10-16T08:54:35"
+    },
+    {
+      "id": "1792141507462280",
+      "source_list": "D3_L13_EngineeringDataAnalysis",
+      "reference_no": 78,
+      "question": "[Questions 31-39 refer to the following: The times required by three workers to perform an assembly-line task were recorded on five randomly selected occasions. Worker 1: 8, 10, 9, 11, 10. Worker 2: 8, 9, 9, 8, 10. Worker 3: 10, 9, 10, 11, 9.] Compute the mean squares between treatments.",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Find Mean of each treatment W1, W2, W3. Grand mean (GM) = (W1+W2+W3)/3. Sum of squares between treatments (SSTR) n*[ (W1-GM)^2 + (W2-GM)^2 + (W3-GM)^2 ]. Degrees of freedom = k (number of groups) -1 = 3-1. Find mean square between treatments =  SSTR/DoF",
+      "resolved": false,
+      "date_logged": "2026-10-16T09:05:07",
+      "occurrences": [
+        {
+          "exam_id": "1790149661027511",
+          "exam_source": "D3_S2",
+          "date": "2026-10-16T09:05:07",
+          "your_answer": "C. 1.56",
+          "correct_answer": "A. 1.4"
+        }
+      ],
+      "updated_at": "2026-10-16T09:05:07"
     }
   ],
   "guess_notes": [
@@ -84494,5 +84514,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-16T09:04:48"
+  "updated_at": "2026-10-16T09:05:16"
 }
