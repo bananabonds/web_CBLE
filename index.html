@@ -304,6 +304,7 @@ details.rv-fold > summary{cursor:pointer;font-weight:600;font-size:.88rem;color:
 details.rv-fold[open] > summary{border-bottom:1px solid var(--line);margin-bottom:10px;}
 details.rv-fold > .rv-body{padding-bottom:12px;}
 .bar-exp{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--navy);opacity:.7;}
+.qs-mini{padding:2px 8px;font-size:.78rem;line-height:1.2;flex:none;}
 .saved-group{font-size:.72rem;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.04em;margin:14px 0 6px;}
 
 /* ---------- Modal / overlay ---------- */
@@ -931,6 +932,7 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
       <div class="card" id="mistakeEditCard">
         <h3>Log / Edit This Mistake</h3>
         <p class="hint" id="mistakeQuestionLbl">Tap a mistake above to log it.</p>
+        <div id="mistakeSearchBar"></div>
         <label class="field-label">Category</label>
         <input list="mistakeCategoryList" id="mistakeCategoryInput" placeholder="Pick or type a category">
         <datalist id="mistakeCategoryList"></datalist>
@@ -6056,6 +6058,7 @@ function _loadExamMistakesCore() {
   currentExamMistakes = [];
   selectedMistakeRow = null;
   $("mistakeQuestionLbl").textContent = "Tap a mistake above to log it.";
+  $("mistakeSearchBar").innerHTML = "";
   const box = $("mistakesContainer");
   box.innerHTML = "";
   const selIdx = $("mistakeExamSelect").value;
@@ -6095,11 +6098,11 @@ function _loadExamMistakesCore() {
     const repeatBadge = row.occurrence_count > 1 ? `<span class="status-pill repeat-pill">\u{1F501} \u00d7${row.occurrence_count}</span>` : "";
     const item = el("div", `list-item selectable ${statusClass}${row.occurrence_count > 1 ? " repeated" : ""}`);
     item.innerHTML = `<div class="top-row"><span class="name">Ref #${esc(row.reference_no)} &middot; ${esc(row.source_list)}</span>
-        <span class="row" style="gap:4px;flex:none;">${repeatBadge}<span class="status-pill ${statusClass}">${statusLabel}</span></span></div>
+        <span class="row" style="gap:4px;flex:none;">${repeatBadge}<span class="status-pill ${statusClass}">${statusLabel}</span>${qsMiniBtn({ question: row.question, your: row.your_answer, correct: row.correct_answer })}</span></div>
       <div class="meta">Your answer: ${esc((row.your_answer || "").slice(0, 60))}</div>
       <div class="meta">Correct: ${esc((row.correct_answer || "").slice(0, 60))}</div>
       ${entry ? `<div class="meta">Category: ${esc(entry.category)}${entry.note ? " \u00b7 has notes" : ""}</div>` : ""}`;
-    item.addEventListener("click", () => selectMistakeRow(idx));
+    item.addEventListener("click", (ev) => { if (ev.target.closest(".qs-go")) return; selectMistakeRow(idx); });
     box.appendChild(item);
   });
 }
@@ -6128,6 +6131,7 @@ function selectMistakeRow(idx) {
   const row = currentExamMistakes[idx];
   if (!row) return;
   selectedMistakeRow = row;
+  $("mistakeSearchBar").innerHTML = qsBarHtml({ question: row.question, your: row.your_answer, correct: row.correct_answer });
   const qPreview = row.question || "(question text unavailable \u2014 this exam was taken before question text started being saved)";
   let label = `Ref #${row.reference_no} (${row.source_list}): ${qPreview}\nYour answer: ${row.your_answer || "(none)"} | Correct answer: ${row.correct_answer || "(unknown)"}`;
   const entry = row.logged_entry;
@@ -6265,7 +6269,7 @@ function renderMistakeCard(e, repeatCount) {
       inner += `<div class="meta" style="margin-top:6px;">Your answer: ${esc(latest.your_answer || "(none)")}</div>
         <div class="meta">Correct answer: ${esc(latest.correct_answer || "(unknown)")}</div>`;
     }
-    inner += e.question ? `<div class="meta" style="margin-top:4px;">${esc(e.question)}</div>` : "";
+    inner += e.question ? `<div class="meta" style="margin-top:4px;">${esc(e.question)} ${qsMiniBtn({ question: e.question, your: latest.your_answer, correct: latest.correct_answer })}</div>` : "";
   }
   if (state >= 2) {
     inner += `<div class="meta" style="margin-top:6px;white-space:pre-wrap;"><b>Notes:</b> ${esc(e.note || "(no notes yet)")}</div>
@@ -8511,7 +8515,7 @@ function fcRender() {
   $("fcChips").innerHTML = `<span class="fc-chip group" style="background:${col};border-color:${col};">${esc(c.group)}</span><span class="fc-chip">${esc(c.subject)}</span>${tag}${c.leech ? `<span class="fc-chip" style="color:var(--red);border-color:#F3C6C6;">Leech</span>` : ""}`;
   const up = s.cards.slice(s.i + 1, s.i + 9).map(x => `<span class="fc-dot" style="background:${fcGroupColor(x.group)}" title="${esc(x.subject)}"></span>`).join("");
   $("fcNext").innerHTML = up ? `Up next ${up}` : "Last card";
-  $("fcCard").innerHTML = `<div class="fc-label">Question</div><div class="fc-text">${esc(c.front)}</div>` +
+  $("fcCard").innerHTML = `<div class="fc-label">Question</div><div class="fc-text">${esc(c.front)}</div><div style="margin-top:8px;">${qsMiniBtn({ question: c.front, your: c.kind === "rv" ? (c.g.attempts[0].your_answer || "") : "", correct: c.kind === "rv" ? (c.g.attempts[0].correct_answer || "") : c.back })} <span class="hint">search</span></div>` +
     (s.flipped ? `<div class="fc-sep"></div><div class="fc-label">Answer</div>${fcBackHtml(c)}` : `<div class="hint" style="margin-top:18px;">Try to recall the answer, then tap to reveal.</div>`);
   $("fcActions").innerHTML = s.flipped
     ? ["Again", "Hard", "Good", "Easy"].map((n, g) => `<button class="g${g}" data-fcg="${g}">${n}<small>${fcFmtInt(fcNextInterval(srs, g, c.cap))}</small></button>`).join("")
@@ -9045,6 +9049,63 @@ function renderSeriesTrend(base) {
   table.innerHTML = `<div class="table-wrap"><table class="data-table"><tr><th>Series</th><th>Tests</th><th>First</th><th>Latest</th><th>Change</th><th>Best</th></tr>${rows}</table></div>
     <p class="hint" style="margin-top:6px;">Each line is one series of tests whose names start the same, in the order you took them (#1 = first test of that series), so series with different start dates line up by attempt. &plusmn; is the margin of error from the number of questions in the first and latest test; a change smaller than it may just be chance.${loose ? ` ${loose} other test${loose === 1 ? " has" : "s have"} no related test yet and ${loose === 1 ? "isn't" : "aren't"} shown.` : ""}</p>`;
 }
+
+/* =====================================================================
+   One-tap question search (no select-and-drag, no copy-paste)
+   ===================================================================== */
+const QS_KEY = "cble_search_engine";
+const QS_ENGINES = {
+  google: { label: "Google", url: q => "https://www.google.com/search?q=" + q },
+  ddg: { label: "DuckDuckGo", url: q => "https://duckduckgo.com/?q=" + q },
+  bing: { label: "Bing", url: q => "https://www.bing.com/search?q=" + q },
+  claude: { label: "Ask Claude (with your answer)", ai: true, url: q => "https://claude.ai/new?q=" + q },
+  chatgpt: { label: "Ask ChatGPT (with your answer)", ai: true, url: q => "https://chatgpt.com/?q=" + q },
+};
+function qsEngine() { try { const v = localStorage.getItem(QS_KEY); if (QS_ENGINES[v]) return v; } catch (e) {} return "google"; }
+// Strip numbering like "Q12." / "12)" and extra whitespace; keep it short enough for a search box.
+function qsClean(t, max) {
+  let s = String(t || "").replace(/\s+/g, " ").trim().replace(/^(?:q(?:uestion)?\s*)?\d+\s*[.):\-]\s*/i, "");
+  max = max || 240;
+  if (s.length > max) { s = s.slice(0, max); const i = s.lastIndexOf(" "); if (i > max * 0.6) s = s.slice(0, i); }
+  return s;
+}
+function qsUrl(key, ctx) {
+  const eng = QS_ENGINES[key] || QS_ENGINES.google;
+  if (eng.ai) {
+    const full = qsClean(ctx.question, 1500);
+    const txt = `Question: ${full}\n${ctx.your ? "My answer: " + ctx.your + "\n" : ""}${ctx.correct ? "Correct answer: " + ctx.correct + "\n" : ""}Explain briefly why the correct answer is right${ctx.your ? " and why my answer is wrong" : ""}.`;
+    return eng.url(encodeURIComponent(txt));
+  }
+  return eng.url(encodeURIComponent(qsClean(ctx.question)));
+}
+function qsAttr(ctx) { return encodeURIComponent(JSON.stringify({ question: ctx.question || "", your: ctx.your || "", correct: ctx.correct || "" })); }
+function qsMiniBtn(ctx) {
+  if (!ctx.question) return "";
+  return `<button class="btn qs-go qs-mini" data-ctx="${qsAttr(ctx)}" title="Search this question">\u{1F50D}</button>`;
+}
+function qsBarHtml(ctx) {
+  if (!ctx.question) return "";
+  const cur = qsEngine();
+  return `<div class="row wrap qs-bar" style="gap:6px;margin:6px 0;">
+    <button class="btn primary qs-go" data-ctx="${qsAttr(ctx)}">\u{1F50D} Search question</button>
+    <button class="btn qs-copy" data-ctx="${qsAttr(ctx)}">Copy</button>
+    <select class="qs-eng" style="flex:1;min-width:130px;">${Object.keys(QS_ENGINES).map(k => `<option value="${k}"${k === cur ? " selected" : ""}>${esc(QS_ENGINES[k].label)}</option>`).join("")}</select></div>`;
+}
+document.addEventListener("click", (e) => {
+  const go = e.target.closest(".qs-go"), cp = e.target.closest(".qs-copy");
+  if (!go && !cp) return;
+  e.stopPropagation();
+  let ctx; try { ctx = JSON.parse(decodeURIComponent((go || cp).dataset.ctx)); } catch (err) { return; }
+  if (go) { window.open(qsUrl(qsEngine(), ctx), "_blank", "noopener"); return; }
+  const text = qsClean(ctx.question, 2000);
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => toast("Question copied."), () => toast("Couldn't copy."));
+  else toast("Copy isn't available in this browser.");
+}, true);
+document.addEventListener("change", (e) => {
+  const s = e.target.closest && e.target.closest(".qs-eng"); if (!s) return;
+  try { localStorage.setItem(QS_KEY, s.value); } catch (err) {}
+  document.querySelectorAll(".qs-eng").forEach(x => { x.value = s.value; });
+});
 
 /* =====================================================================
    Boot
