@@ -83951,6 +83951,26 @@
         }
       ],
       "updated_at": "2026-10-15T15:56:40"
+    },
+    {
+      "id": "1792139910081451",
+      "source_list": "D3_L3_Algebra",
+      "reference_no": 19,
+      "question": "An arithmetic progression starts with 3, has 9 terms, and the middle term is 19. Determine the sum of the first 9 terms.",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Arithmetic sequence a_n = a_1 + (n-1)d, where you solve for d as common difference. Then use sum of formula S_n = n/2 * [2a_1 + (n-1)d]. Or just use middle term formula Sum of terms = no. of terms * middle term",
+      "resolved": false,
+      "date_logged": "2026-10-16T08:38:30",
+      "occurrences": [
+        {
+          "exam_id": "1790149661027511",
+          "exam_source": "D3_S2",
+          "date": "2026-10-16T08:38:30",
+          "your_answer": "C. 110",
+          "correct_answer": "D. 171"
+        }
+      ],
+      "updated_at": "2026-10-16T08:38:30"
     }
   ],
   "guess_notes": [
@@ -84454,5 +84474,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-16T08:37:11"
+  "updated_at": "2026-10-16T08:38:36"
 }
