@@ -84411,6 +84411,26 @@
         }
       ],
       "updated_at": "2026-10-16T15:06:21"
+    },
+    {
+      "id": "179216337474466",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 19,
+      "question": "During the working stroke of an engine the heattransferred out of the system was 150 kJ/kg of theworking substance. If the work done by the engine is 250kJ/kg, determine the change in internal energy.",
+      "category": "Careless / Computational Error",
+      "note": "U = Q + W. heat is transferred out the system (-), work is done by the engine (-)",
+      "resolved": false,
+      "date_logged": "2026-10-16T15:09:34",
+      "occurrences": [
+        {
+          "exam_id": "1790316144805377",
+          "exam_source": "D2_S2",
+          "date": "2026-10-16T15:09:34",
+          "your_answer": "A. 400 kJ",
+          "correct_answer": "C. -400 kJ"
+        }
+      ],
+      "updated_at": "2026-10-16T15:09:34"
     }
   ],
   "guess_notes": [
@@ -84914,5 +84934,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-16T15:09:30"
+  "updated_at": "2026-10-16T15:09:46"
 }
