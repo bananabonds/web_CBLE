@@ -8515,7 +8515,7 @@ function fcRender() {
   $("fcChips").innerHTML = `<span class="fc-chip group" style="background:${col};border-color:${col};">${esc(c.group)}</span><span class="fc-chip">${esc(c.subject)}</span>${tag}${c.leech ? `<span class="fc-chip" style="color:var(--red);border-color:#F3C6C6;">Leech</span>` : ""}`;
   const up = s.cards.slice(s.i + 1, s.i + 9).map(x => `<span class="fc-dot" style="background:${fcGroupColor(x.group)}" title="${esc(x.subject)}"></span>`).join("");
   $("fcNext").innerHTML = up ? `Up next ${up}` : "Last card";
-  $("fcCard").innerHTML = `<div class="fc-label">Question</div><div class="fc-text">${esc(c.front)}</div><div style="margin-top:8px;">${qsMiniBtn(c.kind === "rv" ? qsCtx(c.g.source_list, c.g.reference_no, c.front, c.g.attempts[0].your_answer, c.g.attempts[0].correct_answer) : { question: c.front, your: "", correct: c.back, options: [], ci: -1, yi: -1 })} <span class="hint">search</span></div>` +
+  $("fcCard").innerHTML = `<div class="fc-label">Question</div><div class="fc-text">${esc(c.front)}</div><div style="margin-top:8px;">${qsMiniBtn(c.kind === "rv" ? qsCtx(c.g.source_list, c.g.reference_no, c.front, c.g.attempts[0].your_answer, c.g.attempts[0].correct_answer) : { question: c.front, your: "", correct: c.back })} <span class="hint">search</span></div>` +
     (s.flipped ? `<div class="fc-sep"></div><div class="fc-label">Answer</div>${fcBackHtml(c)}` : `<div class="hint" style="margin-top:18px;">Try to recall the answer, then tap to reveal.</div>`);
   $("fcActions").innerHTML = s.flipped
     ? ["Again", "Hard", "Good", "Easy"].map((n, g) => `<button class="g${g}" data-fcg="${g}">${n}<small>${fcFmtInt(fcNextInterval(srs, g, c.cap))}</small></button>`).join("")
@@ -9052,17 +9052,18 @@ function renderSeriesTrend(base) {
 
 /* =====================================================================
    One-tap question search (no select-and-drag, no copy-paste)
+   Everything is one plain line:  Question. My answer: X | Correct: Y. Choices: A. .. B. ..
    ===================================================================== */
-const QS_KEY = "cble_search_engine", QS_CHOICES_KEY = "cble_search_choices";
+const QS_KEY = "cble_search_engine", QS_ANS_KEY = "cble_search_answers";
 const QS_ENGINES = {
   google: { label: "Google", url: q => "https://www.google.com/search?q=" + q },
   ddg: { label: "DuckDuckGo", url: q => "https://duckduckgo.com/?q=" + q },
   bing: { label: "Bing", url: q => "https://www.bing.com/search?q=" + q },
-  claude: { label: "Ask Claude (with choices & answers)", ai: true, url: q => "https://claude.ai/new?q=" + q },
-  chatgpt: { label: "Ask ChatGPT (with choices & answers)", ai: true, url: q => "https://chatgpt.com/?q=" + q },
+  claude: { label: "Ask Claude (explain my answer)", ai: true, url: q => "https://claude.ai/new?q=" + q },
+  chatgpt: { label: "Ask ChatGPT (explain my answer)", ai: true, url: q => "https://chatgpt.com/?q=" + q },
 };
 function qsEngine() { try { const v = localStorage.getItem(QS_KEY); if (QS_ENGINES[v]) return v; } catch (e) {} return "google"; }
-function qsWantChoices() { try { return localStorage.getItem(QS_CHOICES_KEY) !== "0"; } catch (e) { return true; } }
+function qsWantAnswers() { try { return localStorage.getItem(QS_ANS_KEY) !== "0"; } catch (e) { return true; } }
 // Strip numbering like "Q12." / "12)" and extra whitespace; keep it short enough for a search box.
 function qsClean(t, max) {
   let s = String(t || "").replace(/\s+/g, " ").trim().replace(/^(?:q(?:uestion)?\s*)?\d+\s*[.):\-]\s*/i, "");
@@ -9071,31 +9072,32 @@ function qsClean(t, max) {
   return s;
 }
 function qsNorm(s) { return qsClean(s, 4000).toLowerCase().replace(/[^a-z0-9]+/g, " ").trim(); }
-// Everything the search needs about one question. The answer choices live in the question bank (tests only save
-// your answer and the correct one), so they're looked up by list + reference number and only used when it's the same question.
+// Question, your answer, the correct answer and the choices. Tests only save the first three, so the choices (and a missing
+// correct answer) come from the question bank, and only when it is clearly the same question.
 function qsCtx(source, ref, question, your, correct) {
-  let options = [], ci = -1, yi = -1, text = question || "";
+  let text = question || "", right = correct || "", options = [];
   const q = (getAllLists()[source] || [])[Number(ref) - 1];
   if (q && Array.isArray(q.options) && q.options.length > 1 && (!question || qsNorm(question).slice(0, 30) === qsNorm(q.text).slice(0, 30))) {
-    options = q.options.slice(); ci = Number.isInteger(q.correct) ? q.correct : -1; if (!text) text = q.text || "";
-    const y = qsNorm(your), c = qsNorm(correct);
-    yi = y ? options.findIndex(o => qsNorm(o) === y) : -1;
-    if (ci < 0 && c) ci = options.findIndex(o => qsNorm(o) === c);
+    options = q.options.map(String);
+    if (!text) text = q.text || "";
+    if (!right && Number.isInteger(q.correct) && q.options[q.correct] != null) right = String(q.options[q.correct]);
   }
-  return { question: text, your: your || "", correct: correct || (ci >= 0 ? options[ci] : ""), options, ci, yi };
+  return { question: text, your: your || "", correct: right, options };
 }
-function qsChoicesText(ctx) { return (ctx.options || []).map((o, i) => `${String.fromCharCode(65 + i)}. ${o}`).join("\n"); }
+function qsLine(ctx, max) {
+  let q = qsClean(ctx.question, max || 1500);
+  if (!/[.?!:]$/.test(q)) q += ".";
+  let s = `${q} My answer: ${ctx.your || "(none)"} | Correct: ${ctx.correct || "(unknown)"}.`;
+  if (ctx.options && ctx.options.length) s += ` Choices: ${ctx.options.map((o, i) => `${String.fromCharCode(65 + i)}. ${String(o).replace(/\s+/g, " ").trim()}`).join(" ")}.`;
+  return s;
+}
 function qsUrl(key, ctx) {
   const eng = QS_ENGINES[key] || QS_ENGINES.google;
-  if (eng.ai) {
-    const txt = `Question: ${qsClean(ctx.question, 1500)}\n${ctx.options && ctx.options.length ? "Choices:\n" + qsChoicesText(ctx) + "\n" : ""}${ctx.your ? "My answer: " + ctx.your + "\n" : ""}${ctx.correct ? "Correct answer: " + ctx.correct + "\n" : ""}Explain briefly why the correct answer is right${ctx.your ? " and why my answer is wrong" : ""}.`;
-    return eng.url(encodeURIComponent(txt));
-  }
-  let q = qsClean(ctx.question, ctx.options && ctx.options.length && qsWantChoices() ? 200 : 240);
-  if (qsWantChoices() && ctx.options && ctx.options.length) q += " " + ctx.options.map(o => qsClean(o, 40)).join(" ");
-  return eng.url(encodeURIComponent(q.slice(0, 420)));
+  if (eng.ai) return eng.url(encodeURIComponent(qsLine(ctx) + "\nExplain briefly why the correct answer is right and why my answer is wrong."));
+  const q = qsWantAnswers() ? qsClean(qsLine(ctx, 1500), 420) : qsClean(ctx.question, 240);
+  return eng.url(encodeURIComponent(q));
 }
-function qsAttr(ctx) { return encodeURIComponent(JSON.stringify(ctx)); }
+function qsAttr(ctx) { return encodeURIComponent(JSON.stringify({ question: ctx.question || "", your: ctx.your || "", correct: ctx.correct || "", options: ctx.options || [] })); }
 function qsMiniBtn(ctx) {
   if (!ctx || !ctx.question) return "";
   return `<button class="btn qs-go qs-mini" data-ctx="${qsAttr(ctx)}" title="Search this question">\u{1F50D}</button>`;
@@ -9103,18 +9105,13 @@ function qsMiniBtn(ctx) {
 function qsBarHtml(ctx) {
   if (!ctx || !ctx.question) return "";
   const cur = qsEngine();
-  const hasOpts = ctx.options && ctx.options.length;
-  const choices = hasOpts
-    ? `<div class="qs-choices" style="margin:6px 0;font-size:.82rem;">${ctx.options.map((o, i) => {
-        const mark = i === ctx.ci ? ` <b style="color:var(--green);">\u2713 correct</b>` : "", mine = i === ctx.yi ? ` <b style="color:var(--red);">\u2190 your answer</b>` : "";
-        return `<div style="padding:2px 0;${i === ctx.ci ? "color:var(--green);font-weight:600;" : i === ctx.yi ? "color:var(--red);" : ""}">${String.fromCharCode(65 + i)}. ${esc(o)}${mark}${mine}</div>`;
-      }).join("")}</div>`
-    : `<div class="hint" style="margin:6px 0;">${ctx.your ? `Your answer: ${esc(ctx.your)} &middot; ` : ""}${ctx.correct ? `Correct: ${esc(ctx.correct)}` : ""} <span style="color:var(--sub);">(answer choices aren't available for this question)</span></div>`;
-  return `<div class="qs-bar" style="margin:6px 0;">${choices}<div class="row wrap" style="gap:6px;">
+  return `<div class="qs-bar" style="margin:6px 0;">
+    <div style="margin:6px 0;font-size:.82rem;line-height:1.45;color:var(--ink);">${esc(qsLine(ctx))}</div>
+    <div class="row wrap" style="gap:6px;">
     <button class="btn primary qs-go" data-ctx="${qsAttr(ctx)}">\u{1F50D} Search question</button>
     <button class="btn qs-copy" data-ctx="${qsAttr(ctx)}">Copy</button>
     <select class="qs-eng" style="flex:1;min-width:130px;">${Object.keys(QS_ENGINES).map(k => `<option value="${k}"${k === cur ? " selected" : ""}>${esc(QS_ENGINES[k].label)}</option>`).join("")}</select></div>
-    ${hasOpts ? `<label class="row" style="gap:6px;font-size:.78rem;color:var(--sub);margin-top:4px;"><input type="checkbox" class="qs-choices-cb" ${qsWantChoices() ? "checked" : ""}><span>Add the choices to web searches</span></label>` : ""}</div>`;
+    <label class="row" style="gap:6px;font-size:.78rem;color:var(--sub);margin-top:4px;"><input type="checkbox" class="qs-ans-cb" ${qsWantAnswers() ? "checked" : ""}><span>Add my answer, the correct answer and the choices to web searches</span></label></div>`;
 }
 // The search bar always mirrors the selected mistake, so a list refresh (tab switch, save, sync) can't blank it.
 function renderMistakeSearchBar() {
@@ -9128,14 +9125,13 @@ document.addEventListener("click", (e) => {
   e.stopPropagation();
   let ctx; try { ctx = JSON.parse(decodeURIComponent((go || cp).dataset.ctx)); } catch (err) { return; }
   if (go) { window.open(qsUrl(qsEngine(), ctx), "_blank", "noopener"); return; }
-  const text = qsClean(ctx.question, 2000) + (ctx.options && ctx.options.length ? "\n" + qsChoicesText(ctx) : "");
-  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => toast("Question and choices copied."), () => toast("Couldn't copy."));
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(qsLine(ctx)).then(() => toast("Copied."), () => toast("Couldn't copy."));
   else toast("Copy isn't available in this browser.");
 }, true);
 document.addEventListener("change", (e) => {
   const t = e.target;
   if (t.matches && t.matches(".qs-eng")) { try { localStorage.setItem(QS_KEY, t.value); } catch (err) {} document.querySelectorAll(".qs-eng").forEach(x => { x.value = t.value; }); }
-  else if (t.matches && t.matches(".qs-choices-cb")) { try { localStorage.setItem(QS_CHOICES_KEY, t.checked ? "1" : "0"); } catch (err) {} document.querySelectorAll(".qs-choices-cb").forEach(x => { x.checked = t.checked; }); }
+  else if (t.matches && t.matches(".qs-ans-cb")) { try { localStorage.setItem(QS_ANS_KEY, t.checked ? "1" : "0"); } catch (err) {} document.querySelectorAll(".qs-ans-cb").forEach(x => { x.checked = t.checked; }); }
 });
 
 /* =====================================================================
