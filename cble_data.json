@@ -84071,6 +84071,26 @@
         }
       ],
       "updated_at": "2026-10-16T09:34:43"
+    },
+    {
+      "id": "1792144467993219",
+      "source_list": "D3_L13_EngineeringDataAnalysis",
+      "reference_no": 8,
+      "question": "There are 5 positions on a flagstaff and 4 different colors of flags, with at least 5 flags of each color available. How many different signals are possible by displaying 5 flags simultaneously? Note that arrangement and order is important.",
+      "category": "Conceptual Misunderstanding",
+      "note": "The possible positions is based on the choices and slots available. Since we have 4 different colors (choice) and 5 different positions (slots) we get Choices ^ slots = 4^5",
+      "resolved": false,
+      "date_logged": "2026-10-16T09:54:27",
+      "occurrences": [
+        {
+          "exam_id": "1790149661027511",
+          "exam_source": "D3_S2",
+          "date": "2026-10-16T09:54:27",
+          "your_answer": "B. 625",
+          "correct_answer": "C. 1024"
+        }
+      ],
+      "updated_at": "2026-10-16T09:54:27"
     }
   ],
   "guess_notes": [
@@ -84574,5 +84594,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-16T09:52:56"
+  "updated_at": "2026-10-16T09:54:28"
 }
