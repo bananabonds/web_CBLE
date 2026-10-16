@@ -303,6 +303,7 @@ details.rv-fold{background:var(--card);border:1px solid var(--line);border-radiu
 details.rv-fold > summary{cursor:pointer;font-weight:600;font-size:.88rem;color:var(--navy);padding:12px 0;}
 details.rv-fold[open] > summary{border-bottom:1px solid var(--line);margin-bottom:10px;}
 details.rv-fold > .rv-body{padding-bottom:12px;}
+.bar-exp{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--navy);opacity:.7;}
 .saved-group{font-size:.72rem;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.04em;margin:14px 0 6px;}
 
 /* ---------- Modal / overlay ---------- */
@@ -752,6 +753,12 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
     <section class="panel" id="panel-history">
       <div class="card">
         <h3>Tests Taken <span class="count" id="historyCount"></span></h3>
+        <select class="examScopeSelect" id="historyExamScope" style="margin-bottom:8px;"></select>
+        <select id="historyViewSelect" style="margin-bottom:8px;">
+          <option value="exam">View: All exams, grouped by exam</option>
+          <option value="focus">View: Focused exam only</option>
+          <option value="flat">View: All tests, ungrouped</option>
+        </select>
         <input type="text" id="historySearchInput" placeholder="Search by sample name&hellip;" style="margin-bottom:8px;">
         <select id="historySortSelect" style="margin-bottom:10px;">
           <option value="newest">Sort: Newest First</option>
@@ -807,6 +814,16 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <h3>Study Priority Ranking (most urgent first)</h3>
         <p class="hint" style="margin-bottom:10px;">Ranked by urgency, the same number the Adaptive Planner uses: <b>Gap</b> = your target minus a cautious estimate of how well you know the subject (first-time accuracy, older results fading, small samples penalised). <b>Priority</b> is the confidence-weighted score over every attempt (a correct guess counts less than a sure answer; a confident wrong answer counts against you more), shown alongside for context. <b>Unique / bank</b> and <b>Open</b> come from your test history and Mistake Log.</p>
         <div id="rankTable"></div>
+      </div>
+      <div class="card" data-nav="Confidence Calibration">
+        <h3>Confidence Calibration</h3>
+        <p class="hint" style="margin-bottom:8px;">Does your confidence match your results? When you say &ldquo;Confident&rdquo;, are you right about 75% of the time? Calibration shows where your gut can be trusted and where it can't.</p>
+        <label class="row" style="font-size:.8rem;gap:6px;margin-bottom:8px;"><input type="checkbox" id="calibFirstOnly" checked><span>First attempts only (repeats are partly memory, not judgement)</span></label>
+        <div id="calibBox"></div>
+      </div>
+      <div class="card" data-nav="Stubborn Questions">
+        <h3>Stubborn Questions (Leeches)</h3>
+        <div id="leechBox"></div>
       </div>
       <div class="card">
         <h3>Action Plan</h3>
@@ -939,6 +956,7 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <div class="row wrap" style="margin-bottom:10px;">
           <button class="btn" id="btnMistakeFilterToggle">Filter Subjects</button>
           <select id="mistakeGroupSelect">
+            <option value="exam">Group by: Exam</option>
             <option value="subject">Group by: Subject</option>
             <option value="repetition">Group by: Repeated vs One-Time</option>
           </select>
@@ -3465,7 +3483,10 @@ function renderHomeOverview() {
   const samples = loadJson(KEYS.samples, []).filter(s => sampleInScope(s, scopeH));
   const mistakes = loadMistakeLog();
   const totalTests = history.length;
-  const avgScore = totalTests ? (history.reduce((s, h) => s + (h.pct || 0), 0) / totalTests) : null;
+  // Question-weighted accuracy (a 5-question quiz must not count as much as a 60-question test), with its likely range.
+  const pooledQ = history.reduce((s, h) => s + (h.total || 0), 0), pooledC = history.reduce((s, h) => s + (h.score || 0), 0);
+  const avgScore = totalTests ? (pooledQ > 0 ? pooledC / pooledQ * 100 : history.reduce((s, h) => s + (h.pct || 0), 0) / totalTests) : null;
+  const pooledW = pooledQ > 0 ? wilsonBounds(pooledC, pooledQ, 1.64) : null;
   const mistakesScoped = scopeH ? mistakes.filter(m => scopeH.includes(m.source_list)) : mistakes;
   const resolved = mistakesScoped.filter(m => m.resolved).length;
   const openCount = mistakesScoped.length - resolved;
@@ -3497,7 +3518,7 @@ function renderHomeOverview() {
   // [label, value, subtext, subtext tone, where tapping goes]
   const stats = [
     ["Tests Taken", totalTests, testsToday ? `${testsToday} today` : "none today", testsToday ? "good" : "", () => switchTab("history")],
-    ["Average Score", avgScore != null ? `${avgScore.toFixed(1)}%` : "\u2013", lastTest ? `last: ${Math.round(lastTest.pct)}%` : "no tests yet", "", () => switchTab("analysis")],
+    ["Overall Accuracy", avgScore != null ? `${avgScore.toFixed(1)}%` : "\u2013", pooledW ? `likely ${(pooledW.lo * 100).toFixed(0)}\u2013${(pooledW.hi * 100).toFixed(0)}% \u00b7 ${pooledQ} Qs${pooledQ < 50 ? " (small sample)" : ""}` : "no tests yet", pooledQ && pooledQ < 50 ? "needs-action" : "", () => switchTab("analysis")],
     ["Questions Answered", questionsAnswered, `${answeredToday} today`, answeredToday ? "good" : "", () => scrollHomeTo("homeMilestonesCard")],
     ["Total Questions", totalQuestionsInBank, scopeH ? "in this exam's subjects" : "in your question bank", "", () => switchTab("builder")],
     ["Saved Samples", samples.length, samples.length ? (untakenCount ? `${untakenCount} not yet taken` : "all taken") : "build one", untakenCount ? "needs-action" : (samples.length ? "good" : ""), () => switchTab(samples.length ? "saved" : "builder")],
@@ -4239,6 +4260,12 @@ function refreshListsDisplay() {
   const showAllLists = $("builderShowAllLists") && $("builderShowAllLists").checked;
   const everyName = Object.keys(allLists).sort();
   listNamesOrder = (scopeNow && !showAllLists) ? everyName.filter(n => scopeNow.includes(n)) : everyName;
+  // Smart grouping: lists are grouped under the exam whose subject list they belong to.
+  const listExam = new Map(listNamesOrder.map(n => { const r = exAssign([n]); return [n, r ? r.exam : null]; }));
+  const listGroups = exGroup(listNamesOrder, n => listExam.get(n));
+  listNamesOrder = [].concat(...listGroups.map(g => g.items));
+  const listHeaded = listGroups.length > 1 || (listGroups[0] && listGroups[0].exam);
+  let lastListExam;
   for (const n of Array.from(selectedListNames)) if (!listNamesOrder.includes(n)) selectedListNames.delete(n);
   $("listsCount").textContent = listNamesOrder.length !== everyName.length ? `(${listNamesOrder.length} of ${everyName.length})` : `(${listNamesOrder.length})`;
 
@@ -4248,6 +4275,7 @@ function refreshListsDisplay() {
     box.appendChild(el("div", "empty-state", scopeNow && everyName.length ? "None of this exam's subjects match a current question list. Edit the exam on Home, or tick \u201cAlso show lists outside this exam\u201d." : "No question lists yet. Sync the question bank (gear icon) or add a bank in the Question Bank tab."));
   }
   for (const name of listNamesOrder) {
+    if (listHeaded) { const ex = listExam.get(name), k = ex ? ex.id : "_"; if (k !== lastListExam) { box.appendChild(exHeaderEl(ex)); lastListExam = k; } }
     const cov = coverage[name], spec = getAllocSpec(name);
     const item = el("div", "list-item selectable" + (selectedListNames.has(name) ? " selected" : ""));
     item.innerHTML = `
@@ -4464,10 +4492,18 @@ function refreshSavedSamplesList() {
   for (const ex of loadExamDates()) examById[ex.id] = ex;
   const GROUP_LABEL = { in: "In this exam's focus", partial: "Mixed \u2014 partly in focus", unknown: "Subjects not recognised", out: "Outside this exam's focus" };
 
-  let lastCat = null;
+  // Show "All" (or no focus at all): group samples under the exam their subjects belong to.
+  const byExam = !scope || mode === "all";
+  let lastCat = null, lastEx;
+  if (byExam) {
+    for (const s of ordered) { const r = exAssign(meta.get(s.id).info.names); meta.get(s.id).ex = r ? r.exam : null; }
+    ordered = [].concat(...exGroup(ordered, s => meta.get(s.id).ex).map(g => g.items));
+  }
+  const exHeaded = byExam && (new Set(ordered.map(s => meta.get(s.id).ex ? meta.get(s.id).ex.id : "_")).size > 1 || ordered.some(s => meta.get(s.id).ex));
   for (const s of ordered) {
     const m = meta.get(s.id);
-    if (scope && m.cat !== lastCat && (mode === "all" || mode === "focus")) { box.appendChild(el("div", "saved-group", GROUP_LABEL[m.cat])); }
+    if (byExam) { if (exHeaded) { const k = m.ex ? m.ex.id : "_"; if (k !== lastEx) { box.appendChild(exHeaderEl(m.ex)); lastEx = k; } } }
+    else if (scope && m.cat !== lastCat && mode === "focus") { box.appendChild(el("div", "saved-group", GROUP_LABEL[m.cat])); }
     lastCat = m.cat;
     const item = el("div", "list-item selectable" + (s.id === selectedSavedId ? " selected" : ""));
     const takenCount = takenCounts[s.name] || 0;
@@ -4551,18 +4587,28 @@ function refreshHistoryList() {
   else if (sortMode === "score_low") filtered.sort((a, b) => (a.pct || 0) - (b.pct || 0));
   else filtered.sort((a, b) => (b.date || "").localeCompare(a.date || "")); // newest (default)
 
-  const ordered = filtered;
+  const byId = exDetailsById(), scope = getScopeSubjects(), view = $("historyViewSelect").value;
+  const names = new Map(filtered.map(h => [h.id, exTestNames(h, byId)]));
+  const asg = new Map(filtered.map(h => [h.id, exAssign(names.get(h.id))]));
+  let ordered = filtered;
+  if (view === "focus" && scope) { const set = new Set(scope.map(normSubj)); ordered = filtered.filter(h => names.get(h.id).some(n => set.has(normSubj(n)))); }
   $("historyCount").textContent = `(${ordered.length}${ordered.length !== history.length ? ` of ${history.length}` : ""})`;
   const box = $("historyContainer");
   box.innerHTML = "";
   if (!history.length) { box.appendChild(el("div", "empty-state", "No tests taken yet.")); renderHistoryTrend(); return; }
-  if (!ordered.length) { box.appendChild(el("div", "empty-state", "No tests match that search.")); renderHistoryTrend(); return; }
-  for (const h of ordered) {
-    const item = el("div", "list-item selectable");
-    item.innerHTML = `<div class="top-row"><span class="name">${esc(h.source || "")}</span><span class="meta">${esc(h.date || "")}</span></div>
-      <div class="meta">Score ${h.score}/${h.total} (${h.pct}%) &middot; Time used ${fmtDuration(h.time_used_seconds)} &middot; <span style="color:var(--navy);">View composition &rsaquo;</span></div>`;
-    item.addEventListener("click", () => openHistoryDetail(h));
-    box.appendChild(item);
+  if (!ordered.length) { box.appendChild(el("div", "empty-state", query ? "No tests match that search." : "No tests include this exam's subjects.")); renderHistoryTrend(); return; }
+  const groups = view === "flat" ? [{ exam: undefined, items: ordered }] : exGroup(ordered, h => asg.get(h.id) && asg.get(h.id).exam);
+  const headed = view !== "flat" && (groups.length > 1 || (groups[0] && groups[0].exam));
+  for (const g of groups) {
+    if (headed) box.appendChild(exHeaderEl(g.exam, exGroupAccuracy(g.items, byId, g.exam)));
+    for (const h of g.items) {
+      const a = asg.get(h.id), mixed = headed && a && a.frac < 1;
+      const item = el("div", "list-item selectable");
+      item.innerHTML = `<div class="top-row"><span class="name">${esc(h.source || "")}</span><span class="meta">${esc(h.date || "")}</span></div>
+        <div class="meta">Score ${h.score}/${h.total} (${h.pct}%) &middot; Time used ${fmtDuration(h.time_used_seconds)}${mixed ? ` &middot; mixed (${Math.round(a.frac * 100)}% of subjects in this exam)` : ""} &middot; <span style="color:var(--navy);">View composition &rsaquo;</span></div>`;
+      item.addEventListener("click", () => openHistoryDetail(h));
+      box.appendChild(item);
+    }
   }
   renderHistoryTrend();
 }
@@ -4695,7 +4741,7 @@ document.addEventListener("click", (e) => {
 });
 
 function computeHistoryTrendStats() {
-  const history = loadJson(KEYS.history, []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  const history = historyForTrend(loadJson(KEYS.history, [])).slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
   if (!history.length) return null;
   const scores = history.map(h => h.pct || 0);
   const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
@@ -5019,6 +5065,7 @@ function refreshAnalysis() {
   barBox.innerHTML = "";
   renderPrioritySubjectChecks(Object.keys(overall));
   renderPriorityBars();
+  renderCalibrationAndLeeches();
   if (!ranked.length) barBox.appendChild(el("div", "empty-state", "No data yet."));
 
   const subjects = Object.keys(progression).sort();
@@ -5731,8 +5778,12 @@ function refreshMistakeLogTab() {
   const prevExamId = (mistakeExamOptions[parseInt($("mistakeExamSelect").value, 10)] || {}).id;
   mistakeExamOptions = history.slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""));
   const sel = $("mistakeExamSelect");
-  sel.innerHTML = mistakeExamOptions.map((h, i) =>
-    `<option value="${i}">${esc(h.date || "")} | ${esc(h.source || "")} | ${h.score}/${h.total}</option>`).join("");
+  const dById = exDetailsById();
+  const optHtml = (h, i) => `<option value="${i}">${esc(h.date || "")} | ${esc(h.source || "")} | ${h.score}/${h.total}</option>`;
+  const tGroups = exGroup(mistakeExamOptions.map((h, i) => ({ h, i })), o => { const r = exAssign(exTestNames(o.h, dById)); return r && r.exam; });
+  sel.innerHTML = (tGroups.length > 1 || (tGroups[0] && tGroups[0].exam))
+    ? tGroups.map(g => `<optgroup label="${esc(exLabel(g.exam))}">${g.items.map(o => optHtml(o.h, o.i)).join("")}</optgroup>`).join("")
+    : mistakeExamOptions.map(optHtml).join("");
   const keepIdx = prevExamId ? mistakeExamOptions.findIndex(h => h.id === prevExamId) : -1;
   if (keepIdx >= 0) sel.value = String(keepIdx);   // stay on the test you were working in
   onLoadExamMistakes();
@@ -5777,12 +5828,18 @@ function renderUnloggedTestsList() {
     box.appendChild(el("div", "empty-state", "You're all caught up \u2014 every wrong answer across your tests has been logged."));
     return;
   }
-  for (const r of rows) {
-    const item = el("div", "list-item selectable status-red");
-    item.innerHTML = `<div class="top-row"><span class="name">${esc(r.source)}</span><span class="status-pill status-red">${r.unloggedCount} unlogged</span></div>
-      <div class="meta">${esc(r.date)} &middot; ${r.totalWrong - r.unloggedCount}/${r.totalWrong} mistakes logged</div>`;
-    item.addEventListener("click", () => jumpToExamInMistakeLog(r.examId));
-    box.appendChild(item);
+  const dById = exDetailsById();
+  const uGroups = exGroup(rows, r => { const a = exAssign(exTestNames({ id: r.examId, source: r.source }, dById)); return a && a.exam; });
+  const uHeaded = uGroups.length > 1 || (uGroups[0] && uGroups[0].exam);
+  for (const g of uGroups) {
+    if (uHeaded) box.appendChild(exHeaderEl(g.exam));
+    for (const r of g.items) {
+      const item = el("div", "list-item selectable status-red");
+      item.innerHTML = `<div class="top-row"><span class="name">${esc(r.source)}</span><span class="status-pill status-red">${r.unloggedCount} unlogged</span></div>
+        <div class="meta">${esc(r.date)} &middot; ${r.totalWrong - r.unloggedCount}/${r.totalWrong} mistakes logged</div>`;
+      item.addEventListener("click", () => jumpToExamInMistakeLog(r.examId));
+      box.appendChild(item);
+    }
   }
 }
 function jumpToExamInMistakeLog(examId) {
@@ -6251,7 +6308,12 @@ function refreshAllMistakesTree() {
     return;
   }
 
-  if ($("mistakeGroupSelect").value === "repetition") {
+  const gMode = $("mistakeGroupSelect").value;
+  if (gMode === "exam") {
+    for (const g of exGroup(log, e => { const r = exAssign([e.source_list]); return r && r.exam; })) {
+      box.appendChild(renderMistakeGroup(exLabel(g.exam), g.items.slice().sort((a, b) => (b.date_logged || "").localeCompare(a.date_logged || ""))));
+    }
+  } else if (gMode === "repetition") {
     const repeated = log.filter(e => mistakeOccurrenceCount(e) > 1)
       .sort((a, b) => (mistakeOccurrenceCount(b) - mistakeOccurrenceCount(a)) || (b.date_logged || "").localeCompare(a.date_logged || ""));
     const oneTime = log.filter(e => mistakeOccurrenceCount(e) <= 1)
@@ -8269,17 +8331,19 @@ function fcInterleave(cards, mode) {
   const used = {};
   return fcSpread(cards.map(c => ({ g: c.group })), x => x.g).map(x => { used[x.g] = used[x.g] || 0; return seqs.get(x.g)[used[x.g]++]; });
 }
-function fcNextInterval(s, g) {
+function fcNextInterval(s, g, cap) {
   if (g === 0) return 0;
   const reps = s ? s.reps || 0 : 0, ease = s ? s.ease || 2.5 : 2.5, iv = s ? s.int || 0 : 0;
-  if (reps === 0) return [0, 1, 1, 3][g];
-  if (reps === 1) return [0, 2, 4, 6][g];
-  return Math.max(iv + 1, Math.round(iv * [0, 1.2, ease, ease * 1.3][g]));
+  let n;
+  if (reps === 0) n = [0, 1, 1, 3][g];
+  else if (reps === 1) n = [0, 2, 4, 6][g];
+  else n = Math.max(iv + 1, Math.round(iv * [0, 1.2, ease, ease * 1.3][g]));
+  return cap != null ? Math.max(1, Math.min(n, cap)) : n;   // cap = never schedule a review beyond what the exam date allows
 }
-function fcApplyGrade(srs, key, g, today) {
+function fcApplyGrade(srs, key, g, today, cap) {
   const s = srs[key] || { ease: 2.5, int: 0, reps: 0, lapses: 0, first: today, n: 0 };
   if (g === 0) { s.lapses++; s.reps = 0; s.int = 0; s.due = today; s.ease = Math.max(1.3, s.ease - 0.2); }
-  else { const iv = fcNextInterval(s, g); s.ease = Math.max(1.3, s.ease + [0, -0.15, 0, 0.15][g]); s.int = iv; s.reps++; s.due = fcAddDays(today, iv); }
+  else { const iv = fcNextInterval(s, g, cap); s.ease = Math.max(1.3, s.ease + [0, -0.15, 0, 0.15][g]); s.int = iv; s.reps++; s.due = fcAddDays(today, iv); }
   s.last = today; s.n = (s.n || 0) + 1; srs[key] = s; return s;
 }
 function fcFmtInt(n) { return n <= 0 ? "soon" : n === 1 ? "1d" : n < 30 ? n + "d" : n < 365 ? Math.round(n / 30) + "mo" : (n / 365).toFixed(1) + "y"; }
@@ -8289,8 +8353,34 @@ function fcMergeSrs(remote, local) {
   return out;
 }
 /*PURE-END*/
+// Effective due date: a long interval set earlier is pulled in once the exam is close enough that it would overshoot.
+function fcDueOf(s, cap) { if (cap == null || !s.last) return s.due; const c = fcAddDays(s.last, cap); return c < s.due ? c : s.due; }
+// The upcoming exam a subject belongs to (falls back to the focused exam).
+function fcExamFor(subject) {
+  const n = normSubj(subject);
+  const hits = loadExamDates().filter(e => e.date && daysUntil(e.date) >= 0 && (e.subjects || []).some(x => normSubj(x) === n)).sort((a, b) => a.date.localeCompare(b.date));
+  if (hits.length) return hits[0];
+  const act = getActiveExam();
+  return act && act.date && daysUntil(act.date) >= 0 ? act : null;
+}
+// Longest allowed gap = a third of the days left, so every card gets at least ~3 more looks before the exam.
+function fcCapFor(subject) { const e = fcExamFor(subject); return e ? Math.max(1, Math.floor(daysUntil(e.date) / 3)) : null; }
+function fcFinalState() {
+  const p = fcPrefs();
+  const act = getActiveExam();
+  const upcoming = loadExamDates().filter(e => e.date && daysUntil(e.date) >= 0 && (e.subjects || []).length).sort((a, b) => a.date.localeCompare(b.date));
+  const exam = act && act.date && daysUntil(act.date) >= 0 ? act : upcoming[0] || null;
+  const days = exam ? daysUntil(exam.date) : null;
+  return { exam, days, on: !!exam && p.finalMode !== "off" && (p.finalMode === "on" || days <= p.finalDays) };
+}
+function fcFinalBanner() {
+  const f = fcFinalState(); if (!f.exam) return "";
+  const cap = Math.max(1, Math.floor(f.days / 3));
+  if (f.on) return `<div class="hint" style="padding:8px 10px;border-radius:8px;background:#FDECEC;margin:8px 0;"><b>Final weeks mode</b> &middot; ${f.days} day${f.days === 1 ? "" : "s"} to ${esc(f.exam.label)}. Gaps are capped at ${cap} day${cap === 1 ? "" : "s"}, the pool is paced to be fully covered before the exam, weak and leech cards come first, and topics are always interleaved.</div>`;
+  return `<div class="hint" style="margin:6px 0;">${f.days} days to ${esc(f.exam.label)}. Review gaps are capped at ${cap} day${cap === 1 ? "" : "s"} so every card comes back before the exam.</div>`;
+}
 
-function fcPrefs() { return Object.assign({ mode: "mixed", daily: 20, newPerDay: 8, groupN: 0, useReviewer: true, useDecks: true }, loadJson(KEYS.flashPrefs, {})); }
+function fcPrefs() { return Object.assign({ mode: "mixed", daily: 20, newPerDay: 8, groupN: 0, useReviewer: true, useDecks: true, finalMode: "auto", finalDays: 14 }, loadJson(KEYS.flashPrefs, {})); }
 function fcSetPref(k, v) { const p = fcPrefs(); p[k] = v; saveJson(KEYS.flashPrefs, p); }
 function fcLoadDecks() { return loadJson(KEYS.flashDecks, []); }
 function fcSaveDecks(d) { saveJson(KEYS.flashDecks, d); scheduleGithubSync(); }
@@ -8326,26 +8416,35 @@ function fcDeckPool(onlyId) {
   }
   return out;
 }
+function fcLeechKeys() { try { return new Set(computeLeeches(getScopeSubjects()).map(l => "rv::" + l.key)); } catch (e) { return new Set(); } }
 // opts: onlyGroup, onlyDeckId, cram (everything in the deck), ahead (cards not yet due)
 function fcBuildQueue(opts) {
   opts = opts || {};
-  const p = fcPrefs(), srs = fcLoadSrs(), today = fcToday();
+  const p = fcPrefs(), srs = fcLoadSrs(), today = fcToday(), fin = fcFinalState();
   let pool = opts.onlyDeckId ? fcDeckPool(opts.onlyDeckId) : fcReviewerPool().concat(p.useDecks ? fcDeckPool() : []);
+  if (!opts.onlyDeckId) { const fronts = new Set(pool.filter(c => c.kind === "deck").map(c => c.front)); pool = pool.filter(c => c.kind === "deck" || !fronts.has(c.front)); }   // a question in a deck isn't also scheduled as a reviewer card
   fcAttachGroups(pool);
+  const leech = fcLeechKeys(), capMemo = new Map();
+  pool.forEach(c => { if (!capMemo.has(c.subject)) capMemo.set(c.subject, fcCapFor(c.subject)); c.cap = capMemo.get(c.subject); c.leech = leech.has(c.key) || (c.kind === "deck" && c.deckName === "Leeches"); });
   if (opts.onlyGroup) pool = pool.filter(c => c.group === opts.onlyGroup);
   const due = [], fresh = [], later = [];
-  for (const c of pool) { const s = srs[c.key]; if (!s) fresh.push(c); else if (s.due <= today) due.push(c); else later.push(c); }
-  due.sort((a, b) => srs[a.key].due.localeCompare(srs[b.key].due));
-  fresh.sort((a, b) => (a.prio - b.prio) || ((a.ord || 0) - (b.ord || 0)));
-  later.sort((a, b) => srs[a.key].due.localeCompare(srs[b.key].due));
+  for (const c of pool) { const s = srs[c.key]; if (!s) fresh.push(c); else if (fcDueOf(s, c.cap) <= today) due.push(c); else later.push(c); }
+  const effDue = (c) => fcDueOf(srs[c.key], c.cap);
+  const sev = (c) => { const s = srs[c.key]; return (c.leech ? 1000 : 0) + (s.lapses || 0) * 10 - (s.ease || 2.5); };
+  due.sort((a, b) => fin.on ? sev(b) - sev(a) : effDue(a).localeCompare(effDue(b)));
+  fresh.sort((a, b) => ((b.leech ? 1 : 0) - (a.leech ? 1 : 0)) || (a.prio - b.prio) || ((a.ord || 0) - (b.ord || 0)));
+  later.sort((a, b) => effDue(a).localeCompare(effDue(b)));
   const newToday = Object.values(srs).filter(s => s.first === today).length;
-  const cap = opts.cram ? 1e9 : Math.max(1, p.daily);
-  const newAllowed = opts.cram ? fresh.length : Math.max(0, p.newPerDay - newToday);
+  // Final weeks: raise the daily load just enough to cover the whole pool before the exam.
+  const dailyCap = fin.on ? Math.min(150, Math.max(p.daily, Math.ceil(pool.length / Math.max(1, fin.days - 1)))) : p.daily;
+  const cap = opts.cram ? 1e9 : Math.max(1, dailyCap);
+  const newLimit = fin.on ? Math.max(p.newPerDay, Math.ceil(fresh.length / Math.max(1, fin.days - 1))) : p.newPerDay;
+  const newAllowed = opts.cram ? fresh.length : Math.max(0, newLimit - newToday);
   let take;
   if (opts.cram) take = pool.slice();
   else if (opts.ahead) take = later.slice(0, cap);
   else { take = due.slice(0, cap); take = take.concat(fresh.slice(0, Math.min(newAllowed, Math.max(0, cap - take.length)))); }
-  return { cards: fcInterleave(take, p.mode), pool, counts: { due: due.length, fresh: fresh.length, newAllowed, later: later.length } };
+  return { cards: fcInterleave(take, fin.on ? "mixed" : p.mode), pool, final: fin, dailyCap, counts: { due: due.length, fresh: fresh.length, newAllowed, later: later.length } };
 }
 
 /* ---------- Session overlay ---------- */
@@ -8376,19 +8475,19 @@ function fcRender() {
   $("fcCount").textContent = `${s.done}/${s.total}`;
   $("fcBar").style.width = Math.round(s.done / s.total * 100) + "%";
   const tag = c.kind === "rv" ? `<span class="fc-chip">${esc(FC_TAG_NAMES[c.g.primary] || "Flagged")}</span>` : `<span class="fc-chip">Deck: ${esc(c.deckName)}</span>`;
-  $("fcChips").innerHTML = `<span class="fc-chip group" style="background:${col};border-color:${col};">${esc(c.group)}</span><span class="fc-chip">${esc(c.subject)}</span>${tag}`;
+  $("fcChips").innerHTML = `<span class="fc-chip group" style="background:${col};border-color:${col};">${esc(c.group)}</span><span class="fc-chip">${esc(c.subject)}</span>${tag}${c.leech ? `<span class="fc-chip" style="color:var(--red);border-color:#F3C6C6;">Leech</span>` : ""}`;
   const up = s.cards.slice(s.i + 1, s.i + 9).map(x => `<span class="fc-dot" style="background:${fcGroupColor(x.group)}" title="${esc(x.subject)}"></span>`).join("");
   $("fcNext").innerHTML = up ? `Up next ${up}` : "Last card";
   $("fcCard").innerHTML = `<div class="fc-label">Question</div><div class="fc-text">${esc(c.front)}</div>` +
     (s.flipped ? `<div class="fc-sep"></div><div class="fc-label">Answer</div>${fcBackHtml(c)}` : `<div class="hint" style="margin-top:18px;">Try to recall the answer, then tap to reveal.</div>`);
   $("fcActions").innerHTML = s.flipped
-    ? ["Again", "Hard", "Good", "Easy"].map((n, g) => `<button class="g${g}" data-fcg="${g}">${n}<small>${fcFmtInt(fcNextInterval(srs, g))}</small></button>`).join("")
+    ? ["Again", "Hard", "Good", "Easy"].map((n, g) => `<button class="g${g}" data-fcg="${g}">${n}<small>${fcFmtInt(fcNextInterval(srs, g, c.cap))}</small></button>`).join("")
     : `<button data-fcskip="1" style="flex:0 0 28%;">Skip</button><button class="g3" data-fcflip="1" style="flex:1;background:var(--navy);color:#fff;">Show answer</button>`;
 }
 function fcAnswer(g) {
   const s = fcS; if (!s || !s.flipped) return;
   const c = s.cards[s.i], srs = fcLoadSrs();
-  fcApplyGrade(srs, c.key, g, fcToday()); fcSaveSrs(srs);
+  fcApplyGrade(srs, c.key, g, fcToday(), c.cap); fcSaveSrs(srs);
   s.log.push({ c, g });
   if (g === 0) s.cards.splice(Math.min(s.cards.length, s.i + 5), 0, c); else s.done++;   // "Again" comes back a few cards later
   s.i++; s.flipped = false; fcRender();
@@ -8441,7 +8540,7 @@ function fcGroupStats(pool) {
   for (const c of pool) {
     const o = out.get(c.group) || { n: 0, due: 0, fresh: 0, subjects: new Set() };
     const s = srs[c.key]; o.n++; o.subjects.add(c.subject);
-    if (!s) o.fresh++; else if (s.due <= today) o.due++;
+    if (!s) o.fresh++; else if (fcDueOf(s, c.cap) <= today) o.due++;
     out.set(c.group, o);
   }
   return out;
@@ -8453,7 +8552,7 @@ function renderReviewerFocus() {
   const chips = Array.from(stats.entries()).sort((a, b) => (b[1].due + b[1].fresh) - (a[1].due + a[1].fresh)).map(([g, o]) =>
     `<button class="btn" data-fcgroup="${esc(g)}" style="border-left:4px solid ${fcGroupColor(g)};">${esc(g)} <span style="color:var(--sub);">${o.subjects.size > 1 ? o.subjects.size + " subjects \u00b7 " : ""}${o.due} due \u00b7 ${o.fresh} new</span></button>`).join("");
   const preview = q.cards.slice(0, 14).map(x => `<span class="fc-dot" style="background:${fcGroupColor(x.group)}" title="${esc(x.subject)}"></span>`).join("");
-  box.innerHTML = `<div class="fc-stats"><div class="fc-stat"><b>${c.due}</b><span>due</span></div><div class="fc-stat"><b>${Math.min(c.newAllowed, c.fresh)}</b><span>new today</span></div><div class="fc-stat"><b>${q.pool.length}</b><span>cards total</span></div></div>` +
+  box.innerHTML = fcFinalBanner() + `<div class="fc-stats"><div class="fc-stat"><b>${c.due}</b><span>due</span></div><div class="fc-stat"><b>${Math.min(c.newAllowed, c.fresh)}</b><span>new today</span></div><div class="fc-stat"><b>${q.pool.length}</b><span>cards total</span></div></div>` +
     (n ? `<button class="btn primary block" data-fcstart="1">Start review &middot; ${n} card${n === 1 ? "" : "s"} ${n ? "\u25B6" : ""}</button>${preview ? `<div class="fc-next" style="padding:6px 0 0;">Order preview ${preview}<span style="margin-left:4px;">(colour = topic group)</span></div>` : ""}`
       : `<div class="empty-state">${q.pool.length ? "Nothing due right now." : "No cards yet. Take a test, or create a deck in the Flashcards tab."}</div>${c.later ? `<button class="btn block" data-fcahead="1">Practice ahead &middot; ${c.later} not yet due</button>` : ""}`) +
     `<div class="field-label" style="margin-top:12px;">Study order</div>${fcModeSelect("rvFcMode")}` +
@@ -8484,18 +8583,20 @@ function fcRenderToday() {
   q.cards.forEach(x => { if (!mix.has(x.group)) mix.set(x.group, new Map()); const m = mix.get(x.group); m.set(x.subject, (m.get(x.subject) || 0) + 1); });
   const mixRows = Array.from(mix.entries()).map(([g, m]) => Array.from(m.entries()).map(([s, n], i) => `<tr><td>${i === 0 ? `<b style="color:${fcGroupColor(g)};">${esc(g)}</b>` : ""}</td><td>${esc(s)}</td><td>${n}</td></tr>`).join("")).join("");
   const days = [0, 1, 2, 3, 4, 5, 6].map(i => ({ d: fcAddDays(today, i), n: 0 }));
-  q.pool.forEach(x => { const s = srs[x.key]; if (!s) return; days.forEach((dd, i) => { if (i === 0 ? s.due <= dd.d : s.due === dd.d) dd.n++; }); });
+  q.pool.forEach(x => { const s = srs[x.key]; if (!s) return; const dv = fcDueOf(s, x.cap); days.forEach((dd, i) => { if (i === 0 ? dv <= dd.d : dv === dd.d) dd.n++; }); });
   const mx = Math.max(1, ...days.map(d => d.n));
   const seq = q.cards.slice(0, 30).map(x => `<span class="fc-dot" style="background:${fcGroupColor(x.group)}" title="${esc(x.subject)}"></span>`).join("");
-  box.innerHTML = `<div class="card"><h3>Today's schedule</h3>
+  box.innerHTML = `<div class="card"><h3>Today's schedule</h3>${fcFinalBanner()}
       <div class="fc-stats"><div class="fc-stat"><b>${c.due}</b><span>due</span></div><div class="fc-stat"><b>${Math.min(c.newAllowed, c.fresh)}</b><span>new today</span></div><div class="fc-stat"><b>${reviewed}</b><span>reviewed today</span></div></div>
       ${q.cards.length ? `<button class="btn primary block" data-fcstart="1">Start today's session &middot; ${q.cards.length} card${q.cards.length === 1 ? "" : "s"} &#9654;</button>` : `<div class="empty-state">${q.pool.length ? "You're all caught up for today." : "No cards yet. Cards appear here from your Reviewer pool and from decks set to auto-schedule."}</div>${c.later ? `<button class="btn block" data-fcahead="1">Practice ahead &middot; ${c.later} not yet due</button>` : ""}`}
       ${seq ? `<div class="fc-next" style="padding:8px 0 0;">Session order ${seq}</div>` : ""}</div>
     <div class="card"><h3>Schedule settings</h3>
       <div class="row wrap" style="gap:10px;margin-bottom:8px;"><label>Cards per day <input type="number" id="fcDaily" min="1" value="${p.daily}" style="width:70px;"></label><label>New per day <input type="number" id="fcNewDay" min="0" value="${p.newPerDay}" style="width:70px;"></label></div>
       <label class="field-label">Study order</label>${fcModeSelect("fcModeSel")}
+      <label class="field-label" style="margin-top:8px;">Final-weeks mode</label>
+      <div class="row wrap" style="gap:8px;"><select id="fcFinalSel"><option value="auto"${p.finalMode === "auto" ? " selected" : ""}>Automatic: start near the exam</option><option value="on"${p.finalMode === "on" ? " selected" : ""}>Always on</option><option value="off"${p.finalMode === "off" ? " selected" : ""}>Off</option></select><label>Starts within <input type="number" id="fcFinalDays" min="3" max="60" value="${p.finalDays}" style="width:60px;"> days</label></div>
       <div class="row wrap" style="gap:14px;margin-top:8px;"><label class="row" style="flex:none;gap:6px;"><input type="checkbox" id="fcUseRv" ${p.useReviewer ? "checked" : ""}><span>Reviewer questions (misses, guesses, flags)</span></label><label class="row" style="flex:none;gap:6px;"><input type="checkbox" id="fcUseDecks" ${p.useDecks ? "checked" : ""}><span>Decks set to auto-schedule</span></label></div>
-      <p class="hint" style="margin-top:8px;">Overdue cards come first, then new cards (confident-but-wrong, then guesses, then slightly confident, then deck cards) up to your daily limits. The session is then interleaved so related topics alternate instead of being drilled in blocks, and answers set each card's next review date (Again = back today, Hard / Good / Easy = longer gaps).</p></div>
+      <p class="hint" style="margin-top:8px;">Gaps between reviews never exceed a third of the days left to the exam. Overdue cards come first, then new cards (confident-but-wrong, then guesses, then slightly confident, then deck cards) up to your daily limits. The session is then interleaved so related topics alternate instead of being drilled in blocks, and answers set each card's next review date (Again = back today, Hard / Good / Easy = longer gaps).</p></div>
     <div class="card"><h3>What's in today's mix</h3>${mixRows ? `<div class="table-wrap"><table class="data-table"><tr><th>Group</th><th>Subject</th><th>Cards</th></tr>${mixRows}</table></div>` : `<div class="empty-state">Nothing scheduled.</div>`}</div>
     <div class="card"><h3>Next 7 days</h3><div class="fc-fcast">${days.map((d, i) => `<div><span>${d.n}</span><i style="height:${Math.round(d.n / mx * 48)}px"></i>${i === 0 ? "Today" : new Date(d.d + "T00:00:00").toLocaleDateString(undefined, { weekday: "short" })}</div>`).join("")}</div><p class="hint" style="margin-top:6px;">Cards already in the schedule only; new cards are added as you go.</p></div>`;
   box.onclick = (e) => { const b = e.target.closest("button"); if (!b) return; if (b.dataset.fcstart) fcStart(fcBuildQueue({}).cards); else if (b.dataset.fcahead) fcStart(fcBuildQueue({ ahead: true }).cards); };
@@ -8504,6 +8605,8 @@ function fcRenderToday() {
   $("fcModeSel").addEventListener("change", () => { fcSetPref("mode", $("fcModeSel").value); refreshFlashcards(); });
   $("fcUseRv").addEventListener("change", () => { fcSetPref("useReviewer", $("fcUseRv").checked); refreshFlashcards(); });
   $("fcUseDecks").addEventListener("change", () => { fcSetPref("useDecks", $("fcUseDecks").checked); refreshFlashcards(); });
+  $("fcFinalSel").addEventListener("change", () => { fcSetPref("finalMode", $("fcFinalSel").value); refreshFlashcards(); });
+  $("fcFinalDays").addEventListener("change", () => { fcSetPref("finalDays", Math.min(60, Math.max(3, parseInt($("fcFinalDays").value, 10) || 14))); refreshFlashcards(); });
 }
 
 function fcRenderGroups() {
@@ -8643,6 +8746,194 @@ function fcRenderDeckDetail(box, deck) {
   };
   $("fcCardFilter").addEventListener("input", paint); paint();
 }
+
+/* =====================================================================
+   Exam-based grouping, confidence calibration, leeches
+   ===================================================================== */
+function exKnownSubjects() {
+  const s = new Set(Object.keys(getAllLists()));
+  loadExamDates().forEach(e => (e.subjects || []).forEach(x => s.add(x)));
+  return Array.from(s);
+}
+// Which exam does this set of subjects belong to? Highest share of the subjects wins; ties prefer the focused exam,
+// then upcoming exams, then the nearest date.
+function exAssign(names) {
+  names = (names || []).filter(Boolean);
+  const exams = loadExamDates().filter(e => (e.subjects || []).length);
+  if (!names.length || !exams.length) return null;
+  const active = getActiveExam();
+  let best = null;
+  for (const e of exams) {
+    const set = new Set(e.subjects.map(normSubj));
+    const hit = names.filter(n => set.has(normSubj(n))).length;
+    if (!hit) continue;
+    const d = e.date ? daysUntil(e.date) : 9999;
+    const rank = [hit / names.length, active && e.id === active.id ? 1 : 0, d >= 0 ? 1 : 0, -Math.abs(d)];
+    const better = !best || (() => { for (let i = 0; i < rank.length; i++) if (rank[i] !== best.rank[i]) return rank[i] > best.rank[i]; return false; })();
+    if (better) best = { exam: e, frac: rank[0], rank };
+  }
+  return best ? { exam: best.exam, frac: best.frac } : null;
+}
+function exLabel(exam) {
+  if (!exam) return "Other \u2014 not in any exam";
+  const d = exam.date ? daysUntil(exam.date) : null;
+  return `${exam.label}${d === null ? "" : d > 0 ? " \u00b7 " + d + "d left" : d === 0 ? " \u00b7 today" : " \u00b7 past"}`;
+}
+// items -> ordered groups [{exam, items}]: focused exam, then upcoming by date, then past, then unassigned.
+function exGroup(items, examOf) {
+  const map = new Map();
+  for (const it of items) { const e = examOf(it) || null, k = e ? e.id : "_"; if (!map.has(k)) map.set(k, { exam: e, items: [] }); map.get(k).items.push(it); }
+  const active = getActiveExam();
+  const rank = (g) => { if (!g.exam) return [3, 0]; if (active && g.exam.id === active.id) return [0, 0]; const d = g.exam.date ? daysUntil(g.exam.date) : 9999; return d >= 0 ? [1, d] : [2, -d]; };
+  return Array.from(map.values()).sort((a, b) => { const x = rank(a), y = rank(b); return (x[0] - y[0]) || (x[1] - y[1]); });
+}
+function exHeaderEl(exam, extraHtml) {
+  const h = el("div", "saved-group");
+  h.innerHTML = `${esc(exLabel(exam))}${extraHtml ? `<div style="text-transform:none;letter-spacing:0;font-weight:500;margin-top:2px;">${extraHtml}</div>` : ""}`;
+  return h;
+}
+function exTestNames(h, byId) {
+  const d = byId && byId[h.id];
+  if (d && (d.items || []).length) return Array.from(new Set(d.items.map(it => it.source_list).filter(Boolean)));
+  const nm = normSubj(h.source);   // older tests with no saved details: look for subject names in the test's name
+  return exKnownSubjects().filter(k => { const t = normSubj(k); return t.trim() && nm.includes(t); });
+}
+function exDetailsById() { const m = {}; for (const d of loadJson(KEYS.details, [])) m[d.exam_id] = d; return m; }
+// Pooled (question-weighted) accuracy for a set of tests, limited to the exam's subjects.
+function exGroupAccuracy(tests, byId, exam) {
+  const set = exam ? new Set(exam.subjects.map(normSubj)) : null;
+  let k = 0, n = 0;
+  for (const h of tests) {
+    const d = byId[h.id];
+    if (!d) { k += h.score || 0; n += h.total || 0; continue; }
+    for (const it of (d.items || [])) { if (set && !set.has(normSubj(it.source_list))) continue; n++; if (it.is_correct) k++; }
+  }
+  if (!n) return "";
+  const w = wilsonBounds(k, n, 1.64);
+  return `${tests.length} test${tests.length === 1 ? "" : "s"} &middot; accuracy <b>${(k / n * 100).toFixed(1)}%</b> over ${n} question${n === 1 ? "" : "s"} (likely ${(w.lo * 100).toFixed(0)}&ndash;${(w.hi * 100).toFixed(0)}%)`;
+}
+function historyForTrend(history) {
+  const scope = getScopeSubjects();
+  if (!scope || ($("historyViewSelect") && $("historyViewSelect").value !== "focus")) return history;
+  const set = new Set(scope.map(normSubj)), byId = exDetailsById();
+  return history.filter(h => exTestNames(h, byId).some(n => set.has(normSubj(n))));
+}
+(function initHistoryView() {
+  try { const v = localStorage.getItem("cble_history_view"); if (v && ["exam", "focus", "flat"].includes(v)) $("historyViewSelect").value = v; } catch (e) {}
+  $("historyViewSelect").addEventListener("change", () => { try { localStorage.setItem("cble_history_view", $("historyViewSelect").value); } catch (e) {} refreshHistoryList(); });
+})();
+
+/* ---------- Attempts per question (shared by calibration + leeches) ---------- */
+function exQuestionAttempts(scope) {
+  const sc = scope && scope.length ? new Set(scope) : null, excl = getExcludedIndicesByList();
+  const byQ = new Map();
+  for (const d of loadJson(KEYS.details, []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""))) {
+    for (const it of (d.items || [])) {
+      if (!it.is_answered || (sc && !sc.has(it.source_list)) || itemExcluded(excl, it)) continue;
+      const ref = refNumOf(it), key = `${it.source_list}::${(it.reference_no !== "" && it.reference_no != null) ? it.reference_no : it.question}`;
+      if (!byQ.has(key)) byQ.set(key, { key, subject: it.source_list || "Unknown", ref, list: [] });
+      const q = byQ.get(key);
+      q.list.push({ ok: !!it.is_correct, conf: it.confidence || "", date: d.date, question: it.question, correct_answer: it.correct_answer, your_answer: it.your_answer });
+    }
+  }
+  return Array.from(byQ.values());
+}
+
+/* ---------- Calibration ---------- */
+const CALIB_EXPECTED = { "Guess": 25, "Slightly Confident": 50, "Confident": 75, "Sure I'm Right": 90 };
+function computeCalibration(scope, firstOnly) {
+  const lv = {}; CONFIDENCE_LEVELS.forEach(l => lv[l] = { k: 0, n: 0 });
+  const subj = {};
+  for (const q of exQuestionAttempts(scope)) {
+    const use = firstOnly ? q.list.slice(0, 1) : q.list;
+    for (const a of use) {
+      if (!lv[a.conf]) continue;
+      lv[a.conf].n++; if (a.ok) lv[a.conf].k++;
+      if (a.conf === "Confident" || a.conf === "Sure I'm Right") {
+        const s = subj[q.subject] = subj[q.subject] || { n: 0, k: 0, sureWrong: 0 };
+        s.n++; if (a.ok) s.k++; else if (a.conf === "Sure I'm Right") s.sureWrong++;
+      }
+    }
+  }
+  return { lv, subj };
+}
+function renderCalibration() {
+  const box = $("calibBox"); if (!box) return;
+  const firstOnly = $("calibFirstOnly").checked;
+  const { lv, subj } = computeCalibration(getScopeSubjects(), firstOnly);
+  const total = CONFIDENCE_LEVELS.reduce((a, l) => a + lv[l].n, 0);
+  if (!total) { box.innerHTML = `<div class="empty-state">No answers with a confidence rating yet.</div>`; return; }
+  let gapSum = 0, gapN = 0;
+  const rows = CONFIDENCE_LEVELS.map(l => {
+    const o = lv[l], exp = CALIB_EXPECTED[l];
+    if (!o.n) return `<div class="bar-row"><div class="lbl" style="width:84px;">${esc(l)}</div><div class="bar-track"></div><div class="bar-val wide">&ndash;<span class="bn">n=0</span></div></div>`;
+    const acc = o.k / o.n * 100, w = wilsonBounds(o.k, o.n, 1.64), lo = w.lo * 100, hi = w.hi * 100;
+    gapSum += (acc - exp) * o.n; gapN += o.n;
+    let verdict = "calibrated", color = "var(--green)";
+    if (o.n < 10) { verdict = "few answers"; color = "var(--sub)"; }
+    else if (hi < exp) { verdict = "overconfident"; color = "var(--red)"; }
+    else if (lo > exp) { verdict = "knows more than it feels"; color = "var(--navy)"; }
+    return `<div class="bar-row"><div class="lbl" style="width:84px;">${esc(l)}</div><div class="bar-track" title="Right ${acc.toFixed(1)}% \u00b7 90% range ${lo.toFixed(0)}\u2013${hi.toFixed(0)}% \u00b7 expected about ${exp}%"><div class="bar-fill" style="width:${Math.max(2, acc)}%;background:${color};"></div><div class="bar-ci" style="left:${lo.toFixed(1)}%;width:${Math.max(0, hi - lo).toFixed(1)}%;"></div><div class="bar-exp" style="left:${exp}%;"></div></div><div class="bar-val wide${o.n < 10 ? " low" : ""}" style="color:${color};">${acc.toFixed(0)}%<span class="bn">n=${o.n} &middot; ${verdict}</span></div></div>`;
+  }).join("");
+  const gap = gapN ? gapSum / gapN : 0;
+  const cw = lv["Confident"].n + lv["Sure I'm Right"].n, cwWrong = (lv["Confident"].n - lv["Confident"].k) + (lv["Sure I'm Right"].n - lv["Sure I'm Right"].k);
+  const sRows = Object.entries(subj).filter(([, o]) => o.n >= 3).sort((a, b) => (a[1].k / a[1].n) - (b[1].k / b[1].n)).slice(0, 8).map(([s, o]) => {
+    const w = wilsonBounds(o.k, o.n, 1.64);
+    return `<tr><td style="font-family:inherit;">${esc(s)}</td><td>${o.n}</td><td>${(o.k / o.n * 100).toFixed(0)}%</td><td>${(w.lo * 100).toFixed(0)}&ndash;${(w.hi * 100).toFixed(0)}%</td><td>${o.sureWrong}</td></tr>`;
+  }).join("");
+  box.innerHTML = rows +
+    `<p class="hint" style="margin-top:8px;">Black whisker = 90% range for your true accuracy at that confidence level; the thin vertical line is what that confidence should roughly deliver (${Object.values(CALIB_EXPECTED).join(" / ")}%). ${gapN ? `On average you score <b>${Math.abs(gap).toFixed(0)} points ${gap < 0 ? "below" : "above"}</b> what your confidence implies. ` : ""}${cw ? `${cwWrong} of ${cw} answers marked Confident or Sure were wrong (${(cwWrong / cw * 100).toFixed(0)}%).` : ""}</p>` +
+    (sRows ? `<div class="field-label" style="margin-top:8px;">Where confident answers fail most</div><div class="table-wrap"><table class="data-table"><tr><th>Subject</th><th>Confident+ answers</th><th>Right</th><th>90% range</th><th>Sure &amp; wrong</th></tr>${sRows}</table></div>` : "");
+}
+
+/* ---------- Leeches ---------- */
+// A leech is a question that keeps being missed: 3+ answers with at least 60% wrong, a miss on each of its last
+// two attempts after 3+ tries, or 3+ flashcard lapses.
+function computeLeeches(scope) {
+  const srs = loadJson(KEYS.flashSrs, {}), out = [];
+  for (const q of exQuestionAttempts(scope)) {
+    const n = q.list.length, wrong = q.list.filter(a => !a.ok).length;
+    const lapses = (srs["rv::" + q.key] || {}).lapses || 0;
+    const lastTwoWrong = n >= 3 && !q.list[n - 1].ok && !q.list[n - 2].ok;
+    if (!((n >= 3 && wrong >= 2 && wrong / n >= 0.6) || lastTwoWrong || lapses >= 3)) continue;
+    const last = q.list[n - 1];
+    out.push({
+      key: q.key, subject: q.subject, ref: q.ref, n, wrong, lapses, question: last.question || "", answer: last.correct_answer || "",
+      pattern: q.list.slice(-6).map(a => a.ok ? "\u2713" : "\u2717").join(" "),
+      sureWrong: q.list.filter(a => !a.ok && (a.conf === "Confident" || a.conf === "Sure I'm Right")).length,
+      score: wrong * 2 + lapses + (lastTwoWrong ? 2 : 0),
+    });
+  }
+  return out.sort((a, b) => (b.score - a.score) || (b.n - a.n));
+}
+let exLeechShowAll = false;
+function renderLeeches() {
+  const box = $("leechBox"); if (!box) return;
+  const list = computeLeeches(getScopeSubjects());
+  if (!list.length) { box.innerHTML = `<div class="empty-state">No stubborn questions right now. A question shows up here after repeated misses.</div>`; return; }
+  const shown = exLeechShowAll ? list : list.slice(0, 12);
+  box.innerHTML = `<div class="row wrap" style="gap:6px;margin-bottom:8px;"><button class="btn primary" id="btnLeechDeck">Add all ${list.length} to a &ldquo;Leeches&rdquo; deck</button></div>` +
+    shown.map(l => `<div class="list-item"><div class="top-row"><span class="name" style="font-size:.84rem;">${esc(l.question.length > 120 ? l.question.slice(0, 120) + "\u2026" : l.question || "(question text unavailable)")}</span><span class="meta" style="font-family:'IBM Plex Mono',monospace;">${esc(l.pattern)}</span></div><div class="meta">${esc(l.subject)} &middot; missed ${l.wrong} of ${l.n}${l.sureWrong ? ` &middot; ${l.sureWrong} while confident` : ""}${l.lapses ? ` &middot; ${l.lapses} flashcard lapse${l.lapses === 1 ? "" : "s"}` : ""}</div><div class="meta" style="color:var(--green);">Answer: ${esc(l.answer || "(unknown)")}</div></div>`).join("") +
+    (list.length > shown.length ? `<button class="btn link" id="btnLeechMore">Show all ${list.length}</button>` : "") +
+    `<p class="hint" style="margin-top:8px;">More repetition rarely fixes these. Change the approach: write why the right answer is right and why your usual answer is wrong, make a mnemonic or a worked example, or study it next to the look-alike it gets confused with. The Leeches deck puts them in your daily schedule with a Leech tag.</p>`;
+  const more = $("btnLeechMore"); if (more) more.addEventListener("click", () => { exLeechShowAll = true; renderLeeches(); });
+  $("btnLeechDeck").addEventListener("click", () => {
+    const decks = fcLoadDecks();
+    let d = decks.find(x => x.name === "Leeches");
+    if (!d) { d = { id: uid(), name: "Leeches", desc: "Questions that keep getting missed", auto: true, cards: [], created: nowIso(), updated_at: nowIso() }; decks.push(d); }
+    const have = new Set(d.cards.map(c => c.front)), log = loadMistakeLog();
+    let added = 0;
+    for (const l of list) {
+      if (!l.question || have.has(l.question)) continue;
+      const m = l.ref ? findMistakeEntry(log, l.subject, l.ref) : null;
+      d.cards.push(fcCardObj(l.question, `${l.answer || "(unknown)"}\n\nHistory: ${l.pattern}${m && m.note ? "\nMy note: " + m.note : ""}`, l.subject)); added++;
+    }
+    d.updated_at = nowIso(); fcSaveDecks(decks);
+    toast(added ? `Added ${added} question${added === 1 ? "" : "s"} to the Leeches deck.` : "Those are already in the Leeches deck.");
+  });
+}
+function renderCalibrationAndLeeches() { renderCalibration(); renderLeeches(); }
+$("calibFirstOnly").addEventListener("change", renderCalibration);
 
 /* =====================================================================
    Boot
