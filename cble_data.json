@@ -39482,6 +39482,15 @@
       "pct": 68,
       "date": "2026-10-16T18:58:17",
       "time_used_seconds": 3812.9
+    },
+    {
+      "id": "1792238182227873",
+      "source": "D3_S3",
+      "score": 32,
+      "total": 50,
+      "pct": 64,
+      "date": "2026-10-17T11:56:22",
+      "time_used_seconds": 4069.4
     }
   ],
   "exam_details": [
@@ -76627,6 +76636,563 @@
           "correct_answer": "A. 1.3x10⁻⁵ M"
         }
       ]
+    },
+    {
+      "exam_id": "1792238182227873",
+      "source": "D3_S3",
+      "date": "2026-10-17T11:56:22",
+      "items": [
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 32,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the length of the arc of circle x²+y²=16 from x=1 to x=3.",
+          "your_answer": "C. 3.75",
+          "correct_answer": "A. 2.38"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 72,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "[Questions 31-39 refer to the following: The times required by three workers to perform an assembly-line task were recorded on five randomly selected occasions. Worker 1: 8, 10, 9, 11, 10. Worker 2: 8, 9, 9, 8, 10. Worker 3: 10, 9, 10, 11, 9.] Compute the sum of squares between treatments.",
+          "your_answer": "A. 2.8",
+          "correct_answer": "A. 2.8"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 32,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The curve y = u2013x^2 + x + 1 opens:",
+          "your_answer": "D. Downward",
+          "correct_answer": "D. Downward"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 14,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Evaluate the integrating factor of (x² + y² + 3)dx − 2xydy = 0",
+          "your_answer": "B. -2/x",
+          "correct_answer": "D. 1/x^2"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "How many significant figures should the product of 1.2 x 1.4592 contain?",
+          "your_answer": "B. 2",
+          "correct_answer": "B. 2"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 16,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Evaluate the integrating factor of the differential equation: (y⁴ + 2y)dx + (xy³ + 2y⁴ − 4x)dy = 0",
+          "your_answer": "C. y^3",
+          "correct_answer": "D. 1/y^3"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Evaluate: y = [4(5^(2n+1)) - 10(5^(2n-1))] / [2(5^(2n))]",
+          "your_answer": "B. y = 9",
+          "correct_answer": "B. y = 9"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 71,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An economy is experiencing inflation at an annual rate of 8%. If this continues, what will P1000 be worth two years from now in terms of today's pesos?",
+          "your_answer": "A. P857.34",
+          "correct_answer": "A. P857.34"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 22,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Evaluate the integrating factor of the differential equation: y' − y tan x = sin x",
+          "your_answer": "C. -cos(x)",
+          "correct_answer": "A. cos(x)"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 48,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Given the probability mass function of a discrete random variable X: P(X=1)=0.1, P(X=2)=0.2, P(X=3)=0.3, P(X=4)=0.15, P(X=5)=0.1, P(X=6)=0.15, and 0 otherwise. What is the value of P(2 < X ≤ 6)?",
+          "your_answer": "C. 0.7",
+          "correct_answer": "C. 0.7"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 28,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Concentration of NaOH solution produced by mercury electrolytic cell is about __________ percent.",
+          "your_answer": "B. 50",
+          "correct_answer": "B. 50"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 28,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Determine the length of the chord common to the circles x^2 + y^2 = 64 and x^2 + y^2 u2013 16x = 0.",
+          "your_answer": "A. 13.86",
+          "correct_answer": "A. 13.86"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "In triangle ABC, the side AB = 36cm, BC = 30cm and CA = 48cm. Compute the distance from the intersection of perpendicular bisectors to side BC.",
+          "your_answer": "B. 18.77cm",
+          "correct_answer": "B. 18.77cm"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A block of mass M = 10 kg is sitting on a surface inclined at angle θ = 45°. The coefficient of static friction is μs = 0.5 between the block and surface. A force F is applied parallel to the incline surface, directed up the slope. What is the minimum force F necessary to prevent the block from slipping (sliding down)?",
+          "your_answer": "D. 34.65N",
+          "correct_answer": "D. 34.65N"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 92,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "It means any alteration of the physical, chemical and biological properties of the atmospheric air; or any discharge thereto of any liquid, gaseous or solid substances that will or is likely to create or to render the air resources of the country harmful; detrimental or injurious to public health_safety or welare of which willl adversely affect their utilization of domestic, commercial, industrial, agricultural, recreational, or other legitimate purpose:",
+          "your_answer": "C. air pollution",
+          "correct_answer": "C. air pollution"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 46,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The moon is 3476 km in diameter. What radius of curvature should a concave mirror have if it is to produce a lunar image 10 mm in diameter when the moon is 3.84 x 10^5 km away?",
+          "your_answer": "C. 2.2 cm",
+          "correct_answer": "A. 2.2 m"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 2,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A, B, C and D are going to ride in A's car to go to the mall. Only A and C know how to drive, and D does not want to sit in front. How many ways can the four sit in the car if it has two front seats and two back seats?",
+          "your_answer": "B. 6",
+          "correct_answer": "D. 8"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Solve for G: tan(11G u2013 16) = cot(5G + 26). All angles are expressed in degrees.",
+          "your_answer": "A. 5",
+          "correct_answer": "A. 5"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 30,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A control valve must control the inlet flow of cooling water to a cooling jacket on an exothermic chemical reactor: We should select",
+          "your_answer": "B. Globe valve",
+          "correct_answer": "A. Air to close valve"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 46,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following types of random variables can take only a finite or countable number of values?",
+          "your_answer": "B. Discrete random variable",
+          "correct_answer": "B. Discrete random variable"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 36,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "[Situation 1: f(x) = x³/9 - 3x] What is the relative minimum point of the function?",
+          "your_answer": "A. (-3, -6)",
+          "correct_answer": "B. (3, -6)"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 67,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "If the sulfur contains Arsenic which attacks the Vanadium or Platinum catalyst during contact process. Using which of the following can the Arsenic be removed.",
+          "your_answer": "B. CaO",
+          "correct_answer": "A. Milk of lime"
+        },
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 15,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What is the area of a regular icosagon if the measure of one of its apothems is 2.3cm?",
+          "your_answer": "A. 13.29cm^2",
+          "correct_answer": "D. 16.76cm^2"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Solve for the value of x: sqrt(2x+5) - sqrt(x+3) = 2",
+          "your_answer": "B. 22",
+          "correct_answer": "B. 22"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 49,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "________ is a rapid increase in volume and release of energy in an extreme manner, usually with the generation of high temperatures and the release of gases",
+          "your_answer": "B. Explosion",
+          "correct_answer": "B. Explosion"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 31,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "An operator is about to start a product transfer between two tanks after a maintenance shutdown. She has done this transfer dozens of times and knows the line well. What is the most appropriate action?",
+          "your_answer": "C. Physically walk the entire modified line and validate the complete valve lineup before starting the pump",
+          "correct_answer": "C. Physically walk the entire modified line and validate the complete valve lineup before starting the pump"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 57,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "What is the undesirable product in urea production?",
+          "your_answer": "C. Biuret formation",
+          "correct_answer": "C. Biuret formation"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 29,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "An act providing for the fixing of maximum selling price of essential articles or commodities and creating the control council: price",
+          "your_answer": "A. RA 6124",
+          "correct_answer": "A. RA 6124"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 39,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "[Situation 1: f(x) = x³/9 - 3x] At what interval will the graph have concavity in a downward manner?",
+          "your_answer": "B. [-3, 3]",
+          "correct_answer": "A. (-∞, 0)"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A type of simple interest in which interest is calculated as though each month had 30 days.",
+          "your_answer": "B. Ordinary Simple Interest",
+          "correct_answer": "B. Ordinary Simple Interest"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 42,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An underdamped second-order process responds to a step input. The final steady-state value (b) is 10 units above the initial value. The output first overshoots to a peak of 14.5 units above the initial value, then undershoots, then reaches a second peak at 10.8 units above the initial value. What are the overshoot (OS) and decay ratio (DR)?",
+          "your_answer": "A. OS = 0.45, DR = 0.18",
+          "correct_answer": "A. OS = 0.45, DR = 0.18"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Evaluate the general solution of the differential equation: (y⁴ + 2y)dx + (xy³ + 2y⁴ − 4x)dy = 0",
+          "your_answer": "C. xy + 2x/y² + y² = c",
+          "correct_answer": "C. xy + 2x/y² + y² = c"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 15,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A 2 kg brick is moving at a speed of 6 m/s. How large a force F is needed to stop the brick in a time of 0.0007 s?",
+          "your_answer": "B. -1.71x10^4 N",
+          "correct_answer": "B. -1.71x10^4 N"
+        },
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 35,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the centroid of the plane area bounded by y²=4x, the line x=1, and the x-axis on the 1st quadrant.",
+          "your_answer": "B. 3/5, 3/4",
+          "correct_answer": "B. 3/5, 3/4"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 10,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A truss frame is supported by a pin support at joint A (bottom-left) and a roller support at joint B (bottom-right). Three downward vertical loads of 10 kN, 10 kN, and 15 kN are applied along the top chord of the truss (left to right), and a horizontal load of 5 kN is applied at the top-right joint, pointing to the right. What is the vertical component of the reaction at A?",
+          "your_answer": "B. 10kN",
+          "correct_answer": "C. 12.5kN"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 21,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Differentiate y = e^x·cos(x²)",
+          "your_answer": "A. -e^x·sin(x²)",
+          "correct_answer": "B. e^x·(cos(x²) - 2x·sin(x²))"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 65,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the primary purpose of a Safety Management System (SMS)?",
+          "your_answer": "C. To identify, assess, and manage workplace risks",
+          "correct_answer": "C. To identify, assess, and manage workplace risks"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 37,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the area of the smallest triangle (in square units) that can be formed from the given parts: b = 28.6, c = 44.3, and B = 23.3u00b0.",
+          "your_answer": "B. 159",
+          "correct_answer": "B. 159"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 25,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An act to provide standards for foods and drugs and to provide penalties for violations of the same:",
+          "your_answer": "B. RA 5455",
+          "correct_answer": "A. RA 1655"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Under conditions of perfect competition the price at which a given product will be supplied and purchased is the price that will result in the supply and the demand being equal.",
+          "your_answer": "A. Equilibrium Price",
+          "correct_answer": "A. Equilibrium Price"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 14,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "Find the slope of the line having a parametric equation y = 4t + 6 and x = t + 1.",
+          "your_answer": "B. 2",
+          "correct_answer": "D. 4"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "An object is being pulled along the ground by a 75 N force directed 28 degrees above the horizontal. How much work is done in pulling the object a distance of 8 m?",
+          "your_answer": "B. 530 J",
+          "correct_answer": "B. 530 J"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 38,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A step input of magnitude M = 3 is applied to a process. The output starts at y = 10 and eventually reaches a new steady state of y = 25. What is the steady-state gain K?",
+          "your_answer": "B. 5",
+          "correct_answer": "B. 5"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 64,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "What is the final stage of risk assessment?",
+          "your_answer": "C. Risk characterisation",
+          "correct_answer": "C. Risk characterisation"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 81,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "For problems 12 and 13: A company purchases a machine for $100,000, which is expected to have a salvage value of $10,000 after producing 50,000 units over its useful life. In the first year, the machine produces 12,000 units. What is the depreciation expense for the machine in the first year using the Units of Production method?",
+          "your_answer": "B. $18,000",
+          "correct_answer": "C. $21,600"
+        },
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A piece of wire is shaped to enclose a square whose area is 169 cm^2. It is then reshaped to enclose a rectangle whose length is 15 cm. The area of the rectangle is:",
+          "your_answer": "A. 165 cm^2",
+          "correct_answer": "A. 165 cm^2"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 56,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A wheel rotates through 50 rad while accelerating uniformly from 10 rad/s to 20 rad/s. How long does it take for this to happen?",
+          "your_answer": "B. 2.83 s",
+          "correct_answer": "C. 3.33 s"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 26,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "There are 4 geometric means between 3 and 729. Find the fourth term of the geometric progression.",
+          "your_answer": "B. 81",
+          "correct_answer": "B. 81"
+        },
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 34,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Determine the centroid of the area bounded by the curve x²=-y+4, the line x=1, and the coordinate axis.",
+          "your_answer": "B. 0.23, 2.3",
+          "correct_answer": "A. 0.48, 1.85"
+        },
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What is the radius of circumscribing circle if the measure of the apothem of a regular pentagon is 5cm?",
+          "your_answer": "B. 6.18cm",
+          "correct_answer": "B. 6.18cm"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -86842,6 +87408,366 @@
         }
       ],
       "updated_at": "2026-10-17T09:32:58"
+    },
+    {
+      "id": "179223818224551",
+      "source_list": "D3_L8_Integral_Calculus",
+      "reference_no": 32,
+      "question": "Find the length of the arc of circle x²+y²=16 from x=1 to x=3.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "C. 3.75",
+          "correct_answer": "A. 2.38"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "1792238182249670",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 14,
+      "question": "Evaluate the integrating factor of (x² + y² + 3)dx − 2xydy = 0",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "B. -2/x",
+          "correct_answer": "D. 1/x^2"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "179223818225278",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 16,
+      "question": "Evaluate the integrating factor of the differential equation: (y⁴ + 2y)dx + (xy³ + 2y⁴ − 4x)dy = 0",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "C. y^3",
+          "correct_answer": "D. 1/y^3"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "1792238182256909",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 22,
+      "question": "Evaluate the integrating factor of the differential equation: y' − y tan x = sin x",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "C. -cos(x)",
+          "correct_answer": "A. cos(x)"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "179223818226048",
+      "source_list": "D3_L14_Physics",
+      "reference_no": 46,
+      "question": "The moon is 3476 km in diameter. What radius of curvature should a concave mirror have if it is to produce a lunar image 10 mm in diameter when the moon is 3.84 x 10^5 km away?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "C. 2.2 cm",
+          "correct_answer": "A. 2.2 m"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "1792238182264676",
+      "source_list": "D3_L13_EngineeringDataAnalysis",
+      "reference_no": 2,
+      "question": "A, B, C and D are going to ride in A's car to go to the mall. Only A and C know how to drive, and D does not want to sit in front. How many ways can the four sit in the car if it has two front seats and two back seats?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "B. 6",
+          "correct_answer": "D. 8"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "1792238182267394",
+      "source_list": "D3_L2_Process_Control_Analysis",
+      "reference_no": 30,
+      "question": "A control valve must control the inlet flow of cooling water to a cooling jacket on an exothermic chemical reactor: We should select",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "B. Globe valve",
+          "correct_answer": "A. Air to close valve"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "1792238182272245",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 36,
+      "question": "[Situation 1: f(x) = x³/9 - 3x] What is the relative minimum point of the function?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "A. (-3, -6)",
+          "correct_answer": "B. (3, -6)"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "1792238182276362",
+      "source_list": "D3_L9_CPI",
+      "reference_no": 67,
+      "question": "If the sulfur contains Arsenic which attacks the Vanadium or Platinum catalyst during contact process. Using which of the following can the Arsenic be removed.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "B. CaO",
+          "correct_answer": "A. Milk of lime"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "1792238182279282",
+      "source_list": "D3_L5_Geometry",
+      "reference_no": 15,
+      "question": "What is the area of a regular icosagon if the measure of one of its apothems is 2.3cm?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "A. 13.29cm^2",
+          "correct_answer": "D. 16.76cm^2"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "179223818228271",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 39,
+      "question": "[Situation 1: f(x) = x³/9 - 3x] At what interval will the graph have concavity in a downward manner?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "B. [-3, 3]",
+          "correct_answer": "A. (-∞, 0)"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "1792238182285272",
+      "source_list": "D3_L15_Engineering_Mechanics",
+      "reference_no": 10,
+      "question": "A truss frame is supported by a pin support at joint A (bottom-left) and a roller support at joint B (bottom-right). Three downward vertical loads of 10 kN, 10 kN, and 15 kN are applied along the top chord of the truss (left to right), and a horizontal load of 5 kN is applied at the top-right joint, pointing to the right. What is the vertical component of the reaction at A?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "B. 10kN",
+          "correct_answer": "C. 12.5kN"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "1792238182289339",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 21,
+      "question": "Differentiate y = e^x·cos(x²)",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "A. -e^x·sin(x²)",
+          "correct_answer": "B. e^x·(cos(x²) - 2x·sin(x²))"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "1792238182293474",
+      "source_list": "D3_L1_ChE_Laws",
+      "reference_no": 25,
+      "question": "An act to provide standards for foods and drugs and to provide penalties for violations of the same:",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "B. RA 5455",
+          "correct_answer": "A. RA 1655"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "179223818229610",
+      "source_list": "D3_L6_AnalyticGeometry",
+      "reference_no": 14,
+      "question": "Find the slope of the line having a parametric equation y = 4t + 6 and x = t + 1.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "B. 2",
+          "correct_answer": "D. 4"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "1792238182299533",
+      "source_list": "D3_L12_EngineeringEconomics",
+      "reference_no": 81,
+      "question": "For problems 12 and 13: A company purchases a machine for $100,000, which is expected to have a salvage value of $10,000 after producing 50,000 units over its useful life. In the first year, the machine produces 12,000 units. What is the depreciation expense for the machine in the first year using the Units of Production method?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "B. $18,000",
+          "correct_answer": "C. $21,600"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "1792238182303915",
+      "source_list": "D3_L15_Engineering_Mechanics",
+      "reference_no": 56,
+      "question": "A wheel rotates through 50 rad while accelerating uniformly from 10 rad/s to 20 rad/s. How long does it take for this to happen?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "B. 2.83 s",
+          "correct_answer": "C. 3.33 s"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "1792238182306450",
+      "source_list": "D3_L8_Integral_Calculus",
+      "reference_no": 34,
+      "question": "Determine the centroid of the area bounded by the curve x²=-y+4, the line x=1, and the coordinate axis.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T11:56:22",
+      "occurrences": [
+        {
+          "exam_id": "1792238182227873",
+          "exam_source": "D3_S3",
+          "date": "2026-10-17T11:56:22",
+          "your_answer": "B. 0.23, 2.3",
+          "correct_answer": "A. 0.48, 1.85"
+        }
+      ],
+      "updated_at": "2026-10-17T11:56:22"
     }
   ],
   "guess_notes": [
@@ -87534,5 +88460,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T10:48:10"
+  "updated_at": "2026-10-17T11:56:32"
 }
