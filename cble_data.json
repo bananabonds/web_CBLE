@@ -85524,6 +85524,26 @@
         }
       ],
       "updated_at": "2026-10-17T07:28:36"
+    },
+    {
+      "id": "1792223753550823",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 59,
+      "question": "By what percentage would the rate of absorption be increased or decreases by increasing the total pressure from 100 to 200 kPa in the following cases? The absorption of ammonia from a mixture of ammonia and air containing 10% ammonia by volume, using pure water as solvent. Assume that all the resistance to the mass transfer lies within the gas phase.",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "For unicomponent diffusion Na = (D * P/(R * T * z * P_LM)) * (p_A,bulk - p_A,interface). D is a function of P and is inversly proportional hence DP is a constant for given T. Driving force doubles since p_A,bulk = y_a * P_t. Log mean also doubles since P_LM = P_t - P_B,bulk / ln (P_t / P_B,bulk). The magnitudes cancel out so 0%.",
+      "resolved": false,
+      "date_logged": "2026-10-17T07:55:53",
+      "occurrences": [
+        {
+          "exam_id": "1790316144805377",
+          "exam_source": "D2_S2",
+          "date": "2026-10-17T07:55:53",
+          "your_answer": "B. 50%",
+          "correct_answer": "A. 0%"
+        }
+      ],
+      "updated_at": "2026-10-17T07:55:53"
     }
   ],
   "guess_notes": [
@@ -86096,5 +86116,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T07:55:51"
+  "updated_at": "2026-10-17T07:56:03"
 }
