@@ -85865,7 +85865,7 @@
       "question": "Find the limit: lim(x, y)→(0,0) (x² + y²)·ln(x² + y²)",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Simplify let u = x^2 + y^2, lim u -> 0 = u ln u. Since indeterminate use L'Hospitals rule. Turn the equation to a fraction = ln u / 1/u. Since this equals -inifinity/infinity we differentiate the numerator and denominator with respect to u. L'Hospital gives 1/u / -1/u^2,  when substituted gives 0",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-16T09:27:20",
       "occurrences": [
         {
@@ -85876,7 +85876,7 @@
           "correct_answer": "B. 0"
         }
       ],
-      "updated_at": "2026-10-16T09:27:20"
+      "updated_at": "2026-10-17T10:31:08"
     },
     {
       "id": "1792143283003204",
@@ -87529,5 +87529,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T10:30:32"
+  "updated_at": "2026-10-17T10:31:15"
 }
