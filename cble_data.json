@@ -77666,7 +77666,7 @@
       "question": "In a tank are 100 liters of brine containing 50 kg total of dissolved salt. Pure water is allowed to run into the tank at the rate of 3 liters a minute. Brine runs out of the tank at the rate of 2 liters a minute. The instantaneous concentration in the tank is kept uniform by stirring. How much salt is in the tank at the end of one hour?",
       "category": "Formula / Equation Error",
       "note": "Find instantaneous volume, find the differential of salt over time (rate in - rate out), integrate the differential, simplify, solve for constant at t=0 formulate the equation of instantaneous salt  S(t).",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-22T09:16:35",
       "occurrences": [
         {
@@ -77676,7 +77676,8 @@
           "your_answer": "D. 20.62 kg",
           "correct_answer": "B. 19.53 kg"
         }
-      ]
+      ],
+      "updated_at": "2026-10-17T10:09:10"
     },
     {
       "id": "179006949169229",
@@ -87523,5 +87524,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T10:08:52"
+  "updated_at": "2026-10-17T10:09:16"
 }
