@@ -85564,6 +85564,26 @@
         }
       ],
       "updated_at": "2026-10-17T09:09:18"
+    },
+    {
+      "id": "1792229578437210",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 9,
+      "question": "A sand mixture was screened through a standard 10mesh screen. The mass fraction of the oversize material in feed, overflow and underflow were found to be 0.38, 0.79 and 0.22 respectively. The screen effectivenessbased on the oversize is",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Screen effectiveness here is the overall effectiveness despite saying based on oversize. E_overall = E_oversize * E_undersize. We define E_oversize = Dxd/Fxf and E_undersize = B(1-xb) / F(1-xf). We can derive equations from two material balance equations to only need the fractions. Eq 1: F = D + B, Eq 2: Fxf = Dxd + Bxb.",
+      "resolved": false,
+      "date_logged": "2026-10-17T09:32:58",
+      "occurrences": [
+        {
+          "exam_id": "1790316144805377",
+          "exam_source": "D2_S2",
+          "date": "2026-10-17T09:32:58",
+          "your_answer": "C. 0.58",
+          "correct_answer": "A. 0.50"
+        }
+      ],
+      "updated_at": "2026-10-17T09:32:58"
     }
   ],
   "guess_notes": [
@@ -86256,5 +86276,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T09:30:03"
+  "updated_at": "2026-10-17T09:33:08"
 }
