@@ -39491,6 +39491,15 @@
       "pct": 64,
       "date": "2026-10-17T11:56:22",
       "time_used_seconds": 4069.4
+    },
+    {
+      "id": "1792263541317702",
+      "source": "D2_S3",
+      "score": 29,
+      "total": 50,
+      "pct": 58,
+      "date": "2026-10-17T18:59:01",
+      "time_used_seconds": 10583.2
     }
   ],
   "exam_details": [
@@ -77193,6 +77202,563 @@
           "correct_answer": "B. 6.18cm"
         }
       ]
+    },
+    {
+      "exam_id": "1792263541317702",
+      "source": "D2_S3",
+      "date": "2026-10-17T18:59:01",
+      "items": [
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 42,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In a counter-current liquid extractor",
+          "your_answer": "C. only one of the liquids may be pumped at any desired rate.",
+          "correct_answer": "C. only one of the liquids may be pumped at any desired rate."
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 84,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A burner heats air from 20 to 40°C at constantpressure. Determine the change in entropy for a unit mass of air going through the heater, assuming that for air Cp = 1 kJ/kg-K.",
+          "your_answer": "C. 0.022 kJ/kg-K",
+          "correct_answer": "A. 0.034 kJ/kg-K"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 29,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The following half-life data areavailable for the irreversible liquid phasereaction, A->P What is the overall order of the reaction? Initial Concentration(kmol/m³) - [2, 8] (kmol/m³) Half-life (min) [2, 1]",
+          "your_answer": "A. 1",
+          "correct_answer": "C. 1.5"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 116,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "The assumption made in Elis method in distillation is that enthalpy concentration lines ofvapor and liquid are",
+          "your_answer": "C. both parallel and straight",
+          "correct_answer": "C. both parallel and straight"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 110,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Pick out the wrong statement pertaining to the rotary dryer.",
+          "your_answer": "A. Flights (located in the inside shell of rotary dryer) lift the material being dried and shower it down through the current of hot airlgases: It extends from the wall to a distance which is about 8-12% of the inside diameter of shell",
+          "correct_answer": "C. Rotary dryer is sitable for drying sticky material;"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 40,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Nitrogen is to be compressed in four stages from 14.7 psia 3500 psig. What would be the pressure in the third stage?",
+          "your_answer": "A. 894 psia",
+          "correct_answer": "A. 894 psia"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 71,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "In case of plain carbon steel, butt welded joints are used for shell plate thickness < ___________cm",
+          "your_answer": "A. 1.2",
+          "correct_answer": "B. 0.5"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 48,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "An ideal gas occupies a volume of 0.5 m³ at atemperature of 340 K and a given pressure. The gasundergoes a constant pressure process until thetemperature decreases to 290 K. Determine the work if thepressure is 120 kPa",
+          "your_answer": "C. -9 kJ",
+          "correct_answer": "C. -9 kJ"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 72,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "In a process in which it is used as a solvent, benzene is removed into nitrogen At 297 K and 101.3 kN/m2, the resulting mixture has a percentage relative humidity of 60. It is required to recover 80 per cent of the benzene present by cooling to 283 K and compressing to a suitable pressure: What should this pressure be? The vapor pressure of benzene is 12.2 kN/m2 at 297 K and 6.0 kN/m2 at 283 K",
+          "your_answer": "A. 392 kPa",
+          "correct_answer": "A. 392 kPa"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 29,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Water flowing at 2.27 m³/hr at 320 K is pumped through a 40 mm ID pipe, through a length of 150 m in a horizontal direction, and up through a vertical height of 10 m. In the pipe there is a control valve, equivalent to 200 pipe diameters, and other pipe fittings equivalent to 60 pipe diameters. Also in the line is a heat exchanger across which the head lost is 1.5 m water. Assume that the main pipe has a roughness of 0.2 mm What power must be supplied to the pump if it is 60 percent efficient?",
+          "your_answer": "B. 188 W",
+          "correct_answer": "C. 136 W"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 4,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Pick out the wrong statement pertaining to the design of the distillation column.",
+          "your_answer": "A. Generally, a skirt clearance of 0.5\"to 1.5'is recommended to prevent plugging of the slots by residue build up.",
+          "correct_answer": "D. None of these"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 23,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Heat transfer occurs by natural convection because change in temperature causes differences in",
+          "your_answer": "B. density",
+          "correct_answer": "B. density"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 27,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The conversion of a reactant, undergoing a first order reaction, at a time equal to three times the half-life of the reaction is",
+          "your_answer": "A. 0.875",
+          "correct_answer": "A. 0.875"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 22,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "In a size reduction crushing operation, feed sizeis 300 to 1500 mm while the product size is 100 to 300 mm. This is a case of the crushing.",
+          "your_answer": "B. primary",
+          "correct_answer": "B. primary"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 41,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A barytes composed of 100 percentBaSO4 is fused with carbon in the formof coke containing 6% ash (which isinfusible). The composition of the fusionmass is BaSO 11.1%, BaS 72.8%, C 13.9%, Ash 2.2%, Reaction: BaSO+4 C→ BaS + 4 CO. What is the degree of completion of the reaction?",
+          "your_answer": "D. 0.9",
+          "correct_answer": "D. 0.9"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "When the solvent dissolves very little of solute, then",
+          "your_answer": "C. large quantity of solvent is required to extract the solute.",
+          "correct_answer": "C. large quantity of solvent is required to extract the solute."
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 104,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Ipil-ipil leaves will be dried in moving train of trays dryers: The wet leaves containing 75 % water (wet basis) is to be dried to 15% (wet basis) in tray containing 1m x 1.5 m. The wet leaves are spread out in the tray to a uniform thickness of 8 cm: Calculate: If hot air at 20% RH and a bulb temperature of 110 F is blown into the dryer and moist air leaves at 105 F dry bulb and 86 F wet bulb temperatures, how many ft3 of hot air will be needed per MT of product?",
+          "your_answer": "B. 4.98x10^6 ft3",
+          "correct_answer": "C. 6.41x10^6 ft3"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 74,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In a gas absorption tower, mass transfer occurs primarily",
+          "your_answer": "C. from the gas phase to the liquid phase",
+          "correct_answer": "C. from the gas phase to the liquid phase"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 70,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A thin liquid film of ammonia, which has formed on the inner surface of a tube of diameter D=10 mm and length L = 1m, is removed by passing dry air through the tube at a flow rate of 3 * 10 ^-4 kg/s. The tube and the air are at 25 C. What is the average mass transfer convection coefficient",
+          "your_answer": "A. 0.083 m/s",
+          "correct_answer": "B. 0.012 m/s"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 119,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Which of the following unit operations makes use of Thiele-Geddes equation?",
+          "your_answer": "C. Multicomponent absorption with chemical reaction",
+          "correct_answer": "D. Multicomponent distillation."
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 69,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "For liquid acetone at 20°C and 1 bar, ẞ = 1.487 x 10^-3 C-, к = 62 x 10-6 bar- and V = 1.287 cm³/g. The value of (dP/dT) at 20°C and 1 bar is",
+          "your_answer": "B. 28 bar/°C",
+          "correct_answer": "A. 24 bar/°C"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 63,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A pollutant P degrades according to first order kinetics. An aqueous stream containing P at 2 kmol/m³ and volumetric flow rate of 1 m³/h requires a mixed flow reactor of volume V to bring down the pollutant to 0.5 kmol/m³. The inlet concentration of the pollutant is now doubled and the volumetric flow rate is tripled. If the pollutant level is to be brought down to the same level of 0.5 kmol/m³, the volume of the mixed flow reactor should increase by a factor of",
+          "your_answer": "B. 7/2",
+          "correct_answer": "C. 7"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 68,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A stream of air at 100 C and 5260 mmHg contains 10% water by volume Calculate the dew point:",
+          "your_answer": "B. 72 C",
+          "correct_answer": "A. 90 C"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 49,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An available crusher has been accepting hard rock with a volume surface mean diameter of 0.069 m and providing a product with a surface mean diameter of 5 x 10-3 m. The power required for crushing 10000 kg/h of this specified rock is 6.35 kW. Assume that the mechanical efficiency of the unit will remain unchanged. The power consumption if the capacity were reduced to 9000 kg/h with the same feed characteristics but with a reduction in the volume surface mean diameter of the product is 4 x 10-3 m is",
+          "your_answer": "B. 7.00 kW",
+          "correct_answer": "C. 6.64 kW"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 18,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Water is stored in an elevated reservoir. To generate power, water flows from this reservoir down through a large conduit to a turbine and then through similar-sized conduit. At a point in the conduit 89.5 m above the turbine, the pressure is 172.4 kPa, and a level 5 m below the turbine, the pressure is 89.6 kPа. The water flow rate is 0.800 m³/s. The output of the shaft of the turbine is 658 kW. The water density is 1000 kg/m³. If the efficiency of the turbine in converting the mechanical energy given up by the fluid to the turbine shaft is 89%, calculate the friction loss in the turbine in J/g.",
+          "your_answer": "C. 81 J/kg",
+          "correct_answer": "B. 85 J/kg"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 113,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "When the mixture to be distilled has a very high boiling point and the product material is heat sensitive, the separation technique to be used is distillation.",
+          "your_answer": "C. steam",
+          "correct_answer": "C. steam"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 91,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "it is desired to design a packed tower for continously absorbing NH3 from air by countercurrent water flow using the following data: y1 = 0.05, L'/V' = 1.2, y2 = 0.0005, Qv1 = 108000 ft3/hr at 27 C and 1 atm, Qv = 20 lbmol air/hr ft2, equilibrium relationship : y* = 0.8 x kya = 10 lbmol/hr ft3, kxa = 19.2 lbmol/hr ft3 Calculate the following: HoG",
+          "your_answer": "C. 3.3 ft",
+          "correct_answer": "D. 2.9 ft"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 83,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "In case of a plate and frame filter press, filtrateflow through the cake follows flow.",
+          "your_answer": "B. laminar",
+          "correct_answer": "B. laminar"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 57,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The minimum baffle height should be",
+          "your_answer": "A. equal to the impeller diameter",
+          "correct_answer": "B. twice the impeller diameter"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Methane at 60°F is flowing at a steady mass rate through a steel main having an inside diameter of 12 inches. The absolute pressure drops from 40 atm to 20 atm, in a length of 500 miles substantially horizontal pipe. Calculate the hourly rate of flow expressed as ft3 measured at 60°F and normal barometric pressure.",
+          "your_answer": "A. 650000 cfh",
+          "correct_answer": "A. 650000 cfh"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 4,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "If \"n\" is the order of reaction, then unit of rate constant is",
+          "your_answer": "A. 1/ (time) (concentration)^n-1",
+          "correct_answer": "A. 1/ (time) (concentration)^n-1"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 68,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Seamless pipe is made",
+          "your_answer": "D. both (b) and (c) rolling",
+          "correct_answer": "D. both (b) and (c) rolling"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 107,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following has the least thermal efficiency?",
+          "your_answer": "A. Steam engine",
+          "correct_answer": "A. Steam engine"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 46,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Isobaric process means a constant",
+          "your_answer": "C. pressure process",
+          "correct_answer": "C. pressure process"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 101,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Wet steam at 230°C has a density of 0.025 g/cm³. Determine H.",
+          "your_answer": "A. 2350 kJ/kg",
+          "correct_answer": "C. 1990 kJ/kg"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Oil is extracted from seeds by leaching with organic solvents. Soybean seeds containing 20% oil, 65% inert solids and 15% water are leached with hexane and after extraction the solid residue is removed from the solution of oil in hexane. The residue analyzed 1.0% oil, 88% inert cake and 11% water. What percent of oil is recovered?",
+          "your_answer": "C. 96%",
+          "correct_answer": "C. 96%"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 67,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A 'rupture disc' is provided in chemical equipment as an accessory meant for",
+          "your_answer": "A. relieving excess pressure",
+          "correct_answer": "A. relieving excess pressure"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 94,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Flooding in a column results due to",
+          "your_answer": "B. low pressure drop",
+          "correct_answer": "A. high pressure drop"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 48,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In steady-state equimolal counterdiffusion, the following are true:",
+          "your_answer": "C. NA =- NB; NA + NB = 0",
+          "correct_answer": "C. NA =- NB; NA + NB = 0"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 130,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Pick out the system with minimum boilingazeotrope at 1 atm.",
+          "your_answer": "B. ethyl alcohol-water",
+          "correct_answer": "B. ethyl alcohol-water"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "An evaporator is fed continuously with 25 MT/h of a solution consisting of 10% NaOH, 10% NaCl, and 80% H₂0. During evaporation, water is boiled off, and salt precipitates as crystals, which are settled and removed from the remaining liquor. The concentrated liquor leaving the evaporator contains 50% NaOH, 2% NaCl and 48% H₂0. Calculate the kg salt precipitated per hour",
+          "your_answer": "A. 2400",
+          "correct_answer": "A. 2400"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 57,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A pitot tube with U-tube water manometer is attached to a horizontal pipe of 4 in inside diameter. If the manometer reading is 15 in, determine the volumetric flowrate, in gpm, of oil in the pipe. The pitot opening is placed at the center of the pipe. The oil has a specific gravity of 0.84 and a viscosity of 0.0336 lb/ft-s.",
+          "your_answer": "C. 32",
+          "correct_answer": "A. 77"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 44,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "An ideal fluid is",
+          "your_answer": "A. frictionless and incompressible",
+          "correct_answer": "A. frictionless and incompressible"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 20,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Size measurement of ultrafine particlescan be best expressed in terms of",
+          "your_answer": "B. micron",
+          "correct_answer": "D. surface area/unit mass"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 61,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "6 g of carbon is burnt with an amount of air containing 18 g oxygen. The product contains 16.5 g CO2 and 2.8 g CO besides other constituents. What is the degree of conversion on the basis of disappearance of limiting reactant",
+          "your_answer": "C. 95%",
+          "correct_answer": "C. 95%"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 25,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "If the time required to change the concentration of reactant to halfits original value is independent of the initial concentration, the ____________order of reaction is",
+          "your_answer": "C. one",
+          "correct_answer": "C. one"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 31,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Fresh orange juice contains 12% (by weight) solids and the rest water 90% of the fresh juice is sent to an evaporator to remove water and subsequently mixed with the remaining 10% of fresh juice. The resultant product contains 40% solids. The kg of water removed from 1 kg fresh juice is",
+          "your_answer": "D. 0.7",
+          "correct_answer": "D. 0.7"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Heat sensitive materials can be concentrated in an evaporator employing",
+          "your_answer": "A. vacuum",
+          "correct_answer": "A. vacuum"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 46,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following gives the crushingenergy required to create new surfacе?",
+          "your_answer": "B. Rittinger's law",
+          "correct_answer": "B. Rittinger's law"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 55,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Orsat analysis of the stack gas from the combustion of a gaseous mixture of acetylene and methane shows 9.82% CO₂, 1.37% CO, 0.69% H2, 5.43% 02 and 82.69% N₂. Determine: The % mol CH, in the gaseous fuel",
+          "your_answer": "A. 50%",
+          "correct_answer": "D. 60%"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -87768,6 +88334,426 @@
         }
       ],
       "updated_at": "2026-10-17T11:56:22"
+    },
+    {
+      "id": "1792263541334792",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 84,
+      "question": "A burner heats air from 20 to 40°C at constantpressure. Determine the change in entropy for a unit mass of air going through the heater, assuming that for air Cp = 1 kJ/kg-K.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "C. 0.022 kJ/kg-K",
+          "correct_answer": "A. 0.034 kJ/kg-K"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541339785",
+      "source_list": "D2_L9_Chemical_Reaction_Engineering",
+      "reference_no": 29,
+      "question": "The following half-life data areavailable for the irreversible liquid phasereaction, A->P What is the overall order of the reaction? Initial Concentration(kmol/m³) - [2, 8] (kmol/m³) Half-life (min) [2, 1]",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "A. 1",
+          "correct_answer": "C. 1.5"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541342500",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 110,
+      "question": "Pick out the wrong statement pertaining to the rotary dryer.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "A. Flights (located in the inside shell of rotary dryer) lift the material being dried and shower it down through the current of hot airlgases: It extends from the wall to a distance which is about 8-12% of the inside diameter of shell",
+          "correct_answer": "C. Rotary dryer is sitable for drying sticky material;"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541345977",
+      "source_list": "D2_L8_Equipment_Plant_Design",
+      "reference_no": 71,
+      "question": "In case of plain carbon steel, butt welded joints are used for shell plate thickness < ___________cm",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "A. 1.2",
+          "correct_answer": "B. 0.5"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541349538",
+      "source_list": "D2_L4_Momentum_Transfer",
+      "reference_no": 29,
+      "question": "Water flowing at 2.27 m³/hr at 320 K is pumped through a 40 mm ID pipe, through a length of 150 m in a horizontal direction, and up through a vertical height of 10 m. In the pipe there is a control valve, equivalent to 200 pipe diameters, and other pipe fittings equivalent to 60 pipe diameters. Also in the line is a heat exchanger across which the head lost is 1.5 m water. Assume that the main pipe has a roughness of 0.2 mm What power must be supplied to the pump if it is 60 percent efficient?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "B. 188 W",
+          "correct_answer": "C. 136 W"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541352872",
+      "source_list": "D2_L8_Equipment_Plant_Design",
+      "reference_no": 4,
+      "question": "Pick out the wrong statement pertaining to the design of the distillation column.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "A. Generally, a skirt clearance of 0.5\"to 1.5'is recommended to prevent plugging of the slots by residue build up.",
+          "correct_answer": "D. None of these"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541356878",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 104,
+      "question": "Ipil-ipil leaves will be dried in moving train of trays dryers: The wet leaves containing 75 % water (wet basis) is to be dried to 15% (wet basis) in tray containing 1m x 1.5 m. The wet leaves are spread out in the tray to a uniform thickness of 8 cm: Calculate: If hot air at 20% RH and a bulb temperature of 110 F is blown into the dryer and moist air leaves at 105 F dry bulb and 86 F wet bulb temperatures, how many ft3 of hot air will be needed per MT of product?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "B. 4.98x10^6 ft3",
+          "correct_answer": "C. 6.41x10^6 ft3"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541359764",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 70,
+      "question": "A thin liquid film of ammonia, which has formed on the inner surface of a tube of diameter D=10 mm and length L = 1m, is removed by passing dry air through the tube at a flow rate of 3 * 10 ^-4 kg/s. The tube and the air are at 25 C. What is the average mass transfer convection coefficient",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "A. 0.083 m/s",
+          "correct_answer": "B. 0.012 m/s"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "179226354136395",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 119,
+      "question": "Which of the following unit operations makes use of Thiele-Geddes equation?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "C. Multicomponent absorption with chemical reaction",
+          "correct_answer": "D. Multicomponent distillation."
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541366603",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 69,
+      "question": "For liquid acetone at 20°C and 1 bar, ẞ = 1.487 x 10^-3 C-, к = 62 x 10-6 bar- and V = 1.287 cm³/g. The value of (dP/dT) at 20°C and 1 bar is",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "B. 28 bar/°C",
+          "correct_answer": "A. 24 bar/°C"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541370210",
+      "source_list": "D2_L9_Chemical_Reaction_Engineering",
+      "reference_no": 63,
+      "question": "A pollutant P degrades according to first order kinetics. An aqueous stream containing P at 2 kmol/m³ and volumetric flow rate of 1 m³/h requires a mixed flow reactor of volume V to bring down the pollutant to 0.5 kmol/m³. The inlet concentration of the pollutant is now doubled and the volumetric flow rate is tripled. If the pollutant level is to be brought down to the same level of 0.5 kmol/m³, the volume of the mixed flow reactor should increase by a factor of",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "B. 7/2",
+          "correct_answer": "C. 7"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "179226354137330",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 68,
+      "question": "A stream of air at 100 C and 5260 mmHg contains 10% water by volume Calculate the dew point:",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "B. 72 C",
+          "correct_answer": "A. 90 C"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541377489",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 49,
+      "question": "An available crusher has been accepting hard rock with a volume surface mean diameter of 0.069 m and providing a product with a surface mean diameter of 5 x 10-3 m. The power required for crushing 10000 kg/h of this specified rock is 6.35 kW. Assume that the mechanical efficiency of the unit will remain unchanged. The power consumption if the capacity were reduced to 9000 kg/h with the same feed characteristics but with a reduction in the volume surface mean diameter of the product is 4 x 10-3 m is",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "B. 7.00 kW",
+          "correct_answer": "C. 6.64 kW"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541380538",
+      "source_list": "D2_L4_Momentum_Transfer",
+      "reference_no": 18,
+      "question": "Water is stored in an elevated reservoir. To generate power, water flows from this reservoir down through a large conduit to a turbine and then through similar-sized conduit. At a point in the conduit 89.5 m above the turbine, the pressure is 172.4 kPa, and a level 5 m below the turbine, the pressure is 89.6 kPа. The water flow rate is 0.800 m³/s. The output of the shaft of the turbine is 658 kW. The water density is 1000 kg/m³. If the efficiency of the turbine in converting the mechanical energy given up by the fluid to the turbine shaft is 89%, calculate the friction loss in the turbine in J/g.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "C. 81 J/kg",
+          "correct_answer": "B. 85 J/kg"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541384333",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 91,
+      "question": "it is desired to design a packed tower for continously absorbing NH3 from air by countercurrent water flow using the following data: y1 = 0.05, L'/V' = 1.2, y2 = 0.0005, Qv1 = 108000 ft3/hr at 27 C and 1 atm, Qv = 20 lbmol air/hr ft2, equilibrium relationship : y* = 0.8 x kya = 10 lbmol/hr ft3, kxa = 19.2 lbmol/hr ft3 Calculate the following: HoG",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "C. 3.3 ft",
+          "correct_answer": "D. 2.9 ft"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541387329",
+      "source_list": "D2_L8_Equipment_Plant_Design",
+      "reference_no": 57,
+      "question": "The minimum baffle height should be",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "A. equal to the impeller diameter",
+          "correct_answer": "B. twice the impeller diameter"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541391983",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 101,
+      "question": "Wet steam at 230°C has a density of 0.025 g/cm³. Determine H.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "A. 2350 kJ/kg",
+          "correct_answer": "C. 1990 kJ/kg"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541394821",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 94,
+      "question": "Flooding in a column results due to",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "B. low pressure drop",
+          "correct_answer": "A. high pressure drop"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541398412",
+      "source_list": "D2_L4_Momentum_Transfer",
+      "reference_no": 57,
+      "question": "A pitot tube with U-tube water manometer is attached to a horizontal pipe of 4 in inside diameter. If the manometer reading is 15 in, determine the volumetric flowrate, in gpm, of oil in the pipe. The pitot opening is placed at the center of the pipe. The oil has a specific gravity of 0.84 and a viscosity of 0.0336 lb/ft-s.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "C. 32",
+          "correct_answer": "A. 77"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541401173",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 20,
+      "question": "Size measurement of ultrafine particlescan be best expressed in terms of",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "B. micron",
+          "correct_answer": "D. surface area/unit mass"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
+    },
+    {
+      "id": "1792263541405491",
+      "source_list": "D2_L1_ChE_Calculations",
+      "reference_no": 55,
+      "question": "Orsat analysis of the stack gas from the combustion of a gaseous mixture of acetylene and methane shows 9.82% CO₂, 1.37% CO, 0.69% H2, 5.43% 02 and 82.69% N₂. Determine: The % mol CH, in the gaseous fuel",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-17T18:59:01",
+      "occurrences": [
+        {
+          "exam_id": "1792263541317702",
+          "exam_source": "D2_S3",
+          "date": "2026-10-17T18:59:01",
+          "your_answer": "A. 50%",
+          "correct_answer": "D. 60%"
+        }
+      ],
+      "updated_at": "2026-10-17T18:59:01"
     }
   ],
   "guess_notes": [
@@ -88467,5 +89453,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T18:48:07"
+  "updated_at": "2026-10-17T18:59:04"
 }
