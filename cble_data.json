@@ -86020,7 +86020,7 @@
       "question": "[Situation 3: Sphere with radius 12 in; cylinder inscribed with maximum volume] What is the height of the cylinder?",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Max volume is defined as V'(h) = 0. Since if a cylinder is inscribed in a sphere forms a right triangle with adjacent = r and opp = h/2 and hyp = R. We use pythagorean theorem r^2 + (h/2)^2 = R^2. We solve for r^2 and substitute it in volume of cylinder = pi * [R^2 - h^2 / 4] *h. Find derivative of continuous function and equate to 0 by definition. V'(h) = 144pi - 3pi/4 *h^2 =0 then solve for h",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-16T11:53:45",
       "occurrences": [
         {
@@ -86031,7 +86031,7 @@
           "correct_answer": "C. 8√3 in"
         }
       ],
-      "updated_at": "2026-10-16T11:53:45"
+      "updated_at": "2026-10-17T10:13:51"
     },
     {
       "id": "1792153997026443",
@@ -87524,5 +87524,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T10:12:12"
+  "updated_at": "2026-10-17T10:13:59"
 }
