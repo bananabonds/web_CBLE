@@ -77536,7 +77536,7 @@
       "question": "The _____ reports the number of fatalities based on 1000 employees working their entire lifetime. The employees are assumed to work a total of 50 years.",
       "category": "Conceptual Misunderstanding",
       "note": "Fatal accident rate (FAR) is standardized measure of ratio of rate of fatality over 100*10^6 hours worked. While fatality rate is based on time or date data not man hours worked.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-22T07:16:45",
       "occurrences": [
         {
@@ -77546,7 +77546,8 @@
           "your_answer": "C. Fatality Rate",
           "correct_answer": "A. FAR"
         }
-      ]
+      ],
+      "updated_at": "2026-10-17T10:37:44"
     },
     {
       "id": "1790062294700282",
@@ -87529,5 +87530,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T10:37:10"
+  "updated_at": "2026-10-17T10:37:51"
 }
