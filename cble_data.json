@@ -85544,6 +85544,26 @@
         }
       ],
       "updated_at": "2026-10-17T07:55:53"
+    },
+    {
+      "id": "1792228158678238",
+      "source_list": "D2_L1_ChE_Calculations",
+      "reference_no": 40,
+      "question": "A barytes composed of 100 percentBaSO4 is fused with carbon in the formof coke containing 6% ash (which isinfusible). The composition of the fusionmass is BaSO 11.1%, BaS 72.8%, C 13.9%, Ash 2.2%, Reaction: BaSO+4 C→ BaS + 4 CO. Find the percent excess reactant.",
+      "category": "Forgot a Concept (Knew It Before)",
+      "note": "Balance the reaction. Get the molar masses. Find the total mol of BaSO4 fed from Ba balance. Find the total mol of C from C balance. Determine the excess reactant, find the ratio of the reactants (C/BaSO4) based on stoich then find the ratio of the actual supplied. If theoretical ratio < actual ratio C is in excess else BaSO4 is excess. Find percent excess by actual - theo / theo",
+      "resolved": false,
+      "date_logged": "2026-10-17T09:09:18",
+      "occurrences": [
+        {
+          "exam_id": "1790316144805377",
+          "exam_source": "D2_S2",
+          "date": "2026-10-17T09:09:18",
+          "your_answer": "B. 38.9%",
+          "correct_answer": "C. 50.6%"
+        }
+      ],
+      "updated_at": "2026-10-17T09:09:18"
     }
   ],
   "guess_notes": [
@@ -86236,5 +86256,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T09:05:40"
+  "updated_at": "2026-10-17T09:09:26"
 }
