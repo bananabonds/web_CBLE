@@ -39277,6 +39277,625 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1792264463451454",
+      "name": "D2_S4",
+      "created_at": "2026-10-17T19:14:23",
+      "composition": {
+        "D2_L4_Momentum_Transfer": 6,
+        "D2_L2_Separation_Processes": 6,
+        "D2_L6_Particle_Technology": 5,
+        "D2_L5_Transport_Phenomenon": 6,
+        "D2_L8_Equipment_Plant_Design": 5,
+        "D2_L3_Thermodynamics": 6,
+        "D2_L1_ChE_Calculations": 6,
+        "D2_L7_Heat_Mass_Transfer": 5,
+        "D2_L9_Chemical_Reaction_Engineering": 5
+      },
+      "questions": [
+        {
+          "text": "Hydraulic radius 6\" x 12\" cross section, is ____ inches ",
+          "options": [
+            "A. 2",
+            "B. 0.5",
+            "C. 1.5",
+            "D. none of these"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 55
+        },
+        {
+          "text": "The distribution coefficient of solute A between\r\nsolvents B and S is given by Y = 2.5X where Y = mass\r\nof A / mass of S in extract and X = mass of A / mass ofB in raffinate. S and B are mutually immiscible. A\r\nsolution containing 25% A in B is to be extracted in a\r\nsingle stage contact with a recovery of 80%. The\r\namount of S in kg required per 100 kg of solution is\r\nnearly ",
+          "options": [
+            "A. 100",
+            "B. 150",
+            "C. 120",
+            "D. 200"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 23
+        },
+        {
+          "text": "It is planned to feed continuously 100 mol per hour of a solution containing 80 mol of A and 20 mol of B to an externally fired kettle by which there is good agitation due to boiling.\r\nThe residue and vapor will be withdrawn continuously, the vapor condensed, cooled and\r\nsent to storage. There is no return of residue or condensate to kettle, hence, this will be\r\ncontinuous simple distillation. It is planned to regulate the heat supply that D grams of\r\ndistillate per hour will contain 72 mol of the more volatile component A which is five times\r\nmore volatile than B.\r\n What is the mole fraction of A in the residue?",
+          "options": [
+            "A. 0.53",
+            "B.  0.37",
+            "C. 0.26",
+            "D. 0.42"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 88
+        },
+        {
+          "text": "A centrifuge having a radius of bowl of 0.1016 m is rotating at N=1000 rev/min.  Compare this force to that for a bowl with a radius of 0.2032 m rotating at the\r\nsame rev/min.",
+          "options": [
+            "A. 114",
+            "B. 335",
+            "C. 227",
+            "D. 110"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 74
+        },
+        {
+          "text": "When the feed to a distillation column is a\r\nsaturated liquid, slope of the feed line is ",
+          "options": [
+            "A. zero",
+            "B. infinity",
+            "C. unity",
+            "D. none of these"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 91
+        },
+        {
+          "text": "Where the density difference of the two liquid phases to be\r\nseparated is very small (as in milk cream separator), the\r\nmost suitable separator is a ",
+          "options": [
+            "A.  disc bowl centrifuge",
+            "B. batch basket centrifuge",
+            "C.  sharpies super centrifuge",
+            "D. sparkler filter"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 78
+        },
+        {
+          "text": "If a man touches two metals which were kept together at\r\nroom temperature, why would one metal feel colder thanthe other ",
+          "options": [
+            "A. one has a high heat transfer coefficient",
+            "B. one has a high thermal conductivity",
+            "C. one has a lower temperature",
+            "D.  one has a higher heat capacity"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 3
+        },
+        {
+          "text": "Maximum size of the Raschig rings used in a packed tower is about________of the column diameter  ",
+          "options": [
+            "A. 1/10th",
+            "B. 1/20th",
+            "C. 1/30th ",
+            "D. 1/50th"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 27
+        },
+        {
+          "text": "Hydrogen, initially at 15 psia and 80°F, is compressed at the rate of 20 cfm in a hot environment to a pressure of 75.3 psig. The details of the process are unknown but it us estimated the heat enters at the rate of 20 BTU/min. For a change of entropy of 0.0268 BTU/min-R. Determine: The final temperature",
+          "options": [
+            "A. 660 R",
+            "B. 820 R",
+            "C. 970 R",
+            "D. 710 R"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 87
+        },
+        {
+          "text": "A furnace is fired with sub bituminous B\r\ncoal containing 10.3% moisture, 34% VCM\r\nand 7.7% ash. It is also known to contain\r\n1.2% N and 1.57% S. Its calorific value is 22\r\nMJ/kg. Calculate its: % Oxygen",
+          "options": [
+            "A. 29%",
+            "B. 40%",
+            "C. 38%",
+            "D. 15%"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 65
+        },
+        {
+          "text": " A piston of diameter 70.00 mm moves inside a cylinder\r\nof diameter 70.10 mm. Determine the percent decrease in\r\nforce necessary to move the piston when the lubricant\r\nwarms from 0 to 120°C. Values of u for the lubricant are\r\n0.01820 Pa-s at 0°C and 0.00206 Pa-s at 120°C. ",
+          "options": [
+            "A.  72%",
+            "B.  89%",
+            "C. 63%",
+            "D. 55%"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 2
+        },
+        {
+          "text": "A pipe is generally made of circular crosS-section;, because a circular croSS- section has the  ",
+          "options": [
+            "A. higher structural strength. ",
+            "B. lowest surface area requirement for a given volume ",
+            "C. both (a) & (b)",
+            "D. none of these"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 60
+        },
+        {
+          "text": "Saturated steam at 267°F is flowing inside a 1-in. steel pipe having an IDof 0.824 in. and an OD of 1.050 in. The pipe is insulated with 1.5 in. ofinsulation on the e pipe is estimated as hi = 1000 BTU/h-ft2.°F, and theconvective coefficient on the outside of the lagging is estimated as ho = 2\r\nBTU/h-ft2.°F The mean thermal conductivity of the metal is 26 BTU/hr-ft-°F and 0.037 BTU/hr-ft-°F for the insulation. Calculate the heat loss for\r\nft of pipe using resistances if the surrounding air is at 80°F. ",
+          "options": [
+            "A. 25 BTu/hr",
+            "B.  19 BTU/hr",
+            "C. 48 BTu/hr",
+            "D.  30 BTu/hr"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 18
+        },
+        {
+          "text": "A gas mixture contains 0.0083 mol of water vapor per mol of dry methane at a temperature of 27 C and a total pressure of 200 kPa: Percent relative saturation of the mixture ",
+          "options": [
+            "A. 46%",
+            "B. 33% ",
+            "C.  58 %",
+            "D. 60%"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 64
+        },
+        {
+          "text": " Find the reaction orders with respect to A and B: Ca (4, 1, 1)  Cb (1, 1, 8)  -ra( 2, 1, 4)",
+          "options": [
+            "A. a = 1/2, b = 2/3",
+            "B.  a = 2/5, b = 1",
+            "C.  a = 2/3, b = 1/3",
+            "D.  a = 1/2, b = 1"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 7
+        },
+        {
+          "text": "Given that the vapor pressure of nbutane at 350 K is 9.4573 bar, find the molar volume of the following using Redlich-Kwong equation. Saturated vapor",
+          "options": [
+            "A. 2667 cm³/mol",
+            "B. 2486 cm³/mol",
+            "C. 2520 cm³/mol",
+            "D. 2555 cm³/mol"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 63
+        },
+        {
+          "text": "Calculate the radius of capillary tube in mm, such that it is a flow\r\nof a viscous fluid Kinematic viscosity\r\nLength of tube\r\n0.000043 m²/s\r\n50.2 cm\r\nMass flow rate 0.003 kg/s\r\nDensity of fluid 955 kg/m³\r\nPressure drop 4.77 atm\r\n",
+          "options": [
+            "A.  0.32",
+            "B.  0.18",
+            "C. 0.75",
+            "D. 0.45"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 34
+        },
+        {
+          "text": "An Otto cycle has a compression ratio of 9.5. The air is at 100 kPa, 17°C, and 600 cm³ prior to the compression stroke. Temperature at the end of isentropic expansion is 800 K. Using constant specific heat, calculate the following: Mean effective pressure",
+          "options": [
+            "A. 609 kPa",
+            "B. 718 kPa ",
+            "C. 547 kPa",
+            "D. 425 kPa"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 119
+        },
+        {
+          "text": "A furnace is fired with sub bituminous B\r\ncoal containing 10.3% moisture, 34% VCM\r\nand 7.7% ash. It is also known to contain\r\n1.2% N and 1.57% S. Its calorific value is 22\r\nMJ/kg. Calculate its: % Fixed carbon",
+          "options": [
+            "A. 55%",
+            "B. 37%",
+            "C. 48%",
+            "D.  62%"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 63
+        },
+        {
+          "text": " The reaction A --> B is conducted in an isothermal batchreactor. If the conversion of A increases linearly with holding time,then the order of the reaction is ",
+          "options": [
+            "A. 0",
+            "B. 1",
+            "C.  1.5",
+            "D. 2"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 12
+        },
+        {
+          "text": "In a 1-1 shell and tube heat exchanger, steam is condensing on the shell side at Ts °C,and the cold fluid is being heated on the tube side from t °C to t₂ °C. The followingequation relates t₂ to the other variables.  ln (Ts - t1 / Ts - t2) = UA/W Cp Where 'U' is the overall heat transfer coefficient, 'A' is the heat transfer area, W' is the\r\nmass flow rate and 'Cp' is the heat capacity. The tube side coefficient is controlling, andthe tube side fluid is in turbulent flow. T5 = 130°C, t = 30°C, t₂ = 80°C. If the mass flow\r\nrate of the cold fluid is double while keeping all the other conditions it, find the new\r\nvalue of t₂ at steady state.\r\n",
+          "options": [
+            "A.  80°C",
+            "B.  54°C",
+            "C. 66°C",
+            "D. 75°C"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 34
+        },
+        {
+          "text": "A pure saturated hydrocarbon is burnt with excess air. Orsat analysis of the\r\nstack gas shows 7.9% CO2, 1.18% CO, 0.24% H2, 5.25% 02, and 85.43% N₂. Air is\r\nsubstantially dry. The stack gases leave at 750 mmHg pressure. Calculate:\r\n The % excess air",
+          "options": [
+            "A. 25%",
+            "B. 34%",
+            "C.  18%",
+            "D. 44%"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 55
+        },
+        {
+          "text": "A batch reactor is characterized by ",
+          "options": [
+            "A. constant residence time",
+            "B. the variation in extent of reaction and properties of the reaction mixture with\r\ntime",
+            "C. variation in reactor volume",
+            "D. very low conversion"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 58
+        },
+        {
+          "text": "In a size reduction crushing operation, feed sizeis 100 to 300 mm. while the product size is 10 to 50mm. This is a case of the crushing ",
+          "options": [
+            "A. primary",
+            "B. fine",
+            "C. secondary",
+            "D. ultrafine"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 22
+        },
+        {
+          "text": "A gas mixture contains 0.0083 mol of water vapor per mol of dry methane at a temperature of 27 C and a total pressure of 200 kPa: Temperature to which the mixture must be heated at 200 kPa in order that the relative saturation will be 0.20. ",
+          "options": [
+            "A. 53 C",
+            "B. 64 C ",
+            "C.  37 C ",
+            "D.  42 C"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 66
+        },
+        {
+          "text": "At high reynolds number  ",
+          "options": [
+            "A. inertial forces control and viscous forces are unimportant",
+            "B. viscous forces predominate",
+            "C. inertial forces are unimportant and viscous forces control",
+            "D. none of these"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 42
+        },
+        {
+          "text": "One mole of an ideal gas undergoes the following sequence ofmechanically reversible processes in a closed system: from an initialstate of 70°C and 1 bar, it is compressed adiabatically to 150°C, it isthen cooled from 150 to 70°C at constant pressure and finally, it isexpanded isothermally to its original state. Calculate W for the entireprocess. Take Cv = 3R/2 and Cp = 5R/2. If the processes are carried out irreversibly but so as to accomplish exactly the same changes of state - thesame changes P, T, U and H then different values of Q andW. Calculate W if each step is carried out with anefficiency of 80%",
+          "options": [
+            "A. 168 J",
+            "B. 883 J",
+            "C. 1996 J",
+            "D. O J"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 56
+        },
+        {
+          "text": "If 1 L of ethyl alcohol is mixed with 1 L of water at 20°C. How many kilograms of solution result?",
+          "options": [
+            "A. 1.85 kg",
+            "B.  2.06 kg",
+            "C. 1.79 kg",
+            "D. 2.11 kg"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 6
+        },
+        {
+          "text": "Acrylonitrile is produced in thereaction of propylene, ammonia andoxygen:C3H + NH3 + 3/2 0₂ → C3H3N + 3 H2O The feed contains 10 mole % propylene,12 mole% ammonia, and 78% air. A fractional conversion of 30% of the limiting reactant is achieved. Taking 100 mol of feed as basis, determine the following: The percentage by which of the\r\nreactants in excess",
+          "options": [
+            "A. 24%, 6.2%",
+            "B. 28%, 7.5%",
+            "C. 25%, 8.5%",
+            "D. 20%, 9.2%"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 43
+        },
+        {
+          "text": "Which of the following is an undesirableproperty for an absorbing solvent? ",
+          "options": [
+            "A. low vapor pressure",
+            "B.  low freezing point",
+            "C. low viscosity",
+            "D. none of these"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 25
+        },
+        {
+          "text": "Propane is to be stripped from non-volatile of by steam in a counter-current lower. Four moles of steam will be supplied at the bottom of the tower for every 100 moles of oil-propane feed at the top. The oil originally contains 2.5 mole percent propane and this concentration must be reduced to 0.25 mole percent. The tower is maintained at 280\"F and 35 psi. The equilibrium relationship is y = 33.4x, where x and y are mole fraction \r\nunits. If the pressure is increased to 70 psia, how \r\nmany equilibrium stages are required?\r\n",
+          "options": [
+            "A. 6",
+            "B. 8",
+            "C. 4",
+            "D. 3"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 85
+        },
+        {
+          "text": "The commonly used solvent in supercriticalextraction is ",
+          "options": [
+            "A.  methyl ethyl ketone",
+            "B. carbon tetrachloride",
+            "C. water",
+            "D. carbon dioxide"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 39
+        },
+        {
+          "text": "The number of kg vaporized per kg of steam\r\nfed to the evaporator is defined as ",
+          "options": [
+            "A. capacity",
+            "B. economy",
+            "C. rate of evaporation",
+            "D. rate of vaporization"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 5
+        },
+        {
+          "text": "Which valve is used accurately to regulate\r\nthe flow of liquids and gases at low flow rates? ",
+          "options": [
+            "A. needle valve",
+            "B. check valve",
+            "C. ball valve",
+            "D. globe valve"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 33
+        },
+        {
+          "text": "Pure aniline is evaporating through a stagnant air film of 1 mm thickness at 300 K and a\r\ntotal pressure of 100 kPa. The vapor pressure of aniline at 300 K is 0.1 kPa. The total molar\r\nconcentration under these conditions is 40.1 mol/m³. The diffusivity of aniline in air is 0.74 x\r\n10-5 m²/s.\r\n The numerical value of the mass transfer coefficient is 7.4 x 10-3, lts units are",
+          "options": [
+            "A. m/s",
+            "B. cm/s",
+            "C.  mol/m²-s-Pa",
+            "D.  kmol/ m²-s-Pa"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 62
+        },
+        {
+          "text": " The ratio of the largest load in a test to the original cross-sectional area of the test specimen is called the ______stress ",
+          "options": [
+            "A.  yield point",
+            "B. breaking ",
+            "C. ultimate ",
+            "D. none of these"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 65
+        },
+        {
+          "text": "A furnace is fired with sub bituminous B\r\ncoal containing 10.3% moisture, 34% VCM\r\nand 7.7% ash. It is also known to contain\r\n1.2% N and 1.57% S. Its calorific value is 22\r\nMJ/kg. Calculate its: % Combined water in VCM",
+          "options": [
+            "A.  55%",
+            "B. 44%",
+            "C. 66%",
+            "D. 33%"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 66
+        },
+        {
+          "text": " The function of manholes provided in the shell of a distillation column is to  ",
+          "options": [
+            "A.  keep a check on the liquid gradient over the plate by direct visual observation",
+            "B.  give access to the individual trays for cleaning, maintenance and installation. ",
+            "C. guard against foaming & entrainment by dumping antifoaming agent through it ",
+            "D. d.all (a), (b) and (c)"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 15
+        },
+        {
+          "text": "For a zero-order reaction A → rR taking placeina constant - volume bomb,pi= 1 when t= 0and π = 1.5 when t = 1. For the same reaction,same feed composition and initial pressure takingplace in a constant pressure setup, find V at t=1if V= 1 at t=0. Find the value of the apparent rate order\r\nconstant k.",
+          "options": [
+            "A. k = 2/RT(1-r)",
+            "B. k = 2/RT(r-1)",
+            "C. k = 0.5/RT(r-1)",
+            "D. k = 1/2(1-r)RT"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 56
+        },
+        {
+          "text": "Hydrogen, initially at 15 psia and 80°F, is compressed at the rate of 20 cfm in a hot environment to a pressure of 75.3 psig. The details of the process are unknown but it us estimated the heat enters at the rate of 20 BTU/min. For a change of entropy of 0.0268 BTU/min-R. Determine: The work if the system is non-flow",
+          "options": [
+            "A. 2.14 hp",
+            "B.  3.33 hp",
+            "C. 4.69 hp",
+            "D. 5.02 hp"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 88
+        },
+        {
+          "text": "Friction factor for turbulent flow in a new pipe is given by ",
+          "options": [
+            "A. f= 16/Nre",
+            "B. f = 0.04/Nre ^ 0.16",
+            "C. f = 0.22 Nre ^ 0.5",
+            "D. f = 25 / Nre"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 63
+        },
+        {
+          "text": "A gas is confined in a 0.47 m diameter cylinder by piston, on which rests a weight. The mass of the piston and weight together is 150 kg. The local gravity acceleration is 9.813 m/s², the atmospheric pressure is 101.57 kPa. If the gas in the cylinder is heated, it expands, pushingthe piston and the weight upward. If the piston and weightare raised 0.83 m, what is the work done by the gas in kJ?",
+          "options": [
+            "A. -16 kJ",
+            "B. -11 kJ",
+            "C. -18 kJ",
+            "D. -10 kJ"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 3
+        },
+        {
+          "text": "The hydraulic diameter of concentric annular\r\nspace where 1-in OD pipe is located inside a 2-in ID\r\npipe is\r\n ",
+          "options": [
+            "A.  1 in",
+            "B. 1.5 in",
+            "C. pi/4 in",
+            "D.  2 in"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 24
+        },
+        {
+          "text": "In constant pressure filtration, ",
+          "options": [
+            "A. resistance decreases with time",
+            "B. rate of filtration is constant\r\n",
+            "C.  rate of filtration increases with time",
+            "D. rate of filtration decreases with time"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 83
+        },
+        {
+          "text": "_________ column is preferred to be used, when a high liquid hold up is required in a reactor for gas-liquid reaction. ",
+          "options": [
+            "A. Packed",
+            "B. Bubble",
+            "C. Spray",
+            "D. Tray"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 98
+        },
+        {
+          "text": "200 kg of solids (on dry basis) is subjected to a drying process for a period of 5000 seconds. The drying occurs in the constant rate period with the drying rate as, Nc 0.5x10-3 kg/m2-s. The initial moisture content of the solid is 0.2 kg moisture/kg dry solid, The interfacial area available for drying is 4 m2/100 kg of dry solid: The moisture content at the end of the drying period is (in kg moisture/kg dry solid) ",
+          "options": [
+            "A. 0.5",
+            "B.  0.1 ",
+            "C.  0.05 ",
+            "D.  0.15"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 98
+        },
+        {
+          "text": "Fractional conversion ______________ for an exothermic reversiblechemical reaction, when the temperature is maximum. ",
+          "options": [
+            "A. increases",
+            "B. decreases",
+            "C. remains unchanged",
+            "D. unpredictable from the data"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 45
+        },
+        {
+          "text": " A random handful of silica particles ranging in size from 28 mesh to 200 mesh is\r\nthrown to a very deep body of water (without tides or turbulence)\r\nData:\r\nViscosity of water = 0.01 poise\r\nDensity of silica = 2.65 g/cm3\r\n28 mesh B 0.0589 cm\r\n200 mesh = 0.0074 cm\r\nThe distance between the largest and smallest particles after 10 min is ",
+          "options": [
+            "A. 4700 cm",
+            "B. 4900 cm",
+            "C. 5000 cm",
+            "D.  4000 cm"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 63
+        },
+        {
+          "text": "A gas mixture contains 0.0083 mol of water vapor per mol of dry methane at a temperature of 27 C and a total pressure of 200 kPa: Percent saturation of the mixture ",
+          "options": [
+            "A. 65% ",
+            "B. 77%",
+            "C. 46% ",
+            "D. 50%"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 65
+        },
+        {
+          "text": "One thousand pounds of roasted copper ore containing 10 percent\r\nCuSO4, 85 percent insoluble gangue and 5 percent moisture is to be\r\nextracted by washing it three times with 2000-lb batches of fresh water.\r\nIt has been found the that the solids retain 0.8 lb of solution per pound of\r\ngangue. What is the percent CuSO4 of the final underflow sludge after three\r\nwashings?",
+          "options": [
+            "A. 0.13%",
+            "B.  6.54%",
+            "C. 3.12%",
+            "D. 8.90%"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 18
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -90069,5 +90688,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T19:13:48"
+  "updated_at": "2026-10-17T19:14:30"
 }
