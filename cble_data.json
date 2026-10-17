@@ -85424,6 +85424,26 @@
         }
       ],
       "updated_at": "2026-10-16T18:58:17"
+    },
+    {
+      "id": "1792220238042870",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 89,
+      "question": "A mixture of benzene vapor and flue gas contains 12.7 mole % benzene and is to be scrubbed continuously in a packed tower operated at atmospheric pressure at 43°C. The tower is to be designed to treat 36000 ft3 per hour of entering gas and the exit gas is to contain 1.5 mole % benzene. Pure solvent will be supplied at the rate of 28 lbmol/hr. The solution of benzene in oil may be assumed to follow Raoult's law and the vapor pressure of pure solvent at 43°C is 0.263 atm. It is agreed that the maximum allowable superficial velocity of the gas is 1 ft/sec. Calculate the height of the tower required, assuming that the height of a transfer unit is 2 ft.",
+      "category": "Forgot a Concept (Knew It Before)",
+      "note": "Convert volumetric flow to molar flow. Complete the mass balance. Find tge equilibrium equation where m = P_vap / P_t then y*=m x. Find the driving forces yi-yi*. Get log mean of driving force y_LM = dy1 - dy2 / ln (dy1 / dy2). Get NTU = y1 - y2 / y_LM. Get Height = NTU * HTU",
+      "resolved": false,
+      "date_logged": "2026-10-17T06:57:18",
+      "occurrences": [
+        {
+          "exam_id": "1790316144805377",
+          "exam_source": "D2_S2",
+          "date": "2026-10-17T06:57:18",
+          "your_answer": "C. 5.8 ft",
+          "correct_answer": "B. 7.0 ft"
+        }
+      ],
+      "updated_at": "2026-10-17T06:57:18"
     }
   ],
   "guess_notes": [
@@ -85996,5 +86016,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T06:53:54"
+  "updated_at": "2026-10-17T06:57:27"
 }
