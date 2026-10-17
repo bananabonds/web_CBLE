@@ -77651,7 +77651,7 @@
       "question": "The numbers 28, x+2, 112... form a geometric progression. What is the 15th term of the sequence?",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Geometric progression. a_n = a_1 * r ^(n-1). where r is the common ratio which is solvable from the given and the general form of the equation.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-22T08:47:32",
       "occurrences": [
         {
@@ -77661,7 +77661,8 @@
           "your_answer": "A. 143369",
           "correct_answer": "C. 458752"
         }
-      ]
+      ],
+      "updated_at": "2026-10-17T10:28:01"
     },
     {
       "id": "1790068595197999",
@@ -87528,5 +87529,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T10:25:31"
+  "updated_at": "2026-10-17T10:28:02"
 }
