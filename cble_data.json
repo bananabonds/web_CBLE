@@ -77455,7 +77455,7 @@
       "question": "Evaluate: lim(x→4) (x²-16)/(2-√x)",
       "category": "Formula / Equation Error",
       "note": "Factor the numerator twice until the denominator term cancels out and then solve as x approaches 4",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-22T06:50:59",
       "occurrences": [
         {
@@ -77465,7 +77465,8 @@
           "your_answer": "A. 8",
           "correct_answer": "D. -32"
         }
-      ]
+      ],
+      "updated_at": "2026-10-17T10:00:43"
     },
     {
       "id": "1790060010940175",
@@ -87522,5 +87523,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T10:00:06"
+  "updated_at": "2026-10-17T10:00:51"
 }
