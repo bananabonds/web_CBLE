@@ -85464,6 +85464,26 @@
         }
       ],
       "updated_at": "2026-10-17T07:09:21"
+    },
+    {
+      "id": "1792221336820741",
+      "source_list": "D2_L9_Chemical_Reaction_Engineering",
+      "reference_no": 40,
+      "question": "A second order reaction involving reactants initially present at 0.10 mole/L is found to be 20% complete in 40 minutes, when the reaction is 25 °C, and 40% complete in 35 minutes, when the reaction is 50 °C. What is the activation energy for this reaction in cal/mol.",
+      "category": "Unfamiliar Topic (Never Studied)",
+      "note": "Solve for k_25C & k_50C. Use arrhenius equation ln (k_50/k_25) = Ea/R (1/T1 - 1/T2)",
+      "resolved": false,
+      "date_logged": "2026-10-17T07:15:36",
+      "occurrences": [
+        {
+          "exam_id": "1790316144805377",
+          "exam_source": "D2_S2",
+          "date": "2026-10-17T07:15:36",
+          "your_answer": "A. 2700 cal/mol",
+          "correct_answer": "B. 8500 cal/mol"
+        }
+      ],
+      "updated_at": "2026-10-17T07:15:36"
     }
   ],
   "guess_notes": [
@@ -86036,5 +86056,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T07:14:33"
+  "updated_at": "2026-10-17T07:15:46"
 }
