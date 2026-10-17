@@ -77494,7 +77494,7 @@
       "question": "Suppose that an object initially having a temperature of 20° is placed in a large temperature controlled room of 80° and one hour later the object has a temperature of 35°. What will its temperature be after three hours?",
       "category": "Formula / Equation Error",
       "note": "T(t)=Tambient + (To - Tambient)e^-kt. Solve for k then solve for T(3)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-22T06:59:41",
       "occurrences": [
         {
@@ -77504,7 +77504,8 @@
           "your_answer": "B. 52.64°",
           "correct_answer": "D. 54.69°"
         }
-      ]
+      ],
+      "updated_at": "2026-10-17T10:18:23"
     },
     {
       "id": "1790060435139881",
@@ -87524,5 +87525,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T10:17:09"
+  "updated_at": "2026-10-17T10:18:31"
 }
