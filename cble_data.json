@@ -77397,7 +77397,7 @@
       "question": "Which of the following is equivalent to 15C15 + 16C15 + 17C15 + ... + 2023C15?",
       "category": "Unfamiliar Topic (Never Studied)",
       "note": "Hockey Stick Identity: rCr + (r+1)Cr + (r+2)Cr+...+nCr = (n+1)C(r+1). Solve the equivalent where n = 2023, and r = 15",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-22T06:31:52",
       "occurrences": [
         {
@@ -77407,7 +77407,8 @@
           "your_answer": "D. 2023C15",
           "correct_answer": "C. 2024C16"
         }
-      ]
+      ],
+      "updated_at": "2026-10-17T09:59:59"
     },
     {
       "id": "179005946634038",
@@ -87521,5 +87522,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T09:58:32"
+  "updated_at": "2026-10-17T10:00:06"
 }
