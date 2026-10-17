@@ -39896,6 +39896,631 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1792264486744555",
+      "name": "D3_S4",
+      "created_at": "2026-10-17T19:14:46",
+      "composition": {
+        "D3_L13_EngineeringDataAnalysis": 4,
+        "D3_L4_Trigonometry": 3,
+        "D3_L2_Process_Control_Analysis": 3,
+        "D3_L6_AnalyticGeometry": 3,
+        "D3_L10_ProcessSafety": 4,
+        "D3_L14_Physics": 4,
+        "D3_L11_Differential_Equations": 4,
+        "D3_L12_EngineeringEconomics": 4,
+        "D3_L9_CPI": 3,
+        "D3_L3_Algebra": 3,
+        "D3_L15_Engineering_Mechanics": 3,
+        "D3_L5_Geometry": 3,
+        "D3_L1_ChE_Laws": 3,
+        "D3_L7_Differential_Calculus": 3,
+        "D3_L8_Integral_Calculus": 3
+      },
+      "questions": [
+        {
+          "text": "I have 7 pairs of socks in my drawer, one pair of each color of the rainbow. How many socks do I have to draw out to guarantee that I have grabbed at least one matching pair?",
+          "options": [
+            "A. 3",
+            "B. 7",
+            "C. 8",
+            "D. 13"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 18
+        },
+        {
+          "text": "Which of the following is equivalent to sin 3A?",
+          "options": [
+            "A. 3sinA u2013 4sin^3 A",
+            "B. 4sinA u2013 3sin^3 A",
+            "C. 4sin^3 A u2013 3sinA",
+            "D. 3sin^3 A u2013 4sinA"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 8
+        },
+        {
+          "text": "Proportional elements are typically found in transfer functions where the relationship between two variables is characterized as: ",
+          "options": [
+            "A. Uninterrupted unstable response",
+            "B. Time-delayed response",
+            "C. Lagged dynamic response",
+            "D. Instantaneous dynamic response"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 36
+        },
+        {
+          "text": "Find the distance between the given lines 4x u2013 3y = 12 and 4x u2013 3y = -8.",
+          "options": [
+            "A. 3",
+            "B. 4",
+            "C. 5",
+            "D. 6"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 20
+        },
+        {
+          "text": "An exothermic batch reaction is running when the primary cooling system shows a sudden drop in cooling water flow. The operator increases the setpoint on the backup cooling but notices the reactor temperature is still rising faster than expected. What should the operator do?",
+          "options": [
+            "A. Backup cooling may stabilize temperature before escalating",
+            "B. Increase the reaction inhibitor dose and continue monitoring",
+            "C. Immediately follow the emergency runaway procedure",
+            "D. Reduce feedstock addition and notify the shift supervisor"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 42
+        },
+        {
+          "text": "What is the name of the law stating that the ratio of the sines of the angles of incidence and refraction of a wave are constant when it passes between two given media (n1 sin θi = n2 sin θr)?",
+          "options": [
+            "A. Snell's Law",
+            "B. Newton's Law",
+            "C. Coulomb's Law",
+            "D. Hooke's Law"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 34
+        },
+        {
+          "text": "Eliminate the arbitrary constant of the general solution below: y = e^(2x)(C1 cos x + C2 sin x)",
+          "options": [
+            "A. y'' - 4y' + 5y = 0",
+            "B. y'' - 5y' + 4y = 0",
+            "C. y'' - 4y' - 5y = 0",
+            "D. y'' + 4y' + 5y = 0"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 2
+        },
+        {
+          "text": "A hemispherical bowl has top radius 4ft and at time t = 0 is full of water. At 1pm, a circular hole of unknown radius is opened, and at 1:30pm, the depth of the water in the tank is 2ft. Using Torricelli's law and g = 32ft/s², determine when the tank will be empty.",
+          "options": [
+            "A. 3158s",
+            "B. 3267s",
+            "C. 3316s",
+            "D. 3491s"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 56
+        },
+        {
+          "text": "A printing equipment costs P73,500 has a life expectancy of 8 yrs. and has a salvage value of P3500 at the end of its life. The book value at the end of \"x\" years is equal to P38,500. Using straight line method of depreciation, solve for the value of \"x\".",
+          "options": [
+            "A. 4 years",
+            "B. 3 years",
+            "C. 5 years",
+            "D. 6 years"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 55
+        },
+        {
+          "text": "These are activities that people do for themselves or for other people to satisfy their wants.",
+          "options": [
+            "A. Goods",
+            "B. Labor",
+            "C. Services",
+            "D. Utilities"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 8
+        },
+        {
+          "text": "In how many ways can one hang 10 different paintings on 5 empty spaces on the wall?",
+          "options": [
+            "A. 30240",
+            "B. 30420",
+            "C. 32040",
+            "D. 34020"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 4
+        },
+        {
+          "text": "What is the effective rate of interest corresponding to 18% compounded daily? Take 1 year = 360 days.",
+          "options": [
+            "A. 19.72%",
+            "B. 18.00%",
+            "C. 20.00%",
+            "D. 19.25%"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 37
+        },
+        {
+          "text": "Which of the following is not a raw material used for the manufacture of ordinary glass?",
+          "options": [
+            "A. Iron oxide",
+            "B. Limestone",
+            "C. Soda ash",
+            "D. Silica"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 87
+        },
+        {
+          "text": "Given: log_b y = 2x + log_b x. Which of the following is true?",
+          "options": [
+            "A. y = b^(2x)",
+            "B. y = 2xb",
+            "C. y = 2x/b",
+            "D. y = x b^(2x)"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 9
+        },
+        {
+          "text": "Given: log_4 7 = n. Find: log_4 (1/7)",
+          "options": [
+            "A. 1/n",
+            "B. n",
+            "C. -1/n",
+            "D. -n"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 7
+        },
+        {
+          "text": "The area of a triangle inscribed in a circle having a radius 9cm is equal to 43.23 square cm. If one of the sides of the triangle is 18cm, find one of the other sides.",
+          "options": [
+            "A. 16.42cm",
+            "B. 18.31cm",
+            "C. 17.29cm",
+            "D. 12.42cm"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 34
+        },
+        {
+          "text": "The final control element typically receives signals from the controller and executes an action in the process such as allowing or restricting flow in a pipe, typically using devices called valves This type of valve utilizes a rotating disk that can limit flow depending on its rotation angle. ",
+          "options": [
+            "A. Ball valve",
+            "B. Plug valve",
+            "C. Butterfly valve",
+            "D. Globe valve"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 59
+        },
+        {
+          "text": "An I-beam cross-section is oriented with its web vertical (along the y-axis) and centroid at the origin. The top flange has a total width of 48 mm (24 mm on each side of the y-axis) and a thickness of 6 mm. The bottom flange has the same dimensions (48 mm wide, 6 mm thick), symmetric about the x-axis. The web connecting the flanges has a thickness of 8 mm and extends 24 mm above and 24 mm below the x-axis (centroidal axis) to meet the inner faces of the flanges. Determine the radius of gyration with respect to the y-axis.",
+          "options": [
+            "A. 2.21mm",
+            "B. 4.43mm",
+            "C. 6.65mm",
+            "D. 8.87mm"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 34
+        },
+        {
+          "text": "What is the measure of the apothem of a regular octagon if one of its sides measures 12m?",
+          "options": [
+            "A. 11.28m",
+            "B. 12.39m",
+            "C. 13.42m",
+            "D. 14.49m"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 8
+        },
+        {
+          "text": "Two identical tanks (τ1 = τ2 = 4 min each) are arranged in series. In Case X the tanks are noninteracting; in Case Y the liquid levels interact. What is the effective damping coefficient ζ for Case Y, and how does the speed of response compare between the two cases? ",
+          "options": [
+            "A. ζ = 0.5 for Case Y; Case Y responds faster than Case X",
+            "B. ζ = 1.0 for Case Y; both cases respond at exactly the same speed since τ1 = τ2",
+            "C. ζ = 1.25 for Case Y; Case Y responds more slowly than Case X",
+            "D. ζ = 0.707 for Case Y; Case Y oscillates while Case X does not"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 23
+        },
+        {
+          "text": "A mass of 0.5 kg is attached to a spring of force constant 200 N/m. Find the frequency of oscillation. (Use f = (1/2π)√(k/m))",
+          "options": [
+            "A. 1.59 Hz",
+            "B. 2.39 Hz",
+            "C. 3.18 Hz",
+            "D. 4.77 Hz"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 23
+        },
+        {
+          "text": "What color should be used to direct traffic in the workplace?",
+          "options": [
+            "A. Red",
+            "B. White",
+            "C. Green",
+            "D. Orange"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 7
+        },
+        {
+          "text": "What violations are most commonly cited by OSHA?",
+          "options": [
+            "A. Hazard communications",
+            "B. Fall protection",
+            "C. Scaffolding",
+            "D. Respiratory protection"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 26
+        },
+        {
+          "text": "A line through (-5, 2) and (1, -4) is perpendicular to the line through (x, -7) and (8, 7). Find the x.",
+          "options": [
+            "A. -4",
+            "B. -5",
+            "C. -6",
+            "D. -19/3"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 17
+        },
+        {
+          "text": "Which of the following is not a guide word of HAZOP?",
+          "options": [
+            "A. NO",
+            "B. MORE",
+            "C. LESS",
+            "D. NAND"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 23
+        },
+        {
+          "text": "Calculate the work done against gravity by a pump that discharges 600 liters of fuel oil into a tank 20 m above the pump's intake, if one liter of fuel oil has a mass of 0.82 grams/L.",
+          "options": [
+            "A. 46.9 J",
+            "B. 96.4 J",
+            "C. 84.6 J",
+            "D. 64.7 J"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 10
+        },
+        {
+          "text": "A principal at a school claims that the students in his school are above average intelligence. A random sample of thirty students' IQ scores have a mean score of 112.5. The mean population IQ is 100 with a standard deviation of 15. Calculate the z-statistic.",
+          "options": [
+            "A. 5.56",
+            "B. 4.56",
+            "C. 3.56",
+            "D. 2.56"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 68
+        },
+        {
+          "text": "What is the perimeter of a regular nonagon with one of the apothem measures 20in?",
+          "options": [
+            "A. 129.38in",
+            "B. 131.03in",
+            "C. 147.69in",
+            "D. 156.73in"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 11
+        },
+        {
+          "text": " In project management O & M stands for: ",
+          "options": [
+            "A. Operation & Manpower",
+            "B. Operation and Maintenance",
+            "C. Operation & Management",
+            "D. Operation and Mission"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 124
+        },
+        {
+          "text": "What is the 11th term of the harmonic progression if the first and the third terms are 1/2 and 1/6 respectively?",
+          "options": [
+            "A. 1/20",
+            "B. 1/4",
+            "C. 1/12",
+            "D. 1/22"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 27
+        },
+        {
+          "text": "Sand is falling off a conveyor onto a conical pile at the rate of 15 cm³/min. The base of the cone is approximately twice the altitude. Find the height of the pile if the height of the pile is changing at the rate 0.047746 cm/min.",
+          "options": [
+            "A. 12 cm",
+            "B. 10 cm",
+            "C. 8 cm",
+            "D. 6 cm"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 69
+        },
+        {
+          "text": "If arc tan 2x + arc tan 3x = 45 degrees, what is the numerical value of x?",
+          "options": [
+            "A. 1/6",
+            "B. u00bd",
+            "C. 1/3",
+            "D. 1/4"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 21
+        },
+        {
+          "text": "What is the Laplace transform of e^(2t)cos(3t)?",
+          "options": [
+            "A. (s-3)/((s-3)²+4)",
+            "B. (s-3)/((s-3)²-4)",
+            "C. (s-2)/((s-2)²+9)",
+            "D. (s-2)/((s-2)²-9)"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 57
+        },
+        {
+          "text": "The slant height of a right circular cone is 5m long. The base diameter is 6m. What is the lateral area in m^2?",
+          "options": [
+            "A. 37.7",
+            "B. 47",
+            "C. 44",
+            "D. 40.8"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 34
+        },
+        {
+          "text": "Eliminate the arbitrary constants of the general solution below: y = x(C1 + C2 ln x + C3(ln x)²)",
+          "options": [
+            "A. x³y''' + x²y'' + xy' + y = 0",
+            "B. y''' - 3y'' + 3y' - y = 0",
+            "C. y''' + y' - y = 0",
+            "D. x³y''' + xy' - y = 0"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 3
+        },
+        {
+          "text": "[Questions 31-39 refer to the following: The times required by three workers to perform an assembly-line task were recorded on five randomly selected occasions. Worker 1: 8, 10, 9, 11, 10. Worker 2: 8, 9, 9, 8, 10. Worker 3: 10, 9, 10, 11, 9.] Compute the degrees of freedom total.",
+          "options": [
+            "A. 2.8",
+            "B. 2",
+            "C. 12",
+            "D. 14"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 75
+        },
+        {
+          "text": "A poster is to contain 300 cm² of printed matter with margins of 10 cm at the top and bottom and 5 cm at each side. Find the overall dimensions if the total area of the poster is minimum.",
+          "options": [
+            "A. 27.76 cm, 47.8 cm",
+            "B. 20.45 cm, 35.6 cm",
+            "C. 22.24 cm, 44.5 cm",
+            "D. 25.55 cm, 46.7 cm"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 46
+        },
+        {
+          "text": "Integrate: sec⁴(x)tan⁶(x) dx",
+          "options": [
+            "A. tan⁹x/9 + tan⁷x/7 + c",
+            "B. tan⁹x/7 + tan⁷x/9 + c",
+            "C. tan⁹x/7 - tan⁷x/9 + c",
+            "D. tan⁹x/9 - tan⁷x/7 + c"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 10
+        },
+        {
+          "text": "[Situation 3] What is the volume of the cylinder?",
+          "options": [
+            "A. 4179 in³",
+            "B. 4238 in³",
+            "C. 4337 in³",
+            "D. 4460 in³"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 59
+        },
+        {
+          "text": "Find the general solution of y' = y sec x",
+          "options": [
+            "A. y = C (sec x + tan x)",
+            "B. y = C (sec x – tan x)",
+            "C. y = C (sec x tan x)",
+            "D. y = C (sec2 x + tan x)"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 8
+        },
+        {
+          "text": "A fixed crane has a mass of 1000 kg and is used to lift a 2400 kg crate. The crane's vertical post is 1.5 m tall and is held by a pin support at A (top of the post) and a rocker support at B (bottom of the post, which provides only a horizontal reaction). The boom extends horizontally 2 m from the post to point C, then continues 4 m further to where the crate hangs. The center of gravity of the crane is located at G. What is the horizontal component of the reaction at A?",
+          "options": [
+            "A. 107.26kN",
+            "B. 120.28kN",
+            "C. 116.78kN",
+            "D. 112.29kN"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 13
+        },
+        {
+          "text": "A permanent committee that deals with issues on an ongoing basis: ",
+          "options": [
+            "A. Ad hoc committee",
+            "B. Sinking committee",
+            "C. Standing committee",
+            "D. Midget committee"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 161
+        },
+        {
+          "text": "Evaluate: ∫ 8/(3x³+7x²+4x) dx",
+          "options": [
+            "A. 2ln|x| + 6ln|3x+4| - 8ln|x+1| + c",
+            "B. ln|x| + 7ln|3x+4| - 5ln|x+1| + c",
+            "C. 2ln|x| - 6ln|3x+4| + 8ln|x+1| + c",
+            "D. ln|x| - 7ln|3x+4| + 5ln|x+1| + c"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 13
+        },
+        {
+          "text": "An I-beam cross-section is oriented with its web vertical (along the y-axis) and centroid at the origin. The top flange has a total width of 48 mm (24 mm on each side of the y-axis) and a thickness of 6 mm. The bottom flange has the same dimensions (48 mm wide, 6 mm thick), symmetric about the x-axis. The web connecting the flanges has a thickness of 8 mm and extends 24 mm above and 24 mm below the x-axis (centroidal axis) to meet the inner faces of the flanges. Determine the moment of inertia with respect to the x-axis.",
+          "options": [
+            "A. 389.95 × 10³ mm⁴",
+            "B. 392.36 × 10³ mm⁴",
+            "C. 395.68 × 10³ mm⁴",
+            "D. 408.92 × 10³ mm⁴"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 31
+        },
+        {
+          "text": "Find the equation of the straight line with a slope of 3 and a y-intercept of 1.",
+          "options": [
+            "A. 3x + y u2013 1 = 0",
+            "B. 3x u2013 y + 1 = 0",
+            "C. x + 3y + 1 = 0",
+            "D. x u2013 3y u2013 1 = 0"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 9
+        },
+        {
+          "text": "Bromides contained in hot mother liquor is treated with __________ during manufacture of bromine from sea water.",
+          "options": [
+            "A. SO3",
+            "B. NH3",
+            "C. Cl2",
+            "D. SO2"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 43
+        },
+        {
+          "text": "Buying insurance is a form of: ",
+          "options": [
+            "A. Risk elimination",
+            "B. Risk sharing",
+            "C. Risk reduction",
+            "D. Risk absorption"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 144
+        },
+        {
+          "text": "It is an economic system based on the private ownership of the means of production and distribution of goods, characterized by a free competitive market and motivation by profit.",
+          "options": [
+            "A. Socialism",
+            "B. Communism",
+            "C. Capitalism",
+            "D. Mercantilism"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 6
+        },
+        {
+          "text": "Mobil Oil introduced a revolutionary catalyst for \"catalytic cracking\" in the 1960s. What was this material?",
+          "options": [
+            "A. Carbon nanotubes",
+            "B. Chromium oxide",
+            "C. Zeolite",
+            "D. Silver nitrate"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 24
+        },
+        {
+          "text": "A copper bar is 80 cm long at 15°C. What is the increase in length when it is heated to 35°C? (For copper, α = 1.7 x 10^-5/°C). Express your answer in meters.",
+          "options": [
+            "A. 1.36 x 10^-4 m",
+            "B. 2.72 x 10^-4 m",
+            "C. 4.08 x 10^-4 m",
+            "D. 5.44 x 10^-4 m"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 61
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -90688,5 +91313,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T19:14:30"
+  "updated_at": "2026-10-17T19:14:53"
 }
