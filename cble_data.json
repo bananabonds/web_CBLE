@@ -77420,7 +77420,7 @@
       "question": "[Situation 6: C(x) = 10000 + 90x - 0.05x²] What is the marginal cost of 500 tanks?",
       "category": "Formula / Equation Error",
       "note": "The marginal cost is the rate of change of cost. Find derivative then substitute",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-22T06:44:26",
       "occurrences": [
         {
@@ -77430,7 +77430,8 @@
           "your_answer": "D. $40.10",
           "correct_answer": "B. $40"
         }
-      ]
+      ],
+      "updated_at": "2026-10-17T10:42:48"
     },
     {
       "id": "1790059735667703",
@@ -87532,5 +87533,5 @@
     "prompt_sets": [],
     "flash_decks": []
   },
-  "updated_at": "2026-10-17T10:42:13"
+  "updated_at": "2026-10-17T10:42:57"
 }
