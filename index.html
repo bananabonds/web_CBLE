@@ -276,6 +276,10 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
 .fc-top button{width:38px;height:38px;border-radius:8px;border:1px solid var(--line);background:#fff;font-size:1rem;}
 .fc-progress{flex:1;height:8px;background:var(--line);border-radius:999px;overflow:hidden;}
 #fcBar{height:100%;background:var(--navy);width:0;transition:width .2s;}
+.tts-now{outline:2px solid var(--amber);outline-offset:2px;}
+.lg-chip{font-size:.76rem;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--navy);font-weight:700;cursor:pointer;}
+.lg-chip.on{background:var(--navy);color:#fff;border-color:var(--navy);}
+.lg-chip.part{background:#EEF2FF;border-color:var(--navy);}
 .fc-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 4px;}
 .fc-chip{font-size:.7rem;padding:3px 9px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--sub);font-weight:600;}
 .fc-chip.group{background:var(--navy);color:#fff;border-color:var(--navy);}
@@ -670,6 +674,15 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
           <button class="btn" id="btnClearLists">Clear</button>
           <button class="btn" id="btnRefreshLists">Refresh</button>
         </div>
+        <div id="listGroupBar" style="display:none;margin-bottom:10px;">
+          <div class="field-label" style="margin-bottom:4px;">Quick select by subject group <span class="hint" style="font-weight:400;">(subjects that start alike)</span></div>
+          <div id="listGroupChips" class="row wrap" style="gap:6px;"></div>
+          <div class="row wrap" style="gap:12px;margin-top:8px;align-items:center;">
+            <label class="row" style="flex:none;font-size:.78rem;color:var(--sub);"><input type="checkbox" id="lgReplace"><span>Replace my selection</span></label>
+            <label class="row" style="flex:none;font-size:.78rem;color:var(--sub);"><input type="checkbox" id="lgGenerate"><span>Generate right away</span></label>
+            <select id="lgMode" style="width:auto;font-size:.78rem;"><option value="auto">Group: auto</option><option value="3">first 3 letters</option><option value="4">first 4 letters</option><option value="5">first 5 letters</option><option value="6">first 6 letters</option></select>
+          </div>
+        </div>
         <div id="listsContainer"></div>
       </div>
 
@@ -987,6 +1000,7 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <textarea id="mistakeNoteInput" rows="4"></textarea>
         <div class="row" style="margin-top:10px;">
           <button class="btn primary" id="btnSaveMistake">Save Mistake Log</button>
+          <button class="btn" id="btnReadMistakeEdit" title="Read this mistake and your note aloud">&#128266; Read</button>
           <button class="btn danger" id="btnDeleteMistake">Delete Log</button>
         </div>
       </div>
@@ -1020,6 +1034,27 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
             <button class="btn link" id="btnMistakeSubjectsNone">None</button>
           </div>
           <div id="mistakeSubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
+        </div>
+        <div id="ttsBar" class="list-item" style="margin-bottom:10px;">
+          <div class="row wrap" style="gap:6px;">
+            <button class="btn primary" id="ttsPlayAll">&#9654; Read all shown</button>
+            <button class="btn" id="ttsPause" disabled>&#9208; Pause</button>
+            <button class="btn" id="ttsPrev" disabled>&#9198;</button>
+            <button class="btn" id="ttsNext" disabled>&#9197;</button>
+            <button class="btn danger" id="ttsStop" disabled>&#9209;</button>
+          </div>
+          <div class="hint" id="ttsStatus" style="margin-top:6px;min-height:1em;"></div>
+          <details style="margin-top:4px;">
+            <summary style="font-size:.8rem;cursor:pointer;color:var(--navy);">Voice settings</summary>
+            <label class="field-label">Voice</label><select id="ttsVoice"></select>
+            <label class="field-label">Speed <span id="ttsRateVal"></span></label><input type="range" id="ttsRate" min="0.6" max="1.8" step="0.1" value="1">
+            <div class="row wrap" style="gap:12px;margin-top:8px;">
+              <label class="row" style="flex:none;font-size:.8rem;"><input type="checkbox" id="ttsQ"><span>Question</span></label>
+              <label class="row" style="flex:none;font-size:.8rem;"><input type="checkbox" id="ttsA"><span>Answers</span></label>
+              <label class="row" style="flex:none;font-size:.8rem;"><input type="checkbox" id="ttsN"><span>Notes</span></label>
+              <button class="btn link" id="ttsTest">Test voice</button>
+            </div>
+          </details>
         </div>
         <div id="allMistakesContainer"></div>
         <button class="btn link" id="btnCopyMistakeInsights">&#128203; Copy Insights to Clipboard</button>
@@ -1525,6 +1560,8 @@ const KEYS = {
   flashDecks: "cble.flashDecks",   // custom flashcard decks (synced)
   flashSrs: "cble.flashSrs",       // spaced-repetition state per card (synced)
   flashPrefs: "cble.flashPrefs",   // schedule + interleaving settings (this device only)
+  ttsPrefs: "cble.ttsPrefs",         // read-aloud voice/speed/what to read (this device only)
+  builderPrefs: "cble.builderPrefs", // sample-builder subject-group shortcut options (this device only)
   predPrefs: "cble.predPrefs",     // Score Forecast settings: pass rule, question counts, model assumptions (this device only)
   sizePrefs: "cble.sizePrefs",     // Action Plan sample sizes + the shared question-pool choice (this device only)
 };
@@ -4382,6 +4419,7 @@ function refreshListsDisplay() {
   }
   if (document.getElementById("panel-saved").classList.contains("active") || true) refreshSavedSamplesListQuiet();
   refreshEditorBankChoicesQuiet();
+  try { renderListGroupChips(); } catch (e) { console.error(e); }
   updateAllocSummary();
 }
 
@@ -6298,6 +6336,7 @@ function renderMistakeCard(e, repeatCount) {
 
   let inner = `<div class="top-row"><span class="name">Ref #${esc(e.reference_no)} &middot; ${esc(e.category || "")}</span>
       <span class="row" style="gap:4px;flex:none;">
+        <button class="btn" data-tts-id="${e.id}" title="Read this mistake aloud" style="padding:2px 8px;">\u{1F50A}</button>
         ${repeatCount > 1 ? `<span class="status-pill repeat-pill">\u{1F501} \u00d7${repeatCount}</span>` : ""}
         ${isExcludedEntry(e) ? `<span class="status-pill neutral">Skipped in samples</span>` : ""}
         <span class="status-pill ${statusClass}">${e.resolved ? "Resolved" : "Open"}</span>
@@ -6324,10 +6363,14 @@ function renderMistakeCard(e, repeatCount) {
   } else {
     inner += `<div class="hint" style="margin-top:6px;">${state === 0 ? "Tap for details" : "Tap again for notes"}</div>`;
   }
+  card.dataset.mid = e.id;
   card.innerHTML = inner;
+  const ttsBtn = card.querySelector("[data-tts-id]");
+  if (ttsBtn) ttsBtn.addEventListener("click", (ev) => { ev.stopPropagation(); ttsToggleSingle(e.id); });
+  if (typeof TTS !== "undefined" && TTS && TTS.state !== "idle" && TTS.curId === e.id) card.classList.add("tts-now");
 
   card.addEventListener("click", (ev) => {
-    if (ev.target.closest("[data-resolve-id]") || ev.target.closest("[data-skip-id]")) return;
+    if (ev.target.closest("[data-resolve-id]") || ev.target.closest("[data-skip-id]") || ev.target.closest("[data-tts-id]")) return;
     mistakeCardState[e.id] = ((mistakeCardState[e.id] || 0) + 1) % 3;
     refreshAllMistakesTree();
     if (typeof renderDueForReview === "function") renderDueForReview();
@@ -9528,6 +9571,179 @@ function pfRender() {
   });
 })();
 try { pfRender(); } catch (e) { console.error("Forecast render failed", e); }
+
+/* =====================================================================
+   Mistake Log: read-aloud (Web Speech API) + sample-builder subject-group chips
+   ===================================================================== */
+var TTS = { ok: ("speechSynthesis" in window) && (typeof SpeechSynthesisUtterance !== "undefined"),
+  ids: [], idx: -1, chunks: [], ci: 0, token: 0, state: "idle", curId: null };   // state: idle | playing | paused
+function ttsPrefs() { return Object.assign({ voice: "", rate: 1, q: true, a: true, n: true }, loadJson(KEYS.ttsPrefs, {}) || {}); }
+function ttsSavePref(k, v) { const p = loadJson(KEYS.ttsPrefs, {}) || {}; p[k] = v; saveJson(KEYS.ttsPrefs, p); }
+function ttsClean(s) {
+  return String(s == null ? "" : s).replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ")
+    .replace(/\u2192|->/g, " gives ").replace(/\u2264/g, " less than or equal to ").replace(/\u2265/g, " greater than or equal to ").replace(/[*_`#>~]+/g, " ")
+    .replace(/\s+/g, " ").trim();
+}
+function ttsEnd(s) { return s && !/[.!?]$/.test(s) ? s + "." : s; }
+function ttsEntryText(e, P) {
+  const occ = (e.occurrences || []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || "")), latest = occ[occ.length - 1] || {}, out = [];
+  out.push(ttsEnd(`Reference number ${ttsClean(e.reference_no)}${e.category ? ". Category: " + ttsClean(e.category) : ""}`));
+  if (occ.length > 1) out.push(`You have missed this ${occ.length} times.`);
+  if (P.q && e.question) out.push(ttsEnd("Question: " + ttsClean(e.question)));
+  if (P.a) {
+    out.push(ttsEnd("Your answer: " + (ttsClean(latest.your_answer) || "none")));
+    out.push(ttsEnd("Correct answer: " + (ttsClean(latest.correct_answer) || "unknown")));
+  }
+  if (P.n) out.push(e.note && ttsClean(e.note) ? ttsEnd("Notes: " + ttsClean(e.note)) : "No notes yet.");
+  return out.join(" ");
+}
+// Long utterances get cut off by some browsers, so speak in short pieces.
+function ttsChunks(text) {
+  const sents = text.match(/[^.!?;:]+[.!?;:]*\s*/g) || [text], out = [];
+  let cur = "";
+  const push = (s) => { s = s.trim(); if (s) out.push(s); };
+  for (let s of sents) {
+    while (s.length > 220) { let cut = s.lastIndexOf(",", 200); if (cut < 80) cut = s.lastIndexOf(" ", 200); if (cut < 80) cut = 200; push(cur); cur = ""; push(s.slice(0, cut + 1)); s = s.slice(cut + 1); }
+    if ((cur + s).length > 170) { push(cur); cur = s; } else cur += s;
+  }
+  push(cur);
+  return out.length ? out : [text];
+}
+function ttsVoices() { try { return window.speechSynthesis.getVoices() || []; } catch (e) { return []; } }
+function ttsFillVoices() {
+  const sel = $("ttsVoice"); if (!sel) return;
+  const vs = ttsVoices(), lang = (navigator.language || "en").slice(0, 2).toLowerCase(), cur = ttsPrefs().voice;
+  const ordered = vs.slice().sort((a, b) => ((b.lang || "").toLowerCase().startsWith(lang) - (a.lang || "").toLowerCase().startsWith(lang)) || a.name.localeCompare(b.name));
+  sel.innerHTML = `<option value="">Device default</option>` + ordered.map(v => `<option value="${esc(v.name)}">${esc(v.name)} (${esc(v.lang)})</option>`).join("");
+  sel.value = ordered.some(v => v.name === cur) ? cur : "";
+}
+function ttsMark() {
+  document.querySelectorAll("[data-mid]").forEach(c => c.classList.toggle("tts-now", TTS.state !== "idle" && c.dataset.mid === TTS.curId));
+  document.querySelectorAll("[data-tts-id]").forEach(b => { const on = TTS.state === "playing" && TTS.curId === b.dataset.ttsId && TTS.ids.length === 1; b.textContent = on ? "\u23F9" : "\uD83D\uDD0A"; b.title = on ? "Stop" : "Read this mistake aloud"; });
+  const st = $("ttsStatus"), play = $("ttsPlayAll"), pause = $("ttsPause"), prev = $("ttsPrev"), next = $("ttsNext"), stop = $("ttsStop");
+  if (!st) return;
+  const active = TTS.state !== "idle", multi = TTS.ids.length > 1;
+  pause.disabled = !active; stop.disabled = !active; prev.disabled = !active || !multi || TTS.idx <= 0; next.disabled = !active || !multi || TTS.idx >= TTS.ids.length - 1;
+  pause.textContent = TTS.state === "paused" ? "\u25B6 Resume" : "\u23F8 Pause";
+  play.textContent = active && multi ? "\u21BB Restart" : "\u25B6 Read all shown";
+  st.textContent = !active ? "" : `${TTS.state === "paused" ? "Paused" : "Reading"} ${TTS.idx + 1} of ${TTS.ids.length}${TTS.curId ? " \u00B7 " + ttsLabel(TTS.curId) : ""}`;
+}
+function ttsLabel(id) { const e = loadMistakeLog().find(x => x.id === id); return e ? `Ref #${e.reference_no}` : ""; }
+function ttsCancel() { TTS.token++; try { window.speechSynthesis.cancel(); } catch (e) {} }
+function ttsStop() { ttsCancel(); TTS.state = "idle"; TTS.ids = []; TTS.idx = -1; TTS.curId = null; TTS.chunks = []; TTS.ci = 0; ttsMark(); }
+function ttsSpeakFrom(ci) {
+  const tok = ++TTS.token, P = ttsPrefs();
+  const step = (i) => {
+    if (tok !== TTS.token) return;
+    TTS.ci = i;
+    if (i >= TTS.chunks.length) { setTimeout(() => { if (tok === TTS.token) ttsAdvance(1, true); }, 350); return; }
+    const u = new SpeechSynthesisUtterance(TTS.chunks[i]);
+    const v = ttsVoices().find(x => x.name === P.voice);
+    if (v) { u.voice = v; u.lang = v.lang; }
+    u.rate = Math.min(2, Math.max(0.5, Number(P.rate) || 1));
+    u.onend = () => step(i + 1);
+    u.onerror = (ev) => { if (ev && (ev.error === "interrupted" || ev.error === "canceled")) return; step(i + 1); };
+    window.speechSynthesis.speak(u);
+  };
+  step(ci);
+}
+function ttsLoadEntry(k) {
+  const e = loadMistakeLog().find(x => x.id === TTS.ids[k]);
+  if (!e) return false;
+  TTS.idx = k; TTS.curId = e.id; TTS.chunks = ttsChunks(ttsEntryText(e, ttsPrefs())); TTS.ci = 0; return true;
+}
+function ttsAdvance(dir, fromAuto) {
+  let k = TTS.idx + dir;
+  while (k >= 0 && k < TTS.ids.length && !ttsLoadEntry(k)) k += dir;   // skip entries that were deleted meanwhile
+  if (k < 0 || k >= TTS.ids.length) { if (fromAuto) { ttsStop(); toast("Finished reading."); } return; }
+  ttsCancel(); TTS.state = "playing"; ttsMark(); ttsSpeakFrom(0);
+  const card = document.querySelector(`[data-mid="${CSS.escape(TTS.curId)}"]`); if (card && card.scrollIntoView) card.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+function ttsStart(ids) {
+  if (!TTS.ok) { toast("Read-aloud isn't supported in this browser."); return; }
+  if (!ids.length) { toast("No mistakes to read."); return; }
+  ttsCancel(); TTS.ids = ids.slice(); TTS.idx = -1; TTS.state = "playing";
+  ttsAdvance(1, false);
+}
+function ttsToggleSingle(id) {
+  if (TTS.state !== "idle" && TTS.ids.length === 1 && TTS.curId === id) { ttsStop(); return; }
+  ttsStart([id]);
+}
+function ttsVisibleIds() { return Array.from(document.querySelectorAll("#allMistakesContainer [data-mid]")).map(c => c.dataset.mid); }
+(function ttsWire() {
+  const bar = $("ttsBar"); if (!bar) return;
+  if (!TTS.ok) { bar.innerHTML = `<div class="hint">Read-aloud isn't available in this browser.</div>`; return; }
+  const P = ttsPrefs();
+  $("ttsRate").value = P.rate; $("ttsRateVal").textContent = Number(P.rate).toFixed(1) + "\u00D7";
+  $("ttsQ").checked = !!P.q; $("ttsA").checked = !!P.a; $("ttsN").checked = !!P.n;
+  ttsFillVoices();
+  if (window.speechSynthesis.addEventListener) window.speechSynthesis.addEventListener("voiceschanged", ttsFillVoices);
+  $("ttsPlayAll").addEventListener("click", () => ttsStart(ttsVisibleIds()));
+  $("ttsPause").addEventListener("click", () => {
+    if (TTS.state === "playing") { const ci = TTS.ci; ttsCancel(); TTS.state = "paused"; TTS.ci = ci; ttsMark(); }
+    else if (TTS.state === "paused") { TTS.state = "playing"; ttsMark(); ttsSpeakFrom(TTS.ci); }
+  });
+  $("ttsPrev").addEventListener("click", () => ttsAdvance(-1, false));
+  $("ttsNext").addEventListener("click", () => ttsAdvance(1, false));
+  $("ttsStop").addEventListener("click", ttsStop);
+  $("ttsVoice").addEventListener("change", (e) => ttsSavePref("voice", e.target.value));
+  $("ttsRate").addEventListener("input", (e) => { ttsSavePref("rate", parseFloat(e.target.value)); $("ttsRateVal").textContent = parseFloat(e.target.value).toFixed(1) + "\u00D7"; });
+  [["ttsQ", "q"], ["ttsA", "a"], ["ttsN", "n"]].forEach(([id, k]) => $(id).addEventListener("change", (e) => ttsSavePref(k, e.target.checked)));
+  $("ttsTest").addEventListener("click", () => { ttsCancel(); const u = new SpeechSynthesisUtterance("This is how I will read your mistakes."); const v = ttsVoices().find(x => x.name === ttsPrefs().voice); if (v) { u.voice = v; u.lang = v.lang; } u.rate = Number(ttsPrefs().rate) || 1; window.speechSynthesis.speak(u); });
+  window.addEventListener("pagehide", () => { try { window.speechSynthesis.cancel(); } catch (e) {} });
+})();
+(function ttsEditWire() {
+  const b = $("btnReadMistakeEdit"); if (!b) return;
+  b.addEventListener("click", () => {
+    if (!TTS.ok) { toast("Read-aloud isn't supported in this browser."); return; }
+    const lbl = ttsClean($("mistakeQuestionLbl").textContent), note = ttsClean($("mistakeNoteInput").value), P = ttsPrefs();
+    if (!selectedMistakeRow) { toast("Tap a mistake above first."); return; }
+    const txt = ttsEnd(lbl.replace(/\s*\|\s*/g, ". ")) + (P.n ? (note ? " " + ttsEnd("Your note: " + note) : " No note yet.") : "");
+    ttsCancel(); TTS.ids = []; TTS.idx = -1; TTS.curId = null; TTS.state = "idle"; ttsMark();
+    const tok = TTS.token, ch = ttsChunks(txt), v = ttsVoices().find(x => x.name === P.voice);
+    ch.forEach(c => { const u = new SpeechSynthesisUtterance(c); if (v) { u.voice = v; u.lang = v.lang; } u.rate = Number(P.rate) || 1; window.speechSynthesis.speak(u); });
+  });
+})();
+
+/* ---- Sample builder: one-tap subject groups (reuses the flashcards' prefix grouping) ---- */
+function lgPrefs() { return Object.assign({ replace: false, generate: false, mode: "auto" }, loadJson(KEYS.builderPrefs, {}) || {}); }
+function lgSave(k, v) { const p = loadJson(KEYS.builderPrefs, {}) || {}; p[k] = v; saveJson(KEYS.builderPrefs, p); }
+function listGroups() {
+  const names = listNamesOrder.filter(n => allLists[n] && allLists[n].length), mode = lgPrefs().mode;
+  const map = fcGroupMap(names, mode === "auto" ? 0 : parseInt(mode, 10) || 0), by = new Map();
+  names.forEach(n => { const k = map.get(n); if (!by.has(k)) by.set(k, []); by.get(k).push(n); });
+  return Array.from(by.entries()).filter(([, m]) => m.length >= 2).map(([key, members]) => {
+    const c = fcCleanName(members[0]), label = c.slice(0, key.length).toUpperCase() === key ? c.slice(0, key.length) : key;
+    return { key, label, members };
+  });
+}
+function renderListGroupChips() {
+  const bar = $("listGroupBar"), box = $("listGroupChips"); if (!bar || !box) return;
+  const gs = listGroups();
+  bar.style.display = gs.length ? "" : "none";
+  box.innerHTML = "";
+  gs.forEach(g => {
+    const on = g.members.filter(n => selectedListNames.has(n)).length, b = el("button", "lg-chip" + (on === g.members.length ? " on" : on ? " part" : ""));
+    b.textContent = `${g.label} \u00B7 ${g.members.length}`;
+    b.title = g.members.map(fcCleanName).join("\n");
+    b.addEventListener("click", () => {
+      const p = lgPrefs(), allOn = on === g.members.length;
+      if (p.replace && !allOn) selectedListNames = new Set();
+      g.members.forEach(n => { if (allOn) selectedListNames.delete(n); else selectedListNames.add(n); });
+      refreshListsDisplay();
+      if (!allOn && p.generate) runGenerate(selectedBuilderNames());
+    });
+    box.appendChild(b);
+  });
+}
+(function lgWire() {
+  const p = lgPrefs(); if (!$("lgReplace")) return;
+  $("lgReplace").checked = !!p.replace; $("lgGenerate").checked = !!p.generate; $("lgMode").value = p.mode;
+  $("lgReplace").addEventListener("change", e => lgSave("replace", e.target.checked));
+  $("lgGenerate").addEventListener("change", e => lgSave("generate", e.target.checked));
+  $("lgMode").addEventListener("change", e => { lgSave("mode", e.target.value); renderListGroupChips(); });
+})();
+try { renderListGroupChips(); refreshAllMistakesTree(); } catch (e) { console.error("Group chips init failed", e); }
 </script>
 </body>
 </html>
