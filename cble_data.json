@@ -94330,6 +94330,42 @@
       "trap": "I picked y³ in #16, which is the result of using (M_y - N_x)/M and getting +3/y. Memory aid: the divisor is the coefficient of the differential I am NOT integrating over (N for μ(x), M for μ(y)), and the numerator is (derivative of the other coefficient) minus (derivative of the divisor's own coefficient)... verify by checking M_y = N_x after multiplying.",
       "created_at": "2026-10-18T14:16:10",
       "updated_at": "2026-10-18T14:16:10"
+    },
+    {
+      "id": "179233304034081",
+      "concept_id": "1792308271310627",
+      "front": "What are the routes of entry of toxicants into the body, and which is the main one in the workplace?",
+      "back": "Inhalation, ingestion, and dermal (skin) absorption. Injection is a fourth route in some texts. Inhalation is usually the most significant route for workplace chemicals. Ingestion is usually accidental (contaminated hands, food, drinks) and is preventable, for example by handwashing and not eating in the lab. If a question lists the routes separately and also offers \"all of the above,\" the complete answer is usually the one wanted.",
+      "trap": "In #62 I picked dermal absorption alone, though my own note said it was only one route. In #65 I picked a true statement (option C, about reducing ingestion by handwashing) when the question asked for the incorrect statement. Read whether the stem asks for true or incorrect, and check every option, including \"all of the above.\"",
+      "created_at": "2026-10-18T14:17:20",
+      "updated_at": "2026-10-18T14:17:20"
+    },
+    {
+      "id": "1792333040341500",
+      "concept_id": "1792308271310627",
+      "front": "What does the GHS pictogram of a person with a starburst on the chest mean, and how does it differ from the skull and crossbones and the exclamation mark?",
+      "back": "Starburst on the chest: serious health hazard (carcinogenicity, mutagenicity, reproductive toxicity, respiratory sensitization, specific target organ toxicity, aspiration hazard). Skull and crossbones: acute toxicity, fatal or toxic. Exclamation mark: irritant, skin sensitizer, harmful (lower acute toxicity), narcotic effects. The starburst covers chronic and long-term effects, not only acute ones.",
+      "trap": "In #44 I picked acute toxicity, but my note already said the starburst is for chronic serious hazards. Pair each symbol with its cue: skull means acute (deadly), starburst means long-term damage, exclamation mark means irritant.",
+      "created_at": "2026-10-18T14:17:20",
+      "updated_at": "2026-10-18T14:17:20"
+    },
+    {
+      "id": "1792333040342456",
+      "concept_id": "1792308271310627",
+      "front": "Which SDS section do I check for stability, reactivity, and water-reactive or incompatible chemicals?",
+      "back": "Section 10, Stability and reactivity (conditions to avoid, incompatible materials, hazardous decomposition products). Other key sections of the 16-section SDS: 1 identification, 2 hazard identification, 3 composition, 4 first-aid measures, 5 firefighting measures, 6 accidental release measures, 7 handling and storage, 8 exposure controls and PPE, 9 physical and chemical properties, 11 toxicological information, 14 transport, 15 regulatory.",
+      "trap": "In #41 I picked Section 9 (physical and chemical properties) for a chemical that reacted violently with water. A violent reaction is a reactivity question, so go to Section 10. Section 9 gives data like boiling point and flash point, not what the chemical reacts with.",
+      "created_at": "2026-10-18T14:17:20",
+      "updated_at": "2026-10-18T14:17:20"
+    },
+    {
+      "id": "1792333040342835",
+      "concept_id": "1792308271310627",
+      "front": "Which fire extinguisher class fits electrical equipment, and which fires can a CO₂ extinguisher be used on?",
+      "back": "Traditional classes: A = ordinary combustibles (wood, paper, cloth); B = flammable liquids and gases; C = energized electrical equipment; D = combustible metals; K = cooking oils and fats. Electrical equipment (appliances, power tools, wiring) uses Class C, and the agent must be non-conductive. CO₂ is a clean, non-conductive agent used on Class B and C fires. It is not suited for Class A or D.",
+      "trap": "In #49 and #50 I guessed. Tie each letter to its fuel: B = Bottle of liquid (flammable liquids), C = Current (electrical). CO₂ goes with B and C because it leaves no residue and doesn't conduct electricity.",
+      "created_at": "2026-10-18T14:17:20",
+      "updated_at": "2026-10-18T14:17:20"
     }
   ],
   "shaky_tags": [
@@ -95388,5 +95424,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T14:16:58"
+  "updated_at": "2026-10-18T14:17:32"
 }
