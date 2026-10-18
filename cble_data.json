@@ -80696,7 +80696,7 @@
       "category": "Conceptual Misunderstanding",
       "note": "Cascade conrol uses two loops, (inner) secondary measurement and (outer) primary measurement. Secondary measurement is proactive.",
       "resolved": true,
-      "date_logged": "2026-09-23T16:12:23",
+      "date_logged": "2026-10-18T11:22:10",
       "occurrences": [
         {
           "exam_id": "179000334236560",
@@ -80705,7 +80705,9 @@
           "your_answer": "A. Primary measurement point",
           "correct_answer": "B. Secondary measurement point"
         }
-      ]
+      ],
+      "concept_id": "179232221653083",
+      "updated_at": "2026-10-18T11:22:10"
     },
     {
       "id": "1790066846489388",
@@ -80715,7 +80717,7 @@
       "category": "Unfamiliar Topic",
       "note": "Geometric progression. a_n = a_1 * r ^(n-1). where r is the common ratio which is solvable from the given and the general form of the equation.",
       "resolved": true,
-      "date_logged": "2026-09-22T08:47:32",
+      "date_logged": "2026-10-18T11:22:16",
       "occurrences": [
         {
           "exam_id": "179000334236560",
@@ -80725,7 +80727,8 @@
           "correct_answer": "C. 458752"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30"
+      "updated_at": "2026-10-18T11:22:16",
+      "concept_id": "1792309489485845"
     },
     {
       "id": "1790068595197999",
@@ -93948,5 +93951,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T11:21:50"
+  "updated_at": "2026-10-18T11:22:24"
 }
