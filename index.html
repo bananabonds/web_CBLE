@@ -280,6 +280,10 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
 .lg-chip{font-size:.76rem;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--navy);font-weight:700;cursor:pointer;}
 .lg-chip.on{background:var(--navy);color:#fff;border-color:var(--navy);}
 .lg-chip.part{background:#EEF2FF;border-color:var(--navy);}
+.tg-wrong{border-left:6px solid var(--red) !important;}
+.tg-guess{border-left:6px solid var(--violet) !important;}
+.tg-flag{border-left:6px solid var(--amber) !important;}
+.tg-sel{outline:2px solid var(--navy);outline-offset:1px;}
 .fc-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 4px;}
 .fc-chip{font-size:.7rem;padding:3px 9px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--sub);font-weight:600;}
 .fc-chip.group{background:var(--navy);color:#fff;border-color:var(--navy);}
@@ -975,40 +979,57 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <p class="hint" style="margin-top:6px;">Everything on this tab follows the exam focus: tests, logged mistakes, categories and guesses are limited to that exam's subjects.</p>
       </div>
       <div class="card">
-        <h3>Tests With Unlogged Mistakes <span class="count" id="unloggedTestsCount"></span></h3>
-        <p class="hint" style="margin-bottom:10px;">Tap a test to jump straight to its first unlogged mistake &mdash; no need to click through them one by one.</p>
+        <h3>Tests To Tag <span class="count" id="unloggedTestsCount"></span></h3>
+        <p class="hint" style="margin-bottom:10px;">Wrong answers, right guesses and flagged questions still waiting for a tag. Tap a test to jump straight to its first untagged item.</p>
         <div id="unloggedTestsContainer"></div>
       </div>
       <div class="card">
         <h3>Select a Test to Review</h3>
         <select id="mistakeExamSelect"></select>
+        <div class="row wrap" id="tagTypeChips" style="gap:6px;margin-top:10px;"></div>
+        <p class="hint" style="margin-top:6px;">Left colour = type: <b style="color:var(--red);">red</b> wrong, <b style="color:var(--violet);">violet</b> right guess, <b style="color:var(--amber-ink);">amber</b> flagged and right. Numbers are untagged / total.</p>
         <div id="mistakesContainer" style="margin-top:10px;"></div>
       </div>
       <div class="card" id="mistakeEditCard">
-        <h3>Log / Edit This Mistake</h3>
-        <p class="hint" id="mistakeQuestionLbl">Tap a mistake above to log it.</p>
+        <h3>Tag This Question</h3>
+        <div id="tagBadges" style="margin-bottom:6px;"></div>
+        <p class="hint" id="mistakeQuestionLbl" style="white-space:pre-wrap;">Tap an item above to tag it.</p>
         <div id="mistakeSearchBar"></div>
-        <label class="field-label">Category</label>
-        <input list="mistakeCategoryList" id="mistakeCategoryInput" placeholder="Pick or type a category">
-        <datalist id="mistakeCategoryList"></datalist>
-        <p class="hint" style="margin:4px 0 0;">Tag a question as <b>Other</b> to flag it as a question-bank problem: it is then left out of all future samples, plans and scores. You can undo this from its card.</p>
-        <label class="row" style="margin-top:10px;">
-          <input type="checkbox" id="mistakeResolvedInput">
-          <span style="font-size:.85rem;">Resolved / mastered since</span>
-        </label>
-        <label class="field-label">What went wrong, and how will you fix it?</label>
-        <textarea id="mistakeNoteInput" rows="4"></textarea>
-        <div class="row" style="margin-top:10px;">
-          <button class="btn primary" id="btnSaveMistake">Save Mistake Log</button>
-          <button class="btn" id="btnReadMistakeEdit" title="Read this mistake and your note aloud">&#128266; Read</button>
+        <label class="field-label">1 &middot; What do you need to do about it? (actionable tag)</label>
+        <select id="tagCategory"></select>
+        <div id="tagActionLine" style="margin:6px 0 2px;"></div>
+        <label class="field-label">2 &middot; Concept category</label>
+        <select id="tagConcept"></select>
+        <div id="tagConceptNewRow" class="row" style="display:none;gap:6px;margin-top:6px;"><input type="text" id="tagConceptNew" placeholder="Name the concept, e.g. n-factor of KMnO4"><button class="btn primary" id="tagConceptAdd" style="flex:none;">Add</button></div>
+        <details id="tagConceptCard" style="display:none;margin-top:8px;">
+          <summary style="font-size:.82rem;cursor:pointer;color:var(--navy);font-weight:700;">Concept card (front / back / trap)</summary>
+          <p class="hint" id="tagCnMeta" style="margin:6px 0;"></p>
+          <label class="field-label">Front <span class="hint">(the concept to recall)</span></label><textarea id="tagCnFront" rows="2"></textarea>
+          <label class="field-label">Back <span class="hint">(the explanation)</span></label><textarea id="tagCnBack" rows="3"></textarea>
+          <label class="field-label">Trap <span class="hint">(side notes to watch out for)</span></label><textarea id="tagCnTrap" rows="2"></textarea>
+        </details>
+        <button class="btn link" id="tagLastBtn" style="display:none;margin-top:6px;"></button>
+        <div class="row wrap" style="margin-top:10px;gap:6px;">
+          <button class="btn primary" id="btnSaveNextMistake">Save &amp; next</button>
+          <button class="btn" id="btnSaveMistake">Save</button>
+          <button class="btn" id="btnReadMistakeEdit" title="Read this question and its concept aloud">&#128266; Read</button>
+          <button class="btn" id="btnClearTag">Clear tag</button>
           <button class="btn danger" id="btnDeleteMistake">Delete Log</button>
         </div>
       </div>
       <div class="card">
+        <h3>Mistakes By Action</h3>
+        <p class="hint" style="margin-bottom:6px;">Each tag tells you what to do. Counts are total (still open). Right guesses and flagged items are listed under their action but are not counted as mistakes.</p>
+        <div id="mistakeCategoryBars"></div>
+      </div>
+      <details class="rv-fold" id="mlLegacy" open data-nav="Question notes &amp; resolve">
+        <summary>Question notes &amp; resolve (previous workflow)</summary>
+        <div class="rv-body" style="padding:0;">
+      <div class="card">
         <div class="row wrap" style="margin-bottom:8px;">
           <h3 style="border:none;padding:0;flex:1;">All Logged Mistakes</h3>
         </div>
-        <p class="hint" style="margin-bottom:8px;">Tap a mistake once to see the details, tap again for your notes and a resolve button &mdash; no need to hunt for it in the dropdown above.</p>
+        <p class="hint" style="margin-bottom:8px;">Tap a mistake once for details, again for its concept card, your notes on this question and the resolve button. Re-tag opens it in the tagging card.</p>
         <div class="row wrap" style="margin-bottom:6px;">
           <label class="row" style="flex:none;">
             <input type="checkbox" id="mistakeUnresolvedOnly">
@@ -1022,6 +1043,8 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <div class="row wrap" style="margin-bottom:10px;">
           <button class="btn" id="btnMistakeFilterToggle">Filter Subjects</button>
           <select id="mistakeGroupSelect">
+            <option value="action">Group by: Action type</option>
+            <option value="concept">Group by: Concept</option>
             <option value="exam">Group by: Exam</option>
             <option value="subject">Group by: Subject</option>
             <option value="repetition">Group by: Repeated vs One-Time</option>
@@ -1058,10 +1081,6 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         </div>
         <div id="allMistakesContainer"></div>
         <button class="btn link" id="btnCopyMistakeInsights">&#128203; Copy Insights to Clipboard</button>
-      </div>
-      <div class="card">
-        <h3>Mistake Categories (most frequent first)</h3>
-        <div id="mistakeCategoryBars"></div>
       </div>
       <div class="card">
         <h3>Guesses You Made <span class="count" id="guessesCount"></span></h3>
@@ -1102,54 +1121,21 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         </div>
         <div id="guessesContainer"></div>
       </div>
+        </div>
+      </details>
     </section>
 
     <!-- ---- Tab: Reviewer ---- -->
     <section class="panel" id="panel-reviewer">
       <div class="card">
         <h3>Reviewer</h3>
-        <p class="hint">Your guessed, hesitant and confidently-wrong questions as flashcards. Related subjects (names that start the same) are interleaved instead of drilled in blocks, and each answer schedules the card's next review. Build your own decks in the <b>Flashcards</b> tab.</p>
+        <p class="hint">Your tagged questions sorted by what to do about them. The unit is the <b>concept</b>: read it, drill it, add a checklist line, or review its card. Notes live on the concept card, so you write them once.</p>
         <select class="examScopeSelect" id="reviewerExamScope" style="margin-top:8px;"></select>
-        <div id="rvExamSummary" style="margin-top:8px;"></div>
-        <div id="rvFocusBox" style="margin-top:10px;"></div>
+        <div id="rvExamSummary"></div>
+        <div id="rvFocusBox" style="margin-top:6px;"></div>
+        <label class="row" style="margin-top:10px;font-size:.82rem;"><input type="checkbox" id="rvShowResolved"><span>Show resolved questions too</span></label>
       </div>
-      <details class="rv-fold" id="rvFoldCards" data-nav="Which questions become cards">
-        <summary>Which questions become cards</summary>
-        <div class="rv-body">
-          <div class="hint" style="margin-bottom:4px;">Include these tags (also used by the AI prompt below):</div>
-          <div class="row wrap" id="rvPromptTags" style="gap:12px;margin-bottom:10px;">
-            <label class="row" style="flex:none;gap:5px;font-size:.8rem;"><input type="checkbox" data-rvtag="overconf"><span>Overconfident</span></label>
-            <label class="row" style="flex:none;gap:5px;font-size:.8rem;"><input type="checkbox" data-rvtag="guess"><span>Guess</span></label>
-            <label class="row" style="flex:none;gap:5px;font-size:.8rem;"><input type="checkbox" data-rvtag="slight"><span>Slightly confident</span></label>
-            <label class="row" style="flex:none;gap:5px;font-size:.8rem;"><input type="checkbox" data-rvtag="flagged"><span>Flagged</span></label>
-          </div>
-          <button class="btn" id="btnRvFilterToggle">Filter Subjects (browse list)</button>
-          <div id="rvFilterBox" class="list-item" style="display:none;margin-top:10px;">
-            <div class="row wrap" style="margin-bottom:8px;">
-              <b style="font-size:.8rem;flex:1;">Choose subjects to show</b>
-              <button class="btn link" id="btnRvAll">All</button>
-              <button class="btn link" id="btnRvNone">None</button>
-            </div>
-            <div id="rvSubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
-          </div>
-        </div>
-      </details>
-      <details class="rv-fold" id="rvFoldBrowse" data-nav="Browse flagged questions">
-        <summary>Browse all flagged questions</summary>
-        <div class="rv-body"><p class="hint" style="margin-bottom:8px;"><b>Each question appears once</b>, under its most serious tag (Overconfident, then Guess, then Slightly confident), with its full history. Tap a card to see details and keep notes.</p><div id="rvSections"></div></div>
-      </details>
-      <details class="rv-fold" id="rvFoldPrompt" data-nav="AI reviewer prompt">
-        <summary>AI reviewer prompt</summary>
-        <div class="rv-body">
-          <label class="row" style="font-size:.8rem;color:var(--sub);margin-bottom:8px;">
-            <input type="checkbox" id="rvPromptDetails" checked>
-            <span>Include my past answers, confidence and notes</span>
-          </label>
-          <div id="promptEditor-reviewer"></div>
-          <button class="btn primary block" id="btnRvCopyPrompt">Copy Unique Questions As Prompt</button>
-          <p class="hint" id="rvPromptHint" style="margin-top:6px;"></p>
-        </div>
-      </details>
+      <div id="rvSections"></div>
     </section>
 
     <!-- ---- Tab: Flashcards ---- -->
@@ -1157,11 +1143,11 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
       <div class="card">
         <h3>Flashcards</h3>
         <select class="examScopeSelect" id="fcExamScope"></select>
-        <div class="fc-seg" id="fcSeg"><button data-fcp="today" class="active">Today</button><button data-fcp="decks">Decks</button><button data-fcp="groups">Topic groups</button></div>
+        <div class="fc-seg" id="fcSeg"><button data-fcp="today" class="active">Today</button><button data-fcp="concepts">Concepts</button><button data-fcp="decks">Decks</button></div>
       </div>
       <div id="fcPaneToday"></div>
+      <div id="fcPaneConcepts" style="display:none;"></div>
       <div id="fcPaneDecks" style="display:none;"></div>
-      <div id="fcPaneGroups" style="display:none;"></div>
     </section>
 
     <!-- ---- Tab: Question Bank ---- -->
@@ -1532,9 +1518,8 @@ const CONFIDENCE_LEVELS = ["Guess", "Slightly Confident", "Confident", "Sure I'm
 const CONFIDENCE_WEIGHTS = { "Guess": 0.25, "Slightly Confident": 0.5, "Confident": 0.75, "Sure I'm Right": 1.0 };
 const DEFAULT_CONFIDENCE_WEIGHT = 0.5;
 const MISTAKE_CATEGORIES = [
-  "Conceptual Misunderstanding", "Careless / Computational Error", "Misread the Question",
-  "Formula / Equation Error", "Unfamiliar Topic (Never Studied)", "Forgot a Concept (Knew It Before)",
-  "Time Pressure / Rushed", "Other"
+  "Conceptual Misunderstanding", "Formula / Equation Error", "Unfamiliar Topic",
+  "Careless / Computational", "Misread the Question", "Forgot a Concept", "Other"
 ];
 
 const KEYS = {
@@ -1562,9 +1547,123 @@ const KEYS = {
   flashPrefs: "cble.flashPrefs",   // schedule + interleaving settings (this device only)
   ttsPrefs: "cble.ttsPrefs",         // read-aloud voice/speed/what to read (this device only)
   builderPrefs: "cble.builderPrefs", // sample-builder subject-group shortcut options (this device only)
+  concepts: "cble.concepts",       // concept cards: the dropdown options AND the flashcards (synced)
+  shaky: "cble.shakyTags",         // tags on right guesses / flagged-but-correct questions (synced)
+  checklist: "cble.checklist",     // pre-submit checklist lines (synced)
   predPrefs: "cble.predPrefs",     // Score Forecast settings: pass rule, question counts, model assumptions (this device only)
   sizePrefs: "cble.sizePrefs",     // Action Plan sample sizes + the shared question-pool choice (this device only)
 };
+
+/* =====================================================================
+   Actionable taxonomy + concepts + tags (data layer)
+   - Every tagged question carries ONE actionable tag (entry.category, which tells you what to DO)
+     and ONE concept (entry.concept_id), so notes are written once per concept, not once per question.
+   - Wrong answers live in the mistake log. Right guesses and flagged-but-correct items live in the
+     "shaky" store, so mistake statistics stay about mistakes.
+   ===================================================================== */
+const ACTION_TAXONOMY = [
+  { name: "Conceptual Misunderstanding", need: "source", action: "Read specific section" },
+  { name: "Formula / Equation Error", need: "drill", action: "3\u20135 closed-book reps with n-factor/units written out" },
+  { name: "Unfamiliar Topic", need: "source", action: "Read specific section" },
+  { name: "Careless / Computational", need: "checklist", action: "Add one line to pre-submit list" },
+  { name: "Misread the Question", need: "checklist", action: "Add one line to pre-submit list" },
+  { name: "Forgot a Concept", need: "retrieval", action: "Card exists; review it." },
+];
+const OTHER_CATEGORY = "Other";   // bank problem: leaves the question out of samples (unchanged behaviour)
+const NEED_INFO = {
+  source: { label: "Needs source", icon: "\u{1F4D6}", color: "var(--navy)" },
+  drill: { label: "Needs drill", icon: "\u270F\uFE0F", color: "var(--violet)" },
+  checklist: { label: "Needs checklist", icon: "\u2611\uFE0F", color: "var(--amber)" },
+  retrieval: { label: "Needs retrieval", icon: "\u{1F9E0}", color: "var(--green)" },
+};
+const NEED_ORDER = ["source", "drill", "checklist", "retrieval"];
+const LEGACY_CATEGORY_MAP = {
+  "careless / computational error": "Careless / Computational",
+  "unfamiliar topic (never studied)": "Unfamiliar Topic",
+  "forgot a concept (knew it before)": "Forgot a Concept",
+};
+function normCategory(c) { const s = String(c == null ? "" : c).trim(); return s ? (LEGACY_CATEGORY_MAP[s.toLowerCase()] || s) : ""; }
+function taxInfo(c) { const n = normCategory(c).toLowerCase(); return ACTION_TAXONOMY.find(t => t.name.toLowerCase() === n) || null; }
+function taxNeedLine(c) { const t = taxInfo(c); return t ? `${NEED_INFO[t.need].label}: ${t.action}` : ""; }
+function migrateTaxonomyIfNeeded() {
+  const log = loadJson(KEYS.mistakes, []);
+  let changed = false;
+  for (const e of log) { const n = normCategory(e.category); if (e.category && n !== e.category) { e.category = n; e.updated_at = nowIso(); changed = true; } }
+  if (changed) { saveJson(KEYS.mistakes, log); scheduleGithubSync(); }
+}
+
+/* ---- concepts: the dropdown options AND the flashcards (Front / Back / Trap) ---- */
+function loadConcepts() { return loadJson(KEYS.concepts, []); }
+function saveConcepts(arr) { saveJson(KEYS.concepts, arr); scheduleGithubSync(); }
+function findConcept(id) { return id ? (loadConcepts().find(c => c.id === id) || null) : null; }
+function conceptName(id) { const c = findConcept(id); return c ? c.name : ""; }
+function addConcept(name, subject) {
+  const nm = String(name || "").trim(); if (!nm) return null;
+  const list = loadConcepts(), ex = list.find(c => c.name.toLowerCase() === nm.toLowerCase());
+  if (ex) return ex;
+  const c = { id: uid(), name: nm, subject: subject || "", front: "", back: "", trap: "", progress: {}, created_at: nowIso(), updated_at: nowIso() };
+  list.push(c); saveConcepts(list); return c;
+}
+function updateConcept(id, patch) {
+  const list = loadConcepts(), c = list.find(x => x.id === id); if (!c) return null;
+  Object.assign(c, patch, { updated_at: nowIso() }); saveConcepts(list); return c;
+}
+function deleteConcept(id) {
+  saveConcepts(loadConcepts().filter(c => c.id !== id));
+  addTombstone("concepts", id);
+  const log = loadMistakeLog(); let ch = false;
+  for (const e of log) if (e.concept_id === id) { e.concept_id = ""; e.updated_at = nowIso(); ch = true; }
+  if (ch) saveJson(KEYS.mistakes, log);
+  const sh = loadShaky(); ch = false;
+  for (const e of sh) if (e.concept_id === id) { e.concept_id = ""; e.updated_at = nowIso(); ch = true; }
+  if (ch) saveShaky(sh);
+  const srs = loadJson(KEYS.flashSrs, {}); if (srs["cn::" + id]) { delete srs["cn::" + id]; saveJson(KEYS.flashSrs, srs); }
+  scheduleGithubSync();
+}
+
+/* ---- shaky tags: right guesses and flagged-but-correct questions ---- */
+function loadShaky() { return loadJson(KEYS.shaky, []); }
+function saveShaky(arr) { saveJson(KEYS.shaky, arr); scheduleGithubSync(); }
+function findShaky(list, sourceList, ref) {
+  return list.filter(e => e.source_list === sourceList && String(e.reference_no) === String(ref)).sort((a, b) => (b.updated_at || "").localeCompare(a.updated_at || ""))[0];
+}
+function upsertShaky(f) {
+  const list = loadShaky();
+  let e = findShaky(list, f.source_list, f.reference_no);
+  if (!e) { e = { id: uid(), source_list: f.source_list, reference_no: f.reference_no, resolved: false, created_at: nowIso() }; list.push(e); }
+  Object.assign(e, { question: f.question || e.question || "", correct_answer: f.correct_answer || e.correct_answer || "", kind: f.kind || e.kind || "guess", exam_id: f.exam_id || e.exam_id || "", exam_source: f.exam_source || e.exam_source || "", category: f.category, concept_id: f.concept_id || "", updated_at: nowIso() });
+  saveShaky(list); return e;
+}
+function removeShaky(id) { saveShaky(loadShaky().filter(e => e.id !== id)); addTombstone("shaky_tags", id); }
+// The tag a question currently has: the mistake entry wins (it has the full history), else a shaky tag.
+function getTagFor(sourceList, ref) {
+  const m = findMistakeEntry(loadMistakeLog(), sourceList, ref);
+  if (m && m.category) return { store: "mistake", entry: m };
+  const s = findShaky(loadShaky(), sourceList, ref);
+  if (s && s.category) return { store: "shaky", entry: s };
+  return null;
+}
+// Everything tagged, as one list (bank problems tagged "Other" are left out).
+function collectTagItems(scopeSet) {
+  const out = [];
+  const add = (store, e, kind) => {
+    if (!e.category) return;
+    if (scopeSet && !scopeSet.has(e.source_list)) return;
+    const cat = normCategory(e.category);
+    if (cat.toLowerCase() === OTHER_CATEGORY.toLowerCase()) return;
+    out.push({ store, e, kind, cat, tax: taxInfo(cat), conceptId: e.concept_id || "", resolved: !!e.resolved, subject: e.source_list || "Unknown" });
+  };
+  for (const e of loadMistakeLog()) add("mistake", e, "wrong");
+  for (const e of loadShaky()) add("shaky", e, e.kind || "guess");
+  return out;
+}
+function setItemResolved(item, resolved) {
+  if (item.store === "mistake") setMistakeResolved(item.e.id, resolved);
+  else { const list = loadShaky(), e = list.find(x => x.id === item.e.id); if (e) { e.resolved = !!resolved; e.updated_at = nowIso(); saveShaky(list); } }
+}
+/* ---- pre-submit checklist (what "Needs checklist" produces) ---- */
+function loadChecklist() { return loadJson(KEYS.checklist, []); }
+function saveChecklist(a) { saveJson(KEYS.checklist, a); scheduleGithubSync(); }
 
 /* ---------------------------------------------------------------------
    Generic storage helpers (mirrors load_json_file / save_json_file)
@@ -2199,6 +2298,8 @@ function recordMistakeOccurrence(examId, examSource, sourceList, referenceNo, qu
   let reopened = false;
   if (!entry) {
     entry = { id: uid(), source_list: sourceList, reference_no: referenceNo, question, category: "", note: "", resolved: false, date_logged: nowIso(), occurrences: [] };
+    const sh = findShaky(loadShaky(), sourceList, referenceNo);   // you already tagged this question as a right guess / flag: keep that tag
+    if (sh && sh.category) { entry.category = sh.category; entry.concept_id = sh.concept_id || ""; removeShaky(sh.id); }
     log.push(entry);
   } else {
     if (question) entry.question = question;
@@ -2223,7 +2324,7 @@ function getExamMistakes(examId) {
 // a fresh row per exam. If this question already has a flashcard (because it was missed
 // before, or was just auto-recorded by recordMistakeOccurrence at submission time), that
 // same flashcard is updated in place, so a repeated mistake never starts blank again.
-function saveMistakeEntry(examId, examSource, sourceList, referenceNo, question, yourAnswer, correctAnswer, category, note, resolved) {
+function saveMistakeEntry(examId, examSource, sourceList, referenceNo, question, yourAnswer, correctAnswer, category, note, resolved, conceptId) {
   const log = loadMistakeLog();
   let entry = findMistakeEntry(log, sourceList, referenceNo);
   if (!entry) {
@@ -2233,6 +2334,7 @@ function saveMistakeEntry(examId, examSource, sourceList, referenceNo, question,
   entry.question = question || entry.question;
   if (entry.category !== category) delete entry.skip_in_samples;   // a new category re-applies the default rule
   entry.category = category;
+  if (conceptId !== undefined) entry.concept_id = conceptId;
   entry.note = note;
   entry.resolved = resolved;
   entry.date_logged = nowIso();
@@ -2582,7 +2684,7 @@ async function pushCsvReportToGithub() {
    subtracting that from every future merge, is what makes Delete
    actually stick once GitHub sync is involved.
    --------------------------------------------------------------------- */
-const TOMBSTONE_COLLECTIONS = ["sample_sets", "test_history", "exam_details", "mistake_log", "guess_notes", "local_banks", "exam_dates", "prompt_sets", "flash_decks"];
+const TOMBSTONE_COLLECTIONS = ["sample_sets", "test_history", "exam_details", "mistake_log", "guess_notes", "local_banks", "exam_dates", "prompt_sets", "flash_decks", "concepts", "shaky_tags", "checklist"];
 function emptyTombstones() {
   const t = {};
   for (const c of TOMBSTONE_COLLECTIONS) t[c] = [];
@@ -2622,6 +2724,9 @@ function buildLocalSnapshot() {
     prompt_sets: loadJson(KEYS.promptSets, []),
     flash_decks: loadJson(KEYS.flashDecks, []),
     flash_srs: loadJson(KEYS.flashSrs, {}),
+    concepts: loadJson(KEYS.concepts, []),
+    shaky_tags: loadJson(KEYS.shaky, []),
+    checklist: loadJson(KEYS.checklist, []),
     settings: buildSettingsSnapshot(),
     tombstones: loadTombstones(),
     updated_at: nowIso(),
@@ -2650,6 +2755,9 @@ function applySnapshotToLocal(snap) {
   put(KEYS.promptSets, "prompt sets", snap.prompt_sets);
   put(KEYS.flashDecks, "flashcard decks", snap.flash_decks);
   put(KEYS.flashSrs, "flashcard schedule", snap.flash_srs);
+  put(KEYS.concepts, "concepts", snap.concepts);
+  put(KEYS.shaky, "tagged guesses and flags", snap.shaky_tags);
+  put(KEYS.checklist, "checklist", snap.checklist);
   if (snap.settings && snap.settings.active_exam && snap.settings.active_exam_at) {
     try { localStorage.setItem(KEYS.activeExam, snap.settings.active_exam); localStorage.setItem(KEYS.activeExamAt, snap.settings.active_exam_at); } catch (e) {}
   }
@@ -2658,6 +2766,7 @@ function applySnapshotToLocal(snap) {
   put(KEYS.details, "test details", snap.exam_details);
   put(KEYS.tombstones, "deletions", snap.tombstones);
   if (snap.mistake_log && typeof migrateMistakeLogIfNeeded === "function") migrateMistakeLogIfNeeded();
+  if (snap.mistake_log && typeof migrateTaxonomyIfNeeded === "function") migrateTaxonomyIfNeeded();
   return failed;
 }
 function mergeById(remoteArr, localArr, idKey, deletedKeys) {
@@ -2719,6 +2828,9 @@ function mergeSnapshots(remote, local) {
     prompt_sets: mergeByStamp(remote && remote.prompt_sets, local.prompt_sets, "id", tomb.prompt_sets),
     flash_decks: mergeByStamp(remote && remote.flash_decks, local.flash_decks, "id", tomb.flash_decks),
     flash_srs: fcMergeSrs(remote && remote.flash_srs, local.flash_srs),
+    concepts: mergeByStamp(remote && remote.concepts, local.concepts, "id", tomb.concepts),
+    shaky_tags: mergeByStamp(remote && remote.shaky_tags, local.shaky_tags, "id", tomb.shaky_tags),
+    checklist: mergeByStamp(remote && remote.checklist, local.checklist, "id", tomb.checklist),
     settings: mergeSettings(remote && remote.settings, local.settings),
     tombstones: tomb,
     updated_at: nowIso(),
@@ -3662,8 +3774,8 @@ function computeNextActions() {
   const unloggedRows = computeTestsWithUnloggedMistakes();
   if (unloggedRows.length) {
     const total = unloggedRows.reduce((n, r) => n + r.unloggedCount, 0);
-    actions.push({ priority: 80, tone: "warn", icon: "\u{1F4DD}", cta: "Log",
-      text: `${plural(total, "mistake")} across ${plural(unloggedRows.length, "test")} not logged yet.`,
+    actions.push({ priority: 80, tone: "warn", icon: "\u{1F4DD}", cta: "Tag",
+      text: `${plural(total, "item")} to tag across ${plural(unloggedRows.length, "test")}.`,
       run: () => { switchTab("mistakes"); jumpToExamInMistakeLog(unloggedRows[0].examId); } });
   }
 
@@ -4205,7 +4317,7 @@ $("btnSyncCheck").addEventListener("click", async () => {
     if (!remote) { out.textContent = L.concat("GitHub has no data file at that path yet.").join("\n"); return; }
     L.push(`GitHub copy last written: ${remote.updated_at || "unknown"}`, "", "                    this device | GitHub");
     let diffs = 0;
-    const rows = [["Tests taken", "test_history"], ["Test details", "exam_details"], ["Mistakes", "mistake_log"], ["Saved samples", "sample_sets"], ["Guess notes", "guess_notes"], ["Exam dates", "exam_dates"], ["Prompt sets", "prompt_sets"]];
+    const rows = [["Tests taken", "test_history"], ["Test details", "exam_details"], ["Mistakes", "mistake_log"], ["Saved samples", "sample_sets"], ["Guess notes", "guess_notes"], ["Exam dates", "exam_dates"], ["Prompt sets", "prompt_sets"], ["Concepts", "concepts"], ["Tagged guesses/flags", "shaky_tags"], ["Checklist lines", "checklist"]];
     for (const [lab, key] of rows) {
       const a = (local[key] || []).length, b = (remote[key] || []).length;
       if (a !== b) diffs++;
@@ -4284,6 +4396,9 @@ $("btnExportAll").addEventListener("click", () => {
     exam_dates: loadJson(KEYS.examDates, []),
     flash_decks: loadJson(KEYS.flashDecks, []),
     flash_srs: loadJson(KEYS.flashSrs, {}),
+    concepts: loadJson(KEYS.concepts, []),
+    shaky_tags: loadJson(KEYS.shaky, []),
+    checklist: loadJson(KEYS.checklist, []),
     tombstones: loadTombstones(),
   };
   const blob = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" });
@@ -4306,11 +4421,14 @@ $("importFileInput").addEventListener("change", (e) => {
       if (data.sample_sets) saveJson(KEYS.samples, data.sample_sets);
       if (data.test_history) saveJson(KEYS.history, data.test_history);
       if (data.exam_details) saveJson(KEYS.details, data.exam_details);
-      if (data.mistake_log) { saveJson(KEYS.mistakes, data.mistake_log); migrateMistakeLogIfNeeded(); }
+      if (data.mistake_log) { saveJson(KEYS.mistakes, data.mistake_log); migrateMistakeLogIfNeeded(); migrateTaxonomyIfNeeded(); }
       if (data.guess_notes) saveJson(KEYS.guessNotes, data.guess_notes);
       if (data.exam_dates) saveJson(KEYS.examDates, data.exam_dates);
       if (data.flash_decks) saveJson(KEYS.flashDecks, data.flash_decks);
       if (data.flash_srs) saveJson(KEYS.flashSrs, data.flash_srs);
+      if (data.concepts) saveJson(KEYS.concepts, data.concepts);
+      if (data.shaky_tags) saveJson(KEYS.shaky, data.shaky_tags);
+      if (data.checklist) saveJson(KEYS.checklist, data.checklist);
       if (data.tombstones) saveJson(KEYS.tombstones, unionTombstones(loadTombstones(), data.tombstones));
       toast("Backup imported.");
       closeSheet("settingsSheet");
@@ -4327,7 +4445,7 @@ $("importFileInput").addEventListener("change", (e) => {
 $("btnClearAllData").addEventListener("click", () => {
   const note = githubConfigured() ? " GitHub is left untouched -- this only clears this browser's copy." : "";
   if (!confirmDialog(`Erase ALL locally saved data -- local banks, saved samples, test history, analysis data, the mistake log, guess notes, and exam dates? This cannot be undone.${note}`)) return;
-  [KEYS.banks, KEYS.repoBanks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes, KEYS.guessNotes, KEYS.examDates, KEYS.mistakeDrafts, KEYS.guessNoteDrafts, KEYS.promptSets, KEYS.promptWork, KEYS.flashDecks, KEYS.flashSrs, KEYS.flashPrefs].forEach(k => localStorage.removeItem(k));
+  [KEYS.banks, KEYS.repoBanks, KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes, KEYS.guessNotes, KEYS.examDates, KEYS.mistakeDrafts, KEYS.guessNoteDrafts, KEYS.promptSets, KEYS.promptWork, KEYS.flashDecks, KEYS.flashSrs, KEYS.flashPrefs, KEYS.concepts, KEYS.shaky, KEYS.checklist].forEach(k => localStorage.removeItem(k));
   toast("All local data erased.");
   closeSheet("settingsSheet");
   refreshListsDisplay();
@@ -5374,15 +5492,7 @@ function drawProgressionChart() {
   box.innerHTML = chartSvg + chartLegendHTML(lines) + note + `<div class="table-wrap"><table class="data-table">${head}${rows}</table></div>`;
 }
 
-const CATEGORY_TIPS = {
-  "Conceptual Misunderstanding": "re-learn the underlying concept, then explain it in your own words",
-  "Careless / Computational Error": "slow down and re-check your work; redo the computation by hand",
-  "Misread the Question": "underline what is being asked (and units/qualifiers) before answering",
-  "Formula / Equation Error": "rebuild a formula sheet and drill the formulas from memory",
-  "Unfamiliar Topic (Never Studied)": "study this topic from scratch before doing more questions",
-  "Forgot a Concept (Knew It Before)": "revisit it with spaced repetition",
-  "Time Pressure / Rushed": "practice timed sets in this subject",
-};
+const CATEGORY_TIPS = Object.fromEntries(ACTION_TAXONOMY.map(t => [t.name, `${NEED_INFO[t.need].label.toLowerCase()}: ${t.action}`]));
 function planTier(w) { return w < 40 ? { cls: "crit", label: "Critical" } : w < 70 ? { cls: "mid", label: "Needs work" } : { cls: "ok", label: "On track" }; }
 function planPhase(days) {
   if (days < 0) return "This exam date has passed.";
@@ -5882,7 +5992,6 @@ let mistakeExamOptions = [];
 let currentExamMistakes = [];
 let selectedMistakeRow = null;
 
-$("mistakeCategoryList").innerHTML = MISTAKE_CATEGORIES.map(c => `<option value="${esc(c)}">`).join("");
 
 function refreshMistakeLogTab() {
   let history = loadJson(KEYS.history, []);
@@ -5919,19 +6028,21 @@ function computeTestsWithUnloggedMistakes() {
   const scopeUL = getScopeSubjects() ? new Set(getScopeSubjects()) : null;
   const history = loadJson(KEYS.history, []);
   const details = loadJson(KEYS.details, []);
-  // Keyed by subject + reference number only (not by exam) -- a question already
-  // categorized from ANY earlier test counts as logged here too, so you're never asked
-  // to re-log the same flashcard just because it recurred in a new test.
-  const categorizedByKey = {};
-  for (const e of loadMistakeLog()) if (e.category) categorizedByKey[mistakeKey(e.source_list, e.reference_no)] = true;
+  // Keyed by subject + reference number only (not by exam): a question tagged from ANY earlier test counts as
+  // tagged here too, so you never re-tag the same question just because it recurred.
+  const tagged = new Set();
+  for (const e of loadMistakeLog()) if (e.category) tagged.add(mistakeKey(e.source_list, e.reference_no));
+  for (const e of loadShaky()) if (e.category) tagged.add(mistakeKey(e.source_list, e.reference_no));
   const rows = [];
   for (const h of history) {
     const d = details.find(dd => dd.exam_id === h.id);
     if (!d) continue;
-    const wrongItems = (d.items || []).filter(it => !it.is_correct && (!scopeUL || scopeUL.has(it.source_list)));
-    if (!wrongItems.length) continue; // perfect score (or nothing wrong in this exam's subjects)
-    const unloggedCount = wrongItems.filter(it => !categorizedByKey[mistakeKey(it.source_list, it.reference_no)]).length;
-    if (unloggedCount > 0) rows.push({ examId: h.id, source: h.source, date: h.date, totalWrong: wrongItems.length, unloggedCount });
+    const items = examTagItems(h.id, scopeUL);
+    if (!items.length) continue;   // nothing to tag in this test
+    const left = { wrong: 0, guess: 0, flag: 0 };
+    for (const { it, type } of items) if (!tagged.has(mistakeKey(it.source_list, it.reference_no))) left[type]++;
+    const unloggedCount = left.wrong + left.guess + left.flag;
+    if (unloggedCount > 0) rows.push({ examId: h.id, source: h.source, date: h.date, totalWrong: items.length, unloggedCount, left });
   }
   rows.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
   return rows;
@@ -5942,7 +6053,7 @@ function renderUnloggedTestsList() {
   const box = $("unloggedTestsContainer");
   box.innerHTML = "";
   if (!rows.length) {
-    box.appendChild(el("div", "empty-state", "You're all caught up \u2014 every wrong answer across your tests has been logged."));
+    box.appendChild(el("div", "empty-state", "You're all caught up \u2014 every wrong answer, right guess and flagged question across your tests is tagged."));
     return;
   }
   const dById = exDetailsById();
@@ -5951,21 +6062,26 @@ function renderUnloggedTestsList() {
   for (const g of uGroups) {
     if (uHeaded) box.appendChild(exHeaderEl(g.exam));
     for (const r of g.items) {
+      const parts = [r.left.wrong ? `${r.left.wrong} wrong` : "", r.left.guess ? `${r.left.guess} right guess${r.left.guess === 1 ? "" : "es"}` : "", r.left.flag ? `${r.left.flag} flagged` : ""].filter(Boolean).join(" \u00b7 ");
       const item = el("div", "list-item selectable status-red");
-      item.innerHTML = `<div class="top-row"><span class="name">${esc(r.source)}</span><span class="status-pill status-red">${r.unloggedCount} unlogged</span></div>
-        <div class="meta">${esc(r.date)} &middot; ${r.totalWrong - r.unloggedCount}/${r.totalWrong} mistakes logged</div>`;
+      item.innerHTML = `<div class="top-row"><span class="name">${esc(r.source)}</span><span class="status-pill status-red">${r.unloggedCount} to tag</span></div>
+        <div class="meta">${esc(r.date)} &middot; ${r.totalWrong - r.unloggedCount}/${r.totalWrong} tagged &middot; ${esc(parts)}</div>`;
       item.addEventListener("click", () => jumpToExamInMistakeLog(r.examId));
       box.appendChild(item);
     }
   }
+}
+function firstUntaggedIdx(from) {
+  for (let i = from || 0; i < currentExamMistakes.length; i++) { const r = currentExamMistakes[i]; if (!r.logged_entry && tagFilter[r.type]) return i; }
+  return -1;
 }
 function jumpToExamInMistakeLog(examId) {
   const idx = mistakeExamOptions.findIndex(h => h.id === examId);
   if (idx === -1) return;
   $("mistakeExamSelect").value = String(idx);
   onLoadExamMistakes();
-  const firstUnloggedIdx = currentExamMistakes.findIndex(row => !row.logged_entry);
-  if (firstUnloggedIdx !== -1) selectMistakeRow(firstUnloggedIdx);
+  const i = firstUntaggedIdx(0);
+  if (i !== -1) selectMistakeRow(i);
   else $("mistakesContainer").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -6127,145 +6243,300 @@ $("guessesCorrectOnly").addEventListener("change", () => {
 
 // Rebuilds the list of this test's mistakes. Unless opts.reset is set, whichever mistake you were
 // logging stays selected (tab switches, syncs and "Mark Resolved" used to silently deselect it).
+/* ---------------------------------------------------------------------
+   Tagging: each item gets ONE actionable tag + ONE concept. Notes live on the concept (its card), not on every question.
+   Types: wrong (red), right guess (violet), flagged-but-correct (amber).
+   --------------------------------------------------------------------- */
+let tagFilter = { wrong: true, guess: true, flag: true };
+let selectedMistakeIdx = -1, tagDrafts = {}, tagLast = loadJson(KEYS.builderPrefs, {}).lastTag || null;
+const TAG_TYPE = {
+  wrong: { label: "\u2717 Wrong", chip: "\u2717 Mistakes", color: "var(--red)" },
+  guess: { label: "\u2713 Right guess", chip: "\u2713 Right guesses", color: "var(--violet)" },
+  flag: { label: "\u2691 Flagged (right)", chip: "\u2691 Flagged", color: "var(--amber)" },
+};
+const NEW_CONCEPT = "__new__";
+// What needs a tag in one test: wrong answers, right guesses, and flagged questions you got right.
+function examTagItems(examId, scopeSet) {
+  const d = loadJson(KEYS.details, []).find(x => x.exam_id === examId);
+  if (!d) return [];
+  const out = [];
+  for (const it of (d.items || [])) {
+    if (scopeSet && !scopeSet.has(it.source_list)) continue;
+    let type = null;
+    if (!it.is_correct) type = "wrong";
+    else if (it.confidence === "Guess") type = "guess";
+    else if (it.is_flagged) type = "flag";
+    if (type) out.push({ it, type });
+  }
+  return out;
+}
 function onLoadExamMistakes(opts) {
   const prev = (opts && opts.reset) ? null : selectedMistakeRow;
-  const prevLabel = $("mistakeQuestionLbl").textContent;
   _loadExamMistakesCore();
   if (prev) {
-    const same = currentExamMistakes.find(r => r.exam_id === prev.exam_id && r.source_list === prev.source_list && String(r.reference_no) === String(prev.reference_no));
-    if (same) { selectedMistakeRow = same; $("mistakeQuestionLbl").textContent = prevLabel; }
+    const idx = currentExamMistakes.findIndex(r => r.exam_id === prev.exam_id && r.source_list === prev.source_list && String(r.reference_no) === String(prev.reference_no));
+    if (idx >= 0) selectMistakeRow(idx, true);
   }
   renderMistakeSearchBar();
 }
 function _loadExamMistakesCore() {
   currentExamMistakes = [];
-  selectedMistakeRow = null;
-  $("mistakeQuestionLbl").textContent = "Tap a mistake above to log it.";
+  selectedMistakeRow = null; selectedMistakeIdx = -1;
+  $("mistakeQuestionLbl").textContent = "Tap an item above to tag it.";
+  resetTagCard();
   const box = $("mistakesContainer");
   box.innerHTML = "";
   const selIdx = $("mistakeExamSelect").value;
   if (selIdx === "" || selIdx === undefined || !mistakeExamOptions.length) {
     box.appendChild(el("div", "empty-state", "No tests taken yet."));
+    renderTagTypeChips();
     return;
   }
   const examRecord = mistakeExamOptions[parseInt(selIdx, 10)];
   if (!examRecord) return;
-  const examId = examRecord.id;
   const scopeEx = getScopeSubjects(), scopeExSet = scopeEx ? new Set(scopeEx) : null;
-  const mistakes = getExamMistakes(examId).filter(it => !scopeExSet || scopeExSet.has(it.source_list));
-  // Looked up globally by subject + reference number -- NOT scoped to this exam -- so a
-  // question logged from a different test still shows its existing flashcard here instead
-  // of appearing blank. "Logged" specifically means it has a category, not just that it's
-  // been auto-tracked (recordMistakeOccurrence creates an entry for every miss up front).
-  const fullLog = loadMistakeLog();
-
-  for (const it of mistakes) {
-    const rawEntry = findMistakeEntry(fullLog, it.source_list, it.reference_no);
+  const log = loadMistakeLog(), shaky = loadShaky();
+  for (const { it, type } of examTagItems(examRecord.id, scopeExSet)) {
+    const m = findMistakeEntry(log, it.source_list, it.reference_no), s = findShaky(shaky, it.source_list, it.reference_no);
+    const tagEntry = (m && m.category) ? m : ((s && s.category) ? s : null);
     currentExamMistakes.push({
-      exam_id: examId, exam_source: examRecord.source, source_list: it.source_list, reference_no: it.reference_no,
+      exam_id: examRecord.id, exam_source: examRecord.source, source_list: it.source_list, reference_no: it.reference_no,
       question: it.question || "", your_answer: it.your_answer || "", correct_answer: it.correct_answer || "",
-      logged_entry: (rawEntry && rawEntry.category) ? rawEntry : null,
-      occurrence_count: rawEntry ? (rawEntry.occurrences || []).length : 1,
+      confidence: it.confidence || "", flagged: !!it.is_flagged, type,
+      logged_entry: tagEntry, tag_store: tagEntry ? (tagEntry === m ? "mistake" : "shaky") : "",
+      occurrence_count: m ? (m.occurrences || []).length : (type === "wrong" ? 1 : 0),
     });
   }
-
-  if (!currentExamMistakes.length) {
-    box.appendChild(el("div", "empty-state", "No mistakes in this test \u2014 nice work."));
-    return;
+  renderTagTypeChips();
+  renderTagRows();
+}
+function renderTagTypeChips() {
+  const box = $("tagTypeChips"); if (!box) return;
+  const cnt = { wrong: [0, 0], guess: [0, 0], flag: [0, 0] };
+  for (const r of currentExamMistakes) { cnt[r.type][1]++; if (!r.logged_entry) cnt[r.type][0]++; }
+  box.innerHTML = "";
+  for (const t of ["wrong", "guess", "flag"]) {
+    const b = el("button", "lg-chip" + (tagFilter[t] ? " on" : ""));
+    b.innerHTML = `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${tagFilter[t] ? "#fff" : TAG_TYPE[t].color};margin-right:6px;"></span>${TAG_TYPE[t].chip} ${cnt[t][0]}/${cnt[t][1]}`;
+    b.title = "untagged / total in this test";
+    b.addEventListener("click", () => { tagFilter[t] = !tagFilter[t]; renderTagTypeChips(); renderTagRows(); });
+    box.appendChild(b);
   }
+}
+function confChipHtml(conf) {
+  if (!conf) return "";
+  const col = conf === "Guess" ? "var(--violet)" : conf === "Slightly Confident" ? "var(--amber-ink)" : "var(--navy)";
+  return `<span class="status-pill" style="background:#fff;border:1px solid ${col};color:${col};">${esc(conf)}</span>`;
+}
+function renderTagRows() {
+  const box = $("mistakesContainer");
+  box.innerHTML = "";
+  if (!currentExamMistakes.length) { box.appendChild(el("div", "empty-state", "Nothing to tag in this test \u2014 no wrong answers, right guesses or flagged questions.")); return; }
+  let shown = 0;
   currentExamMistakes.forEach((row, idx) => {
+    if (!tagFilter[row.type]) return;
+    shown++;
     const entry = row.logged_entry;
     const statusClass = !entry ? "status-red" : (entry.resolved ? "status-green" : "status-yellow");
-    const statusLabel = !entry ? "Not logged" : (entry.resolved ? "Logged \u00b7 Resolved" : "Logged \u00b7 Unresolved");
+    const tx = entry ? taxInfo(entry.category) : null;
+    const statusLabel = !entry ? "Untagged" : (entry.resolved ? "Tagged \u00b7 Resolved" : "Tagged");
     const repeatBadge = row.occurrence_count > 1 ? `<span class="status-pill repeat-pill">\u{1F501} \u00d7${row.occurrence_count}</span>` : "";
-    const item = el("div", `list-item selectable ${statusClass}${row.occurrence_count > 1 ? " repeated" : ""}`);
-    item.innerHTML = `<div class="top-row"><span class="name">Ref #${esc(row.reference_no)} &middot; ${esc(row.source_list)}</span>
-        <span class="row" style="gap:4px;flex:none;">${repeatBadge}<span class="status-pill ${statusClass}">${statusLabel}</span>${qsMiniBtn(qsCtx(row.source_list, row.reference_no, row.question, row.your_answer, row.correct_answer))}</span></div>
-      <div class="meta">Your answer: ${esc((row.your_answer || "").slice(0, 60))}</div>
-      <div class="meta">Correct: ${esc((row.correct_answer || "").slice(0, 60))}</div>
-      ${entry ? `<div class="meta">Category: ${esc(entry.category)}${entry.note ? " \u00b7 has notes" : ""}</div>` : ""}`;
+    const flagBadge = row.flagged && row.type !== "flag" ? `<span class="status-pill" style="background:#FEF3C7;color:var(--amber-ink);">\u2691</span>` : "";
+    const item = el("div", `list-item selectable ${statusClass} tg-${row.type}${idx === selectedMistakeIdx ? " tg-sel" : ""}`);
+    item.dataset.idx = idx;
+    item.innerHTML = `<div class="top-row"><span class="name">Ref #${esc(row.reference_no)} &middot; ${esc(fcCleanName(row.source_list))}</span>
+        <span class="row" style="gap:4px;flex:none;">${repeatBadge}${flagBadge}<span class="status-pill ${statusClass}">${statusLabel}</span>${qsMiniBtn(qsCtx(row.source_list, row.reference_no, row.question, row.your_answer, row.correct_answer))}</span></div>
+      <div class="meta" style="margin-top:2px;"><b style="color:${TAG_TYPE[row.type].color};">${TAG_TYPE[row.type].label}</b> ${confChipHtml(row.confidence)}</div>
+      <div class="meta">Your answer: ${esc((row.your_answer || "").slice(0, 60))} &middot; Correct: ${esc((row.correct_answer || "").slice(0, 60))}</div>
+      ${entry ? `<div class="meta">${esc(normCategory(entry.category))}${tx ? ` &rarr; ${esc(NEED_INFO[tx.need].label)}` : ""} &middot; ${esc(conceptName(entry.concept_id) || "no concept")}</div>` : ""}`;
     item.addEventListener("click", (ev) => { if (ev.target.closest(".qs-go")) return; selectMistakeRow(idx); });
     box.appendChild(item);
   });
+  if (!shown) box.appendChild(el("div", "empty-state", "Everything of the chosen types is hidden. Turn a filter chip back on."));
 }
-
-let mistakeDrafts = loadJson(KEYS.mistakeDrafts, {});
-function saveMistakeDrafts() { saveJson(KEYS.mistakeDrafts, mistakeDrafts); }
-function captureMistakeDraft() {
-  const row = selectedMistakeRow;
-  if (!row) return;
-  mistakeDrafts[mistakeKey(row.source_list, row.reference_no)] = {
-    category: $("mistakeCategoryInput").value, note: $("mistakeNoteInput").value,
-    resolved: $("mistakeResolvedInput").checked, t: Date.now(),
-  };
-  saveMistakeDrafts();
+function resetTagCard() {
+  const c = $("tagCategory"); if (!c) return;
+  c.value = ""; $("tagActionLine").innerHTML = ""; $("tagBadges").innerHTML = "";
+  renderConceptSelect("", ""); $("tagConceptNewRow").style.display = "none"; $("tagConceptCard").style.display = "none"; $("tagLastBtn").style.display = "none";
 }
-function clearMistakeDraft(row) {
-  if (!row) return;
-  delete mistakeDrafts[mistakeKey(row.source_list, row.reference_no)];
-  saveMistakeDrafts();
+function tagCategoryOptions(extra) {
+  let h = `<option value="">\u2014 Choose what to do about it \u2014</option>` + ACTION_TAXONOMY.map(t => `<option value="${esc(t.name)}">${esc(t.name)}</option>`).join("") +
+    `<option value="${OTHER_CATEGORY}">Other \u2014 bank problem (leave out of samples)</option>`;
+  if (extra && !taxInfo(extra) && extra.toLowerCase() !== OTHER_CATEGORY.toLowerCase()) h += `<option value="${esc(extra)}">${esc(extra)} (older tag)</option>`;
+  return h;
 }
-$("mistakeCategoryInput").addEventListener("input", captureMistakeDraft);
-$("mistakeNoteInput").addEventListener("input", captureMistakeDraft);
-$("mistakeResolvedInput").addEventListener("change", captureMistakeDraft);
-
-function selectMistakeRow(idx) {
-  const row = currentExamMistakes[idx];
+function updateTagActionLine() {
+  const v = $("tagCategory").value, t = taxInfo(v), box = $("tagActionLine");
+  if (t) box.innerHTML = `<span class="status-pill" style="background:${NEED_INFO[t.need].color};color:#fff;">${NEED_INFO[t.need].icon} ${esc(NEED_INFO[t.need].label)}</span> <b>${esc(t.action)}</b>`;
+  else if (v && v.toLowerCase() === OTHER_CATEGORY.toLowerCase()) box.innerHTML = `<span class="hint">Flags a question-bank problem: it is left out of all future samples, plans and scores. You can undo this from its card.</span>`;
+  else box.innerHTML = "";
+}
+function renderConceptSelect(selectedId, subject) {
+  const sel = $("tagConcept"); if (!sel) return;
+  const cs = loadConcepts().slice().sort((a, b) => a.name.localeCompare(b.name));
+  const mine = cs.filter(c => subject && c.subject === subject), rest = cs.filter(c => !(subject && c.subject === subject));
+  const opt = c => `<option value="${esc(c.id)}">${esc(c.name)}</option>`;
+  let h = `<option value="">\u2014 Choose concept \u2014</option>`;
+  if (mine.length) h += `<optgroup label="In ${esc(fcCleanName(subject))}">${mine.map(opt).join("")}</optgroup>`;
+  if (rest.length) h += mine.length ? `<optgroup label="Other subjects">${rest.map(opt).join("")}</optgroup>` : rest.map(opt).join("");
+  h += `<option value="${NEW_CONCEPT}">\uFF0B Add new concept\u2026</option>`;
+  sel.innerHTML = h;
+  sel.value = selectedId && cs.some(c => c.id === selectedId) ? selectedId : "";
+}
+function bindConceptCard() {
+  const c = findConcept($("tagConcept").value), box = $("tagConceptCard");
+  if (!c) { box.style.display = "none"; return; }
+  box.style.display = "";
+  $("tagCnFront").value = c.front || ""; $("tagCnBack").value = c.back || ""; $("tagCnTrap").value = c.trap || "";
+  const n = collectTagItems(null).filter(i => i.conceptId === c.id).length;
+  $("tagCnMeta").textContent = `${n} tagged question${n === 1 ? "" : "s"} use this concept. This is its flashcard: Front = what to recall, Back = the explanation, Trap = what to watch out for.`;
+  const empty = !(c.back || "").trim();
+  box.open = empty;   // open it for a brand-new concept so the card gets written once
+}
+function rememberTagDraft() {
+  const row = selectedMistakeRow; if (!row) return;
+  tagDrafts[mistakeKey(row.source_list, row.reference_no)] = { cat: $("tagCategory").value, concept: $("tagConcept").value };
+}
+function selectMistakeRow(arg, quiet) {
+  const row = typeof arg === "number" ? currentExamMistakes[arg] : arg;
   if (!row) return;
-  selectedMistakeRow = row;
+  selectedMistakeRow = row; selectedMistakeIdx = typeof arg === "number" ? arg : -1;
   renderMistakeSearchBar();
   const qPreview = row.question || "(question text unavailable \u2014 this exam was taken before question text started being saved)";
   let label = `Ref #${row.reference_no} (${row.source_list}): ${qPreview}\nYour answer: ${row.your_answer || "(none)"} | Correct answer: ${row.correct_answer || "(unknown)"}`;
   const entry = row.logged_entry;
-  const fullEntry = entry || findMistakeEntry(loadMistakeLog(), row.source_list, row.reference_no);
+  const fullEntry = (entry && entry.occurrences) ? entry : findMistakeEntry(loadMistakeLog(), row.source_list, row.reference_no);
   if (fullEntry && fullEntry.occurrences && fullEntry.occurrences.length > 1) {
-    const history = fullEntry.occurrences
-      .slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""))
+    const history = fullEntry.occurrences.slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""))
       .map(o => `${o.exam_source} (${formatDateNice(dateOnly(o.date))})`).join(", ");
     label += `\n\n\u{1F501} You've missed this ${fullEntry.occurrences.length} times: ${history}`;
   }
   $("mistakeQuestionLbl").textContent = label;
-  const savedCat = entry ? entry.category : "", savedRes = entry ? !!entry.resolved : false, savedNote = entry ? (entry.note || "") : "";
-  const dKey = mistakeKey(row.source_list, row.reference_no);
-  const draft = mistakeDrafts[dKey];
-  const dirty = draft && (draft.category !== savedCat || draft.note !== savedNote || !!draft.resolved !== savedRes);
-  if (draft && !dirty) { delete mistakeDrafts[dKey]; saveMistakeDrafts(); }
-  // Never overwrite what you've typed but not saved yet.
-  $("mistakeCategoryInput").value = dirty ? draft.category : savedCat;
-  $("mistakeResolvedInput").checked = dirty ? !!draft.resolved : savedRes;
-  $("mistakeNoteInput").value = dirty ? draft.note : savedNote;
-  if (dirty) toast("Restored your unsaved edits for this mistake.");
-  $("mistakeEditCard").scrollIntoView({ behavior: "smooth", block: "start" });
+  $("tagBadges").innerHTML = `<span class="status-pill" style="background:${TAG_TYPE[row.type].color};color:#fff;">${TAG_TYPE[row.type].label}</span> ${confChipHtml(row.confidence) || `<span class="status-pill neutral">no confidence recorded</span>`}${row.flagged && row.type !== "flag" ? ` <span class="status-pill" style="background:#FEF3C7;color:var(--amber-ink);">\u2691 flagged</span>` : ""}`;
+  const savedCat = entry ? normCategory(entry.category) : "", savedCon = entry ? (entry.concept_id || "") : "";
+  const draft = tagDrafts[mistakeKey(row.source_list, row.reference_no)];
+  const dirty = draft && (draft.cat !== savedCat || draft.concept !== savedCon);
+  if (draft && !dirty) delete tagDrafts[mistakeKey(row.source_list, row.reference_no)];
+  const cat = dirty ? draft.cat : savedCat;
+  $("tagCategory").innerHTML = tagCategoryOptions(cat);
+  $("tagCategory").value = cat;
+  renderConceptSelect(dirty ? draft.concept : savedCon, row.source_list);
+  $("tagConceptNewRow").style.display = "none";
+  updateTagActionLine(); bindConceptCard();
+  $("tagLastBtn").style.display = (!entry && tagLast && tagLast.category) ? "" : "none";
+  if (!entry && tagLast && tagLast.category) $("tagLastBtn").textContent = `\u21BA Use last: ${tagLast.category}${tagLast.concept_id && conceptName(tagLast.concept_id) ? " \u00b7 " + conceptName(tagLast.concept_id) : ""}`;
+  $("btnDeleteMistake").style.display = entry ? "" : "none"; $("btnClearTag").style.display = entry ? "" : "none";
+  document.querySelectorAll("#mistakesContainer .list-item").forEach(n => n.classList.toggle("tg-sel", +n.dataset.idx === selectedMistakeIdx));
+  if (!quiet) $("mistakeEditCard").scrollIntoView({ behavior: "smooth", block: "start" });
 }
-
-$("btnSaveMistake").addEventListener("click", () => {
-  const row = selectedMistakeRow;
-  if (!row) { toast("Tap a mistake above first."); return; }
-  const category = $("mistakeCategoryInput").value.trim();
-  if (!category) { toast("Choose or type a category for this mistake."); return; }
-  const note = $("mistakeNoteInput").value.trim();
-  saveMistakeEntry(row.exam_id, row.exam_source, row.source_list, row.reference_no, row.question,
-    row.your_answer, row.correct_answer, category, note, $("mistakeResolvedInput").checked);
-  clearMistakeDraft(row);
-  onLoadExamMistakes();
+function applyTag(row, cat, conceptId) {
+  const log = loadMistakeLog();
+  let m = findMistakeEntry(log, row.source_list, row.reference_no);
+  const isOther = cat.toLowerCase() === OTHER_CATEGORY.toLowerCase();
+  if (!m && row.type === "wrong") {
+    saveMistakeEntry(row.exam_id, row.exam_source, row.source_list, row.reference_no, row.question, row.your_answer, row.correct_answer, cat, "", false, conceptId);
+    return;
+  }
+  if (!m && isOther) {   // a bank problem found on a right/flagged question: needs an entry so samples can skip it
+    m = { id: uid(), source_list: row.source_list, reference_no: row.reference_no, question: row.question, category: "", note: "", resolved: false, date_logged: nowIso(), occurrences: [] };
+    log.push(m);
+  }
+  if (m) {
+    if (normCategory(m.category) !== cat) delete m.skip_in_samples;
+    m.category = cat; m.concept_id = conceptId; m.question = row.question || m.question;
+    if (row.type === "wrong") addMistakeOccurrence(m, row.exam_id, row.exam_source, row.your_answer, row.correct_answer);
+    m.date_logged = nowIso(); m.updated_at = nowIso();
+    saveJson(KEYS.mistakes, log); scheduleGithubSync();
+    const s = findShaky(loadShaky(), row.source_list, row.reference_no); if (s) removeShaky(s.id);
+    return;
+  }
+  upsertShaky({ source_list: row.source_list, reference_no: row.reference_no, question: row.question, correct_answer: row.correct_answer, kind: row.type, exam_id: row.exam_id, exam_source: row.exam_source, category: cat, concept_id: conceptId });
+}
+function afterTagChange() {
   refreshAllMistakesTree();
   drawMistakeCategoryChart();
   if (typeof renderDueForReview === "function") renderDueForReview();
   renderUnloggedTestsList();
-  toast("Mistake logged.");
+  if (typeof refreshHome === "function" && $("panel-home").classList.contains("active")) refreshHome();
+}
+function saveTag(advance) {
+  const row = selectedMistakeRow;
+  if (!row) { toast("Tap an item above first."); return; }
+  const cat = $("tagCategory").value;
+  if (!cat) { toast("Choose an actionable tag first."); return; }
+  const t = taxInfo(cat), cid = $("tagConcept").value === NEW_CONCEPT ? "" : $("tagConcept").value;
+  const isOther = cat.toLowerCase() === OTHER_CATEGORY.toLowerCase();
+  if (!isOther && !cid && !(t && t.need === "checklist")) { toast("Choose (or add) a concept category."); return; }
+  const wasIdx = selectedMistakeIdx;
+  applyTag(row, cat, cid);
+  delete tagDrafts[mistakeKey(row.source_list, row.reference_no)];
+  tagLast = { category: cat, concept_id: cid };
+  { const p = loadJson(KEYS.builderPrefs, {}); p.lastTag = tagLast; saveJson(KEYS.builderPrefs, p); }
+  if (wasIdx < 0) {   // opened from a card in the notes section: re-bind to the refreshed entry
+    const ent = findMistakeEntry(loadMistakeLog(), row.source_list, row.reference_no);
+    onLoadExamMistakes({ reset: true });
+    selectMistakeRow(Object.assign({}, row, { logged_entry: ent }), true);
+  } else onLoadExamMistakes();
+  afterTagChange();
+  if (advance) {
+    const next = firstUntaggedIdx(wasIdx + 1) !== -1 ? firstUntaggedIdx(wasIdx + 1) : firstUntaggedIdx(0);
+    if (next !== -1) { selectMistakeRow(next); toast("Tagged. Next untagged item."); }
+    else toast("Tagged \u2014 everything of these types in this test is done.");
+  } else toast("Tagged.");
+}
+// Open a logged mistake (from the notes section) in the tagging card.
+function retagFromEntry(e) {
+  const occ = (e.occurrences || []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || "")), latest = occ[occ.length - 1] || {};
+  const ei = mistakeExamOptions.findIndex(h => h.id === latest.exam_id);
+  if (ei >= 0) {
+    $("mistakeExamSelect").value = String(ei); onLoadExamMistakes({ reset: true });
+    const idx = currentExamMistakes.findIndex(r => r.source_list === e.source_list && String(r.reference_no) === String(e.reference_no));
+    if (idx >= 0) { selectMistakeRow(idx); return; }
+  }
+  selectMistakeRow({ exam_id: latest.exam_id || "", exam_source: latest.exam_source || "", source_list: e.source_list, reference_no: e.reference_no, question: e.question || "", your_answer: latest.your_answer || "", correct_answer: latest.correct_answer || "", confidence: "", flagged: false, type: "wrong", logged_entry: e, tag_store: "mistake", occurrence_count: occ.length });
+}
+$("tagCategory").addEventListener("change", () => { updateTagActionLine(); rememberTagDraft(); });
+$("tagConcept").addEventListener("change", () => {
+  if ($("tagConcept").value === NEW_CONCEPT) { $("tagConceptNewRow").style.display = ""; $("tagConceptNew").value = ""; $("tagConceptNew").focus(); $("tagConcept").value = ""; bindConceptCard(); return; }
+  $("tagConceptNewRow").style.display = "none"; bindConceptCard(); rememberTagDraft();
+});
+function addConceptFromTagCard() {
+  const nm = $("tagConceptNew").value.trim(); if (!nm) { toast("Type the concept name first."); return; }
+  const row = selectedMistakeRow, c = addConcept(nm, row ? row.source_list : "");
+  renderConceptSelect(c.id, row ? row.source_list : ""); $("tagConceptNewRow").style.display = "none";
+  bindConceptCard(); rememberTagDraft(); $("tagCnBack").focus();
+}
+$("tagConceptAdd").addEventListener("click", addConceptFromTagCard);
+$("tagConceptNew").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); addConceptFromTagCard(); } });
+["tagCnFront", "tagCnBack", "tagCnTrap"].forEach(id => $(id).addEventListener("change", () => {
+  const cid = $("tagConcept").value; if (!cid) return;
+  updateConcept(cid, { front: $("tagCnFront").value.trim(), back: $("tagCnBack").value.trim(), trap: $("tagCnTrap").value.trim() });
+  toast("Concept card saved.");
+}));
+$("tagLastBtn").addEventListener("click", () => {
+  if (!tagLast) return;
+  $("tagCategory").value = tagLast.category; updateTagActionLine();
+  renderConceptSelect(tagLast.concept_id || "", selectedMistakeRow ? selectedMistakeRow.source_list : ""); bindConceptCard(); rememberTagDraft();
+});
+$("btnSaveMistake").addEventListener("click", () => saveTag(false));
+$("btnSaveNextMistake").addEventListener("click", () => saveTag(true));
+$("btnClearTag").addEventListener("click", () => {
+  const row = selectedMistakeRow; if (!row || !row.logged_entry) { toast("This item has no tag yet."); return; }
+  if (row.tag_store === "shaky") removeShaky(row.logged_entry.id);
+  else { const log = loadMistakeLog(), m = log.find(x => x.id === row.logged_entry.id); if (m) { m.category = ""; m.concept_id = ""; delete m.skip_in_samples; m.updated_at = nowIso(); saveJson(KEYS.mistakes, log); scheduleGithubSync(); } }
+  delete tagDrafts[mistakeKey(row.source_list, row.reference_no)];
+  onLoadExamMistakes({ reset: true }); afterTagChange(); toast("Tag cleared (notes and history are kept).");
 });
 $("btnDeleteMistake").addEventListener("click", () => {
   const row = selectedMistakeRow;
-  if (!row || !row.logged_entry) { toast("This mistake hasn't been logged yet."); return; }
-  if (!confirmDialog("Delete this mistake's log entry?")) return;
-  deleteMistakeEntry(row.logged_entry.id);
-  clearMistakeDraft(row);
-  onLoadExamMistakes({ reset: true });
-  refreshAllMistakesTree();
-  drawMistakeCategoryChart();
-  if (typeof renderDueForReview === "function") renderDueForReview();
-  renderUnloggedTestsList();
+  if (!row || !row.logged_entry) { toast("This item hasn't been tagged yet."); return; }
+  if (!confirmDialog(row.tag_store === "shaky" ? "Delete this tag?" : "Delete this mistake's whole log entry (tag, notes and history)?")) return;
+  if (row.tag_store === "shaky") removeShaky(row.logged_entry.id); else deleteMistakeEntry(row.logged_entry.id);
+  delete tagDrafts[mistakeKey(row.source_list, row.reference_no)];
+  onLoadExamMistakes({ reset: true }); afterTagChange();
+  refreshListsDisplay();
 });
+
 $("mistakeUnresolvedOnly").addEventListener("change", refreshAllMistakesTree);
 $("mistakeRepeatedOnly").addEventListener("change", refreshAllMistakesTree);
 $("mistakeGroupSelect").addEventListener("change", refreshAllMistakesTree);
@@ -6323,7 +6594,14 @@ function setMistakeSkipped(entryId, skip) {
   scheduleGithubSync();
   toast(skip ? "Won't appear in future samples." : "Back in the sample pool.");
 }
-let mistakeCardState = {}; // entry id -> 0 (collapsed) | 1 (details, no notes) | 2 (details + notes + resolve)
+let mistakeCardState = {}; // entry id -> 0 (collapsed) | 1 (details) | 2 (details + concept card + notes + resolve)
+let mistakeNoteDrafts = {}; // entry id -> unsaved note text, so a re-render never loses what you typed
+function setMistakeNote(entryId, text) {
+  const log = loadMistakeLog(), entry = log.find(e => e.id === entryId);
+  if (!entry) return;
+  entry.note = text; entry.updated_at = nowIso();
+  saveJson(KEYS.mistakes, log); scheduleGithubSync();
+}
 
 function renderMistakeCard(e, repeatCount) {
   repeatCount = repeatCount || mistakeOccurrenceCount(e);
@@ -6333,17 +6611,19 @@ function renderMistakeCard(e, repeatCount) {
   card.style.marginBottom = "6px";
   const occurrences = (e.occurrences || []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
   const latest = occurrences[occurrences.length - 1] || {};
+  const tx = taxInfo(e.category), cn = findConcept(e.concept_id);
 
-  let inner = `<div class="top-row"><span class="name">Ref #${esc(e.reference_no)} &middot; ${esc(e.category || "")}</span>
+  let inner = `<div class="top-row"><span class="name">Ref #${esc(e.reference_no)} &middot; ${esc(normCategory(e.category) || "")}</span>
       <span class="row" style="gap:4px;flex:none;">
         <button class="btn" data-tts-id="${e.id}" title="Read this mistake aloud" style="padding:2px 8px;">\u{1F50A}</button>
         ${repeatCount > 1 ? `<span class="status-pill repeat-pill">\u{1F501} \u00d7${repeatCount}</span>` : ""}
         ${isExcludedEntry(e) ? `<span class="status-pill neutral">Skipped in samples</span>` : ""}
         <span class="status-pill ${statusClass}">${e.resolved ? "Resolved" : "Open"}</span>
       </span></div>
-    <div class="meta">${esc(latest.exam_source || "")} &middot; logged ${esc(e.date_logged || "")}</div>`;
+    <div class="meta">${cn ? `Concept: <b>${esc(cn.name)}</b> &middot; ` : ""}${esc(latest.exam_source || "")} &middot; logged ${esc(e.date_logged || "")}</div>`;
 
   if (state >= 1) {
+    if (tx) inner += `<div class="meta" style="margin-top:4px;">${NEED_INFO[tx.need].icon} <b>${esc(NEED_INFO[tx.need].label)}:</b> ${esc(tx.action)}</div>`;
     if (occurrences.length > 1) {
       const rows = occurrences.map(o => `<div class="meta">${esc(o.exam_source || "")} (${esc(formatDateNice(dateOnly(o.date)))}): answered "${esc(o.your_answer || "(none)")}"</div>`).join("");
       inner += `<div class="meta" style="margin-top:6px;">Missed ${occurrences.length} times \u2014</div>${rows}
@@ -6355,13 +6635,20 @@ function renderMistakeCard(e, repeatCount) {
     inner += e.question ? `<div class="meta" style="margin-top:4px;">${esc(e.question)} ${qsMiniBtn(qsCtx(e.source_list, e.reference_no, e.question, latest.your_answer, latest.correct_answer))}</div>` : "";
   }
   if (state >= 2) {
-    inner += `<div class="meta" style="margin-top:6px;white-space:pre-wrap;"><b>Notes:</b> ${esc(e.note || "(no notes yet)")}</div>
-      <div class="row" style="margin-top:8px;">
+    if (cn && ((cn.back || "").trim() || (cn.trap || "").trim())) {
+      inner += `<div class="rv-note" style="margin-top:6px;"><b>${esc(cn.name)}:</b> ${esc(cn.back || "(no explanation yet)")}${(cn.trap || "").trim() ? `<br><b style="color:var(--red);">Trap:</b> ${esc(cn.trap)}` : ""}</div>`;
+    }
+    const noteVal = mistakeNoteDrafts[e.id] !== undefined ? mistakeNoteDrafts[e.id] : (e.note || "");
+    inner += `<label class="field-label" style="margin-top:8px;">Notes on this question <span class="hint">(optional; the concept card is where shared notes go)</span></label>
+      <textarea class="mc-note" rows="3" placeholder="Anything specific to this question&hellip;">${esc(noteVal)}</textarea>
+      <div class="row wrap" style="margin-top:8px;gap:6px;">
+        <button class="btn primary" data-note-id="${e.id}">Save note</button>
         <button class="btn ${e.resolved ? "" : "success"}" data-resolve-id="${e.id}">${e.resolved ? "Mark Unresolved" : "Mark Resolved"}</button>
+        <button class="btn" data-retag-id="${e.id}">Re-tag</button>
         <button class="btn" data-skip-id="${e.id}">${isExcludedEntry(e) ? "Allow In Samples Again" : "Skip In Future Samples"}</button>
       </div>`;
   } else {
-    inner += `<div class="hint" style="margin-top:6px;">${state === 0 ? "Tap for details" : "Tap again for notes"}</div>`;
+    inner += `<div class="hint" style="margin-top:6px;">${state === 0 ? "Tap for details" : "Tap again for notes and resolve"}</div>`;
   }
   card.dataset.mid = e.id;
   card.innerHTML = inner;
@@ -6369,34 +6656,28 @@ function renderMistakeCard(e, repeatCount) {
   if (ttsBtn) ttsBtn.addEventListener("click", (ev) => { ev.stopPropagation(); ttsToggleSingle(e.id); });
   if (typeof TTS !== "undefined" && TTS && TTS.state !== "idle" && TTS.curId === e.id) card.classList.add("tts-now");
 
+  const ta = card.querySelector(".mc-note");
+  if (ta) ta.addEventListener("input", () => { mistakeNoteDrafts[e.id] = ta.value; });
   card.addEventListener("click", (ev) => {
-    if (ev.target.closest("[data-resolve-id]") || ev.target.closest("[data-skip-id]") || ev.target.closest("[data-tts-id]")) return;
+    if (ev.target.closest("button, textarea, a, select, .qs-go")) return;
     mistakeCardState[e.id] = ((mistakeCardState[e.id] || 0) + 1) % 3;
     refreshAllMistakesTree();
     if (typeof renderDueForReview === "function") renderDueForReview();
   });
-  const skipBtn = card.querySelector("[data-skip-id]");
-  if (skipBtn) {
-    skipBtn.addEventListener("click", (ev) => {
-      ev.stopPropagation();
-      setMistakeSkipped(e.id, !isExcludedEntry(e));
-      refreshAllMistakesTree();
-      onLoadExamMistakes();
-      if (typeof renderDueForReview === "function") renderDueForReview();
-      refreshListsDisplay();
-    });
-  }
-  const resolveBtn = card.querySelector("[data-resolve-id]");
-  if (resolveBtn) {
-    resolveBtn.addEventListener("click", (ev) => {
-      ev.stopPropagation();
-      setMistakeResolved(e.id, !e.resolved);
-      refreshAllMistakesTree();
-      onLoadExamMistakes();
-      drawMistakeCategoryChart();
-      if (typeof renderDueForReview === "function") renderDueForReview();
-    });
-  }
+  const on = (sel, fn) => { const b = card.querySelector(sel); if (b) b.addEventListener("click", (ev) => { ev.stopPropagation(); fn(); }); };
+  on("[data-note-id]", () => { setMistakeNote(e.id, ta.value.trim()); delete mistakeNoteDrafts[e.id]; toast("Note saved."); refreshAllMistakesTree(); });
+  on("[data-retag-id]", () => retagFromEntry(e));
+  on("[data-skip-id]", () => {
+    setMistakeSkipped(e.id, !isExcludedEntry(e));
+    refreshAllMistakesTree(); onLoadExamMistakes();
+    if (typeof renderDueForReview === "function") renderDueForReview();
+    refreshListsDisplay();
+  });
+  on("[data-resolve-id]", () => {
+    setMistakeResolved(e.id, !e.resolved);
+    refreshAllMistakesTree(); onLoadExamMistakes(); drawMistakeCategoryChart();
+    if (typeof renderDueForReview === "function") renderDueForReview();
+  });
   return card;
 }
 
@@ -6412,8 +6693,8 @@ function renderMistakeGroup(title, entries) {
 }
 
 function refreshAllMistakesTree() {
-  // Only entries that have actually been given a category show up here -- an
-  // auto-tracked-but-uncategorized miss lives in "Tests With Unlogged Mistakes" instead.
+  // Only entries that have actually been tagged show up here -- an auto-tracked-but-untagged miss lives in
+  // "Tests To Tag" instead.
   renderMistakeProgress();
   const scopeT = getScopeSubjects(), scopeTSet = scopeT ? new Set(scopeT) : null;
   const fullLog = loadMistakeLog().filter(e => e.category && (!scopeTSet || scopeTSet.has(e.source_list)));
@@ -6428,45 +6709,80 @@ function refreshAllMistakesTree() {
   const box = $("allMistakesContainer");
   box.innerHTML = "";
   if (!log.length) {
-    box.appendChild(el("div", "empty-state", fullLog.length ? "Nothing matches these filters." : "No mistakes logged yet."));
+    box.appendChild(el("div", "empty-state", fullLog.length ? "Nothing matches these filters." : "No mistakes tagged yet."));
     return;
   }
-
+  const newest = (a, b) => (b.date_logged || "").localeCompare(a.date_logged || "");
   const gMode = $("mistakeGroupSelect").value;
-  if (gMode === "exam") {
+  if (gMode === "action") {
+    for (const need of NEED_ORDER) {
+      const ents = log.filter(e => { const t = taxInfo(e.category); return t && t.need === need; });
+      if (ents.length) box.appendChild(renderMistakeGroup(`${NEED_INFO[need].icon} ${NEED_INFO[need].label} \u2014 ${ACTION_TAXONOMY.find(t => t.need === need).action}`, ents.sort(newest)));
+    }
+    const rest = log.filter(e => !taxInfo(e.category));
+    if (rest.length) box.appendChild(renderMistakeGroup("Other / older tags (re-tag to sort them)", rest.sort(newest)));
+  } else if (gMode === "concept") {
+    const by = {};
+    for (const e of log) { const k = conceptName(e.concept_id) || "(no concept)"; (by[k] = by[k] || []).push(e); }
+    for (const [k, ents] of Object.entries(by).sort((a, b) => b[1].length - a[1].length)) box.appendChild(renderMistakeGroup(k, ents.sort(newest)));
+  } else if (gMode === "exam") {
     for (const g of exGroup(log, e => { const r = exAssign([e.source_list]); return r && r.exam; })) {
-      box.appendChild(renderMistakeGroup(exLabel(g.exam), g.items.slice().sort((a, b) => (b.date_logged || "").localeCompare(a.date_logged || ""))));
+      box.appendChild(renderMistakeGroup(exLabel(g.exam), g.items.slice().sort(newest)));
     }
   } else if (gMode === "repetition") {
     const repeated = log.filter(e => mistakeOccurrenceCount(e) > 1)
-      .sort((a, b) => (mistakeOccurrenceCount(b) - mistakeOccurrenceCount(a)) || (b.date_logged || "").localeCompare(a.date_logged || ""));
-    const oneTime = log.filter(e => mistakeOccurrenceCount(e) <= 1)
-      .sort((a, b) => (b.date_logged || "").localeCompare(a.date_logged || ""));
+      .sort((a, b) => (mistakeOccurrenceCount(b) - mistakeOccurrenceCount(a)) || newest(a, b));
+    const oneTime = log.filter(e => mistakeOccurrenceCount(e) <= 1).sort(newest);
     if (repeated.length) box.appendChild(renderMistakeGroup("\u{1F501} Repeated Mistakes", repeated));
     if (oneTime.length) box.appendChild(renderMistakeGroup("One-Time Mistakes", oneTime));
   } else {
     const bySubject = {};
     for (const e of log) (bySubject[e.source_list || "Unknown"] = bySubject[e.source_list || "Unknown"] || []).push(e);
-    const subjectOrder = Object.entries(bySubject).sort((a, b) => b[1].length - a[1].length);
-    for (const [subject, entries] of subjectOrder) {
-      const sorted = entries.slice().sort((a, b) => (b.date_logged || "").localeCompare(a.date_logged || ""));
-      box.appendChild(renderMistakeGroup(subject, sorted));
-    }
+    for (const [subject, entries] of Object.entries(bySubject).sort((a, b) => b[1].length - a[1].length)) box.appendChild(renderMistakeGroup(subject, entries.sort(newest)));
   }
 }
 
+// Mistakes by actionable tag, grouped by what you need to DO, with the action spelled out.
 function drawMistakeCategoryChart() {
-  const { byCategory } = computeMistakeInsights();
   const box = $("mistakeCategoryBars");
   box.innerHTML = "";
-  if (!byCategory.length) { box.appendChild(el("div", "empty-state", "No mistakes logged yet.")); return; }
-  const maxCount = Math.max(...byCategory.map(([, cnt]) => cnt));
-  for (const [cat, cnt, unresolved] of byCategory) {
-    const color = unresolved === cnt ? "var(--red)" : (unresolved > 0 ? "var(--amber)" : "var(--green)");
-    const pct = (cnt / maxCount) * 100;
-    const row = el("div", "bar-row");
-    row.innerHTML = `<div class="lbl">${esc(cat)}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.max(3, pct)}%;background:${color};"></div></div><div class="bar-val">${cnt} (${unresolved})</div>`;
-    box.appendChild(row);
+  const scope = getScopeSubjects(), set = scope ? new Set(scope) : null;
+  const log = loadMistakeLog().filter(e => e.category && (!set || set.has(e.source_list)));
+  const shaky = loadShaky().filter(e => e.category && (!set || set.has(e.source_list)));
+  if (!log.length && !shaky.length) { box.appendChild(el("div", "empty-state", "Nothing tagged yet.")); return; }
+  const barColor = (cnt, open) => open === cnt ? "var(--red)" : (open > 0 ? "var(--amber)" : "var(--green)");
+  const mx = Math.max(1, ...ACTION_TAXONOMY.map(t => log.filter(e => normCategory(e.category) === t.name).length));
+  for (const need of NEED_ORDER) {
+    const tx = ACTION_TAXONOMY.filter(t => t.need === need);
+    const ents = log.filter(e => tx.some(t => t.name === normCategory(e.category)));
+    const sh = shaky.filter(e => tx.some(t => t.name === normCategory(e.category)));
+    const head = el("div", "meta");
+    head.style.cssText = "margin:10px 0 4px;font-weight:700;color:" + NEED_INFO[need].color + ";";
+    head.innerHTML = `${NEED_INFO[need].icon} ${esc(NEED_INFO[need].label)} \u2014 <span style="color:var(--ink);">${esc(tx[0].action)}</span> <span class="hint" style="font-weight:400;">${ents.filter(e => !e.resolved).length} open</span>`;
+    box.appendChild(head);
+    for (const t of tx) {
+      const mine = log.filter(e => normCategory(e.category) === t.name), open = mine.filter(e => !e.resolved).length;
+      const row = el("div", "bar-row");
+      row.innerHTML = `<div class="lbl">${esc(t.name)}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.max(mine.length ? 3 : 0, mine.length / mx * 100)}%;background:${barColor(mine.length, open)};"></div></div><div class="bar-val">${mine.length} (${open})</div>`;
+      box.appendChild(row);
+      const byC = {};
+      for (const e of mine.filter(x => !x.resolved)) { const k = conceptName(e.concept_id); if (k) byC[k] = (byC[k] || 0) + 1; }
+      const top = Object.entries(byC).sort((a, b) => b[1] - a[1]).slice(0, 4);
+      if (top.length) { const m = el("div", "meta"); m.style.cssText = "margin:-2px 0 4px 6px;"; m.innerHTML = "open: " + top.map(([k, n]) => `${esc(k)} \u00d7${n}`).join(" &middot; "); box.appendChild(m); }
+    }
+    if (sh.length) { const m = el("div", "meta"); m.style.cssText = "margin:0 0 4px 6px;"; m.innerHTML = `+ ${sh.length} right guess${sh.length === 1 ? "" : "es"} / flagged item${sh.length === 1 ? "" : "s"} tagged here (${sh.filter(x => !x.resolved).length} open)`; box.appendChild(m); }
+  }
+  const known = new Set(ACTION_TAXONOMY.map(t => t.name.toLowerCase()));
+  const other = {};
+  for (const e of log) { const c = normCategory(e.category); if (!known.has(c.toLowerCase())) { const r = other[c] = other[c] || [0, 0]; r[0]++; if (!e.resolved) r[1]++; } }
+  const oe = Object.entries(other);
+  if (oe.length) {
+    const head = el("div", "meta"); head.style.cssText = "margin:10px 0 4px;font-weight:700;"; head.textContent = "Bank problems and older tags"; box.appendChild(head);
+    for (const [c, [n, open]] of oe.sort((a, b) => b[1][0] - a[1][0])) {
+      const row = el("div", "bar-row");
+      row.innerHTML = `<div class="lbl">${esc(c)}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.max(3, n / mx * 100)}%;background:${barColor(n, open)};"></div></div><div class="bar-val">${n} (${open})</div>`;
+      box.appendChild(row);
+    }
   }
 }
 
@@ -6479,7 +6795,7 @@ $("btnCopyMistakeInsights").addEventListener("click", async () => {
   lines.push(sep, "MISTAKE LOG -- ACTIONABLE INSIGHTS", sep);
   lines.push(`Generated: ${new Date().toLocaleString()}`, `Total mistakes logged: ${log.length}`, ...(scopeC && exC ? [`Exam focus: ${exC.label} (${scopeC.join(", ")})`] : []), "");
   lines.push("By category (most frequent first):");
-  for (const [cat, cnt, unresolved] of byCategory) lines.push(`  - ${cat}: ${cnt} total, ${unresolved} still unresolved`);
+  for (const [cat, cnt, unresolved] of byCategory) lines.push(`  - ${cat}: ${cnt} total, ${unresolved} still unresolved${taxInfo(cat) ? " -> " + taxNeedLine(cat) : ""}`);
   lines.push("", "By subject:");
   for (const [subj, cnt] of bySubject) lines.push(`  - ${subj}: ${cnt}`);
   lines.push("", "-".repeat(60), "INDIVIDUAL ENTRIES (most recently logged first)", "-".repeat(60));
@@ -6487,6 +6803,7 @@ $("btnCopyMistakeInsights").addEventListener("click", async () => {
     const status = e.resolved ? "RESOLVED" : "OPEN";
     lines.push(`[${status}] ${e.source_list} #${e.reference_no} -- ${e.category} (from ${e.exam_source}, logged ${e.date_logged})`);
     if (e.question) lines.push(`    Q: ${e.question}`);
+    if (conceptName(e.concept_id)) lines.push(`    Concept: ${conceptName(e.concept_id)}`);
     if (e.note) lines.push(`    Fix: ${e.note}`);
     lines.push("");
   }
@@ -8265,50 +8582,154 @@ function scopedReviewerAttempts() {
   const all = collectReviewerAttempts();
   return scope ? all.filter(a => scope.includes(a.source_list || "Unknown")) : all;
 }
-function refreshReviewer() {
-  const all = scopedReviewerAttempts();
-  const exR = getActiveExam(), scopeR = getScopeSubjects();
-  renderExamScopeSelects();
-  const qt = computeExamQuestionTotals(scopeR);
-  const uniq = buildReviewerGroups(all.filter(a => !reviewerHiddenSubjects.has(a.source_list || "Unknown"))).length;
-  const promptN = buildReviewerPromptData().length;
-  $("rvExamSummary").innerHTML = `<div class="list-item"><div class="top-row"><span class="name">${scopeR && exR ? esc(exR.label) : "All subjects"}</span><span class="exam-days">${uniq} to review</span></div>
-    <div class="meta"><b>${qt.total.toLocaleString()}</b> question${qt.total === 1 ? "" : "s"} in ${scopeR ? "this exam" : "your question bank"}${scopeR ? ` &middot; ${scopeR.length} subject${scopeR.length === 1 ? "" : "s"}` : ""} &middot; ${uniq} unique question${uniq === 1 ? "" : "s"} flagged below</div></div>`;
-  const tp = getRvTagPrefs();
-  document.querySelectorAll("#rvPromptTags input").forEach(cb => { cb.checked = !!tp[cb.dataset.rvtag]; });
-  $("rvPromptHint").textContent = `Copies ${promptN} unique question${promptN === 1 ? "" : "s"} (each once, even if it appears in several tests) with instructions for an AI to build a tailored reviewer.${promptN === uniq ? "" : ` ${uniq - promptN} left out by the tags you unticked.`}`;
-
-  const subjects = Array.from(new Set(all.map(a => a.source_list || "Unknown"))).sort();
-  const checks = $("rvSubjectChecks");
-  checks.innerHTML = "";
-  if (!subjects.length) checks.appendChild(el("div", "empty-state", scopeR ? "No tests yet include this exam's subjects." : "No tests taken yet."));
-  for (const s of subjects) {
-    const row = el("label", "row");
-    row.style.marginBottom = "6px"; row.style.fontSize = ".82rem";
-    row.innerHTML = `<input type="checkbox" ${reviewerHiddenSubjects.has(s) ? "" : "checked"}><span>${esc(s)}</span>`;
-    row.querySelector("input").addEventListener("change", (e) => {
-      if (e.target.checked) reviewerHiddenSubjects.delete(s); else reviewerHiddenSubjects.add(s);
-      refreshReviewer();
-    });
-    checks.appendChild(row);
+/* ---------------------------------------------------------------------
+   Reviewer: your tagged questions, sorted by what you need to DO about them.
+   Needs source -> read the section | Needs drill -> closed-book reps | Needs checklist -> pre-submit line
+   | Needs retrieval -> review the concept card.   Concepts are the unit; notes live on the concept card.
+   --------------------------------------------------------------------- */
+let rvOpen = {}, rvShowResolved = false;
+function rvIsoDiff(a, b) { return Math.round((Date.parse(b) - Date.parse(a)) / 864e5); }
+function conceptCardState(c) {
+  if (!c || !(c.back || "").trim()) return { label: "No card text yet", cls: "status-red" };
+  const s = fcLoadSrs()["cn::" + c.id], t = fcToday();
+  if (!s) return { label: "New card", cls: "status-yellow" };
+  const due = fcDueOf(s, fcCapFor(c.subject));
+  return due <= t ? { label: "Due now", cls: "status-red" } : { label: "Next review " + (rvIsoDiff(t, due) <= 1 ? "tomorrow" : "in " + rvIsoDiff(t, due) + "d"), cls: "status-green" };
+}
+function renderChecklistBox() {
+  const box = el("div", "list-item");
+  box.style.cssText = "border-left:4px solid var(--amber);margin-bottom:10px;";
+  const list = loadChecklist();
+  box.innerHTML = `<div class="top-row"><span class="name">Pre-submit checklist</span><span class="meta">${list.length} line${list.length === 1 ? "" : "s"}</span></div>
+    <div class="hint" style="margin:2px 0 6px;">One line per careless habit. Read it before you submit any test.</div>
+    <div class="cl-lines"></div>
+    <div class="row" style="margin-top:6px;gap:6px;"><input type="text" class="cl-new" placeholder="Add a line, e.g. &ldquo;Underline units and what is asked&rdquo;"><button class="btn primary" data-cl-add="1" style="flex:none;">Add</button></div>
+    <div class="row" style="margin-top:6px;"><button class="btn link" data-cl-copy="1">Copy checklist</button></div>`;
+  const lines = box.querySelector(".cl-lines");
+  list.forEach(l => {
+    const r = el("div", "row"); r.style.cssText = "gap:6px;margin-bottom:4px;";
+    r.innerHTML = `<span style="flex:none;">\u2610</span><input type="text" value="${esc(l.text)}" data-cl-edit="${esc(l.id)}"><button class="btn" data-cl-del="${esc(l.id)}" style="flex:none;padding:2px 8px;" title="Delete line">\u2715</button>`;
+    lines.appendChild(r);
+  });
+  const add = () => { const inp = box.querySelector(".cl-new"), t = inp.value.trim(); if (!t) return; const a = loadChecklist(); a.push({ id: uid(), text: t, created_at: nowIso(), updated_at: nowIso() }); saveChecklist(a); refreshReviewer(); };
+  box.querySelector("[data-cl-add]").addEventListener("click", add);
+  box.querySelector(".cl-new").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); add(); } });
+  box.querySelectorAll("[data-cl-edit]").forEach(inp => inp.addEventListener("change", () => { const a = loadChecklist(), x = a.find(y => y.id === inp.dataset.clEdit); if (!x) return; x.text = inp.value.trim(); x.updated_at = nowIso(); saveChecklist(a.filter(y => y.text)); if (!x.text) addTombstone("checklist", x.id); refreshReviewer(); }));
+  box.querySelectorAll("[data-cl-del]").forEach(b => b.addEventListener("click", () => { saveChecklist(loadChecklist().filter(y => y.id !== b.dataset.clDel)); addTombstone("checklist", b.dataset.clDel); refreshReviewer(); }));
+  box.querySelector("[data-cl-copy]").addEventListener("click", async () => { const t = loadChecklist().map(l => "[ ] " + l.text).join("\n"); if (!t) { toast("The checklist is empty."); return; } toast(await copyTextRobust(t) ? "Checklist copied." : "Couldn't access the clipboard."); });
+  return box;
+}
+function rvItemRow(it, withLine) {
+  const e = it.e, row = el("div", "rv-attempt " + (it.resolved ? "ok" : "bad"));
+  row.style.cssText = "margin-top:6px;padding:6px 8px;";
+  const color = TAG_TYPE[it.kind] ? TAG_TYPE[it.kind].color : "var(--red)";
+  row.innerHTML = `<div class="row" style="gap:6px;align-items:flex-start;"><span style="flex:none;width:8px;height:8px;border-radius:50%;background:${color};margin-top:6px;"></span>
+      <div style="flex:1;min-width:0;"><div class="meta"><b>Ref #${esc(e.reference_no)}</b> &middot; ${esc(fcCleanName(it.subject))} &middot; ${esc(it.cat)}${it.resolved ? " &middot; resolved" : ""}</div>
+      <div class="meta" style="color:var(--ink);">${esc((e.question || "(question text unavailable)").slice(0, 140))}</div>
+      ${e.note ? `<div class="meta" style="white-space:pre-wrap;">Note: ${esc(e.note)}</div>` : ""}</div>
+      <button class="btn" data-rv-res="1" style="flex:none;padding:2px 8px;">${it.resolved ? "Reopen" : "Resolve"}</button></div>` +
+    (withLine && !it.resolved ? `<div class="row" style="margin-top:6px;gap:6px;"><input type="text" class="rv-line" placeholder="One line for the checklist&hellip;"><button class="btn primary" data-rv-addline="1" style="flex:none;">Add line</button></div>` : "");
+  row.querySelector("[data-rv-res]").addEventListener("click", (ev) => { ev.stopPropagation(); setItemResolved(it, !it.resolved); refreshReviewer(); afterTagChange(); });
+  const ab = row.querySelector("[data-rv-addline]");
+  if (ab) ab.addEventListener("click", (ev) => {
+    ev.stopPropagation();
+    const t = row.querySelector(".rv-line").value.trim(); if (!t) { toast("Type the one-line rule first."); return; }
+    const a = loadChecklist(); a.push({ id: uid(), text: t, src: `${fcCleanName(it.subject)} #${e.reference_no}`, created_at: nowIso(), updated_at: nowIso() }); saveChecklist(a);
+    toast("Added to your pre-submit checklist."); refreshReviewer();
+  });
+  return row;
+}
+function renderRvConceptRow(need, cid, its) {
+  const c = findConcept(cid), open = its.filter(i => !i.resolved);
+  const key = need + "::" + (cid || "none"), isOpen = !!rvOpen[key], today = fcToday();
+  const subjects = Array.from(new Set(its.map(i => fcCleanName(i.subject))));
+  let status = "";
+  if (need === "source") { const d = c && c.progress && c.progress.source_read; status = d ? "read " + daysAgoLabel(Math.max(0, rvIsoDiff(d, today))) : "not read yet"; }
+  else if (need === "drill") status = `reps ${(c && c.progress && c.progress.drill_reps) || 0}/3\u20135`;
+  else if (need === "retrieval") status = conceptCardState(c).label.toLowerCase();
+  const row = el("div", "list-item flashcard " + (open.length ? "status-yellow" : "status-green"));
+  row.style.marginBottom = "6px";
+  let html = `<div class="top-row"><span class="name">${esc(c ? c.name : "(no concept)")}</span><span class="row" style="gap:4px;flex:none;"><span class="status-pill ${open.length ? "status-yellow" : "status-green"}">${open.length} open</span></span></div>
+    <div class="meta">${esc(subjects.join(", "))}${status ? " &middot; " + esc(status) : ""}</div>`;
+  if (isOpen) {
+    if (c) html += `<div class="rv-note" style="margin-top:6px;"><b>${esc((c.front || "").trim() || c.name)}</b><br>${esc((c.back || "").trim() || "(no explanation yet)")}${(c.trap || "").trim() ? `<br><b style="color:var(--red);">Trap:</b> ${esc(c.trap)}` : ""}</div>`;
+    html += `<div class="row wrap" style="margin-top:8px;gap:6px;">`;
+    if (need === "source") html += `<button class="btn primary" data-act="read">\u2713 I read the section</button>`;
+    if (need === "drill") html += `<button class="btn primary" data-act="rep">+1 closed-book rep</button><button class="btn" data-act="resetreps">Reset reps</button>`;
+    if (need === "retrieval") html += `<button class="btn primary" data-act="review">Review this card</button>`;
+    if (c) html += `<button class="btn" data-act="editcard">Edit card</button>`;
+    if (open.length) html += `<button class="btn" data-act="resolveall">Resolve all ${open.length}</button>`;
+    html += `</div><div class="items"></div>`;
+  } else html += `<div class="hint" style="margin-top:4px;">Tap to see the questions and act on it</div>`;
+  row.innerHTML = html;
+  if (isOpen) { const holder = row.querySelector(".items"); for (const it of its) holder.appendChild(rvItemRow(it, false)); }
+  row.addEventListener("click", (ev) => { if (ev.target.closest("button, input, textarea")) return; rvOpen[key] = !rvOpen[key]; refreshReviewer(); });
+  const act = (name, fn) => { const b = row.querySelector(`[data-act="${name}"]`); if (b) b.addEventListener("click", (ev) => { ev.stopPropagation(); fn(); }); };
+  act("read", () => { const pr = Object.assign({}, c && c.progress, { source_read: today }); if (c) { updateConcept(c.id, { progress: pr }); toast("Marked as read today."); } else toast("Add a concept to these questions first."); refreshReviewer(); });
+  act("rep", () => { if (!c) { toast("Add a concept to these questions first."); return; } const n = ((c.progress && c.progress.drill_reps) || 0) + 1; updateConcept(c.id, { progress: Object.assign({}, c.progress, { drill_reps: n, drill_last: today }) }); toast(n >= 3 ? `${n} reps \u2014 ready to resolve these?` : `${n} rep${n === 1 ? "" : "s"} logged.`); refreshReviewer(); });
+  act("resetreps", () => { if (c) updateConcept(c.id, { progress: Object.assign({}, c.progress, { drill_reps: 0 }) }); refreshReviewer(); });
+  act("review", () => { if (!c || !(c.back || "").trim()) { toast("Write the explanation on the card first (Edit card)."); return; } const card = fcConceptPool().find(x => x.concept.id === c.id); if (card) { fcAttachGroups([card]); card.cap = fcCapFor(card.subject); fcStart([card]); } });
+  act("editcard", () => { fcPane = "concepts"; fcEditConcept = c.id; switchTab("flashcards"); });
+  act("resolveall", () => { if (!confirmDialog(`Mark ${open.length} question${open.length === 1 ? "" : "s"} resolved?`)) return; open.forEach(i => setItemResolved(i, true)); refreshReviewer(); afterTagChange(); });
+  return row;
+}
+function renderRvNeedCard(need, items) {
+  const info = NEED_INFO[need], tx = ACTION_TAXONOMY.filter(t => t.need === need);
+  const open = items.filter(i => !i.resolved).length;
+  const card = el("div", "card");
+  card.innerHTML = `<h3>${info.icon} ${esc(info.label)} <span class="count">(${open} open)</span></h3>
+    <p class="hint" style="margin-bottom:8px;"><b>${esc(tx[0].action)}</b> &middot; from: ${esc(tx.map(t => t.name).join(", "))}</p>`;
+  if (need === "checklist") card.appendChild(renderChecklistBox());
+  if (!items.length) { card.appendChild(el("div", "empty-state", "Nothing tagged here yet.")); return card; }
+  if (need === "checklist") {
+    for (const t of tx) {
+      const mine = items.filter(i => i.cat === t.name); if (!mine.length) continue;
+      const h = el("div", "meta"); h.style.cssText = "margin:8px 0 2px;font-weight:700;"; h.textContent = `${t.name} (${mine.filter(i => !i.resolved).length} open)`; card.appendChild(h);
+      mine.sort((a, b) => (a.resolved - b.resolved) || (b.e.updated_at || "").localeCompare(a.e.updated_at || "")).forEach(i => card.appendChild(rvItemRow(i, true)));
+    }
+    return card;
   }
-
-  const visible = all.filter(a => !reviewerHiddenSubjects.has(a.source_list || "Unknown"));
+  const by = new Map();
+  for (const it of items) { const k = it.conceptId || ""; if (!by.has(k)) by.set(k, []); by.get(k).push(it); }
+  Array.from(by.entries()).sort((a, b) => (b[1].filter(i => !i.resolved).length - a[1].filter(i => !i.resolved).length) || String(conceptName(a[0])).localeCompare(conceptName(b[0])))
+    .forEach(([cid, its]) => card.appendChild(renderRvConceptRow(need, cid, its)));
+  return card;
+}
+function renderReviewerFocus() { if ($("panel-reviewer") && $("panel-reviewer").classList.contains("active")) refreshReviewer(); }
+function refreshReviewer() {
+  renderExamScopeSelects();
+  const scope = getScopeSubjects(), scopeSet = scope ? new Set(scope) : null, ex = getActiveExam();
+  const all = collectTagItems(scopeSet), items = all.filter(i => rvShowResolved || !i.resolved);
+  $("rvShowResolved").checked = rvShowResolved;
+  const untagged = computeTestsWithUnloggedMistakes().reduce((n, r) => n + r.unloggedCount, 0);
+  const tile = (n, label, sub, color) => `<div class="fc-stat" style="border-top:3px solid ${color};"><b>${n}</b><span>${label}</span>${sub ? `<span style="display:block;font-size:.65rem;">${sub}</span>` : ""}</div>`;
+  let tiles = tile(untagged, "to tag", untagged ? "" : "all done", "var(--red)");
+  for (const need of NEED_ORDER) {
+    const mine = all.filter(i => i.tax && i.tax.need === need && !i.resolved);
+    tiles += tile(mine.length, NEED_INFO[need].label.replace("Needs ", ""), `${new Set(mine.map(i => i.conceptId || "-")).size} concept${new Set(mine.map(i => i.conceptId || "-")).size === 1 ? "" : "s"}`, NEED_INFO[need].color);
+  }
+  $("rvExamSummary").innerHTML = `<div class="list-item" style="margin-top:8px;"><div class="top-row"><span class="name">${scope && ex ? esc(ex.label) : "All subjects"}</span>${scope && ex && ex.date ? `<span class="exam-days">${daysUntil(ex.date) >= 0 ? daysUntil(ex.date) + " days" : "passed"}</span>` : ""}</div></div>
+    <div class="fc-stats" style="grid-template-columns:repeat(5,1fr);margin-top:8px;">${tiles}</div>
+    ${untagged ? `<button class="btn block" id="rvGoTag" style="margin-top:8px;">Tag the ${untagged} untagged item${untagged === 1 ? "" : "s"} &rarr;</button>` : ""}`;
+  const g = $("rvGoTag"); if (g) g.onclick = () => { switchTab("mistakes"); const r = computeTestsWithUnloggedMistakes()[0]; if (r) jumpToExamInMistakeLog(r.examId); };
+  const q = fcBuildQueue({}), c = q.counts, n = q.cards.length;
+  $("rvFocusBox").innerHTML = fcFinalBanner() + `<div class="field-label" style="margin-top:10px;">Concept cards today</div><div class="fc-stats"><div class="fc-stat"><b>${c.due}</b><span>due</span></div><div class="fc-stat"><b>${Math.min(c.newAllowed, c.fresh)}</b><span>new today</span></div><div class="fc-stat"><b>${q.pool.length}</b><span>cards</span></div></div>` +
+    (n ? `<button class="btn primary block" data-fcstart="1">Start review &middot; ${n} card${n === 1 ? "" : "s"} &#9654;</button>` : `<div class="empty-state">${q.pool.length ? "Nothing due right now." : "No concept cards yet. Write a concept's explanation to create its card."}</div>${c.later ? `<button class="btn block" data-fcahead="1">Practice ahead &middot; ${c.later} not yet due</button>` : ""}`);
+  $("rvFocusBox").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; if (b.dataset.fcstart) fcStart(fcBuildQueue({}).cards); else if (b.dataset.fcahead) fcStart(fcBuildQueue({ ahead: true }).cards); };
   const wrap = $("rvSections");
   wrap.innerHTML = "";
-  const allGroups = buildReviewerGroups(visible);
-  for (const sec of REVIEWER_SECTIONS) {
-    const groups = reviewerGroupsForSection(allGroups, sec);
+  for (const need of NEED_ORDER) wrap.appendChild(renderRvNeedCard(need, items.filter(i => i.tax && i.tax.need === need)));
+  const legacy = items.filter(i => !i.tax);
+  if (legacy.length) {
     const card = el("div", "card");
-    card.innerHTML = `<h3>${esc(sec.title)} <span class="count">(${groups.length})</span></h3><p class="hint" style="margin-bottom:10px;">${esc(sec.hint)}</p>`;
-    const list = el("div");
-    if (!groups.length) list.appendChild(el("div", "empty-state", "Nothing here for the selected subjects."));
-    for (const g of groups) list.appendChild(renderReviewerCard(sec.id, g));
-    card.appendChild(list);
+    const by = {}; legacy.forEach(i => { by[i.cat] = (by[i.cat] || 0) + 1; });
+    card.innerHTML = `<h3>Older tags <span class="count">(${legacy.length})</span></h3><p class="hint">These use tags from before the actionable list. Open <b>Mistake Log</b> &rarr; notes section &rarr; <b>Re-tag</b> to sort them.</p>` +
+      Object.entries(by).map(([k, v]) => `<div class="meta">${esc(k)}: ${v}</div>`).join("");
     wrap.appendChild(card);
   }
-  if (typeof renderReviewerFocus === "function") renderReviewerFocus();
 }
+$("rvShowResolved").addEventListener("change", (e) => { rvShowResolved = e.target.checked; refreshReviewer(); });
+
 // One entry per unique question across ALL reviewer sections (a question that is both a guess and an
 // overconfident miss, or that shows up in many tests, appears once with every reason attached).
 function buildReviewerPromptData() {
@@ -8383,23 +8804,7 @@ async function copyTextRobust(text) {
     return ok;
   } catch (e) { return false; }
 }
-$("btnRvCopyPrompt").addEventListener("click", async () => {
-  const { text, count } = buildReviewerPrompt();
-  if (!count) { toast("Nothing to copy \u2014 no questions match the selected subjects and tags."); return; }
-  const ok = await copyTextRobust(text);
-  toast(ok ? `Copied ${count} unique question${count === 1 ? "" : "s"} (${text.length.toLocaleString()} characters).` : "Couldn't access the clipboard.");
-});
-mountPromptEditor("reviewer", $("promptEditor-reviewer"));
 mountPromptEditor("analysis", $("promptEditor-analysis"));
-document.querySelectorAll("#rvPromptTags input").forEach(cb => cb.addEventListener("change", () => { setRvTagPref(cb.dataset.rvtag, cb.checked); refreshReviewer(); }));
-$("btnRvFilterToggle").addEventListener("click", () => {
-  const b = $("rvFilterBox"); b.style.display = b.style.display === "none" ? "block" : "none";
-});
-$("btnRvAll").addEventListener("click", () => { reviewerHiddenSubjects.clear(); refreshReviewer(); });
-$("btnRvNone").addEventListener("click", () => {
-  reviewerHiddenSubjects = new Set(collectReviewerAttempts().map(a => a.source_list || "Unknown"));
-  refreshReviewer();
-});
 
 /* =====================================================================
    Flashcards: topic groups, interleaving, spaced repetition, decks
@@ -8524,13 +8929,108 @@ function fcAttachGroups(cards) {
   cards.forEach(c => { c.group = map.get(c.subject) || c.subject; });
   return cards;
 }
-function fcReviewerPool() {
+/* ---------- Concept flashcards: one card per concept (Front / Back / Trap) ---------- */
+function conceptStats() {
+  const m = new Map();
+  for (const it of collectTagItems(null)) {
+    if (!it.conceptId) continue;
+    const o = m.get(it.conceptId) || { open: 0, total: 0, needs: new Set(), subjects: new Set() };
+    o.total++; if (!it.resolved) o.open++;
+    if (it.tax) o.needs.add(it.tax.need);
+    o.subjects.add(it.subject);
+    m.set(it.conceptId, o);
+  }
+  return m;
+}
+function fcConceptPool() {
   if (!fcPrefs().useReviewer) return [];
-  const on = getRvTagPrefs(), rank = { overconf: 0, guess: 1, slight: 2 };
-  return buildReviewerGroups(scopedReviewerAttempts()).filter(g => (g.primary && on[g.primary]) || (g.flagged && on.flagged)).map(g => ({
-    key: "rv::" + g.key, kind: "rv", subject: g.source_list || "Unknown", g,
-    front: g.attempts[0].question || "(question text unavailable)", prio: g.primary ? rank[g.primary] : 3,
-  }));
+  const scope = getScopeSubjects(), scopeSet = scope ? new Set(scope) : null, stats = conceptStats(), out = [];
+  for (const c of loadConcepts()) {
+    if (!(c.back || "").trim()) continue;          // a card needs its explanation
+    const st = stats.get(c.id), subs = new Set((st ? Array.from(st.subjects) : []).concat(c.subject ? [c.subject] : []));
+    if (scopeSet && !Array.from(subs).some(s => scopeSet.has(s))) continue;
+    const subject = (scopeSet ? Array.from(subs).find(s => scopeSet.has(s)) : null) || c.subject || Array.from(subs)[0] || "General";
+    out.push({ key: "cn::" + c.id, kind: "concept", subject, concept: c, front: (c.front || "").trim() || c.name, prio: st && st.open ? 0 : 1, ord: -(st ? st.open : 0) });
+  }
+  return out;
+}
+function fcReviewerPool() { return fcConceptPool(); }
+function fcConceptChip(c) {
+  const st = conceptStats().get(c.concept.id);
+  const needs = st ? NEED_ORDER.filter(n => st.needs.has(n)).map(n => `<span class="fc-chip">${NEED_INFO[n].icon} ${esc(NEED_INFO[n].label.replace("Needs ", ""))}</span>`).join("") : "";
+  return `<span class="fc-chip">${esc(c.concept.name)}</span>${needs}`;
+}
+function fcConceptFront(c, flipped) {
+  const cn = c.concept, st = conceptStats().get(cn.id);
+  let h = `<div class="fc-label">Recall</div><div class="fc-text">${esc(c.front)}</div>`;
+  if (!flipped) return h + `<div class="hint" style="margin-top:18px;">Say the explanation and the trap out loud, then tap to reveal.</div>`;
+  h += `<div class="fc-sep"></div><div class="fc-label">Back</div><div class="fc-text">${esc(cn.back)}</div>`;
+  if ((cn.trap || "").trim()) h += `<div class="rv-note" style="margin-top:10px;border-left:3px solid var(--red);"><b style="color:var(--red);">Trap</b><br>${esc(cn.trap)}</div>`;
+  if (st && st.open) h += `<div class="hint" style="margin-top:10px;">${st.open} open question${st.open === 1 ? "" : "s"} tagged with this concept.</div>`;
+  return h;
+}
+let fcEditConcept = null, fcConceptFilter = "all", fcConceptQuery = "";
+function fcRenderConcepts() {
+  const box = $("fcPaneConcepts");
+  if (fcEditConcept) { fcRenderConceptForm(box); return; }
+  const concepts = loadConcepts().slice().sort((a, b) => a.name.localeCompare(b.name)), stats = conceptStats(), srs = fcLoadSrs(), today = fcToday();
+  const ready = c => !!(c.back || "").trim();
+  const due = c => ready(c) && (!srs["cn::" + c.id] || fcDueOf(srs["cn::" + c.id], null) <= today);
+  const q = fcConceptQuery.trim().toLowerCase();
+  const shown = concepts.filter(c => (fcConceptFilter === "all" || (fcConceptFilter === "ready" && ready(c)) || (fcConceptFilter === "missing" && !ready(c)) || (fcConceptFilter === "due" && due(c))) && (!q || c.name.toLowerCase().includes(q)));
+  const chip = (k, t) => `<button class="lg-chip${fcConceptFilter === k ? " on" : ""}" data-cf="${k}">${t}</button>`;
+  box.innerHTML = `<div class="card"><h3>Concept cards <span class="count">(${concepts.length})</span></h3>
+      <p class="hint" style="margin-bottom:8px;">One card per concept: <b>Front</b> = the concept to recall, <b>Back</b> = the explanation, <b>Trap</b> = what to watch out for. Concepts are created while tagging mistakes; you can also add them here.</p>
+      <div class="row wrap" style="gap:6px;margin-bottom:8px;"><button class="btn primary" data-cnew="1">\uFF0B New concept</button></div>
+      <input type="text" id="fcCnSearch" placeholder="Search concepts&hellip;" value="${esc(fcConceptQuery)}" style="margin-bottom:8px;">
+      <div class="row wrap" style="gap:6px;">${chip("all", "All")}${chip("ready", "Has a card")}${chip("missing", "Needs card text")}${chip("due", "Due / new")}</div></div>
+    <div id="fcCnList"></div>`;
+  const list = $("fcCnList");
+  if (!shown.length) list.appendChild(el("div", "empty-state", concepts.length ? "No concepts match." : "No concepts yet. Add one when you tag a mistake, or tap \uFF0B New concept."));
+  for (const c of shown) {
+    const st = stats.get(c.id), cs = conceptCardState(c);
+    const it = el("div", "list-item selectable " + cs.cls);
+    it.innerHTML = `<div class="top-row"><span class="name">${esc(c.name)}</span><span class="status-pill ${cs.cls}">${esc(cs.label)}</span></div>
+      <div class="meta">${esc(c.subject ? fcCleanName(c.subject) : "General")} &middot; ${st ? `${st.open} open / ${st.total} tagged` : "no tagged questions"}</div>
+      ${ready(c) ? `<div class="meta" style="color:var(--ink);">${esc((c.back || "").slice(0, 110))}</div>` : `<div class="hint">Add the explanation (Back) to turn this into a card.</div>`}`;
+    it.addEventListener("click", () => { fcEditConcept = c.id; fcRenderConcepts(); });
+    list.appendChild(it);
+  }
+  box.onclick = (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    if (b.dataset.cnew) { fcEditConcept = "new"; fcRenderConcepts(); }
+    else if (b.dataset.cf) { fcConceptFilter = b.dataset.cf; fcRenderConcepts(); }
+  };
+  $("fcCnSearch").oninput = (e) => { fcConceptQuery = e.target.value; const pos = e.target.selectionStart; fcRenderConcepts(); const s = $("fcCnSearch"); s.focus(); s.setSelectionRange(pos, pos); };
+}
+function fcRenderConceptForm(box) {
+  const isNew = fcEditConcept === "new", c = isNew ? { name: "", subject: "", front: "", back: "", trap: "" } : findConcept(fcEditConcept);
+  if (!c) { fcEditConcept = null; fcRenderConcepts(); return; }
+  const subs = Array.from(new Set(fcAllSubjects().concat(c.subject ? [c.subject] : []))).sort((a, b) => fcCleanName(a).localeCompare(fcCleanName(b)));
+  const st = isNew ? null : conceptStats().get(c.id);
+  box.innerHTML = `<div class="card"><h3>${isNew ? "New concept" : "Edit concept"}</h3>
+      <label class="field-label">Concept name <span class="hint">(the dropdown option you tag with)</span></label><input type="text" id="cnName" value="${esc(c.name)}">
+      <label class="field-label">Subject</label><select id="cnSubject"><option value="">General</option>${subs.map(s => `<option value="${esc(s)}"${s === c.subject ? " selected" : ""}>${esc(fcCleanName(s))}</option>`).join("")}</select>
+      <label class="field-label">Front <span class="hint">(the concept to recall; defaults to the name)</span></label><textarea id="cnFront" rows="2">${esc(c.front || "")}</textarea>
+      <label class="field-label">Back <span class="hint">(the explanation)</span></label><textarea id="cnBack" rows="4">${esc(c.back || "")}</textarea>
+      <label class="field-label">Trap <span class="hint">(side notes to watch out for)</span></label><textarea id="cnTrap" rows="3">${esc(c.trap || "")}</textarea>
+      ${st ? `<p class="hint" style="margin-top:6px;">${st.open} open / ${st.total} tagged questions use this concept.</p>` : ""}
+      <div class="row wrap" style="margin-top:10px;gap:6px;"><button class="btn primary" data-cn="save">Save</button><button class="btn" data-cn="cancel">Back to list</button>${isNew ? "" : `<button class="btn" data-cn="review">Review now</button><button class="btn danger" data-cn="delete">Delete</button>`}</div></div>`;
+  box.onclick = (e) => {
+    const b = e.target.closest("button[data-cn]"); if (!b) return;
+    const a = b.dataset.cn;
+    if (a === "cancel") { fcEditConcept = null; fcRenderConcepts(); return; }
+    if (a === "delete") { if (!confirmDialog(`Delete the concept "${c.name}"? Tagged questions keep their action tag but lose this concept.`)) return; deleteConcept(c.id); fcEditConcept = null; toast("Concept deleted."); fcRenderConcepts(); return; }
+    const vals = { name: $("cnName").value.trim(), subject: $("cnSubject").value, front: $("cnFront").value.trim(), back: $("cnBack").value.trim(), trap: $("cnTrap").value.trim() };
+    if (!vals.name) { toast("Give the concept a name."); return; }
+    const dup = loadConcepts().find(x => x.name.toLowerCase() === vals.name.toLowerCase() && x.id !== (isNew ? "" : c.id));
+    if (dup) { toast("A concept with that name already exists."); return; }
+    let id = c.id;
+    if (isNew) { const n = addConcept(vals.name, vals.subject); id = n.id; }
+    updateConcept(id, vals);
+    if (a === "review") { if (!vals.back) { toast("Write the explanation first."); return; } const card = fcConceptPool().find(x => x.concept.id === id); if (card) { fcAttachGroups([card]); card.cap = fcCapFor(card.subject); fcStart([card]); } return; }
+    toast("Concept saved."); fcEditConcept = null; fcRenderConcepts();
+  };
 }
 function fcDeckPool(onlyId) {
   const out = [];
@@ -8598,11 +9098,11 @@ function fcRender() {
   const c = s.cards[s.i], col = fcGroupColor(c.group), srs = fcLoadSrs()[c.key];
   $("fcCount").textContent = `${s.done}/${s.total}`;
   $("fcBar").style.width = Math.round(s.done / s.total * 100) + "%";
-  const tag = c.kind === "rv" ? `<span class="fc-chip">${esc(FC_TAG_NAMES[c.g.primary] || "Flagged")}</span>` : `<span class="fc-chip">Deck: ${esc(c.deckName)}</span>`;
+  const tag = c.kind === "concept" ? fcConceptChip(c) : c.kind === "rv" ? `<span class="fc-chip">${esc(FC_TAG_NAMES[c.g.primary] || "Flagged")}</span>` : `<span class="fc-chip">Deck: ${esc(c.deckName)}</span>`;
   $("fcChips").innerHTML = `<span class="fc-chip group" style="background:${col};border-color:${col};">${esc(c.group)}</span><span class="fc-chip">${esc(c.subject)}</span>${tag}${c.leech ? `<span class="fc-chip" style="color:var(--red);border-color:#F3C6C6;">Leech</span>` : ""}`;
   const up = s.cards.slice(s.i + 1, s.i + 9).map(x => `<span class="fc-dot" style="background:${fcGroupColor(x.group)}" title="${esc(x.subject)}"></span>`).join("");
   $("fcNext").innerHTML = up ? `Up next ${up}` : "Last card";
-  $("fcCard").innerHTML = `<div class="fc-label">Question</div><div class="fc-text">${esc(c.front)}</div><div style="margin-top:8px;">${qsMiniBtn(c.kind === "rv" ? qsCtx(c.g.source_list, c.g.reference_no, c.front, c.g.attempts[0].your_answer, c.g.attempts[0].correct_answer) : { question: c.front, your: "", correct: c.back })} <span class="hint">search</span></div>` +
+  $("fcCard").innerHTML = c.kind === "concept" ? fcConceptFront(c, s.flipped) : `<div class="fc-label">Question</div><div class="fc-text">${esc(c.front)}</div><div style="margin-top:8px;">${qsMiniBtn(c.kind === "rv" ? qsCtx(c.g.source_list, c.g.reference_no, c.front, c.g.attempts[0].your_answer, c.g.attempts[0].correct_answer) : { question: c.front, your: "", correct: c.back })} <span class="hint">search</span></div>` +
     (s.flipped ? `<div class="fc-sep"></div><div class="fc-label">Answer</div>${fcBackHtml(c)}` : `<div class="hint" style="margin-top:18px;">Try to recall the answer, then tap to reveal.</div>`);
   $("fcActions").innerHTML = s.flipped
     ? ["Again", "Hard", "Good", "Easy"].map((n, g) => `<button class="g${g}" data-fcg="${g}">${n}<small>${fcFmtInt(fcNextInterval(srs, g, c.cap))}</small></button>`).join("")
@@ -8669,34 +9169,13 @@ function fcGroupStats(pool) {
   }
   return out;
 }
-function renderReviewerFocus() {
-  const box = $("rvFocusBox"); if (!box) return;
-  const q = fcBuildQueue({}), c = q.counts, n = q.cards.length;
-  const stats = fcGroupStats(q.pool);
-  const chips = Array.from(stats.entries()).sort((a, b) => (b[1].due + b[1].fresh) - (a[1].due + a[1].fresh)).map(([g, o]) =>
-    `<button class="btn" data-fcgroup="${esc(g)}" style="border-left:4px solid ${fcGroupColor(g)};">${esc(g)} <span style="color:var(--sub);">${o.subjects.size > 1 ? o.subjects.size + " subjects \u00b7 " : ""}${o.due} due \u00b7 ${o.fresh} new</span></button>`).join("");
-  const preview = q.cards.slice(0, 14).map(x => `<span class="fc-dot" style="background:${fcGroupColor(x.group)}" title="${esc(x.subject)}"></span>`).join("");
-  box.innerHTML = fcFinalBanner() + `<div class="fc-stats"><div class="fc-stat"><b>${c.due}</b><span>due</span></div><div class="fc-stat"><b>${Math.min(c.newAllowed, c.fresh)}</b><span>new today</span></div><div class="fc-stat"><b>${q.pool.length}</b><span>cards total</span></div></div>` +
-    (n ? `<button class="btn primary block" data-fcstart="1">Start review &middot; ${n} card${n === 1 ? "" : "s"} ${n ? "\u25B6" : ""}</button>${preview ? `<div class="fc-next" style="padding:6px 0 0;">Order preview ${preview}<span style="margin-left:4px;">(colour = topic group)</span></div>` : ""}`
-      : `<div class="empty-state">${q.pool.length ? "Nothing due right now." : "No cards yet. Take a test, or create a deck in the Flashcards tab."}</div>${c.later ? `<button class="btn block" data-fcahead="1">Practice ahead &middot; ${c.later} not yet due</button>` : ""}`) +
-    `<div class="field-label" style="margin-top:12px;">Study order</div>${fcModeSelect("rvFcMode")}` +
-    (chips ? `<div class="field-label" style="margin-top:12px;">Or focus on one topic group <span class="hint">(subjects whose names start the same are grouped)</span></div><div class="row wrap" style="gap:6px;">${chips}</div>` : "");
-  box.onclick = (e) => {
-    const b = e.target.closest("button"); if (!b) return;
-    if (b.dataset.fcstart) fcStart(fcBuildQueue({}).cards);
-    else if (b.dataset.fcahead) fcStart(fcBuildQueue({ ahead: true }).cards);
-    else if (b.dataset.fcgroup) fcStart(fcBuildQueue({ onlyGroup: b.dataset.fcgroup }).cards);
-  };
-  const sel = $("rvFcMode"); if (sel) sel.onchange = () => { fcSetPref("mode", sel.value); fcRefreshAll(); };
-}
-
 /* ---------- Flashcards tab ---------- */
 let fcPane = "today", fcDeckSel = null, fcEditId = null;
 function refreshFlashcards() {
   renderExamScopeSelects();
   document.querySelectorAll("#fcSeg button").forEach(b => b.classList.toggle("active", b.dataset.fcp === fcPane));
-  ["today", "decks", "groups"].forEach(p => { $("fcPane" + p[0].toUpperCase() + p.slice(1)).style.display = p === fcPane ? "" : "none"; });
-  if (fcPane === "today") fcRenderToday(); else if (fcPane === "decks") fcRenderDecks(); else fcRenderGroups();
+  ["today", "concepts", "decks"].forEach(p => { $("fcPane" + p[0].toUpperCase() + p.slice(1)).style.display = p === fcPane ? "" : "none"; });
+  if (fcPane === "today") fcRenderToday(); else if (fcPane === "decks") fcRenderDecks(); else fcRenderConcepts();
 }
 $("fcSeg").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; fcPane = b.dataset.fcp; refreshFlashcards(); });
 
@@ -8719,8 +9198,8 @@ function fcRenderToday() {
       <label class="field-label">Study order</label>${fcModeSelect("fcModeSel")}
       <label class="field-label" style="margin-top:8px;">Final-weeks mode</label>
       <div class="row wrap" style="gap:8px;"><select id="fcFinalSel"><option value="auto"${p.finalMode === "auto" ? " selected" : ""}>Automatic: start near the exam</option><option value="on"${p.finalMode === "on" ? " selected" : ""}>Always on</option><option value="off"${p.finalMode === "off" ? " selected" : ""}>Off</option></select><label>Starts within <input type="number" id="fcFinalDays" min="3" max="60" value="${p.finalDays}" style="width:60px;"> days</label></div>
-      <div class="row wrap" style="gap:14px;margin-top:8px;"><label class="row" style="flex:none;gap:6px;"><input type="checkbox" id="fcUseRv" ${p.useReviewer ? "checked" : ""}><span>Reviewer questions (misses, guesses, flags)</span></label><label class="row" style="flex:none;gap:6px;"><input type="checkbox" id="fcUseDecks" ${p.useDecks ? "checked" : ""}><span>Decks set to auto-schedule</span></label></div>
-      <p class="hint" style="margin-top:8px;">Gaps between reviews never exceed a third of the days left to the exam. Overdue cards come first, then new cards (confident-but-wrong, then guesses, then slightly confident, then deck cards) up to your daily limits. The session is then interleaved so related topics alternate instead of being drilled in blocks, and answers set each card's next review date (Again = back today, Hard / Good / Easy = longer gaps).</p></div>
+      <div class="row wrap" style="gap:14px;margin-top:8px;"><label class="row" style="flex:none;gap:6px;"><input type="checkbox" id="fcUseRv" ${p.useReviewer ? "checked" : ""}><span>Concept cards (from your tagged questions)</span></label><label class="row" style="flex:none;gap:6px;"><input type="checkbox" id="fcUseDecks" ${p.useDecks ? "checked" : ""}><span>Decks set to auto-schedule</span></label></div>
+      <p class="hint" style="margin-top:8px;">Gaps between reviews never exceed a third of the days left to the exam. Overdue cards come first, then new cards (concepts with the most open tagged questions first, then deck cards) up to your daily limits. The session is then interleaved so related topics alternate instead of being drilled in blocks, and answers set each card's next review date (Again = back today, Hard / Good / Easy = longer gaps).</p></div>
     <div class="card"><h3>What's in today's mix</h3>${mixRows ? `<div class="table-wrap"><table class="data-table"><tr><th>Group</th><th>Subject</th><th>Cards</th></tr>${mixRows}</table></div>` : `<div class="empty-state">Nothing scheduled.</div>`}</div>
     <div class="card"><h3>Next 7 days</h3><div class="fc-fcast">${days.map((d, i) => `<div><span>${d.n}</span><i style="height:${Math.round(d.n / mx * 48)}px"></i>${i === 0 ? "Today" : new Date(d.d + "T00:00:00").toLocaleDateString(undefined, { weekday: "short" })}</div>`).join("")}</div><p class="hint" style="margin-top:6px;">Cards already in the schedule only; new cards are added as you go.</p></div>`;
   box.onclick = (e) => { const b = e.target.closest("button"); if (!b) return; if (b.dataset.fcstart) fcStart(fcBuildQueue({}).cards); else if (b.dataset.fcahead) fcStart(fcBuildQueue({ ahead: true }).cards); };
@@ -8731,24 +9210,6 @@ function fcRenderToday() {
   $("fcUseDecks").addEventListener("change", () => { fcSetPref("useDecks", $("fcUseDecks").checked); refreshFlashcards(); });
   $("fcFinalSel").addEventListener("change", () => { fcSetPref("finalMode", $("fcFinalSel").value); refreshFlashcards(); });
   $("fcFinalDays").addEventListener("change", () => { fcSetPref("finalDays", Math.min(60, Math.max(3, parseInt($("fcFinalDays").value, 10) || 14))); refreshFlashcards(); });
-}
-
-function fcRenderGroups() {
-  const box = $("fcPaneGroups"), p = fcPrefs();
-  const subjects = fcAllSubjects(), map = fcGroupMap(subjects, p.groupN);
-  const pool = fcAttachGroups(fcReviewerPool().concat(fcDeckPool()));
-  const cnt = {}; pool.forEach(c => cnt[c.subject] = (cnt[c.subject] || 0) + 1);
-  const groups = new Map();
-  subjects.forEach(s => { const g = map.get(s); if (!groups.has(g)) groups.set(g, []); groups.get(g).push(s); });
-  const rows = Array.from(groups.entries()).map(([g, subs]) => ({ g, subs, n: subs.reduce((a, s) => a + (cnt[s] || 0), 0) })).sort((a, b) => (b.n - a.n) || (b.subs.length - a.subs.length) || a.g.localeCompare(b.g));
-  box.innerHTML = `<div class="card"><h3>Topic groups</h3>
-      <p class="hint" style="margin-bottom:8px;">Subjects whose names start with the same characters are treated as one topic family (for example <i>ESAS - Thermodynamics</i> and <i>ESAS - Fluids</i>). Interleaving then alternates between subjects in a family, which is where mixing similar material helps the most, and rotates between families.</p>
-      <div class="row wrap" style="gap:10px;"><label>Group by <select id="fcGroupMode"><option value="0"${p.groupN === 0 ? " selected" : ""}>Auto-detect the shared start</option><option value="n"${p.groupN > 0 ? " selected" : ""}>First N characters</option></select></label>
-      <label id="fcGroupNWrap" style="${p.groupN > 0 ? "" : "display:none;"}">N <input type="number" id="fcGroupN" min="1" max="20" value="${p.groupN || 4}" style="width:64px;"></label></div></div>
-    <div class="card"><h3>Detected groups <span class="count">(${rows.length})</span></h3>${rows.map(r => `<div class="list-item" style="border-left:4px solid ${fcGroupColor(r.g)};"><div class="top-row"><span class="name">${esc(r.g)}</span><span class="meta">${r.subs.length} subject${r.subs.length === 1 ? "" : "s"} &middot; ${r.n} card${r.n === 1 ? "" : "s"}</span></div><div class="meta" style="margin-top:4px;">${r.subs.slice().sort().map(esc).join(" &middot; ")}</div></div>`).join("") || `<div class="empty-state">No subjects yet.</div>`}</div>`;
-  const apply = () => { const m = $("fcGroupMode").value; fcSetPref("groupN", m === "n" ? Math.max(1, parseInt($("fcGroupN").value, 10) || 4) : 0); refreshFlashcards(); };
-  $("fcGroupMode").addEventListener("change", apply);
-  $("fcGroupN").addEventListener("change", apply);
 }
 
 /* ---------- Decks ---------- */
@@ -9263,6 +9724,7 @@ function migrateMistakeLogIfNeeded() {
 
 (function init() {
   migrateMistakeLogIfNeeded();
+  migrateTaxonomyIfNeeded();
   refreshHome();
   refreshListsDisplay();
   refreshSavedSamplesList();
@@ -9587,14 +10049,21 @@ function ttsClean(s) {
 function ttsEnd(s) { return s && !/[.!?]$/.test(s) ? s + "." : s; }
 function ttsEntryText(e, P) {
   const occ = (e.occurrences || []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || "")), latest = occ[occ.length - 1] || {}, out = [];
-  out.push(ttsEnd(`Reference number ${ttsClean(e.reference_no)}${e.category ? ". Category: " + ttsClean(e.category) : ""}`));
+  const t = taxInfo(e.category), cn = findConcept(e.concept_id);
+  out.push(ttsEnd(`Reference number ${ttsClean(e.reference_no)}${e.category ? ". " + ttsClean(normCategory(e.category)) : ""}`));
+  if (t) out.push(ttsEnd(NEED_INFO[t.need].label + ": " + t.action));
+  if (cn) out.push(ttsEnd("Concept: " + ttsClean(cn.name)));
   if (occ.length > 1) out.push(`You have missed this ${occ.length} times.`);
   if (P.q && e.question) out.push(ttsEnd("Question: " + ttsClean(e.question)));
   if (P.a) {
     out.push(ttsEnd("Your answer: " + (ttsClean(latest.your_answer) || "none")));
     out.push(ttsEnd("Correct answer: " + (ttsClean(latest.correct_answer) || "unknown")));
   }
-  if (P.n) out.push(e.note && ttsClean(e.note) ? ttsEnd("Notes: " + ttsClean(e.note)) : "No notes yet.");
+  if (P.n) {
+    if (cn && ttsClean(cn.back)) out.push(ttsEnd("Explanation: " + ttsClean(cn.back)));
+    if (cn && ttsClean(cn.trap)) out.push(ttsEnd("Trap: " + ttsClean(cn.trap)));
+    if (e.note && ttsClean(e.note)) out.push(ttsEnd("Notes: " + ttsClean(e.note)));
+  }
   return out.join(" ");
 }
 // Long utterances get cut off by some browsers, so speak in short pieces.
@@ -9696,11 +10165,13 @@ function ttsVisibleIds() { return Array.from(document.querySelectorAll("#allMist
   const b = $("btnReadMistakeEdit"); if (!b) return;
   b.addEventListener("click", () => {
     if (!TTS.ok) { toast("Read-aloud isn't supported in this browser."); return; }
-    const lbl = ttsClean($("mistakeQuestionLbl").textContent), note = ttsClean($("mistakeNoteInput").value), P = ttsPrefs();
-    if (!selectedMistakeRow) { toast("Tap a mistake above first."); return; }
-    const txt = ttsEnd(lbl.replace(/\s*\|\s*/g, ". ")) + (P.n ? (note ? " " + ttsEnd("Your note: " + note) : " No note yet.") : "");
+    if (!selectedMistakeRow) { toast("Tap an item above first."); return; }
+    const P = ttsPrefs(), cat = $("tagCategory").value, t = taxInfo(cat), cn = findConcept($("tagConcept").value);
+    let txt = ttsEnd(ttsClean($("mistakeQuestionLbl").textContent).replace(/\s*\|\s*/g, ". "));
+    if (t) txt += " " + ttsEnd(NEED_INFO[t.need].label + ": " + t.action);
+    if (cn) { txt += " " + ttsEnd("Concept: " + ttsClean(cn.name)); if (P.n) { if (ttsClean(cn.back)) txt += " " + ttsEnd("Explanation: " + ttsClean(cn.back)); if (ttsClean(cn.trap)) txt += " " + ttsEnd("Trap: " + ttsClean(cn.trap)); } }
     ttsCancel(); TTS.ids = []; TTS.idx = -1; TTS.curId = null; TTS.state = "idle"; ttsMark();
-    const tok = TTS.token, ch = ttsChunks(txt), v = ttsVoices().find(x => x.name === P.voice);
+    const ch = ttsChunks(txt), v = ttsVoices().find(x => x.name === P.voice);
     ch.forEach(c => { const u = new SpeechSynthesisUtterance(c); if (v) { u.voice = v; u.lang = v.lang; } u.rate = Number(P.rate) || 1; window.speechSynthesis.speak(u); });
   });
 })();
