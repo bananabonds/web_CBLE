@@ -90062,10 +90062,10 @@
       "source_list": "D3_L2_Process_Control_Analysis",
       "reference_no": 30,
       "question": "A control valve must control the inlet flow of cooling water to a cooling jacket on an exothermic chemical reactor: We should select",
-      "category": "",
+      "category": "Conceptual Misunderstanding",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-17T11:56:22",
+      "date_logged": "2026-10-18T07:34:58",
       "occurrences": [
         {
           "exam_id": "1792238182227873",
@@ -90075,7 +90075,8 @@
           "correct_answer": "A. Air to close valve"
         }
       ],
-      "updated_at": "2026-10-17T11:56:22"
+      "updated_at": "2026-10-18T07:34:58",
+      "concept_id": "1792308897198497"
     },
     {
       "id": "1792238182272245",
@@ -91814,6 +91815,17 @@
       "progress": {},
       "created_at": "2026-10-18T07:33:40",
       "updated_at": "2026-10-18T07:33:40"
+    },
+    {
+      "id": "1792308897198497",
+      "name": "Valves",
+      "subject": "D3_L2_Process_Control_Analysis",
+      "front": "",
+      "back": "",
+      "trap": "",
+      "progress": {},
+      "created_at": "2026-10-18T07:34:57",
+      "updated_at": "2026-10-18T07:34:57"
     }
   ],
   "shaky_tags": [
@@ -92065,5 +92077,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T07:34:23"
+  "updated_at": "2026-10-18T07:35:05"
 }
