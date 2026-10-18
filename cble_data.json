@@ -91863,6 +91863,17 @@
       "progress": {},
       "created_at": "2026-10-18T07:37:57",
       "updated_at": "2026-10-18T07:37:57"
+    },
+    {
+      "id": "1792309142350928",
+      "name": "Process Response",
+      "subject": "D3_L2_Process_Control_Analysis",
+      "front": "",
+      "back": "",
+      "trap": "",
+      "progress": {},
+      "created_at": "2026-10-18T07:39:02",
+      "updated_at": "2026-10-18T07:39:02"
     }
   ],
   "shaky_tags": [
@@ -92090,6 +92101,21 @@
       "category": "Unfamiliar Topic",
       "concept_id": "1792308764846840",
       "updated_at": "2026-10-18T07:32:45"
+    },
+    {
+      "id": "1792309145392913",
+      "source_list": "D3_L2_Process_Control_Analysis",
+      "reference_no": 42,
+      "resolved": false,
+      "created_at": "2026-10-18T07:39:05",
+      "question": "An underdamped second-order process responds to a step input. The final steady-state value (b) is 10 units above the initial value. The output first overshoots to a peak of 14.5 units above the initial value, then undershoots, then reaches a second peak at 10.8 units above the initial value. What are the overshoot (OS) and decay ratio (DR)?",
+      "correct_answer": "A. OS = 0.45, DR = 0.18",
+      "kind": "guess",
+      "exam_id": "1792238182227873",
+      "exam_source": "D3_S3",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792309142350928",
+      "updated_at": "2026-10-18T07:39:05"
     }
   ],
   "checklist": [],
@@ -92114,5 +92140,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T07:38:57"
+  "updated_at": "2026-10-18T07:39:12"
 }
