@@ -41360,6 +41360,15 @@
       "pct": 58,
       "date": "2026-10-17T18:59:01",
       "time_used_seconds": 10583.2
+    },
+    {
+      "id": "1792331310365206",
+      "source": "D1_S8",
+      "score": 29,
+      "total": 50,
+      "pct": 58,
+      "date": "2026-10-18T13:48:30",
+      "time_used_seconds": 3611.6
     }
   ],
   "exam_details": [
@@ -79619,6 +79628,563 @@
           "correct_answer": "D. 60%"
         }
       ]
+    },
+    {
+      "exam_id": "1792331310365206",
+      "source": "D1_S8",
+      "date": "2026-10-18T13:48:30",
+      "items": [
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 51,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is a common indicator of chemical instability?",
+          "your_answer": "B. Violent decomposition when heated",
+          "correct_answer": "B. Violent decomposition when heated"
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 50,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Starting with one molecule of glucose, the net products of glycolysis are",
+          "your_answer": "B. 2 NADH, 2 H+, 2 pyruvate, 2 ATP, and 2 H2O.",
+          "correct_answer": "B. 2 NADH, 2 H+, 2 pyruvate, 2 ATP, and 2 H2O."
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 6,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Water (surface tension = 0.072 N/m) rises in a capillary tube of radius 1.5 mm. Assuming a contact angle of 0, what is the height of rise?",
+          "your_answer": "B. 6.5 mm",
+          "correct_answer": "C. 9.8 mm"
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 101,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "E. coli and Salmonella belong to what phylum of bacteria?",
+          "your_answer": "B. actinobacteria",
+          "correct_answer": "A. proteobacteria"
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 33,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following enzymes adds complementary bases during replication?",
+          "your_answer": "D. Polymerase",
+          "correct_answer": "D. Polymerase"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 72,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "On the multi-colored chemical label, Blue represents",
+          "your_answer": "A. Health hazard",
+          "correct_answer": "A. Health hazard"
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 44,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The vapor pressure of solid CO2 is 76.7 mmHg at -103 u02daC and its normal sublimation point is -78.5 u02daC. What is the heat of sublimation of CO2 in cal/mol at its normal sublimation point?",
+          "your_answer": "C. 6610",
+          "correct_answer": "B. 6160"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 32,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following compounds is achiral?",
+          "your_answer": "D. 1,4-dibromobutane",
+          "correct_answer": "D. 1,4-dibromobutane"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 57,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which of the following conditions increases the risk of static discharge igniting flammable vapors?",
+          "your_answer": "A. Low humidity",
+          "correct_answer": "A. Low humidity"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 68,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which element was first used in the experimental discovery of the Bose-Einstein Condensate (BEC) in 1995?",
+          "your_answer": "A. Helium (He)",
+          "correct_answer": "C. Rubidium (Rb)"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 88,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which gas is excluded when calculating carbon dioxide equivalent (CO2e)?",
+          "your_answer": "B. O3",
+          "correct_answer": "B. O3"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 70,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "What is the purpose of aeration in water treatment?",
+          "your_answer": "B. Oxidation of iron and manganese",
+          "correct_answer": "B. Oxidation of iron and manganese"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "It is defined as the smallest repeating structure in a crystal.",
+          "your_answer": "D. unit cell",
+          "correct_answer": "D. unit cell"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 72,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Isobutyl alcohol can be produced from isobutene through what reaction?",
+          "your_answer": "D. all of these",
+          "correct_answer": "C. hydroboration/oxidation"
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 46,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Which of the following is not a type of post-translational modification?",
+          "your_answer": "A. Proteolysis",
+          "correct_answer": "B. Protein folding"
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 65,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Which of the following represents the complete chemical reaction for the two stages of glycerol metabolism?",
+          "your_answer": "C. Glycerol-3-phosphate + NADH + H+ u2192 Glycerol + ADP + Pi",
+          "correct_answer": "B. Glycerol + NAD+ + ATP u2192 DHAP + NADH + H+ + ADP"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The tetragonal crystal system is characterized by:",
+          "your_answer": "A. a = b ≠ c, α = β = γ = 90°",
+          "correct_answer": "A. a = b ≠ c, α = β = γ = 90°"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 1,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "It is known as Water Quality Guidelines and General Effluent Standards of 2016.",
+          "your_answer": "C. RA 9275",
+          "correct_answer": "D. DAO No. 2016-08"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 109,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The primary environmental impact of urban sprawl is:",
+          "your_answer": "A. Decreased air quality due to increased vehicle emissions",
+          "correct_answer": "A. Decreased air quality due to increased vehicle emissions"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 39,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "For numbers 35 to 39: The analysis of a sample of water with pH 7.5 has produced the following concentrations (mg/L). Cations: Cau00b2u207a 80, Mgu00b2u207a 30, Nau207a 72, Ku207a 6. Anions: HCO3u207b 165, Clu207b 100, SO4u00b2u207b 201, find the total dissolved solids (TDS) in mg/L.",
+          "your_answer": "A. 650",
+          "correct_answer": "A. 650"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 97,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What is a typical emission factor used for calculating CO2 from diesel combustion?",
+          "your_answer": "C. 4.2 kg CO2/L",
+          "correct_answer": "B. 2.68 kg CO2/L"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 79,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A 2 kg metal block is heated, increasing its temperature from 25°C to 75°C. The specific heat capacity of the metal is 104.5 J/kg-K. What is the amount of heat energy absorbed by the metal?",
+          "your_answer": "C. 10450 J",
+          "correct_answer": "C. 10450 J"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 96,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Emissions from leased buildings are typically categorized under:",
+          "your_answer": "B. Scope 2",
+          "correct_answer": "C. Scope 3"
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 49,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "In a process involving osmosis, at equilibrium, the chemical potential of the pure solvent side should be _____ the chemical potential of the side with solute.",
+          "your_answer": "A. Less than",
+          "correct_answer": "C. Equal to"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 53,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Ecological Solid Waste Act of 2000 is otherwise known as",
+          "your_answer": "C. RA 9003",
+          "correct_answer": "C. RA 9003"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 29,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which greenhouse gas is the basis gas for the global warming potential, generally emitted via the burning of fossil fuels and waste and can be removed from the atmosphere via the carbon cycle?",
+          "your_answer": "A. Carbon dioxide",
+          "correct_answer": "A. Carbon dioxide"
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 43,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The normal boiling point of Br2 is 58.8 u02daC, and its vapor pressure at 25 u02daC is 0.287 bar. Estimate the average u0394HVAP in kJ/mol of Br2 in this temperature range.",
+          "your_answer": "B. 31",
+          "correct_answer": "B. 31"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 76,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following reagents will not yield an alcohol from an alkene?",
+          "your_answer": "B. Br₂/H₂O",
+          "correct_answer": "D. KOH/CH₃CH₂OH"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 38,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "The line defect that represents a row of misplaced atoms in a crystal lattice is known as a:",
+          "your_answer": "C. Dislocation",
+          "correct_answer": "C. Dislocation"
+        },
+        {
+          "source_list": "D1_L2_Environmental_EngSci",
+          "reference_no": 47,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Removal of all settleable particles rendered settleable under the influence of gravity, basically the theory of gravity under the influence of which all particles heavier than water tend to settle down.",
+          "your_answer": "C. sedimentation",
+          "correct_answer": "C. sedimentation"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which industrial process consumes the most energy in kilowatt- hours?",
+          "your_answer": "C. Chemical manufacturing",
+          "correct_answer": "C. Chemical manufacturing"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 45,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What type of reaction happens over time after repeated contact with the hazardous chemical?",
+          "your_answer": "A. Chronic",
+          "correct_answer": "A. Chronic"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 23,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "This refers to the waste heat generated by industrial processes which lead to excess heating of water bodies beyond the typical seasonal temperatures?",
+          "your_answer": "A. Thermal pollution",
+          "correct_answer": "A. Thermal pollution"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 97,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What compound can be used to convert alcohol or a phenol into an ester?",
+          "your_answer": "A. Acetic anhydride: CH₃–CO–O–CO–CH₃",
+          "correct_answer": "A. Acetic anhydride: CH₃–CO–O–CO–CH₃"
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 94,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The simplest way to differentiate a prokaryotic cell from a eukaryotic cell is",
+          "your_answer": "B. to see if a nucleus is present",
+          "correct_answer": "B. to see if a nucleus is present"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 64,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "When an alcohol is dehydrated it forms",
+          "your_answer": "C. an alkene",
+          "correct_answer": "C. an alkene"
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 32,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "(Situation: 11.02 mmol H2S and 5.48 mmol CH4 reach the equilibrium H2S(g) + CH4(g) u21cc H2(g) + CS2(g) at 700 u02daC and 762 torr with a Pt catalyst, then are rapidly quenched. Analysis found 0.711 mmol of CS2 at equilibrium.) Find u0394Gu00b0 (kJ/mol).",
+          "your_answer": "B. 20",
+          "correct_answer": "C. 40"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 62,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which reaction conditions would be best for the synthesis of isobutyl sec-butyl ether CH₃CH₂CH(CH₃)–O–CH₂CH(CH₃)₂",
+          "your_answer": "A. (CH₃)₂CHCH₂OH + H₂SO₄ + heat",
+          "correct_answer": "C. CH₃CH₂CH(CH₃)ONa + (CH₃)₂CHCH₂Br"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 75,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Given the following reactions and their enthalpy changes: C + O₂ → CO₂, ΔH = -393.5 kJ/mol; CO + ½O₂ → CO₂, ΔH = -283.0 kJ/mol; 2C + O₂ → 2CO, ΔH = -221.0 kJ/mol. What is the enthalpy of formation of CO in kJ/mol?",
+          "your_answer": "B. -110.5 kJ/mol",
+          "correct_answer": "B. -110.5 kJ/mol"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 33,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The formation of cation/anion vacancy clusters such that the crystal remains electrically neutral is called:",
+          "your_answer": "A. Frenkel",
+          "correct_answer": "B. Schottky"
+        },
+        {
+          "source_list": "D1_L5_Material_Science_Engineering",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The presence of a vacancy defect in a crystal:",
+          "your_answer": "B. Decreases density",
+          "correct_answer": "B. Decreases density"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 22,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Give the IUPAC name for the following structure: a cyclohexane ring with an OH group on one ring carbon, a CH₃ group on the adjacent ring carbon, and a Cl atom on the ring carbon that is directly across the ring (1,4-related) from the CH₃-bearing carbon.",
+          "your_answer": "A. 3-chloro-2-methylcyclohexanol",
+          "correct_answer": "D. 5-chloro-2-methylcyclohexanol"
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 5,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Surface tension of a liquid is 0.05 N/m. What force is required to pull a wire 0.1 m long from the surface?",
+          "your_answer": "B. 0.005 N",
+          "correct_answer": "C. 0.01 N"
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 15,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Which amino acids would most likely reside in the membrane-anchoring domain of a membrane protein?",
+          "your_answer": "B. phenylalanine, valine, aspartate",
+          "correct_answer": "A. isoleucine, valine, phenylalanine"
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 56,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "(Situation: An aqueous solution at 26.85 u02daC of 0.72% by weight HCl freezes at -0.706 u02daC.) Calculate the osmotic pressure of the solution in mmHg.",
+          "your_answer": "A. 4000",
+          "correct_answer": "D. 7000"
+        },
+        {
+          "source_list": "D1_L4_Organic_Chemistry",
+          "reference_no": 96,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Which compound does not react with ammonia to form propanamide under mild conditions?",
+          "your_answer": "B. ethyl propanoate",
+          "correct_answer": "A. propanoic acid"
+        },
+        {
+          "source_list": "D1_L7_Biochemistry",
+          "reference_no": 31,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Both strands of DNA serve as templates concurrently in:",
+          "your_answer": "A. replication",
+          "correct_answer": "A. replication"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 28,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the unit that measures a greenhouse gas' ability to heat in the atmosphere? trap",
+          "your_answer": "D. Global Warming Potential",
+          "correct_answer": "D. Global Warming Potential"
+        },
+        {
+          "source_list": "D1_L1_Chem_for_Engineers",
+          "reference_no": 42,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following hazard symbols does not match the description?",
+          "your_answer": "B. Exploding bomb: for flammable chemicals",
+          "correct_answer": "B. Exploding bomb: for flammable chemicals"
+        },
+        {
+          "source_list": "D1_L6_Physical_Chemistry",
+          "reference_no": 42,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Calculate the heat of vaporization in kJ/mol of a compound with the following T-P characteristics: T = 338.12 K, P = 52.301 torr T = 369.52 K, P = 141.801 torr",
+          "your_answer": "B. 37 kJ/mol",
+          "correct_answer": "A. 33 kJ/mol"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -91017,6 +91583,426 @@
       ],
       "updated_at": "2026-10-18T07:10:20",
       "concept_id": "1792307418606446"
+    },
+    {
+      "id": "1792331310388292",
+      "source_list": "D1_L6_Physical_Chemistry",
+      "reference_no": 6,
+      "question": "Water (surface tension = 0.072 N/m) rises in a capillary tube of radius 1.5 mm. Assuming a contact angle of 0, what is the height of rise?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "B. 6.5 mm",
+          "correct_answer": "C. 9.8 mm"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "179233131039388",
+      "source_list": "D1_L7_Biochemistry",
+      "reference_no": 101,
+      "question": "E. coli and Salmonella belong to what phylum of bacteria?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "B. actinobacteria",
+          "correct_answer": "A. proteobacteria"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310397344",
+      "source_list": "D1_L6_Physical_Chemistry",
+      "reference_no": 44,
+      "question": "The vapor pressure of solid CO2 is 76.7 mmHg at -103 u02daC and its normal sublimation point is -78.5 u02daC. What is the heat of sublimation of CO2 in cal/mol at its normal sublimation point?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "C. 6610",
+          "correct_answer": "B. 6160"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310400988",
+      "source_list": "D1_L5_Material_Science_Engineering",
+      "reference_no": 68,
+      "question": "Which element was first used in the experimental discovery of the Bose-Einstein Condensate (BEC) in 1995?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "A. Helium (He)",
+          "correct_answer": "C. Rubidium (Rb)"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310405416",
+      "source_list": "D1_L4_Organic_Chemistry",
+      "reference_no": 72,
+      "question": "Isobutyl alcohol can be produced from isobutene through what reaction?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "D. all of these",
+          "correct_answer": "C. hydroboration/oxidation"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310409687",
+      "source_list": "D1_L7_Biochemistry",
+      "reference_no": 46,
+      "question": "Which of the following is not a type of post-translational modification?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "A. Proteolysis",
+          "correct_answer": "B. Protein folding"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310414946",
+      "source_list": "D1_L7_Biochemistry",
+      "reference_no": 65,
+      "question": "Which of the following represents the complete chemical reaction for the two stages of glycerol metabolism?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "C. Glycerol-3-phosphate + NADH + H+ u2192 Glycerol + ADP + Pi",
+          "correct_answer": "B. Glycerol + NAD+ + ATP u2192 DHAP + NADH + H+ + ADP"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310419485",
+      "source_list": "D1_L2_Environmental_EngSci",
+      "reference_no": 1,
+      "question": "It is known as Water Quality Guidelines and General Effluent Standards of 2016.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "C. RA 9275",
+          "correct_answer": "D. DAO No. 2016-08"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310423384",
+      "source_list": "D1_L2_Environmental_EngSci",
+      "reference_no": 97,
+      "question": "What is a typical emission factor used for calculating CO2 from diesel combustion?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "C. 4.2 kg CO2/L",
+          "correct_answer": "B. 2.68 kg CO2/L"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310428935",
+      "source_list": "D1_L2_Environmental_EngSci",
+      "reference_no": 96,
+      "question": "Emissions from leased buildings are typically categorized under:",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "B. Scope 2",
+          "correct_answer": "C. Scope 3"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310433774",
+      "source_list": "D1_L6_Physical_Chemistry",
+      "reference_no": 49,
+      "question": "In a process involving osmosis, at equilibrium, the chemical potential of the pure solvent side should be _____ the chemical potential of the side with solute.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "A. Less than",
+          "correct_answer": "C. Equal to"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310437159",
+      "source_list": "D1_L4_Organic_Chemistry",
+      "reference_no": 76,
+      "question": "Which of the following reagents will not yield an alcohol from an alkene?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "B. Br₂/H₂O",
+          "correct_answer": "D. KOH/CH₃CH₂OH"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310440151",
+      "source_list": "D1_L6_Physical_Chemistry",
+      "reference_no": 32,
+      "question": "(Situation: 11.02 mmol H2S and 5.48 mmol CH4 reach the equilibrium H2S(g) + CH4(g) u21cc H2(g) + CS2(g) at 700 u02daC and 762 torr with a Pt catalyst, then are rapidly quenched. Analysis found 0.711 mmol of CS2 at equilibrium.) Find u0394Gu00b0 (kJ/mol).",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "B. 20",
+          "correct_answer": "C. 40"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310445985",
+      "source_list": "D1_L4_Organic_Chemistry",
+      "reference_no": 62,
+      "question": "Which reaction conditions would be best for the synthesis of isobutyl sec-butyl ether CH₃CH₂CH(CH₃)–O–CH₂CH(CH₃)₂",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "A. (CH₃)₂CHCH₂OH + H₂SO₄ + heat",
+          "correct_answer": "C. CH₃CH₂CH(CH₃)ONa + (CH₃)₂CHCH₂Br"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310450168",
+      "source_list": "D1_L5_Material_Science_Engineering",
+      "reference_no": 33,
+      "question": "The formation of cation/anion vacancy clusters such that the crystal remains electrically neutral is called:",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "A. Frenkel",
+          "correct_answer": "B. Schottky"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310454180",
+      "source_list": "D1_L4_Organic_Chemistry",
+      "reference_no": 22,
+      "question": "Give the IUPAC name for the following structure: a cyclohexane ring with an OH group on one ring carbon, a CH₃ group on the adjacent ring carbon, and a Cl atom on the ring carbon that is directly across the ring (1,4-related) from the CH₃-bearing carbon.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "A. 3-chloro-2-methylcyclohexanol",
+          "correct_answer": "D. 5-chloro-2-methylcyclohexanol"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310458506",
+      "source_list": "D1_L6_Physical_Chemistry",
+      "reference_no": 5,
+      "question": "Surface tension of a liquid is 0.05 N/m. What force is required to pull a wire 0.1 m long from the surface?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "B. 0.005 N",
+          "correct_answer": "C. 0.01 N"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310463125",
+      "source_list": "D1_L7_Biochemistry",
+      "reference_no": 15,
+      "question": "Which amino acids would most likely reside in the membrane-anchoring domain of a membrane protein?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "B. phenylalanine, valine, aspartate",
+          "correct_answer": "A. isoleucine, valine, phenylalanine"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310466807",
+      "source_list": "D1_L6_Physical_Chemistry",
+      "reference_no": 56,
+      "question": "(Situation: An aqueous solution at 26.85 u02daC of 0.72% by weight HCl freezes at -0.706 u02daC.) Calculate the osmotic pressure of the solution in mmHg.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "A. 4000",
+          "correct_answer": "D. 7000"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310470295",
+      "source_list": "D1_L4_Organic_Chemistry",
+      "reference_no": 96,
+      "question": "Which compound does not react with ammonia to form propanamide under mild conditions?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "B. ethyl propanoate",
+          "correct_answer": "A. propanoic acid"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
+    },
+    {
+      "id": "1792331310476504",
+      "source_list": "D1_L6_Physical_Chemistry",
+      "reference_no": 42,
+      "question": "Calculate the heat of vaporization in kJ/mol of a compound with the following T-P characteristics: T = 338.12 K, P = 52.301 torr T = 369.52 K, P = 141.801 torr",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-18T13:48:30",
+      "occurrences": [
+        {
+          "exam_id": "1792331310365206",
+          "exam_source": "D1_S8",
+          "date": "2026-10-18T13:48:30",
+          "your_answer": "B. 37 kJ/mol",
+          "correct_answer": "A. 33 kJ/mol"
+        }
+      ],
+      "updated_at": "2026-10-18T13:48:30"
     }
   ],
   "guess_notes": [
@@ -94032,5 +95018,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T13:34:36"
+  "updated_at": "2026-10-18T13:48:33"
 }
