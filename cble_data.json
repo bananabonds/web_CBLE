@@ -93273,6 +93273,21 @@
       "category": "Unfamiliar Topic",
       "concept_id": "179231194895735",
       "updated_at": "2026-10-18T08:25:50"
+    },
+    {
+      "id": "1792312033983963",
+      "source_list": "D3_L2_Process_Control_Analysis",
+      "reference_no": 19,
+      "resolved": false,
+      "created_at": "2026-10-18T08:27:13",
+      "question": "Consider instead the following fourth-order ODE found in the denominator of a transfer function with zero initial conditions: yʺʺ + 9yʺ + 26ÿ+ 24ẏ = 1 Which correctly identifies the qualitative nature of the time-domain solution y(t)?",
+      "correct_answer": "B. y(t) consists of a constant (steady-state) term plus three decaying exponentials; with no oscillation",
+      "kind": "guess",
+      "exam_id": "179000334236560",
+      "exam_source": "D3_S1",
+      "category": "Unfamiliar Topic",
+      "concept_id": "179231194895735",
+      "updated_at": "2026-10-18T08:27:13"
     }
   ],
   "checklist": [],
@@ -93297,5 +93312,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T08:26:40"
+  "updated_at": "2026-10-18T08:27:24"
 }
