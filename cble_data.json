@@ -79692,7 +79692,7 @@
       "category": "Formula / Equation Error",
       "note": "BOD5 = Lo(1-e^-kt), then to calculate mix use matbal: Qw*Cw + Qr+Cr = (Qw+Qr) * Cmix",
       "resolved": true,
-      "date_logged": "2026-09-21T12:07:57",
+      "date_logged": "2026-10-18T11:22:45",
       "occurrences": [
         {
           "exam_id": "1789982956801386",
@@ -79701,7 +79701,9 @@
           "your_answer": "B. 3.36 and 11 mg/L",
           "correct_answer": "A. 4.75 and 12 mg/L"
         }
-      ]
+      ],
+      "concept_id": "1792308304806475",
+      "updated_at": "2026-10-18T11:22:45"
     },
     {
       "id": "178999274276366",
@@ -79711,7 +79713,7 @@
       "category": "Formula / Equation Error",
       "note": "Get H+ = x, Ka = x^2 / [benzoic acid] - x",
       "resolved": true,
-      "date_logged": "2026-09-21T12:12:22",
+      "date_logged": "2026-10-18T11:22:57",
       "occurrences": [
         {
           "exam_id": "1789982956801386",
@@ -79720,7 +79722,9 @@
           "your_answer": "B. 2.15",
           "correct_answer": "D. 4.2"
         }
-      ]
+      ],
+      "concept_id": "1792310440445288",
+      "updated_at": "2026-10-18T11:22:57"
     },
     {
       "id": "1789993004187337",
@@ -93952,5 +93956,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T11:22:42"
+  "updated_at": "2026-10-18T11:23:02"
 }
