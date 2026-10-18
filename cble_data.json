@@ -88946,7 +88946,7 @@
       "category": "Formula / Equation Error",
       "note": "memorize kinematic equations where distance is s = ut + 0.5at^2, where u is velocity",
       "resolved": true,
-      "date_logged": "2026-10-15T15:35:23",
+      "date_logged": "2026-10-18T10:58:03",
       "occurrences": [
         {
           "exam_id": "1790149661027511",
@@ -88956,7 +88956,8 @@
           "correct_answer": "C. 44 m"
         }
       ],
-      "updated_at": "2026-10-17T10:30:25"
+      "updated_at": "2026-10-18T10:58:03",
+      "concept_id": "1792321082715344"
     },
     {
       "id": "1792078700898441",
@@ -88986,7 +88987,7 @@
       "category": "Unfamiliar Topic",
       "note": "Identify equation type y' + 4/x * y = x^2 * y^2 , Benoulli equation y' + P(x)y = Q(x)y^n. Linearize divide by y^2, y^-1' - 4/x * y^-1 = -x^3",
       "resolved": false,
-      "date_logged": "2026-10-15T15:56:40",
+      "date_logged": "2026-10-18T10:58:14",
       "occurrences": [
         {
           "exam_id": "1790149661027511",
@@ -88996,8 +88997,9 @@
           "correct_answer": "D. 1/x^4"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30",
-      "skip_in_samples": false
+      "updated_at": "2026-10-18T10:58:14",
+      "skip_in_samples": false,
+      "concept_id": "1792308635686195"
     },
     {
       "id": "1792139910081451",
@@ -92717,6 +92719,14 @@
       "progress": {},
       "created_at": "2026-10-18T10:57:27",
       "updated_at": "2026-10-18T10:57:27"
+    },
+    {
+      "id": "1792321082715344",
+      "name": "Kinematics",
+      "subject": "D3_L15_Engineering_Mechanics",
+      "progress": {},
+      "created_at": "2026-10-18T10:58:02",
+      "updated_at": "2026-10-18T10:58:02"
     }
   ],
   "concept_cards": [],
@@ -93728,5 +93738,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T10:57:38"
+  "updated_at": "2026-10-18T10:58:17"
 }
