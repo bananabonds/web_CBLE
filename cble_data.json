@@ -94114,6 +94114,42 @@
       "trap": "I guessed #70. When Q and T are given, divide them. When only volumes are given, you need n.",
       "created_at": "2026-10-18T14:08:18",
       "updated_at": "2026-10-18T14:08:18"
+    },
+    {
+      "id": "1792332568540386",
+      "concept_id": "1792319010363788",
+      "front": "How do I calculate elastic elongation from an applied stress?",
+      "back": "Hooke's law: σ = E·ε, so ε = σ/E and ΔL = ε·L₀ = σ·L₀/E. Keep the units consistent: 1 GPa = 1000 MPa. Example (#39): ε = 315 / 107,000 = 2.94×10⁻³ (dimensionless), and ΔL = 2.94×10⁻³ × 250 mm = 0.74 mm. Valid only while the deformation is entirely elastic.",
+      "trap": "I answered 0.55 mm in #39 even though my method was right. Convert E to MPa (107 GPa = 107,000 MPa) before dividing, then multiply by the original length in mm. Check that the answer is a small fraction of L₀, about 0.3% here.",
+      "created_at": "2026-10-18T14:09:28",
+      "updated_at": "2026-10-18T14:09:28"
+    },
+    {
+      "id": "179233256854168",
+      "concept_id": "1792319010363788",
+      "front": "Yield strength vs. tensile strength: where is each on the engineering stress-strain curve?",
+      "back": "Yield strength is the stress where plastic (permanent) deformation begins, at the end of the linear elastic region. Tensile strength (ultimate tensile strength, UTS) is the maximum stress on the engineering curve, the peak just before necking begins. After the peak, the engineering stress falls while the material necks until fracture.",
+      "trap": "In #42 I picked yield strength. The question said \"maximum stress\" and \"maximum point,\" and the maximum point is the peak (UTS), not the start of plasticity. Match the keyword: onset of permanent deformation means yield, maximum stress means tensile strength.",
+      "created_at": "2026-10-18T14:09:28",
+      "updated_at": "2026-10-18T14:09:28"
+    },
+    {
+      "id": "1792332568541227",
+      "concept_id": "1792319010363788",
+      "front": "Toughness vs. resilience vs. strength: which one is energy absorption, and over what range?",
+      "back": "Toughness is the energy absorbed up to fracture, the total area under the stress-strain curve (elastic plus plastic), in J/m³. Resilience is the energy absorbed in the elastic range only, the area under the elastic region, U_r = σ_y²/(2E), and it is recovered when unloaded. Strength is the stress a material can withstand (a stress, in MPa), not an energy.",
+      "trap": "In #43 I picked \"strength\" for energy absorption, and in #44 I picked \"toughness\" for the elastic range only. Energy over the whole curve is toughness, and energy over the elastic range only is resilience. Strength is never energy.",
+      "created_at": "2026-10-18T14:09:28",
+      "updated_at": "2026-10-18T14:09:28"
+    },
+    {
+      "id": "1792332568541672",
+      "concept_id": "1792319010363788",
+      "front": "Why are ceramics brittle?",
+      "back": "Ceramics have ionic and covalent bonds that are strong and directional. Dislocation motion (slip) is very difficult, because slip would bring like-charged ions together in ionic solids and break covalent bonds. Without plastic deformation to blunt flaws, cracks grow and the material fractures suddenly. Ceramics also have pores and microcracks that act as stress concentrators. Metals deform plastically because their metallic bonding allows slip.",
+      "trap": "In #47 I picked grain boundaries. Metals are crystalline too, and they are ductile, so a crystalline structure by itself does not explain brittleness. Look for the bond type, which is what blocks slip.",
+      "created_at": "2026-10-18T14:09:28",
+      "updated_at": "2026-10-18T14:09:28"
     }
   ],
   "shaky_tags": [
@@ -95172,5 +95208,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T14:08:25"
+  "updated_at": "2026-10-18T14:09:30"
 }
