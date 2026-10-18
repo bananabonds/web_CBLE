@@ -94222,6 +94222,42 @@
       "trap": "In #8 I picked diesel, even though my note said liquid fuels have more hydrogen and less carbon. \"Highest carbon content\" means the lowest H:C, which is coal.",
       "created_at": "2026-10-18T14:12:53",
       "updated_at": "2026-10-18T14:12:53"
+    },
+    {
+      "id": "1792332850806389",
+      "concept_id": "1792307889382425",
+      "front": "What are the dimensions of point, line, surface, and volume defects, and which one comes from imperfect packing during crystallization?",
+      "back": "Point defects are 0-D (vacancy, self-interstitial, substitutional or interstitial impurity). Line defects are 1-D (dislocations: edge, screw, mixed). Surface or planar defects are 2-D (grain boundaries, twin boundaries, free surfaces, stacking faults). Volume defects are 3-D (voids, pores, cracks, precipitates, inclusions). Imperfect packing of atoms during crystallization gives point defects such as vacancies and interstitials.",
+      "trap": "In #32 I wrote that a point defect is 1-D and picked \"volume.\" Point defects are 0-D, and the 1-D defect is the dislocation. Volume defects are voids and inclusions, not packing errors at the atomic level.",
+      "created_at": "2026-10-18T14:14:10",
+      "updated_at": "2026-10-18T14:14:10"
+    },
+    {
+      "id": "1792332850807415",
+      "concept_id": "1792307889382425",
+      "front": "How does the equilibrium vacancy concentration depend on temperature, and what does it not depend on?",
+      "back": "Nv = N·exp(-Qv/kT), with N = total atomic sites per unit volume, Qv = vacancy formation energy, k = Boltzmann constant (8.617×10⁻⁵ eV/atom·K, or 1.38×10⁻²³ J/K), and T in kelvin. Vacancies increase exponentially with temperature and decrease with a higher formation energy. Atomic mass does not appear in the formula (it only enters through N via the density).",
+      "trap": "In #37 I picked increasing atomic mass. The formula has T in the exponent and no mass term. \"Vacancy defect increases with...\" means temperature.",
+      "created_at": "2026-10-18T14:14:10",
+      "updated_at": "2026-10-18T14:14:10"
+    },
+    {
+      "id": "179233285080743",
+      "concept_id": "1792307889382425",
+      "front": "Schottky vs. Frenkel defect: what is each, and which one keeps the crystal neutral by vacancy pairs?",
+      "back": "Schottky: a missing cation and a missing anion (in the ratio of the formula, so the crystal stays neutral). Both ions leave their sites and go to the surface, so the density drops. Typical in NaCl and CsCl, where the ions are similar in size. Frenkel: an ion (usually the smaller cation) leaves its site and sits in an interstitial position, giving a vacancy-interstitial pair. The density is unchanged. Typical in AgCl and ZnS.",
+      "trap": "In #33 I picked Frenkel for \"cation/anion vacancy clusters.\" Frenkel has an interstitial, and Schottky has only vacancies. Look for the cue word: vacancy pair means Schottky, interstitial means Frenkel.",
+      "created_at": "2026-10-18T14:14:10",
+      "updated_at": "2026-10-18T14:14:10"
+    },
+    {
+      "id": "1792332850807899",
+      "concept_id": "1792307889382425",
+      "front": "How do I calculate the number of vacancies per m³ from Q, density, and atomic weight?",
+      "back": "Step 1: N = Nₐ·ρ/A (atoms/cm³), then multiply by 10⁶ to get atoms/m³. Step 2: T in kelvin (°C + 273). Step 3: Nv = N·exp(-Q/kT) with Q in eV and k = 8.617×10⁻⁵ eV/K. Example (#34, Cu at 1000 °C): N = 6.022×10²³ × 8.4 / 63.5 = 7.97×10²² atoms/cm³ = 7.97×10²⁸ atoms/m³. Q/kT = 0.9/(8.617×10⁻⁵ × 1273) = 8.20. Nv = 7.97×10²⁸ × 2.74×10⁻⁴ = 2.2×10²⁵ atoms/m³.",
+      "trap": "In #34 I guessed even though I had the right formula. Convert °C to K, use k in eV/K when Q is in eV, and convert cm³ to m³ (×10⁶) before the exponential. Check that Nv is a tiny fraction of N (about 3×10⁻⁴ here).",
+      "created_at": "2026-10-18T14:14:10",
+      "updated_at": "2026-10-18T14:14:10"
     }
   ],
   "shaky_tags": [
@@ -95280,5 +95316,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T14:14:10"
+  "updated_at": "2026-10-18T14:14:19"
 }
