@@ -89997,7 +89997,7 @@
       "category": "Unfamiliar Topic",
       "note": "For unicomponent diffusion Na = (D * P/(R * T * z * P_LM)) * (p_A,bulk - p_A,interface). D is a function of P and is inversly proportional hence DP is a constant for given T. Driving force doubles since p_A,bulk = y_a * P_t. Log mean also doubles since P_LM = P_t - P_B,bulk / ln (P_t / P_B,bulk). The magnitudes cancel out so 0%.",
       "resolved": false,
-      "date_logged": "2026-10-17T07:55:53",
+      "date_logged": "2026-10-18T10:42:46",
       "occurrences": [
         {
           "exam_id": "1790316144805377",
@@ -90007,7 +90007,8 @@
           "correct_answer": "A. 0%"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30"
+      "updated_at": "2026-10-18T10:42:46",
+      "concept_id": "179230686815982"
     },
     {
       "id": "1792228158678238",
@@ -90017,7 +90018,7 @@
       "category": "Forgot a Concept",
       "note": "Balance the reaction. Get the molar masses. Find the total mol of BaSO4 fed from Ba balance. Find the total mol of C from C balance. Determine the excess reactant, find the ratio of the reactants (C/BaSO4) based on stoich then find the ratio of the actual supplied. If theoretical ratio < actual ratio C is in excess else BaSO4 is excess. Find percent excess by actual - theo / theo",
       "resolved": false,
-      "date_logged": "2026-10-17T09:09:18",
+      "date_logged": "2026-10-18T10:42:51",
       "occurrences": [
         {
           "exam_id": "1790316144805377",
@@ -90027,7 +90028,8 @@
           "correct_answer": "C. 50.6%"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30"
+      "updated_at": "2026-10-18T10:42:51",
+      "concept_id": "1792319736426849"
     },
     {
       "id": "1792229578437210",
@@ -93636,5 +93638,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T10:42:35"
+  "updated_at": "2026-10-18T10:43:01"
 }
