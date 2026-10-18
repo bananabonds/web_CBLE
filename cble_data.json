@@ -80149,7 +80149,7 @@
       "category": "Conceptual Misunderstanding",
       "note": "Total reflux = minimum number of plates, minimum reflux = infinite number of plates",
       "resolved": true,
-      "date_logged": "2026-09-22T00:34:52",
+      "date_logged": "2026-10-18T11:09:10",
       "occurrences": [
         {
           "exam_id": "179000978718785",
@@ -80158,7 +80158,9 @@
           "your_answer": "C. minimum",
           "correct_answer": "A. total"
         }
-      ]
+      ],
+      "concept_id": "1792306934086228",
+      "updated_at": "2026-10-18T11:09:10"
     },
     {
       "id": "1790037695027939",
@@ -81067,7 +81069,7 @@
       "category": "Unfamiliar Topic",
       "note": "Complete the mass balance. Use the w/BPE energy balance, Q = m_cH_c + m_vH_v - m_fH_f\nFind all the enthalpies. H_f = find from fig 2-17, H_c = fig. 2-17, Hv = H_saturatedvapor + Cp(BPE). Hsaturatedvapor = steam table, BPE = BPE line (fig 11-7), memorize Cp of steam = 0.45 BTU/lb F and 1.88 kJ/kg K. Then find latent heat of steam = H_v - H_l (steam table) then m_s = Q/latentheat of steam",
       "resolved": true,
-      "date_logged": "2026-09-22T14:30:32",
+      "date_logged": "2026-10-18T11:08:59",
       "occurrences": [
         {
           "exam_id": "179000978718785",
@@ -81077,7 +81079,8 @@
           "correct_answer": "A. 15400 lb/h"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30"
+      "updated_at": "2026-10-18T11:08:59",
+      "concept_id": "1792321737674800"
     },
     {
       "id": "1790088226547404",
@@ -92812,6 +92815,14 @@
       "progress": {},
       "created_at": "2026-10-18T11:07:02",
       "updated_at": "2026-10-18T11:07:02"
+    },
+    {
+      "id": "1792321737674800",
+      "name": "Evaporation",
+      "subject": "D2_L7_Heat_Mass_Transfer",
+      "progress": {},
+      "created_at": "2026-10-18T11:08:57",
+      "updated_at": "2026-10-18T11:08:57"
     }
   ],
   "concept_cards": [],
@@ -93823,5 +93834,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T11:08:47"
+  "updated_at": "2026-10-18T11:09:14"
 }
