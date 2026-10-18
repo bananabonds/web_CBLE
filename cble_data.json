@@ -89093,7 +89093,7 @@
       "category": "Unfamiliar Topic",
       "note": "Simplify let u = x^2 + y^2, lim u -> 0 = u ln u. Since indeterminate use L'Hospitals rule. Turn the equation to a fraction = ln u / 1/u. Since this equals -inifinity/infinity we differentiate the numerator and denominator with respect to u. L'Hospital gives 1/u / -1/u^2,  when substituted gives 0",
       "resolved": true,
-      "date_logged": "2026-10-16T09:27:20",
+      "date_logged": "2026-10-18T11:00:11",
       "occurrences": [
         {
           "exam_id": "1790149661027511",
@@ -89103,7 +89103,8 @@
           "correct_answer": "B. 0"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30"
+      "updated_at": "2026-10-18T11:00:11",
+      "concept_id": "1792321206714282"
     },
     {
       "id": "1792143283003204",
@@ -92747,6 +92748,14 @@
       "progress": {},
       "created_at": "2026-10-18T10:59:43",
       "updated_at": "2026-10-18T10:59:43"
+    },
+    {
+      "id": "1792321206714282",
+      "name": "Limits",
+      "subject": "D3_L7_Differential_Calculus",
+      "progress": {},
+      "created_at": "2026-10-18T11:00:06",
+      "updated_at": "2026-10-18T11:00:06"
     }
   ],
   "concept_cards": [],
@@ -93758,5 +93767,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T10:59:58"
+  "updated_at": "2026-10-18T11:00:22"
 }
