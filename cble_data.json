@@ -89556,7 +89556,7 @@
       "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-16T17:44:11",
+      "date_logged": "2026-10-18T10:39:52",
       "occurrences": [
         {
           "exam_id": "1790316144805377",
@@ -89566,7 +89566,8 @@
           "correct_answer": "A. 0 to 0.08"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30"
+      "updated_at": "2026-10-18T10:39:52",
+      "concept_id": "1792319991858839"
     },
     {
       "id": "1792177097944327",
@@ -89891,7 +89892,7 @@
       "category": "Forgot a Concept",
       "note": "Convert volumetric flow to molar flow. Complete the mass balance. Find tge equilibrium equation where m = P_vap / P_t then y*=m x. Find the driving forces yi-yi*. Get log mean of driving force y_LM = dy1 - dy2 / ln (dy1 / dy2). Get NTU = y1 - y2 / y_LM. Get Height = NTU * HTU",
       "resolved": false,
-      "date_logged": "2026-10-17T06:57:18",
+      "date_logged": "2026-10-18T10:40:03",
       "occurrences": [
         {
           "exam_id": "1790316144805377",
@@ -89901,7 +89902,8 @@
           "correct_answer": "B. 7.0 ft"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30"
+      "updated_at": "2026-10-18T10:40:03",
+      "concept_id": "1792307817526611"
     },
     {
       "id": "1792220961277163",
@@ -92595,6 +92597,14 @@
       "progress": {},
       "created_at": "2026-10-18T10:38:01",
       "updated_at": "2026-10-18T10:38:01"
+    },
+    {
+      "id": "1792319991858839",
+      "name": "Driers",
+      "subject": "D2_L8_Equipment_Plant_Design",
+      "progress": {},
+      "created_at": "2026-10-18T10:39:51",
+      "updated_at": "2026-10-18T10:39:51"
     }
   ],
   "concept_cards": [],
@@ -93606,5 +93616,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T10:38:59"
+  "updated_at": "2026-10-18T10:40:04"
 }
