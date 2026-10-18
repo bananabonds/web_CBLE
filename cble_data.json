@@ -94078,6 +94078,42 @@
       "trap": "I answered 4000 in #56 (key 7000). Without i the result is about 3700 mmHg, which is near my choice. For any electrolyte (HCl, NaCl), multiply by i before converting units.",
       "created_at": "2026-10-18T14:04:29",
       "updated_at": "2026-10-18T14:04:29"
+    },
+    {
+      "id": "1792332498636508",
+      "concept_id": "1792305732815892",
+      "front": "What does the Clausius-Clapeyron slope dP/dT relate to, and what does Trouton's rule say about ΔS_vap?",
+      "back": "dP/dT = ΔH_vap/(T·ΔV) = ΔS_vap/ΔV, so the slope of the vapor pressure curve is set by the entropy change of vaporization. At the boiling point ΔS_vap = ΔH_vap/T_b. Trouton's rule: ΔS_vap ≈ 85-88 J/(mol·K) for many non-associated liquids. It fails for hydrogen-bonded or polar liquids (water ≈ 109 J/(mol·K), higher) and for very low-boiling liquids like He and H₂ (lower).",
+      "trap": "In #76 I answered \"Temperature\", but T is the variable in the derivative, not the property that sets the slope. In #52 I wrote that polar liquids have lower entropy yet a larger change. The liquid is more ordered, so the entropy gain on vaporizing is larger than 85-88.",
+      "created_at": "2026-10-18T14:08:18",
+      "updated_at": "2026-10-18T14:08:18"
+    },
+    {
+      "id": "1792332498637316",
+      "concept_id": "1792305732815892",
+      "front": "What is the entropy of mixing of ideal gases, and how do I compute it?",
+      "back": "ΔS_mix = -R Σ nᵢ ln xᵢ = -nR Σ xᵢ ln xᵢ, in J/K. It is always positive and independent of the identity of the gases. Example (#14), 2 mol N₂ + 1 mol O₂: x = 2/3 and 1/3. N₂: -2R ln(2/3) = 6.74 J/K. O₂: -1R ln(1/3) = 9.13 J/K. Total = 15.9 J/K.",
+      "trap": "I answered 11.5 J/K in #14. That equals 2R ln 2, so check that both gases are included, that x is the mole fraction (not the mole ratio), and that n is the total moles (3, not 2).",
+      "created_at": "2026-10-18T14:08:18",
+      "updated_at": "2026-10-18T14:08:18"
+    },
+    {
+      "id": "1792332498637446",
+      "concept_id": "1792305732815892",
+      "front": "How do I get the entropy change of heating at constant pressure?",
+      "back": "ΔS = ∫(Cp/T)dT = m·Cp·ln(T₂/T₁) for constant Cp, with T in kelvin. Per unit mass: ΔS = Cp ln(T₂/T₁) in kJ/(kg·K). Example (#84): 1 × ln(313.15/293.15) = 0.066 kJ/kg·K. For constant volume use Cv instead of Cp.",
+      "trap": "In #84 I chose 0.022, and the bank's key of 0.034 doesn't match my calculation either. Convert °C to K first (20 °C = 293.15 K). Using the Celsius numbers, ln(40/20) = 0.693, is a common error.",
+      "created_at": "2026-10-18T14:08:18",
+      "updated_at": "2026-10-18T14:08:18"
+    },
+    {
+      "id": "1792332498637918",
+      "concept_id": "1792305732815892",
+      "front": "What is ΔS for an isothermal expansion of an ideal gas?",
+      "back": "ΔS = Q_rev/T = nR ln(V₂/V₁), in J/K. ΔU = 0 for an ideal gas at constant T, so Q = W. Example (#70): ΔS = 500 J / 350 K = 1.43 J/K. Q/T works directly when the heat is given as reversibly absorbed; nR ln(V₂/V₁) needs n.",
+      "trap": "I guessed #70. When Q and T are given, divide them. When only volumes are given, you need n.",
+      "created_at": "2026-10-18T14:08:18",
+      "updated_at": "2026-10-18T14:08:18"
     }
   ],
   "shaky_tags": [
@@ -95136,5 +95172,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T14:08:15"
+  "updated_at": "2026-10-18T14:08:25"
 }
