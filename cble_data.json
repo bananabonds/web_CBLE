@@ -81764,7 +81764,7 @@
       "category": "Formula / Equation Error",
       "note": "Use the shell method V = integ(2pi * radius * height , a, b) where a b are the limits. the y = height of the curve, the bottom of the shape is in the x-axis, the limit is from x = 0 and x = 4, the radius is the distance from y axis to some value of x hence radius = x, height is y=x^2/8. integrate with respect to x.",
       "resolved": true,
-      "date_logged": "2026-09-24T12:56:31",
+      "date_logged": "2026-10-18T10:56:33",
       "occurrences": [
         {
           "exam_id": "1790149661027511",
@@ -81773,7 +81773,9 @@
           "your_answer": "B. 45.78",
           "correct_answer": "C. 50.26"
         }
-      ]
+      ],
+      "concept_id": "1792320991122296",
+      "updated_at": "2026-10-18T10:56:33"
     },
     {
       "id": "1790262915290279",
@@ -92689,6 +92691,14 @@
       "progress": {},
       "created_at": "2026-10-18T10:56:06",
       "updated_at": "2026-10-18T10:56:06"
+    },
+    {
+      "id": "1792320991122296",
+      "name": "Integral Volume",
+      "subject": "D3_L8_Integral_Calculus",
+      "progress": {},
+      "created_at": "2026-10-18T10:56:31",
+      "updated_at": "2026-10-18T10:56:31"
     }
   ],
   "concept_cards": [],
@@ -93700,5 +93710,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T10:56:18"
+  "updated_at": "2026-10-18T10:56:49"
 }
