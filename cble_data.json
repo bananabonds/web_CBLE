@@ -80191,7 +80191,7 @@
       "category": "Forgot a Concept",
       "note": "Raffinate A = Feed A * (Inert/ (Dist. Coeff * Inert))^no. Stages",
       "resolved": true,
-      "date_logged": "2026-09-22T00:54:05",
+      "date_logged": "2026-10-18T11:11:30",
       "occurrences": [
         {
           "exam_id": "179000978718785",
@@ -80201,7 +80201,8 @@
           "correct_answer": "B. 97%"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30"
+      "updated_at": "2026-10-18T11:11:30",
+      "concept_id": "179232188889813"
     },
     {
       "id": "1790039005637734",
@@ -80211,7 +80212,7 @@
       "category": "Forgot a Concept",
       "note": "Use initial Tdb and Twb to get the amount humidity ratio then use it with the heating temp to find the line where it's 100%saturated then find the temp where db = wb",
       "resolved": true,
-      "date_logged": "2026-09-22T01:03:25",
+      "date_logged": "2026-10-18T11:11:36",
       "occurrences": [
         {
           "exam_id": "179000978718785",
@@ -80221,7 +80222,8 @@
           "correct_answer": "B. 93 F"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30"
+      "updated_at": "2026-10-18T11:11:36",
+      "concept_id": "1792306350878981"
     },
     {
       "id": "1790039340371596",
@@ -92835,6 +92837,14 @@
       "progress": {},
       "created_at": "2026-10-18T11:10:47",
       "updated_at": "2026-10-18T11:10:47"
+    },
+    {
+      "id": "179232188889813",
+      "name": "Solid/Liquid-Liquid Extraction",
+      "subject": "D2_L2_Separation_Processes",
+      "progress": {},
+      "created_at": "2026-10-18T11:11:28",
+      "updated_at": "2026-10-18T11:11:28"
     }
   ],
   "concept_cards": [],
@@ -93846,5 +93856,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T11:11:05"
+  "updated_at": "2026-10-18T11:11:44"
 }
