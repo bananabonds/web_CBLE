@@ -94258,6 +94258,42 @@
       "trap": "In #34 I guessed even though I had the right formula. Convert °C to K, use k in eV/K when Q is in eV, and convert cm³ to m³ (×10⁶) before the exponential. Check that Nv is a tiny fraction of N (about 3×10⁻⁴ here).",
       "created_at": "2026-10-18T14:14:10",
       "updated_at": "2026-10-18T14:14:10"
+    },
+    {
+      "id": "1792332907596751",
+      "concept_id": "1792309635750905",
+      "front": "What is the two-point Clausius-Clapeyron formula for ΔH_vap, and what units and constants does it need?",
+      "back": "ln(P₂/P₁) = -(ΔH_vap/R)(1/T₂ - 1/T₁), so ΔH_vap = R·ln(P₂/P₁) / (1/T₁ - 1/T₂). T must be in kelvin. P can be in any unit, as long as both pressures use the same one. R = 8.314 J/(mol·K) for J or kJ answers, 1.987 cal/(mol·K) for cal answers. It assumes ΔH is constant over the range, the vapor is ideal, and the liquid volume is negligible. Example (#42): ln(141.801/52.301) = 0.997; 1/T₁ - 1/T₂ = 2.513×10⁻⁴ K⁻¹; ΔH = 8.314 × 0.997 / 2.513×10⁻⁴ = 33.0 kJ/mol.",
+      "trap": "In #42 I answered 37 kJ/mol (key 33). Convert nothing else, but check three things: that I used 1/T (not T), that the pressure ratio is P₂/P₁ with matching order for the temperatures, and that the exponent in 1/T is right (10⁻⁴, not 10⁻³).",
+      "created_at": "2026-10-18T14:15:07",
+      "updated_at": "2026-10-18T14:15:07"
+    },
+    {
+      "id": "1792332907597472",
+      "concept_id": "1792309635750905",
+      "front": "With a table of 5 vapor-pressure points, how do I estimate ΔH_vap?",
+      "back": "Plot ln P against 1/T (T in kelvin). The line has slope = -ΔH_vap/R, so ΔH_vap = -slope × R. For a quick estimate, use the two end points of the table, as the slope is nearly constant. A best-fit line over all points gives a slightly different answer. Example (#45): ln(355.343/55.364) = 1.859; Δ(1/T) = -3.617×10⁻⁴ K⁻¹; slope = -5140 K; ΔH = 5140 × 8.314 = 42.7 kJ/mol ≈ 43.",
+      "trap": "In #45 I answered 45 kJ/mol (key 43). Convert °C to K (add 273.15) before taking reciprocals, and use ln (natural log), not log₁₀. If I use log₁₀, the slope is -ΔH/(2.303R). Pick the nearest option, because small differences come from rounding of 1/T.",
+      "created_at": "2026-10-18T14:15:07",
+      "updated_at": "2026-10-18T14:15:07"
+    },
+    {
+      "id": "1792332907597448",
+      "concept_id": "1792309635750905",
+      "front": "What is the pressure at a \"normal\" boiling or sublimation point, and how do I use it in a ΔH calculation?",
+      "back": "\"Normal\" means the pressure is 1 atm = 760 torr = 760 mmHg = 1.01325 bar. If a question gives one vapor pressure at one temperature plus the normal boiling or sublimation point, then the second point is (1 atm, T_normal). Example (#44, CO₂ sublimation): point 1 = (76.7 mmHg, 170.15 K); point 2 = (760 mmHg, 194.65 K). ΔH_sub = 1.987 × ln(760/76.7) / (1/170.15 - 1/194.65) = 6160 cal/mol.",
+      "trap": "In #44 I answered 6610 (key 6160), which is the same digits swapped. Write the final number back against the intermediate values (ln ratio ≈ 2.29, Δ(1/T) ≈ 7.4×10⁻⁴) before choosing an option. Also check that the answer is in cal/mol, not kJ/mol, so R = 1.987.",
+      "created_at": "2026-10-18T14:15:07",
+      "updated_at": "2026-10-18T14:15:07"
+    },
+    {
+      "id": "179233290759826",
+      "concept_id": "1792309635750905",
+      "front": "Br₂ has a normal boiling point of 58.8 °C and a vapor pressure of 0.287 bar at 25 °C. How do I find the average ΔH_vap, and what's the pressure trap?",
+      "back": "Point 1 = (0.287 bar, 298.15 K). Point 2 = (1 atm = 1.01325 bar, 331.95 K). ΔH = 8.314 × ln(1.01325/0.287) / (1/298.15 - 1/331.95) = 8.314 × 1.262 / 3.415×10⁻⁴ ≈ 30.7 kJ/mol ≈ 31. Using exactly 1 bar for the normal boiling point gives ≈ 30.4. P must be in the same unit at both points (convert 1 atm to bar here). The result is an average over the range.",
+      "trap": "I guessed #43. The pressure at the normal boiling point is hidden in the wording, so write it down as a second data point before anything else. A pressure in bar and a normal boiling pressure in atm or torr must be converted to one unit.",
+      "created_at": "2026-10-18T14:15:07",
+      "updated_at": "2026-10-18T14:15:07"
     }
   ],
   "shaky_tags": [
@@ -95316,5 +95352,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T14:14:19"
+  "updated_at": "2026-10-18T14:15:08"
 }
