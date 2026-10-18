@@ -80591,7 +80591,7 @@
       "category": "Conceptual Misunderstanding",
       "note": "Fatal accident rate (FAR) is standardized measure of ratio of rate of fatality over 100*10^6 hours worked. While fatality rate is based on time or date data not man hours worked.",
       "resolved": true,
-      "date_logged": "2026-09-22T07:16:45",
+      "date_logged": "2026-10-18T11:20:00",
       "occurrences": [
         {
           "exam_id": "179000334236560",
@@ -80601,7 +80601,8 @@
           "correct_answer": "A. FAR"
         }
       ],
-      "updated_at": "2026-10-17T10:37:44"
+      "updated_at": "2026-10-18T11:20:00",
+      "concept_id": "1792322398274332"
     },
     {
       "id": "1790062294700282",
@@ -80611,7 +80612,7 @@
       "category": "Unfamiliar Topic",
       "note": "Second Theorem of Pappus. V = 2pi * A * d. Find the area of the curve 9x2 + 4y2 = 36 , turn the constant to 1 so (9/36)x2+(4/36)x2 = 1, then solve for x and y which is the semi major and minor axes of the ellipse. Area of ellipse = 2pi * semi maj * semi min. Find the centroid (0,0) use perpendicular distance formula d =|Ax + By + C|/sqrt(A^2 + B^2) , where 3x + 4y -20 = 0 A=3, B=4, C=-20.",
       "resolved": false,
-      "date_logged": "2026-09-22T07:31:34",
+      "date_logged": "2026-10-18T11:20:12",
       "occurrences": [
         {
           "exam_id": "179000334236560",
@@ -80621,7 +80622,8 @@
           "correct_answer": "D. 473.7"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30"
+      "updated_at": "2026-10-18T11:20:12",
+      "concept_id": "1792320991122296"
     },
     {
       "id": "1790063035109381",
@@ -92913,6 +92915,14 @@
       "progress": {},
       "created_at": "2026-10-18T11:16:56",
       "updated_at": "2026-10-18T11:16:56"
+    },
+    {
+      "id": "1792322398274332",
+      "name": "Safety Parameters",
+      "subject": "D3_L10_ProcessSafety",
+      "progress": {},
+      "created_at": "2026-10-18T11:19:58",
+      "updated_at": "2026-10-18T11:19:58"
     }
   ],
   "concept_cards": [],
@@ -93924,5 +93934,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T11:19:51"
+  "updated_at": "2026-10-18T11:20:14"
 }
