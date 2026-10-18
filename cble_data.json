@@ -90646,10 +90646,10 @@
       "source_list": "D2_L5_Transport_Phenomenon",
       "reference_no": 94,
       "question": "Flooding in a column results due to",
-      "category": "",
+      "category": "Conceptual Misunderstanding",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-17T18:59:01",
+      "date_logged": "2026-10-18T07:08:26",
       "occurrences": [
         {
           "exam_id": "1792263541317702",
@@ -90659,7 +90659,8 @@
           "correct_answer": "A. high pressure drop"
         }
       ],
-      "updated_at": "2026-10-17T18:59:01"
+      "updated_at": "2026-10-18T07:08:26",
+      "concept_id": "1792307300830981"
     },
     {
       "id": "1792263541398412",
@@ -91544,6 +91545,17 @@
       "progress": {},
       "created_at": "2026-10-18T07:07:05",
       "updated_at": "2026-10-18T07:07:05"
+    },
+    {
+      "id": "1792307300830981",
+      "name": "Tray Conditions",
+      "subject": "D2_L5_Transport_Phenomenon",
+      "front": "",
+      "back": "",
+      "trap": "",
+      "progress": {},
+      "created_at": "2026-10-18T07:08:20",
+      "updated_at": "2026-10-18T07:08:20"
     }
   ],
   "shaky_tags": [
@@ -91630,5 +91642,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T07:08:02"
+  "updated_at": "2026-10-18T07:08:27"
 }
