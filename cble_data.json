@@ -80380,7 +80380,7 @@
       "category": "Conceptual Misunderstanding",
       "note": "Bamboo is high yield fiber source",
       "resolved": true,
-      "date_logged": "2026-09-22T06:21:07",
+      "date_logged": "2026-10-18T11:16:40",
       "occurrences": [
         {
           "exam_id": "179000334236560",
@@ -80390,7 +80390,8 @@
           "correct_answer": "A. 75"
         }
       ],
-      "updated_at": "2026-10-17T10:24:26"
+      "updated_at": "2026-10-18T11:16:40",
+      "concept_id": "1792322199458200"
     },
     {
       "id": "1790058151859210",
@@ -80400,7 +80401,7 @@
       "category": "Conceptual Misunderstanding",
       "note": "Feedforward is preemptive, proactive, and modeled correction. Feedbackward waits for the error before correction",
       "resolved": true,
-      "date_logged": "2026-09-22T06:22:31",
+      "date_logged": "2026-10-18T11:16:58",
       "occurrences": [
         {
           "exam_id": "179000334236560",
@@ -80411,7 +80412,8 @@
         }
       ],
       "skip_in_samples": false,
-      "updated_at": "2026-10-17T10:24:04"
+      "updated_at": "2026-10-18T11:16:58",
+      "concept_id": "179232221653083"
     },
     {
       "id": "1790058279315764",
@@ -92886,6 +92888,22 @@
       "progress": {},
       "created_at": "2026-10-18T11:16:01",
       "updated_at": "2026-10-18T11:16:01"
+    },
+    {
+      "id": "1792322199458200",
+      "name": "Feed Properties",
+      "subject": "D3_L9_CPI",
+      "progress": {},
+      "created_at": "2026-10-18T11:16:39",
+      "updated_at": "2026-10-18T11:16:39"
+    },
+    {
+      "id": "179232221653083",
+      "name": "Control Loops",
+      "subject": "D3_L2_Process_Control_Analysis",
+      "progress": {},
+      "created_at": "2026-10-18T11:16:56",
+      "updated_at": "2026-10-18T11:16:56"
     }
   ],
   "concept_cards": [],
@@ -93897,5 +93915,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T11:16:17"
+  "updated_at": "2026-10-18T11:17:02"
 }
