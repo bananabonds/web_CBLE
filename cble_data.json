@@ -89707,10 +89707,10 @@
       "source_list": "D1_L7_Biochemistry",
       "reference_no": 75,
       "question": "The rate determining step of Michaelis Menten kinetics is",
-      "category": "",
+      "category": "Conceptual Misunderstanding",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-16T18:58:17",
+      "date_logged": "2026-10-18T07:53:51",
       "occurrences": [
         {
           "exam_id": "179217709792489",
@@ -89720,7 +89720,8 @@
           "correct_answer": "C. the product formation step"
         }
       ],
-      "updated_at": "2026-10-16T18:58:17"
+      "updated_at": "2026-10-18T07:53:51",
+      "concept_id": "1792310028942877"
     },
     {
       "id": "1792177097992249",
@@ -92079,6 +92080,17 @@
       "progress": {},
       "created_at": "2026-10-18T07:52:54",
       "updated_at": "2026-10-18T07:52:54"
+    },
+    {
+      "id": "1792310028942877",
+      "name": "Michaelis Menten Kinetics",
+      "subject": "D1_L7_Biochemistry",
+      "front": "",
+      "back": "",
+      "trap": "",
+      "progress": {},
+      "created_at": "2026-10-18T07:53:48",
+      "updated_at": "2026-10-18T07:53:48"
     }
   ],
   "shaky_tags": [
@@ -92435,5 +92447,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T07:53:02"
+  "updated_at": "2026-10-18T07:53:58"
 }
