@@ -80633,7 +80633,7 @@
       "category": "Unfamiliar Topic",
       "note": "My = Nx means its exact. M is the term multiplied to dx and N is multiplied to dy. We find My by M dy differentiation and Nx by N dx.",
       "resolved": true,
-      "date_logged": "2026-09-22T07:43:55",
+      "date_logged": "2026-10-18T11:20:50",
       "occurrences": [
         {
           "exam_id": "179000334236560",
@@ -80643,7 +80643,8 @@
           "correct_answer": "C. 2xy dx + (2 + x²) dy = 0"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30"
+      "updated_at": "2026-10-18T11:20:50",
+      "concept_id": "1792322448466809"
     },
     {
       "id": "1790063574261523",
@@ -80653,7 +80654,7 @@
       "category": "Conceptual Misunderstanding",
       "note": "For a convex mirror, f is positive and u (object distance is negative), this means v is positive (virtual), since m = - v / -u then m is positive (erect). since the inverse of v > inverse of u, v < u (appear small)",
       "resolved": false,
-      "date_logged": "2026-09-22T07:52:54",
+      "date_logged": "2026-10-18T11:20:56",
       "occurrences": [
         {
           "exam_id": "179000334236560",
@@ -80662,7 +80663,9 @@
           "your_answer": "C. real, erect and larger than the object",
           "correct_answer": "B. virtual, erect and smaller than the object"
         }
-      ]
+      ],
+      "concept_id": "1792308789326135",
+      "updated_at": "2026-10-18T11:20:56"
     },
     {
       "id": "1790064224172801",
@@ -80672,7 +80675,7 @@
       "category": "Unfamiliar Topic",
       "note": "Find the diameter of cylinder from the diagonal of the square = square base * sqrt(2), r = diagonal/2 then from the volume find the height, V = 2pi * r^2 * h.",
       "resolved": false,
-      "date_logged": "2026-09-22T08:03:44",
+      "date_logged": "2026-10-18T11:21:03",
       "occurrences": [
         {
           "exam_id": "179000334236560",
@@ -80682,7 +80685,8 @@
           "correct_answer": "B. 4"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30"
+      "updated_at": "2026-10-18T11:21:03",
+      "concept_id": "1792309543006667"
     },
     {
       "id": "179006652213020",
@@ -92923,6 +92927,14 @@
       "progress": {},
       "created_at": "2026-10-18T11:19:58",
       "updated_at": "2026-10-18T11:19:58"
+    },
+    {
+      "id": "1792322448466809",
+      "name": "Classes of Differential Equations",
+      "subject": "D3_L11_Differential_Equations",
+      "progress": {},
+      "created_at": "2026-10-18T11:20:48",
+      "updated_at": "2026-10-18T11:20:48"
     }
   ],
   "concept_cards": [],
@@ -93934,5 +93946,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T11:20:30"
+  "updated_at": "2026-10-18T11:21:05"
 }
