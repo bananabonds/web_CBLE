@@ -92249,6 +92249,17 @@
       "progress": {},
       "created_at": "2026-10-18T08:17:04",
       "updated_at": "2026-10-18T08:17:04"
+    },
+    {
+      "id": "1792311497821637",
+      "name": "Crystallization",
+      "subject": "D2_L7_Heat_Mass_Transfer",
+      "front": "",
+      "back": "",
+      "trap": "",
+      "progress": {},
+      "created_at": "2026-10-18T08:18:17",
+      "updated_at": "2026-10-18T08:18:17"
     }
   ],
   "shaky_tags": [
@@ -93001,6 +93012,21 @@
       "category": "Unfamiliar Topic",
       "concept_id": "1792311424189512",
       "updated_at": "2026-10-18T08:17:11"
+    },
+    {
+      "id": "1792311499032208",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 44,
+      "resolved": false,
+      "created_at": "2026-10-18T08:18:19",
+      "question": "Ammonium sulfate is to be crystallized from solution containing 48% (NH 4)2SO4, by cooling it in counter flow crystallizer from 85 to 35\"C. During cooling the amount of water that evaporates is 5% of the mass of the feed solution_ Data: Feed rate 1000 kg/h Solubility of (NH4)2SO4 at 35 C = 75 kg /100 kg of water Specific heat of 48% (NH4)2SO4 at solution 2.97 kJ/kg-K Heat of crystallization of (NH4)2SO4 = 75.2 kJ/kg Determine the required cooling surface, if the overall heat transfer is 125 W/m2 K",
+      "correct_answer": "B. 2.52 m2",
+      "kind": "guess",
+      "exam_id": "179000978718785",
+      "exam_source": "D2_S1",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792311497821637",
+      "updated_at": "2026-10-18T08:18:19"
     }
   ],
   "checklist": [],
@@ -93025,5 +93051,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T08:17:20"
+  "updated_at": "2026-10-18T08:18:26"
 }
