@@ -79627,7 +79627,7 @@
       "source_list": "CT_Analytic_Chemistry",
       "reference_no": 42,
       "question": "Which of the following is true for a 19/22 stopper?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Standard is indicated as diameter/length or height",
       "resolved": true,
       "date_logged": "2026-09-21T09:35:56",
@@ -79639,7 +79639,8 @@
           "your_answer": "A. Radius = 19 mm, height = 22 mm",
           "correct_answer": "C. Diameter = 19 mm, height = 22 mm"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1789983211941513",
@@ -79931,7 +79932,7 @@
       "source_list": "D2_L3_Thermodynamics",
       "reference_no": 26,
       "question": "A gas initially at 15 psia and 2 ft3 undergoes a process to 90 psia and 0.6 ft3, during which the enthalpy increases by 15.5 BTU; Cv=2.44 BTU/lb-R. Determine ДU",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "dU=dH+d(PV), psia ft3 -> ft lbf by multiplying to 144 in2/ft2 then to BTU = 778.16 lbf ft",
       "resolved": true,
       "date_logged": "2026-09-22T00:32:02",
@@ -79943,14 +79944,15 @@
           "your_answer": "A. 12.2 BTU",
           "correct_answer": "B. 11.1 BTU"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790015515844868",
       "source_list": "D2_L8_Equipment_Plant_Design",
       "reference_no": 42,
       "question": "Equivalent diameter for heat transfer calculation for a duct of square cross section having each side as 'd' will be",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Hydraulic diameter = 4 * cross section/ perimeter, perimeter of square= 4d, area = d^2. Hence, 4 * d^2 / 4d = d",
       "resolved": true,
       "date_logged": "2026-09-22T00:31:53",
@@ -79962,14 +79964,15 @@
           "your_answer": "D. sqrt 2d",
           "correct_answer": "A. d"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790015687594206",
       "source_list": "D2_L4_Momentum_Transfer",
       "reference_no": 54,
       "question": "The general relationship between speed N, head H, power P and discharge Q for a centrifugal pump is",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Pump affinity laws. Q~N, H~N^2, P~N^3",
       "resolved": true,
       "date_logged": "2026-09-22T00:32:10",
@@ -79981,7 +79984,8 @@
           "your_answer": "B. Q&N2: HN3: PN",
           "correct_answer": "A. QN: H&N2 : P&N3"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790015843872613",
@@ -80007,7 +80011,7 @@
       "source_list": "D2_L6_Particle_Technology",
       "reference_no": 106,
       "question": "To clean a sand bed filter, it is fluidized at minimum conditions using water at 24°C. The round sand particles have a density of 2550 kg/m³ and an average size of 0.40 mm. sphericity = 0.86 and ε= 0.42. If the bed diameter is 0.4 m and the desired height of the bed at these minimum fluidizing conditions is 1.75 m. Calculate the amount of solids needed.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Find bed volume, discount the voids, find mass of sand from density",
       "resolved": true,
       "date_logged": "2026-09-21T18:41:23",
@@ -80019,14 +80023,15 @@
           "your_answer": "A. 235.52 kg",
           "correct_answer": "D. 325.25 kg"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790016388096420",
       "source_list": "D2_L8_Equipment_Plant_Design",
       "reference_no": 6,
       "question": "Typical static submergence for bubble cap plate column operating at atmospheric pressure may be around",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "0.5 inch is standard static submergence of the bubble cap so the vapor can bubble through",
       "resolved": true,
       "date_logged": "2026-09-21T18:46:28",
@@ -80038,14 +80043,15 @@
           "your_answer": "D. 50% of the plate spacing",
           "correct_answer": "B. 0.5\""
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790016703284700",
       "source_list": "D2_L3_Thermodynamics",
       "reference_no": 83,
       "question": "1 kg of gas occupies a volume of 0.4 m³ at a pressure of100 kN/m². The gas is compressed isothermally to a pressureof 450 kN/m². Determine the change in entropy of the gasduring the compression. Assume R = 300 J/kg-K.",
-      "category": "Forgot a Concept (Knew It Before)",
+      "category": "Forgot a Concept",
       "note": "dS = -R ln ( P2/P1 ), negative since compressed \nand since ln(V2/V1) = ln(P1/P2)",
       "resolved": true,
       "date_logged": "2026-09-21T18:51:43",
@@ -80057,14 +80063,15 @@
           "your_answer": "D. -0.19 kJ/kg-K",
           "correct_answer": "C. -0.45 kJ/kg-K"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790016964323827",
       "source_list": "D2_L9_Chemical_Reaction_Engineering",
       "reference_no": 36,
       "question": "The reaction A + B + C -> products has equimolar amounts initially, 1 M If the reaction is second order with respect to A and first order with respect to B and C The half-life of the reaction",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Turn the rate law into a single variable 4th order equation then integrate it and substitute to find half life.",
       "resolved": true,
       "date_logged": "2026-09-21T18:56:04",
@@ -80076,14 +80083,15 @@
           "your_answer": "B. 1.278 hours",
           "correct_answer": "D. 1.827 hours"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790036830131609",
       "source_list": "D2_L1_ChE_Calculations",
       "reference_no": 68,
       "question": "A furnace is fired with sub bituminous B coal containing 10.3% moisture, 34% VCM and 7.7% ash. It is also known to contain 1.2% N and 1.57% S. Its calorific value is 22 MJ/kg. Calculate its: Calorific Value of VCM.",
-      "category": "Forgot a Concept (Knew It Before)",
+      "category": "Forgot a Concept",
       "note": "Proximate analysis, 1 = FC + VCM + Ash + Moisture. Then calorific value of coal, CVcoal = (CVcarbon * FC) + (CVvcm * VCM)",
       "resolved": true,
       "date_logged": "2026-09-22T00:27:10",
@@ -80095,7 +80103,8 @@
           "your_answer": "D. 10 MJ/kg",
           "correct_answer": "B. 17 MJ/kg"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "17900369183897",
@@ -80159,7 +80168,7 @@
       "source_list": "D2_L2_Separation_Processes",
       "reference_no": 49,
       "question": "By extraction with amyl acetate, Penicillin Fis recovered from an aqueous fermentation broth using 6 volumes of solvent per 100 volumes of the aqueous phase. At pH = 3.2, the distribution coefficient Kp is 80. What would be the recovery with two-stage extraction using fresh solvent in both stages",
-      "category": "Forgot a Concept (Knew It Before)",
+      "category": "Forgot a Concept",
       "note": "Raffinate A = Feed A * (Inert/ (Dist. Coeff * Inert))^no. Stages",
       "resolved": true,
       "date_logged": "2026-09-22T00:54:05",
@@ -80171,14 +80180,15 @@
           "your_answer": "A. 88%",
           "correct_answer": "B. 97%"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790039005637734",
       "source_list": "D2_L7_Heat_Mass_Transfer",
       "reference_no": 82,
       "question": "The air supply for a dryer has a dry-bulb temperature of 70 F and a wet bulb temperature of 60 F. It is heated to 200 F by coils and blown into the dryer: In the dryer it cools along an adiabatic cooling line and leaves the dryer fully saturated: At what temperature does the air leave the dryer?",
-      "category": "Forgot a Concept (Knew It Before)",
+      "category": "Forgot a Concept",
       "note": "Use initial Tdb and Twb to get the amount humidity ratio then use it with the heating temp to find the line where it's 100%saturated then find the temp where db = wb",
       "resolved": true,
       "date_logged": "2026-09-22T01:03:25",
@@ -80190,14 +80200,15 @@
           "your_answer": "A. 86 F",
           "correct_answer": "B. 93 F"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790039340371596",
       "source_list": "D2_L5_Transport_Phenomenon",
       "reference_no": 45,
       "question": "An uninsulated steam pipe passes through a room in which the air and walls are at 25 C. The outside diameter of the pipe is 70 mm, and its surface temperature and emissivity are 200 C and 0.8, respectively. If the coefficient associated with free convection heat transfer from the surface air is 15 W/m2, what is the rate of heat loss from the surface per unit length of pipe",
-      "category": "Forgot a Concept (Knew It Before)",
+      "category": "Forgot a Concept",
       "note": "qtotal = qconv + qrad, qconv = T1-T2/(1/hA), and qrad = emissivity * area * Stefan- Boltzmann constant * (T1^4 - T2^4)",
       "resolved": true,
       "date_logged": "2026-09-22T01:09:00",
@@ -80209,14 +80220,15 @@
           "your_answer": "C. 835 W/m",
           "correct_answer": "B. 998 W/m"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790044632647493",
       "source_list": "D2_L6_Particle_Technology",
       "reference_no": 60,
       "question": "The terminal settling velocity of a 6 mm diameter glasssphere (density: 2500 kg/m³) in a viscous Newtonian liquid(density: 1500 kg/m³) is 100 µm/s. If the particle Reynoldsnumber is small and the value of acceleration due to gravityis 9.81 m/s², then the viscosity of the liquid (in Pa-s) is",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Stoke's Law, v = [(d^2) * g * (psolid - pliquid)]/ (18u). I didnt square the diameter.",
       "resolved": true,
       "date_logged": "2026-09-22T02:37:12",
@@ -80228,14 +80240,15 @@
           "your_answer": "A. 300.5",
           "correct_answer": "B. 196.2"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790053012637806",
       "source_list": "D2_L5_Transport_Phenomenon",
       "reference_no": 38,
       "question": "Water is running through a vertical plate with Reynolds number of 10. What is the flowrate of waterin gal/ft-hr.",
-      "category": "Forgot a Concept (Knew It Before)",
+      "category": "Forgot a Concept",
       "note": "For a liquid film Re = 4*Mass Flow Rate / dynamic viscosity. 10 = 4*density of water * Q / dynamic viscosity. Solve for Q convert to gal/ft hr",
       "resolved": true,
       "date_logged": "2026-09-22T04:56:52",
@@ -80247,7 +80260,8 @@
           "your_answer": "B. 0.277",
           "correct_answer": "C. 0.727"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790055498562423",
@@ -80371,7 +80385,7 @@
       "source_list": "D3_L15_Engineering_Mechanics",
       "reference_no": 26,
       "question": "A horizontal truss spans three 10 m panels (total 30 m) between a pin support at A (far left) and a roller support at F (far right), with top-chord joints A, B, D, F and bottom-chord joints C, E. A diagonal member near B makes a 20° angle with the horizontal. A 60 kN downward load is applied at joint B and an 80 kN downward load is applied at joint D (both on the top chord). What is the force acting on member BE?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
       "date_logged": "2026-09-22T06:24:45",
@@ -80383,14 +80397,15 @@
           "your_answer": "C. 183.15kN, compression",
           "correct_answer": "B. 19.5kN, tension"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179005871237152",
       "source_list": "D3_L13_EngineeringDataAnalysis",
       "reference_no": 15,
       "question": "Which of the following is equivalent to 15C15 + 16C15 + 17C15 + ... + 2023C15?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Hockey Stick Identity: rCr + (r+1)Cr + (r+2)Cr+...+nCr = (n+1)C(r+1). Solve the equivalent where n = 2023, and r = 15",
       "resolved": true,
       "date_logged": "2026-09-22T06:31:52",
@@ -80403,7 +80418,7 @@
           "correct_answer": "C. 2024C16"
         }
       ],
-      "updated_at": "2026-10-17T09:59:59"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179005946634038",
@@ -80430,7 +80445,7 @@
       "source_list": "D3_L5_Geometry",
       "reference_no": 22,
       "question": "Given a cyclic quadrilateral whose sides are 4 cm, 5 cm, 8 cm, and 11 cm. Its area is:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Use Brahmagupta's Formula. sqrt(product of the differences between the semiperimeter and each side). Semi perimeter (s) = SUM(all sides)/2 then sqrt((s-a)* (s-b)*(s-c)*(s-d))",
       "resolved": false,
       "date_logged": "2026-09-22T06:48:55",
@@ -80442,7 +80457,8 @@
           "your_answer": "B. 48.65 sq. cm.",
           "correct_answer": "A. 40.25 sq. cm."
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790059859772844",
@@ -80549,7 +80565,7 @@
       "source_list": "D3_L8_Integral_Calculus",
       "reference_no": 44,
       "question": "Determine the volume generated by rotating the curve 9x² + 4y² = 36 about the line 3x + 4y = 20.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Second Theorem of Pappus. V = 2pi * A * d. Find the area of the curve 9x2 + 4y2 = 36 , turn the constant to 1 so (9/36)x2+(4/36)x2 = 1, then solve for x and y which is the semi major and minor axes of the ellipse. Area of ellipse = 2pi * semi maj * semi min. Find the centroid (0,0) use perpendicular distance formula d =|Ax + By + C|/sqrt(A^2 + B^2) , where 3x + 4y -20 = 0 A=3, B=4, C=-20.",
       "resolved": false,
       "date_logged": "2026-09-22T07:31:34",
@@ -80561,14 +80577,15 @@
           "your_answer": "C. 374.5",
           "correct_answer": "D. 473.7"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790063035109381",
       "source_list": "D3_L11_Differential_Equations",
       "reference_no": 12,
       "question": "Which of the following equations is an exact DE?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "My = Nx means its exact. M is the term multiplied to dx and N is multiplied to dy. We find My by M dy differentiation and Nx by N dx.",
       "resolved": true,
       "date_logged": "2026-09-22T07:43:55",
@@ -80581,7 +80598,7 @@
           "correct_answer": "C. 2xy dx + (2 + x²) dy = 0"
         }
       ],
-      "updated_at": "2026-10-17T09:58:25"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790063574261523",
@@ -80607,7 +80624,7 @@
       "source_list": "D3_L5_Geometry",
       "reference_no": 27,
       "question": "A cylinder is circumscribed about a right prism having a square base one meter on an edge. The volume of the cylinder is 6.283 cu. m. Compute its altitude.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Find the diameter of cylinder from the diagonal of the square = square base * sqrt(2), r = diagonal/2 then from the volume find the height, V = 2pi * r^2 * h.",
       "resolved": false,
       "date_logged": "2026-09-22T08:03:44",
@@ -80619,7 +80636,8 @@
           "your_answer": "A. 3",
           "correct_answer": "B. 4"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179006652213020",
@@ -80645,7 +80663,7 @@
       "source_list": "D3_L3_Algebra",
       "reference_no": 24,
       "question": "The numbers 28, x+2, 112... form a geometric progression. What is the 15th term of the sequence?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Geometric progression. a_n = a_1 * r ^(n-1). where r is the common ratio which is solvable from the given and the general form of the equation.",
       "resolved": true,
       "date_logged": "2026-09-22T08:47:32",
@@ -80658,7 +80676,7 @@
           "correct_answer": "C. 458752"
         }
       ],
-      "updated_at": "2026-10-17T10:28:01"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790068595197999",
@@ -80704,7 +80722,7 @@
       "source_list": "D3_L11_Differential_Equations",
       "reference_no": 38,
       "question": "Determine the particular solution of the differential equation: y'' − 4y' − 12y = 3e^(5t)",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Assume the solution 3e^5t is Be^5t (where B is a constant). Solve for the derivatives of each term where we let y = Be^5t, y' = 5Be^5t, y'' = 25Be^5t = 3e^5t, solve for B. 25B - 20B -12B = 3.",
       "resolved": false,
       "date_logged": "2026-09-22T12:06:57",
@@ -80716,14 +80734,15 @@
           "your_answer": "C. (3/7)e^5t",
           "correct_answer": "D. (-3/7)e^5t"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790079398290820",
       "source_list": "D3_L8_Integral_Calculus",
       "reference_no": 64,
       "question": "What is the Laplace transform of sin(2t)/t?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "L{sin at} = a/(s^2 + a^2), for L{sin at / t } = tan^-1 (a/s)",
       "resolved": false,
       "date_logged": "2026-09-22T12:16:38",
@@ -80735,14 +80754,15 @@
           "your_answer": "B. arcsin(s/a)",
           "correct_answer": "C. arctan(a/s)"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179008030064154",
       "source_list": "D3_L13_EngineeringDataAnalysis",
       "reference_no": 9,
       "question": "If there are 6 persons, in how many ways can they sit at a round table if two of them always want to be next to each other, while another 2 of them don't want to be next to one another?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Draw the conditions. Since A and B must be together the circular perm = (5-1)! instead of (6-1)!. Total is (5-1)! * 2! (AB swapping positions). For C and D to not be together we can group them as well giving (4-1)! where 4 is left (AB), (CD), E, and F. (4-1)! * 2! (AB swaps) * 2! (CD swaps) = 24. T = 48-24 = 24",
       "resolved": false,
       "date_logged": "2026-09-22T12:31:40",
@@ -80754,7 +80774,8 @@
           "your_answer": "C. 12",
           "correct_answer": "D. 24"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790080665856765",
@@ -81027,7 +81048,7 @@
       "source_list": "D2_L7_Heat_Mass_Transfer",
       "reference_no": 20,
       "question": "A single effect evaporator is to concentrate 20000 lb/hr of a 20% solution NaOH to 50% solids. Saturated steam is available at 20 psig. The absolute vapor pressure in the vapor space is to be 100 mmHg. The overall coefficient is to be estimated to be 250 BTU/hr-ft2-0F. The feed temperature is 100°F. Calculate the following: The amount of steam consumed",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Complete the mass balance. Use the w/BPE energy balance, Q = m_cH_c + m_vH_v - m_fH_f\nFind all the enthalpies. H_f = find from fig 2-17, H_c = fig. 2-17, Hv = H_saturatedvapor + Cp(BPE). Hsaturatedvapor = steam table, BPE = BPE line (fig 11-7), memorize Cp of steam = 0.45 BTU/lb F and 1.88 kJ/kg K. Then find latent heat of steam = H_v - H_l (steam table) then m_s = Q/latentheat of steam",
       "resolved": true,
       "date_logged": "2026-09-22T14:30:32",
@@ -81039,7 +81060,8 @@
           "your_answer": "C. 12800 lb/h",
           "correct_answer": "A. 15400 lb/h"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790088226547404",
@@ -81179,7 +81201,7 @@
       "source_list": "CT_PT_Quality_Assurance_Control",
       "reference_no": 24,
       "question": "Which standard is also called a working standard?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "A primary standard is a very pure very stable basis used to verify a secondary standard. The secondary standard is the one used on a daily basis with its purity or concentration verified by a primary standard",
       "resolved": true,
       "date_logged": "2026-09-24T04:53:57",
@@ -81191,7 +81213,8 @@
           "your_answer": "C. Analytical standard",
           "correct_answer": "B. Secondary standard"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790225813231915",
@@ -81217,7 +81240,7 @@
       "source_list": "CT_PT_Laboratory_Instrumentation",
       "reference_no": 59,
       "question": "Which light source should be used in the wavelength range of 340 to 1000 nm?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "340-1000 nm is a continous wide range spectra that is produced by tungsten lamps. Mercury vapor emits discrete spectra and specific peaks (365 nm). Deuterium is restricted to UV range 150-400 nm",
       "resolved": true,
       "date_logged": "2026-09-24T05:00:25",
@@ -81229,7 +81252,8 @@
           "your_answer": "C. Mercury vapor lamp",
           "correct_answer": "B. Tungsten"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790226497671655",
@@ -81293,7 +81317,7 @@
       "source_list": "CT_PT_Laboratory_Instrumentation",
       "reference_no": 6,
       "question": "Which of the following has the correct order of elution (first to last) from an HPLC column containing a reversed-phase packing?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "In RP-HPLC the stationary phase is non-polar and the mobile phase is polar so polar molecules elute first while non polar lags since its attracted to the stationary phase. Amides (CONH2) is polar and can hydrogen bond. Acetone has a dipole moment. and DCE is non-polar",
       "resolved": true,
       "date_logged": "2026-09-24T05:21:17",
@@ -81305,7 +81329,8 @@
           "your_answer": "A. acetone, dichloroethane, acetamide",
           "correct_answer": "B. acetamide, acetone, dichloroethane"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790228003652352",
@@ -81388,7 +81413,7 @@
       "source_list": "D1_L5_Material_Science_Engineering",
       "reference_no": 39,
       "question": "A piece of titanium originally 250 mm long is pulled in tension with a stress of 315 MPa. If the deformation is entirely elastic, what will be the elongation of the material? Modulus of elasticity = 107 GPa.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Hooke's law stress = elastic modulus * strain, dL = strain * initial length",
       "resolved": false,
       "date_logged": "2026-09-24T06:02:23",
@@ -81400,7 +81425,8 @@
           "your_answer": "B. 0.55 mm",
           "correct_answer": "A. 0.74 mm"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790233103326558",
@@ -81426,7 +81452,7 @@
       "source_list": "D1_L4_Organic_Chemistry",
       "reference_no": 77,
       "question": "The ozonolysis product/s obtained from all the unbranched and unsymmetrical isomers of heptene is/are",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Ozonolysis is a class of cycloaddition/cleavage reaction. Where it forms a molozonide ring C-C-O-O-O which rearranges to an ozonide ring C-O-C-O-O then a reducing agent cleaves this unstable peroxide intermediate into two carbonyls splitting them and forming aldehydes (for unbranched alkenes).",
       "resolved": false,
       "date_logged": "2026-09-24T07:08:58",
@@ -81438,7 +81464,8 @@
           "your_answer": "B. an aldehyde and a ketone",
           "correct_answer": "D. two different aldehydes"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790233993164601",
@@ -81540,7 +81567,7 @@
       "source_list": "D1_L2_Environmental_EngSci",
       "reference_no": 95,
       "question": "Which statement about Scope 2 emissions is true?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Scope of emissions is divided into the 1: direct emissions by the firm, 2: indirect emissions by the firm (utilities), 3: Value chain, is also indirect emissions but further away in terms of a clear ownership",
       "resolved": false,
       "date_logged": "2026-09-24T09:08:13",
@@ -81552,7 +81579,8 @@
           "your_answer": "A. They are under direct operational control",
           "correct_answer": "C. They arise from purchased energy"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179024095058864",
@@ -81749,7 +81777,7 @@
       "source_list": "CT_Analytic_Chemistry",
       "reference_no": 27,
       "question": "It is a performance parameter that could be used to analyze a blank sample matrix.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "The analysis of a blank sample matrix is done to eliminate noise hence LOD is more appropriate parameter to detect this. Selectivity is the performance parameter that differentiate between a particular component from other components",
       "resolved": true,
       "date_logged": "2026-09-25T06:56:33",
@@ -81761,7 +81789,8 @@
           "your_answer": "B. Selectivity",
           "correct_answer": "D. Limit of detection"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790319564046648",
@@ -81825,7 +81854,7 @@
       "source_list": "CT_PT_Laboratory_Instrumentation",
       "reference_no": 52,
       "question": "Which analytical balance typically has a maximum capacity of approximately 180 to 200 g and a precision of ±0.1 mg?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "A macro balance is 10^-4 g, semi-micro is 10^-5 g, and micro is 10^-6 g and finer",
       "resolved": true,
       "date_logged": "2026-09-25T13:06:14",
@@ -81837,14 +81866,15 @@
           "your_answer": "A. micro balance",
           "correct_answer": "C. macro balance"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790341782608328",
       "source_list": "CT_PT_Laboratory_Instrumentation",
       "reference_no": 19,
       "question": "The selectivity factor, α, compares the",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "This is the ratio of retention factors (or distribution coefficients). This describes how well chromatography can seperate two substances. where it is >= 1, if = 1 it wont seperate.",
       "resolved": true,
       "date_logged": "2026-09-25T13:09:42",
@@ -81856,7 +81886,8 @@
           "your_answer": "C. detector responses of two solutes",
           "correct_answer": "B. retention of two solutes"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790341924272523",
@@ -81882,7 +81913,7 @@
       "source_list": "CT_PT_Quality_Assurance_Control",
       "reference_no": 35,
       "question": "What is the acceptable range for spiking recovery?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "80-120% is the standard baseline range or general testings. 90-110% is for precision pharamaceuticals",
       "resolved": true,
       "date_logged": "2026-09-25T13:14:55",
@@ -81894,14 +81925,15 @@
           "your_answer": "B. 90%–110%",
           "correct_answer": "A. 80%–120%"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790343040774990",
       "source_list": "CT_PT_Laboratory_Instrumentation",
       "reference_no": 67,
       "question": "Aqua regia is prepared using HCl and HNO₃ in what volume ratio?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Aquaregia form chloroauric acid, which is a gold complex which shifts the equilibrium to dissolve the gold reversing the common-ion effect and passivation.",
       "resolved": true,
       "date_logged": "2026-09-25T13:30:40",
@@ -81913,7 +81945,8 @@
           "your_answer": "B. 1:3",
           "correct_answer": "D. 3:1"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790343360093983",
@@ -81939,7 +81972,7 @@
       "source_list": "D1_L6_Physical_Chemistry",
       "reference_no": 52,
       "question": "Which of the following statements is true?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Trouton's Rule assumes that for liquids in their normal boiling point, the change in entropy is roughly 85-88 J/mol K. For highly polar liquids, their entropy is much lower since the hydrogen bonding provides structure making the change in entropy larger.",
       "resolved": false,
       "date_logged": "2026-09-26T08:01:16",
@@ -81951,14 +81984,15 @@
           "your_answer": "B. It is impossible to go from vapor phase to liquid phase without condensation",
           "correct_answer": "A. Trouton's rule fails for highly polar liquids"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790410060312789",
       "source_list": "D1_L7_CT_Biochemistry",
       "reference_no": 122,
       "question": "RFLP is a ____________",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Restriction Fragment Length Polymorphism is used to analyze DNA variations by  cutting DNA into fragments of different lengths which marks the DNA for identification",
       "resolved": false,
       "date_logged": "2026-09-26T08:07:40",
@@ -81970,14 +82004,15 @@
           "your_answer": "C. Method of producing GMOs",
           "correct_answer": "D. Molecular marker"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790410696638113",
       "source_list": "D1_L5_Material_Science_Engineering",
       "reference_no": 32,
       "question": "The defect which takes place due to imperfect packing of atoms during crystallization is known as",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "A point defect is a 1 dimensional defect and during crystallization point defects form at an atomic level while volume defects are larger macroscopic defects",
       "resolved": false,
       "date_logged": "2026-09-26T08:18:16",
@@ -81989,14 +82024,15 @@
           "your_answer": "C. volume",
           "correct_answer": "A. point"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790410748638683",
       "source_list": "D1_L5_Material_Science_Engineering",
       "reference_no": 89,
       "question": "A solution has an absorbance of 1.2 when measured in a 1 cm path length cuvette. What will happen to the absorbance if the path length is increased to 2 cm while keeping the concentration constant?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "A = e*l*c if l = 2l then A = 2A",
       "resolved": false,
       "date_logged": "2026-09-26T08:19:08",
@@ -82008,14 +82044,15 @@
           "your_answer": "B. Absorbance will be halved",
           "correct_answer": "C. Absorbance will double"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790410870654341",
       "source_list": "D1_L5_Material_Science_Engineering",
       "reference_no": 19,
       "question": "The number of atoms per unit cell in a body-centered cubic structure is:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "BCC has 8 corner atoms and 1 central atom. 1/8 * 8 = 1 + 1 = 2. 4 atoms is in FCC",
       "resolved": false,
       "date_logged": "2026-09-26T08:21:10",
@@ -82027,14 +82064,15 @@
           "your_answer": "B. 4",
           "correct_answer": "C. 2"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790411396877787",
       "source_list": "D1_L6_Physical_Chemistry",
       "reference_no": 64,
       "question": "(Situation: Three electrolytic cells A, B, and C, containing solutions of ZnSO4, AgNO3, and CuSO4 respectively, are connected in series. A steady current of 1.5 A was passed through them until 1.45 g of silver deposited at the cathode of cell B.) What mass of copper was deposited (in cell C)?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Use equivalent weights. MW/valence. m_Ag * (eq_Cu/eq_Ag)",
       "resolved": false,
       "date_logged": "2026-09-26T08:29:56",
@@ -82046,14 +82084,15 @@
           "your_answer": "C. 0.576 g",
           "correct_answer": "A. 0.427 g"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179041158486131",
       "source_list": "D1_L2_Environmental_EngSci",
       "reference_no": 40,
       "question": "For numbers 40 to 42: The following mineral analysis was reported for a water sample taken from well No. 1 at the Eastwood Manor Subdivision near McHenry Illinois (Woller and Sanderson, 1976a). Iron(2+) 0.2, Manganese 0, Ammonium 0.5, Sodium 4.7, Potassium 0.9, Calcium 67.2, Magnesium 40.0, Barium 0.5, Silica 20.0, Fluoride 0.35, Boron 0.1, Nitrate 0.0, Chloride 4.5, Sulfate 29.0, Alkalinity 284 as CaCO3, pH 7.6 units (all mg/L as the ion unless stated otherwise). Determine the total hardness.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Convert the mols of calcium and magnesium into CaCO3. The total hardness is CaCO3_Ca + CaCO3_Mg.",
       "resolved": false,
       "date_logged": "2026-09-26T08:33:04",
@@ -82065,14 +82104,15 @@
           "your_answer": "D. 51",
           "correct_answer": "C. 335"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790412121259371",
       "source_list": "D1_L5_Material_Science_Engineering",
       "reference_no": 5,
       "question": "Calculate the percentage ionic character of the bond in MgO.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "percent ionic charater, %IC = (1-e^(-0.25*dX^2))*100%. Let X = electronegativity X_oxygen = 3.5, X_magnesium = 1.2.",
       "resolved": false,
       "date_logged": "2026-09-26T08:42:01",
@@ -82084,14 +82124,15 @@
           "your_answer": "C. 52.79%",
           "correct_answer": "B. 73.35%"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790412311507657",
       "source_list": "D1_L1_Chem_for_Engineers",
       "reference_no": 31,
       "question": "Which greenhouse gas is produced from agricultural and industrial activities, combustion of fossil fuels and waste, and wastewater treatment? This greenhouse gas has a GWP of 273.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "N2O is used in fertilizers and indutry in combustion and wastewater. N2O has a 100 year GWP of 273 and CH4 has 27.9-29.8 (81-83 for 20 year GWP)",
       "resolved": false,
       "date_logged": "2026-09-26T08:45:11",
@@ -82103,7 +82144,8 @@
           "your_answer": "C. Methane",
           "correct_answer": "B. Nitrous oxide"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790413356114241",
@@ -82205,7 +82247,7 @@
       "source_list": "D1_L6_Physical_Chemistry",
       "reference_no": 25,
       "question": "(Situation: A 2 kg open calorimeter at 100 u02daC with heat capacity 4 kJ/K has 100 g of ice at -10 u02daC placed inside it, reaching a common final temperature.) Calculate the entropy change of the ice in cal/K.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Phase change of ice to water. Latent heat of fusion_ice = 334J/g = 80 cal/g, Cp_water = 1 cal/g, Cp_ice = 0.5 cal/g. ice to 0C -> ice to water -> liquid water to some temp. dS = Q/T, Qloss = Qadded = 4kJ/K = 956 cal/K (373K - Tf).",
       "resolved": false,
       "date_logged": "2026-09-26T09:32:04",
@@ -82217,7 +82259,8 @@
           "your_answer": "B. 100",
           "correct_answer": "C. 60"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790415499574718",
@@ -82243,7 +82286,7 @@
       "source_list": "D1_L2_Environmental_EngSci",
       "reference_no": 38,
       "question": "For numbers 35 to 39: The analysis of a sample of water with pH 7.5 has produced the following concentrations (mg/L). Cations: Cau00b2u207a 80, Mgu00b2u207a 30, Nau207a 72, Ku207a 6. Anions: HCO3u207b 165, Clu207b 100, SO4u00b2u207b 201, find the alkalinity, all expressed as CaCO3.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "HCO3- is the source of alkalinity. Convert it to equivalent weights of CaCO3. eq_HCO3- = 61/1 \n165*(50/61)",
       "resolved": false,
       "date_logged": "2026-09-26T09:42:38",
@@ -82255,14 +82298,15 @@
           "your_answer": "B. 188",
           "correct_answer": "C. 135"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790416135045771",
       "source_list": "D1_L2_Environmental_EngSci",
       "reference_no": 44,
       "question": "Type of wastewater treatment that employs physical and chemical treatment methods to remove or reduce a high percentage of suspended solids and toxic materials.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Primary treatment relies on chemical and physical methods while secondary relies more on biological agents.",
       "resolved": false,
       "date_logged": "2026-09-26T09:48:55",
@@ -82274,7 +82318,8 @@
           "your_answer": "C. Secondary Treatment",
           "correct_answer": "A. Primary Treatment"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790416245300784",
@@ -82300,7 +82345,7 @@
       "source_list": "D1_L6_Physical_Chemistry",
       "reference_no": 23,
       "question": "A 2 kg open calorimeter at 100 u02daC has a heat capacity of 4 kJ/K. 100 g of ice at -10 u02daC was placed inside the calorimeter. Calculate the final temperature in u00b0C.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Calculate the sensible heat and latent heats. Find the lost heat from the heatcapacity of the calorimeter and equate it to the sum of the heat generated solve for T",
       "resolved": false,
       "date_logged": "2026-09-26T09:52:12",
@@ -82312,14 +82357,15 @@
           "your_answer": "C. 86",
           "correct_answer": "B. 82"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790416381244640",
       "source_list": "D1_L4_Organic_Chemistry",
       "reference_no": 12,
       "question": "What is the functional group of CH₃CH₂CH₂OCH₃?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "The carbon before the oxygen is only singly bonded and there are no carbonyl groups",
       "resolved": false,
       "date_logged": "2026-09-26T09:53:01",
@@ -82331,14 +82377,15 @@
           "your_answer": "B. ketone",
           "correct_answer": "D. ether"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790416926219341",
       "source_list": "D1_L4_Organic_Chemistry",
       "reference_no": 55,
       "question": "What is the major organic product of the following reaction? Reactant: 3-bromo-2,3-dimethylhexane, (CH₃)₂CH–C(CH₃)(Br)–CH₂CH₂CH₃ (skeletal drawing with an isopropyl group and a Br on the tertiary carbon), treated with NaOCH₂CH₃ (sodium ethoxide).",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "An unhindered nucleophile attacks the alkylhalide via E2 elimination which favors the zaitsev product (or the more substituted product). The double bond is in the second carbon since there it becomes tetrasubstituted and when at 3rd carbon its only tri substituted",
       "resolved": false,
       "date_logged": "2026-09-26T10:02:06",
@@ -82350,14 +82397,15 @@
           "your_answer": "D. (E)-2,3-dimethyl-3-hexene",
           "correct_answer": "B. 2,3-dimethyl-2-hexene"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790417057067616",
       "source_list": "D1_L5_Material_Science_Engineering",
       "reference_no": 17,
       "question": "Below is a unit cell for a hypothetical metal. Figure: a rectangular box-shaped unit cell drawn with x, y, and z axes. The two base edges (along x and y) are each 0.35 nm long, the vertical edge (along z) is 0.45 nm long, and all angles between the axes are marked as 90°. Atoms sit at the eight corners and there is one atom at the center of the cell. What is the crystal system of this unit cell?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "a=b=c & a=b=c=90 (cubic), a=b<>c & a=b=c=90 (Tetragonal), a<>b<>c & a=b=c=90 (Orthorhombic)",
       "resolved": false,
       "date_logged": "2026-09-26T10:04:17",
@@ -82369,7 +82417,8 @@
           "your_answer": "C. orthorhombic",
           "correct_answer": "B. tetragonal"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790424954725983",
@@ -82395,7 +82444,7 @@
       "source_list": "CT_PT_Laboratory_Instrumentation",
       "reference_no": 53,
       "question": "Which IR absorption is expected to be broad rather than relatively sharp?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "OH is more subject to variation due to hydrogen bonding while C---N is a narrow peak since its stable.",
       "resolved": true,
       "date_logged": "2026-09-26T12:17:54",
@@ -82407,7 +82456,8 @@
           "your_answer": "A. C≡N",
           "correct_answer": "C. O–H"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790425168980286",
@@ -82433,7 +82483,7 @@
       "source_list": "CT_PT_Inorganic_Chemistry",
       "reference_no": 44,
       "question": "What are the smallest whole-number coefficients for the following reaction? Al + O₂ → Al₂O₃",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Count the atoms and balance properly",
       "resolved": true,
       "date_logged": "2026-09-26T12:19:56",
@@ -82445,7 +82495,8 @@
           "your_answer": "C. 2, 3, 2",
           "correct_answer": "D. 4, 3, 2"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790425295604320",
@@ -82509,7 +82560,7 @@
       "source_list": "CT_PT_Inorganic_Chemistry",
       "reference_no": 5,
       "question": "Along the third period, which arrangement shows increasing affinity for electrons?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Halogens have high electron affinity. And the trend of electron affinity goes from right(highest) to left and from top(highest) to bottom. Since sodium is further left it has less affinity.",
       "resolved": true,
       "date_logged": "2026-09-26T12:33:59",
@@ -82521,14 +82572,15 @@
           "your_answer": "D. Ar < Cl < Mg < Na",
           "correct_answer": "B. Ar < Na < Mg < Cl"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790502124785739",
       "source_list": "CT_PT_Quality_Assurance_Control",
       "reference_no": 10,
       "question": "Which quality system standard is specifically intended for medical laboratories?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "ISO 15189 is specifically designed for medical laboratories (diagnostic) while GLP is for non clinical safety and environemental studies. Both are quality standards.",
       "resolved": true,
       "date_logged": "2026-09-27T09:42:04",
@@ -82540,7 +82592,8 @@
           "your_answer": "D. GLP",
           "correct_answer": "A. ISO 15189"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790502293121574",
@@ -82566,7 +82619,7 @@
       "source_list": "D1_L6_Physical_Chemistry",
       "reference_no": 55,
       "question": "An aqueous solution at 26.85 u02daC of 0.72% by weight HCl freezes at -0.706 u02daC. Calculate the Van't Hoff factor.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Memorize the cryoscopic of water Kf = 1.86 C kg/mol. dT = Kf * i * m",
       "resolved": false,
       "date_logged": "2026-09-27T09:48:13",
@@ -82578,7 +82631,8 @@
           "your_answer": "B. 1.85",
           "correct_answer": "C. 1.9"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790504897524959",
@@ -82604,7 +82658,7 @@
       "source_list": "D1_L7_Biochemistry",
       "reference_no": 121,
       "question": "Southern blotting is used for ____________",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Blotting is for detection of particular species. Southern blotting is for DNA, Western blotting is for Proteins, Eastern blotting is for post translation protein modifications and Northern blotting is for RNA.",
       "resolved": false,
       "date_logged": "2026-09-27T12:02:29",
@@ -82616,14 +82670,15 @@
           "your_answer": "C. Proteins",
           "correct_answer": "B. DNA"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790511015094155",
       "source_list": "D1_L6_Physical_Chemistry",
       "reference_no": 13,
       "question": "Ethanol may be treated as an incompressible fluid at an appreciable pressure range. If the pressure is changed from 1 bar to 3 bar at 350 K, what is the change in the Gibbs free energy in J/g? The density of ethanol at this temperature is 800 kg/m3.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "From the fundamental equation dG = VdP - SdT and V=1/p convert into proper units",
       "resolved": false,
       "date_logged": "2026-09-27T12:10:15",
@@ -82635,14 +82690,15 @@
           "your_answer": "C. 25",
           "correct_answer": "A. 0.25"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790511149559330",
       "source_list": "D1_L2_Environmental_EngSci",
       "reference_no": 34,
       "question": "If a water sample was found to contain 19.2 mg/L of magnesium ion and 44.4 mg/L of calcium ion, express the amount of hardness in mg/L as CaCO3. The sample case is from a Maynilad source.",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Atomic mass of magnesium is 24 not 22. Proceed with equivalent weights calculation",
       "resolved": false,
       "date_logged": "2026-09-27T12:12:51",
@@ -82654,7 +82710,8 @@
           "your_answer": "B. 200",
           "correct_answer": "C. 189"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790511873485499",
@@ -82680,7 +82737,7 @@
       "source_list": "D1_L1_Chem_for_Engineers",
       "reference_no": 15,
       "question": "The bond energy in an 02 molecule is 8.22 * 10-19 J. What is the minimum velocity of an 02 molecule that would give a kinetic energy capable of breaking the double bond if it is converted with 100% efficiency?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "KE = 0.5mv^2, find the mass of a single O2 molecule = MW/(avogadro's no.) then solve for v",
       "resolved": false,
       "date_logged": "2026-09-27T12:27:18",
@@ -82692,14 +82749,15 @@
           "your_answer": "D. 3210 m/s",
           "correct_answer": "C. 5562 m/s"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790512195549810",
       "source_list": "D1_L3_Analytical_Chemistry",
       "reference_no": 32,
       "question": "Find the pH at the following points in the titration of 25 mL of 0.3 M HF with 0.3 M NaOH. The K_a value is 6.6x10⁻⁴. What is the pH at the initial point?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Ka = X^2 / (molarity of solution) - X, solve for X, solve for pH",
       "resolved": false,
       "date_logged": "2026-09-27T12:29:55",
@@ -82711,14 +82769,15 @@
           "your_answer": "B. 2.681",
           "correct_answer": "A. 1.862"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790512972876811",
       "source_list": "D1_L1_Chem_for_Engineers",
       "reference_no": 69,
       "question": "A dose response curve illustrating acute toxicity usually has",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Dose response curve is what you use to determine the strength of a substance to produce a particular effect (response). For acute toxicity, the graph usually follows a S curve where the bottom is almost no effect then the middle linear part where the relationship is seen and the top is where the max effect is reached.",
       "resolved": false,
       "date_logged": "2026-09-27T12:42:52",
@@ -82730,7 +82789,8 @@
           "your_answer": "B. a straight line at about a 45 degree angle",
           "correct_answer": "A. a s-shaped or sigmoidal curve"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790513068579668",
@@ -82794,7 +82854,7 @@
       "source_list": "D1_L3_Analytical_Chemistry",
       "reference_no": 47,
       "question": "Aqueous glycerol (C₃H₈O₃, 92.095) solution weighing 100 mg was treated with 50 mL of 0.0837 M Ce⁴⁺ in 4 M HClO₄ at 60 °C for 15 min to oxidize glycerol to formic acid, H₂CO₂. The excess Ce⁴⁺ required 12.11 mL of 0.0448 M Fe²⁺ to reach a ferroin endpoint. Find the weight % glycerol in the unknown.",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Account for the stoichiometric coefficient of the cerium oxidant. C3H8O3  -> CHO2 gives 8e+ divide the total cerium added by this to get the actual amount of glycerol",
       "resolved": false,
       "date_logged": "2026-09-27T15:30:51",
@@ -82806,14 +82866,15 @@
           "your_answer": "C. 33.1%",
           "correct_answer": "B. 41.9%"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790523109113325",
       "source_list": "D1_L3_Analytical_Chemistry",
       "reference_no": 45,
       "question": "Cyanide solution (12.73 mL) was treated with 25 mL of Ni²⁺ solution in excess to convert the cyanide to tetracyanonickelate(II). Excess Ni²⁺ was then titrated with 10.15 mL of 0.01307 M EDTA. If 39.35 mL of EDTA were required to reach equilibrium with 30.1 mL of the original Ni²⁺ solution, calculate the molarity of CN⁻ in the 12.73 mL sample.",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Account for the stoichiometric coefficient. Balance the reaction first",
       "resolved": false,
       "date_logged": "2026-09-27T15:31:49",
@@ -82825,14 +82886,15 @@
           "your_answer": "D. 0.02313 M",
           "correct_answer": "A. 0.09254 M"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790523334881244",
       "source_list": "D1_L6_Physical_Chemistry",
       "reference_no": 48,
       "question": "All colligative properties stem from the _____ of the chemical potential of the liquid solvent as a result of the presence of the solute.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "The increase in entopy stabilizes the solvent leading to the decrease of the chemical potential causing the colligative properties.",
       "resolved": false,
       "date_logged": "2026-09-27T15:35:34",
@@ -82844,7 +82906,8 @@
           "your_answer": "B. Change",
           "correct_answer": "A. Reduction"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790523358048360",
@@ -82889,7 +82952,7 @@
       "source_list": "D1_L4_Organic_Chemistry",
       "reference_no": 45,
       "question": "The pure (+) enantiomer of a compound has a specific rotation of +50°. A solution with a concentration of 0.04 g/mL in a 1-dm cell has a specific rotation of +40°. What is the enantiomeric excess?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Enantiomeric excess = specific rotation of mixture / specific rotation of pure substance. If the given were observed rotation the specific rotation = observed rotation / (conc. g/ml) * (path length dm)",
       "resolved": false,
       "date_logged": "2026-09-27T15:50:41",
@@ -82901,7 +82964,8 @@
           "your_answer": "C. 70%",
           "correct_answer": "D. 80%"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790526944010579",
@@ -82927,7 +82991,7 @@
       "source_list": "D1_L6_Physical_Chemistry",
       "reference_no": 65,
       "question": "Calculate the EMF at 25 u02daC of the cell: Pt | Sn2+ (0.1 m), Sn4+ (0.01 m) || Fe3+ (0.5 m) | Fe Fe3+ + 3e- u2192 Fe; Eu00b0 = -0.041 V Sn4+ + 2e- u2192 Sn2+; Eu00b0 = 0.151 V",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Nernst Equation is Ecell = E_standard potential of cell * 0.0592/n * log Q. E_spc = E_cathode - E_anode. Balance the redox Sn2+ Fe3+ -> Sn4+ + Fe(s) Reaction quotient (Q) = Sn4+ / (Sn2+ *  Fe3+) raise to approriate stoich. n is the coefficient of e- during balance of half reactions",
       "resolved": false,
       "date_logged": "2026-09-27T17:19:27",
@@ -82939,14 +83003,15 @@
           "your_answer": "B. 0.17 V",
           "correct_answer": "A. -0.17 V"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790531152594924",
       "source_list": "D1_L7_Biochemistry",
       "reference_no": 79,
       "question": "(Situation: Lactase kinetics were processed with a Lineweaver-Burk plot giving the best-fit linear equation y = 4.43u00d710u207bu2074 + 0.01738x, where x = 1/[S] in Mu207bu00b9 and y = 1/v in Mu207bu00b9 min.) Evaluate the enzymeu2019s Km.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Michaeles menten. 1/v = [Km/(Vmax * S)] + 1/Vmax. Find Km m = 0.01738, 1/Vmax = 4.43 * 10^-4. Find Km algebraically",
       "resolved": false,
       "date_logged": "2026-09-27T17:45:52",
@@ -82958,14 +83023,15 @@
           "your_answer": "D. 4.43 M",
           "correct_answer": "C. 39.2 M"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790589725422506",
       "source_list": "CT_PT_Laboratory_Instrumentation",
       "reference_no": 51,
       "question": "In anion-exchange chromatography,",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "ANION - exchange means that negatively charged species are exchanged (captured)",
       "resolved": true,
       "date_logged": "2026-09-28T10:02:05",
@@ -82977,7 +83043,8 @@
           "your_answer": "C. Column contains (+) and (−) beads where species bind depending on their net charge.",
           "correct_answer": "B. The column has (+) resin where (−) species bind."
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790589842510886",
@@ -83012,7 +83079,7 @@
       "source_list": "CT_PT_Laboratory_Instrumentation",
       "reference_no": 35,
       "question": "Simple distillation is described as suitable for separating liquids boiling below approximately",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "The upper limit for simple distillation is 150 C since most solvents boil between 100 - 150. Beyond 150 vacuum distillation is recommended",
       "resolved": true,
       "date_logged": "2026-09-28T10:06:53",
@@ -83024,14 +83091,15 @@
           "your_answer": "B. 100 °C",
           "correct_answer": "C. 150 °C"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790605161400352",
       "source_list": "CT_PT_Laboratory_Instrumentation",
       "reference_no": 64,
       "question": "An air sample is subjected to gas chromatography for the analysis of Freon-11 (CCl₃F). The detector that is most suitable for this analysis is",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Electron capture detector (ECD) is sensitive to electronegative atoms, as it fires electrons the halogens capture these and as they elute out of the column there is a decrease in current. Thermionic Specific Detectors (TSD) responds to nitrogen and phosporus, N and P passess over an alkali metal bead causing an increase in current, it works by N and P oxidizing the hydrogen plasma medium which causes the alkali bead to release thermionic electrons.",
       "resolved": true,
       "date_logged": "2026-09-28T14:19:21",
@@ -83043,7 +83111,8 @@
           "your_answer": "D. TSD",
           "correct_answer": "B. ECD"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790650816160226",
@@ -83069,7 +83138,7 @@
       "source_list": "D1_L7_Biochemistry",
       "reference_no": 16,
       "question": "What is the isoelectric point of glutamic acid? pKa(COOH) = 2.19, pKa(R) = 4.25, pKa(NH2) = 9.67.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "pI is the point where the zwitterion forms zero net charge. If the amino acid is neutral: average of alpha carboxy and alpha amino. If acidic average of alpha carboxyl and side chain carboxyl. If basic alpha amino and sidechain amino",
       "resolved": true,
       "date_logged": "2026-09-29T03:10:38",
@@ -83081,14 +83150,15 @@
           "your_answer": "D. 5.37",
           "correct_answer": "A. 3.22"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790651513987293",
       "source_list": "D1_L5_Material_Science_Engineering",
       "reference_no": 30,
       "question": "Polymorphism refers to:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Polymorphism refers to different crystal structures of the same chemical",
       "resolved": true,
       "date_logged": "2026-09-29T03:11:53",
@@ -83100,14 +83170,15 @@
           "your_answer": "C. Different isotopes of an element",
           "correct_answer": "B. Different crystal structures of the same compound"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790651696193369",
       "source_list": "D1_L2_Environmental_EngSci",
       "reference_no": 37,
       "question": "For numbers 35 to 39: The analysis of a sample of water with pH 7.5 has produced the following concentrations (mg/L). Cations: Cau00b2u207a 80, Mgu00b2u207a 30, Nau207a 72, Ku207a 6. Anions: HCO3u207b 165, Clu207b 100, SO4u00b2u207b 201, find the noncarbonated hardness.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "TH is from Ca Mg, Alkalinity is from HCO3, Carbonate hardness = min(TH, Alkalinity), Non Carbonate Hardness= TH - Alkalinity",
       "resolved": true,
       "date_logged": "2026-09-29T03:14:56",
@@ -83119,14 +83190,15 @@
           "your_answer": "D. 123",
           "correct_answer": "B. 188"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790652070095889",
       "source_list": "D1_L7_Biochemistry",
       "reference_no": 76,
       "question": "Which of the following kinetic parameters best describes how well suited a specific compound functions as a substrate for a particular enzyme?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "kcat/Km is called the specificity constant where kcat is from Vmax = kcat[E]t or the maximum velocity over total enzyme concentration. If Km >> [S] the michaeles menten is kcat/Km * [E]t * [S] it becomes the k constant of the rate law",
       "resolved": true,
       "date_logged": "2026-09-29T03:21:10",
@@ -83138,7 +83210,8 @@
           "your_answer": "A. Km",
           "correct_answer": "D. kcat/Km"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179065843344952",
@@ -83164,7 +83237,7 @@
       "source_list": "CT_PT_Laboratory_Instrumentation",
       "reference_no": 56,
       "question": "In gas-solid chromatography, separation occurs primarily through",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Gas solid chroma uses solid adsorbents where the gases carried by an inert medium adsorb and release at different rates",
       "resolved": true,
       "date_logged": "2026-09-29T05:10:56",
@@ -83176,14 +83249,15 @@
           "your_answer": "B. ionization",
           "correct_answer": "C. adsorption"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790669594509818",
       "source_list": "CT_PT_Laboratory_Instrumentation",
       "reference_no": 2,
       "question": "Which of the following is a line source of radiation?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Lamps can be line sources or continuum sources. Hollow cathode are specific and is line sources. Tungsten lamp is a continuum source",
       "resolved": true,
       "date_logged": "2026-09-29T08:13:14",
@@ -83195,14 +83269,15 @@
           "your_answer": "A. tungsten lamp",
           "correct_answer": "C. hollow cathode lamp"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179072109152963",
       "source_list": "D1_L7_Biochemistry",
       "reference_no": 81,
       "question": "Some enzymatic regulation is allosteric. In such cases, which of the following would usually be found?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Cooperativity is when a multi subunit enzyme binds to a substrate causing an increase in affinity in it's subunit active sites.\n\n(from an earlier log) Enzymatic regulation is how the enzyme how cellular reactions are controlled. Cooperativity is part of this which happens for multi-active site enzymes (multi-subunit enzymes) where a substrate binds at the active site to change the enzyme shape and increase the affinity of the other active sites to the substrate.",
       "resolved": true,
       "date_logged": "2026-09-29T22:31:31",
@@ -83214,7 +83289,8 @@
           "your_answer": "C. both activating and inhibitory activity",
           "correct_answer": "A. cooperativity"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179072122703085",
@@ -83259,7 +83335,7 @@
       "source_list": "D1_L7_Biochemistry",
       "reference_no": 83,
       "question": "An allosteric activator",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Allosteric activators increases binding activity since it turns the enzyme into it's relaxed state rather than the tense state which is formed from allosteric inhibitors",
       "resolved": false,
       "date_logged": "2026-09-29T22:39:56",
@@ -83271,7 +83347,8 @@
           "your_answer": "A. increases the binding affinity",
           "correct_answer": "D. both A and C"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790721990898447",
@@ -83316,7 +83393,7 @@
       "source_list": "D1_L6_Physical_Chemistry",
       "reference_no": 2,
       "question": "A sphere of radius 5 mm and density of 1.1 g/cm3 falls at a constant velocity through a liquid of density 1 g/cm3 and viscosity of 1 cP. What is the velocity of the falling sphere in m/s?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Stokes law formula uses diameter not radius.",
       "resolved": false,
       "date_logged": "2026-09-29T22:49:51",
@@ -83328,14 +83405,15 @@
           "your_answer": "A. 1.36 m/s",
           "correct_answer": "C. 5.45 m/s"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790722876231946",
       "source_list": "D1_L1_Chem_for_Engineers",
       "reference_no": 70,
       "question": "If the dose response curves of three chemicals are shown on the same graph, the one which intersects the X-axis (dose) at the lowest dose is",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "If three curves are intersecting the x axis at different points they can be seen as just shifting left or right the one shifted left is the most potent",
       "resolved": false,
       "date_logged": "2026-09-29T23:01:16",
@@ -83347,7 +83425,8 @@
           "your_answer": "D. without a threshold level",
           "correct_answer": "B. the most poisonous"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790722910813618",
@@ -83563,7 +83642,7 @@
       "source_list": "AI_CT_Laboratory_Technology",
       "reference_no": 2,
       "question": "Which glassware delivers 25.00 mL with the highest accuracy?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Volumetric pipettes has higher accuracy around +-0.01 to +- 0.03",
       "resolved": true,
       "date_logged": "2026-09-30T11:14:08",
@@ -83575,14 +83654,15 @@
           "your_answer": "B. Graduated cylinder",
           "correct_answer": "A. Volumetric pipette"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790766929994261",
       "source_list": "AI_CT_Chemical_Safety",
       "reference_no": 4,
       "question": "Which SDS section covers exposure controls and personal protection?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Section 8 is personal protective equipment while section 2 is hazard identification",
       "resolved": true,
       "date_logged": "2026-09-30T11:15:29",
@@ -83594,7 +83674,8 @@
           "your_answer": "C. Section 2",
           "correct_answer": "D. Section 8"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790767043950964",
@@ -83684,7 +83765,7 @@
       "source_list": "CT_Chemical_Waste_Management",
       "reference_no": 9,
       "question": "It is an act regulating and modernizing the practice of chemistry in the Philippines, otherwise known as the Chemistry Law of the Philippines.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "RA 9514 is the Fire code of the philippines and RA 10657 is the chemistry profession act",
       "resolved": true,
       "date_logged": "2026-09-30T17:50:37",
@@ -83696,7 +83777,8 @@
           "your_answer": "B. RA 9514",
           "correct_answer": "C. RA 10657"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179078919818393",
@@ -83817,7 +83899,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 203,
       "question": "In the presence of red phosphorus, chlorine converts fatty acids having alpha hydrogen atoms into:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Hell Volhard Zelinsky Reaction. Red phosphorus with halogen forms trihalide phosphorus which reacts with the protic portion of a carboxylic acid creating an acyl halide intermediate which enolizes and turns into a mono substituted halogen in the alphacarbon",
       "resolved": true,
       "date_logged": "2026-10-01T14:35:53",
@@ -83829,7 +83911,8 @@
           "your_answer": "C. Alpha, alpha-dihalo acids",
           "correct_answer": "B. Alpha-halo acids"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179079565607632",
@@ -83912,7 +83995,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 72,
       "question": "Affinity chromatography is used for the analysis and isolation of:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Affinity chromatography is the most selective chroma relying on reversible biological binding interaction",
       "resolved": true,
       "date_logged": "2026-10-01T14:43:23",
@@ -83924,7 +84007,8 @@
           "your_answer": "C. Antibodies bound with a covalently attached antigen on a cellulose column",
           "correct_answer": "D. All of the mentioned"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790795656128279",
@@ -83969,7 +84053,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 90,
       "question": "Arrange the following compounds in order of their increasing adsorption tendencies.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": ">> symbol is -> Alumina is polar and porous it has the highest adsorption, cellulose and strach are weak adsorbents via hydrogen bonds, while calcium carbonate is moderate adsorbent",
       "resolved": true,
       "date_logged": "2026-10-01T14:57:59",
@@ -83981,14 +84065,15 @@
           "your_answer": "C. Charcoal >> cellulose >> alumina >> starch",
           "correct_answer": "A. Cellulose >> starch >> calcium carbonate >> alumina"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790795656157988",
       "source_list": "BS_FlashCards",
       "reference_no": 158,
       "question": "Identify the alicyclic hydrocarbon which is highly flammable.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Alycyclic compounds are ring hydrocarbons with no aromaticity, in textbooks cycloproane is defined by its flammability and hence is the answer",
       "resolved": true,
       "date_logged": "2026-10-01T15:00:53",
@@ -84000,7 +84085,8 @@
           "your_answer": "C. Cyclopropane",
           "correct_answer": "B. Cyclopentane"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790795656166896",
@@ -84197,7 +84283,7 @@
       "source_list": "CT_RE_Analytical_Chemistry",
       "reference_no": 6,
       "question": "The result of an analysis is 36.97 g, compared with the accepted value of 37.06 g. What is the relative error in parts per thousand?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "ppt = (absolute error/accepted value) * 1000 where absolute error is the absolute difference between the relute and the accepted value",
       "resolved": true,
       "date_logged": "2026-10-01T15:39:24",
@@ -84209,7 +84295,8 @@
           "your_answer": "D. None of the choices",
           "correct_answer": "B. 2.43 ppt"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790864097047246",
@@ -84235,7 +84322,7 @@
       "source_list": "CT_RE_Analytical_Chemistry",
       "reference_no": 7,
       "question": "Which of the following sets of data is more precise? Set A, in mm: 821, 783, 834, 855 Set B, in mm: 790, 810, 838, 855",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Enter the properly in calculator then compare the standard deviations. Compare range = max-min",
       "resolved": true,
       "date_logged": "2026-10-01T15:49:23",
@@ -84247,7 +84334,8 @@
           "your_answer": "C. Set A",
           "correct_answer": "A. Set B"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790872367541384",
@@ -84394,7 +84482,7 @@
       "source_list": "CT_RE_General_Chemistry",
       "reference_no": 26,
       "question": "He arranged the elements in the periodic table in groups of 8’s like from lithium to sodium also known as “Law of Octaves.”",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "John Newlands compared the octaves in music. Every eight element share a physical/chemical property",
       "resolved": true,
       "date_logged": "2026-10-01T17:09:04",
@@ -84406,14 +84494,15 @@
           "your_answer": "C. Julius Meyer",
           "correct_answer": "D. John Newlands"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790872367554399",
       "source_list": "CT_RE_General_Chemistry",
       "reference_no": 4,
       "question": "He discovered the nucleus with his “Gold Foil” experiment.",
-      "category": "Forgot a Concept (Knew It Before)",
+      "category": "Forgot a Concept",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-01T17:10:33",
@@ -84425,7 +84514,8 @@
           "your_answer": "A. John Dalton",
           "correct_answer": "C. Ernest Rutherford"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790872367555858",
@@ -84489,7 +84579,7 @@
       "source_list": "CT_RE_Laboratory_Quality_Safety",
       "reference_no": 29,
       "question": "A periodic assessment of the performance of individual laboratories and groups of laboratories that is achieved by the distribution by an independent testing body of typical materials of unsupervised analysis by the participants.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Proficiency testing is also external quality assessment. The distribuion of unknown samples from outside organizations is more external than the more broad quality assessment",
       "resolved": true,
       "date_logged": "2026-10-02T06:15:27",
@@ -84501,7 +84591,8 @@
           "your_answer": "B. Quality assessment",
           "correct_answer": "A. Proficiency Testing"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790934577245456",
@@ -84527,7 +84618,7 @@
       "source_list": "CT_RE_Analytical_Chemistry",
       "reference_no": 16,
       "question": "A 0.4960 g sample of CaCO₃ is dissolved in an acidic solution. Calcium is precipitated as CaC₂O₄·H₂O, and the dry precipitate weighs 0.6186 g. What is the percentage of CaO in the sample?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Calculate thoroughly",
       "resolved": true,
       "date_logged": "2026-10-02T10:01:50",
@@ -84539,7 +84630,8 @@
           "your_answer": "B. 52.10%",
           "correct_answer": "A. 47.78%"
         }
-      ]
+      ],
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790935181258904",
@@ -84584,7 +84676,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 219,
       "question": "In which of the following is a carbon atom displaced so as to form a compact structure resembling a butterfly wing?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Cyclopropane's conformation is compared to a butterfly wing",
       "resolved": true,
       "date_logged": "2026-10-03T06:22:32",
@@ -84597,7 +84689,7 @@
           "correct_answer": "B. Cyclobutane"
         }
       ],
-      "updated_at": "2026-10-03T13:14:17"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179094664980272",
@@ -84644,7 +84736,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 395,
       "question": "A food scientist has a sample of plant oil and wants to determine if the oil contains saturated or unsaturated fatty acids. Which of the following spectroscopic techniques would be most useful for this purpose?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "IR can easily detect the C=C bond around 1650 cm-1",
       "resolved": true,
       "date_logged": "2026-10-03T08:19:48",
@@ -84657,7 +84749,7 @@
           "correct_answer": "C. Infrared spectroscopy"
         }
       ],
-      "updated_at": "2026-10-03T13:10:31"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790946649806639",
@@ -84764,7 +84856,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 376,
       "question": "Spectra can be broadly classified into two categories. They are:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Atomic Spectra: distinct lines caused by electronic transitions in atoms and Molecular Spectra  : electronic, vibrational, rotational transitions of molecules, appears as bands",
       "resolved": true,
       "date_logged": "2026-10-03T11:34:36",
@@ -84777,14 +84869,14 @@
           "correct_answer": "A. Atomic and molecular spectra"
         }
       ],
-      "updated_at": "2026-10-03T13:09:24"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790946649816165",
       "source_list": "BS_FlashCards",
       "reference_no": 380,
       "question": "The region of the electromagnetic spectrum for nuclear magnetic resonance is:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "NMR uses radio frequencies to look at the nuclear spin changes when subjected in strong magnet.",
       "resolved": true,
       "date_logged": "2026-10-03T12:49:12",
@@ -84797,14 +84889,14 @@
           "correct_answer": "B. Radio frequency"
         }
       ],
-      "updated_at": "2026-10-03T13:09:16"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790946649817825",
       "source_list": "BS_FlashCards",
       "reference_no": 140,
       "question": "Which of these is not associated with aliphatic compounds?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Huckel's Rule is the main criteria for aromaticity. If the compound has 4n+2 pi (delocalized electrons) they qualify as aromatic hence not an attribute for aliphatic compounds",
       "resolved": true,
       "date_logged": "2026-10-03T12:51:30",
@@ -84817,7 +84909,7 @@
           "correct_answer": "A. They contain (4n+2) pi electrons"
         }
       ],
-      "updated_at": "2026-10-03T13:09:11"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1790946649819736",
@@ -84844,7 +84936,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 184,
       "question": "Isomerism that arises from a difference in the spatial arrangement of atoms or groups about doubly bonded carbon atoms is called:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Geometrical isomerism is a subtype of stereoisomerism that is specified in a carbon carbon double bond which is the isomerism that gives E & Z configurations",
       "resolved": true,
       "date_logged": "2026-10-03T13:04:29",
@@ -84857,7 +84949,7 @@
           "correct_answer": "C. Geometrical isomerism"
         }
       ],
-      "updated_at": "2026-10-03T13:08:56"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179103578152662",
@@ -84884,7 +84976,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 324,
       "question": "Which of the following is more suitable for the fractional distillation process?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Water bath can only get to 100 C oil bath can reach common 150 C boiling points",
       "resolved": true,
       "date_logged": "2026-10-03T16:36:35",
@@ -84897,7 +84989,7 @@
           "correct_answer": "A. Oil bath"
         }
       ],
-      "updated_at": "2026-10-03T17:09:37"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791035781531940",
@@ -84964,7 +85056,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 309,
       "question": "How will you separate o-xylene and m-xylene?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "m and o xylene doesn't have very different boiling points but they have different melting points so a fractional crystallization can be used",
       "resolved": true,
       "date_logged": "2026-10-03T16:43:32",
@@ -84977,7 +85069,7 @@
           "correct_answer": "A. Crystallization"
         }
       ],
-      "updated_at": "2026-10-03T17:07:48"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791035781539747",
@@ -85044,7 +85136,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 373,
       "question": "An absorption spectrum results when an electron in an atom undergoes a transition from:",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Absorption happens when a low energy electrons go to a higher energy state",
       "resolved": true,
       "date_logged": "2026-10-03T16:55:25",
@@ -85057,7 +85149,7 @@
           "correct_answer": "B. A lower energy level to a higher one"
         }
       ],
-      "updated_at": "2026-10-03T17:06:57"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791041104872592",
@@ -85084,7 +85176,7 @@
       "source_list": "CT_RE_Organic_Chem_Waste",
       "reference_no": 33,
       "question": "Friedel-Crafts acylation of benzene with acetyl chloride in AlCl₃ yields",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Friedel Crafts acylation is aromatic substitution of an acyl group to an aromatic ring forming a phenyl ketone",
       "resolved": true,
       "date_logged": "2026-10-03T15:58:23",
@@ -85097,7 +85189,7 @@
           "correct_answer": "B. acetophenone"
         }
       ],
-      "updated_at": "2026-10-03T17:09:52"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791041104891562",
@@ -85124,7 +85216,7 @@
       "source_list": "CT_PT_Chemical_Safety",
       "reference_no": 54,
       "question": "What does NFPA stand for?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Its association",
       "resolved": true,
       "date_logged": "2026-10-03T16:06:11",
@@ -85137,14 +85229,14 @@
           "correct_answer": "B. National Fire Protection Association"
         }
       ],
-      "updated_at": "2026-10-04T14:56:57"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791041104912545",
       "source_list": "CT_PT_Chemical_Safety",
       "reference_no": 9,
       "question": "The guidelines on proper labeling, storage, and management of hazardous substances discussed in the material are pursuant to RA 6969 and",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "The DAO 2015-09 guides GHS implementation",
       "resolved": true,
       "date_logged": "2026-10-03T16:08:24",
@@ -85157,14 +85249,14 @@
           "correct_answer": "A. DAO 2015-09"
         }
       ],
-      "updated_at": "2026-10-03T17:10:05"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791041104922114",
       "source_list": "CT_PT_Chemical_Safety",
       "reference_no": 27,
       "question": "Which hazardous agents may cause birth defects when a pregnant woman is exposed?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Teratogens are infant development specific disruptors",
       "resolved": true,
       "date_logged": "2026-10-03T16:09:54",
@@ -85177,14 +85269,14 @@
           "correct_answer": "C. Teratogens"
         }
       ],
-      "updated_at": "2026-10-03T17:09:21"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791041104932608",
       "source_list": "CT_RE_Organic_Chem_Waste",
       "reference_no": 37,
       "question": "In the Grignard synthesis of an alkane using sec-butyl bromide, which of the following alkane will be produced?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Grignard reaction happens by reacting an alkyl halide with magnesium in anhydrous ether then water or other hydrogen source replaces the MgBr to saturate the alkyl halide and form MgBrOH",
       "resolved": true,
       "date_logged": "2026-10-03T16:17:31",
@@ -85197,7 +85289,7 @@
           "correct_answer": "C. n-butane"
         }
       ],
-      "updated_at": "2026-10-03T17:08:39"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791041104941389",
@@ -85224,7 +85316,7 @@
       "source_list": "CT_PT_Chemical_Safety",
       "reference_no": 1,
       "question": "Which term refers to the net uptake, transformation, and elimination of a substance in an organism specifically due to waterborne exposure?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Bio concentration is due to waterborne exposure",
       "resolved": true,
       "date_logged": "2026-10-03T16:20:02",
@@ -85237,7 +85329,7 @@
           "correct_answer": "C. Bioconcentration"
         }
       ],
-      "updated_at": "2026-10-03T16:25:26"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791041104961874",
@@ -85284,7 +85376,7 @@
       "source_list": "CT_RE_Organic_Chem_Waste",
       "reference_no": 23,
       "question": "An unknown ester was hydrolyzed with water and acid to produce an acid, X, and alcohol, Y. Oxidation of the alcohol with hot KMnO₄ yielded acid X. Oxidation of the alcohol produced acetaldehyde. Name the ester.",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Ester is made of an alkoxy group connected to an acyl group which when hydrolyzes becomes carboxylic acid and alcohol. The question says that the alcohol oxidizes to carboxylic acid X which was derived from further oxidation of acetaldehyde (ethanal) turns to ethanoic acid then alcohol Y is ethanol.",
       "resolved": true,
       "date_logged": "2026-10-04T14:34:37",
@@ -85297,7 +85389,7 @@
           "correct_answer": "D. ethyl ethanoate"
         }
       ],
-      "updated_at": "2026-10-04T14:56:48"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791087579258181",
@@ -85324,7 +85416,7 @@
       "source_list": "CT_RE_Organic_Chem_Waste",
       "reference_no": 20,
       "question": "Which of the following is a common source of hazardous waste in households?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-04T14:40:51",
@@ -85337,7 +85429,7 @@
           "correct_answer": "C. Batteries"
         }
       ],
-      "updated_at": "2026-10-04T14:53:33"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791087579282848",
@@ -85371,7 +85463,7 @@
       "source_list": "CT_RE_Organic_Chem_Waste",
       "reference_no": 22,
       "question": "Which Philippine legislation establishes the policies and institutional mechanisms for the control and prevention of water pollution?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-04T14:43:11",
@@ -85384,7 +85476,7 @@
           "correct_answer": "D. Republic Act No. 9275"
         }
       ],
-      "updated_at": "2026-10-04T14:55:35"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791087579307821",
@@ -85438,7 +85530,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 137,
       "question": "Find the odd one among the following.",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-04T12:28:36",
@@ -85451,14 +85543,14 @@
           "correct_answer": "C. Branched chain compounds"
         }
       ],
-      "updated_at": "2026-10-04T14:55:19"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791099624354237",
       "source_list": "BS_FlashCards",
       "reference_no": 5,
       "question": "What is the product when HNO3 reacts with NH4OH?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-04T12:28:29",
@@ -85471,7 +85563,7 @@
           "correct_answer": "A. NH4NO3"
         }
       ],
-      "updated_at": "2026-10-04T14:53:58"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791099624366544",
@@ -85498,7 +85590,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 306,
       "question": "Which of the following is not an important property that governs the extent of separation?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Temperature is a system state not a property of the chemical",
       "resolved": true,
       "date_logged": "2026-10-04T12:30:15",
@@ -85511,14 +85603,14 @@
           "correct_answer": "C. Temperature"
         }
       ],
-      "updated_at": "2026-10-04T14:53:27"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791099624393810",
       "source_list": "BS_FlashCards",
       "reference_no": 294,
       "question": "Which of the following is not a common method used for purification?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Electrolysis is not a standard physical means of separation it is a redox reaction",
       "resolved": true,
       "date_logged": "2026-10-04T12:31:18",
@@ -85531,7 +85623,7 @@
           "correct_answer": "C. Electrolysis"
         }
       ],
-      "updated_at": "2026-10-04T14:53:18"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791099624406398",
@@ -85578,7 +85670,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 240,
       "question": "The test that decides whether a datum from a given set could be rejected or not is:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Q test is for outlier determination \"datum\" validation means we are evaluating  a single point (outlier classification). T test is for answering whether the mean of two groups is statistically different. Z test is for validation of hypothesis for large sample sizes n>= 30. F test is used to compare the variance (spread) of two population groups",
       "resolved": true,
       "date_logged": "2026-10-04T13:43:53",
@@ -85591,7 +85683,7 @@
           "correct_answer": "C. Q-test"
         }
       ],
-      "updated_at": "2026-10-04T14:52:42"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791099624448749",
@@ -85638,7 +85730,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 103,
       "question": "Chromatography is used to:",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-04T13:51:39",
@@ -85651,7 +85743,7 @@
           "correct_answer": "D. All of the above"
         }
       ],
-      "updated_at": "2026-10-04T14:51:53"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791099624482720",
@@ -85718,7 +85810,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 30,
       "question": "Which among the following chemical bonds were described by Kossel and Lewis?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Kossel described ionic bonds as electrosatic charge, Lewis described covalent bonds as electron sharing",
       "resolved": true,
       "date_logged": "2026-10-04T14:26:16",
@@ -85731,7 +85823,7 @@
           "correct_answer": "D. Ionic and covalent bond"
         }
       ],
-      "updated_at": "2026-10-04T14:51:00"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791128540633816",
@@ -85758,7 +85850,7 @@
       "source_list": "CT_PT_Chemical_Safety",
       "reference_no": 2,
       "question": "A written program containing procedures, equipment, PPE, and work practices for protecting employees from hazardous chemicals is called the",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "CHP is chemical hygeine plan it is a detailed site specific procedure documentation",
       "resolved": true,
       "date_logged": "2026-10-04T16:44:04",
@@ -85771,7 +85863,7 @@
           "correct_answer": "B. Chemical Hygiene Plan"
         }
       ],
-      "updated_at": "2026-10-05T04:33:35"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791128540640868",
@@ -85798,7 +85890,7 @@
       "source_list": "CT_PT_Chemical_Safety",
       "reference_no": 5,
       "question": "What is the recommended face velocity for a laboratory chemical fume hood?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "80-100 ft/min is the just right face velocity (speed of air being drawn in the front opening)",
       "resolved": true,
       "date_logged": "2026-10-04T16:48:00",
@@ -85811,14 +85903,14 @@
           "correct_answer": "D. 80–100 ft/min"
         }
       ],
-      "updated_at": "2026-10-05T04:32:58"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791128540647181",
       "source_list": "CT_PT_Chemical_Safety",
       "reference_no": 17,
       "question": "In an NFPA hazard signal, what does an increasing numerical rating indicate?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "NFPA is the hazard diamond, increase of number is increase in hazard",
       "resolved": true,
       "date_logged": "2026-10-04T16:48:42",
@@ -85831,14 +85923,14 @@
           "correct_answer": "B. Increasing corresponding risk"
         }
       ],
-      "updated_at": "2026-10-05T04:32:45"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791128540649339",
       "source_list": "CT_PT_Chemical_Safety",
       "reference_no": 57,
       "question": "Which section of an SDS contains Stability and Reactivity information?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-04T16:49:02",
@@ -85851,7 +85943,7 @@
           "correct_answer": "D. Section 10"
         }
       ],
-      "updated_at": "2026-10-05T04:32:32"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791131990152128",
@@ -85918,7 +86010,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 138,
       "question": "Identify the odd one among the following.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Azulene is a non-benzenoid compound",
       "resolved": true,
       "date_logged": "2026-10-04T17:03:10",
@@ -85931,7 +86023,7 @@
           "correct_answer": "D. Azulene"
         }
       ],
-      "updated_at": "2026-10-05T04:31:05"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791131990161912",
@@ -86018,7 +86110,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 271,
       "question": "The maximum holding time for acid-preserved samples that will be subjected to determination of metals is:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Acid preserved samples inhibits most rot and keeps the metals dissolved which makes it last and valid for 6 months",
       "resolved": true,
       "date_logged": "2026-10-04T17:24:47",
@@ -86031,7 +86123,7 @@
           "correct_answer": "C. 6 months"
         }
       ],
-      "updated_at": "2026-10-05T04:29:51"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791131990172799",
@@ -86058,7 +86150,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 171,
       "question": "Filters that can be heated and used in gravimetric analysis.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Glass fiber filter (GFF) is heat resistant. Sintered glass is component of funnel itself",
       "resolved": true,
       "date_logged": "2026-10-04T17:28:03",
@@ -86071,14 +86163,14 @@
           "correct_answer": "B. GFF"
         }
       ],
-      "updated_at": "2026-10-05T04:29:03"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179113199017672",
       "source_list": "BS_FlashCards",
       "reference_no": 46,
       "question": "PH3, SO3 and HF are examples of polar molecules. State true or false.",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "SO3 is is a symmetric trigonal planar molecule and is nonpolar",
       "resolved": true,
       "date_logged": "2026-10-04T17:28:45",
@@ -86091,14 +86183,14 @@
           "correct_answer": "B. False"
         }
       ],
-      "updated_at": "2026-10-05T04:28:56"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791131990179266",
       "source_list": "BS_FlashCards",
       "reference_no": 8,
       "question": "Under the Brønsted concept of acids and bases, a base is:",
-      "category": "Forgot a Concept (Knew It Before)",
+      "category": "Forgot a Concept",
       "note": "Bronsted is all about proton donation and proton acceptance not hydroxide",
       "resolved": true,
       "date_logged": "2026-10-04T17:29:28",
@@ -86111,7 +86203,7 @@
           "correct_answer": "B. A proton acceptor"
         }
       ],
-      "updated_at": "2026-10-05T04:28:46"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791204368624329",
@@ -86138,7 +86230,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 228,
       "question": "Select the inappropriate statement regarding quantitative analysis.",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Quantitative analysis does not fail to indicate the presence of lead and quantitative analysis does help determine the impurities in a sample",
       "resolved": true,
       "date_logged": "2026-10-05T15:11:36",
@@ -86151,7 +86243,7 @@
           "correct_answer": "C. It fails to indicate the presence of lead in some compounds"
         }
       ],
-      "updated_at": "2026-10-07T05:30:55"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791204368628925",
@@ -86198,7 +86290,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 210,
       "question": "What will be the reactivity of chlorobenzene in an electrophilic substitution reaction compared with benzene?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Chlorine is a ring deactivator that pulls electron via inductive effect. Chlorine is an ortho and para director and deactivator (for electrophiles), reaction still happens but slower for electrophiles. Nucleophiles will react more aggressively via SNAr (different from SN1 and SN2) which creates a Meisenheimer Complex",
       "resolved": true,
       "date_logged": "2026-10-05T15:45:08",
@@ -86211,7 +86303,7 @@
           "correct_answer": "A. Reacts more slowly than benzene"
         }
       ],
-      "updated_at": "2026-10-07T05:30:02"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791204368636499",
@@ -86258,7 +86350,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 402,
       "question": "In the AAS method, if the sample concentration is too high to permit accurate analysis in the linear response range, there are alternatives that may help bring the absorbance into the optimum working range.",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "All of the choices decreases the reading back into the working range of the instrument and within the LOL",
       "resolved": true,
       "date_logged": "2026-10-06T07:46:10",
@@ -86271,7 +86363,7 @@
           "correct_answer": "D. All of the above"
         }
       ],
-      "updated_at": "2026-10-07T05:23:40"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791204368642160",
@@ -86318,7 +86410,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 170,
       "question": "Ambient laboratory conditions are not the same as standard conditions; therefore, the volumes dispensed by volumetric glassware often differ from the manufacturer’s specifications, but within acceptable limits. This slight variation in volume will cause a ____ error in concentrations based on volume-volume or mass-volume.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Gross Errors are one time blunders that dont follow a pattern. Systematic error is reproducible and consistent",
       "resolved": true,
       "date_logged": "2026-10-06T08:05:22",
@@ -86331,14 +86423,14 @@
           "correct_answer": "B. Systematic"
         }
       ],
-      "updated_at": "2026-10-07T05:17:33"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791204368649745",
       "source_list": "BS_FlashCards",
       "reference_no": 281,
       "question": "The process by which a sample population is reduced in size to an amount of homogeneous material that can be conveniently handled in the lab, in which the composition is representative of the population.",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-06T08:05:56",
@@ -86351,7 +86443,7 @@
           "correct_answer": "C. Sampling"
         }
       ],
-      "updated_at": "2026-10-07T05:17:21"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791204368652538",
@@ -86378,7 +86470,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 387,
       "question": "In electronic spectroscopy, what is the position of the band of alkanes?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "sigma to anti sigma transition (150 nm) is characteristic of alkanes since they only have sigma bonds. 217 nm is characteristic of pi to anti pi transitions specific to conjugated dienes",
       "resolved": true,
       "date_logged": "2026-10-06T08:10:46",
@@ -86391,7 +86483,7 @@
           "correct_answer": "D. 150 nm"
         }
       ],
-      "updated_at": "2026-10-07T05:15:56"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791204368658746",
@@ -86438,7 +86530,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 61,
       "question": "The thickness of a thin layer of adsorbent is about:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "TLC standard is between 0.1-0.25 mm",
       "resolved": true,
       "date_logged": "2026-10-06T07:08:46",
@@ -86451,7 +86543,7 @@
           "correct_answer": "B. 0.2 mm"
         }
       ],
-      "updated_at": "2026-10-07T05:25:34"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791220234199117",
@@ -86525,7 +86617,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 348,
       "question": "The method of standardization can be used if a ____ reacts quantitatively with the reagent needed in the standard solution.",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-06T07:14:21",
@@ -86538,7 +86630,7 @@
           "correct_answer": "A. Primary standard"
         }
       ],
-      "updated_at": "2026-10-07T05:24:57"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791220234208584",
@@ -86605,7 +86697,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 160,
       "question": "A conjugated diene reacts with which of the following to form a cyclohexene?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Diels alder reaction forms a cyclohexene by combining a diene and a dienophile (an alkene attached to electron withdrawing groups)",
       "resolved": true,
       "date_logged": "2026-10-06T07:29:18",
@@ -86618,14 +86710,14 @@
           "correct_answer": "B. Dienophile"
         }
       ],
-      "updated_at": "2026-10-07T05:24:21"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791220234218166",
       "source_list": "BS_FlashCards",
       "reference_no": 349,
       "question": "You have a stock solution of 15.8 M HNO3. How many mL of this solution should you dilute, using only a graduated pipette, to make 100.0 mL of 0.250 M HNO3?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Consider the significant numbers of the given values. Since the values has a 3 significant numbers as its lowest precision the answer must be 3 sigfigs too",
       "resolved": true,
       "date_logged": "2026-10-06T07:31:09",
@@ -86638,7 +86730,7 @@
           "correct_answer": "A. 1.58"
         }
       ],
-      "updated_at": "2026-10-07T05:24:12"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791220234220958",
@@ -86685,7 +86777,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 408,
       "question": "The concentration at which the calibration curve departs from linearity by a specified amount.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Limit of linearity happens as the concentration of the analyte, the linear response gives deviations. Dynamic range is encompasses the working range where it starts at LOQ and ends in the LOL. The working range is set withing the LOQ and LOL with allowance/boundaries that are actually confirmed.",
       "resolved": true,
       "date_logged": "2026-10-06T05:03:46",
@@ -86698,14 +86790,14 @@
           "correct_answer": "C. Limit of linearity"
         }
       ],
-      "updated_at": "2026-10-07T05:29:27"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791222534589532",
       "source_list": "BS_FlashCards",
       "reference_no": 141,
       "question": "Select the minimum number of carbon atoms a molecule must possess to be regarded as a higher alkane.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "When alkanes hit the C17 mark they usually transition into very viscous fluid or solid state under standard/normal conditions.",
       "resolved": true,
       "date_logged": "2026-10-06T05:06:41",
@@ -86718,7 +86810,7 @@
           "correct_answer": "C. 17"
         }
       ],
-      "updated_at": "2026-10-07T05:29:14"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791222534592303",
@@ -86745,7 +86837,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 166,
       "question": "Identify the perfect example of an isolated double bond.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Isolated double bonds are seperated by 2 or more single bonds, conjugated double bonds are seperated by 1 single bond and cumulated double bonds are next to each other. They are isolated cause they cant share and form resonance",
       "resolved": true,
       "date_logged": "2026-10-06T05:15:11",
@@ -86758,7 +86850,7 @@
           "correct_answer": "A. 1,4-Pentadiene"
         }
       ],
-      "updated_at": "2026-10-07T05:28:57"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791222534597332",
@@ -86825,7 +86917,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 386,
       "question": "Which of the following transitions are of weak intensity and lie in the visible region?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "The transition of electrons between bonding/non-bonding orbitals to anti bonding orbitals can be either a strong transition (high symmetry/high probability) or a weak transition (low symmetry/low probability) which dictates the peaks at which the intensity of the spectra observed. The intensity of peaks is not the same as the energy required to transition. In terms of energy (sigma to anti sigma -> non-bonding to anti sigma -> pi to anti pi -> non-bonding to anti pi) the peaks of the transition is based on the molar absorptivity which is a probability function of the likelyhood of transition in terms of molar absoptivity and transition (pi to anti pi -> sigma to anti sigma -> non-bonding to anti sigma -> non-bonding to anti pi)",
       "resolved": true,
       "date_logged": "2026-10-06T05:57:20",
@@ -86838,7 +86930,7 @@
           "correct_answer": "A. n→π*"
         }
       ],
-      "updated_at": "2026-10-07T05:27:45"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179122253460624",
@@ -86925,7 +87017,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 41,
       "question": "What is the hybridization of oxygen in water?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Oxygen has 2 lone pairs, recompute steric number",
       "resolved": true,
       "date_logged": "2026-10-06T06:48:47",
@@ -86938,7 +87030,7 @@
           "correct_answer": "C. sp3"
         }
       ],
-      "updated_at": "2026-10-07T05:26:18"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791222534621108",
@@ -87025,7 +87117,7 @@
       "source_list": "BS_FlashCards",
       "reference_no": 297,
       "question": "At room temperature, the impure compound in crystallisation is:",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-06T16:17:39",
@@ -87038,14 +87130,14 @@
           "correct_answer": "B. Sparingly soluble"
         }
       ],
-      "updated_at": "2026-10-07T05:15:19"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791276213215766",
       "source_list": "BS_FlashCards",
       "reference_no": 174,
       "question": "The following are common desiccants EXCEPT:",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "Ammonium acetate is deliquescent and unstable (may release ammonia to the sample)",
       "resolved": true,
       "date_logged": "2026-10-06T16:17:26",
@@ -87058,14 +87150,14 @@
           "correct_answer": "B. Ammonium acetate"
         }
       ],
-      "updated_at": "2026-10-07T05:15:26"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791381047122191",
       "source_list": "CT_PreBoards_Organic_Chemistry_Lab",
       "reference_no": 74,
       "question": "Simple protein in blood:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Fibrinogen turns to fibrin for blood clot",
       "resolved": true,
       "date_logged": "2026-10-07T18:03:59",
@@ -87078,7 +87170,7 @@
           "correct_answer": "A. fibrinogen"
         }
       ],
-      "updated_at": "2026-10-08T07:17:48"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791381047134167",
@@ -87145,7 +87237,7 @@
       "source_list": "CT_PreBoards_Organic_Chemistry_Lab",
       "reference_no": 41,
       "question": "Which of the following contains a tertiary carbon?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "dimethyl propane is quaternary",
       "resolved": true,
       "date_logged": "2026-10-07T18:12:15",
@@ -87158,7 +87250,7 @@
           "correct_answer": "D. 3-methylheptane"
         }
       ],
-      "updated_at": "2026-10-08T07:13:44"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179138104720933",
@@ -87185,7 +87277,7 @@
       "source_list": "CT_PreBoards_Organic_Chemistry_Lab",
       "reference_no": 91,
       "question": "Which of the following is a correct IUPAC name?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "lowest number of locants",
       "resolved": true,
       "date_logged": "2026-10-07T18:15:30",
@@ -87198,14 +87290,14 @@
           "correct_answer": "A. 6-isopropyl-2,3-dimethylnonane"
         }
       ],
-      "updated_at": "2026-10-08T07:08:32"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791381047234857",
       "source_list": "CT_PreBoards_Organic_Chemistry_Lab",
       "reference_no": 79,
       "question": "The following are requirements for hazardous waste storage facilities, except:",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-07T18:15:50",
@@ -87218,14 +87310,14 @@
           "correct_answer": "D. The facility should be properly secured and can be easily accessed by anyone"
         }
       ],
-      "updated_at": "2026-10-08T07:08:26"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791381047246111",
       "source_list": "CT_PreBoards_Organic_Chemistry_Lab",
       "reference_no": 98,
       "question": "Which reagent would be best for oxidizing a primary alcohol to an aldehyde?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Jones reagent is dissolved dichromate in aqueous sulfuric acid. Presence of water forms aldehyde hydrate (gem-diol) which forms carboxylic acid. PCC is anhydrous yielding aldehyde",
       "resolved": true,
       "date_logged": "2026-10-07T18:19:09",
@@ -87238,7 +87330,7 @@
           "correct_answer": "A. PCC in CH₂Cl₂"
         }
       ],
-      "updated_at": "2026-10-08T07:07:41"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791381047259472",
@@ -87265,7 +87357,7 @@
       "source_list": "CT_PreBoards_Organic_Chemistry_Lab",
       "reference_no": 89,
       "question": "A reaction of an ester that will produce another ester:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Alcoholysis substitutes an alcohol (R) for the R' in R'OOR'' group to make ROOR'' + R'OH",
       "resolved": true,
       "date_logged": "2026-10-07T18:29:30",
@@ -87278,7 +87370,7 @@
           "correct_answer": "C. Alcoholysis"
         }
       ],
-      "updated_at": "2026-10-08T07:06:31"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791381047282334",
@@ -87365,7 +87457,7 @@
       "source_list": "CT_PreBoards_General_Analytical_Chemistry",
       "reference_no": 89,
       "question": "What is the pH of a 1 × 10⁻⁵ M KOH solution?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-07T18:33:12",
@@ -87378,14 +87470,14 @@
           "correct_answer": "B. 9"
         }
       ],
-      "updated_at": "2026-10-08T07:17:29"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791391311343432",
       "source_list": "CT_PreBoards_General_Analytical_Chemistry",
       "reference_no": 21,
       "question": "The maximum number of electrons that can be accommodated in a sublevel for which l = 3 is:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "l0 = 2 sl (s-orbital). l1 = 6 sl (p-orbital). l2 = 10 sl (d-orbital). l3 = 14 sl (f-orbital)",
       "resolved": true,
       "date_logged": "2026-10-07T18:35:54",
@@ -87398,7 +87490,7 @@
           "correct_answer": "B. 14"
         }
       ],
-      "updated_at": "2026-10-08T07:17:09"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791391311345136",
@@ -87425,7 +87517,7 @@
       "source_list": "CT_PreBoards_General_Analytical_Chemistry",
       "reference_no": 77,
       "question": "The formula for hydrosulfuric acid is:",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-07T19:07:51",
@@ -87445,7 +87537,7 @@
           "correct_answer": "B. H₂S(aq)"
         }
       ],
-      "updated_at": "2026-10-08T11:58:35"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791391311350521",
@@ -87552,7 +87644,7 @@
       "source_list": "[Repo] TOS1_Section3",
       "reference_no": 12,
       "question": "Which pair of molecular types demonstrates chain isomerism?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Chain isomer, position isomer, functiona isomer, metamerism, tautomerism, ring-chain",
       "resolved": true,
       "date_logged": "2026-10-09T10:22:16",
@@ -87565,14 +87657,14 @@
           "correct_answer": "B. Pentane and 2,2-Dimethylpropane"
         }
       ],
-      "updated_at": "2026-10-09T10:22:16"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791539715257206",
       "source_list": "[Repo] TOS1_Section3",
       "reference_no": 1,
       "question": "How many constitutional (structural) isomers exist for the alkane with molecular formula C₄H₁₀?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "C4 = 2, C5= 3, C6 = 5, C7 = 9",
       "resolved": true,
       "date_logged": "2026-10-09T10:28:48",
@@ -87585,14 +87677,14 @@
           "correct_answer": "A. 2"
         }
       ],
-      "updated_at": "2026-10-09T10:28:48"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791539715260634",
       "source_list": "[Repo] TOS1_Section3",
       "reference_no": 2,
       "question": "How many constitutional isomers exist for pentane (C₅H₁₂)?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "C4 = 2, C5= 3, C6 = 5, C7 = 9",
       "resolved": true,
       "date_logged": "2026-10-09T10:28:57",
@@ -87605,14 +87697,14 @@
           "correct_answer": "B. 3"
         }
       ],
-      "updated_at": "2026-10-09T10:28:57"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791539715263959",
       "source_list": "[Repo] TOS1_Section3",
       "reference_no": 15,
       "question": "How many constitutional isomers exist for the molecular formula C₂H₆O?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "C4 = 2, C5= 3, C6 = 5, C7 = 9",
       "resolved": true,
       "date_logged": "2026-10-09T10:29:00",
@@ -87625,14 +87717,14 @@
           "correct_answer": "B. 2"
         }
       ],
-      "updated_at": "2026-10-09T10:29:00"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791542695939848",
       "source_list": "[Repo] TOS2_Section1",
       "reference_no": 9,
       "question": "What product is formed when toluene is treated with a strong oxidizing agent like hot acidic KMnO₄?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-09T10:45:56",
@@ -87645,7 +87737,7 @@
           "correct_answer": "C. Benzoic acid"
         }
       ],
-      "updated_at": "2026-10-09T12:12:31"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791542695942515",
@@ -87672,7 +87764,7 @@
       "source_list": "[Repo] TOS2_Section1",
       "reference_no": 20,
       "question": "Which reaction converts benzene into ethylbenzene using ethyl chloride and an aluminum chloride catalyst?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-09T12:12:25",
@@ -87685,14 +87777,14 @@
           "correct_answer": "A. Friedel-Crafts Alkylation"
         }
       ],
-      "updated_at": "2026-10-09T12:12:25"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791548943081733",
       "source_list": "[Repo] TOS2_Section2",
       "reference_no": 3,
       "question": "Which test yields a yellow-orange precipitate with both aldehydes and ketones, confirming the presence of a carbonyl group?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-09T12:56:28",
@@ -87705,14 +87797,14 @@
           "correct_answer": "A. 2,4-DNP (2,4-Dinitrophenylhydrazine) test"
         }
       ],
-      "updated_at": "2026-10-09T12:56:28"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791552209148847",
       "source_list": "[Repo] TOS2_Section3",
       "reference_no": 15,
       "question": "Which reaction involves the disproportionation of non-enolizable aldehydes in strong base to yield a primary alcohol and a carboxylic acid salt?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-09T14:30:23",
@@ -87725,7 +87817,7 @@
           "correct_answer": "A. Cannizzaro reaction"
         }
       ],
-      "updated_at": "2026-10-09T16:16:32"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791552209151449",
@@ -87752,7 +87844,7 @@
       "source_list": "[Repo] TOS2_Section5",
       "reference_no": 5,
       "question": "An unknown water-insoluble compound is insoluble in 5% NaOH but dissolves in 5% HCl. What functional group is present?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Doluble in acid not soluble in base",
       "resolved": true,
       "date_logged": "2026-10-09T17:00:56",
@@ -87765,14 +87857,14 @@
           "correct_answer": "C. Basic organic amine"
         }
       ],
-      "updated_at": "2026-10-09T17:00:56"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791562514844365",
       "source_list": "[Repo] TOS2_Section5",
       "reference_no": 7,
       "question": "By standard OSHA/NFPA safety definitions, a liquid is classified as 'flammable' if its flash point is below approximately:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "<100F flammable, >100 but <200 is combustible, >200 is unregulated",
       "resolved": true,
       "date_logged": "2026-10-09T17:01:41",
@@ -87785,7 +87877,7 @@
           "correct_answer": "A. 37.8 °C (100 °F)"
         }
       ],
-      "updated_at": "2026-10-09T17:01:41"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791566321170364",
@@ -87832,7 +87924,7 @@
       "source_list": "[Repo] TOS3_Section3",
       "reference_no": 14,
       "question": "Which compound is widely purified in the laboratory using sublimation due to its high vapor pressure as a solid?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-09T18:11:30",
@@ -87845,7 +87937,7 @@
           "correct_answer": "B. Caffeine"
         }
       ],
-      "updated_at": "2026-10-09T18:11:30"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791576896137787",
@@ -87872,7 +87964,7 @@
       "source_list": "[Repo] TOS4_Section1",
       "reference_no": 9,
       "question": "Which condenser type features a series of internal glass bulbs designed to maximize surface area and turbulence for refluxing medium-boiling liquids?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-10T15:04:43",
@@ -87885,7 +87977,7 @@
           "correct_answer": "B. Allihn condenser"
         }
       ],
-      "updated_at": "2026-10-10T15:04:43"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791612832398557",
@@ -87932,7 +88024,7 @@
       "source_list": "[Repo] TOS5_Section2",
       "reference_no": 4,
       "question": "On a standard nonpolar capillary column (e. g., polydimethylsiloxane), in what general order do organic compounds elute?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "In GC the elution order for nonpolar column is based on increasing boiling point. In polar column, its based on both boiling point and increasing polarity",
       "resolved": true,
       "date_logged": "2026-10-10T16:27:14",
@@ -87945,14 +88037,14 @@
           "correct_answer": "A. In order of increasing boiling point"
         }
       ],
-      "updated_at": "2026-10-10T16:27:14"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791628967400406",
       "source_list": "[Repo] TOS6_Section1",
       "reference_no": 11,
       "question": "Why must solvents like acetone or toluene be avoided when preparing samples for UV spectroscopy?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-10T16:37:39",
@@ -87965,7 +88057,7 @@
           "correct_answer": "B. They absorb strongly in the ultraviolet region, masking the analyte's peaks."
         }
       ],
-      "updated_at": "2026-10-10T16:37:39"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791628967404852",
@@ -88052,7 +88144,7 @@
       "source_list": "[Repo] TOS6_Section2",
       "reference_no": 10,
       "question": "Which functional group class exhibits two characteristic weak C-H stretching bands around 2720 and 2820 cm⁻¹ on the right side of the sp³ C-H stretch?",
-      "category": "Forgot a Concept (Knew It Before)",
+      "category": "Forgot a Concept",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-10T16:44:05",
@@ -88065,14 +88157,14 @@
           "correct_answer": "C. Aldehydes"
         }
       ],
-      "updated_at": "2026-10-10T16:44:05"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179163169720052",
       "source_list": "[Repo] TOS6_Section2",
       "reference_no": 8,
       "question": "What approximate wavenumber range corresponds to the highly diagnostic carbonyl (C=O) stretching absorption?",
-      "category": "Forgot a Concept (Knew It Before)",
+      "category": "Forgot a Concept",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-10T16:44:31",
@@ -88085,14 +88177,14 @@
           "correct_answer": "C. 1650 to 1800 cm⁻¹"
         }
       ],
-      "updated_at": "2026-10-10T16:44:31"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791631697202182",
       "source_list": "[Repo] TOS6_Section2",
       "reference_no": 4,
       "question": "In an IR spectrum, approximately where is the characteristic diagnostic functional group region located?",
-      "category": "Forgot a Concept (Knew It Before)",
+      "category": "Forgot a Concept",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-10T16:46:17",
@@ -88105,14 +88197,14 @@
           "correct_answer": "B. 4000 to 1500 cm⁻¹"
         }
       ],
-      "updated_at": "2026-10-10T16:46:17"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791637931416474",
       "source_list": "[Repo] TOS8_Section3",
       "reference_no": 19,
       "question": "Which Department Order issued by the Department of Labor and Employment (DOLE) contains the Implementing Rules and Regulations (IRR) of RA 11058?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-10T16:50:03",
@@ -88125,14 +88217,14 @@
           "correct_answer": "A. DOLE Department Order No. 198-18"
         }
       ],
-      "updated_at": "2026-10-10T16:50:03"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791639842789224",
       "source_list": "[Repo] TOS8_Section4",
       "reference_no": 5,
       "question": "Which glove material is generally recommended for general-purpose laboratory use against weak acids, bases, and many oils, but has poor resistance to certain ketones and chlorinated solvents?",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-10T16:50:30",
@@ -88145,14 +88237,14 @@
           "correct_answer": "A. Nitrile"
         }
       ],
-      "updated_at": "2026-10-10T16:50:30"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791640266650606",
       "source_list": "[Repo] TOS8_Section5",
       "reference_no": 12,
       "question": "Under the UN / DOT transportation classification system for hazardous materials, what material category is designated as Class 3?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-10T16:53:18",
@@ -88165,14 +88257,14 @@
           "correct_answer": "B. Flammable liquids"
         }
       ],
-      "updated_at": "2026-10-10T16:53:18"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791640266654107",
       "source_list": "[Repo] TOS8_Section5",
       "reference_no": 13,
       "question": "Which DOT hazard class number is assigned to corrosive substances (acids and bases)?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": true,
       "date_logged": "2026-10-10T16:54:35",
@@ -88185,7 +88277,7 @@
           "correct_answer": "C. Class 8"
         }
       ],
-      "updated_at": "2026-10-10T16:54:35"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1791652891282961",
@@ -88312,7 +88404,7 @@
       "source_list": "D1_L6_Physical_Chemistry",
       "reference_no": 36,
       "question": "(Situation: N2O4 gas is 18.46% dissociated to NO2 at 298.15 K and 1 bar in equilibrium.) Calculate KP at the normal boiling point of water, assuming u0394H = 57.2 kJ/mol over that range.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Let a be percent dissociation  thus [N2O4]= 1-a/1+a, [NO2]=2a/1+a equating via equilibrium constant Kp = [NO2]^2/[N2O4]. Use vant hoff factor equation ln(Kp2/Kp1)=∆H/R * (1/T1 - 1/T2)\nThen solve for Kp2 algebraically.",
       "resolved": false,
       "date_logged": "2026-10-15T05:31:40",
@@ -88325,14 +88417,14 @@
           "correct_answer": "A. 14.4 atm"
         }
       ],
-      "updated_at": "2026-10-15T05:31:40"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792042385164402",
       "source_list": "D1_L5_Material_Science_Engineering",
       "reference_no": 55,
       "question": "Which metal is most commonly used as a matrix in metal matrix composites?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Aluminum is lightweight and corrosion resistant thus has large volume of MMCs",
       "resolved": false,
       "date_logged": "2026-10-15T05:33:05",
@@ -88345,14 +88437,14 @@
           "correct_answer": "B. aluminum"
         }
       ],
-      "updated_at": "2026-10-15T05:33:05"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792042733793660",
       "source_list": "D1_L3_Analytical_Chemistry",
       "reference_no": 7,
       "question": "If one gallon of blood was added in three gallons of water, and one ounce of that dilution was added to 9 ounces of water, what is the final dilution when 7 mL of that dilution was added to 563 mL of water?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Calculate dilution ratios the find their product. Total dilution = 1/(1+3) * 1/(1+9) * 7/(7+563)",
       "resolved": false,
       "date_logged": "2026-10-15T05:38:53",
@@ -88365,7 +88457,7 @@
           "correct_answer": "D. 3.07x10⁻⁴"
         }
       ],
-      "updated_at": "2026-10-15T05:38:53"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792043323476818",
@@ -88452,7 +88544,7 @@
       "source_list": "D1_L5_Material_Science_Engineering",
       "reference_no": 23,
       "question": "If the atomic radius of lead is 0.175 nm, calculate the volume of its unit cell in cubic meters.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Find crystal structure, FCC then calculate side length then calculate volume",
       "resolved": false,
       "date_logged": "2026-10-15T05:56:39",
@@ -88465,14 +88557,14 @@
           "correct_answer": "A. 1.21x10⁻²⁸ m³"
         }
       ],
-      "updated_at": "2026-10-15T05:56:39"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792044014682819",
       "source_list": "D1_L4_Organic_Chemistry",
       "reference_no": 102,
       "question": "Which of the following is aromatic? Structures: a = an open-chain conjugated triene (hexa-1,3,5-triene); b = a six-membered ring with two C=C bonds and a carbanion (lone pair, negative charge) on a ring carbon (cyclohexadienyl anion); c = a three-membered ring containing one C=C and a positively charged carbon (cyclopropenyl cation); d = a five-membered ring with two C=C bonds and a positively charged carbon (cyclopentadienyl cation); e = a four-membered ring with two C=C bonds (cyclobutadiene).",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Aromatic conditions must be cyclic, planar, fully conjugated and obeys huckels rule",
       "resolved": false,
       "date_logged": "2026-10-15T06:00:14",
@@ -88485,14 +88577,14 @@
           "correct_answer": "C. cyclopropenyl cation"
         }
       ],
-      "updated_at": "2026-10-15T06:00:14"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792044138642144",
       "source_list": "D1_L3_Analytical_Chemistry",
       "reference_no": 22,
       "question": "Given that K_sp for AgCl is 1.8x10⁻¹⁰, what is the molar solubility of AgCl in pure water?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Molar solubility is just the unit that same in Ksp equation Ksp = [Ag][Cl] thus s = √Ksp",
       "resolved": false,
       "date_logged": "2026-10-15T06:02:18",
@@ -88505,7 +88597,7 @@
           "correct_answer": "A. 1.3x10⁻⁵ M"
         }
       ],
-      "updated_at": "2026-10-15T06:02:18"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792044500777360",
@@ -88619,7 +88711,7 @@
       "source_list": "D1_L2_Environmental_EngSci",
       "reference_no": 8,
       "question": "Compute the ThOD of 108.75 mg Lu22121 of glucose.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "ThOD is from stoich factor of oxygen for complete combustion multiplied by 32. Then ThOD = Conc. of glucose * Oxygen demand / molar mass of glucose",
       "resolved": true,
       "date_logged": "2026-10-15T06:24:59",
@@ -88632,14 +88724,14 @@
           "correct_answer": "A. 116 mg/L"
         }
       ],
-      "updated_at": "2026-10-16T11:30:34"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792045767990435",
       "source_list": "D1_L6_Physical_Chemistry",
       "reference_no": 62,
       "question": "A constant current was passed through a solution of CuSO4 for 1 hr and 0.04 g of copper was deposited. What is the current?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "m = I * t * M / z * F is faradays first law substitute the values then solve for I. Where z is charge",
       "resolved": true,
       "date_logged": "2026-10-15T06:29:27",
@@ -88652,7 +88744,7 @@
           "correct_answer": "A. 33.74 mA"
         }
       ],
-      "updated_at": "2026-10-16T11:28:23"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792074350258982",
@@ -88679,7 +88771,7 @@
       "source_list": "D3_L14_Physics",
       "reference_no": 27,
       "question": "A 2.29-m long organ pipe acts as a closed-end resonator that produces several different harmonic frequencies in the audible range from 20 Hz to 20,000 Hz. Assuming a speed of sound of 343 m/s, determine the 5th lowest (5th harmonic present) frequency that the pipe can produce.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Standing wave formula f = nv/4L where n is the harmonic number, v is the speed of sound, and L is the length. Long organ pipe can only produce odd harmonics hence n = 9 since its the fifth odd number.",
       "resolved": true,
       "date_logged": "2026-10-15T15:10:02",
@@ -88692,14 +88784,14 @@
           "correct_answer": "C. 337 Hz"
         }
       ],
-      "updated_at": "2026-10-17T10:46:55"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792077890885849",
       "source_list": "D3_L6_AnalyticGeometry",
       "reference_no": 39,
       "question": "Find the eccentricity of the curve 9x^2 u2013 4y^2 u2013 36x + 8y = 4.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "9x2 - 4y2 - 36x + 8y = 4. Group 9(x2-4x) - 4(y2-2y) = 4. Complete the square 9(x-2)2 - 4(y-1)2 = 36. Convert to standard form hyperbola (x-2)^2/ 4  - (y-1)^2 / 9 = 1. Find a and b from the denominator a = sqrt(4), b = sqrt(9). Then eccentricity formula e = sqrt( 1 + b^2 / a^2).",
       "resolved": false,
       "date_logged": "2026-10-15T15:24:50",
@@ -88712,7 +88804,7 @@
           "correct_answer": "A. 1.80"
         }
       ],
-      "updated_at": "2026-10-15T15:24:50"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792078523377178",
@@ -88759,7 +88851,7 @@
       "source_list": "D3_L11_Differential_Equations",
       "reference_no": 25,
       "question": "Evaluate the integrating factor of the differential equation: y' + (4/x)y = x³y²",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Identify equation type y' + 4/x * y = x^2 * y^2 , Benoulli equation y' + P(x)y = Q(x)y^n. Linearize divide by y^2, y^-1' - 4/x * y^-1 = -x^3",
       "resolved": false,
       "date_logged": "2026-10-15T15:56:40",
@@ -88772,7 +88864,7 @@
           "correct_answer": "D. 1/x^4"
         }
       ],
-      "updated_at": "2026-10-17T10:41:48",
+      "updated_at": "2026-10-18T06:15:30",
       "skip_in_samples": false
     },
     {
@@ -88780,7 +88872,7 @@
       "source_list": "D3_L3_Algebra",
       "reference_no": 19,
       "question": "An arithmetic progression starts with 3, has 9 terms, and the middle term is 19. Determine the sum of the first 9 terms.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Arithmetic sequence a_n = a_1 + (n-1)d, where you solve for d as common difference. Then use sum of formula S_n = n/2 * [2a_1 + (n-1)d]. Or just use middle term formula Sum of terms = no. of terms * middle term",
       "resolved": true,
       "date_logged": "2026-10-16T08:38:30",
@@ -88793,14 +88885,14 @@
           "correct_answer": "D. 171"
         }
       ],
-      "updated_at": "2026-10-17T10:48:03"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792140875976590",
       "source_list": "D3_L12_EngineeringEconomics",
       "reference_no": 80,
       "question": "The nominal rate of return on the bonds of Steve's boat is 7.75%. The real rate of return is 4.4%. What is the rate of inflation?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "True Fischer Equation (1+R)=(1+r)(1+h), Where R is the nominal rate and r is the rate of return and h is the rate of inflation. Fischer approximate is R = r+h it becomes less accurate as interest grows",
       "resolved": true,
       "date_logged": "2026-10-16T08:54:35",
@@ -88813,14 +88905,14 @@
           "correct_answer": "C. 3.21%"
         }
       ],
-      "updated_at": "2026-10-17T10:47:18"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792141507462280",
       "source_list": "D3_L13_EngineeringDataAnalysis",
       "reference_no": 78,
       "question": "[Questions 31-39 refer to the following: The times required by three workers to perform an assembly-line task were recorded on five randomly selected occasions. Worker 1: 8, 10, 9, 11, 10. Worker 2: 8, 9, 9, 8, 10. Worker 3: 10, 9, 10, 11, 9.] Compute the mean squares between treatments.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Find Mean of each treatment W1, W2, W3. Grand mean (GM) = (W1+W2+W3)/3. Sum of squares between treatments (SSTR) n*[ (W1-GM)^2 + (W2-GM)^2 + (W3-GM)^2 ]. Degrees of freedom = k (number of groups) -1 = 3-1. Find mean square between treatments =  SSTR/DoF",
       "resolved": true,
       "date_logged": "2026-10-16T09:07:32",
@@ -88833,7 +88925,7 @@
           "correct_answer": "A. 1.4"
         }
       ],
-      "updated_at": "2026-10-17T10:25:22"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792141812317633",
@@ -88860,7 +88952,7 @@
       "source_list": "D3_L7_Differential_Calculus",
       "reference_no": 80,
       "question": "Find the limit: lim(x, y)→(0,0) (x² + y²)·ln(x² + y²)",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Simplify let u = x^2 + y^2, lim u -> 0 = u ln u. Since indeterminate use L'Hospitals rule. Turn the equation to a fraction = ln u / 1/u. Since this equals -inifinity/infinity we differentiate the numerator and denominator with respect to u. L'Hospital gives 1/u / -1/u^2,  when substituted gives 0",
       "resolved": true,
       "date_logged": "2026-10-16T09:27:20",
@@ -88873,14 +88965,14 @@
           "correct_answer": "B. 0"
         }
       ],
-      "updated_at": "2026-10-17T10:31:08"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792143283003204",
       "source_list": "D3_L5_Geometry",
       "reference_no": 6,
       "question": "What is the measure of one interior angle of a regular icosagon?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Interior angle formula = (n-2)*180 / n. Where n is number of sides. icosagon has 20 sides. Learn the prefix count for polygons",
       "resolved": true,
       "date_logged": "2026-10-16T09:34:43",
@@ -88893,7 +88985,7 @@
           "correct_answer": "B. 162u00b0"
         }
       ],
-      "updated_at": "2026-10-17T10:12:05"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792144467993219",
@@ -88920,7 +89012,7 @@
       "source_list": "D3_L11_Differential_Equations",
       "reference_no": 54,
       "question": "(Torricelli's law) A cylindrical keg with radius 10cm and height 25cm has a drain hole at the bottom with an area of 2cm². How long does it take for the keg to drain?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Ideal drain time is A * dh/dt = -a * sqrt(2gh). Solve via variable separable then account for coefficient of discharge, assumed to be 0.6 in standard sharp orifice thus t = t_ideal / 0.6",
       "resolved": true,
       "date_logged": "2026-10-16T10:08:54",
@@ -88933,14 +89025,14 @@
           "correct_answer": "D. 59.1s"
         }
       ],
-      "updated_at": "2026-10-17T09:54:09"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792145858335171",
       "source_list": "D3_L6_AnalyticGeometry",
       "reference_no": 19,
       "question": "Find the equation of the line through point (3, 1) and is perpendicular to the line x + 5y + 5 = 0.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Find the slope x + 5y + 5 = 0, y = -1/5 * x - 1. Perpendicular slopes are negative reciprocals m1 = -1/5 then m2 = 5. Use point slope formula y-y1 = m(x-x1). Plug in (3,1) then rearrange to find the perpendicular line",
       "resolved": false,
       "date_logged": "2026-10-16T10:17:38",
@@ -88953,14 +89045,14 @@
           "correct_answer": "B. 5x u2013 y = 14"
         }
       ],
-      "updated_at": "2026-10-16T10:17:38"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "17921467837015",
       "source_list": "D3_L6_AnalyticGeometry",
       "reference_no": 26,
       "question": "Find the center of the circle x^2 + y^2 u2013 6x + 4y u2013 23 = 0.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Standard form of circle (x-h)^2 + (y-k)^2 = r^2. Group the terms (x^2 - 6x) + (y^2 +4y) = 23. Complete the square (x-3)^2 + (y+2)^2 = 36. Get the correct arithmetic sign where -h = -3, thus h = 3 and -k = 2 thus k = -2",
       "resolved": true,
       "date_logged": "2026-10-16T10:33:03",
@@ -88973,14 +89065,14 @@
           "correct_answer": "A. (3, -2)"
         }
       ],
-      "updated_at": "2026-10-17T10:29:58"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792147140933312",
       "source_list": "D3_L1_ChE_Laws",
       "reference_no": 115,
       "question": "Where do one submit or file the incorporation documents of an applicant company?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "The order is SEC (grant legal personality of company) -> barangay (clearance from barangay where office is located) -> Mayor's Office (get mayor's business permit) -> BIR (secure TIN, book of accounts, and print receipts)",
       "resolved": true,
       "date_logged": "2026-10-16T10:39:00",
@@ -88993,14 +89085,14 @@
           "correct_answer": "C. SEC"
         }
       ],
-      "updated_at": "2026-10-17T10:37:03"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792148172634416",
       "source_list": "D3_L14_Physics",
       "reference_no": 43,
       "question": "A concave mirror forms a real image that is twice the size of the object. If the object is 20 cm from the mirror, the radius of curvature of the mirror must be about:",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Use mirror equation 1/f = 1/v + 1/u. Object distance (u) is 20 cm from the mirror meaning (-) since physical object not virtual image. Magnification = -2 since concave mirror is always inverted. m = - v/u where v is the image distance. Find focal length (f). Radius of curvature is R = 2f",
       "resolved": true,
       "date_logged": "2026-10-16T10:56:12",
@@ -89013,14 +89105,14 @@
           "correct_answer": "B. 27 cm"
         }
       ],
-      "updated_at": "2026-10-17T10:34:21"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792151625758890",
       "source_list": "D3_L7_Differential_Calculus",
       "reference_no": 58,
       "question": "[Situation 3: Sphere with radius 12 in; cylinder inscribed with maximum volume] What is the height of the cylinder?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Max volume is defined as V'(h) = 0. Since if a cylinder is inscribed in a sphere forms a right triangle with adjacent = r and opp = h/2 and hyp = R. We use pythagorean theorem r^2 + (h/2)^2 = R^2. We solve for r^2 and substitute it in volume of cylinder = pi * [R^2 - h^2 / 4] *h. Find derivative of continuous function and equate to 0 by definition. V'(h) = 144pi - 3pi/4 *h^2 =0 then solve for h",
       "resolved": true,
       "date_logged": "2026-10-16T11:53:45",
@@ -89033,14 +89125,14 @@
           "correct_answer": "C. 8√3 in"
         }
       ],
-      "updated_at": "2026-10-17T10:13:51"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792153997026443",
       "source_list": "D3_L5_Geometry",
       "reference_no": 24,
       "question": "A circle whose area is 452 cm square is cut into two segments by a chord whose distance from the center of the circle is 6 cm. Find the area of the larger segment in cm square.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Get the radius of the circle from area. The chord forms a central angle creating two right triangles having r = hyp. Find the angle of the right triangles. Then get the area of the circle that is encompassed by the central angle by ratioing the angles (percent of circle it occupies). Then find the area of the triangle by A = 0.5bh, get the base from pythagorean theorem then subtract this from te central angle area then A_major = A_circle - A_minor",
       "resolved": true,
       "date_logged": "2026-10-16T12:33:17",
@@ -89053,14 +89145,14 @@
           "correct_answer": "B. 363.6"
         }
       ],
-      "updated_at": "2026-10-17T09:38:06"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792154565199520",
       "source_list": "D3_L13_EngineeringDataAnalysis",
       "reference_no": 52,
       "question": "Given the PMF of a discrete random variable X: P(X=1)=0.2, P(X=2)=0.3, P(X=3)=0.5, and 0 otherwise. What is the mean (μ) of the random variable X?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "The mean of the probability mass function is u = summation of (x*P(X=x)). u = (0.2*1) + (0.3*2) + (0.5*3)",
       "resolved": true,
       "date_logged": "2026-10-16T12:42:45",
@@ -89073,14 +89165,14 @@
           "correct_answer": "A. 2.3"
         }
       ],
-      "updated_at": "2026-10-17T09:37:44"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792156597940256",
       "source_list": "D3_L13_EngineeringDataAnalysis",
       "reference_no": 80,
       "question": "[Questions 31-39 refer to the following: The times required by three workers to perform an assembly-line task were recorded on five randomly selected occasions. Worker 1: 8, 10, 9, 11, 10. Worker 2: 8, 9, 9, 8, 10. Worker 3: 10, 9, 10, 11, 9.] Compute the F-statistic.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Get group means. Get grand mean. Get SSB = n* summation ( Xi - X_grand)^2 ). Get MSB = SSB/DoF, where DoF = k-1, k is no. of groups. Get each group sum of square W1_SSW = summation (entry - W1_mean)^2. Get SSW = W1_SSW + W2_SSW +W3_SSW. Get MSW = SSW/DoF_within, where DoF = N-k, where N is no. of entries. Get F-statistic = MSB/MSW",
       "resolved": true,
       "date_logged": "2026-10-16T13:16:37",
@@ -89093,7 +89185,7 @@
           "correct_answer": "C. 1.56"
         }
       ],
-      "updated_at": "2026-10-17T09:55:03"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792156915043506",
@@ -89120,7 +89212,7 @@
       "source_list": "D2_L4_Momentum_Transfer",
       "reference_no": 61,
       "question": "A sharp edged orifice meter is to be fabricated to measure water flowing at a rate not exceed 1200 cfh with a differential head of 30 inHg. What orifice diameter in inches is required if D2/D1 = 1/5",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Orifice formula. Q = C_o * A_2 * (1/sqrt(1-B^4)) * sqrt(2 * g * dH). Where C_o is discharge coefficient standard = 0.6. B = diameter ratio D2/D1. Convert units. Solve for A_2. Solve for D_2",
       "resolved": false,
       "date_logged": "2026-10-16T13:41:41",
@@ -89133,7 +89225,7 @@
           "correct_answer": "A. 1.5"
         }
       ],
-      "updated_at": "2026-10-16T13:41:41"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792158357050213",
@@ -89180,7 +89272,7 @@
       "source_list": "D2_L8_Equipment_Plant_Design",
       "reference_no": 26,
       "question": "Normally; the ratio of the total riser area to the tower cross sectional area (for bubble cap towers of D>3 ft) is around",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "The risers are the perforations on the plate. In the case of bubble cap they are small pipes that are enclosed by a bubble cap. It is 10-20% of the total column cross section. The downcomers are 10-15%.",
       "resolved": false,
       "date_logged": "2026-10-16T14:23:22",
@@ -89193,14 +89285,14 @@
           "correct_answer": "C. 0.1-0.2"
         }
       ],
-      "updated_at": "2026-10-16T14:23:22"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792161486692126",
       "source_list": "D2_L4_Momentum_Transfer",
       "reference_no": 16,
       "question": "In a certain chemical plant, the carbonate solution used in the absorption tower is pumped continuously from the bottom of the lye storage tank through a standard 4 in. pipe and then through sprays head at the top of the scrubber. The depth of solution in the storage tank is 10 ft and the vertical distance from the spray head to the bottom of the tank is 110 ft. In a test on this equipment the following data were obtained: Rate of flow Density 200 gpm 68.9 lb/ft3 Friction drop from tank to spray head 15 ft-lb/lb Gage pressure on spray head Power input to pump Calculate the efficiency of the pump. 5 psi 14 hp",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Calculate the total pump head (H_p) = dz + P2_gage / density + v^2/ 2g + friction. Where v =Q/A. Find fluid power = m * H_p / 550 (conversion factor 1 hp = ft lb/s). eff = fluid power / power input",
       "resolved": false,
       "date_logged": "2026-10-16T14:38:06",
@@ -89213,14 +89305,14 @@
           "correct_answer": "C. 50%"
         }
       ],
-      "updated_at": "2026-10-16T14:38:06"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792163181849805",
       "source_list": "D2_L5_Transport_Phenomenon",
       "reference_no": 43,
       "question": "A bare horizontal pipe of 50 mm outside diameter is placed in a room where the air temperature is 290 K. Saturated steam at 415 K flows through the pipe. Using emissivityof 0.9. Estimate the heat transfer coefficient due to convection from the pipe to the room.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "For natural convection (not in handbook) h_c (W/m^2 K) = 1.18 * (dT(K)/OD(m))^0.25",
       "resolved": false,
       "date_logged": "2026-10-16T15:06:21",
@@ -89233,14 +89325,14 @@
           "correct_answer": "D. 8.5 W/m2-°C"
         }
       ],
-      "updated_at": "2026-10-16T15:06:21"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179216337474466",
       "source_list": "D2_L3_Thermodynamics",
       "reference_no": 19,
       "question": "During the working stroke of an engine the heattransferred out of the system was 150 kJ/kg of theworking substance. If the work done by the engine is 250kJ/kg, determine the change in internal energy.",
-      "category": "Careless / Computational Error",
+      "category": "Careless / Computational",
       "note": "U = Q + W. heat is transferred out the system (-), work is done by the engine (-)",
       "resolved": false,
       "date_logged": "2026-10-16T15:09:34",
@@ -89253,14 +89345,14 @@
           "correct_answer": "C. -400 kJ"
         }
       ],
-      "updated_at": "2026-10-16T15:09:34"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792163875464822",
       "source_list": "D2_L9_Chemical_Reaction_Engineering",
       "reference_no": 42,
       "question": "For the reaction that can be written as A->B->C, the value ofk₁ is 5.65 x10-3 per min and the time necessary to reach themaximum concentration of B is 26 min. What is the value of k2?",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Use the formula t_max = ln(k2/k1)/(k2-k1)",
       "resolved": false,
       "date_logged": "2026-10-16T15:17:55",
@@ -89273,14 +89365,14 @@
           "correct_answer": "C. 0.1246"
         }
       ],
-      "updated_at": "2026-10-16T15:17:55"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792169691880468",
       "source_list": "D2_L1_ChE_Calculations",
       "reference_no": 49,
       "question": "Propane is dehydrogenated to formpropylene in a catalytic reactor. The process is to be designed for a 95% overall conversion of propane. Thereaction products are separated into twostreams: the first, which contains H₂, СзH6 and 0.555% of the propane that leaves thereactor, is taken off as a product; thesecond stream, which contains thebalance of the unreacted propane and 5%of the propylene in the first stream, is recycled to the reactor. Calculate the ratio of moles recycled / mole fresh feed",
-      "category": "Forgot a Concept (Knew It Before)",
+      "category": "Forgot a Concept",
       "note": "The question says that 0.555% of the propane that leaves the reactor is in the product stream. The product stream has 5 mol of propane assuming F = 100 mol since X = 0.95. We get the total propane that exits the reactor by 5/0.00555 = 900.9. We get propane in recycle as 900.9-5 = 895.9. We get the total propane feed from F = 100 + Recycle propane. We calculate the single pass by dividing the 95 mol propylene in the product by the total propane feed.",
       "resolved": false,
       "date_logged": "2026-10-16T16:55:43",
@@ -89293,7 +89385,7 @@
           "correct_answer": "D. 9.0"
         }
       ],
-      "updated_at": "2026-10-16T16:55:43"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792171215218576",
@@ -89360,7 +89452,7 @@
       "source_list": "D2_L8_Equipment_Plant_Design",
       "reference_no": 29,
       "question": "Slope of countercurrent flow rotary drier is in the range of ______ meters",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
       "date_logged": "2026-10-16T17:44:11",
@@ -89373,7 +89465,7 @@
           "correct_answer": "A. 0 to 0.08"
         }
       ],
-      "updated_at": "2026-10-16T17:44:11"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792177097944327",
@@ -89680,7 +89772,7 @@
       "source_list": "D2_L5_Transport_Phenomenon",
       "reference_no": 89,
       "question": "A mixture of benzene vapor and flue gas contains 12.7 mole % benzene and is to be scrubbed continuously in a packed tower operated at atmospheric pressure at 43°C. The tower is to be designed to treat 36000 ft3 per hour of entering gas and the exit gas is to contain 1.5 mole % benzene. Pure solvent will be supplied at the rate of 28 lbmol/hr. The solution of benzene in oil may be assumed to follow Raoult's law and the vapor pressure of pure solvent at 43°C is 0.263 atm. It is agreed that the maximum allowable superficial velocity of the gas is 1 ft/sec. Calculate the height of the tower required, assuming that the height of a transfer unit is 2 ft.",
-      "category": "Forgot a Concept (Knew It Before)",
+      "category": "Forgot a Concept",
       "note": "Convert volumetric flow to molar flow. Complete the mass balance. Find tge equilibrium equation where m = P_vap / P_t then y*=m x. Find the driving forces yi-yi*. Get log mean of driving force y_LM = dy1 - dy2 / ln (dy1 / dy2). Get NTU = y1 - y2 / y_LM. Get Height = NTU * HTU",
       "resolved": false,
       "date_logged": "2026-10-17T06:57:18",
@@ -89693,7 +89785,7 @@
           "correct_answer": "B. 7.0 ft"
         }
       ],
-      "updated_at": "2026-10-17T06:57:18"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792220961277163",
@@ -89720,7 +89812,7 @@
       "source_list": "D2_L9_Chemical_Reaction_Engineering",
       "reference_no": 40,
       "question": "A second order reaction involving reactants initially present at 0.10 mole/L is found to be 20% complete in 40 minutes, when the reaction is 25 °C, and 40% complete in 35 minutes, when the reaction is 50 °C. What is the activation energy for this reaction in cal/mol.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Solve for k_25C & k_50C. Use arrhenius equation ln (k_50/k_25) = Ea/R (1/T1 - 1/T2)",
       "resolved": false,
       "date_logged": "2026-10-17T07:15:36",
@@ -89733,7 +89825,7 @@
           "correct_answer": "B. 8500 cal/mol"
         }
       ],
-      "updated_at": "2026-10-17T07:15:36"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792221693788591",
@@ -89780,7 +89872,7 @@
       "source_list": "D2_L5_Transport_Phenomenon",
       "reference_no": 59,
       "question": "By what percentage would the rate of absorption be increased or decreases by increasing the total pressure from 100 to 200 kPa in the following cases? The absorption of ammonia from a mixture of ammonia and air containing 10% ammonia by volume, using pure water as solvent. Assume that all the resistance to the mass transfer lies within the gas phase.",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "For unicomponent diffusion Na = (D * P/(R * T * z * P_LM)) * (p_A,bulk - p_A,interface). D is a function of P and is inversly proportional hence DP is a constant for given T. Driving force doubles since p_A,bulk = y_a * P_t. Log mean also doubles since P_LM = P_t - P_B,bulk / ln (P_t / P_B,bulk). The magnitudes cancel out so 0%.",
       "resolved": false,
       "date_logged": "2026-10-17T07:55:53",
@@ -89793,14 +89885,14 @@
           "correct_answer": "A. 0%"
         }
       ],
-      "updated_at": "2026-10-17T07:55:53"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792228158678238",
       "source_list": "D2_L1_ChE_Calculations",
       "reference_no": 40,
       "question": "A barytes composed of 100 percentBaSO4 is fused with carbon in the formof coke containing 6% ash (which isinfusible). The composition of the fusionmass is BaSO 11.1%, BaS 72.8%, C 13.9%, Ash 2.2%, Reaction: BaSO+4 C→ BaS + 4 CO. Find the percent excess reactant.",
-      "category": "Forgot a Concept (Knew It Before)",
+      "category": "Forgot a Concept",
       "note": "Balance the reaction. Get the molar masses. Find the total mol of BaSO4 fed from Ba balance. Find the total mol of C from C balance. Determine the excess reactant, find the ratio of the reactants (C/BaSO4) based on stoich then find the ratio of the actual supplied. If theoretical ratio < actual ratio C is in excess else BaSO4 is excess. Find percent excess by actual - theo / theo",
       "resolved": false,
       "date_logged": "2026-10-17T09:09:18",
@@ -89813,14 +89905,14 @@
           "correct_answer": "C. 50.6%"
         }
       ],
-      "updated_at": "2026-10-17T09:09:18"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "1792229578437210",
       "source_list": "D2_L6_Particle_Technology",
       "reference_no": 9,
       "question": "A sand mixture was screened through a standard 10mesh screen. The mass fraction of the oversize material in feed, overflow and underflow were found to be 0.38, 0.79 and 0.22 respectively. The screen effectivenessbased on the oversize is",
-      "category": "Unfamiliar Topic (Never Studied)",
+      "category": "Unfamiliar Topic",
       "note": "Screen effectiveness here is the overall effectiveness despite saying based on oversize. E_overall = E_oversize * E_undersize. We define E_oversize = Dxd/Fxf and E_undersize = B(1-xb) / F(1-xf). We can derive equations from two material balance equations to only need the fractions. Eq 1: F = D + B, Eq 2: Fxf = Dxd + Bxb.",
       "resolved": false,
       "date_logged": "2026-10-17T09:32:58",
@@ -89833,7 +89925,7 @@
           "correct_answer": "A. 0.50"
         }
       ],
-      "updated_at": "2026-10-17T09:32:58"
+      "updated_at": "2026-10-18T06:15:30"
     },
     {
       "id": "179223818224551",
@@ -91295,6 +91387,9 @@
       "last": "2026-10-17"
     }
   },
+  "concepts": [],
+  "shaky_tags": [],
+  "checklist": [],
   "settings": {
     "active_exam": "1790584132394843",
     "active_exam_at": "2026-10-17T05:10:55"
@@ -91311,7 +91406,10 @@
     "local_banks": [],
     "exam_dates": [],
     "prompt_sets": [],
-    "flash_decks": []
+    "flash_decks": [],
+    "concepts": [],
+    "shaky_tags": [],
+    "checklist": []
   },
-  "updated_at": "2026-10-18T06:12:58"
+  "updated_at": "2026-10-18T06:15:35"
 }
