@@ -89156,7 +89156,7 @@
       "category": "Unfamiliar Topic",
       "note": "Ideal drain time is A * dh/dt = -a * sqrt(2gh). Solve via variable separable then account for coefficient of discharge, assumed to be 0.6 in standard sharp orifice thus t = t_ideal / 0.6",
       "resolved": true,
-      "date_logged": "2026-10-16T10:08:54",
+      "date_logged": "2026-10-18T11:01:34",
       "occurrences": [
         {
           "exam_id": "1790149661027511",
@@ -89166,7 +89166,8 @@
           "correct_answer": "D. 59.1s"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30"
+      "updated_at": "2026-10-18T11:01:34",
+      "concept_id": "1792321292394767"
     },
     {
       "id": "1792145858335171",
@@ -92758,6 +92759,14 @@
       "progress": {},
       "created_at": "2026-10-18T11:00:06",
       "updated_at": "2026-10-18T11:00:06"
+    },
+    {
+      "id": "1792321292394767",
+      "name": "Applied Differential Equations",
+      "subject": "D3_L11_Differential_Equations",
+      "progress": {},
+      "created_at": "2026-10-18T11:01:32",
+      "updated_at": "2026-10-18T11:01:32"
     }
   ],
   "concept_cards": [],
@@ -93769,5 +93778,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T11:01:00"
+  "updated_at": "2026-10-18T11:01:45"
 }
