@@ -89306,7 +89306,7 @@
       "category": "Unfamiliar Topic",
       "note": "Orifice formula. Q = C_o * A_2 * (1/sqrt(1-B^4)) * sqrt(2 * g * dH). Where C_o is discharge coefficient standard = 0.6. B = diameter ratio D2/D1. Convert units. Solve for A_2. Solve for D_2",
       "resolved": false,
-      "date_logged": "2026-10-16T13:41:41",
+      "date_logged": "2026-10-18T10:34:55",
       "occurrences": [
         {
           "exam_id": "1790316144805377",
@@ -89316,7 +89316,8 @@
           "correct_answer": "A. 1.5"
         }
       ],
-      "updated_at": "2026-10-18T06:15:30"
+      "updated_at": "2026-10-18T10:34:55",
+      "concept_id": "1792319694003453"
     },
     {
       "id": "1792158357050213",
@@ -92545,6 +92546,14 @@
       "progress": {},
       "created_at": "2026-10-18T10:27:33",
       "updated_at": "2026-10-18T10:27:33"
+    },
+    {
+      "id": "1792319694003453",
+      "name": "Metering Devices",
+      "subject": "D2_L4_Momentum_Transfer",
+      "progress": {},
+      "created_at": "2026-10-18T10:34:54",
+      "updated_at": "2026-10-18T10:34:54"
     }
   ],
   "concept_cards": [],
@@ -93556,5 +93565,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T10:33:13"
+  "updated_at": "2026-10-18T10:35:01"
 }
