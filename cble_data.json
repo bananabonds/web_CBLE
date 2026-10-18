@@ -91425,9 +91425,36 @@
       "progress": {},
       "created_at": "2026-10-18T06:42:50",
       "updated_at": "2026-10-18T06:42:50"
+    },
+    {
+      "id": "1792305866742164",
+      "name": "Compression",
+      "subject": "D2_L4_Momentum_Transfer",
+      "front": "",
+      "back": "",
+      "trap": "",
+      "progress": {},
+      "created_at": "2026-10-18T06:44:26",
+      "updated_at": "2026-10-18T06:44:26"
     }
   ],
-  "shaky_tags": [],
+  "shaky_tags": [
+    {
+      "id": "1792305868239701",
+      "source_list": "D2_L4_Momentum_Transfer",
+      "reference_no": 40,
+      "resolved": false,
+      "created_at": "2026-10-18T06:44:28",
+      "question": "Nitrogen is to be compressed in four stages from 14.7 psia 3500 psig. What would be the pressure in the third stage?",
+      "correct_answer": "A. 894 psia",
+      "kind": "guess",
+      "exam_id": "1792263541317702",
+      "exam_source": "D2_S3",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792305866742164",
+      "updated_at": "2026-10-18T06:44:28"
+    }
+  ],
   "checklist": [],
   "settings": {
     "active_exam": "1790584132394843",
@@ -91450,5 +91477,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T06:43:31"
+  "updated_at": "2026-10-18T06:44:35"
 }
