@@ -91874,6 +91874,17 @@
       "progress": {},
       "created_at": "2026-10-18T07:39:02",
       "updated_at": "2026-10-18T07:39:02"
+    },
+    {
+      "id": "1792309187862581",
+      "name": "General Solution (Diff. Eq.)",
+      "subject": "D3_L11_Differential_Equations",
+      "front": "",
+      "back": "",
+      "trap": "",
+      "progress": {},
+      "created_at": "2026-10-18T07:39:47",
+      "updated_at": "2026-10-18T07:39:47"
     }
   ],
   "shaky_tags": [
@@ -92116,6 +92127,21 @@
       "category": "Unfamiliar Topic",
       "concept_id": "1792309142350928",
       "updated_at": "2026-10-18T07:39:05"
+    },
+    {
+      "id": "1792309190729287",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 17,
+      "resolved": false,
+      "created_at": "2026-10-18T07:39:50",
+      "question": "Evaluate the general solution of the differential equation: (y⁴ + 2y)dx + (xy³ + 2y⁴ − 4x)dy = 0",
+      "correct_answer": "C. xy + 2x/y² + y² = c",
+      "kind": "guess",
+      "exam_id": "1792238182227873",
+      "exam_source": "D3_S3",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792309187862581",
+      "updated_at": "2026-10-18T07:39:50"
     }
   ],
   "checklist": [],
@@ -92140,5 +92166,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T07:39:12"
+  "updated_at": "2026-10-18T07:39:58"
 }
