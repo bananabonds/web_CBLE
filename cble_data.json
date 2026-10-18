@@ -94186,6 +94186,42 @@
       "trap": "In #83 I picked only \"increases binding affinity,\" but the key was \"both A and C,\" so the R-state stabilization was also part of the answer. In #85 I guessed. Activator means left shift and more hyperbolic. Right shift and more sigmoidal means inhibitor.",
       "created_at": "2026-10-18T14:11:56",
       "updated_at": "2026-10-18T14:11:56"
+    },
+    {
+      "id": "179233277390939",
+      "concept_id": "1792317914643375",
+      "front": "Which greenhouse gas has a 100-year GWP of about 273, and what are the GWPs and main sources of CO₂, CH₄, and N₂O?",
+      "back": "GWP (100-year, IPCC AR6): CO₂ = 1, CH₄ ≈ 27-30 (about 81-83 over 20 years), N₂O ≈ 273. N₂O comes from agriculture (fertilizer, manure), industry, fossil fuel and waste combustion, and wastewater treatment. CH₄ comes from livestock, landfills, rice paddies, and fossil fuel leaks. GWP is relative to CO₂ over a stated time horizon, so always check the horizon.",
+      "trap": "I picked methane in #31 even though my note had N₂O = 273. Match the number in the question to the gas first, then read the options.",
+      "created_at": "2026-10-18T14:12:53",
+      "updated_at": "2026-10-18T14:12:53"
+    },
+    {
+      "id": "1792332773910121",
+      "concept_id": "1792317914643375",
+      "front": "What shape is a dose-response curve for acute toxicity, and how do I compare the potency of two chemicals?",
+      "back": "Acute (quantal) dose-response curves are S-shaped (sigmoidal): almost no response at low dose, a steep near-linear middle, and a plateau at maximum response. On a log-dose axis the curve is symmetric. Potency is compared at the same effect level, usually LD50 or ED50 (the dose giving 50% response). A lower LD50 means more toxic, and the curve is shifted to the left. The threshold is the highest dose with no effect.",
+      "trap": "In #69 I chose a straight 45° line, but acute toxicity gives an S-curve. In #70 I chose \"without a threshold\" instead of the potency answer. A curve farther left (lower dose for the same effect) is the most poisonous.",
+      "created_at": "2026-10-18T14:12:53",
+      "updated_at": "2026-10-18T14:12:53"
+    },
+    {
+      "id": "1792332773910479",
+      "concept_id": "1792317914643375",
+      "front": "A heat engine burns fuel with energy content q, mass m, and efficiency η. How do I split the energy into work and waste heat?",
+      "back": "Q_in = m × q (convert kg to g first if q is in kJ/g). W = η × Q_in (useful work). Q_out (rejected to the surroundings) = Q_in - W = (1 - η) × Q_in. Example (#19): Q_in = 20,000 g × 35 kJ/g = 700 MJ. W = 0.35 × 700 = 245 MJ. Q_out = 0.65 × 700 = 455 MJ ≈ 450 MJ.",
+      "trap": "In #19 I answered 250 MJ, which is the work output (245 MJ). \"Released to the surroundings\" means the waste heat, 65% of the input, not 35%.",
+      "created_at": "2026-10-18T14:12:53",
+      "updated_at": "2026-10-18T14:12:53"
+    },
+    {
+      "id": "1792332773910941",
+      "concept_id": "1792317914643375",
+      "front": "Which common fossil fuel has the highest carbon content, and how do the fossil fuels compare in H:C ratio?",
+      "back": "Coal has the highest carbon fraction (anthracite above 90% C), and the lowest hydrogen content per carbon. Liquid fuels (gasoline, diesel) are about 85-87% C and are hydrocarbons with more H. Natural gas (mostly CH₄) is the richest in H, about 75% C by mass. A higher C:H ratio means more CO₂ per unit of energy, so coal has the most pronounced environmental effects of the three.",
+      "trap": "In #8 I picked diesel, even though my note said liquid fuels have more hydrogen and less carbon. \"Highest carbon content\" means the lowest H:C, which is coal.",
+      "created_at": "2026-10-18T14:12:53",
+      "updated_at": "2026-10-18T14:12:53"
     }
   ],
   "shaky_tags": [
@@ -95244,5 +95280,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T14:12:53"
+  "updated_at": "2026-10-18T14:13:05"
 }
