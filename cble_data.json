@@ -94294,6 +94294,42 @@
       "trap": "I guessed #43. The pressure at the normal boiling point is hidden in the wording, so write it down as a second data point before anything else. A pressure in bar and a normal boiling pressure in atm or torr must be converted to one unit.",
       "created_at": "2026-10-18T14:15:07",
       "updated_at": "2026-10-18T14:15:07"
+    },
+    {
+      "id": "1792332970060729",
+      "concept_id": "1792308635686195",
+      "front": "First-order linear y' + P(x)y = Q(x): what is the integrating factor and the first thing to check?",
+      "back": "Write the equation with the coefficient of y' equal to 1, then μ = exp(∫P dx), taking C = 0. Multiplying gives (μy)' = μQ. Example (#22): y' - y tan x = sin x, so P = -tan x. ∫-tan x dx = -(-ln|cos x|) = ln|cos x|, so μ = cos x. Check: cos x·y' - sin x·y = (y cos x)' = sin x cos x.",
+      "trap": "I picked -cos(x) in #22. The minus sign in P = -tan x is part of P, and the two minus signs cancel in ∫-tan x dx = ln|cos x|. An exp(...) can never produce a negative value, so the answer is cos x.",
+      "created_at": "2026-10-18T14:16:10",
+      "updated_at": "2026-10-18T14:16:10"
+    },
+    {
+      "id": "1792332970061364",
+      "concept_id": "1792308635686195",
+      "front": "Bernoulli equation y' + P(x)y = Q(x)yⁿ: how do I get the integrating factor?",
+      "back": "Substitute v = y^(1-n). Then v' + (1-n)P v = (1-n)Q, which is linear in v, and μ = exp(∫(1-n)P dx). Example (#25): n = 2, v = 1/y, so v' - (4/x)v = -x³. μ = exp(∫-4/x dx) = exp(-4 ln x) = x⁻⁴ = 1/x⁴. Check: (v/x⁴)' = -1/x.",
+      "trap": "I picked 1/x³ in #25 even though my linearized form was right. The power of x comes from P = 4/x, multiplied by (1-n) = -1. It does not come from the x³ on the right side.",
+      "created_at": "2026-10-18T14:16:10",
+      "updated_at": "2026-10-18T14:16:10"
+    },
+    {
+      "id": "1792332970061349",
+      "concept_id": "1792308635686195",
+      "front": "Non-exact M dx + N dy = 0: when is μ a function of x only, and what is it?",
+      "back": "First test exactness: if M_y ≠ N_x, try μ(x). If (M_y - N_x)/N depends on x only, then μ = exp(∫(M_y - N_x)/N dx). Example (#14): M = x² + y² + 3, N = -2xy, so M_y = 2y and N_x = -2y. (M_y - N_x)/N = 4y/(-2xy) = -2/x, so μ = exp(-2 ln x) = x⁻² = 1/x². Check: after multiplying, M_y = N_x = 2y/x².",
+      "trap": "I answered -2/x in #14, which is the integrand and not the integrating factor. The last step is exp of the integral, and a quick check is that M_y = N_x after multiplying.",
+      "created_at": "2026-10-18T14:16:10",
+      "updated_at": "2026-10-18T14:16:10"
+    },
+    {
+      "id": "1792332970062421",
+      "concept_id": "1792308635686195",
+      "front": "Non-exact M dx + N dy = 0: when is μ a function of y only, and what is it?",
+      "back": "If (N_x - M_y)/M depends on y only, then μ = exp(∫(N_x - M_y)/M dy). The numerator flips compared with the μ(x) case: μ(x) uses (M_y - N_x)/N, and μ(y) uses (N_x - M_y)/M. Example (#16): M = y⁴ + 2y, N = xy³ + 2y⁴ - 4x. N_x - M_y = (y³ - 4) - (4y³ + 2) = -3(y³ + 2). Dividing by M = y(y³ + 2) gives -3/y, so μ = y⁻³ = 1/y³.",
+      "trap": "I picked y³ in #16, which is the result of using (M_y - N_x)/M and getting +3/y. Memory aid: the divisor is the coefficient of the differential I am NOT integrating over (N for μ(x), M for μ(y)), and the numerator is (derivative of the other coefficient) minus (derivative of the divisor's own coefficient)... verify by checking M_y = N_x after multiplying.",
+      "created_at": "2026-10-18T14:16:10",
+      "updated_at": "2026-10-18T14:16:10"
     }
   ],
   "shaky_tags": [
@@ -95352,5 +95388,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T14:16:06"
+  "updated_at": "2026-10-18T14:16:17"
 }
