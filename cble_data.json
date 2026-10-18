@@ -92117,6 +92117,17 @@
       "progress": {},
       "created_at": "2026-10-18T08:00:40",
       "updated_at": "2026-10-18T08:00:40"
+    },
+    {
+      "id": "1792310519933158",
+      "name": "Calorimeter",
+      "subject": "D1_L6_Physical_Chemistry",
+      "front": "",
+      "back": "",
+      "trap": "",
+      "progress": {},
+      "created_at": "2026-10-18T08:01:59",
+      "updated_at": "2026-10-18T08:01:59"
     }
   ],
   "shaky_tags": [
@@ -92539,6 +92550,21 @@
       "category": "Unfamiliar Topic",
       "concept_id": "1792310304525634",
       "updated_at": "2026-10-18T08:01:39"
+    },
+    {
+      "id": "1792310521360293",
+      "source_list": "D1_L6_Physical_Chemistry",
+      "reference_no": 24,
+      "resolved": false,
+      "created_at": "2026-10-18T08:02:01",
+      "question": "(Situation: A 2 kg open calorimeter at 100 u02daC with heat capacity 4 kJ/K has 100 g of ice at -10 u02daC placed inside it, reaching a common final temperature.) Calculate the entropy change of the calorimeter in cal/K.",
+      "correct_answer": "C. -46",
+      "kind": "guess",
+      "exam_id": "1790400213527768",
+      "exam_source": "D1_S3",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792310519933158",
+      "updated_at": "2026-10-18T08:02:01"
     }
   ],
   "checklist": [],
@@ -92563,5 +92589,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T08:01:46"
+  "updated_at": "2026-10-18T08:02:08"
 }
