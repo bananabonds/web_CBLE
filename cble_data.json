@@ -92947,7 +92947,44 @@
       "updated_at": "2026-10-18T11:20:48"
     }
   ],
-  "concept_cards": [],
+  "concept_cards": [
+    {
+      "id": "1792325113129866",
+      "concept_id": "1792308119894600",
+      "front": "Ethoxide or hydroxide (strong base) with a 3° alkyl halide, and with a 2° alkyl halide: which mechanisms?",
+      "back": "3° halide + strong base = E2 only (no SN2 because of steric hindrance, no E1 because E1 needs a weak base). 2° halide + strong base/good nucleophile = SN2 and E2 compete (E2 usually major). E1/SN1 need a weak base or nucleophile, a polar protic solvent, and usually heat. With a small base like EtO⁻, E2 gives the most substituted alkene (Zaitsev). Count substituents on the C=C to choose: tetrasubstituted beats trisubstituted.",
+      "trap": "I picked E1 for ethoxide + tert-butyl bromide (#58) and E1 and E2 for 2-iodohexane + ethoxide (#59). Strong base means no E1. In #55 I chose the trisubstituted alkene (D) over the tetrasubstituted 2,3-dimethyl-2-hexene (B), so check the locants and count the substituents.",
+      "created_at": "2026-10-18T12:05:13",
+      "updated_at": "2026-10-18T12:05:13"
+    },
+    {
+      "id": "1792325113129318",
+      "concept_id": "1792308119894600",
+      "front": "Cl₂ (or Br₂) adds to 1-butene. Where do the halogens go, and what about HCl?",
+      "back": "X₂ adds through a halonium ion with anti addition, one X on each alkene carbon, giving a vicinal dihalide: CH₃CH₂CHClCH₂Cl. Markovnikov applies only to HX (H goes to the carbon with more H's, X to the more substituted carbon).",
+      "trap": "I picked the geminal CH₃CH₂CCl₂CH₃ (#75). Both Cl's on one carbon is never the result of X₂ addition.",
+      "created_at": "2026-10-18T12:05:13",
+      "updated_at": "2026-10-18T12:05:13"
+    },
+    {
+      "id": "1792325113129271",
+      "concept_id": "1792308119894600",
+      "front": "Ozonolysis of an alkene (O₃, then Me₂S or Zn): what does each alkene carbon become?",
+      "back": "The C=C is cleaved and each carbon becomes C=O. A carbon with one H becomes an aldehyde, and a carbon with no H (two alkyl groups) becomes a ketone. Reductive workup stops at aldehydes/ketones; oxidative workup (H₂O₂) turns aldehydes into carboxylic acids. Unbranched heptenes (1-, 2-, or 3-heptene) give two different aldehydes.",
+      "trap": "I picked an aldehyde and a ketone (#77). A ketone needs a trisubstituted or tetrasubstituted alkene carbon, which an unbranched alkene doesn't have.",
+      "created_at": "2026-10-18T12:05:13",
+      "updated_at": "2026-10-18T12:05:13"
+    },
+    {
+      "id": "1792325113129376",
+      "concept_id": "1792308119894600",
+      "front": "Name the reaction from its cue: (a) conjugated diene + alkene to a cyclohexene; (b) aldehyde/ketone + phosphorus ylide to an alkene; (c) ketone + primary amine.",
+      "back": "(a) Diels-Alder, a concerted [4+2] cycloaddition. (b) Wittig reaction, C=O becomes C=C (Ph₃P=O is a by-product). (c) Imine (Schiff base), C=N–R. A secondary amine gives an enamine instead.",
+      "trap": "I only guessed these (#113, #114, #87). Tie each name to its cue word: [4+2] means Diels-Alder, ylide means Wittig, primary amine means imine.",
+      "created_at": "2026-10-18T12:05:13",
+      "updated_at": "2026-10-18T12:05:13"
+    }
+  ],
   "shaky_tags": [
     {
       "id": "1792305868239701",
@@ -93959,5 +93996,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T12:03:52"
+  "updated_at": "2026-10-18T12:05:20"
 }
