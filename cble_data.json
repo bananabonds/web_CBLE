@@ -90188,10 +90188,10 @@
       "source_list": "D3_L7_Differential_Calculus",
       "reference_no": 21,
       "question": "Differentiate y = e^x·cos(x²)",
-      "category": "",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-17T11:56:22",
+      "date_logged": "2026-10-18T07:41:25",
       "occurrences": [
         {
           "exam_id": "1792238182227873",
@@ -90201,7 +90201,8 @@
           "correct_answer": "B. e^x·(cos(x²) - 2x·sin(x²))"
         }
       ],
-      "updated_at": "2026-10-17T11:56:22"
+      "updated_at": "2026-10-18T07:41:25",
+      "concept_id": "1792309283782918"
     },
     {
       "id": "1792238182293474",
@@ -91908,6 +91909,17 @@
       "progress": {},
       "created_at": "2026-10-18T07:40:53",
       "updated_at": "2026-10-18T07:40:53"
+    },
+    {
+      "id": "1792309283782918",
+      "name": "Differentiation",
+      "subject": "D3_L7_Differential_Calculus",
+      "front": "",
+      "back": "",
+      "trap": "",
+      "progress": {},
+      "created_at": "2026-10-18T07:41:23",
+      "updated_at": "2026-10-18T07:41:23"
     }
   ],
   "shaky_tags": [
@@ -92204,5 +92216,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T07:41:04"
+  "updated_at": "2026-10-18T07:41:32"
 }
