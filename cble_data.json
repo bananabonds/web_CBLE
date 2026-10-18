@@ -92983,6 +92983,42 @@
       "trap": "I only guessed these (#113, #114, #87). Tie each name to its cue word: [4+2] means Diels-Alder, ylide means Wittig, primary amine means imine.",
       "created_at": "2026-10-18T12:05:13",
       "updated_at": "2026-10-18T12:05:13"
+    },
+    {
+      "id": "1792327397284355",
+      "concept_id": "1792308004102900",
+      "front": "Atoms per unit cell for SC, BCC, and FCC, and how do I count them?",
+      "back": "Corner atom = 1/8, face atom = 1/2, edge atom = 1/4, body-center atom = 1. SC = 8 × 1/8 = 1. BCC = 8 × 1/8 + 1 = 2. FCC = 8 × 1/8 + 6 × 1/2 = 4.",
+      "trap": "I answered 4 for BCC (#19). Four atoms per cell is FCC. BCC has only the 8 corners plus 1 center, which is 2.",
+      "created_at": "2026-10-18T12:43:17",
+      "updated_at": "2026-10-18T12:43:17"
+    },
+    {
+      "id": "1792327397284261",
+      "concept_id": "1792308004102900",
+      "front": "How do I identify the crystal system, and which has the lowest symmetry?",
+      "back": "Check edge lengths first, then angles. Cubic: a=b=c, all angles 90°. Tetragonal: a=b≠c, all 90°. Orthorhombic: a≠b≠c, all 90°. Monoclinic: a≠b≠c, two angles 90° and one (β) not 90°. Triclinic: a≠b≠c, no angle equal to 90° and all angles different, so it has the lowest symmetry. Atoms at the center or faces do not change the system (a body-centered tetragonal cell is still tetragonal).",
+      "trap": "In #17 the base edges were both 0.35 nm, so a=b≠c is tetragonal, not orthorhombic. In #18 my note said monoclinic has all 90° angles, but that is orthorhombic. Monoclinic has one non-90° angle, so it is not the lowest symmetry.",
+      "created_at": "2026-10-18T12:43:17",
+      "updated_at": "2026-10-18T12:43:17"
+    },
+    {
+      "id": "1792327397285941",
+      "concept_id": "1792308004102900",
+      "front": "How do I get the unit cell side a and volume from the atomic radius R for SC, BCC, and FCC?",
+      "back": "Atoms touch along the closest-packed direction. SC: a = 2R. BCC (body diagonal): 4R = a√3, so a = 4R/√3. FCC (face diagonal): 4R = a√2, so a = 2√2·R. Volume V = a³ (cubic cell). Convert nm to m before cubing, since 1 nm³ = 10⁻²⁷ m³. Example for lead (FCC), R = 0.175 nm: a = 0.495 nm, V = 0.1213 nm³ = 1.21×10⁻²⁸ m³.",
+      "trap": "In #23 I picked 2.67×10⁻²⁸ m³ even though my method (FCC, then a, then a³) was right, so the error was in the formula or arithmetic. Write a = 2√2·R explicitly, cube the full value of a, and check the exponent.",
+      "created_at": "2026-10-18T12:43:17",
+      "updated_at": "2026-10-18T12:43:17"
+    },
+    {
+      "id": "1792327397285250",
+      "concept_id": "1792308004102900",
+      "front": "Miller notation: what do (hkl), [uvw], {hkl}, and <uvw> mean, and how do I get (hkl) from intercepts?",
+      "back": "(hkl) = a specific plane, [uvw] = a specific direction, {hkl} = a family of planes, <uvw> = a family of directions. For a plane: take the intercepts on x, y, z, take reciprocals, then clear fractions. Intercepts 1, 1, 1 give reciprocals 1, 1, 1, so the plane is (111). A plane parallel to an axis has intercept ∞, so that index is 0.",
+      "trap": "In #28 the bank lists [1 1 1] for a plane, which is direction notation. My guess note on bracket types was right. Choose the (hkl) form if it is offered, and flag the question if it is not.",
+      "created_at": "2026-10-18T12:43:17",
+      "updated_at": "2026-10-18T12:43:17"
     }
   ],
   "shaky_tags": [
@@ -93996,5 +94032,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T12:36:48"
+  "updated_at": "2026-10-18T12:43:20"
 }
