@@ -94042,6 +94042,42 @@
       "trap": "In #28 the bank lists [1 1 1] for a plane, which is direction notation. My guess note on bracket types was right. Choose the (hkl) form if it is offered, and flag the question if it is not.",
       "created_at": "2026-10-18T12:43:17",
       "updated_at": "2026-10-18T12:43:17"
+    },
+    {
+      "id": "1792332269645883",
+      "concept_id": "1792309784574957",
+      "front": "Why do colligative properties occur, and what is the solvent's chemical potential at osmotic equilibrium?",
+      "back": "A solute lowers the solvent's chemical potential: μ = μ* + RT ln x, and x < 1 makes the ln term negative. The cause is the entropy gain from mixing. Every colligative property comes from this reduction of μ of the liquid solvent. Before equilibrium, solvent flows toward the lower μ (the solution side). At osmotic equilibrium the solvent's μ is equal on both sides, because the extra pressure π on the solution side raises its μ back up to match the pure solvent.",
+      "trap": "I picked \"Change\" instead of \"Reduction\" in #48 (the direction is specific: lowered), and \"Less than\" in #49. Less than describes the state before equilibrium. Any equilibrium means equal chemical potentials.",
+      "created_at": "2026-10-18T14:04:29",
+      "updated_at": "2026-10-18T14:04:29"
+    },
+    {
+      "id": "1792332269645604",
+      "concept_id": "1792309784574957",
+      "front": "How do I find the van't Hoff factor i from a freezing point depression, and the degree of dissociation α from i?",
+      "back": "ΔTf = i·Kf·m, so i = ΔTf / (Kf·m), with m in mol solute per kg solvent. For wt%, take x g solute in (100 - x) g solvent (100 g is a fair approximation if the solution is dilute). Kf(water) = 1.86 K·kg/mol. Dissociation: i = 1 + α(ν - 1), so α = (i - 1)/(ν - 1), where ν is the number of ions per formula unit (NaCl, ν = 2). Example (#55): 0.72 g HCl is 0.0197 mol in 0.0993 kg, so m = 0.199 mol/kg and i = 0.706/(1.86 × 0.199) = 1.91 ≈ 1.9.",
+      "trap": "I answered 1.85 in #55 (key 1.9), even though my Kf and formula were right. Convert grams to moles using the molar mass of HCl (36.46 g/mol) and kg of solvent, and keep three significant figures before rounding.",
+      "created_at": "2026-10-18T14:04:29",
+      "updated_at": "2026-10-18T14:04:29"
+    },
+    {
+      "id": "1792332269645478",
+      "concept_id": "1792309784574957",
+      "front": "How do I get the ebullioscopic constant Kb from Trouton's rule?",
+      "back": "Trouton-Hildebrand-Everett: ΔHvap ≈ c·Tb with c ≈ 85-88 J/(mol·K). Kb = R·Tb²·M / ΔHvap (M in kg/mol), which simplifies to Kb = R·Tb·M / c. Use Tb in kelvin. Diethyl ether (#58): Tb = 307.75 K, M = 0.07412 kg/mol, so Kb = 8.314 × 307.75 × 0.07412 / 85 = 2.23 K·kg/mol. With c = 88 you get 2.16. Then ΔTb = i·Kb·m gives i, and α = i - 1 for ν = 2. For #60: m = 2.567 mol / 0.300 kg = 8.56 mol/kg, i ≈ 1.36, α ≈ 36%.",
+      "trap": "I answered 1.32 in #58 (key 2.23) and 31.6% in #60 (key 36.1%). Check that Tb is in kelvin (34.6 + 273.15), M is in kg/mol, and which Trouton constant (85 or 88) the bank uses. An error in Kb carries into #60.",
+      "created_at": "2026-10-18T14:04:29",
+      "updated_at": "2026-10-18T14:04:29"
+    },
+    {
+      "id": "1792332269645947",
+      "concept_id": "1792309784574957",
+      "front": "How do I calculate the osmotic pressure of an electrolyte solution?",
+      "back": "van't Hoff equation: π = i·M·R·T, with M in mol/L and T in kelvin. Use R = 0.08206 L·atm/(mol·K) for atm, then multiply by 760 to get mmHg. For dilute aqueous solutions, molarity ≈ molality. Example (#56): T = 26.85 + 273.15 = 300.0 K, M ≈ 0.199 mol/L, i ≈ 1.91, so π = 1.91 × 0.199 × 0.08206 × 300.0 = 9.4 atm ≈ 7100 mmHg (the key's 7000 is the nearest option).",
+      "trap": "I answered 4000 in #56 (key 7000). Without i the result is about 3700 mmHg, which is near my choice. For any electrolyte (HCl, NaCl), multiply by i before converting units.",
+      "created_at": "2026-10-18T14:04:29",
+      "updated_at": "2026-10-18T14:04:29"
     }
   ],
   "shaky_tags": [
@@ -95100,5 +95136,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T14:04:24"
+  "updated_at": "2026-10-18T14:04:39"
 }
