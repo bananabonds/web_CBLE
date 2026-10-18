@@ -90567,10 +90567,10 @@
       "source_list": "D2_L4_Momentum_Transfer",
       "reference_no": 18,
       "question": "Water is stored in an elevated reservoir. To generate power, water flows from this reservoir down through a large conduit to a turbine and then through similar-sized conduit. At a point in the conduit 89.5 m above the turbine, the pressure is 172.4 kPa, and a level 5 m below the turbine, the pressure is 89.6 kPа. The water flow rate is 0.800 m³/s. The output of the shaft of the turbine is 658 kW. The water density is 1000 kg/m³. If the efficiency of the turbine in converting the mechanical energy given up by the fluid to the turbine shaft is 89%, calculate the friction loss in the turbine in J/g.",
-      "category": "",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-17T18:59:01",
+      "date_logged": "2026-10-18T07:16:04",
       "occurrences": [
         {
           "exam_id": "1792263541317702",
@@ -90580,7 +90580,8 @@
           "correct_answer": "B. 85 J/kg"
         }
       ],
-      "updated_at": "2026-10-17T18:59:01"
+      "updated_at": "2026-10-18T07:16:04",
+      "concept_id": "179230776302283"
     },
     {
       "id": "1792263541384333",
@@ -91606,6 +91607,17 @@
       "progress": {},
       "created_at": "2026-10-18T07:14:33",
       "updated_at": "2026-10-18T07:14:33"
+    },
+    {
+      "id": "179230776302283",
+      "name": "Friction",
+      "subject": "D2_L4_Momentum_Transfer",
+      "front": "",
+      "back": "",
+      "trap": "",
+      "progress": {},
+      "created_at": "2026-10-18T07:16:03",
+      "updated_at": "2026-10-18T07:16:03"
     }
   ],
   "shaky_tags": [
@@ -91692,5 +91704,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T07:14:48"
+  "updated_at": "2026-10-18T07:16:10"
 }
