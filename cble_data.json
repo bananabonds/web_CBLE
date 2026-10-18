@@ -94150,6 +94150,42 @@
       "trap": "In #47 I picked grain boundaries. Metals are crystalline too, and they are ductile, so a crystalline structure by itself does not explain brittleness. Look for the bond type, which is what blocks slip.",
       "created_at": "2026-10-18T14:09:28",
       "updated_at": "2026-10-18T14:09:28"
+    },
+    {
+      "id": "1792332716708791",
+      "concept_id": "1792310028942877",
+      "front": "How do I read Km and Vmax from a Lineweaver-Burk line y = b + m·x (x = 1/[S], y = 1/v)?",
+      "back": "1/v = (Km/Vmax)(1/[S]) + 1/Vmax. y-intercept b = 1/Vmax, so Vmax = 1/b. Slope m = Km/Vmax, so Km = m/b = m·Vmax. x-intercept = -1/Km. Km has the units of [S], and Vmax has the units of v. Example (#79): m = 0.01738, b = 4.43×10⁻⁴, so Km = 0.01738 / 4.43×10⁻⁴ = 39.2 M.",
+      "trap": "In #79 I answered 4.43 M, which is just the intercept. The intercept gives 1/Vmax, not Km. Divide slope by intercept.",
+      "created_at": "2026-10-18T14:11:56",
+      "updated_at": "2026-10-18T14:11:56"
+    },
+    {
+      "id": "1792332716708760",
+      "concept_id": "1792310028942877",
+      "front": "What is the Michaelis-Menten equation, and which step is rate-determining?",
+      "back": "E + S ⇌ ES → E + P. v = Vmax[S] / (Km + [S]), with Vmax = kcat[E]total and Km = (k₋₁ + kcat)/k₁. Km is the [S] at which v = Vmax/2. The rate-determining step is the catalytic step, ES → E + P (product formation, rate constant kcat). A low Km means high apparent affinity, when kcat is small relative to k₋₁.",
+      "trap": "In #75 I chose the ES dissociation step back to substrate. That is the reverse of binding, not a step toward product. The slow step is the one that forms product.",
+      "created_at": "2026-10-18T14:11:56",
+      "updated_at": "2026-10-18T14:11:56"
+    },
+    {
+      "id": "1792332716708783",
+      "concept_id": "1792310028942877",
+      "front": "How do competitive, noncompetitive, and uncompetitive inhibitors change Km and Vmax, and who binds the active site?",
+      "back": "Competitive: binds the active site, Km(app) increases, Vmax unchanged (Lineweaver-Burk lines meet at the y-axis). Pure noncompetitive: binds an allosteric site, Vmax decreases, Km unchanged (lines meet at the x-axis). Uncompetitive: binds only ES, both Km and Vmax decrease (parallel lines). Active-site binders include the substrate, competitive inhibitors, and many irreversible inhibitors that covalently modify active-site residues.",
+      "trap": "In #87 I picked only \"reversible competitive inhibitor.\" The question asked what binds at the active site, and several answers qualify. If the options include \"more than one\" or \"both,\" check every option before choosing.",
+      "created_at": "2026-10-18T14:11:56",
+      "updated_at": "2026-10-18T14:11:56"
+    },
+    {
+      "id": "1792332716709165",
+      "concept_id": "1792310028942877",
+      "front": "What does an allosteric activator do to a sigmoidal v vs. [S] curve?",
+      "back": "Cooperative allosteric enzymes give a sigmoidal curve (not hyperbolic). An activator stabilizes the R (relaxed, high-affinity) state: the curve shifts left (lower K₀.₅, higher apparent affinity) and becomes more hyperbolic, with Vmax usually unchanged (K-type). An inhibitor stabilizes the T (tense) state: the curve shifts right and becomes more sigmoidal. Do not use Km for sigmoidal enzymes, use K₀.₅.",
+      "trap": "In #83 I picked only \"increases binding affinity,\" but the key was \"both A and C,\" so the R-state stabilization was also part of the answer. In #85 I guessed. Activator means left shift and more hyperbolic. Right shift and more sigmoidal means inhibitor.",
+      "created_at": "2026-10-18T14:11:56",
+      "updated_at": "2026-10-18T14:11:56"
     }
   ],
   "shaky_tags": [
@@ -95208,5 +95244,5 @@
     "shaky_tags": [],
     "checklist": []
   },
-  "updated_at": "2026-10-18T14:11:55"
+  "updated_at": "2026-10-18T14:12:03"
 }
