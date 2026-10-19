@@ -1038,7 +1038,7 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
     <section class="panel" id="panel-reviewer">
       <div class="card">
         <h3>Reviewer</h3>
-        <p class="hint">Your tagged questions sorted by what to do about them. The unit is the <b>concept</b>; under each concept are its questions and your notes on them.</p>
+        <p class="hint">Your tagged questions sorted by what to do about them. Each action lists only the <b>questions</b> that need it, with your notes. Concept cards and progress live in the Concept Card Studio below, which follows the same sort.</p>
         <select class="examScopeSelect" id="reviewerExamScope" style="margin-top:8px;"></select>
         <div id="rvExamSummary"></div>
         <div id="rvFocusBox" style="margin-top:6px;"></div>
@@ -1083,7 +1083,7 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <label class="field-label">Back <span class="hint">(the explanation)</span></label><textarea id="csBack" rows="4"></textarea>
         <label class="field-label">Trap <span class="hint">(side notes to watch out for)</span></label><textarea id="csTrap" rows="3"></textarea>
         <div class="row wrap" style="margin-top:10px;gap:6px;"><button class="btn primary" id="csSave">Save card</button><button class="btn" id="csClear">Clear form</button><button class="btn danger" id="csDelCard" style="display:none;">Delete this card</button></div>
-        <div class="field-label" style="margin-top:14px;">This concept's cards <span id="csCount" class="hint"></span></div>
+        <div class="field-label" style="margin-top:14px;">Concepts in this sort: their cards and actions <span id="csCount" class="hint"></span></div>
         <div id="csCards"></div>
         <details style="margin-top:10px;"><summary style="font-size:.82rem;cursor:pointer;color:var(--navy);font-weight:700;">Paste cards from an AI reply</summary>
           <textarea id="csPaste" rows="6" placeholder="Paste the AI's reply (Front: / Back: / Trap: blocks, or a JSON list)&hellip;" style="margin-top:6px;"></textarea>
@@ -8489,7 +8489,8 @@ function scopedReviewerAttempts() {
    The Concept Card Studio (cards) and the two AI prompts live here permanently, so typed text is never lost.
    --------------------------------------------------------------------- */
 let rvShowResolved = false, rvPrefix = "", rvConcept = "";
-let rvNoteDrafts = {}, rvLineDrafts = {}, rvOrderIds = [], csCid = "", csEditId = null;
+let rvNoteDrafts = {}, rvLineDrafts = {}, rvOrderIds = [], csCid = "", csEditId = null, rvAllItems = [], rvShownConcepts = new Set();
+function rvPrefixMatch(key) { if (!rvPrefix) return true; return key === (rvPrefix === "__none__" ? "" : rvPrefix); }
 function rvIsoDiff(a, b) { return Math.round((Date.parse(b) - Date.parse(a)) / 864e5); }
 function conceptCardsStatus(cid) {
   const cn = findConcept(cid), cards = conceptDigest(cid), srs = fcLoadSrs(), t = fcToday();
@@ -8628,45 +8629,56 @@ function openStudio(cid, cardId) {
   const c = $("csCard"); if (c && c.scrollIntoView) c.scrollIntoView({ behavior: "smooth", block: "start" });
   if (!cardId) $("csFront").focus();
 }
+function studioConcepts(pm) {   // the concepts the current sort (prefix + concept dropdowns) is about
+  const st = conceptStats();
+  return loadConcepts().filter(c => rvPrefixMatch((pm.get(c.id) || { key: "" }).key) && (!rvConcept || c.id === rvConcept))
+    .sort((a, b) => ((pm.get(a.id) || {}).label || "").localeCompare((pm.get(b.id) || {}).label || "") || ((st.get(b.id) || { open: 0 }).open - (st.get(a.id) || { open: 0 }).open) || a.name.localeCompare(b.name));
+}
 function renderStudio() {
   const sel = $("csConcept"); if (!sel) return;
-  const cs = loadConcepts().slice().sort((a, b) => a.name.localeCompare(b.name)), pm = conceptPrefixMap();
-  if (csCid && !cs.some(c => c.id === csCid)) { csCid = ""; if (csEditId) csResetForm(); }
+  const pm = conceptPrefixMap(), cs = studioConcepts(pm), ids = new Set(cs.map(c => c.id));
+  if (rvConcept) csCid = rvConcept;                      // choosing a concept above selects it here
+  else if (csCid && !ids.has(csCid)) { csCid = ""; if (csEditId) csResetForm(); }
   const by = new Map();
   for (const c of cs) { const p = pm.get(c.id) || { key: "", label: "No subject yet" }; if (!by.has(p.key)) by.set(p.key, { label: p.label, list: [] }); by.get(p.key).list.push(c); }
-  sel.innerHTML = `<option value="">\u2014 Choose a concept \u2014</option>` + Array.from(by.values()).sort((a, b) => a.label.localeCompare(b.label)).map(g => `<optgroup label="${esc(g.label)}">${g.list.map(c => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join("")}</optgroup>`).join("") + `<option value="__new__">\uFF0B New concept\u2026</option>`;
+  sel.innerHTML = `<option value="">\u2014 Choose a concept \u2014</option>` + Array.from(by.values()).map(g => `<optgroup label="${esc(g.label)}">${g.list.slice().sort((a, b) => a.name.localeCompare(b.name)).map(c => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join("")}</optgroup>`).join("") + `<option value="__new__">\uFF0B New concept\u2026</option>`;
   sel.value = csCid;
   $("csConceptTools").style.display = csCid ? "" : "none";
   const subSel = $("csNewSubject"), keep = subSel.value;
   subSel.innerHTML = `<option value="">General</option>` + fcAllSubjects().slice().sort((a, b) => fcCleanName(a).localeCompare(fcCleanName(b))).map(s => `<option value="${esc(s)}">${esc(fcCleanName(s))}</option>`).join(""); subSel.value = keep;
   const list = $("csCards"); list.innerHTML = "";
-  const cards = csCid ? cardsOf(csCid) : [];
-  $("csCount").textContent = csCid ? `(${cards.length})` : "";
-  if (!csCid) list.appendChild(el("div", "hint", "Choose a concept to see and edit its cards."));
-  else if (!cards.length) list.appendChild(el("div", "hint", "No cards yet. Write one above, or paste cards from an AI reply."));
+  const nCards = cs.reduce((n, c) => n + cardsOf(c.id).length, 0);
+  $("csCount").textContent = `(${cs.length} concept${cs.length === 1 ? "" : "s"} \u00b7 ${nCards} card${nCards === 1 ? "" : "s"})`;
+  if (!cs.length) list.appendChild(el("div", "hint", "No concepts in this sort. Change the prefix or concept above, or add a new concept."));
+  for (const c of cs) list.appendChild(renderStudioConcept(c, pm.get(c.id)));
+  updateConceptPreview();
+}
+function renderStudioConcept(c, pfx) {
+  const cs = conceptCardsStatus(c.id), today = fcToday(), mine = rvAllItems.filter(i => i.conceptId === c.id), open = mine.filter(i => !i.resolved);
+  const hasNeed = n => open.some(i => i.tax && i.tax.need === n);
+  const bits = NEED_ORDER.filter(hasNeed).map(n => `${NEED_INFO[n].icon} ${NEED_INFO[n].label.replace("Needs ", "")} ${open.filter(i => i.tax && i.tax.need === n).length}`);
+  let progress = "";
+  if (hasNeed("source")) { const d = c.progress && c.progress.source_read; progress += (progress ? " \u00b7 " : "") + (d ? "section read " + daysAgoLabel(Math.max(0, rvIsoDiff(d, today))) : "section not read yet"); }
+  if (hasNeed("drill")) progress += (progress ? " \u00b7 " : "") + `drill reps ${(c.progress && c.progress.drill_reps) || 0}/3\u20135`;
+  const nSkipped = mine.filter(i => i.store === "mistake" && isExcludedEntry(i.e)).length;
+  const row = el("div", "list-item flashcard " + cs.cls); row.style.marginTop = "10px"; row.dataset.cnid = c.id;
+  const cards = cardsOf(c.id), id = esc(c.id);
+  row.innerHTML = `<div class="top-row"><span class="name">${esc(c.name)}</span><span class="row" style="gap:4px;flex:none;"><button class="btn" data-act="tts" data-cid="${id}" data-tts-cn="${id}" title="Read this concept's cards and open questions aloud" style="padding:2px 8px;">\u{1F50A}</button><span class="status-pill ${cs.cls}">${esc(cs.label)}</span></span></div>
+    <div class="meta">${pfx && pfx.label ? `<b>${esc(pfx.label)}</b> &middot; ` : ""}${open.length} open question${open.length === 1 ? "" : "s"}${bits.length ? " (" + esc(bits.join(", ")) + ")" : ""}${progress ? " &middot; " + esc(progress) : ""}${nSkipped ? ` &middot; ${nSkipped} skipped in samples` : ""}</div>
+    <div class="row wrap" style="margin-top:8px;gap:6px;">
+      <button class="btn primary" data-act="addcard" data-cid="${id}">\uFF0B Add card</button>${cards.some(k => (k.back || "").trim()) ? `<button class="btn" data-act="review" data-cid="${id}">Review cards</button>` : ""}<button class="btn" data-act="prompt" data-cid="${id}">\u{1F4CB} Copy AI prompt</button>
+      ${hasNeed("source") ? `<button class="btn" data-act="read" data-cid="${id}">\u2713 I read the section</button>` : ""}${hasNeed("drill") ? `<button class="btn" data-act="rep" data-cid="${id}">+1 closed-book rep</button><button class="btn" data-act="resetreps" data-cid="${id}">Reset reps</button>` : ""}${open.length ? `<button class="btn" data-act="resolveall" data-cid="${id}">Resolve all ${open.length}</button>` : ""}
+    </div>`;
+  if (!cards.length) { const h = el("div", "hint"); h.style.margin = "8px 0 0"; h.textContent = "No cards yet."; row.appendChild(h); }
   cards.forEach((k, i) => {
     const r = el("div", "rv-note"); r.style.cssText = "margin-top:6px;display:flex;gap:8px;align-items:flex-start;" + (k.id === csEditId ? "outline:2px solid var(--navy);" : "");
     r.innerHTML = `<div style="flex:1;min-width:0;"><div class="meta"><b>Card ${i + 1}</b>${(k.back || "").trim() ? "" : ' <span style="color:var(--red);">(needs a back)</span>'}</div>
-      <div><b>${esc((k.front || "").trim() || "(front = concept name)")}</b></div><div class="meta" style="color:var(--ink);">${esc((k.back || "").slice(0, 140))}</div>${(k.trap || "").trim() ? `<div class="meta"><b style="color:var(--red);">Trap:</b> ${esc(k.trap.slice(0, 100))}</div>` : ""}</div>
-      <button class="btn" data-cs-edit="${esc(k.id)}" style="flex:none;padding:2px 8px;">Edit</button>`;
-    list.appendChild(r);
+      <div><b>${esc((k.front || "").trim() || "(front = concept name)")}</b></div><div class="meta" style="color:var(--ink);white-space:pre-wrap;">${esc(k.back || "")}</div>${(k.trap || "").trim() ? `<div class="meta" style="white-space:pre-wrap;"><b style="color:var(--red);">Trap:</b> ${esc(k.trap)}</div>` : ""}</div>
+      <button class="btn" data-cs-edit="${esc(k.id)}" data-cid="${id}" style="flex:none;padding:2px 8px;">Edit</button>`;
+    row.appendChild(r);
   });
-  updateConceptPreview();
+  return row;
 }
-function rvCardsList(cid) {   // compact list inside a concept row
-  const cards = cardsOf(cid), wrap = el("div", "");
-  if (!cards.length) { const h = el("div", "hint"); h.style.margin = "6px 0"; h.textContent = "No cards yet. Add one in the Concept Card Studio below."; wrap.appendChild(h); }
-  cards.forEach((k, i) => {
-    const r = el("div", "rv-note"); r.style.cssText = "margin-top:6px;display:flex;gap:8px;align-items:flex-start;";
-    r.innerHTML = `<div style="flex:1;min-width:0;"><div class="meta"><b>Card ${i + 1}</b>${(k.back || "").trim() ? "" : ' <span style="color:var(--red);">(needs a back)</span>'}</div>
-      <div><b>${esc((k.front || "").trim() || "(front = concept name)")}</b></div><div class="meta" style="color:var(--ink);">${esc((k.back || "").slice(0, 140))}</div></div>
-      <button class="btn" data-edit-card="${esc(k.id)}" style="flex:none;padding:2px 8px;">Edit</button>`;
-    wrap.appendChild(r);
-  });
-  wrap.addEventListener("click", (ev) => { const b = ev.target.closest("[data-edit-card]"); if (b) { ev.stopPropagation(); openStudio(cid, b.dataset.editCard); } });
-  return wrap;
-}
-
 /* ---- Full reviewer prompt picker (by concept, grouped by subject prefix) ---- */
 function renderFullPicker() {
   const box = $("rpList"); if (!box) return;
@@ -8739,7 +8751,7 @@ function rvItemRow(it, withLine) {
   const ctx = qsCtx(it.subject, e.reference_no, e.question, mine, right);
   const skipped = it.store === "mistake" && isExcludedEntry(e);
   row.innerHTML = `<div class="row" style="gap:6px;align-items:flex-start;"><span style="flex:none;width:8px;height:8px;border-radius:50%;background:${color};margin-top:6px;"></span>
-      <div style="flex:1;min-width:0;"><div class="meta"><b>Ref #${esc(e.reference_no)}</b> &middot; ${esc(fcCleanName(it.subject))} &middot; ${esc(it.cat)}${occ.length > 1 ? ` &middot; missed ${occ.length}\u00d7` : ""}${it.resolved ? " &middot; <b>resolved</b>" : ""}${skipped ? " &middot; <b>skipped in samples</b>" : ""}</div></div>
+      <div style="flex:1;min-width:0;"><div class="meta"><b>Ref #${esc(e.reference_no)}</b> &middot; ${esc(fcCleanName(it.subject))} &middot; ${esc(it.cat)} &middot; Concept: <b>${esc(conceptName(it.conceptId) || "none yet")}</b>${occ.length > 1 ? ` &middot; missed ${occ.length}\u00d7` : ""}${it.resolved ? " &middot; <b>resolved</b>" : ""}${skipped ? " &middot; <b>skipped in samples</b>" : ""}</div></div>
       <div style="display:flex;gap:4px;flex:none;">${qsMiniBtn(ctx)}<button class="btn" data-tts-id="${esc(e.id)}" title="Read this question and its notes aloud" style="padding:2px 8px;">\u{1F50A}</button></div></div>
     <div style="margin-top:6px;font-size:.88rem;line-height:1.5;color:var(--ink);white-space:pre-wrap;word-break:break-word;">${esc(ctx.question || e.question || "(question text unavailable)")}</div>
     ${rvChoicesHtml(ctx, mine, right)}
@@ -8770,100 +8782,54 @@ function rvItemRow(it, withLine) {
   });
   return row;
 }
-function renderRvConceptRow(need, cid, its, pfx) {
-  const c = findConcept(cid), open = its.filter(i => !i.resolved), today = fcToday();
-  const subjects = Array.from(new Set(its.map(i => fcCleanName(i.subject))));
-  const cs = cid ? conceptCardsStatus(cid) : null;
-  const nSkipped = its.filter(i => i.store === "mistake" && isExcludedEntry(i.e)).length;
-  let status = "";
-  if (need === "source") { const d = c && c.progress && c.progress.source_read; status = d ? "read " + daysAgoLabel(Math.max(0, rvIsoDiff(d, today))) : "not read yet"; }
-  else if (need === "drill") status = `reps ${(c && c.progress && c.progress.drill_reps) || 0}/3\u20135`;
-  else if (need === "retrieval" && cs) status = cs.label;
-  const row = el("div", "list-item flashcard " + (open.length ? "status-yellow" : "status-green"));
-  row.style.marginBottom = "10px"; row.dataset.cnid = cid || "";
-  let html = `<div class="top-row"><span class="name">${esc(c ? c.name : "(no concept yet)")}</span><span class="row" style="gap:4px;flex:none;">${c ? `<button class="btn" data-act="tts" title="Read this concept's cards and questions aloud" style="padding:2px 8px;" data-tts-cn="${esc(cid)}">\u{1F50A}</button>` : ""}<span class="status-pill ${open.length ? "status-yellow" : "status-green"}">${open.length} open</span></span></div>
-    <div class="meta">${pfx && pfx.label ? `<b>${esc(pfx.label)}</b> &middot; ` : ""}${esc(subjects.join(", "))}${status ? " &middot; " + esc(status) : ""}${nSkipped ? ` &middot; ${nSkipped} skipped in samples` : ""}${c ? "" : " &middot; tag these with a concept so they nest properly"}</div>
-    <div class="row wrap" style="margin-top:8px;gap:6px;">`;
-  if (need === "source") html += `<button class="btn primary" data-act="read">\u2713 I read the section</button>`;
-  if (need === "drill") html += `<button class="btn primary" data-act="rep">+1 closed-book rep</button><button class="btn" data-act="resetreps">Reset reps</button>`;
-  if (need === "retrieval") html += `<button class="btn primary" data-act="review">Review cards</button>`;
-  if (c) html += `<button class="btn" data-act="addcard">\uFF0B Add card</button><button class="btn" data-act="prompt">\u{1F4CB} Copy AI prompt</button>`;
-  if (open.length) html += `<button class="btn" data-act="resolveall">Resolve all ${open.length}</button>`;
-  html += `</div><div class="cards-slot"></div><div class="items"></div>`;
-  row.innerHTML = html;
-  if (c) row.querySelector(".cards-slot").appendChild(rvCardsList(cid));
-  const holder = row.querySelector(".items"); for (const it of its) holder.appendChild(rvItemRow(it, need === "checklist"));
-  const act = (name, fn) => { const b = row.querySelector(`[data-act="${name}"]`); if (b) b.addEventListener("click", (ev) => { ev.stopPropagation(); fn(); }); };
-  act("tts", () => ttsToggleConcept(cid));
-  act("read", () => { if (c) { updateConcept(c.id, { progress: Object.assign({}, c.progress, { source_read: today }) }); toast("Marked as read today."); } else toast("Add a concept to these questions first."); refreshReviewer(); });
-  act("rep", () => { if (!c) { toast("Add a concept to these questions first."); return; } const n = ((c.progress && c.progress.drill_reps) || 0) + 1; updateConcept(c.id, { progress: Object.assign({}, c.progress, { drill_reps: n, drill_last: today }) }); toast(n >= 3 ? `${n} reps \u2014 ready to resolve these?` : `${n} rep${n === 1 ? "" : "s"} logged.`); refreshReviewer(); });
-  act("resetreps", () => { if (c) updateConcept(c.id, { progress: Object.assign({}, c.progress, { drill_reps: 0 }) }); refreshReviewer(); });
-  act("review", () => { if (c) fcReviewConcept(c.id); });
-  act("addcard", () => openStudio(c.id));
-  act("prompt", async () => {
-    const r = buildConceptPrompt(c.id);
-    toast(await copyTextRobust(r.text) ? `Prompt copied \u2014 ${promptInfoText(r.info, cpPrefs().includeResolved)}` : "Couldn't access the clipboard.", 4200);
-  });
-  act("resolveall", () => { if (!confirmDialog(`Mark ${open.length} question${open.length === 1 ? "" : "s"} resolved?`)) return; open.forEach(i => setItemResolved(i, true)); refreshReviewer(); afterTagChange(); });
-  return row;
-}
 function renderRvNeedCard(need, items, hiddenResolved, pm) {
   const info = NEED_INFO[need], tx = ACTION_TAXONOMY.filter(t => t.need === need);
   const open = items.filter(i => !i.resolved).length;
-  const by = new Map();
-  for (const it of items) { const k = it.conceptId && findConcept(it.conceptId) ? it.conceptId : ""; if (!by.has(k)) by.set(k, []); by.get(k).push(it); }
-  const prefOf = (cid, its) => cid ? (pm.get(cid) || { key: "", label: "No subject yet" }) : (() => { const p = subjectPrefix(its[0].subject); return { key: p.toLowerCase(), label: p }; })();
-  let groups = Array.from(by.entries()).map(([cid, its]) => ({ cid, its, pfx: prefOf(cid, its) }));
-  if (rvPrefix) groups = groups.filter(g => g.pfx.key === rvPrefix);
-  if (rvConcept) groups = groups.filter(g => g.cid === rvConcept);
-  const filtered = !!(rvPrefix || rvConcept);
-  const shownOpen = groups.reduce((n, g) => n + g.its.filter(i => !i.resolved).length, 0);
+  const prefOf = it => it.conceptId && findConcept(it.conceptId) ? (pm.get(it.conceptId) || { key: "", label: "No subject yet" }) : (() => { const p = subjectPrefix(it.subject); return { key: p.toLowerCase(), label: p }; })();
+  let list = items.map(it => ({ it, pfx: prefOf(it) }));
+  if (rvPrefix) list = list.filter(x => rvPrefixMatch(x.pfx.key));
+  if (rvConcept) list = list.filter(x => x.it.conceptId === rvConcept);
+  const filtered = !!(rvPrefix || rvConcept), shownOpen = list.filter(x => !x.it.resolved).length;
   const card = el("div", "card");
   card.innerHTML = `<h3>${info.icon} ${esc(info.label)} <span class="count">(${filtered ? shownOpen + " of " + open : open} open)</span></h3>
     <p class="hint" style="margin-bottom:8px;"><b>${esc(tx[0].action)}</b> &middot; from: ${esc(tx.map(t => t.name).join(", "))}${hiddenResolved ? ` &middot; ${hiddenResolved} resolved hidden` : ""}</p>`;
   if (need === "checklist") card.appendChild(renderChecklistBox());   // the checklist is yours overall, so the filters never hide it
-  if (!groups.length) {
-    if (filtered && need !== "checklist") return null;               // keep the page short: skip sections with nothing for this choice
+  if (!list.length) {
+    if (filtered && need !== "checklist") return null;                 // keep the page short: skip sections with nothing for this choice
     card.appendChild(el("div", "empty-state", items.length ? "Nothing here for this choice." : "Nothing tagged here yet."));
     return card;
   }
-  const openOf = g => g.its.filter(i => !i.resolved).length;
-  groups.sort((a, b) => a.pfx.label.localeCompare(b.pfx.label) || (openOf(b) - openOf(a)) || conceptName(a.cid).localeCompare(conceptName(b.cid)));
-  const prefixes = new Set(groups.map(g => g.pfx.key));
-  let lastPrefix = null;
-  for (const g of groups) {
-    if (prefixes.size > 1 && g.pfx.key !== lastPrefix) {
-      lastPrefix = g.pfx.key;
-      const same = groups.filter(x => x.pfx.key === g.pfx.key), h = el("div", "rv-prefhead");
-      h.textContent = `${g.pfx.label} \u00b7 ${same.length} concept${same.length === 1 ? "" : "s"} \u00b7 ${same.reduce((n, x) => n + openOf(x), 0)} open`;
-      card.appendChild(h);
-    }
-    g.its.sort((x, y) => (x.resolved - y.resolved) || (y.e.updated_at || "").localeCompare(x.e.updated_at || ""));
-    g.its.filter(i => !i.resolved).forEach(i => rvOrderIds.push(i.e.id));
-    card.appendChild(renderRvConceptRow(need, g.cid, g.its, g.pfx));
+  // only questions: grouped in the order prefix -> concept (so related ones sit together), newest first inside
+  list.sort((a, b) => a.pfx.label.localeCompare(b.pfx.label) || conceptName(a.it.conceptId).localeCompare(conceptName(b.it.conceptId)) || (a.it.resolved - b.it.resolved) || (b.it.e.updated_at || "").localeCompare(a.it.e.updated_at || ""));
+  for (const x of list) {
+    if (!x.it.resolved) rvOrderIds.push(x.it.e.id);
+    if (x.it.conceptId) rvShownConcepts.add(x.it.conceptId);
+    card.appendChild(rvItemRow(x.it, need === "checklist"));
   }
   return card;
 }
 // Two dropdowns decide what is shown: a subject prefix, then a concept within it.
 function renderRvFilters(all, pm) {
   const psel = $("rvPrefixSel"), csel = $("rvConceptSel");
-  const byConcept = new Map();
-  for (const it of all) { if (!it.conceptId || !findConcept(it.conceptId)) continue; const o = byConcept.get(it.conceptId) || { open: 0, total: 0 }; o.total++; if (!it.resolved) o.open++; byConcept.set(it.conceptId, o); }
-  const pref = new Map();
-  for (const cid of byConcept.keys()) { const p = pm.get(cid) || { key: "", label: "No subject yet" }; const r = pref.get(p.key) || { label: p.label, n: 0 }; r.n++; pref.set(p.key, r); }
-  if (rvPrefix && !pref.has(rvPrefix)) rvPrefix = "";
-  psel.innerHTML = `<option value="">All prefixes (${byConcept.size} concept${byConcept.size === 1 ? "" : "s"})</option>` + Array.from(pref.entries()).sort((a, b) => a[1].label.localeCompare(b[1].label)).map(([k, r]) => `<option value="${esc(k)}">${esc(r.label)} (${r.n})</option>`).join("");
+  const stat = new Map();
+  for (const it of all) { if (!it.conceptId || !findConcept(it.conceptId)) continue; const o = stat.get(it.conceptId) || { open: 0, total: 0 }; o.total++; if (!it.resolved) o.open++; stat.set(it.conceptId, o); }
+  const concepts = loadConcepts(), pref = new Map();
+  for (const c of concepts) { const p = pm.get(c.id) || { key: "", label: "No subject yet" }; const r = pref.get(p.key) || { label: p.label, n: 0 }; r.n++; pref.set(p.key, r); }
+  const val = k => k || "__none__";
+  if (rvPrefix && !pref.has(rvPrefix === "__none__" ? "" : rvPrefix)) rvPrefix = "";
+  psel.innerHTML = `<option value="">All prefixes (${concepts.length} concept${concepts.length === 1 ? "" : "s"})</option>` + Array.from(pref.entries()).sort((a, b) => a[1].label.localeCompare(b[1].label)).map(([k, r]) => `<option value="${esc(val(k))}">${esc(r.label)} (${r.n})</option>`).join("");
   psel.value = rvPrefix;
-  const inPrefix = Array.from(byConcept.keys()).filter(cid => !rvPrefix || (pm.get(cid) || { key: "" }).key === rvPrefix);
-  if (rvConcept && !inPrefix.includes(rvConcept)) rvConcept = "";
-  const opt = cid => { const o = byConcept.get(cid); return `<option value="${esc(cid)}">${esc(conceptName(cid))} \u00b7 ${o.open} open</option>`; };
-  const sorted = ids => ids.sort((a, b) => (byConcept.get(b).open - byConcept.get(a).open) || conceptName(a).localeCompare(conceptName(b)));
+  const inPrefix = concepts.filter(c => rvPrefixMatch((pm.get(c.id) || { key: "" }).key));
+  if (rvConcept && !inPrefix.some(c => c.id === rvConcept)) rvConcept = "";
+  const openOf = c => (stat.get(c.id) || { open: 0 }).open;
+  const opt = c => `<option value="${esc(c.id)}">${esc(c.name)} \u00b7 ${openOf(c)} open</option>`;
+  const sorted = a => a.slice().sort((x, y) => (openOf(y) - openOf(x)) || x.name.localeCompare(y.name));
   let h = `<option value="">All concepts${rvPrefix ? " in this prefix" : ""} (${inPrefix.length})</option>`;
-  if (rvPrefix) h += sorted(inPrefix.slice()).map(opt).join("");
+  if (rvPrefix) h += sorted(inPrefix).map(opt).join("");
   else {
     const g = new Map();
-    for (const cid of inPrefix) { const p = pm.get(cid) || { key: "", label: "No subject yet" }; if (!g.has(p.key)) g.set(p.key, { label: p.label, ids: [] }); g.get(p.key).ids.push(cid); }
-    h += Array.from(g.values()).sort((a, b) => a.label.localeCompare(b.label)).map(x => `<optgroup label="${esc(x.label)}">${sorted(x.ids).map(opt).join("")}</optgroup>`).join("");
+    for (const c of inPrefix) { const p = pm.get(c.id) || { key: "", label: "No subject yet" }; if (!g.has(p.key)) g.set(p.key, { label: p.label, list: [] }); g.get(p.key).list.push(c); }
+    h += Array.from(g.values()).sort((a, b) => a.label.localeCompare(b.label)).map(x => `<optgroup label="${esc(x.label)}">${sorted(x.list).map(opt).join("")}</optgroup>`).join("");
   }
   csel.innerHTML = h; csel.value = rvConcept;
 }
@@ -8872,6 +8838,7 @@ function refreshReviewer() {
   renderExamScopeSelects();
   const scope = getScopeSubjects(), scopeSet = scope ? new Set(scope) : null, ex = getActiveExam();
   const all = collectTagItems(scopeSet), items = all.filter(i => rvShowResolved || !i.resolved), pm = conceptPrefixMap();
+  rvAllItems = all;
   $("rvShowResolved").checked = rvShowResolved;
   const untagged = computeTestsWithUnloggedMistakes().reduce((n, r) => n + r.unloggedCount, 0);
   const tile = (n, label, sub, color) => `<div class="fc-stat" style="border-top:3px solid ${color};"><b>${n}</b><span>${label}</span>${sub ? `<span style="display:block;font-size:.65rem;">${sub}</span>` : ""}</div>`;
@@ -8891,14 +8858,12 @@ function refreshReviewer() {
   renderRvFilters(all, pm);
   const wrap = $("rvSections");
   wrap.innerHTML = "";
-  rvOrderIds = [];
+  rvOrderIds = []; rvShownConcepts = new Set();
   for (const need of NEED_ORDER) {
     const mine = items.filter(i => i.tax && i.tax.need === need), hidden = all.filter(i => i.tax && i.tax.need === need).length - mine.length;
     const nc = renderRvNeedCard(need, mine, hidden, pm); if (nc) wrap.appendChild(nc);
   }
-  const shownConcepts = new Set(), shownQ = rvOrderIds.length;
-  wrap.querySelectorAll("[data-cnid]").forEach(r => shownConcepts.add(r.dataset.cnid));
-  $("rvShowing").textContent = `Showing ${shownConcepts.size} concept${shownConcepts.size === 1 ? "" : "s"} · ${shownQ} open question${shownQ === 1 ? "" : "s"}`;
+  $("rvShowing").textContent = `Showing ${rvOrderIds.length} open question${rvOrderIds.length === 1 ? "" : "s"} \u00b7 ${rvShownConcepts.size} concept${rvShownConcepts.size === 1 ? "" : "s"} \u2014 the Concept Card Studio below follows this choice`;
   const legacy = items.filter(i => !i.tax);
   if (legacy.length) {
     const card = el("div", "card");
@@ -8927,7 +8892,8 @@ function refreshReviewer() {
   });
   $("csNewAdd").addEventListener("click", () => {
     const nm = $("csNewName").value.trim(); if (!nm) { toast("Type the concept name first."); return; }
-    const c = addConcept(nm, $("csNewSubject").value); csCid = c.id; $("csNewName").value = ""; $("csNewRow").style.display = "none"; toast("Concept added."); refreshReviewer(); $("csFront").focus();
+    const c = addConcept(nm, $("csNewSubject").value); csCid = c.id;
+    { const pk = (conceptPrefixMap().get(c.id) || { key: "" }).key; if (rvPrefix && !rvPrefixMatch(pk)) rvPrefix = ""; if (rvConcept && rvConcept !== c.id) rvConcept = ""; viewSave(); }   // make sure the new concept is visible in the current sort $("csNewName").value = ""; $("csNewRow").style.display = "none"; toast("Concept added."); refreshReviewer(); $("csFront").focus();
   });
   $("csNewName").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); $("csNewAdd").click(); } });
   $("csRename").addEventListener("click", () => { const c = findConcept(csCid); if (!c) return; const nm = window.prompt("Rename concept", c.name); if (nm === null) return; if (renameConcept(csCid, nm)) { toast("Renamed."); refreshReviewer(); afterTagChange(); } else toast("That name is empty or already used."); });
@@ -8941,7 +8907,20 @@ function refreshReviewer() {
   });
   $("csClear").addEventListener("click", () => { csResetForm(); renderStudio(); });
   $("csDelCard").addEventListener("click", () => { if (!csEditId || !confirmDialog("Delete this card?")) return; deleteCard(csEditId); csResetForm(); toast("Card deleted."); refreshReviewer(); });
-  $("csCards").addEventListener("click", (ev) => { const b = ev.target.closest("[data-cs-edit]"); if (b) openStudio(csCid, b.dataset.csEdit); });
+  $("csCards").addEventListener("click", async (ev) => {
+    const b = ev.target.closest("button"); if (!b) return;
+    const cid = b.dataset.cid, c = findConcept(cid), today = fcToday();
+    if (b.dataset.csEdit) { openStudio(cid, b.dataset.csEdit); return; }
+    const a = b.dataset.act; if (!a || !c) return;
+    if (a === "tts") ttsToggleConcept(cid);
+    else if (a === "addcard") openStudio(cid);
+    else if (a === "review") fcReviewConcept(cid);
+    else if (a === "prompt") { const r = buildConceptPrompt(cid); toast(await copyTextRobust(r.text) ? `Prompt copied \u2014 ${promptInfoText(r.info, cpPrefs().includeResolved)}` : "Couldn't access the clipboard.", 4200); }
+    else if (a === "read") { updateConcept(cid, { progress: Object.assign({}, c.progress, { source_read: today }) }); toast("Marked as read today."); refreshReviewer(); }
+    else if (a === "rep") { const n = ((c.progress && c.progress.drill_reps) || 0) + 1; updateConcept(cid, { progress: Object.assign({}, c.progress, { drill_reps: n, drill_last: today }) }); toast(n >= 3 ? `${n} reps \u2014 ready to resolve these?` : `${n} rep${n === 1 ? "" : "s"} logged.`); refreshReviewer(); }
+    else if (a === "resetreps") { updateConcept(cid, { progress: Object.assign({}, c.progress, { drill_reps: 0 }) }); refreshReviewer(); }
+    else if (a === "resolveall") { const open = rvAllItems.filter(i => i.conceptId === cid && !i.resolved); if (!open.length || !confirmDialog(`Mark ${open.length} question${open.length === 1 ? "" : "s"} for "${c.name}" resolved?`)) return; open.forEach(i => setItemResolved(i, true)); refreshReviewer(); afterTagChange(); }
+  });
   $("csPasteBtn").addEventListener("click", () => {
     if (!csCid) { toast("Choose a concept first."); return; }
     const cards = parseCardsText($("csPaste").value); if (!cards.length) { toast("I couldn't find any cards. Each needs at least a Back."); return; }
