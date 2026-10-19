@@ -284,6 +284,7 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
 .tg-guess{border-left:6px solid var(--violet) !important;}
 .tg-flag{border-left:6px solid var(--amber) !important;}
 .tg-sel{outline:2px solid var(--navy);outline-offset:1px;}
+.rv-prefhead{font-size:.74rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;margin:12px 0 4px;padding-bottom:2px;border-bottom:1px solid var(--line);}
 .ma-sum{font-size:.82rem;color:var(--sub);margin:2px 0 10px;}
 .ma-group{border:1px solid var(--line);border-left:4px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:10px;background:#fff;}
 .ma-head{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:700;font-size:.88rem;}
@@ -1018,7 +1019,6 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <label class="field-label">2 &middot; Concept category <span class="hint">(required)</span></label>
         <select id="tagConcept"></select>
         <div id="tagConceptNewRow" class="row" style="display:none;gap:6px;margin-top:6px;"><input type="text" id="tagConceptNew" placeholder="Name the concept, e.g. n-factor of KMnO4"><button class="btn primary" id="tagConceptAdd" style="flex:none;">Add</button></div>
-        <button class="btn link" id="tagLastBtn" style="display:none;margin-top:6px;"></button>
         <div class="row wrap" style="margin-top:10px;gap:6px;">
           <button class="btn primary" id="btnSaveNextMistake">Save &amp; next</button>
           <button class="btn" id="btnSaveMistake">Save</button>
@@ -1036,10 +1036,9 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
 
     <!-- ---- Tab: Reviewer ---- -->
     <section class="panel" id="panel-reviewer">
-      <div id="rvEditor"></div>
       <div class="card">
         <h3>Reviewer</h3>
-        <p class="hint">Your tagged questions sorted by what to do about them. The unit is the <b>concept</b>: read it, drill it, add a checklist line, or review its card. Notes live on the concept card, so you write them once.</p>
+        <p class="hint">Your tagged questions sorted by what to do about them. The unit is the <b>concept</b>; under each concept are its questions and your notes on them.</p>
         <select class="examScopeSelect" id="reviewerExamScope" style="margin-top:8px;"></select>
         <div id="rvExamSummary"></div>
         <div id="rvFocusBox" style="margin-top:6px;"></div>
@@ -1064,9 +1063,62 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
             </div>
           </details>
         </div>
+        <label class="field-label" style="margin-top:12px;">Subject prefix <span class="hint">(T1, T2&hellip; &mdash; what the concept's subjects start with)</span></label>
+        <select id="rvPrefixSel"></select>
+        <label class="field-label" style="margin-top:8px;">Concept</label>
+        <select id="rvConceptSel"></select>
+        <div class="hint" id="rvShowing" style="margin-top:6px;"></div>
         <label class="row" style="margin-top:10px;font-size:.82rem;"><input type="checkbox" id="rvShowResolved"><span>Show resolved questions too</span></label>
       </div>
       <div id="rvSections"></div>
+      <div class="card" id="csCard">
+        <h3>Concept Card Studio</h3>
+        <p class="hint" style="margin-bottom:8px;">Concept cards are made here only. Pick a concept, write a card, repeat &mdash; a concept can have as many cards as you like, and every card with a back becomes a flashcard.</p>
+        <label class="field-label">Concept</label>
+        <select id="csConcept"></select>
+        <div class="row" id="csNewRow" style="display:none;gap:6px;margin-top:6px;flex-wrap:wrap;"><input type="text" id="csNewName" placeholder="New concept name" style="flex:2;min-width:140px;"><select id="csNewSubject" style="flex:1;min-width:120px;"></select><button class="btn primary" id="csNewAdd" style="flex:none;">Add</button></div>
+        <div class="row wrap" id="csConceptTools" style="display:none;gap:6px;margin-top:6px;"><button class="btn" id="csRename">Rename concept</button><button class="btn danger" id="csDeleteConcept">Delete concept</button></div>
+        <div class="field-label" id="csFormTitle" style="margin-top:12px;font-weight:700;">New card</div>
+        <label class="field-label">Front <span class="hint">(the concept to recall; defaults to the concept name)</span></label><textarea id="csFront" rows="2"></textarea>
+        <label class="field-label">Back <span class="hint">(the explanation)</span></label><textarea id="csBack" rows="4"></textarea>
+        <label class="field-label">Trap <span class="hint">(side notes to watch out for)</span></label><textarea id="csTrap" rows="3"></textarea>
+        <div class="row wrap" style="margin-top:10px;gap:6px;"><button class="btn primary" id="csSave">Save card</button><button class="btn" id="csClear">Clear form</button><button class="btn danger" id="csDelCard" style="display:none;">Delete this card</button></div>
+        <div class="field-label" style="margin-top:14px;">This concept's cards <span id="csCount" class="hint"></span></div>
+        <div id="csCards"></div>
+        <details style="margin-top:10px;"><summary style="font-size:.82rem;cursor:pointer;color:var(--navy);font-weight:700;">Paste cards from an AI reply</summary>
+          <textarea id="csPaste" rows="6" placeholder="Paste the AI's reply (Front: / Back: / Trap: blocks, or a JSON list)&hellip;" style="margin-top:6px;"></textarea>
+          <div class="row" style="margin-top:6px;"><button class="btn primary" id="csPasteBtn">Create cards from this</button></div></details>
+        <div class="field-label" style="margin-top:16px;font-weight:700;">AI prompt for this concept</div>
+        <p class="hint">Built from this concept's real questions, your answers and notes. Resolved questions are left out unless you tick the box.</p>
+        <div class="row" style="gap:8px;align-items:center;margin-top:6px;"><label class="field-label" style="flex:none;margin:0;">Cards to ask for</label><input type="number" id="csN" min="1" max="12" style="width:70px;"></div>
+          <div class="row wrap" style="gap:12px;margin-top:6px;">
+            <label class="row" style="flex:none;font-size:.8rem;"><input type="checkbox" id="csIncResolved"><span>Include resolved questions</span></label>
+            <label class="row" style="flex:none;font-size:.8rem;"><input type="checkbox" id="csIncCards"><span>Include my existing cards</span></label>
+            <label class="row" style="flex:none;font-size:.8rem;"><input type="checkbox" id="csIncNotes"><span>Include my notes</span></label>
+            <label class="row" style="flex:none;font-size:.8rem;"><input type="checkbox" id="csIncCorrect"><span>Include answers (mine and the bank's)</span></label>
+          </div>
+        <div class="hint" id="csPreviewInfo" style="margin-top:8px;"></div>
+        <div class="row wrap" style="margin-top:6px;gap:6px;"><button class="btn primary" id="csCopy">&#128203; Copy prompt for this concept</button></div>
+        <details style="margin-top:8px;"><summary style="font-size:.82rem;cursor:pointer;color:var(--navy);">Preview the prompt</summary><textarea id="csPreview" rows="12" readonly style="margin-top:6px;font-size:.75rem;"></textarea></details>
+        <div id="promptEditor-concept" style="margin-top:10px;"></div>
+      </div>
+      <div class="card" id="rpCard">
+        <h3>Full Reviewer Prompt <span class="count">(by concept)</span></h3>
+        <p class="hint" style="margin-bottom:8px;">Choose the concepts the AI should build a first-principles reviewer for. Each one is sent with its questions, your answers and your notes.</p>
+        <div class="row wrap" style="gap:6px;"><button class="btn" id="rpAll">All</button><button class="btn" id="rpNone">None</button><button class="btn" id="rpOpen">Only concepts with open questions</button></div>
+        <div id="rpList" style="max-height:300px;overflow-y:auto;margin-top:8px;"></div>
+          <div class="row wrap" style="gap:12px;margin-top:6px;">
+            <label class="row" style="flex:none;font-size:.8rem;"><input type="checkbox" id="rpIncResolved"><span>Include resolved questions</span></label>
+            <label class="row" style="flex:none;font-size:.8rem;"><input type="checkbox" id="rpIncCards"><span>Include my existing cards</span></label>
+            <label class="row" style="flex:none;font-size:.8rem;"><input type="checkbox" id="rpIncNotes"><span>Include my notes</span></label>
+            <label class="row" style="flex:none;font-size:.8rem;"><input type="checkbox" id="rpIncCorrect"><span>Include answers (mine and the bank's)</span></label>
+          </div>
+        <div class="row" style="gap:8px;align-items:center;margin-top:8px;"><label class="field-label" style="flex:none;margin:0;">Max questions per concept</label><input type="number" id="rpMaxQ" min="1" max="60" style="width:70px;"></div>
+        <div class="hint" id="rpInfo" style="margin-top:8px;"></div>
+        <div class="row wrap" style="margin-top:6px;gap:6px;"><button class="btn primary" id="rpCopy">&#128203; Copy full reviewer prompt</button></div>
+        <details style="margin-top:8px;"><summary style="font-size:.82rem;cursor:pointer;color:var(--navy);">Preview the prompt</summary><textarea id="rpPreview" rows="12" readonly style="margin-top:6px;font-size:.75rem;"></textarea></details>
+        <div id="promptEditor-reviewer" style="margin-top:10px;"></div>
+      </div>
     </section>
 
     <!-- ---- Tab: Flashcards ---- -->
@@ -1651,6 +1703,32 @@ function setItemResolved(item, resolved) {
 /* ---- pre-submit checklist (what "Needs checklist" produces) ---- */
 function loadChecklist() { return loadJson(KEYS.checklist, []); }
 function saveChecklist(a) { saveJson(KEYS.checklist, a); scheduleGithubSync(); }
+
+/* ---- grouping concepts by the prefix of the subjects they contain (T1_People + T1_Animal -> "T1") ---- */
+function subjectPrefix(s) {
+  const n = fcCleanName(String(s || "")), m = n.match(/^[^_\-\s:\/.]+/);
+  return (m ? m[0] : n) || "";
+}
+// concept id -> { key, label, share }: the prefix most of its tagged questions' subjects start with.
+function conceptPrefixMap() {
+  const w = new Map();
+  const add = (cid, subj, wt) => {
+    const p = subjectPrefix(subj); if (!p) return;
+    const k = p.toLowerCase(), m = w.get(cid) || new Map(), r = m.get(k) || { label: p, n: 0 };
+    r.n += wt; m.set(k, r); w.set(cid, m);
+  };
+  for (const it of collectTagItems(null)) if (it.conceptId) add(it.conceptId, it.subject, 1);
+  for (const c of loadConcepts()) if (c.subject) add(c.id, c.subject, 0.5);   // the subject a concept was created under counts a little
+  const out = new Map();
+  for (const c of loadConcepts()) {
+    const m = w.get(c.id);
+    if (!m) { out.set(c.id, { key: "", label: "No subject yet", share: 0 }); continue; }
+    const tot = Array.from(m.values()).reduce((x, r) => x + r.n, 0);
+    const best = Array.from(m.entries()).sort((x, y) => (y[1].n - x[1].n) || x[0].localeCompare(y[0]))[0];
+    out.set(c.id, { key: best[0], label: best[1].label, share: best[1].n / tot });
+  }
+  return out;
+}
 
 /* ---------------------------------------------------------------------
    Generic storage helpers (mirrors load_json_file / save_json_file)
@@ -6168,7 +6246,7 @@ function renderGuessCard(g) {
    Types: wrong (red), right guess (violet), flagged-but-correct (amber).
    --------------------------------------------------------------------- */
 let tagFilter = { wrong: true, guess: true, flag: true };
-let selectedMistakeIdx = -1, tagDrafts = {}, tagLast = loadJson(KEYS.builderPrefs, {}).lastTag || null;
+let selectedMistakeIdx = -1, tagDrafts = {};
 const TAG_TYPE = {
   wrong: { label: "\u2717 Wrong", chip: "\u2717 Mistakes", color: "var(--red)" },
   guess: { label: "\u2713 Right guess", chip: "\u2713 Right guesses", color: "var(--violet)" },
@@ -6278,7 +6356,7 @@ function renderTagRows() {
 function resetTagCard() {
   const c = $("tagCategory"); if (!c) return;
   c.value = ""; $("tagActionLine").innerHTML = ""; $("tagBadges").innerHTML = "";
-  renderConceptSelect("", ""); $("tagConceptNewRow").style.display = "none"; $("tagLastBtn").style.display = "none";
+  renderConceptSelect("", ""); $("tagConceptNewRow").style.display = "none";
 }
 function tagCategoryOptions(extra) {
   let h = `<option value="">\u2014 Choose what to do about it \u2014</option>` + ACTION_TAXONOMY.map(t => `<option value="${esc(t.name)}">${esc(t.name)}</option>`).join("") +
@@ -6294,12 +6372,14 @@ function updateTagActionLine() {
 }
 function renderConceptSelect(selectedId, subject) {
   const sel = $("tagConcept"); if (!sel) return;
-  const cs = loadConcepts().slice().sort((a, b) => a.name.localeCompare(b.name));
+  const cs = loadConcepts().slice().sort((a, b) => a.name.localeCompare(b.name)), pm = conceptPrefixMap();
   const mine = cs.filter(c => subject && c.subject === subject), rest = cs.filter(c => !(subject && c.subject === subject));
   const opt = c => `<option value="${esc(c.id)}">${esc(c.name)}</option>`;
   let h = `<option value="">\u2014 Choose concept \u2014</option>`;
   if (mine.length) h += `<optgroup label="In ${esc(fcCleanName(subject))}">${mine.map(opt).join("")}</optgroup>`;
-  if (rest.length) h += mine.length ? `<optgroup label="Other subjects">${rest.map(opt).join("")}</optgroup>` : rest.map(opt).join("");
+  const by = new Map();
+  for (const c of rest) { const p = pm.get(c.id) || { key: "", label: "No subject yet" }; if (!by.has(p.key)) by.set(p.key, { label: p.label, list: [] }); by.get(p.key).list.push(c); }
+  for (const g of Array.from(by.values()).sort((a, b) => a.label.localeCompare(b.label))) h += `<optgroup label="${esc(mine.length ? "Other: " : "")}${esc(g.label)}">${g.list.map(opt).join("")}</optgroup>`;
   h += `<option value="${NEW_CONCEPT}">\uFF0B Add new concept\u2026</option>`;
   sel.innerHTML = h;
   sel.value = selectedId && cs.some(c => c.id === selectedId) ? selectedId : "";
@@ -6339,9 +6419,6 @@ function selectMistakeRow(arg, quiet) {
   if (fullEntry && (fullEntry.note || "").trim()) oldNotes.push("Earlier note: " + fullEntry.note.trim());
   for (const g of legacyGuessNotes(row.source_list, row.reference_no)) oldNotes.push("Earlier guess note" + (g.exam_source ? " (" + g.exam_source + ")" : "") + ": " + g.note.trim());
   $("tagOldNotes").textContent = oldNotes.join("\n"); $("tagOldNotes").style.display = oldNotes.length ? "" : "none";
-  const showLast = !row.complete && tagLast && tagLast.category;
-  $("tagLastBtn").style.display = showLast ? "" : "none";
-  if (showLast) $("tagLastBtn").textContent = `\u21BA Use last: ${tagLast.category}${tagLast.concept_id && conceptName(tagLast.concept_id) ? " \u00b7 " + conceptName(tagLast.concept_id) : ""}`;
   $("btnDeleteMistake").style.display = entry ? "" : "none"; $("btnClearTag").style.display = entry ? "" : "none";
   document.querySelectorAll("#mistakesContainer .list-item").forEach(n => n.classList.toggle("tg-sel", +n.dataset.idx === selectedMistakeIdx));
   if (!quiet) $("mistakeEditCard").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -6387,8 +6464,6 @@ function saveTag(advance) {
   const wasIdx = selectedMistakeIdx;
   applyTag(row, cat, cid);
   delete tagDrafts[mistakeKey(row.source_list, row.reference_no)];
-  tagLast = { category: cat, concept_id: cid };
-  { const p = loadJson(KEYS.builderPrefs, {}); p.lastTag = tagLast; saveJson(KEYS.builderPrefs, p); }
   if (wasIdx < 0) {   // opened from a card in the notes section: re-bind to the refreshed entry
     const m = findMistakeEntry(loadMistakeLog(), row.source_list, row.reference_no), s2 = findShaky(loadShaky(), row.source_list, row.reference_no);
     const ent = (m && m.category) ? m : s2;
@@ -6434,11 +6509,6 @@ function addConceptFromTagCard() {
 $("tagConceptAdd").addEventListener("click", addConceptFromTagCard);
 $("tagConceptNew").addEventListener("input", rememberTagDraft);
 $("tagConceptNew").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); addConceptFromTagCard(); } });
-$("tagLastBtn").addEventListener("click", () => {
-  if (!tagLast) return;
-  $("tagCategory").value = tagLast.category; updateTagActionLine();
-  renderConceptSelect(tagLast.concept_id || "", selectedMistakeRow ? selectedMistakeRow.source_list : ""); rememberTagDraft();
-});
 $("btnSaveMistake").addEventListener("click", () => saveTag(false));
 $("btnSaveNextMistake").addEventListener("click", () => saveTag(true));
 $("btnClearTag").addEventListener("click", () => {
@@ -6458,6 +6528,29 @@ $("btnDeleteMistake").addEventListener("click", () => {
   refreshListsDisplay();
 });
 
+function mistakeOccurrenceCount(e) { return (e.occurrences || []).length || 1; }
+
+function setMistakeResolved(entryId, resolved) {
+  const log = loadMistakeLog();
+  const entry = log.find(e => e.id === entryId);
+  if (!entry) return;
+  entry.resolved = resolved;
+  entry.updated_at = nowIso();
+  // Deliberately NOT touching date_logged here -- bumping it on every resolve toggle used to make rows jump around.
+  saveJson(KEYS.mistakes, log);
+  scheduleGithubSync();
+}
+
+function setMistakeSkipped(entryId, skip) {
+  const log = loadMistakeLog();
+  const entry = log.find(x => x.id === entryId);
+  if (!entry) return;
+  entry.skip_in_samples = !!skip;   // explicit choice beats the "Other" default either way
+  entry.updated_at = nowIso();
+  saveJson(KEYS.mistakes, log);
+  scheduleGithubSync();
+  toast(skip ? "Won't appear in future samples." : "Back in the sample pool.");
+}
 let mistakeCardState = {}; // entry id -> 0 (collapsed) | 1 (details) | 2 (details + concept card + notes + resolve)
 let mistakeNoteDrafts = {}; // entry id -> unsaved note text, so a re-render never loses what you typed
 function setMistakeNote(entryId, text) {
@@ -8053,17 +8146,31 @@ $("btnPdfSaved").addEventListener("click", () => {
    ===================================================================== */
 const PROMPT_DEFAULTS = {
   reviewer: [
-    "Below are the questions I struggled with, collected from my practice tests. Each appears once, with the reasons it made the list.",
-    "Using them as a map of my weak spots, create an in-depth, tailored reviewer. For each subject:",
-    "1. Classify the question contents per subject into the fundamental topics that they covered",
-    "2. Explain, elaborate, and extend the concepts into first principle explanations that will provide and solidify the necessary foundations to increase my first seen accuracy.",
-    "3. Provide explanations that go beyond the syntax of the questions but rather focus in its fundamental learning objectives",
-    "4. Mistakes logged as Other is understood to be due to question bank errors and ambiguity, go beyond this and instead extract the underlying concepts instead.",
-    "5. Go beyond the answer keys and instead explain the first principles directly.",
-    "6. Give memory aids (mnemonics, comparison tables, step-by-step methods) where useful.",
+    "Below are concepts from my board-exam preparation that I keep getting wrong or unsure about. Under each concept you will see the questions I missed or was shaky on, my answers, and my own notes. Treat them as a map of my weak spots.",
+    "Create an in-depth, first-principles reviewer with one section per concept, in the order given. For each concept:",
+    "1. State the fundamental idea in plain words and derive it from first principles instead of just stating the rule.",
+    "2. Explain why my specific answers failed: name the misconception or habit behind each one.",
+    "3. Go beyond the answer key and the wording of the questions. Teach the underlying learning objective so I can answer unseen variants and increase my first-seen accuracy.",
+    "4. Questions tagged Other are bank errors or ambiguous items: do not trust their answer keys, extract the underlying concept instead.",
+    "5. Give memory aids where useful (mnemonics, comparison tables, step-by-step methods) and worked examples with units written out.",
+    "6. Finish each concept with 2-3 closed-book check questions, with answers at the end of that concept.",
+    "Stay inside each concept and do not drift into the rest of the subject. If something is uncertain, say so instead of guessing.",
     "{structure}",
     "",
     "{questions}",
+  ].join("\n"),
+  concept: [
+    "You are helping me build a high-fidelity review for ONE concept from my board exam preparation. Stay strictly inside this concept; do not review the whole subject.",
+    "",
+    "{concept}",
+    "",
+    "TASK",
+    "{tasks}",
+    "",
+    "RULES",
+    "- Use only standard, verifiable facts for this subject. If something is uncertain, say so.",
+    "- If a bank correct answer above looks wrong, ambiguous or condition-dependent, tell me instead of rationalizing it.",
+    "- Base the Trap lines on MY answers above, not on generic advice.",
   ].join("\n"),
   analysis: [
     "You are my board-exam study coach. Analyze my practice-test data below and give me a concrete, prioritized plan.",
@@ -8081,8 +8188,10 @@ const PROMPT_DEFAULTS = {
   ].join("\n"),
 };
 const PROMPT_KINDS = {
-  reviewer: { label: "Reviewer prompt", bigKey: "questions", bigNote: "where your flagged questions are inserted",
-    tokens: [["{questions}", "where your flagged questions are inserted"], ["{structure}", "one line describing the reviewer's parts; it adapts to the tags you tick"]] },
+  reviewer: { label: "Full reviewer prompt (by concept)", bigKey: "questions", bigNote: "where the chosen concepts, with their questions and your notes, are inserted",
+    tokens: [["{questions}", "where the chosen concepts, with their questions, your answers and your notes, are inserted"], ["{structure}", "one line naming the parts of each concept section; it adapts to your tags"]] },
+  concept: { label: "Concept prompt", bigKey: "concept", bigNote: "where this concept's questions and existing cards are inserted",
+    tokens: [["{concept}", "where this concept's questions, your answers, notes and existing cards are inserted"], ["{tasks}", "the numbered tasks; they adapt to your tags and the number of cards you ask for"]] },
   analysis: { label: "Full Analysis prompt", bigKey: "data", bigNote: "where your numbers, ranking, mistakes and planned session are inserted",
     tokens: [["{data}", "where your numbers, ranking, mistakes and planned session are inserted"], ["{schedule_window}", "the number of days to schedule, based on your exam date"]] },
 };
@@ -8096,7 +8205,7 @@ function setPromptWork(kind, text) { const w = loadJson(KEYS.promptWork, {}) || 
 // What the prompt is built from: what is in the editor (even if unsaved), else the active set, else the default.
 function getPromptTemplate(kind) { const w = getPromptWork(kind); return w !== null ? w : promptBaseText(kind); }
 function expandPromptTemplate(kind, vars, bigText) {
-  let t = getPromptTemplate(kind).replace(/\{(structure|schedule_window)\}/g, (m, k) => (k in vars ? vars[k] : m));
+  let t = getPromptTemplate(kind).replace(/\{(structure|schedule_window|tasks)\}/g, (m, k) => (k in vars ? vars[k] : m));
   const marker = "{" + PROMPT_KINDS[kind].bigKey + "}", i = t.indexOf(marker);
   if (i >= 0) return t.slice(0, i) + bigText + t.slice(i + marker.length);
   return t.replace(/\s+$/, "") + "\n\n" + bigText;   // no placeholder: the data goes at the end
@@ -8194,6 +8303,7 @@ function refreshPromptEditor(kind) {
 }
 function promptEditorChanged(kind) {
   if (kind === "analysis") { if (window._aRanked) renderAnalysisText(window._aRanked, window._aProg || {}); else refreshAnalysis(); }
+  else if (typeof rvPromptChanged === "function") rvPromptChanged(kind);
 }
 function refreshAllPromptEditors() { Object.keys(peUi).forEach(refreshPromptEditor); }
 
@@ -8374,13 +8484,12 @@ function scopedReviewerAttempts() {
   return scope ? all.filter(a => scope.includes(a.source_list || "Unknown")) : all;
 }
 /* ---------------------------------------------------------------------
-   Reviewer: concept -> its questions -> your notes on each question. Also the one place concept cards are made.
-   Needs source -> read the section | Needs drill -> closed-book reps | Needs checklist -> pre-submit line
-   | Needs retrieval -> review the concept's cards.   A concept can have MANY cards; each card is a flashcard.
-   Anything you type survives switching tabs (drafts are kept until you save or cancel).
+   Reviewer: concept -> its questions -> your notes on each question.
+   Concepts can be sorted/filtered by the prefix of the subjects they contain (T1_People + T1_Animal -> "T1").
+   The Concept Card Studio (cards) and the two AI prompts live here permanently, so typed text is never lost.
    --------------------------------------------------------------------- */
-let rvOpen = {}, rvShowResolved = false, rvEditor = null, rvMgrOpen = {}, rvMgrQuery = "", rvNewConcept = false, rvNewConceptText = "";
-let rvNoteDrafts = {}, rvLineDrafts = {}, rvClDraft = "", rvImportOpen = {}, rvImportText = {}, rvOrderIds = [];
+let rvShowResolved = false, rvPrefix = "", rvConcept = "";
+let rvNoteDrafts = {}, rvLineDrafts = {}, rvOrderIds = [], csCid = "", csEditId = null;
 function rvIsoDiff(a, b) { return Math.round((Date.parse(b) - Date.parse(a)) / 864e5); }
 function conceptCardsStatus(cid) {
   const cn = findConcept(cid), cards = conceptDigest(cid), srs = fcLoadSrs(), t = fcToday();
@@ -8392,44 +8501,77 @@ function conceptCardsStatus(cid) {
   return { n: cards.length, due, fresh, label: parts.join(" \u00b7 "), cls: due ? "status-red" : (fresh ? "status-yellow" : "status-green") };
 }
 
-/* ---- Concept-specific AI prompt (one concept, built from your real mistakes) + paste-back import ---- */
-function cpPrefs() { return Object.assign({ n: 4, extra: "" }, loadJson(KEYS.builderPrefs, {}).conceptPrompt || {}); }
-function cpSave(k, v) { const p = loadJson(KEYS.builderPrefs, {}); p.conceptPrompt = Object.assign(cpPrefs(), { [k]: v }); saveJson(KEYS.builderPrefs, p); }
-function buildConceptPrompt(cid) {
-  const cn = findConcept(cid); if (!cn) return "";
-  const items = collectTagItems(null).filter(i => i.conceptId === cid);
-  const open = items.filter(i => !i.resolved), use = open.length ? open : items;
+/* ---- prompt options (saved) ---- */
+const PROMPT_OPT_DEFAULTS = { includeResolved: false, includeCards: true, includeNotes: true, includeCorrect: true };
+function cpPrefs() { return Object.assign({ n: 4 }, PROMPT_OPT_DEFAULTS, loadJson(KEYS.builderPrefs, {}).conceptPrompt || {}); }
+function rpPrefs() { return Object.assign({ selected: null, maxQ: 15 }, PROMPT_OPT_DEFAULTS, loadJson(KEYS.builderPrefs, {}).reviewerPrompt || {}); }
+function prefSave(group, k, v) { const p = loadJson(KEYS.builderPrefs, {}); p[group] = Object.assign({}, p[group], { [k]: v }); saveJson(KEYS.builderPrefs, p); }
+function viewSave() { const p = loadJson(KEYS.builderPrefs, {}); p.reviewerView = { prefix: rvPrefix, concept: rvConcept }; saveJson(KEYS.builderPrefs, p); }
+
+/* ---- the data block for one concept (shared by both prompts) ---- */
+function conceptBlockLines(cid, P, o) {
+  o = o || {};
+  const cn = findConcept(cid), cut = (s, n) => { s = String(s || "").replace(/\s+/g, " ").trim(); return s.length > n ? s.slice(0, n) + "\u2026" : s; };
+  const all = collectTagItems(null).filter(i => i.conceptId === cid);
+  const shown = all.filter(i => P.includeResolved || !i.resolved);       // resolved questions are left out unless the box is ticked
+  const use = o.maxQ ? shown.slice(0, o.maxQ) : shown, left = all.length - shown.length;
   const needs = NEED_ORDER.filter(n => use.some(i => i.tax && i.tax.need === n));
-  const subjects = Array.from(new Set(use.map(i => fcCleanName(i.subject)).concat(cn.subject ? [fcCleanName(cn.subject)] : [])));
-  const cut = (s, n) => { s = String(s || "").replace(/\s+/g, " ").trim(); return s.length > n ? s.slice(0, n) + "\u2026" : s; };
-  const P = cpPrefs(), L = [];
-  L.push("You are helping me build a high-fidelity review for ONE concept from my board exam preparation. Stay strictly inside this concept; do not review the whole subject.", "");
-  L.push(`CONCEPT: ${cn.name}`, `SUBJECT: ${subjects.join(", ") || "(not set)"}`);
+  const subjects = Array.from(new Set(use.map(i => fcCleanName(i.subject)).concat(cn && cn.subject ? [fcCleanName(cn.subject)] : [])));
+  const L = [o.header || `CONCEPT: ${cn ? cn.name : "(unknown)"}`];
+  if (o.header) L.push(`Name: ${cn ? cn.name : ""}`);
+  L.push(`SUBJECT: ${subjects.join(", ") || "(not set)"}`);
   if (needs.length) L.push("WHAT MY ERROR TAGS SAY I NEED: " + needs.map(n => `${NEED_INFO[n].label.toLowerCase()} (${ACTION_TAXONOMY.find(t => t.need === n).action})`).join("; "));
-  L.push("", `MY ACTUAL MISTAKES AND SHAKY ANSWERS ON THIS CONCEPT (${use.length}${open.length ? ", still open" : ""}):`);
+  L.push(use.length ? `MY ACTUAL ${P.includeResolved ? "MISTAKES AND SHAKY ANSWERS" : "OPEN MISTAKES AND SHAKY ANSWERS"} ON THIS CONCEPT (${use.length}${shown.length > use.length ? " of " + shown.length : ""}):`
+    : "MY QUESTIONS ON THIS CONCEPT: none open right now, so work from the concept itself.");
   use.forEach((it, i) => {
     const e = it.e, occ = (e.occurrences || []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || "")), last = occ[occ.length - 1] || {};
     const kind = it.kind === "wrong" ? "wrong" : it.kind === "guess" ? "right but a guess" : "flagged, right";
-    L.push(`${i + 1}. [${fcCleanName(it.subject)} #${e.reference_no} | ${kind} | tag: ${it.cat}${occ.length > 1 ? ` | missed ${occ.length}x` : ""}]`);
+    L.push(`${i + 1}. [${fcCleanName(it.subject)} #${e.reference_no} | ${kind} | tag: ${it.cat}${occ.length > 1 ? ` | missed ${occ.length}x` : ""}${it.resolved ? " | resolved" : ""}]`);
     L.push(`   Question: ${cut(e.question, 600) || "(text unavailable)"}`);
-    const mine = last.your_answer || "", right = last.correct_answer || e.correct_answer || "";
-    if (mine || right) L.push(`   My answer: ${cut(mine, 160) || "(none)"} | Bank's correct answer: ${cut(right, 160) || "(unknown)"}`);
-    if ((e.note || "").trim()) L.push(`   My note: ${cut(e.note, 400)}`);
-    for (const g of legacyGuessNotes(it.subject, e.reference_no).slice(0, 2)) L.push(`   My guess note: ${cut(g.note, 300)}`);
+    if (P.includeCorrect) { const mine = last.your_answer || "", right = last.correct_answer || e.correct_answer || ""; if (mine || right) L.push(`   My answer: ${cut(mine, 160) || "(none)"} | Bank's correct answer: ${cut(right, 160) || "(unknown)"}`); }
+    if (P.includeNotes) { if ((e.note || "").trim()) L.push(`   My note: ${cut(e.note, 400)}`); for (const g of legacyGuessNotes(it.subject, e.reference_no).slice(0, 2)) L.push(`   My guess note: ${cut(g.note, 300)}`); }
   });
-  const have = conceptDigest(cid);
-  if (have.length) { L.push("", "CARDS I ALREADY HAVE FOR THIS CONCEPT (do not repeat these; add new angles):"); have.forEach((k, i) => L.push(`${i + 1}. Front: ${cut(k.front || cn.name, 160)} | Back: ${cut(k.back, 240)}${k.trap ? " | Trap: " + cut(k.trap, 160) : ""}`)); }
-  L.push("", "TASK");
-  let n = 1;
-  L.push(`${n++}. DIAGNOSE: in 2-4 sentences, name the specific misunderstanding or habit that explains these answers. If they point to different problems, say so instead of forcing one story.`);
-  L.push(`${n++}. FLASHCARDS: write ${P.n} cards, each testing a DIFFERENT retrievable idea inside this concept. Use exactly this format so I can paste it back into my app, with a blank line between cards:`,
-    "   Front: <what I should recall, as a short prompt>", "   Back: <the explanation, concise, with the rule/formula and units>", "   Trap: <the specific trap my wrong answers fell into, or what to watch out for>");
-  if (needs.includes("source")) L.push(`${n++}. WHERE TO READ: name the topic/subsection I should re-read for this concept. Do not invent page numbers or book titles you cannot verify.`);
-  if (needs.includes("drill")) L.push(`${n++}. DRILL: give 3-5 closed-book practice problems on exactly this concept, each with a worked answer that writes out units and the n-factor (or the equivalent working) explicitly.`);
-  if (needs.includes("checklist")) L.push(`${n++}. CHECKLIST: give 1-3 one-line rules I can add to my pre-submit checklist to stop these slips.`);
-  L.push("", "RULES", "- Use only standard, verifiable chemistry. If something is uncertain, say so.", "- If a bank's \"correct answer\" above looks wrong, ambiguous, or dependent on conditions, tell me instead of rationalizing it.", "- Base the Trap lines on MY answers above, not generic advice.");
-  if ((P.extra || "").trim()) L.push("- " + P.extra.trim());
-  return L.join("\n");
+  if (P.includeCards) {
+    const have = conceptDigest(cid);
+    if (have.length) { L.push("", "CARDS I ALREADY HAVE FOR THIS CONCEPT (do not repeat these; add new angles):"); have.forEach((k, i) => L.push(`${i + 1}. Front: ${cut(k.front || (cn && cn.name), 160)} | Back: ${cut(k.back, 240)}${k.trap ? " | Trap: " + cut(k.trap, 160) : ""}`)); }
+  }
+  return { lines: L, nQ: use.length, left, needs, cutOff: shown.length - use.length };
+}
+function conceptTasks(needs, n) {
+  const T = [];
+  T.push(`DIAGNOSE: in 2-4 sentences, name the specific misunderstanding or habit that explains these answers. If they point to different problems, say so instead of forcing one story.`);
+  T.push(`FLASHCARDS: write ${n} cards, each testing a DIFFERENT retrievable idea inside this concept. Use exactly this format so I can paste it back into my app, with a blank line between cards:\n   Front: <what I should recall, as a short prompt>\n   Back: <the explanation, concise, with the rule/formula and units>\n   Trap: <the specific trap my wrong answers fell into, or what to watch out for>`);
+  if (needs.includes("source")) T.push(`WHERE TO READ: name the topic/subsection I should re-read for this concept. Do not invent page numbers or book titles you cannot verify.`);
+  if (needs.includes("drill")) T.push(`DRILL: give 3-5 closed-book practice problems on exactly this concept, each with a worked answer that writes out units and the n-factor (or the equivalent working) explicitly.`);
+  if (needs.includes("checklist")) T.push(`CHECKLIST: give 1-3 one-line rules I can add to my pre-submit checklist to stop these slips.`);
+  return T.map((t, i) => `${i + 1}. ${t}`).join("\n");
+}
+function buildConceptPrompt(cid) {
+  const P = cpPrefs(), b = conceptBlockLines(cid, P);
+  return { text: expandPromptTemplate("concept", { tasks: conceptTasks(b.needs, P.n) }, b.lines.join("\n")), info: b };
+}
+function reviewerStructure(needs) {
+  let s = "Format: for every concept use the headings  Idea (from first principles)  /  Why my answers failed  /  Worked example  /  Memory aid  /  Check questions.";
+  if (needs.includes("source")) s += " Add  Where to read  when my tags say I need the source.";
+  if (needs.includes("drill")) s += " Add  Drill problems  (closed-book, with worked answers) when my tags say I need drills.";
+  if (needs.includes("checklist")) s += " Add  Checklist lines  (one-liners for my pre-submit list) when my tags say I need a checklist.";
+  return s;
+}
+function rpSelectedIds() {
+  const P = rpPrefs(), cs = loadConcepts();
+  if (Array.isArray(P.selected)) return cs.filter(c => P.selected.includes(c.id)).map(c => c.id);
+  const st = conceptStats(); return cs.filter(c => (st.get(c.id) || { open: 0 }).open > 0).map(c => c.id);   // default: concepts with open questions
+}
+function buildReviewerPromptByConcept(cids) {
+  const P = rpPrefs(), pm = conceptPrefixMap();
+  const order = cids.slice().sort((a, b) => ((pm.get(a) || {}).label || "").localeCompare((pm.get(b) || {}).label || "") || conceptName(a).localeCompare(conceptName(b)));
+  let nQ = 0, left = 0, cutOff = 0; const needs = new Set(), blocks = [];
+  order.forEach((cid, i) => {
+    const b = conceptBlockLines(cid, P, { maxQ: P.maxQ, header: `=== CONCEPT ${i + 1} of ${order.length} ===` });
+    nQ += b.nQ; left += b.left; cutOff += b.cutOff; b.needs.forEach(n => needs.add(n)); blocks.push(b.lines.join("\n"));
+  });
+  const text = expandPromptTemplate("reviewer", { structure: reviewerStructure(Array.from(needs)) }, blocks.join("\n\n"));
+  return { text, nConcepts: order.length, nQ, left, cutOff };
 }
 // Accepts the format the prompt asks for, or a JSON array like [{"front":..,"back":..,"trap":..}].
 function parseCardsText(text) {
@@ -8448,44 +8590,107 @@ function parseCardsText(text) {
       if (!cur) cur = { front: "", back: "", trap: "" };
       field = f; cur[f] = (cur[f] ? cur[f] + "\n" : "") + m[2];
     } else if (cur && field && raw.trim()) cur[field] += "\n" + raw.trim();
-    else if (!raw.trim() && cur && cur.back.trim() && cur.front.trim()) { /* blank line inside/after a card: next 'Front:' starts a new one */ }
   }
   push();
   return out;
 }
-
-function openRvEditor(conceptId, cardId) { rvEditor = { conceptId, cardId: cardId || "new", draft: null }; refreshReviewer(); const e = $("rvEditor"); if (e && e.scrollIntoView) e.scrollIntoView({ behavior: "smooth", block: "start" }); }
-function renderRvEditor() {
-  const box = $("rvEditor"); box.innerHTML = "";
-  if (!rvEditor) return;
-  const cn = findConcept(rvEditor.conceptId);
-  if (!cn) { rvEditor = null; return; }
-  const isNew = rvEditor.cardId === "new", k = isNew ? { front: "", back: "", trap: "" } : findCard(rvEditor.cardId);
-  if (!k) { rvEditor = null; return; }
-  const d = rvEditor.draft || k, n = cardsOf(cn.id).length;
-  const card = el("div", "card"); card.style.borderLeft = "4px solid var(--navy)";
-  card.innerHTML = `<h3>${isNew ? "New concept card" : "Edit concept card"}</h3>
-    <div class="meta" style="margin-bottom:6px;">Concept: <b>${esc(cn.name)}</b> &middot; ${n} card${n === 1 ? "" : "s"} so far</div>
-    <label class="field-label">Front <span class="hint">(the concept to recall; defaults to the concept name)</span></label><textarea id="rvCdFront" rows="2">${esc(d.front || "")}</textarea>
-    <label class="field-label">Back <span class="hint">(the explanation)</span></label><textarea id="rvCdBack" rows="4">${esc(d.back || "")}</textarea>
-    <label class="field-label">Trap <span class="hint">(side notes to watch out for)</span></label><textarea id="rvCdTrap" rows="3">${esc(d.trap || "")}</textarea>
-    <div class="row wrap" style="margin-top:10px;gap:6px;">
-      <button class="btn primary" data-ed="save">Save card</button>${isNew ? `<button class="btn" data-ed="again">Save &amp; add another</button>` : ""}<button class="btn" data-ed="cancel">Cancel</button>${isNew ? "" : `<button class="btn danger" data-ed="delete">Delete card</button>`}
-    </div>`;
-  card.addEventListener("input", () => { rvEditor.draft = { front: $("rvCdFront").value, back: $("rvCdBack").value, trap: $("rvCdTrap").value }; });
-  card.addEventListener("click", (e) => {
-    const b = e.target.closest("button[data-ed]"); if (!b) return;
-    const a = b.dataset.ed;
-    if (a === "cancel") { rvEditor = null; refreshReviewer(); return; }
-    if (a === "delete") { if (!confirmDialog("Delete this card?")) return; deleteCard(k.id); rvEditor = null; toast("Card deleted."); refreshReviewer(); return; }
-    const f = { front: $("rvCdFront").value, back: $("rvCdBack").value, trap: $("rvCdTrap").value };
-    if (!f.back.trim()) { toast("A card needs a back (the explanation)."); return; }
-    if (isNew) addCard(cn.id, f); else updateCard(k.id, f);
-    toast("Card saved.");
-    if (a === "again") { rvEditor = { conceptId: cn.id, cardId: "new", draft: null }; refreshReviewer(); const t = $("rvCdFront"); if (t) t.focus(); } else { rvEditor = null; refreshReviewer(); }
-  });
-  box.appendChild(card);
+function promptInfoText(info, includeResolved) {
+  const q = `${info.nQ} question${info.nQ === 1 ? "" : "s"}`;
+  if (includeResolved) return `Includes ${q}, resolved ones too.`;
+  return `Includes ${q} (open only).` + (info.left ? ` ${info.left} resolved question${info.left === 1 ? " is" : "s are"} left out \u2014 tick \u201cInclude resolved questions\u201d to add ${info.left === 1 ? "it" : "them"}.` : "");
 }
+function updateConceptPreview() {
+  const ta = $("csPreview"), info = $("csPreviewInfo"); if (!ta) return;
+  if (!csCid || !findConcept(csCid)) { ta.value = ""; info.textContent = "Choose a concept above to see its prompt."; return; }
+  const r = buildConceptPrompt(csCid); ta.value = r.text;
+  info.textContent = promptInfoText(r.info, cpPrefs().includeResolved) + ` \u00b7 ${r.text.length.toLocaleString()} characters`;
+}
+function updateFullPreview() {
+  const ta = $("rpPreview"), info = $("rpInfo"); if (!ta) return;
+  const ids = rpSelectedIds();
+  if (!ids.length) { ta.value = ""; info.textContent = "No concepts selected yet."; return; }
+  const r = buildReviewerPromptByConcept(ids); ta.value = r.text;
+  info.textContent = `${r.nConcepts} concept${r.nConcepts === 1 ? "" : "s"} \u00b7 ${r.nQ} question${r.nQ === 1 ? "" : "s"}` + (rpPrefs().includeResolved ? " (resolved included)" : r.left ? ` \u00b7 ${r.left} resolved left out (tick the box to include)` : "") + (r.cutOff ? ` \u00b7 ${r.cutOff} cut by the per-concept limit` : "") + ` \u00b7 ${r.text.length.toLocaleString()} characters` + (r.text.length > 40000 ? " \u2014 very long; pick fewer concepts" : "");
+}
+function rvPromptChanged(kind) { if (kind === "concept") updateConceptPreview(); else if (kind === "reviewer") updateFullPreview(); }
+
+/* ---- Concept Card Studio (permanent) ---- */
+function csResetForm() {
+  csEditId = null;
+  $("csFront").value = ""; $("csBack").value = ""; $("csTrap").value = "";
+  $("csFormTitle").textContent = "New card"; $("csSave").textContent = "Save card"; $("csDelCard").style.display = "none"; $("csClear").textContent = "Clear form";
+}
+function openStudio(cid, cardId) {
+  csCid = cid;
+  if (cardId) { const k = findCard(cardId); if (k) { csEditId = k.id; $("csFront").value = k.front || ""; $("csBack").value = k.back || ""; $("csTrap").value = k.trap || ""; $("csFormTitle").textContent = "Editing a card"; $("csSave").textContent = "Update card"; $("csDelCard").style.display = ""; $("csClear").textContent = "Cancel edit"; } }
+  else if (csEditId) csResetForm();
+  renderStudio();
+  const c = $("csCard"); if (c && c.scrollIntoView) c.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (!cardId) $("csFront").focus();
+}
+function renderStudio() {
+  const sel = $("csConcept"); if (!sel) return;
+  const cs = loadConcepts().slice().sort((a, b) => a.name.localeCompare(b.name)), pm = conceptPrefixMap();
+  if (csCid && !cs.some(c => c.id === csCid)) { csCid = ""; if (csEditId) csResetForm(); }
+  const by = new Map();
+  for (const c of cs) { const p = pm.get(c.id) || { key: "", label: "No subject yet" }; if (!by.has(p.key)) by.set(p.key, { label: p.label, list: [] }); by.get(p.key).list.push(c); }
+  sel.innerHTML = `<option value="">\u2014 Choose a concept \u2014</option>` + Array.from(by.values()).sort((a, b) => a.label.localeCompare(b.label)).map(g => `<optgroup label="${esc(g.label)}">${g.list.map(c => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join("")}</optgroup>`).join("") + `<option value="__new__">\uFF0B New concept\u2026</option>`;
+  sel.value = csCid;
+  $("csConceptTools").style.display = csCid ? "" : "none";
+  const subSel = $("csNewSubject"), keep = subSel.value;
+  subSel.innerHTML = `<option value="">General</option>` + fcAllSubjects().slice().sort((a, b) => fcCleanName(a).localeCompare(fcCleanName(b))).map(s => `<option value="${esc(s)}">${esc(fcCleanName(s))}</option>`).join(""); subSel.value = keep;
+  const list = $("csCards"); list.innerHTML = "";
+  const cards = csCid ? cardsOf(csCid) : [];
+  $("csCount").textContent = csCid ? `(${cards.length})` : "";
+  if (!csCid) list.appendChild(el("div", "hint", "Choose a concept to see and edit its cards."));
+  else if (!cards.length) list.appendChild(el("div", "hint", "No cards yet. Write one above, or paste cards from an AI reply."));
+  cards.forEach((k, i) => {
+    const r = el("div", "rv-note"); r.style.cssText = "margin-top:6px;display:flex;gap:8px;align-items:flex-start;" + (k.id === csEditId ? "outline:2px solid var(--navy);" : "");
+    r.innerHTML = `<div style="flex:1;min-width:0;"><div class="meta"><b>Card ${i + 1}</b>${(k.back || "").trim() ? "" : ' <span style="color:var(--red);">(needs a back)</span>'}</div>
+      <div><b>${esc((k.front || "").trim() || "(front = concept name)")}</b></div><div class="meta" style="color:var(--ink);">${esc((k.back || "").slice(0, 140))}</div>${(k.trap || "").trim() ? `<div class="meta"><b style="color:var(--red);">Trap:</b> ${esc(k.trap.slice(0, 100))}</div>` : ""}</div>
+      <button class="btn" data-cs-edit="${esc(k.id)}" style="flex:none;padding:2px 8px;">Edit</button>`;
+    list.appendChild(r);
+  });
+  updateConceptPreview();
+}
+function rvCardsList(cid) {   // compact list inside a concept row
+  const cards = cardsOf(cid), wrap = el("div", "");
+  if (!cards.length) { const h = el("div", "hint"); h.style.margin = "6px 0"; h.textContent = "No cards yet. Add one in the Concept Card Studio below."; wrap.appendChild(h); }
+  cards.forEach((k, i) => {
+    const r = el("div", "rv-note"); r.style.cssText = "margin-top:6px;display:flex;gap:8px;align-items:flex-start;";
+    r.innerHTML = `<div style="flex:1;min-width:0;"><div class="meta"><b>Card ${i + 1}</b>${(k.back || "").trim() ? "" : ' <span style="color:var(--red);">(needs a back)</span>'}</div>
+      <div><b>${esc((k.front || "").trim() || "(front = concept name)")}</b></div><div class="meta" style="color:var(--ink);">${esc((k.back || "").slice(0, 140))}</div></div>
+      <button class="btn" data-edit-card="${esc(k.id)}" style="flex:none;padding:2px 8px;">Edit</button>`;
+    wrap.appendChild(r);
+  });
+  wrap.addEventListener("click", (ev) => { const b = ev.target.closest("[data-edit-card]"); if (b) { ev.stopPropagation(); openStudio(cid, b.dataset.editCard); } });
+  return wrap;
+}
+
+/* ---- Full reviewer prompt picker (by concept, grouped by subject prefix) ---- */
+function renderFullPicker() {
+  const box = $("rpList"); if (!box) return;
+  const cs = loadConcepts(), pm = conceptPrefixMap(), st = conceptStats(), sel = new Set(rpSelectedIds());
+  box.innerHTML = "";
+  if (!cs.length) { box.appendChild(el("div", "empty-state", "No concepts yet. Tag a mistake with a concept first.")); updateFullPreview(); return; }
+  const by = new Map();
+  for (const c of cs) { const p = pm.get(c.id) || { key: "", label: "No subject yet" }; if (!by.has(p.key)) by.set(p.key, { key: p.key, label: p.label, list: [] }); by.get(p.key).list.push(c); }
+  for (const g of Array.from(by.values()).sort((a, b) => a.label.localeCompare(b.label))) {
+    g.list.sort((a, b) => ((st.get(b.id) || { open: 0 }).open - (st.get(a.id) || { open: 0 }).open) || a.name.localeCompare(b.name));
+    const on = g.list.filter(c => sel.has(c.id)).length;
+    const head = el("label", "rv-prefhead"); head.style.cssText += "display:flex;gap:8px;align-items:center;cursor:pointer;";
+    head.innerHTML = `<input type="checkbox" data-rp-group="${esc(g.key)}" ${on === g.list.length ? "checked" : ""} style="width:auto;"><span>${esc(g.label)} \u00b7 ${g.list.length} concept${g.list.length === 1 ? "" : "s"}</span>`;
+    box.appendChild(head);
+    for (const c of g.list) {
+      const s = st.get(c.id), row = el("label", "row"); row.style.cssText = "gap:8px;margin:4px 0 4px 6px;font-size:.82rem;cursor:pointer;";
+      row.innerHTML = `<input type="checkbox" data-rp-cid="${esc(c.id)}" ${sel.has(c.id) ? "checked" : ""} style="width:auto;flex:none;"><span style="flex:1;">${esc(c.name)}</span><span class="meta" style="flex:none;">${s ? `${s.open} open / ${s.total}` : "no questions"}</span>`;
+      box.appendChild(row);
+    }
+  }
+  updateFullPreview();
+}
+
+/* ---- Reviewer body ---- */
 function renderChecklistBox() {
   const box = el("div", "list-item");
   box.style.cssText = "border-left:4px solid var(--amber);margin-bottom:10px;";
@@ -8510,32 +8715,51 @@ function renderChecklistBox() {
   box.querySelector("[data-cl-copy]").addEventListener("click", async () => { const t = loadChecklist().map(l => "[ ] " + l.text).join("\n"); if (!t) { toast("The checklist is empty."); return; } toast(await copyTextRobust(t) ? "Checklist copied." : "Couldn't access the clipboard."); });
   return box;
 }
-// One question inside its concept: details, then YOUR NOTES on it (saved when you leave the box).
+let rvClDraft = "";
+// One question inside its concept: the FULL question and its choices, then YOUR NOTES on it (saved when you leave the box).
+function rvChoicesHtml(ctx, mine, right) {
+  if (!ctx.options || !ctx.options.length) return "";
+  const norm = s => qsNorm(String(s || "")), m = norm(mine), r = norm(right);
+  const letter = s => { const t = String(s || "").trim().match(/^([A-Za-z])[.)]?$/); return t ? t[1].toUpperCase().charCodeAt(0) - 65 : -1; };
+  const mi = letter(mine), ri = letter(right);
+  return `<div style="margin:6px 0 2px 14px;">` + ctx.options.map((o, i) => {
+    const isMine = (m && norm(o) === m) || mi === i, isRight = (r && norm(o) === r) || ri === i;
+    return `<div class="meta" style="color:var(--ink);${isRight ? "font-weight:700;" : ""}"><b>${String.fromCharCode(65 + i)}.</b> ${esc(String(o))}${isRight ? ` <span style="color:var(--green);">\u2713 correct</span>` : ""}${isMine && !isRight ? ` <span style="color:var(--red);">\u2190 your answer</span>` : ""}${isMine && isRight ? ` <span style="color:var(--green);">(you chose this)</span>` : ""}</div>`;
+  }).join("") + `</div>`;
+}
 function rvItemRow(it, withLine) {
   const e = it.e, row = el("div", "rv-attempt " + (it.resolved ? "ok" : "bad"));
-  row.style.cssText = "margin-top:8px;padding:8px;";
+  row.style.cssText = "margin-top:10px;padding:10px;";
   row.dataset.mid = e.id;
   const color = TAG_TYPE[it.kind] ? TAG_TYPE[it.kind].color : "var(--red)";
   const noteVal = rvNoteDrafts[e.id] !== undefined ? rvNoteDrafts[e.id] : (e.note || "");
   const gnotes = legacyGuessNotes(it.subject, e.reference_no);
   const occ = (e.occurrences || []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || "")), last = occ[occ.length - 1] || {};
+  const mine = last.your_answer || "", right = last.correct_answer || e.correct_answer || "";
+  const ctx = qsCtx(it.subject, e.reference_no, e.question, mine, right);
+  const skipped = it.store === "mistake" && isExcludedEntry(e);
   row.innerHTML = `<div class="row" style="gap:6px;align-items:flex-start;"><span style="flex:none;width:8px;height:8px;border-radius:50%;background:${color};margin-top:6px;"></span>
-      <div style="flex:1;min-width:0;"><div class="meta"><b>Ref #${esc(e.reference_no)}</b> &middot; ${esc(fcCleanName(it.subject))} &middot; ${esc(it.cat)}${occ.length > 1 ? ` &middot; missed ${occ.length}\u00d7` : ""}${it.resolved ? " &middot; resolved" : ""}${it.store === "mistake" && isExcludedEntry(e) ? " &middot; skipped in samples" : ""}</div>
-      <div class="meta" style="color:var(--ink);">${esc((e.question || "(question text unavailable)").slice(0, 180))}</div>
-      ${(last.your_answer || last.correct_answer || e.correct_answer) ? `<div class="meta">${last.your_answer ? `Yours: ${esc(String(last.your_answer).slice(0, 60))} &middot; ` : ""}Correct: ${esc(String(last.correct_answer || e.correct_answer || "").slice(0, 60))}</div>` : ""}</div>
-      <button class="btn" data-tts-id="${esc(e.id)}" title="Read this question and its notes aloud" style="flex:none;padding:2px 8px;">\u{1F50A}</button></div>
-    <label class="field-label" style="margin-top:6px;">Notes</label>
+      <div style="flex:1;min-width:0;"><div class="meta"><b>Ref #${esc(e.reference_no)}</b> &middot; ${esc(fcCleanName(it.subject))} &middot; ${esc(it.cat)}${occ.length > 1 ? ` &middot; missed ${occ.length}\u00d7` : ""}${it.resolved ? " &middot; <b>resolved</b>" : ""}${skipped ? " &middot; <b>skipped in samples</b>" : ""}</div></div>
+      <div style="display:flex;gap:4px;flex:none;">${qsMiniBtn(ctx)}<button class="btn" data-tts-id="${esc(e.id)}" title="Read this question and its notes aloud" style="padding:2px 8px;">\u{1F50A}</button></div></div>
+    <div style="margin-top:6px;font-size:.88rem;line-height:1.5;color:var(--ink);white-space:pre-wrap;word-break:break-word;">${esc(ctx.question || e.question || "(question text unavailable)")}</div>
+    ${rvChoicesHtml(ctx, mine, right)}
+    ${(!ctx.options || !ctx.options.length) && (mine || right) ? `<div class="meta" style="margin-top:4px;">${mine ? `Yours: ${esc(String(mine))} &middot; ` : ""}Correct: ${esc(String(right))}</div>` : ""}
+    <label class="field-label" style="margin-top:8px;">Notes</label>
     <textarea class="rv-qnote" rows="2" placeholder="Your notes on this question&hellip;">${esc(noteVal)}</textarea>
     ${gnotes.map(g => `<div class="meta" style="white-space:pre-wrap;margin-top:2px;">Earlier guess note${g.exam_source ? " (" + esc(g.exam_source) + ")" : ""}: ${esc(g.note)}</div>`).join("")}
     ${withLine && !it.resolved ? `<div class="row" style="margin-top:6px;gap:6px;"><input type="text" class="rv-line" placeholder="One line for the checklist&hellip;" value="${esc(rvLineDrafts[e.id] || "")}"><button class="btn primary" data-rv-addline="1" style="flex:none;">Add line</button></div>` : ""}
-    <div class="row wrap" style="margin-top:6px;gap:6px;"><button class="btn ${it.resolved ? "" : "success"}" data-rv-res="1">${it.resolved ? "Reopen" : "Resolve"}</button><button class="btn" data-rv-retag="1">Re-tag</button>${it.store === "mistake" ? `<button class="btn" data-rv-skip="1">${isExcludedEntry(e) ? "Allow in samples" : "Skip in samples"}</button>` : ""}</div>`;
+    <div class="row wrap" style="margin-top:8px;gap:6px;"><button class="btn ${it.resolved ? "" : "success"}" data-rv-res="1">${it.resolved ? "Reopen" : "Resolve"}</button><button class="btn" data-rv-retag="1">Re-tag</button>${it.store === "mistake" ? `<button class="btn ${skipped ? "primary" : ""}" data-rv-skip="1">${skipped ? "\u21A9 Allow in samples again" : "Skip in samples"}</button>` : ""}</div>`;
   const ta = row.querySelector(".rv-qnote");
   ta.addEventListener("input", () => { rvNoteDrafts[e.id] = ta.value; });
   ta.addEventListener("change", () => { setItemNote(it, ta.value.trim()); delete rvNoteDrafts[e.id]; toast("Note saved."); });
-  ta.addEventListener("click", (ev) => ev.stopPropagation());
   const btn = (sel, fn) => { const b = row.querySelector(sel); if (b) b.addEventListener("click", (ev) => { ev.stopPropagation(); fn(); }); };
   btn("[data-tts-id]", () => ttsToggleSingle(e.id));
-  btn("[data-rv-res]", () => { if (rvNoteDrafts[e.id] !== undefined) { setItemNote(it, rvNoteDrafts[e.id].trim()); delete rvNoteDrafts[e.id]; } setItemResolved(it, !it.resolved); refreshReviewer(); afterTagChange(); });
+  btn("[data-rv-res]", () => {
+    if (rvNoteDrafts[e.id] !== undefined) { setItemNote(it, rvNoteDrafts[e.id].trim()); delete rvNoteDrafts[e.id]; }
+    const nowResolved = !it.resolved;
+    setItemResolved(it, nowResolved); refreshReviewer(); afterTagChange();
+    if (nowResolved && !rvShowResolved) toast("Resolved. It's hidden now \u2014 tick \u201cShow resolved questions too\u201d to see or reopen it.", 3200); else toast(nowResolved ? "Resolved." : "Reopened.");
+  });
   btn("[data-rv-retag]", () => retagItem(it));
   btn("[data-rv-skip]", () => { setMistakeSkipped(e.id, !isExcludedEntry(e)); refreshReviewer(); refreshListsDisplay(); });
   const li = row.querySelector(".rv-line"); if (li) li.addEventListener("input", () => { rvLineDrafts[e.id] = li.value; });
@@ -8546,148 +8770,108 @@ function rvItemRow(it, withLine) {
   });
   return row;
 }
-// A concept's cards, listed with Edit buttons (used in both the need rows and the Concept Cards section).
-function rvCardsList(cid) {
-  const cards = cardsOf(cid), wrap = el("div", "");
-  if (!cards.length) { const h = el("div", "hint"); h.style.margin = "6px 0"; h.textContent = "No cards yet. Add one, or copy the AI prompt and paste its cards back."; wrap.appendChild(h); }
-  cards.forEach((k, i) => {
-    const r = el("div", "rv-note"); r.style.cssText = "margin-top:6px;display:flex;gap:8px;align-items:flex-start;";
-    r.innerHTML = `<div style="flex:1;min-width:0;"><div class="meta"><b>Card ${i + 1}</b>${(k.back || "").trim() ? "" : ' <span style="color:var(--red);">(needs a back)</span>'}</div>
-      <div><b>${esc((k.front || "").trim() || "(front = concept name)")}</b></div><div class="meta" style="color:var(--ink);">${esc((k.back || "").slice(0, 140))}</div>${(k.trap || "").trim() ? `<div class="meta"><b style="color:var(--red);">Trap:</b> ${esc(k.trap.slice(0, 100))}</div>` : ""}</div>
-      <button class="btn" data-edit-card="${esc(k.id)}" style="flex:none;padding:2px 8px;">Edit</button>`;
-    wrap.appendChild(r);
-  });
-  wrap.addEventListener("click", (ev) => { const b = ev.target.closest("[data-edit-card]"); if (b) { ev.stopPropagation(); openRvEditor(cid, b.dataset.editCard); } });
-  return wrap;
-}
-// "Copy AI prompt" + "Paste AI cards" for one concept.
-function rvPromptTools(cid) {
-  const wrap = el("div", ""); wrap.style.cssText = "margin-top:8px;";
-  const open = !!rvImportOpen[cid];
-  wrap.innerHTML = `<div class="row wrap" style="gap:6px;"><button class="btn" data-pt="copy">\u{1F4CB} Copy AI prompt</button><button class="btn" data-pt="toggle">${open ? "Hide paste box" : "Paste AI cards"}</button></div>
-    ${open ? `<textarea class="pt-text" rows="6" placeholder="Paste the AI's reply here (Front: / Back: / Trap: blocks, or a JSON list)&hellip;" style="margin-top:6px;">${esc(rvImportText[cid] || "")}</textarea><div class="row wrap" style="margin-top:6px;gap:6px;"><button class="btn primary" data-pt="import">Create cards from this</button></div>` : ""}`;
-  const ta = wrap.querySelector(".pt-text"); if (ta) ta.addEventListener("input", () => { rvImportText[cid] = ta.value; });
-  wrap.addEventListener("click", async (ev) => {
-    const b = ev.target.closest("button[data-pt]"); if (!b) return; ev.stopPropagation();
-    const a = b.dataset.pt;
-    if (a === "copy") { const t = buildConceptPrompt(cid); toast(t && await copyTextRobust(t) ? "Prompt for this concept copied." : "Couldn't access the clipboard."); }
-    else if (a === "toggle") { rvImportOpen[cid] = !rvImportOpen[cid]; refreshReviewer(); }
-    else if (a === "import") {
-      const cards = parseCardsText((rvImportText[cid] || "")); if (!cards.length) { toast("I couldn't find any cards. Each needs at least a Back."); return; }
-      cards.forEach(k => addCard(cid, k)); rvImportText[cid] = ""; rvImportOpen[cid] = false; toast(`${cards.length} card${cards.length === 1 ? "" : "s"} created.`); refreshReviewer();
-    }
-  });
-  return wrap;
-}
-function renderRvConceptRow(need, cid, its) {
-  const c = findConcept(cid), open = its.filter(i => !i.resolved);
-  const key = need + "::" + (cid || "none"), isOpen = !!rvOpen[key], today = fcToday();
+function renderRvConceptRow(need, cid, its, pfx) {
+  const c = findConcept(cid), open = its.filter(i => !i.resolved), today = fcToday();
   const subjects = Array.from(new Set(its.map(i => fcCleanName(i.subject))));
   const cs = cid ? conceptCardsStatus(cid) : null;
+  const nSkipped = its.filter(i => i.store === "mistake" && isExcludedEntry(i.e)).length;
   let status = "";
   if (need === "source") { const d = c && c.progress && c.progress.source_read; status = d ? "read " + daysAgoLabel(Math.max(0, rvIsoDiff(d, today))) : "not read yet"; }
   else if (need === "drill") status = `reps ${(c && c.progress && c.progress.drill_reps) || 0}/3\u20135`;
   else if (need === "retrieval" && cs) status = cs.label;
   const row = el("div", "list-item flashcard " + (open.length ? "status-yellow" : "status-green"));
-  row.style.marginBottom = "6px"; row.dataset.cnid = cid || "";
+  row.style.marginBottom = "10px"; row.dataset.cnid = cid || "";
   let html = `<div class="top-row"><span class="name">${esc(c ? c.name : "(no concept yet)")}</span><span class="row" style="gap:4px;flex:none;">${c ? `<button class="btn" data-act="tts" title="Read this concept's cards and questions aloud" style="padding:2px 8px;" data-tts-cn="${esc(cid)}">\u{1F50A}</button>` : ""}<span class="status-pill ${open.length ? "status-yellow" : "status-green"}">${open.length} open</span></span></div>
-    <div class="meta">${esc(subjects.join(", "))}${status ? " &middot; " + esc(status) : ""}</div>`;
-  if (isOpen) {
-    html += `<div class="row wrap" style="margin-top:8px;gap:6px;">`;
-    if (need === "source") html += `<button class="btn primary" data-act="read">\u2713 I read the section</button>`;
-    if (need === "drill") html += `<button class="btn primary" data-act="rep">+1 closed-book rep</button><button class="btn" data-act="resetreps">Reset reps</button>`;
-    if (need === "retrieval") html += `<button class="btn primary" data-act="review">Review cards</button>`;
-    if (c) html += `<button class="btn" data-act="addcard">\uFF0B Add card</button>`;
-    if (open.length) html += `<button class="btn" data-act="resolveall">Resolve all ${open.length}</button>`;
-    html += `</div><div class="cards-slot"></div><div class="tools-slot"></div><div class="items"></div>`;
-  } else html += `<div class="hint" style="margin-top:4px;">${c ? "Tap to open: cards, questions and your notes" : "Tag these questions with a concept so they nest properly"}</div>`;
+    <div class="meta">${pfx && pfx.label ? `<b>${esc(pfx.label)}</b> &middot; ` : ""}${esc(subjects.join(", "))}${status ? " &middot; " + esc(status) : ""}${nSkipped ? ` &middot; ${nSkipped} skipped in samples` : ""}${c ? "" : " &middot; tag these with a concept so they nest properly"}</div>
+    <div class="row wrap" style="margin-top:8px;gap:6px;">`;
+  if (need === "source") html += `<button class="btn primary" data-act="read">\u2713 I read the section</button>`;
+  if (need === "drill") html += `<button class="btn primary" data-act="rep">+1 closed-book rep</button><button class="btn" data-act="resetreps">Reset reps</button>`;
+  if (need === "retrieval") html += `<button class="btn primary" data-act="review">Review cards</button>`;
+  if (c) html += `<button class="btn" data-act="addcard">\uFF0B Add card</button><button class="btn" data-act="prompt">\u{1F4CB} Copy AI prompt</button>`;
+  if (open.length) html += `<button class="btn" data-act="resolveall">Resolve all ${open.length}</button>`;
+  html += `</div><div class="cards-slot"></div><div class="items"></div>`;
   row.innerHTML = html;
-  if (isOpen) {
-    if (c) { row.querySelector(".cards-slot").appendChild(rvCardsList(cid)); row.querySelector(".tools-slot").appendChild(rvPromptTools(cid)); }
-    const holder = row.querySelector(".items"); for (const it of its) holder.appendChild(rvItemRow(it, false));
-  }
-  row.addEventListener("click", (ev) => { if (ev.target.closest("button, input, textarea, label")) return; rvOpen[key] = !rvOpen[key]; refreshReviewer(); });
+  if (c) row.querySelector(".cards-slot").appendChild(rvCardsList(cid));
+  const holder = row.querySelector(".items"); for (const it of its) holder.appendChild(rvItemRow(it, need === "checklist"));
   const act = (name, fn) => { const b = row.querySelector(`[data-act="${name}"]`); if (b) b.addEventListener("click", (ev) => { ev.stopPropagation(); fn(); }); };
   act("tts", () => ttsToggleConcept(cid));
   act("read", () => { if (c) { updateConcept(c.id, { progress: Object.assign({}, c.progress, { source_read: today }) }); toast("Marked as read today."); } else toast("Add a concept to these questions first."); refreshReviewer(); });
   act("rep", () => { if (!c) { toast("Add a concept to these questions first."); return; } const n = ((c.progress && c.progress.drill_reps) || 0) + 1; updateConcept(c.id, { progress: Object.assign({}, c.progress, { drill_reps: n, drill_last: today }) }); toast(n >= 3 ? `${n} reps \u2014 ready to resolve these?` : `${n} rep${n === 1 ? "" : "s"} logged.`); refreshReviewer(); });
   act("resetreps", () => { if (c) updateConcept(c.id, { progress: Object.assign({}, c.progress, { drill_reps: 0 }) }); refreshReviewer(); });
   act("review", () => { if (c) fcReviewConcept(c.id); });
-  act("addcard", () => openRvEditor(c.id, "new"));
+  act("addcard", () => openStudio(c.id));
+  act("prompt", async () => {
+    const r = buildConceptPrompt(c.id);
+    toast(await copyTextRobust(r.text) ? `Prompt copied \u2014 ${promptInfoText(r.info, cpPrefs().includeResolved)}` : "Couldn't access the clipboard.", 4200);
+  });
   act("resolveall", () => { if (!confirmDialog(`Mark ${open.length} question${open.length === 1 ? "" : "s"} resolved?`)) return; open.forEach(i => setItemResolved(i, true)); refreshReviewer(); afterTagChange(); });
   return row;
 }
-function renderRvNeedCard(need, items) {
+function renderRvNeedCard(need, items, hiddenResolved, pm) {
   const info = NEED_INFO[need], tx = ACTION_TAXONOMY.filter(t => t.need === need);
   const open = items.filter(i => !i.resolved).length;
-  const card = el("div", "card");
-  card.innerHTML = `<h3>${info.icon} ${esc(info.label)} <span class="count">(${open} open)</span></h3>
-    <p class="hint" style="margin-bottom:8px;"><b>${esc(tx[0].action)}</b> &middot; from: ${esc(tx.map(t => t.name).join(", "))}</p>`;
-  if (need === "checklist") card.appendChild(renderChecklistBox());
-  if (!items.length) { card.appendChild(el("div", "empty-state", "Nothing tagged here yet.")); return card; }
   const by = new Map();
   for (const it of items) { const k = it.conceptId && findConcept(it.conceptId) ? it.conceptId : ""; if (!by.has(k)) by.set(k, []); by.get(k).push(it); }
-  Array.from(by.entries()).sort((a, b) => (b[1].filter(i => !i.resolved).length - a[1].filter(i => !i.resolved).length) || String(conceptName(a[0])).localeCompare(conceptName(b[0])))
-    .forEach(([cid, its]) => {
-      its.sort((x, y) => (x.resolved - y.resolved) || (y.e.updated_at || "").localeCompare(x.e.updated_at || ""));
-      card.appendChild(renderRvConceptRow(need, cid, need === "checklist" ? its : its));
-    });
+  const prefOf = (cid, its) => cid ? (pm.get(cid) || { key: "", label: "No subject yet" }) : (() => { const p = subjectPrefix(its[0].subject); return { key: p.toLowerCase(), label: p }; })();
+  let groups = Array.from(by.entries()).map(([cid, its]) => ({ cid, its, pfx: prefOf(cid, its) }));
+  if (rvPrefix) groups = groups.filter(g => g.pfx.key === rvPrefix);
+  if (rvConcept) groups = groups.filter(g => g.cid === rvConcept);
+  const filtered = !!(rvPrefix || rvConcept);
+  const shownOpen = groups.reduce((n, g) => n + g.its.filter(i => !i.resolved).length, 0);
+  const card = el("div", "card");
+  card.innerHTML = `<h3>${info.icon} ${esc(info.label)} <span class="count">(${filtered ? shownOpen + " of " + open : open} open)</span></h3>
+    <p class="hint" style="margin-bottom:8px;"><b>${esc(tx[0].action)}</b> &middot; from: ${esc(tx.map(t => t.name).join(", "))}${hiddenResolved ? ` &middot; ${hiddenResolved} resolved hidden` : ""}</p>`;
+  if (need === "checklist") card.appendChild(renderChecklistBox());   // the checklist is yours overall, so the filters never hide it
+  if (!groups.length) {
+    if (filtered && need !== "checklist") return null;               // keep the page short: skip sections with nothing for this choice
+    card.appendChild(el("div", "empty-state", items.length ? "Nothing here for this choice." : "Nothing tagged here yet."));
+    return card;
+  }
+  const openOf = g => g.its.filter(i => !i.resolved).length;
+  groups.sort((a, b) => a.pfx.label.localeCompare(b.pfx.label) || (openOf(b) - openOf(a)) || conceptName(a.cid).localeCompare(conceptName(b.cid)));
+  const prefixes = new Set(groups.map(g => g.pfx.key));
+  let lastPrefix = null;
+  for (const g of groups) {
+    if (prefixes.size > 1 && g.pfx.key !== lastPrefix) {
+      lastPrefix = g.pfx.key;
+      const same = groups.filter(x => x.pfx.key === g.pfx.key), h = el("div", "rv-prefhead");
+      h.textContent = `${g.pfx.label} \u00b7 ${same.length} concept${same.length === 1 ? "" : "s"} \u00b7 ${same.reduce((n, x) => n + openOf(x), 0)} open`;
+      card.appendChild(h);
+    }
+    g.its.sort((x, y) => (x.resolved - y.resolved) || (y.e.updated_at || "").localeCompare(x.e.updated_at || ""));
+    g.its.filter(i => !i.resolved).forEach(i => rvOrderIds.push(i.e.id));
+    card.appendChild(renderRvConceptRow(need, g.cid, g.its, g.pfx));
+  }
   return card;
 }
-/* ---- Concept Cards: every concept, with its cards. The only place cards are made. ---- */
-function renderRvCardManager() {
-  const concepts = loadConcepts().slice().sort((a, b) => a.name.localeCompare(b.name)), stats = conceptStats();
-  const total = loadCards().length, q = rvMgrQuery.trim().toLowerCase(), P = cpPrefs();
-  const card = el("div", "card");
-  card.innerHTML = `<h3>Concept Cards <span class="count">(${total} card${total === 1 ? "" : "s"} \u00b7 ${concepts.length} concept${concepts.length === 1 ? "" : "s"})</span></h3>
-    <p class="hint" style="margin-bottom:8px;">A concept can have as many cards as you like. Every card with a back becomes a flashcard. Cards are made here only, never while tagging.</p>
-    <div class="row wrap" style="gap:6px;"><button class="btn primary" data-mg="newconcept">\uFF0B New concept</button></div>
-    <div class="row" id="rvNewConceptRow" style="display:${rvNewConcept ? "" : "none"};gap:6px;margin-top:8px;"><input type="text" id="rvNewConceptName" placeholder="Concept name" value="${esc(rvNewConceptText)}"><button class="btn primary" data-mg="addconcept" style="flex:none;">Add</button></div>
-    <input type="text" id="rvMgrSearch" placeholder="Search concepts&hellip;" value="${esc(rvMgrQuery)}" style="margin-top:8px;">
-    <details style="margin-top:8px;"><summary style="font-size:.8rem;cursor:pointer;color:var(--navy);font-weight:700;">AI prompt settings</summary>
-      <div class="row" style="gap:8px;margin-top:6px;"><label class="field-label" style="flex:none;margin:0;">Cards to ask for</label><input type="number" id="cpN" min="1" max="12" value="${P.n}" style="width:70px;"></div>
-      <label class="field-label">Extra instructions added to every concept prompt</label><textarea id="cpExtra" rows="2" placeholder="e.g. Use Philippine board-exam style, SI units only">${esc(P.extra)}</textarea></details>
-    <div id="rvMgrList" style="margin-top:8px;"></div>`;
-  const list = card.querySelector("#rvMgrList");
-  const shown = concepts.filter(c => !q || c.name.toLowerCase().includes(q));
-  if (!shown.length) list.appendChild(el("div", "empty-state", concepts.length ? "No concepts match." : "No concepts yet. Add one here or while tagging a question."));
-  for (const c of shown) {
-    const st = stats.get(c.id), cs = conceptCardsStatus(c.id), isOpen = !!rvMgrOpen[c.id];
-    const row = el("div", "list-item selectable " + cs.cls);
-    row.innerHTML = `<div class="top-row"><span class="name">${esc(c.name)}</span><span class="status-pill ${cs.cls}">${esc(cs.label)}</span></div>
-      <div class="meta">${esc(c.subject ? fcCleanName(c.subject) : "General")} &middot; ${st ? `${st.open} open / ${st.total} tagged` : "no tagged questions"}</div>`;
-    if (isOpen) {
-      const body = el("div", ""); body.appendChild(rvCardsList(c.id)); body.appendChild(rvPromptTools(c.id));
-      const acts = el("div", "row wrap"); acts.style.cssText = "margin-top:8px;gap:6px;";
-      acts.innerHTML = `<button class="btn primary" data-mg="addcard" data-cid="${esc(c.id)}">\uFF0B Add card</button>${cs.n ? `<button class="btn" data-mg="review" data-cid="${esc(c.id)}">Review cards</button>` : ""}<button class="btn" data-mg="rename" data-cid="${esc(c.id)}">Rename</button><button class="btn danger" data-mg="delconcept" data-cid="${esc(c.id)}">Delete concept</button>`;
-      body.appendChild(acts); row.appendChild(body);
-    }
-    row.addEventListener("click", (ev) => { if (ev.target.closest("button, input, textarea, details")) return; rvMgrOpen[c.id] = !rvMgrOpen[c.id]; refreshReviewer(); });
-    list.appendChild(row);
+// Two dropdowns decide what is shown: a subject prefix, then a concept within it.
+function renderRvFilters(all, pm) {
+  const psel = $("rvPrefixSel"), csel = $("rvConceptSel");
+  const byConcept = new Map();
+  for (const it of all) { if (!it.conceptId || !findConcept(it.conceptId)) continue; const o = byConcept.get(it.conceptId) || { open: 0, total: 0 }; o.total++; if (!it.resolved) o.open++; byConcept.set(it.conceptId, o); }
+  const pref = new Map();
+  for (const cid of byConcept.keys()) { const p = pm.get(cid) || { key: "", label: "No subject yet" }; const r = pref.get(p.key) || { label: p.label, n: 0 }; r.n++; pref.set(p.key, r); }
+  if (rvPrefix && !pref.has(rvPrefix)) rvPrefix = "";
+  psel.innerHTML = `<option value="">All prefixes (${byConcept.size} concept${byConcept.size === 1 ? "" : "s"})</option>` + Array.from(pref.entries()).sort((a, b) => a[1].label.localeCompare(b[1].label)).map(([k, r]) => `<option value="${esc(k)}">${esc(r.label)} (${r.n})</option>`).join("");
+  psel.value = rvPrefix;
+  const inPrefix = Array.from(byConcept.keys()).filter(cid => !rvPrefix || (pm.get(cid) || { key: "" }).key === rvPrefix);
+  if (rvConcept && !inPrefix.includes(rvConcept)) rvConcept = "";
+  const opt = cid => { const o = byConcept.get(cid); return `<option value="${esc(cid)}">${esc(conceptName(cid))} \u00b7 ${o.open} open</option>`; };
+  const sorted = ids => ids.sort((a, b) => (byConcept.get(b).open - byConcept.get(a).open) || conceptName(a).localeCompare(conceptName(b)));
+  let h = `<option value="">All concepts${rvPrefix ? " in this prefix" : ""} (${inPrefix.length})</option>`;
+  if (rvPrefix) h += sorted(inPrefix.slice()).map(opt).join("");
+  else {
+    const g = new Map();
+    for (const cid of inPrefix) { const p = pm.get(cid) || { key: "", label: "No subject yet" }; if (!g.has(p.key)) g.set(p.key, { label: p.label, ids: [] }); g.get(p.key).ids.push(cid); }
+    h += Array.from(g.values()).sort((a, b) => a.label.localeCompare(b.label)).map(x => `<optgroup label="${esc(x.label)}">${sorted(x.ids).map(opt).join("")}</optgroup>`).join("");
   }
-  card.addEventListener("click", (ev) => {
-    const b = ev.target.closest("button[data-mg]"); if (!b) return;
-    const a = b.dataset.mg, cid = b.dataset.cid;
-    if (a === "newconcept") { rvNewConcept = !rvNewConcept; refreshReviewer(); const i = $("rvNewConceptName"); if (i) i.focus(); }
-    else if (a === "addconcept") { const nm = $("rvNewConceptName").value.trim(); if (!nm) { toast("Type the concept name first."); return; } const c = addConcept(nm, ""); rvNewConcept = false; rvNewConceptText = ""; rvMgrOpen[c.id] = true; toast("Concept added."); refreshReviewer(); }
-    else if (a === "addcard") openRvEditor(cid, "new");
-    else if (a === "review") fcReviewConcept(cid);
-    else if (a === "rename") { const c = findConcept(cid), nm = window.prompt("Rename concept", c ? c.name : ""); if (nm !== null) { if (renameConcept(cid, nm)) { toast("Renamed."); refreshReviewer(); afterTagChange(); } else toast("That name is empty or already used."); } }
-    else if (a === "delconcept") { const c = findConcept(cid); if (!confirmDialog(`Delete the concept "${c ? c.name : ""}" and its ${cardsOf(cid).length} card(s)? Tagged questions keep their action tag but lose this concept.`)) return; deleteConcept(cid); toast("Concept deleted."); refreshReviewer(); afterTagChange(); }
-  });
-  card.querySelector("#rvNewConceptName").addEventListener("input", (e) => { rvNewConceptText = e.target.value; });
-  card.querySelector("#cpN").addEventListener("change", (e) => cpSave("n", Math.min(12, Math.max(1, parseInt(e.target.value, 10) || 4))));
-  card.querySelector("#cpExtra").addEventListener("change", (e) => cpSave("extra", e.target.value));
-  const s = card.querySelector("#rvMgrSearch");
-  s.addEventListener("input", (e) => { rvMgrQuery = e.target.value; const pos = e.target.selectionStart; refreshReviewer(); const n = $("rvMgrSearch"); if (n) { n.focus(); n.setSelectionRange(pos, pos); } });
-  return card;
+  csel.innerHTML = h; csel.value = rvConcept;
 }
 function renderReviewerFocus() { if ($("panel-reviewer") && $("panel-reviewer").classList.contains("active")) refreshReviewer(); }
 function refreshReviewer() {
   renderExamScopeSelects();
-  renderRvEditor();
   const scope = getScopeSubjects(), scopeSet = scope ? new Set(scope) : null, ex = getActiveExam();
-  const all = collectTagItems(scopeSet), items = all.filter(i => rvShowResolved || !i.resolved);
+  const all = collectTagItems(scopeSet), items = all.filter(i => rvShowResolved || !i.resolved), pm = conceptPrefixMap();
   $("rvShowResolved").checked = rvShowResolved;
   const untagged = computeTestsWithUnloggedMistakes().reduce((n, r) => n + r.unloggedCount, 0);
   const tile = (n, label, sub, color) => `<div class="fc-stat" style="border-top:3px solid ${color};"><b>${n}</b><span>${label}</span>${sub ? `<span style="display:block;font-size:.65rem;">${sub}</span>` : ""}</div>`;
@@ -8702,17 +8886,19 @@ function refreshReviewer() {
   const g = $("rvGoTag"); if (g) g.onclick = () => { switchTab("mistakes"); const r = computeTestsWithUnloggedMistakes()[0]; if (r) jumpToExamInMistakeLog(r.examId); };
   const q = fcBuildQueue({}), c = q.counts, n = q.cards.length;
   $("rvFocusBox").innerHTML = fcFinalBanner() + `<div class="field-label" style="margin-top:10px;">Concept cards today</div><div class="fc-stats"><div class="fc-stat"><b>${c.due}</b><span>due</span></div><div class="fc-stat"><b>${Math.min(c.newAllowed, c.fresh)}</b><span>new today</span></div><div class="fc-stat"><b>${q.pool.length}</b><span>cards</span></div></div>` +
-    (n ? `<button class="btn primary block" data-fcstart="1">Start review &middot; ${n} card${n === 1 ? "" : "s"} &#9654;</button>` : `<div class="empty-state">${q.pool.length ? "Nothing due right now." : "No concept cards yet. Add cards in the Concept Cards section below."}</div>${c.later ? `<button class="btn block" data-fcahead="1">Practice ahead &middot; ${c.later} not yet due</button>` : ""}`);
+    (n ? `<button class="btn primary block" data-fcstart="1">Start review &middot; ${n} card${n === 1 ? "" : "s"} &#9654;</button>` : `<div class="empty-state">${q.pool.length ? "Nothing due right now." : "No concept cards yet. Make some in the Concept Card Studio below."}</div>${c.later ? `<button class="btn block" data-fcahead="1">Practice ahead &middot; ${c.later} not yet due</button>` : ""}`);
   $("rvFocusBox").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; if (b.dataset.fcstart) fcStart(fcBuildQueue({}).cards); else if (b.dataset.fcahead) fcStart(fcBuildQueue({ ahead: true }).cards); };
+  renderRvFilters(all, pm);
   const wrap = $("rvSections");
   wrap.innerHTML = "";
   rvOrderIds = [];
   for (const need of NEED_ORDER) {
-    const mine = items.filter(i => i.tax && i.tax.need === need);
-    wrap.appendChild(renderRvNeedCard(need, mine));
-    mine.filter(i => !i.resolved).forEach(i => rvOrderIds.push(i.e.id));
+    const mine = items.filter(i => i.tax && i.tax.need === need), hidden = all.filter(i => i.tax && i.tax.need === need).length - mine.length;
+    const nc = renderRvNeedCard(need, mine, hidden, pm); if (nc) wrap.appendChild(nc);
   }
-  wrap.appendChild(renderRvCardManager());
+  const shownConcepts = new Set(), shownQ = rvOrderIds.length;
+  wrap.querySelectorAll("[data-cnid]").forEach(r => shownConcepts.add(r.dataset.cnid));
+  $("rvShowing").textContent = `Showing ${shownConcepts.size} concept${shownConcepts.size === 1 ? "" : "s"} · ${shownQ} open question${shownQ === 1 ? "" : "s"}`;
   const legacy = items.filter(i => !i.tax);
   if (legacy.length) {
     const card = el("div", "card");
@@ -8721,9 +8907,79 @@ function refreshReviewer() {
       Object.entries(by).map(([k, v]) => `<div class="meta">${esc(k)}: ${v}</div>`).join("");
     wrap.appendChild(card);
   }
+  renderStudio();
+  renderFullPicker();
   if (typeof ttsMark === "function") ttsMark();
 }
-$("rvShowResolved").addEventListener("change", (e) => { rvShowResolved = e.target.checked; refreshReviewer(); });
+
+/* ---- wiring for the permanent (static) parts ---- */
+(function rvWire() {
+  const v = loadJson(KEYS.builderPrefs, {}).reviewerView || {}; rvPrefix = v.prefix || ""; rvConcept = v.concept || "";
+  $("rvShowResolved").addEventListener("change", (e) => { rvShowResolved = e.target.checked; refreshReviewer(); });
+  $("rvPrefixSel").addEventListener("change", (e) => { rvPrefix = e.target.value; rvConcept = ""; viewSave(); refreshReviewer(); });
+  $("rvConceptSel").addEventListener("change", (e) => { rvConcept = e.target.value; viewSave(); refreshReviewer(); });
+  // Concept Card Studio
+  $("csConcept").addEventListener("change", (e) => {
+    if (e.target.value === "__new__") { $("csNewRow").style.display = ""; $("csNewName").focus(); e.target.value = csCid; return; }
+    $("csNewRow").style.display = "none"; csCid = e.target.value;
+    if (csEditId) csResetForm();   // never save an edit onto a different concept
+    renderStudio();
+  });
+  $("csNewAdd").addEventListener("click", () => {
+    const nm = $("csNewName").value.trim(); if (!nm) { toast("Type the concept name first."); return; }
+    const c = addConcept(nm, $("csNewSubject").value); csCid = c.id; $("csNewName").value = ""; $("csNewRow").style.display = "none"; toast("Concept added."); refreshReviewer(); $("csFront").focus();
+  });
+  $("csNewName").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); $("csNewAdd").click(); } });
+  $("csRename").addEventListener("click", () => { const c = findConcept(csCid); if (!c) return; const nm = window.prompt("Rename concept", c.name); if (nm === null) return; if (renameConcept(csCid, nm)) { toast("Renamed."); refreshReviewer(); afterTagChange(); } else toast("That name is empty or already used."); });
+  $("csDeleteConcept").addEventListener("click", () => { const c = findConcept(csCid); if (!c) return; if (!confirmDialog(`Delete the concept "${c.name}" and its ${cardsOf(c.id).length} card(s)? Tagged questions keep their action tag but lose this concept.`)) return; deleteConcept(c.id); csCid = ""; toast("Concept deleted."); refreshReviewer(); afterTagChange(); });
+  $("csSave").addEventListener("click", () => {
+    if (!csCid) { toast("Choose a concept first."); return; }
+    const f = { front: $("csFront").value, back: $("csBack").value, trap: $("csTrap").value };
+    if (!f.back.trim()) { toast("A card needs a back (the explanation)."); return; }
+    if (csEditId) { updateCard(csEditId, f); toast("Card updated."); } else { addCard(csCid, f); toast("Card saved."); }
+    csResetForm(); refreshReviewer(); $("csFront").focus();
+  });
+  $("csClear").addEventListener("click", () => { csResetForm(); renderStudio(); });
+  $("csDelCard").addEventListener("click", () => { if (!csEditId || !confirmDialog("Delete this card?")) return; deleteCard(csEditId); csResetForm(); toast("Card deleted."); refreshReviewer(); });
+  $("csCards").addEventListener("click", (ev) => { const b = ev.target.closest("[data-cs-edit]"); if (b) openStudio(csCid, b.dataset.csEdit); });
+  $("csPasteBtn").addEventListener("click", () => {
+    if (!csCid) { toast("Choose a concept first."); return; }
+    const cards = parseCardsText($("csPaste").value); if (!cards.length) { toast("I couldn't find any cards. Each needs at least a Back."); return; }
+    cards.forEach(k => addCard(csCid, k)); $("csPaste").value = ""; toast(`${cards.length} card${cards.length === 1 ? "" : "s"} created.`); refreshReviewer();
+  });
+  // concept prompt options + copy
+  const cp = cpPrefs();
+  $("csN").value = cp.n; $("csIncResolved").checked = cp.includeResolved; $("csIncCards").checked = cp.includeCards; $("csIncNotes").checked = cp.includeNotes; $("csIncCorrect").checked = cp.includeCorrect;
+  $("csN").addEventListener("change", (e) => { const n = Math.min(12, Math.max(1, parseInt(e.target.value, 10) || 4)); e.target.value = n; prefSave("conceptPrompt", "n", n); updateConceptPreview(); });
+  [["csIncResolved", "includeResolved"], ["csIncCards", "includeCards"], ["csIncNotes", "includeNotes"], ["csIncCorrect", "includeCorrect"]].forEach(([id, k]) => $(id).addEventListener("change", (e) => { prefSave("conceptPrompt", k, e.target.checked); updateConceptPreview(); }));
+  $("csCopy").addEventListener("click", async () => {
+    if (!csCid) { toast("Choose a concept first."); return; }
+    const r = buildConceptPrompt(csCid);
+    toast(await copyTextRobust(r.text) ? `Prompt copied \u2014 ${promptInfoText(r.info, cpPrefs().includeResolved)}` : "Couldn't access the clipboard.", 4200);
+  });
+  // full reviewer prompt picker
+  const rp = rpPrefs();
+  $("rpIncResolved").checked = rp.includeResolved; $("rpIncCards").checked = rp.includeCards; $("rpIncNotes").checked = rp.includeNotes; $("rpIncCorrect").checked = rp.includeCorrect; $("rpMaxQ").value = rp.maxQ;
+  [["rpIncResolved", "includeResolved"], ["rpIncCards", "includeCards"], ["rpIncNotes", "includeNotes"], ["rpIncCorrect", "includeCorrect"]].forEach(([id, k]) => $(id).addEventListener("change", (e) => { prefSave("reviewerPrompt", k, e.target.checked); updateFullPreview(); }));
+  $("rpMaxQ").addEventListener("change", (e) => { const n = Math.min(60, Math.max(1, parseInt(e.target.value, 10) || 15)); e.target.value = n; prefSave("reviewerPrompt", "maxQ", n); updateFullPreview(); });
+  const setSel = (ids) => { prefSave("reviewerPrompt", "selected", ids); renderFullPicker(); };
+  $("rpAll").addEventListener("click", () => setSel(loadConcepts().map(c => c.id)));
+  $("rpNone").addEventListener("click", () => setSel([]));
+  $("rpOpen").addEventListener("click", () => { const st = conceptStats(); setSel(loadConcepts().filter(c => (st.get(c.id) || { open: 0 }).open > 0).map(c => c.id)); });
+  $("rpList").addEventListener("change", (e) => {
+    const t = e.target, cur = new Set(rpSelectedIds());
+    if (t.dataset.rpCid) { if (t.checked) cur.add(t.dataset.rpCid); else cur.delete(t.dataset.rpCid); }
+    else if (t.dataset.rpGroup !== undefined) { const pm = conceptPrefixMap(); loadConcepts().filter(c => (pm.get(c.id) || { key: "" }).key === t.dataset.rpGroup).forEach(c => { if (t.checked) cur.add(c.id); else cur.delete(c.id); }); }
+    setSel(Array.from(cur));
+  });
+  $("rpCopy").addEventListener("click", async () => {
+    const ids = rpSelectedIds(); if (!ids.length) { toast("Pick at least one concept first."); return; }
+    const r = buildReviewerPromptByConcept(ids);
+    toast(await copyTextRobust(r.text) ? `Copied \u2014 ${r.nConcepts} concept${r.nConcepts === 1 ? "" : "s"}, ${r.nQ} question${r.nQ === 1 ? "" : "s"}${rpPrefs().includeResolved ? "" : r.left ? `, ${r.left} resolved left out` : ""}.` : "Couldn't access the clipboard.", 4200);
+  });
+  mountPromptEditor("concept", $("promptEditor-concept"));
+  mountPromptEditor("reviewer", $("promptEditor-reviewer"));
+})();
 
 // One entry per unique question across ALL reviewer sections (a question that is both a guess and an
 // overconfident miss, or that shows up in many tests, appears once with every reason attached).
