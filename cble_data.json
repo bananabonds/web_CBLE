@@ -89924,7 +89924,7 @@
       "category": "Unfamiliar Topic",
       "note": "Get the radius of the circle from area. The chord forms a central angle creating two right triangles having r = hyp. Find the angle of the right triangles. Then get the area of the circle that is encompassed by the central angle by ratioing the angles (percent of circle it occupies). Then find the area of the triangle by A = 0.5bh, get the base from pythagorean theorem then subtract this from te central angle area then A_major = A_circle - A_minor",
       "resolved": false,
-      "date_logged": "2026-10-16T12:33:17",
+      "date_logged": "2026-10-19T13:15:21",
       "occurrences": [
         {
           "exam_id": "1790149661027511",
@@ -89934,7 +89934,8 @@
           "correct_answer": "B. 363.6"
         }
       ],
-      "updated_at": "2026-10-19T07:45:54"
+      "updated_at": "2026-10-19T13:15:21",
+      "concept_id": "1792311851589860"
     },
     {
       "id": "1792154565199520",
@@ -89944,7 +89945,7 @@
       "category": "Unfamiliar Topic",
       "note": "The mean of the probability mass function is u = summation of (x*P(X=x)). u = (0.2*1) + (0.3*2) + (0.5*3)",
       "resolved": false,
-      "date_logged": "2026-10-16T12:42:45",
+      "date_logged": "2026-10-19T13:15:27",
       "occurrences": [
         {
           "exam_id": "1790149661027511",
@@ -89954,7 +89955,8 @@
           "correct_answer": "A. 2.3"
         }
       ],
-      "updated_at": "2026-10-19T07:45:54"
+      "updated_at": "2026-10-19T13:15:27",
+      "concept_id": "17923214786028"
     },
     {
       "id": "1792156597940256",
@@ -95607,5 +95609,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-19T13:15:02"
+  "updated_at": "2026-10-19T13:15:28"
 }
