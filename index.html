@@ -353,6 +353,22 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
 }
 .sheet-inner h2{font-size:1rem;margin-bottom:12px;color:var(--navy);}
 
+/* ---------- Quick concept retest (never saved to Test History) ---------- */
+#retestOverlay{background:var(--paper);}
+.rt-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px;margin-bottom:12px;}
+.rt-box h4{font-size:.74rem;color:var(--sub);font-weight:700;margin-bottom:8px;}
+.rt-qnum{color:var(--navy);font-weight:700;font-size:.78rem;font-family:"IBM Plex Mono",monospace;margin-bottom:6px;}
+.rt-qtext{font-size:1rem;line-height:1.5;white-space:pre-wrap;}
+.rt-opts{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:12px;}
+.rt-opts .option-row{cursor:pointer;}
+.rt-opts .option-row.right{background:var(--green-bg,#DCFCE7);}
+.rt-opts .option-row.wrong{background:#FEE2E2;}
+.rt-opts.locked .option-row{cursor:default;}
+.rt-result{border-radius:var(--radius);padding:12px 14px;margin-bottom:12px;font-size:.88rem;line-height:1.45;border:1px solid var(--line);}
+.rt-result.ok{background:var(--green-bg,#DCFCE7);border-color:var(--green);}
+.rt-result.no{background:#FEE2E2;border-color:var(--red);}
+.rt-foot{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;gap:8px;}
+.rt-foot .btn{flex:1;}
 /* ---------- Exam screen ---------- */
 #examOverlay{background:var(--paper);}
 .app-header-bar{
@@ -1070,6 +1086,7 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <label class="field-label" style="margin-top:8px;">Concept</label>
         <select id="rvConceptSel"></select>
         <div class="hint" id="rvShowing" style="margin-top:6px;"></div>
+        <div id="rvRetestRow" style="margin-top:6px;"></div>
         <div class="row wrap" style="gap:6px;margin-top:6px;"><button class="btn" id="rvExpandAll">Expand all questions</button><button class="btn" id="rvCollapseAll">Collapse all</button></div>
         <label class="row" style="margin-top:10px;font-size:.82rem;"><input type="checkbox" id="rvShowResolved"><span>Show resolved questions too</span></label>
       </div>
@@ -1306,6 +1323,16 @@ Python: Bank_Name = [ {"text":"...","options":[...],"correct":0}, ... ]
       <button class="btn primary block" id="btnConfirmResume">Resume Exam</button>
     </div>
   </div>
+</div>
+
+<!-- ============ QUICK RETEST OVERLAY (per concept; not saved to Test History) ============ -->
+<div class="overlay hidden" id="retestOverlay">
+  <div class="app-header-bar">
+    <div class="exam-title" id="rtTitle">Quick retest</div>
+    <button class="btn" id="rtClose" style="flex:none;">Close</button>
+  </div>
+  <div class="app-body" id="rtBody"></div>
+  <div class="rt-foot" id="rtFoot"></div>
 </div>
 
 <!-- ============ EXAM OVERLAY ============ -->
@@ -8670,7 +8697,7 @@ function renderStudioConcept(c, pfx) {
     <div class="meta">${pfx && pfx.label ? `<b>${esc(pfx.label)}</b> &middot; ` : ""}${open.length} open question${open.length === 1 ? "" : "s"}${bits.length ? " (" + esc(bits.join(", ")) + ")" : ""}${progress ? " &middot; " + esc(progress) : ""}${nSkipped ? ` &middot; ${nSkipped} skipped in samples` : ""}</div>
     <div class="row wrap" style="margin-top:8px;gap:6px;">
       <button class="btn primary" data-act="addcard" data-cid="${id}">\uFF0B Add card</button>${cards.some(k => (k.back || "").trim()) ? `<button class="btn" data-act="review" data-cid="${id}">Review cards</button>` : ""}<button class="btn" data-act="prompt" data-cid="${id}">\u{1F4CB} Copy AI prompt</button>
-      ${hasNeed("source") ? `<button class="btn" data-act="read" data-cid="${id}">\u2713 I read the section</button>` : ""}${hasNeed("drill") ? `<button class="btn" data-act="rep" data-cid="${id}">+1 closed-book rep</button><button class="btn" data-act="resetreps" data-cid="${id}">Reset reps</button>` : ""}${open.length ? `<button class="btn" data-act="resolveall" data-cid="${id}">Resolve all ${open.length}</button>` : ""}
+      ${hasNeed("source") ? `<button class="btn" data-act="read" data-cid="${id}">\u2713 I read the section</button>` : ""}${hasNeed("drill") ? `<button class="btn" data-act="rep" data-cid="${id}">+1 closed-book rep</button><button class="btn" data-act="resetreps" data-cid="${id}">Reset reps</button>` : ""}${rtCountFor(open) ? `<button class="btn success" data-act="retest" data-cid="${id}">\u26A1 Retest ${rtCountFor(open)}</button>` : ""}${open.length ? `<button class="btn" data-act="resolveall" data-cid="${id}">Resolve all ${open.length}</button>` : ""}
     </div>`;
   if (!cards.length) { const h = el("div", "hint"); h.style.margin = "8px 0 0"; h.textContent = "No cards yet."; row.appendChild(h); }
   cards.forEach((k, i) => {
@@ -8874,10 +8901,101 @@ function refreshReviewer() {
       Object.entries(by).map(([k, v]) => `<div class="meta">${esc(k)}: ${v}</div>`).join("");
     wrap.appendChild(card);
   }
+  rtRefreshRow();
   renderStudio();
   renderFullPicker();
   if (typeof ttsMark === "function") ttsMark();
 }
+
+/* ---------------------------------------------------------------------
+   Quick concept retest. Answer a concept's open questions right now.
+   Nothing is saved to Test History, samples, bank usage or the mistake log's attempts.
+   The only thing that changes: a question answered RIGHT and marked Confident or Sure I'm Right becomes Resolved.
+   --------------------------------------------------------------------- */
+const RT_OK_CONF = ["Confident", "Sure I'm Right"];
+let RT = { cid: "", name: "", queue: [], i: 0, pick: null, conf: null, checked: false, results: [], skipped: 0 };
+let _rtListsMemo = { t: 0, v: null };
+function rtLists(fresh) { const now = Date.now(); if (fresh || !_rtListsMemo.v || now - _rtListsMemo.t > 1500) _rtListsMemo = { t: now, v: getAllLists() }; return _rtListsMemo.v; }
+// The bank question behind a tagged item, only when it is clearly the same question and can be answered.
+function rtBankQuestion(it, lists) {
+  const e = it.e, q = ((lists || rtLists())[it.subject] || [])[Number(e.reference_no) - 1];
+  if (!q || q.retired || !Array.isArray(q.options) || q.options.length < 2) return null;
+  if (!Number.isInteger(q.correct) || q.options[q.correct] == null) return null;
+  if (e.question && qsNorm(e.question).slice(0, 30) !== qsNorm(q.text).slice(0, 30)) return null;
+  return q;
+}
+function rtOpenItems(cid) { return (rvAllItems || []).filter(i => i.conceptId === cid && !i.resolved); }
+function rtCountFor(open) { const l = rtLists(); return (open || []).filter(i => rtBankQuestion(i, l)).length; }
+function rtRefreshRow() {
+  const row = $("rvRetestRow"); if (!row) return;
+  const n = rvConcept ? rtCountFor(rtOpenItems(rvConcept)) : 0;
+  row.innerHTML = n ? `<button class="btn success block" id="rvRetestBtn">\u26A1 Retest this concept now &middot; ${n} open question${n === 1 ? "" : "s"}</button>` : "";
+  const b = $("rvRetestBtn"); if (b) b.onclick = () => rtStart(rvConcept);
+}
+function rtStart(cid) {
+  const c = findConcept(cid); if (!c) return;
+  const lists = rtLists(true), queue = []; let skipped = 0;
+  for (const it of rtOpenItems(cid)) { const q = rtBankQuestion(it, lists); if (q) queue.push({ it, q }); else skipped++; }
+  if (!queue.length) { toast("Nothing to retest here: no open question in this concept can be found in the bank."); return; }
+  rtBegin(c, shuffle(queue.slice()), skipped);
+}
+function rtBegin(c, queue, skipped) {
+  RT = { cid: c.id, name: c.name, queue, i: 0, pick: null, conf: null, checked: false, results: [], skipped: skipped || 0 };
+  openOverlay("retestOverlay"); rtRender();
+}
+function rtClose() {
+  closeOverlay("retestOverlay"); RT.queue = [];
+  refreshReviewer(); afterTagChange();
+}
+function rtCheck() {
+  const cur = RT.queue[RT.i]; if (!cur || RT.checked || RT.pick === null || !RT.conf) return;
+  const right = RT.pick === cur.q.correct, sure = RT_OK_CONF.includes(RT.conf), ok = right && sure;
+  if (ok) { setItemResolved(cur.it, true); cur.it.resolved = true; }
+  RT.checked = true;
+  RT.results.push({ it: cur.it, q: cur.q, ok, right, conf: RT.conf });
+  rtRender();
+}
+function rtNext() { RT.i++; RT.pick = null; RT.conf = null; RT.checked = false; rtRender(); $("rtBody").scrollTop = 0; }
+function rtRender() {
+  const body = $("rtBody"), foot = $("rtFoot");
+  $("rtTitle").textContent = `\u26A1 RETEST \u2014 ${RT.name}`;
+  if (RT.i >= RT.queue.length) return rtSummary(body, foot);
+  const { it, q } = RT.queue[RT.i], e = it.e, done = RT.checked;
+  const opts = q.options.map(cleanOcrText), last = RT.i === RT.queue.length - 1;
+  let h = `<div class="rt-box"><div class="rt-qnum">Question ${RT.i + 1} of ${RT.queue.length} &middot; Ref #${esc(e.reference_no)} &middot; ${esc(fcCleanName(it.subject))}</div><div class="rt-qtext">${esc(cleanOcrText(q.text))}</div></div>`;
+  h += `<div class="rt-opts${done ? " locked" : ""}">` + opts.map((o, i) => {
+    const cls = "option-row" + (done ? (i === q.correct ? " right" : (i === RT.pick ? " wrong" : "")) : (RT.pick === i ? " chosen" : ""));
+    return `<div class="${cls}" data-opt="${i}"><input type="radio" ${RT.pick === i ? "checked" : ""} ${done ? "disabled" : ""}><label>${esc(o)}</label></div>`;
+  }).join("") + `</div>`;
+  h += `<div class="rt-box"><h4>Confidence in your answer</h4><div class="conf-choices">` + CONFIDENCE_LEVELS.map((l, i) => `<button class="conf-chip${RT.conf === l ? " active" : ""}" data-conf="${i}" ${done ? "disabled" : ""}>${esc(l)}</button>`).join("") + `</div>
+    ${done ? "" : `<div class="hint" style="margin-top:8px;">Resolved only if you are right <b>and</b> pick Confident or Sure I'm Right. Not saved to Test History.</div>`}</div>`;
+  if (done) {
+    const r = RT.results[RT.results.length - 1];
+    const msg = r.ok ? "\u2713 Correct and confident \u2014 <b>resolved</b>."
+      : r.right ? `Correct, but you marked it <b>${esc(r.conf)}</b>. It stays open until you get it right as Confident or Sure I'm Right.`
+      : (RT_OK_CONF.includes(r.conf) ? `\u2717 Wrong, and you were <b>${esc(r.conf)}</b> \u2014 overconfident. It stays open.` : "\u2717 Wrong. It stays open.");
+    h += `<div class="rt-result ${r.ok ? "ok" : "no"}">${msg}${r.right ? "" : `<div style="margin-top:6px;">Correct answer: <b>${esc(opts[q.correct])}</b></div>`}${(e.note || "").trim() ? `<div class="meta" style="margin-top:6px;white-space:pre-wrap;"><b>Your note:</b> ${esc(e.note)}</div>` : ""}</div>`;
+  }
+  body.innerHTML = h;
+  foot.innerHTML = done ? `<button class="btn primary" id="rtNext">${last ? "See results" : "Next \u25B6"}</button>`
+    : `<button class="btn primary" id="rtCheck" ${RT.pick !== null && RT.conf ? "" : "disabled"}>${RT.pick === null ? "Pick an answer" : (!RT.conf ? "Pick your confidence" : "Check answer")}</button>`;
+  if (!done) {
+    body.querySelectorAll("[data-opt]").forEach(r => r.addEventListener("click", () => { RT.pick = Number(r.dataset.opt); rtRender(); }));
+    body.querySelectorAll("[data-conf]").forEach(b => b.addEventListener("click", () => { RT.conf = CONFIDENCE_LEVELS[Number(b.dataset.conf)]; rtRender(); }));
+    $("rtCheck").addEventListener("click", rtCheck);
+  } else $("rtNext").addEventListener("click", rtNext);
+}
+function rtSummary(body, foot) {
+  const res = RT.results, won = res.filter(r => r.ok), still = res.filter(r => !r.ok);
+  let h = `<div class="rt-box"><div class="rt-qnum">Round finished</div><div class="rt-qtext"><b>${won.length}</b> of ${res.length} resolved${still.length ? ` &middot; <b>${still.length}</b> still open` : " \u2014 this concept is clear for now."}</div></div>`;
+  if (still.length) h += `<div class="rt-box"><h4>Still open</h4>` + still.map(r => `<div class="meta" style="margin:4px 0;">Ref #${esc(r.it.e.reference_no)} &middot; ${esc(fcCleanName(r.it.subject))} &middot; ${r.right ? "right but only " + esc(r.conf) : "wrong"}</div>`).join("") + `</div>`;
+  if (RT.skipped) h += `<div class="hint">${RT.skipped} open question${RT.skipped === 1 ? " was" : "s were"} left out because the bank question is missing or retired.</div>`;
+  body.innerHTML = h;
+  foot.innerHTML = (still.length ? `<button class="btn primary" id="rtAgain">Retest the ${still.length} still open</button>` : "") + `<button class="btn" id="rtDone">Done</button>`;
+  const a = $("rtAgain"); if (a) a.addEventListener("click", () => { const c = findConcept(RT.cid); rtBegin(c || { id: RT.cid, name: RT.name }, shuffle(still.map(r => ({ it: r.it, q: r.q }))), RT.skipped); });
+  $("rtDone").addEventListener("click", rtClose);
+}
+$("rtClose").addEventListener("click", rtClose);
 
 /* ---- wiring for the permanent (static) parts ---- */
 (function rvWire() {
@@ -8917,6 +9035,7 @@ function refreshReviewer() {
     if (b.dataset.csEdit) { openStudio(cid, b.dataset.csEdit); return; }
     const a = b.dataset.act; if (!a || !c) return;
     if (a === "tts") ttsToggleConcept(cid);
+    else if (a === "retest") rtStart(cid);
     else if (a === "addcard") openStudio(cid);
     else if (a === "review") fcReviewConcept(cid);
     else if (a === "prompt") { const r = buildConceptPrompt(cid); toast(await copyTextRobust(r.text) ? `Prompt copied \u2014 ${promptInfoText(r.info, cpPrefs().includeResolved)}` : "Couldn't access the clipboard.", 4200); }
