@@ -284,6 +284,8 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
 .tg-guess{border-left:6px solid var(--violet) !important;}
 .tg-flag{border-left:6px solid var(--amber) !important;}
 .tg-sel{outline:2px solid var(--navy);outline-offset:1px;}
+.rv-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.rv-done{opacity:.8;}
 .rv-prefhead{font-size:.74rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;margin:12px 0 4px;padding-bottom:2px;border-bottom:1px solid var(--line);}
 .ma-sum{font-size:.82rem;color:var(--sub);margin:2px 0 10px;}
 .ma-group{border:1px solid var(--line);border-left:4px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:10px;background:#fff;}
@@ -1068,6 +1070,7 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <label class="field-label" style="margin-top:8px;">Concept</label>
         <select id="rvConceptSel"></select>
         <div class="hint" id="rvShowing" style="margin-top:6px;"></div>
+        <div class="row wrap" style="gap:6px;margin-top:6px;"><button class="btn" id="rvExpandAll">Expand all questions</button><button class="btn" id="rvCollapseAll">Collapse all</button></div>
         <label class="row" style="margin-top:10px;font-size:.82rem;"><input type="checkbox" id="rvShowResolved"><span>Show resolved questions too</span></label>
       </div>
       <div id="rvSections"></div>
@@ -8489,7 +8492,7 @@ function scopedReviewerAttempts() {
    The Concept Card Studio (cards) and the two AI prompts live here permanently, so typed text is never lost.
    --------------------------------------------------------------------- */
 let rvShowResolved = false, rvPrefix = "", rvConcept = "";
-let rvNoteDrafts = {}, rvLineDrafts = {}, rvOrderIds = [], csCid = "", csEditId = null, rvAllItems = [], rvShownConcepts = new Set();
+let rvNoteDrafts = {}, rvLineDrafts = {}, rvOrderIds = [], csCid = "", csEditId = null, rvAllItems = [], rvShownConcepts = new Set(), rvExpanded = {}, rvShownIds = [];
 function rvPrefixMatch(key) { if (!rvPrefix) return true; return key === (rvPrefix === "__none__" ? "" : rvPrefix); }
 function rvIsoDiff(a, b) { return Math.round((Date.parse(b) - Date.parse(a)) / 864e5); }
 function conceptCardsStatus(cid) {
@@ -8728,42 +8731,40 @@ function renderChecklistBox() {
   return box;
 }
 let rvClDraft = "";
-// One question inside its concept: the FULL question and its choices, then YOUR NOTES on it (saved when you leave the box).
-function rvChoicesHtml(ctx, mine, right) {
-  if (!ctx.options || !ctx.options.length) return "";
-  const norm = s => qsNorm(String(s || "")), m = norm(mine), r = norm(right);
-  const letter = s => { const t = String(s || "").trim().match(/^([A-Za-z])[.)]?$/); return t ? t[1].toUpperCase().charCodeAt(0) - 65 : -1; };
-  const mi = letter(mine), ri = letter(right);
-  return `<div style="margin:6px 0 2px 14px;">` + ctx.options.map((o, i) => {
-    const isMine = (m && norm(o) === m) || mi === i, isRight = (r && norm(o) === r) || ri === i;
-    return `<div class="meta" style="color:var(--ink);${isRight ? "font-weight:700;" : ""}"><b>${String.fromCharCode(65 + i)}.</b> ${esc(String(o))}${isRight ? ` <span style="color:var(--green);">\u2713 correct</span>` : ""}${isMine && !isRight ? ` <span style="color:var(--red);">\u2190 your answer</span>` : ""}${isMine && isRight ? ` <span style="color:var(--green);">(you chose this)</span>` : ""}</div>`;
-  }).join("") + `</div>`;
-}
+// One question as a colour-coded card: collapsed shows a short preview, tap to expand the full question, choices, notes and actions.
 function rvItemRow(it, withLine) {
-  const e = it.e, row = el("div", "rv-attempt " + (it.resolved ? "ok" : "bad"));
-  row.style.cssText = "margin-top:10px;padding:10px;";
-  row.dataset.mid = e.id;
-  const color = TAG_TYPE[it.kind] ? TAG_TYPE[it.kind].color : "var(--red)";
+  const e = it.e, open = !!rvExpanded[e.id], tt = TAG_TYPE[it.kind] || TAG_TYPE.wrong;
   const noteVal = rvNoteDrafts[e.id] !== undefined ? rvNoteDrafts[e.id] : (e.note || "");
   const gnotes = legacyGuessNotes(it.subject, e.reference_no);
   const occ = (e.occurrences || []).slice().sort((a, b) => (a.date || "").localeCompare(b.date || "")), last = occ[occ.length - 1] || {};
   const mine = last.your_answer || "", right = last.correct_answer || e.correct_answer || "";
   const ctx = qsCtx(it.subject, e.reference_no, e.question, mine, right);
   const skipped = it.store === "mistake" && isExcludedEntry(e);
-  row.innerHTML = `<div class="row" style="gap:6px;align-items:flex-start;"><span style="flex:none;width:8px;height:8px;border-radius:50%;background:${color};margin-top:6px;"></span>
-      <div style="flex:1;min-width:0;"><div class="meta"><b>Ref #${esc(e.reference_no)}</b> &middot; ${esc(fcCleanName(it.subject))} &middot; ${esc(it.cat)} &middot; Concept: <b>${esc(conceptName(it.conceptId) || "none yet")}</b>${occ.length > 1 ? ` &middot; missed ${occ.length}\u00d7` : ""}${it.resolved ? " &middot; <b>resolved</b>" : ""}${skipped ? " &middot; <b>skipped in samples</b>" : ""}</div></div>
-      <div style="display:flex;gap:4px;flex:none;">${qsMiniBtn(ctx)}<button class="btn" data-tts-id="${esc(e.id)}" title="Read this question and its notes aloud" style="padding:2px 8px;">\u{1F50A}</button></div></div>
-    <div style="margin-top:6px;font-size:.88rem;line-height:1.5;color:var(--ink);white-space:pre-wrap;word-break:break-word;">${esc(ctx.question || e.question || "(question text unavailable)")}</div>
-    ${rvChoicesHtml(ctx, mine, right)}
-    ${(!ctx.options || !ctx.options.length) && (mine || right) ? `<div class="meta" style="margin-top:4px;">${mine ? `Yours: ${esc(String(mine))} &middot; ` : ""}Correct: ${esc(String(right))}</div>` : ""}
-    <label class="field-label" style="margin-top:8px;">Notes</label>
-    <textarea class="rv-qnote" rows="2" placeholder="Your notes on this question&hellip;">${esc(noteVal)}</textarea>
-    ${gnotes.map(g => `<div class="meta" style="white-space:pre-wrap;margin-top:2px;">Earlier guess note${g.exam_source ? " (" + esc(g.exam_source) + ")" : ""}: ${esc(g.note)}</div>`).join("")}
-    ${withLine && !it.resolved ? `<div class="row" style="margin-top:6px;gap:6px;"><input type="text" class="rv-line" placeholder="One line for the checklist&hellip;" value="${esc(rvLineDrafts[e.id] || "")}"><button class="btn primary" data-rv-addline="1" style="flex:none;">Add line</button></div>` : ""}
-    <div class="row wrap" style="margin-top:8px;gap:6px;"><button class="btn ${it.resolved ? "" : "success"}" data-rv-res="1">${it.resolved ? "Reopen" : "Resolve"}</button><button class="btn" data-rv-retag="1">Re-tag</button>${it.store === "mistake" ? `<button class="btn ${skipped ? "primary" : ""}" data-rv-skip="1">${skipped ? "\u21A9 Allow in samples again" : "Skip in samples"}</button>` : ""}</div>`;
+  const row = el("div", `list-item flashcard status-${it.resolved ? "green" : "yellow"} tg-${it.kind}${it.resolved ? " rv-done" : ""}`);
+  row.style.marginTop = "8px"; row.dataset.mid = e.id;
+  const pills = `${occ.length > 1 ? `<span class="status-pill repeat-pill">\u{1F501} \u00d7${occ.length}</span>` : ""}${skipped ? `<span class="status-pill neutral">Skipped in samples</span>` : ""}<span class="status-pill ${it.resolved ? "status-green" : "status-yellow"}">${it.resolved ? "Resolved" : "Open"}</span>`;
+  let html = `<div class="top-row"><span class="name">${open ? "\u25BE" : "\u25B8"} Ref #${esc(e.reference_no)} &middot; ${esc(fcCleanName(it.subject))}</span>
+      <span class="row" style="gap:4px;flex:none;">${qsMiniBtn(ctx)}<button class="btn" data-tts-id="${esc(e.id)}" title="Read this question and its notes aloud" style="padding:2px 8px;">\u{1F50A}</button>${pills}</span></div>
+    <div class="meta"><b style="color:${tt.color};">${tt.label}</b> &middot; ${esc(it.cat)} &middot; Concept: <b>${esc(conceptName(it.conceptId) || "none yet")}</b></div>`;
+  if (!open) {
+    const prev = qsClean(ctx.question || e.question || "(question text unavailable)", 200);
+    html += `<div class="meta rv-clamp" style="color:var(--ink);margin-top:2px;">${esc(prev)}</div><div class="hint" style="margin-top:2px;">Tap to expand${(e.note || "").trim() ? " \u00b7 has a note" : ""}</div>`;
+  } else {
+    html += `<div style="margin-top:6px;font-size:.84rem;line-height:1.5;color:var(--ink);word-break:break-word;">${esc(qsLine(ctx, 4000))}</div>
+      <label class="field-label" style="margin-top:8px;">Notes</label>
+      <textarea class="rv-qnote" rows="2" placeholder="Your notes on this question&hellip;">${esc(noteVal)}</textarea>
+      ${gnotes.map(g => `<div class="meta" style="white-space:pre-wrap;margin-top:2px;">Earlier guess note${g.exam_source ? " (" + esc(g.exam_source) + ")" : ""}: ${esc(g.note)}</div>`).join("")}
+      ${withLine && !it.resolved ? `<div class="row" style="margin-top:6px;gap:6px;"><input type="text" class="rv-line" placeholder="One line for the checklist&hellip;" value="${esc(rvLineDrafts[e.id] || "")}"><button class="btn primary" data-rv-addline="1" style="flex:none;">Add line</button></div>` : ""}
+      <div class="row wrap" style="margin-top:8px;gap:6px;align-items:center;"><button class="btn ${it.resolved ? "" : "success"}" data-rv-res="1">${it.resolved ? "Reopen" : "Resolve"}</button><button class="btn" data-rv-retag="1">Re-tag</button>${it.store === "mistake" ? `<button class="btn ${skipped ? "primary" : ""}" data-rv-skip="1">${skipped ? "\u21A9 Allow in samples again" : "Skip in samples"}</button>` : `<span class="hint" style="flex:1;min-width:140px;">No skip button: a ${it.kind === "guess" ? "right guess" : "flagged question you got right"} isn't in the mistake sample pool.</span>`}</div>`;
+  }
+  row.innerHTML = html;
   const ta = row.querySelector(".rv-qnote");
-  ta.addEventListener("input", () => { rvNoteDrafts[e.id] = ta.value; });
-  ta.addEventListener("change", () => { setItemNote(it, ta.value.trim()); delete rvNoteDrafts[e.id]; toast("Note saved."); });
+  if (ta) { ta.addEventListener("input", () => { rvNoteDrafts[e.id] = ta.value; }); ta.addEventListener("change", () => { setItemNote(it, ta.value.trim()); delete rvNoteDrafts[e.id]; toast("Note saved."); }); }
+  row.addEventListener("click", (ev) => {
+    if (ev.target.closest("button, textarea, input, a, label, .qs-go")) return;
+    if (rvNoteDrafts[e.id] !== undefined) { setItemNote(it, rvNoteDrafts[e.id].trim()); delete rvNoteDrafts[e.id]; }
+    rvExpanded[e.id] = !open; row.replaceWith(rvItemRow(it, withLine));
+  });
   const btn = (sel, fn) => { const b = row.querySelector(sel); if (b) b.addEventListener("click", (ev) => { ev.stopPropagation(); fn(); }); };
   btn("[data-tts-id]", () => ttsToggleSingle(e.id));
   btn("[data-rv-res]", () => {
@@ -8804,6 +8805,7 @@ function renderRvNeedCard(need, items, hiddenResolved, pm) {
   for (const x of list) {
     if (!x.it.resolved) rvOrderIds.push(x.it.e.id);
     if (x.it.conceptId) rvShownConcepts.add(x.it.conceptId);
+    rvShownIds.push(x.it.e.id);
     card.appendChild(rvItemRow(x.it, need === "checklist"));
   }
   return card;
@@ -8858,7 +8860,7 @@ function refreshReviewer() {
   renderRvFilters(all, pm);
   const wrap = $("rvSections");
   wrap.innerHTML = "";
-  rvOrderIds = []; rvShownConcepts = new Set();
+  rvOrderIds = []; rvShownConcepts = new Set(); rvShownIds = [];
   for (const need of NEED_ORDER) {
     const mine = items.filter(i => i.tax && i.tax.need === need), hidden = all.filter(i => i.tax && i.tax.need === need).length - mine.length;
     const nc = renderRvNeedCard(need, mine, hidden, pm); if (nc) wrap.appendChild(nc);
@@ -8881,6 +8883,8 @@ function refreshReviewer() {
 (function rvWire() {
   const v = loadJson(KEYS.builderPrefs, {}).reviewerView || {}; rvPrefix = v.prefix || ""; rvConcept = v.concept || "";
   $("rvShowResolved").addEventListener("change", (e) => { rvShowResolved = e.target.checked; refreshReviewer(); });
+  $("rvExpandAll").addEventListener("click", () => { rvShownIds.forEach(id => { rvExpanded[id] = true; }); refreshReviewer(); });
+  $("rvCollapseAll").addEventListener("click", () => { rvExpanded = {}; refreshReviewer(); });
   $("rvPrefixSel").addEventListener("change", (e) => { rvPrefix = e.target.value; rvConcept = ""; viewSave(); refreshReviewer(); });
   $("rvConceptSel").addEventListener("change", (e) => { rvConcept = e.target.value; viewSave(); refreshReviewer(); });
   // Concept Card Studio
