@@ -80699,7 +80699,7 @@
       "category": "Forgot a Concept",
       "note": "Proximate analysis, 1 = FC + VCM + Ash + Moisture. Then calorific value of coal, CVcoal = (CVcarbon * FC) + (CVvcm * VCM)",
       "resolved": true,
-      "date_logged": "2026-09-22T00:27:10",
+      "date_logged": "2026-10-19T13:09:40",
       "occurrences": [
         {
           "exam_id": "179000978718785",
@@ -80709,7 +80709,8 @@
           "correct_answer": "B. 17 MJ/kg"
         }
       ],
-      "updated_at": "2026-10-19T07:45:54"
+      "updated_at": "2026-10-19T13:09:40",
+      "concept_id": "1792307418606446"
     },
     {
       "id": "17900369183897",
@@ -81685,7 +81686,7 @@
       "category": "Unfamiliar Topic",
       "note": "Complete the mass balance. Use the w/BPE energy balance, Q = m_cH_c + m_vH_v - m_fH_f\nFind all the enthalpies. H_f = find from fig 2-17, H_c = fig. 2-17, Hv = H_saturatedvapor + Cp(BPE). Hsaturatedvapor = steam table, BPE = BPE line (fig 11-7), memorize Cp of steam = 0.45 BTU/lb F and 1.88 kJ/kg K. Then find latent heat of steam = H_v - H_l (steam table) then m_s = Q/latentheat of steam",
       "resolved": true,
-      "date_logged": "2026-09-22T14:30:32",
+      "date_logged": "2026-10-19T13:09:46",
       "occurrences": [
         {
           "exam_id": "179000978718785",
@@ -81695,7 +81696,8 @@
           "correct_answer": "A. 15400 lb/h"
         }
       ],
-      "updated_at": "2026-10-19T07:45:54"
+      "updated_at": "2026-10-19T13:09:46",
+      "concept_id": "1792321737674800"
     },
     {
       "id": "1790088226547404",
@@ -95586,5 +95588,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-19T13:09:37"
+  "updated_at": "2026-10-19T13:09:49"
 }
