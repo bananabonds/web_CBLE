@@ -92300,6 +92300,13 @@
       "name": "Low Baseline Accuracy Actions",
       "text": "Below are the questions that I struggled with during my review for the chemical engineering licensure exam. I mostly guess since I barely know any of the topics and got a baseline accuracy of around 58%. The notes included are my explanations on how to get the answer which I forget eventually forget since I didnt have a good baseline understanding of the fundamentals.\n\nI want you to classify my notes and these list of questions into identifiable domains of knowledge and infer what I should learn that can be applied across all of them. Determine patterns that may be present in this data and use it to accomplish this goal. I only need to know what I have to study, I want you to recommend actions based on the knowledge gaps I have like reading a particular chapter of a book since further testing barely moves the baseline.\n\n{structure}\n\n{questions}",
       "updated_at": "2026-10-17T14:58:14"
+    },
+    {
+      "id": "1792416330868980",
+      "kind": "concept",
+      "name": "Generate reviewer",
+      "text": "You are helping me build a high-fidelity review for ONE concept from my board exam preparation. Stay strictly inside this concept; do not review the whole subject.\n\n{concept}\n\nTASK\nMake a reviewer for this concept encompassing most if not all of the necessary equations, concepts, and algorithms. I want you to make an HTML file containing a synthesis of the concepts that further encompass this concept from first principles\n\nRULES\n- Use only standard, verifiable facts for this subject. If something is uncertain, say so.\n- If a bank correct answer above looks wrong, ambiguous or condition-dependent, tell me instead of rationalizing it.\n- Base the Trap lines on MY answers above, not on generic advice.",
+      "updated_at": "2026-10-19T13:25:30"
     }
   ],
   "flash_decks": [],
@@ -95656,5 +95663,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-19T13:24:56"
+  "updated_at": "2026-10-19T13:25:37"
 }
