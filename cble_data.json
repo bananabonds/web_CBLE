@@ -81078,7 +81078,7 @@
       "category": "Unfamiliar Topic",
       "note": "Use Brahmagupta's Formula. sqrt(product of the differences between the semiperimeter and each side). Semi perimeter (s) = SUM(all sides)/2 then sqrt((s-a)* (s-b)*(s-c)*(s-d))",
       "resolved": false,
-      "date_logged": "2026-09-22T06:48:55",
+      "date_logged": "2026-10-19T13:16:47",
       "occurrences": [
         {
           "exam_id": "179000334236560",
@@ -81088,7 +81088,8 @@
           "correct_answer": "A. 40.25 sq. cm."
         }
       ],
-      "updated_at": "2026-10-19T07:45:54"
+      "updated_at": "2026-10-19T13:16:47",
+      "concept_id": "1792311851589860"
     },
     {
       "id": "1790059859772844",
@@ -81203,7 +81204,7 @@
       "category": "Unfamiliar Topic",
       "note": "Second Theorem of Pappus. V = 2pi * A * d. Find the area of the curve 9x2 + 4y2 = 36 , turn the constant to 1 so (9/36)x2+(4/36)x2 = 1, then solve for x and y which is the semi major and minor axes of the ellipse. Area of ellipse = 2pi * semi maj * semi min. Find the centroid (0,0) use perpendicular distance formula d =|Ax + By + C|/sqrt(A^2 + B^2) , where 3x + 4y -20 = 0 A=3, B=4, C=-20.",
       "resolved": false,
-      "date_logged": "2026-09-22T07:31:34",
+      "date_logged": "2026-10-19T13:16:56",
       "occurrences": [
         {
           "exam_id": "179000334236560",
@@ -81213,7 +81214,8 @@
           "correct_answer": "D. 473.7"
         }
       ],
-      "updated_at": "2026-10-19T07:45:54"
+      "updated_at": "2026-10-19T13:16:56",
+      "concept_id": "1792320991122296"
     },
     {
       "id": "1790063035109381",
@@ -95613,5 +95615,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-19T13:16:43"
+  "updated_at": "2026-10-19T13:16:57"
 }
