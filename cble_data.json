@@ -94568,6 +94568,42 @@
       "trap": "In #49 and #50 I guessed. Tie each letter to its fuel: B = Bottle of liquid (flammable liquids), C = Current (electrical). CO₂ goes with B and C because it leaves no residue and doesn't conduct electricity.",
       "created_at": "2026-10-18T14:17:20",
       "updated_at": "2026-10-18T14:17:20"
+    },
+    {
+      "id": "1792416252029772",
+      "concept_id": "1792306108462690",
+      "front": "How do you get the dew point of a gas mixture from its composition and total pressure?",
+      "back": "pv = y(water) × P(total). The dew point is the temperature where Psat(water) = pv. Use consistent units (kPa or mmHg). Dry-bulb temperature does not enter, as long as it is above the dew point.",
+      "trap": "In #68 the total pressure was 5260 mmHg and the temperature 100 °C. The working number is pv = 0.10 × 5260 = 526 mmHg, which matches Psat of water at 90 °C. You answered 72 °C, so check which pressure you used for the lookup.",
+      "created_at": "2026-10-19T13:24:12",
+      "updated_at": "2026-10-19T13:24:12"
+    },
+    {
+      "id": "179241625203048",
+      "concept_id": "1792306108462690",
+      "front": "Specific humidity W from temperature, total pressure and relative humidity?",
+      "back": "pv = RH × Psat(T). Then W = 0.622 × pv / (P − pv), in kg water per kg dry air. The molar version is Y = pv / (P − pv), in mol per mol dry air. At 35 °C, Psat is about 5.63 kPa, so 40% RH gives pv ≈ 2.25 kPa and W ≈ 0.0141.",
+      "trap": "In #73 you answered 0.025, which is about the value at ~70% RH. Compute pv first as a sanity check on the chart reading. Also keep W (per dry air) separate from vapor mole fraction y (per total gas).",
+      "created_at": "2026-10-19T13:24:12",
+      "updated_at": "2026-10-19T13:24:12"
+    },
+    {
+      "id": "1792416252031699",
+      "concept_id": "1792306108462690",
+      "front": "Gas stream is cooled and compressed to recover a vapor (like benzene in N2). How do you set it up?",
+      "back": "Use the inert gas as a constant basis. Find the initial vapor partial pressure (RH × Psat if given RH). Remove the required fraction of vapor. At the final temperature the gas is saturated, so pv = Psat(T_final). Then P = Psat(T_final) / y_final, where y_final = n_vapor,left / (n_inert + n_vapor,left).",
+      "trap": "In #72 you left it blank. Don’t try to find P in one jump. Set a basis of 100 mol feed, then do the balance. Also, “percentage relative humidity” means pv/Psat. Percentage saturation (Y/Ys) gives a different number.",
+      "created_at": "2026-10-19T13:24:12",
+      "updated_at": "2026-10-19T13:24:12"
+    },
+    {
+      "id": "1792416252032386",
+      "concept_id": "1792306108462690",
+      "front": "Mixing two humid air streams: what is conserved, and how do you get the mixed dry-bulb temperature?",
+      "back": "On a dry-air basis, mass of dry air, mass of water (so W) and enthalpy are all conserved. Mixed W = Σ(m_da × W) / Σ m_da. Mixed h = Σ(m_da × h) / Σ m_da. Dry-bulb is then solved from h and W. Because the streams’ humidities are similar, a dry-air-weighted average of dry-bulb temperatures is a good shortcut, usually within about 0.5 degrees.",
+      "trap": "In #87 you left it blank. Mixing is a weighted average, not a chart-only problem. Weight by dry-air mass, not by total mass. Don’t use wet-bulb temperatures in the average.",
+      "created_at": "2026-10-19T13:24:12",
+      "updated_at": "2026-10-19T13:24:12"
     }
   ],
   "shaky_tags": [
@@ -95620,5 +95656,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-19T13:23:33"
+  "updated_at": "2026-10-19T13:24:18"
 }
