@@ -1987,7 +1987,8 @@ async function migrateBuiltinToRepo() {
     if (clash.length) { say("Stopped: your repository already has different lists named:\n" + clash.join(", ") + "\nRename them in the Question Bank tab, then run this again. Nothing was changed."); return; }
     say("Saving an untouched backup copy of the built-in lists to your repo…");
     const bpath = repoBankPath().replace(/\.json$/i, "") + "_builtin_backup_" + nowIso().slice(0, 10) + ".json";
-    await githubPutFileAtPath(bpath, JSON.stringify({ source: DATABASE_URL, saved_at: nowIso(), banks: raw }, null, 2), null, "Backup of built-in question lists before migration");
+    const bsha = (await githubGetFileAtPath(bpath)).sha;   // a backup from an earlier attempt may already exist; GitHub needs its id to replace it
+    await githubPutFileAtPath(bpath, JSON.stringify({ source: DATABASE_URL, saved_at: nowIso(), banks: raw }, null, 2), bsha, "Backup of built-in question lists before migration");
     say("Writing the lists into your bank file…");
     await commitRepoBanks(banks => { for (const n of Object.keys(src)) if (!banks[n]) banks[n] = src[n]; }, "Move built-in question lists into the repository bank");
     say("Verifying every question against the original…");
