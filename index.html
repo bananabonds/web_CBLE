@@ -1953,21 +1953,21 @@ function stripRepoPrefixDeep(v) {
   return { value: walk(v), changed, clashes };
 }
 function migrateRepoPrefix() {
+  // The earlier version kept a duplicate backup in browser storage, which could fill it up. Renaming is lossless
+  // (only the prefix is removed) and your GitHub sync keeps a copy, so that duplicate is freed first.
+  try { localStorage.removeItem("cble.backupBeforeRepoPrefixStrip"); } catch (e) {}
   if (REPO_CLASH.length) return;
   const todo = [];
   for (const key of PREFIX_DATA_KEYS) {
     const raw = localStorage.getItem(key); if (!raw || raw.indexOf(OLD_REPO_PREFIX) === -1) continue;
     let parsed; try { parsed = JSON.parse(raw); } catch (e) { continue; }
-    const r = stripRepoPrefixDeep(parsed); if (r.changed) todo.push({ key, raw, value: r.value });
+    const r = stripRepoPrefixDeep(parsed); if (r.changed) todo.push({ key, value: r.value });
   }
   if (!todo.length) return;
-  const BK = "cble.backupBeforeRepoPrefixStrip";
-  if (!localStorage.getItem(BK)) {
-    try { const d = {}; todo.forEach(t => d[t.key] = t.raw); localStorage.setItem(BK, JSON.stringify({ at: nowIso(), data: d })); }
-    catch (e) { console.warn("Backup before prefix removal didn't fit in storage:", e); toast("Couldn't keep a local backup; export your data soon.", 3500); }
-  }
-  for (const t of todo) saveJson(t.key, t.value);
-  scheduleGithubSync();
+  const failed = [];
+  for (const t of todo) { try { localStorage.setItem(t.key, JSON.stringify(t.value)); } catch (e) { failed.push(t.key); } }
+  if (failed.length) toast("Storage is full, so some data kept its old [Repo] names. Export a backup, free space, and reopen.", 5000);
+  else scheduleGithubSync();
 }
 /* ---- One-time move of the built-in lists (ARCLectureBank.py in the other repo) into your own repo's bank file ---- */
 async function migrateBuiltinToRepo() {
@@ -10241,6 +10241,7 @@ function migrateMistakeLogIfNeeded() {
 
 (function init() {
   migrateRepoPrefix();
+  if (loadRepoBankCache().migrated) { try { localStorage.removeItem(KEYS.topics); } catch (e) {} }   // old built-in cache duplicates the repo copy
   migrateMistakeLogIfNeeded();
   migrateTaxonomyIfNeeded();
   migrateConceptCards();
