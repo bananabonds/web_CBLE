@@ -91386,7 +91386,7 @@
       "question": "In a certain chemical plant, the carbonate solution used in the absorption tower is pumped continuously from the bottom of the lye storage tank through a standard 4 in. pipe and then through sprays head at the top of the scrubber. The depth of solution in the storage tank is 10 ft and the vertical distance from the spray head to the bottom of the tank is 110 ft. In a test on this equipment the following data were obtained: Rate of flow Density 200 gpm 68.9 lb/ft3 Friction drop from tank to spray head 15 ft-lb/lb Gage pressure on spray head Power input to pump Calculate the efficiency of the pump. 5 psi 14 hp",
       "category": "Unfamiliar Topic",
       "note": "Calculate the total pump head (H_p) = dz + P2_gage / density + v^2/ 2g + friction. Where v =Q/A. Find fluid power = m * H_p / 550 (conversion factor 1 hp = ft lb/s). eff = fluid power / power input",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-19T13:05:28",
       "occurrences": [
         {
@@ -91397,7 +91397,7 @@
           "correct_answer": "C. 50%"
         }
       ],
-      "updated_at": "2026-10-19T13:05:28",
+      "updated_at": "2026-10-20T10:28:20",
       "concept_id": "1792306216423779",
       "tag_at": "",
       "note_at": ""
@@ -97164,5 +97164,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-20T10:27:52"
+  "updated_at": "2026-10-20T10:28:28"
 }
