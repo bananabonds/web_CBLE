@@ -1285,9 +1285,8 @@ Python: Bank_Name = [ {"text":"...","options":[...],"correct":0}, ... ]
   <div class="sheet-inner">
     <h2>Data &amp; Settings</h2>
     <p class="hint" id="settingsSyncLine" style="margin-bottom:10px;"></p>
-    <button class="btn block" id="btnRefreshBank">Refresh Question Bank</button>
-    <button class="btn block" id="btnMigrateBuiltin" style="margin-top:6px;">Move built-in lists into my repo (one-time)</button>
-    <div class="hint" id="migrateBuiltinStatus" style="margin-top:4px;white-space:pre-wrap;"></div>
+    <button class="btn block" id="btnRefreshBank">Refresh Question Lists from Repository</button>
+    <div class="hint" id="storageLine" style="margin-top:6px;"></div>
 
     <div style="height:16px;"></div>
     <h2 style="font-size:.92rem;">GitHub Sync</h2>
@@ -1547,7 +1546,6 @@ Python: Bank_Name = [ {"text":"...","options":[...],"correct":0}, ... ]
    fetch of the remote question bank; everything else works offline.
    ===================================================================== */
 
-const DATABASE_URL = "https://raw.githubusercontent.com/bananabonds/streamlit_proj/refs/heads/main/ARCLectureBank.py";
 
 const CONFIDENCE_LEVELS = ["Guess", "Slightly Confident", "Confident", "Sure I'm Right"];
 const CONFIDENCE_WEIGHTS = { "Guess": 0.25, "Slightly Confident": 0.5, "Confident": 0.75, "Sure I'm Right": 1.0 };
@@ -1858,11 +1856,7 @@ function deleteLocalBank(bankName) {
 const LOCAL_PREFIX = "[Local] ", OLD_REPO_PREFIX = "[Repo] ";
 // Repo lists now use their plain names. Only if a repo list shares its name with a not-yet-migrated built-in list
 // would plain names mix two different lists, so in that case the old "[Repo] " prefix stays until it is resolved.
-function repoNameClashes() {
-  const cache = loadJson(KEYS.repoBanks, null), top = loadJson(KEYS.topics, null);
-  if (!cache || !cache.banks || cache.migrated || !top || !top.topics) return [];
-  return Object.keys(cache.banks).filter(n => n in top.topics);
-}
+function repoNameClashes() { return []; }
 const REPO_CLASH = repoNameClashes();
 const REPO_PREFIX = REPO_CLASH.length ? OLD_REPO_PREFIX : "";
 function repoBankPath() { const c = getGithubConfig(); return (c && c.bankPath) || "question_bank.json"; }
@@ -1986,50 +1980,7 @@ function migrateRepoPrefix() {
   if (failed.length) toast("Storage is full, so some data kept its old [Repo] names. Export a backup, free space, and reopen.", 5000);
   else scheduleGithubSync();
 }
-/* ---- One-time move of the built-in lists (ARCLectureBank.py in the other repo) into your own repo's bank file ---- */
-async function migrateBuiltinToRepo() {
-  const st = $("migrateBuiltinStatus"), say = t => { st.textContent = t; };
-  if (!githubConfigured()) { toast("Connect GitHub in Settings first."); return; }
-  if (loadRepoBankCache().migrated) { say("Already moved. Your lists come from your repository."); return; }
-  if (REPO_CLASH.length) { say("Stopped: these repository lists have the same name as a built-in list, which would mix two different lists:\n" + REPO_CLASH.join(", ") + "\nRename them in the Question Bank tab, then run this again. Nothing was changed."); return; }
-  if (!confirmDialog("Copy all built-in lists into your repository's question bank file and stop using the other repo?\n\nFirst tip: Export All Data (backup) if you haven't recently. Nothing is deleted.")) return;
-  const norm = t => String(t == null ? "" : t).trim(), key = q => JSON.stringify([norm(q.text), (q.options || []).map(norm), Number(q.correct)]);
-  try {
-    say("Reading built-in lists…");
-    const topics = await fetchAllTopicsFromNetwork(), raw = {}, src = {};
-    try { localStorage.removeItem(KEYS.topics); } catch (e) {}   // re-downloadable, and it would double the storage the repo copy needs
-    for (const [n, qs] of Object.entries(topics)) { raw[n] = qs.map(q => ({ text: q.text, options: q.options, correct: q.correct })); src[n] = raw[n].map(cleanBankQuestion); }
-    say("Checking your repository file for name clashes…");
-    const cur = normalizeRepoFile((await githubGetJsonAtPath(repoBankPath())).data), clash = [];
-    for (const n of Object.keys(src)) if (cur.banks[n] && JSON.stringify(cur.banks[n].map(key)) !== JSON.stringify(src[n].map(key))) clash.push(n);
-    if (clash.length) { say("Stopped: your repository already has different lists named:\n" + clash.join(", ") + "\nRename them in the Question Bank tab, then run this again. Nothing was changed."); return; }
-    say("Saving an untouched backup copy of the built-in lists to your repo…");
-    const bpath = repoBankPath().replace(/\.json$/i, "") + "_builtin_backup_" + nowIso().slice(0, 10) + ".json";
-    const bsha = (await githubGetFileAtPath(bpath)).sha;   // a backup from an earlier attempt may already exist; GitHub needs its id to replace it
-    await githubPutFileAtPath(bpath, JSON.stringify({ source: DATABASE_URL, saved_at: nowIso(), banks: raw }, null, 2), bsha, "Backup of built-in question lists before migration");
-    say("Writing the lists into your bank file…");
-    await commitRepoBanks(banks => { for (const n of Object.keys(src)) if (!banks[n]) banks[n] = src[n]; }, "Move built-in question lists into the repository bank");
-    say("Verifying every question against the original…");
-    const back = normalizeRepoFile((await githubGetJsonAtPath(repoBankPath())).data), bad = [];
-    let total = 0;
-    for (const n of Object.keys(raw)) {
-      const got = back.banks[n]; total += raw[n].length;
-      if (!got || got.length !== raw[n].length) { bad.push(n + " (count)"); continue; }
-      for (let i = 0; i < raw[n].length; i++) if (key(got[i]) !== key(raw[n][i])) { bad.push(n + " #" + (i + 1)); break; }
-    }
-    if (bad.length) { say("Verification FAILED for: " + bad.join(", ") + "\nThe built-in source is still in use and nothing was switched off. The backup file is in your repo: " + bpath); return; }
-    await commitRepoBanks((b, f) => { f.migrated_builtin = { at: nowIso(), lists: Object.keys(raw).length, questions: total, backup: bpath }; }, "Mark built-in lists as migrated");
-    refreshListsDisplay(); if (typeof renderQB === "function") renderQB();
-    say(`Done. ${Object.keys(raw).length} lists / ${total} questions copied and verified in order. The other repo is no longer used.\nBackup: ${bpath}` + (_repoCacheStored ? "" : `\nNote: browser storage is too full to keep an offline copy, so the lists load from GitHub each session. Biggest items: ${storageTop()}`));
-  } catch (e) { console.error(e); say("Stopped with an error, nothing was switched off: " + e.message); }
-}
-let _topicCache = null; // in-memory per session, mirrors _topic_cache
-function getRemoteTopics() {
-  if (loadRepoBankCache().migrated) return {};   // built-in lists now live in the repo file
-  if (_topicCache) return _topicCache;
-  const cached = loadJson(KEYS.topics, null);
-  return cached ? cached.topics : {};
-}
+function getRemoteTopics() { return {}; }   // all lists now come from your own repo (and local banks)
 function getAllLists() {
   const merged = {};
   const remote = getRemoteTopics();
@@ -3340,50 +3291,6 @@ function parsePythonModule(src) {
   return namespace;
 }
 
-async function fetchAllTopicsFromNetwork() {
-  const res = await fetch(DATABASE_URL, { cache: "no-store" });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const raw = await res.text();
-  const namespace = parsePythonModule(raw);
-  const topics = {};
-  for (const key of Object.keys(namespace)) {
-    if (key.startsWith("__")) continue;
-    const value = namespace[key];
-    if (Array.isArray(value) && value.length && value.every(item =>
-      item && typeof item === "object" && "text" in item && "options" in item && "correct" in item
-    )) {
-      topics[key] = tagSource(value, key);
-    }
-  }
-  if (Object.keys(topics).length === 0) {
-    throw new Error("Parsed the file but found no question lists matching the expected shape.");
-  }
-  return topics;
-}
-
-async function refreshQuestionBank(showToasts = true) {
-  if (loadRepoBankCache().migrated) { $("syncStatus").textContent = "Question lists come from your repository."; return true; }
-  setSyncStatus("Loading question bank\u2026");
-  try {
-    const topics = await fetchAllTopicsFromNetwork();
-    _topicCache = topics;
-    saveJson(KEYS.topics, { topics, fetchedAt: nowIso() });
-    setSyncStatus(`Bank synced \u00b7 ${Object.keys(topics).length} list(s) \u00b7 ${new Date().toLocaleString()}`);
-    if (showToasts) toast("Question bank refreshed.");
-    return true;
-  } catch (e) {
-    console.error("Could not fetch topics:", e);
-    const cached = loadJson(KEYS.topics, null);
-    if (cached) {
-      setSyncStatus(`Offline \u2014 using bank cached ${new Date(cached.fetchedAt).toLocaleString()}`);
-    } else {
-      setSyncStatus("Could not load the question bank (offline, and nothing cached yet)");
-    }
-    if (showToasts) toast(`Couldn't reach the question bank: ${e.message}`);
-    return false;
-  }
-}
-
 /* =====================================================================
    Small UI helpers
    ===================================================================== */
@@ -3407,10 +3314,16 @@ function toast(msg, ms = 2200) {
 }
 function setSyncStatus(text) {
   $("syncStatus").textContent = text;
-  const cached = loadJson(KEYS.topics, null);
-  $("settingsSyncLine").textContent = cached
-    ? `Question bank last synced ${new Date(cached.fetchedAt).toLocaleString()} \u00b7 ${Object.keys(cached.topics).length} remote list(s).`
-    : "Question bank hasn't been synced yet -- needs one online session.";
+  const rc = loadRepoBankCache(), n = Object.keys(rc.banks || {}).length;
+  $("settingsSyncLine").textContent = rc.fetchedAt ? `Question lists pulled from your repository ${new Date(rc.fetchedAt).toLocaleString()} \u00b7 ${n} list(s).` : "Question lists haven't been pulled from your repository yet.";
+  refreshStorageLine();
+}
+function refreshStorageLine() {
+  const e = $("storageLine"); if (!e) return;
+  let used = 0; for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); used += k.length + (localStorage.getItem(k) || "").length; }
+  const pct = Math.round(used / 5e6 * 100);   // browsers allow roughly 5 million characters
+  e.textContent = `Browser storage: about ${(used / 1e6).toFixed(2)}M of ~5M characters (${pct}%).` + (pct >= 80 ? ` Getting full \u2014 biggest items: ${storageTop()}` : "");
+  e.style.color = pct >= 80 ? "#c0392b" : "";
 }
 function confirmDialog(message) { return window.confirm(message); }
 
@@ -4502,9 +4415,8 @@ $("btnSettings").addEventListener("click", () => {
   openSheet("settingsSheet");
 });
 $("btnCloseSettings").addEventListener("click", () => closeSheet("settingsSheet"));
-$("btnMigrateBuiltin").addEventListener("click", migrateBuiltinToRepo);
 $("btnRefreshBank").addEventListener("click", () => {
-  refreshQuestionBank(true).then(() => pullRepoBanks(false)).then(() => { refreshListsDisplay(); renderQB(); });
+  pullRepoBanks(true).then(() => { refreshListsDisplay(); renderQB(); });
 });
 
 $("btnSaveGithubConfig").addEventListener("click", async () => {
@@ -10260,7 +10172,7 @@ function migrateMistakeLogIfNeeded() {
 
 (function init() {
   migrateRepoPrefix();
-  if (loadRepoBankCache().migrated) { try { localStorage.removeItem(KEYS.topics); } catch (e) {} }   // old built-in cache duplicates the repo copy
+  try { localStorage.removeItem(KEYS.topics); } catch (e) {}   // the old built-in cache is no longer used; frees storage
   migrateMistakeLogIfNeeded();
   migrateTaxonomyIfNeeded();
   migrateConceptCards();
@@ -10268,13 +10180,7 @@ function migrateMistakeLogIfNeeded() {
   refreshListsDisplay();
   refreshSavedSamplesList();
   refreshHistoryList();
-  const cached = loadJson(KEYS.topics, null);
-  if (cached) {
-    setSyncStatus(`Bank cached ${new Date(cached.fetchedAt).toLocaleString()} \u00b7 ${Object.keys(cached.topics).length} list(s)`);
-  } else {
-    setSyncStatus("Not synced yet");
-  }
-  refreshQuestionBank(false).then(refreshListsDisplay);
+  setSyncStatus(loadRepoBankCache().fetchedAt ? "Lists loaded from your repository copy" : "Not synced yet");
   if (githubConfigured()) pullRepoBanks(false).then(ok => { if (ok) { refreshListsDisplay(); renderQB(); } });
 
   if (githubConfigured()) {
