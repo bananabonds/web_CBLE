@@ -1043,6 +1043,7 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <div id="tagActionLine" style="margin:6px 0 2px;"></div>
         <label class="field-label">2 &middot; Concept category <span class="hint">(required)</span></label>
         <select id="tagConcept"></select>
+        <div id="tagConceptSuggest" class="row wrap" style="gap:6px;margin-top:6px;align-items:center;"></div>
         <div id="tagConceptNewRow" class="row" style="display:none;gap:6px;margin-top:6px;"><input type="text" id="tagConceptNew" placeholder="Name the concept, e.g. n-factor of KMnO4"><button class="btn primary" id="tagConceptAdd" style="flex:none;">Add</button></div>
         <div class="row wrap" style="margin-top:10px;gap:6px;">
           <button class="btn primary" id="btnSaveNextMistake">Save &amp; next</button>
@@ -1285,6 +1286,8 @@ Python: Bank_Name = [ {"text":"...","options":[...],"correct":0}, ... ]
     <h2>Data &amp; Settings</h2>
     <p class="hint" id="settingsSyncLine" style="margin-bottom:10px;"></p>
     <button class="btn block" id="btnRefreshBank">Refresh Question Bank</button>
+    <button class="btn block" id="btnMigrateBuiltin" style="margin-top:6px;">Move built-in lists into my repo (one-time)</button>
+    <div class="hint" id="migrateBuiltinStatus" style="margin-top:4px;white-space:pre-wrap;"></div>
 
     <div style="height:16px;"></div>
     <h2 style="font-size:.92rem;">GitHub Sync</h2>
@@ -1852,9 +1855,18 @@ function deleteLocalBank(bankName) {
    Repository banks: one JSON file in YOUR GitHub repo ( { version, updated_at, banks: { name: [questions] } } ).
    Pulled into a local cache; edits are committed straight to the file. Lists are named "[Repo] name".
    --------------------------------------------------------------------- */
-const LOCAL_PREFIX = "[Local] ", REPO_PREFIX = "[Repo] ";
+const LOCAL_PREFIX = "[Local] ", OLD_REPO_PREFIX = "[Repo] ";
+// Repo lists now use their plain names. Only if a repo list shares its name with a not-yet-migrated built-in list
+// would plain names mix two different lists, so in that case the old "[Repo] " prefix stays until it is resolved.
+function repoNameClashes() {
+  const cache = loadJson(KEYS.repoBanks, null), top = loadJson(KEYS.topics, null);
+  if (!cache || !cache.banks || cache.migrated || !top || !top.topics) return [];
+  return Object.keys(cache.banks).filter(n => n in top.topics);
+}
+const REPO_CLASH = repoNameClashes();
+const REPO_PREFIX = REPO_CLASH.length ? OLD_REPO_PREFIX : "";
 function repoBankPath() { const c = getGithubConfig(); return (c && c.bankPath) || "question_bank.json"; }
-function loadRepoBankCache() { const c = loadJson(KEYS.repoBanks, null); return (c && c.banks && typeof c.banks === "object") ? c : { banks: {}, sha: null, fetchedAt: null }; }
+function loadRepoBankCache() { const c = loadJson(KEYS.repoBanks, null); return (c && c.banks && typeof c.banks === "object") ? c : { banks: {}, sha: null, fetchedAt: null, migrated: null }; }
 function loadRepoBanksRaw() { return loadRepoBankCache().banks; }
 function loadRepoBanks() {
   const raw = loadRepoBanksRaw(), tagged = {};
@@ -1865,7 +1877,9 @@ function normalizeRepoFile(data) {
   const src = data && typeof data === "object" ? (data.banks && typeof data.banks === "object" ? data.banks : {}) : {};
   const banks = {};
   for (const [name, arr] of Object.entries(src)) if (Array.isArray(arr)) banks[name] = arr.filter(q => q && Array.isArray(q.options)).map(cleanBankQuestion);
-  return { version: 1, updated_at: (data && data.updated_at) || null, banks };
+  const out = { version: 1, updated_at: (data && data.updated_at) || null, banks };
+  if (data && data.migrated_builtin) out.migrated_builtin = data.migrated_builtin;   // survives every later commit
+  return out;
 }
 async function githubGetJsonAtPath(path) {
   const c = getGithubConfig();
@@ -1890,7 +1904,7 @@ async function pullRepoBanks(showToast) {
   try {
     const { data, sha } = await githubGetJsonAtPath(repoBankPath());
     const file = normalizeRepoFile(data);
-    saveJson(KEYS.repoBanks, { banks: file.banks, sha, fetchedAt: nowIso(), path: repoBankPath() });
+    saveJson(KEYS.repoBanks, { banks: file.banks, sha, fetchedAt: nowIso(), path: repoBankPath(), migrated: file.migrated_builtin || null });
     if (showToast) toast(`Pulled ${Object.keys(file.banks).length} repository bank(s).`);
     return true;
   } catch (e) {
@@ -1907,11 +1921,11 @@ async function commitRepoBanks(mutate, message) {
   for (let attempt = 0; attempt < 3; attempt++) {
     const { data, sha } = await githubGetJsonAtPath(path);
     const file = normalizeRepoFile(data);
-    mutate(file.banks);
+    mutate(file.banks, file);
     file.updated_at = nowIso();
     try {
       const newSha = await githubPutFileAtPath(path, JSON.stringify(file, null, 2), sha, message);
-      saveJson(KEYS.repoBanks, { banks: file.banks, sha: newSha, fetchedAt: nowIso(), path });
+      saveJson(KEYS.repoBanks, { banks: file.banks, sha: newSha, fetchedAt: nowIso(), path, migrated: file.migrated_builtin || null });
       return file;
     } catch (e) {
       lastErr = e;
@@ -1921,8 +1935,78 @@ async function commitRepoBanks(mutate, message) {
   throw lastErr;
 }
 
+/* ---- Repo prefix removal: "[Repo] name" -> "name" everywhere your data refers to a list (lossless; backup kept) ---- */
+const PREFIX_DATA_KEYS = [KEYS.samples, KEYS.history, KEYS.details, KEYS.mistakes, KEYS.guessNotes, KEYS.examDates, KEYS.mistakeDrafts, KEYS.guessNoteDrafts, KEYS.promptSets, KEYS.promptWork, KEYS.flashDecks, KEYS.flashSrs, KEYS.flashPrefs, KEYS.concepts, KEYS.cards, KEYS.shaky, KEYS.checklist, KEYS.builderPrefs];
+function stripRepoPrefixDeep(v) {
+  let changed = 0, clashes = 0;
+  const fix = t => t.startsWith(OLD_REPO_PREFIX) ? (changed++, t.slice(OLD_REPO_PREFIX.length)) : t;
+  const walk = x => {
+    if (typeof x === "string") return fix(x);
+    if (Array.isArray(x)) return x.map(walk);
+    if (x && typeof x === "object") {
+      const o = {};
+      for (const [k, val] of Object.entries(x)) { let nk = fix(k); if (nk !== k && (nk in x || nk in o)) { nk = k; clashes++; } o[nk] = walk(val); }
+      return o;
+    }
+    return x;
+  };
+  return { value: walk(v), changed, clashes };
+}
+function migrateRepoPrefix() {
+  if (REPO_CLASH.length) return;
+  const todo = [];
+  for (const key of PREFIX_DATA_KEYS) {
+    const raw = localStorage.getItem(key); if (!raw || raw.indexOf(OLD_REPO_PREFIX) === -1) continue;
+    let parsed; try { parsed = JSON.parse(raw); } catch (e) { continue; }
+    const r = stripRepoPrefixDeep(parsed); if (r.changed) todo.push({ key, raw, value: r.value });
+  }
+  if (!todo.length) return;
+  const BK = "cble.backupBeforeRepoPrefixStrip";
+  if (!localStorage.getItem(BK)) {
+    try { const d = {}; todo.forEach(t => d[t.key] = t.raw); localStorage.setItem(BK, JSON.stringify({ at: nowIso(), data: d })); }
+    catch (e) { console.warn("Backup before prefix removal didn't fit in storage:", e); toast("Couldn't keep a local backup; export your data soon.", 3500); }
+  }
+  for (const t of todo) saveJson(t.key, t.value);
+  scheduleGithubSync();
+}
+/* ---- One-time move of the built-in lists (ARCLectureBank.py in the other repo) into your own repo's bank file ---- */
+async function migrateBuiltinToRepo() {
+  const st = $("migrateBuiltinStatus"), say = t => { st.textContent = t; };
+  if (!githubConfigured()) { toast("Connect GitHub in Settings first."); return; }
+  if (loadRepoBankCache().migrated) { say("Already moved. Your lists come from your repository."); return; }
+  if (REPO_CLASH.length) { say("Stopped: these repository lists have the same name as a built-in list, which would mix two different lists:\n" + REPO_CLASH.join(", ") + "\nRename them in the Question Bank tab, then run this again. Nothing was changed."); return; }
+  if (!confirmDialog("Copy all built-in lists into your repository's question bank file and stop using the other repo?\n\nFirst tip: Export All Data (backup) if you haven't recently. Nothing is deleted.")) return;
+  const norm = t => String(t == null ? "" : t).trim(), key = q => JSON.stringify([norm(q.text), (q.options || []).map(norm), Number(q.correct)]);
+  try {
+    say("Reading built-in lists…");
+    const topics = await fetchAllTopicsFromNetwork(), raw = {}, src = {};
+    for (const [n, qs] of Object.entries(topics)) { raw[n] = qs.map(q => ({ text: q.text, options: q.options, correct: q.correct })); src[n] = raw[n].map(cleanBankQuestion); }
+    say("Checking your repository file for name clashes…");
+    const cur = normalizeRepoFile((await githubGetJsonAtPath(repoBankPath())).data), clash = [];
+    for (const n of Object.keys(src)) if (cur.banks[n] && JSON.stringify(cur.banks[n].map(key)) !== JSON.stringify(src[n].map(key))) clash.push(n);
+    if (clash.length) { say("Stopped: your repository already has different lists named:\n" + clash.join(", ") + "\nRename them in the Question Bank tab, then run this again. Nothing was changed."); return; }
+    say("Saving an untouched backup copy of the built-in lists to your repo…");
+    const bpath = repoBankPath().replace(/\.json$/i, "") + "_builtin_backup_" + nowIso().slice(0, 10) + ".json";
+    await githubPutFileAtPath(bpath, JSON.stringify({ source: DATABASE_URL, saved_at: nowIso(), banks: raw }, null, 2), null, "Backup of built-in question lists before migration");
+    say("Writing the lists into your bank file…");
+    await commitRepoBanks(banks => { for (const n of Object.keys(src)) if (!banks[n]) banks[n] = src[n]; }, "Move built-in question lists into the repository bank");
+    say("Verifying every question against the original…");
+    const back = normalizeRepoFile((await githubGetJsonAtPath(repoBankPath())).data), bad = [];
+    let total = 0;
+    for (const n of Object.keys(raw)) {
+      const got = back.banks[n]; total += raw[n].length;
+      if (!got || got.length !== raw[n].length) { bad.push(n + " (count)"); continue; }
+      for (let i = 0; i < raw[n].length; i++) if (key(got[i]) !== key(raw[n][i])) { bad.push(n + " #" + (i + 1)); break; }
+    }
+    if (bad.length) { say("Verification FAILED for: " + bad.join(", ") + "\nThe built-in source is still in use and nothing was switched off. The backup file is in your repo: " + bpath); return; }
+    await commitRepoBanks((b, f) => { f.migrated_builtin = { at: nowIso(), lists: Object.keys(raw).length, questions: total, backup: bpath }; }, "Mark built-in lists as migrated");
+    refreshListsDisplay(); if (typeof renderQB === "function") renderQB();
+    say(`Done. ${Object.keys(raw).length} lists / ${total} questions copied and verified in order. The other repo is no longer used.\nBackup: ${bpath}`);
+  } catch (e) { console.error(e); say("Stopped with an error, nothing was switched off: " + e.message); }
+}
 let _topicCache = null; // in-memory per session, mirrors _topic_cache
 function getRemoteTopics() {
+  if (loadRepoBankCache().migrated) return {};   // built-in lists now live in the repo file
   if (_topicCache) return _topicCache;
   const cached = loadJson(KEYS.topics, null);
   return cached ? cached.topics : {};
@@ -2887,6 +2971,7 @@ function applySnapshotToLocal(snap) {
   if (snap.mistake_log && typeof migrateMistakeLogIfNeeded === "function") migrateMistakeLogIfNeeded();
   if (snap.mistake_log && typeof migrateTaxonomyIfNeeded === "function") migrateTaxonomyIfNeeded();
   if (typeof migrateConceptCards === "function") migrateConceptCards();
+  migrateRepoPrefix();
   return failed;
 }
 function mergeById(remoteArr, localArr, idKey, deletedKeys) {
@@ -2945,6 +3030,7 @@ function mergeBanks(remoteBanks, localBanks, deletedNames) {
   return merged;
 }
 function mergeSnapshots(remote, local) {
+  if (!REPO_CLASH.length && remote && typeof remote === "object") remote = stripRepoPrefixDeep(remote).value;   // an older device may still send "[Repo] name"
   const tomb = unionTombstones(remote && remote.tombstones, local.tombstones);
   saveJson(KEYS.tombstones, tomb); // persist the merged set locally so future deletes/merges see the full history
   return {
@@ -3257,6 +3343,7 @@ async function fetchAllTopicsFromNetwork() {
 }
 
 async function refreshQuestionBank(showToasts = true) {
+  if (loadRepoBankCache().migrated) { $("syncStatus").textContent = "Question lists come from your repository."; return true; }
   setSyncStatus("Loading question bank\u2026");
   try {
     const topics = await fetchAllTopicsFromNetwork();
@@ -4396,6 +4483,7 @@ $("btnSettings").addEventListener("click", () => {
   openSheet("settingsSheet");
 });
 $("btnCloseSettings").addEventListener("click", () => closeSheet("settingsSheet"));
+$("btnMigrateBuiltin").addEventListener("click", migrateBuiltinToRepo);
 $("btnRefreshBank").addEventListener("click", () => {
   refreshQuestionBank(true).then(() => pullRepoBanks(false)).then(() => { refreshListsDisplay(); renderQB(); });
 });
@@ -4561,6 +4649,7 @@ $("importFileInput").addEventListener("change", (e) => {
       if (data.concepts) saveJson(KEYS.concepts, data.concepts);
       if (data.concept_cards) saveJson(KEYS.cards, data.concept_cards);
       if (typeof migrateConceptCards === "function") migrateConceptCards();
+      migrateRepoPrefix();
       if (data.shaky_tags) saveJson(KEYS.shaky, data.shaky_tags);
       if (data.checklist) saveJson(KEYS.checklist, data.checklist);
       if (data.tombstones) saveJson(KEYS.tombstones, unionTombstones(loadTombstones(), data.tombstones));
@@ -6419,6 +6508,7 @@ function resetTagCard() {
   const c = $("tagCategory"); if (!c) return;
   c.value = ""; $("tagActionLine").innerHTML = ""; $("tagBadges").innerHTML = "";
   renderConceptSelect("", ""); $("tagConceptNewRow").style.display = "none";
+  if ($("tagConceptSuggest")) $("tagConceptSuggest").innerHTML = "";
 }
 function tagCategoryOptions(extra) {
   let h = `<option value="">\u2014 Choose what to do about it \u2014</option>` + ACTION_TAXONOMY.map(t => `<option value="${esc(t.name)}">${esc(t.name)}</option>`).join("") +
@@ -6445,6 +6535,79 @@ function renderConceptSelect(selectedId, subject) {
   h += `<option value="${NEW_CONCEPT}">\uFF0B Add new concept\u2026</option>`;
   sel.innerHTML = h;
   sel.value = selectedId && cs.some(c => c.id === selectedId) ? selectedId : "";
+}
+/* ---- Concept suggestions (no AI): word + character-trigram TF-IDF matching against questions you already tagged ---- */
+const SUG_STOP = new Set(("a an the of in on at to for and or is are was were be been being which what who whom whose when where why how this that these those it its as by with from into than then so such not no do does did can could will would should may might following given below above one two answer true false each all any both either neither about under over between during after before also if else only most least more less choose correct incorrect statement").split(" "));
+function sugStem(w) { return (w.length > 4 && /(ations?|ing|edly|ed|es|s)$/.test(w) && w.replace(/(ations?|ing|edly|ed|es|s)$/, "").length >= 3) ? w.replace(/(ations?|ing|edly|ed|es|s)$/, "") : w; }
+function sugTokens(text) {
+  return String(text || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").split(" ")
+    .filter(w => w.length >= 2 && !SUG_STOP.has(w) && !/^\d{1,2}$/.test(w)).map(sugStem);
+}
+function sugVector(text, wordBoost) {   // sparse TF map: "w:" whole words, "c:" character trigrams (they catch spelling and plural variants)
+  const v = new Map(), add = (k, x) => v.set(k, (v.get(k) || 0) + x);
+  for (const w of sugTokens(text)) {
+    add("w:" + w, wordBoost || 1);
+    if (w.length >= 4) { const p = "^" + w + "$"; for (let i = 0; i + 3 <= p.length; i++) add("c:" + p.slice(i, i + 3), 0.35 * (wordBoost || 1)); }
+  }
+  return v;
+}
+function sugNorm(v, idf) {
+  const o = new Map(); let n = 0;
+  for (const [k, x] of v) { const w = (1 + Math.log(x)) * (idf.get(k) || 1); o.set(k, w); n += w * w; }
+  n = Math.sqrt(n) || 1; for (const [k, w] of o) o.set(k, w / n); return o;
+}
+function sugCos(a, b) { if (a.size > b.size) [a, b] = [b, a]; let d = 0; for (const [k, w] of a) { const x = b.get(k); if (x) d += w * x; } return d; }
+// Returns up to `limit` concepts ranked by how much their already-tagged questions (and name / cards) look like this question.
+function conceptSuggestions(row, limit) {
+  const concepts = loadConcepts(); if (!concepts.length || !row) return [];
+  const selfKey = mistakeKey(row.source_list, row.reference_no), docs = [];   // docs: { cid, text, boost }
+  for (const it of collectTagItems(null)) {
+    if (!it.conceptId || mistakeKey(it.e.source_list, it.e.reference_no) === selfKey) continue;
+    docs.push({ cid: it.conceptId, text: (it.e.question || "") + " " + (it.e.correct_answer || ""), boost: 1 });
+  }
+  for (const c of concepts) {
+    docs.push({ cid: c.id, text: c.name, boost: 3 });
+    for (const k of cardsOf(c.id)) docs.push({ cid: c.id, text: [k.front, k.back, k.trap].join(" "), boost: 1 });
+  }
+  const raw = docs.map(d => sugVector(d.text, d.boost)), df = new Map();
+  for (const v of raw) for (const k of v.keys()) df.set(k, (df.get(k) || 0) + 1);
+  const idf = new Map(); for (const [k, n] of df) idf.set(k, Math.log(1 + docs.length / n));
+  const qText = (row.question || "") + " " + (row.correct_answer || ""), qv = sugNorm(sugVector(qText), idf);
+  if (!qv.size) return [];
+  const qStems = new Set(sugTokens(qText)), pm = conceptPrefixMap(), myPre = subjectPrefix(row.source_list).toLowerCase();
+  const per = new Map();   // concept id -> { max, sum, n, best }
+  docs.forEach((d, i) => {
+    const nv = sugNorm(raw[i], idf), sim = sugCos(qv, nv), r = per.get(d.cid) || { max: 0, centroid: new Map(), n: 0, best: "" };
+    if (sim > r.max) { r.max = sim; r.best = d.text; }
+    for (const [k, w] of nv) r.centroid.set(k, (r.centroid.get(k) || 0) + w);
+    r.n++; per.set(d.cid, r);
+  });
+  const out = [];
+  for (const c of concepts) {
+    const r = per.get(c.id); if (!r) continue;
+    let cn = 0; for (const w of r.centroid.values()) cn += w * w; cn = Math.sqrt(cn) || 1;
+    let dot = 0; for (const [k, w] of qv) { const x = r.centroid.get(k); if (x) dot += w * x / cn; }
+    const nameStems = Array.from(new Set(sugTokens(c.name))), hit = nameStems.filter(w => qStems.has(w));
+    const nameScore = nameStems.length ? hit.length / nameStems.length : 0;
+    const pre = pm.get(c.id), samePre = pre && pre.key && pre.key === myPre ? 0.04 : 0;
+    const score = 0.5 * r.max + 0.5 * dot + 0.3 * nameScore + samePre;
+    if (score >= 0.14) out.push({ id: c.id, name: c.name, score, why: hit.length ? "name words: " + hit.join(", ") : "", closest: r.best });
+  }
+  return out.sort((a, b) => b.score - a.score).slice(0, limit || 3);
+}
+function renderConceptSuggest() {
+  const box = $("tagConceptSuggest"); if (!box) return;
+  box.innerHTML = "";
+  const row = selectedMistakeRow;
+  if (!row || $("tagConcept").value || $("tagCategory").value.toLowerCase() === OTHER_CATEGORY.toLowerCase()) return;
+  const sug = conceptSuggestions(row, 3); if (!sug.length) return;
+  const lab = el("span", "hint", "Suggested:"); box.appendChild(lab);
+  for (const s of sug) {
+    const b = el("button", "lg-chip", esc(s.name));
+    b.title = (s.why ? s.why + "\n" : "") + "Closest text: " + String(s.closest || "").slice(0, 140);
+    b.addEventListener("click", () => { $("tagConcept").value = s.id; rememberTagDraft(); renderConceptSuggest(); });
+    box.appendChild(b);
+  }
 }
 function rememberTagDraft() {
   const row = selectedMistakeRow; if (!row) return;
@@ -6477,6 +6640,7 @@ function selectMistakeRow(arg, quiet) {
   const keepNew = dirty && draft.newOpen;
   $("tagConceptNewRow").style.display = keepNew ? "" : "none"; $("tagConceptNew").value = keepNew ? (draft.newText || "") : "";
   updateTagActionLine();
+  renderConceptSuggest();
   const oldNotes = [];
   if (fullEntry && (fullEntry.note || "").trim()) oldNotes.push("Earlier note: " + fullEntry.note.trim());
   for (const g of legacyGuessNotes(row.source_list, row.reference_no)) oldNotes.push("Earlier guess note" + (g.exam_source ? " (" + g.exam_source + ")" : "") + ": " + g.note.trim());
@@ -6557,16 +6721,16 @@ function retagItem(it) {   // from the Reviewer: open this question (mistake or 
   const e = it.e;
   selectMistakeRow({ exam_id: e.exam_id || "", exam_source: e.exam_source || "", source_list: e.source_list, reference_no: e.reference_no, question: e.question || "", your_answer: "", correct_answer: e.correct_answer || "", confidence: e.kind === "guess" ? "Guess" : "", flagged: e.kind === "flag", type: e.kind || "guess", logged_entry: e, tag_store: "shaky", complete: tagComplete(e), occurrence_count: 0, _synthetic: true });
 }
-$("tagCategory").addEventListener("change", () => { updateTagActionLine(); rememberTagDraft(); });
+$("tagCategory").addEventListener("change", () => { updateTagActionLine(); rememberTagDraft(); renderConceptSuggest(); });
 $("tagConcept").addEventListener("change", () => {
   if ($("tagConcept").value === NEW_CONCEPT) { $("tagConceptNewRow").style.display = ""; $("tagConceptNew").value = ""; $("tagConceptNew").focus(); $("tagConcept").value = ""; return; }
-  $("tagConceptNewRow").style.display = "none"; rememberTagDraft();
+  $("tagConceptNewRow").style.display = "none"; rememberTagDraft(); renderConceptSuggest();
 });
 function addConceptFromTagCard() {
   const nm = $("tagConceptNew").value.trim(); if (!nm) { toast("Type the concept name first."); return; }
   const row = selectedMistakeRow, c = addConcept(nm, row ? row.source_list : "");
   renderConceptSelect(c.id, row ? row.source_list : ""); $("tagConceptNewRow").style.display = "none";
-  rememberTagDraft(); toast("Concept added.");
+  rememberTagDraft(); renderConceptSuggest(); toast("Concept added.");
 }
 $("tagConceptAdd").addEventListener("click", addConceptFromTagCard);
 $("tagConceptNew").addEventListener("input", rememberTagDraft);
@@ -6789,7 +6953,11 @@ function qbDirtyCount() {
   return n;
 }
 function qbDirty() { return qbDirtyCount() > 0; }
-function qbKind(listName) { return listName.startsWith(REPO_PREFIX) ? "repo" : listName.startsWith(LOCAL_PREFIX) ? "local" : "builtin"; }
+function qbKind(listName) {
+  if (listName.startsWith(LOCAL_PREFIX)) return "local";
+  if (REPO_PREFIX) return listName.startsWith(REPO_PREFIX) ? "repo" : "builtin";
+  return Object.prototype.hasOwnProperty.call(loadRepoBanksRaw(), listName) ? "repo" : "builtin";
+}
 function qbBadge(kind) { return `<span class="qb-badge ${kind}">${kind === "repo" ? "REPOSITORY" : kind === "local" ? "LOCAL" : "BUILT-IN"}</span>`; }
 function qbBannerHtml(dest) {
   if (dest === "repo") {
@@ -7404,7 +7572,7 @@ function refreshQuestionsFromBanks(questions) {
   const lists = getAllLists();
   return questions.map(q => {
     const n = q._source_list || "";
-    if (!n.startsWith(LOCAL_PREFIX) && !n.startsWith(REPO_PREFIX)) return q;
+    if (qbKind(n) === "builtin") return q;
     const cur = (lists[n] || [])[q._source_index];
     return cur ? Object.assign({}, q, { text: cur.text, options: cur.options.slice(), correct: cur.correct }) : q;
   });
@@ -10072,6 +10240,7 @@ function migrateMistakeLogIfNeeded() {
 }
 
 (function init() {
+  migrateRepoPrefix();
   migrateMistakeLogIfNeeded();
   migrateTaxonomyIfNeeded();
   migrateConceptCards();
