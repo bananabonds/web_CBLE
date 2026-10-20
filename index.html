@@ -1867,8 +1867,26 @@ function storageTop() {
 }
 // Saves the repo-bank copy. If storage is full it frees what can be re-downloaded (old built-in cache) and retries;
 // failing that, the lists still work for this session from memory instead of vanishing.
+const IDB_NAME = "cble-cache";
+function idbOpen() { return new Promise((res, rej) => { const r = indexedDB.open(IDB_NAME, 1); r.onupgradeneeded = () => r.result.createObjectStore("kv"); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); }); }
+async function idbSet(k, v) { const db = await idbOpen(); return new Promise((res, rej) => { const t = db.transaction("kv", "readwrite"); t.objectStore("kv").put(v, k); t.oncomplete = () => res(true); t.onerror = () => rej(t.error); }); }
+async function idbGet(k) { const db = await idbOpen(); return new Promise((res, rej) => { const q = db.transaction("kv").objectStore("kv").get(k); q.onsuccess = () => res(q.result || null); q.onerror = () => rej(q.error); }); }
+// The repo-bank copy lives in IndexedDB (no 5 MB cap) so it no longer eats the space your study data needs.
 function saveRepoCache(obj) {
   _repoCacheMem = obj;
+  idbSet(KEYS.repoBanks, obj).then(() => { _repoCacheStored = true; try { localStorage.removeItem(KEYS.repoBanks); } catch (e) {} refreshStorageLine(); }).catch(() => saveRepoCacheLS(obj));
+  return true;
+}
+async function hydrateRepoCache() {
+  try {
+    const l = loadJson("cble.safetyBackups", []); if (l.length > 3) localStorage.setItem("cble.safetyBackups", JSON.stringify(l.slice(0, 3)));   // keep the 3 newest
+    let c = await idbGet(KEYS.repoBanks);
+    if (!c) { const ls = loadJson(KEYS.repoBanks, null); if (ls && ls.banks) { await idbSet(KEYS.repoBanks, ls); c = ls; } }   // move the old localStorage copy over
+    if (c && c.banks) { try { localStorage.removeItem(KEYS.repoBanks); } catch (e) {} if (!_repoCacheMem) { _repoCacheMem = c; refreshListsDisplay(); if (typeof refreshHome === "function") refreshHome(); } }
+  } catch (e) { console.warn("IndexedDB copy not available; using browser storage instead.", e); }
+  refreshStorageLine();
+}
+function saveRepoCacheLS(obj) {
   const txt = JSON.stringify(obj);
   try { localStorage.setItem(KEYS.repoBanks, txt); _repoCacheStored = true; return true; } catch (e) {}
   try { localStorage.removeItem("cble.backupBeforeRepoPrefixStrip"); if (obj.migrated) localStorage.removeItem(KEYS.topics); localStorage.setItem(KEYS.repoBanks, txt); _repoCacheStored = true; return true; } catch (e) {}
@@ -10171,6 +10189,7 @@ function migrateMistakeLogIfNeeded() {
 }
 
 (function init() {
+  hydrateRepoCache();
   migrateRepoPrefix();
   try { localStorage.removeItem(KEYS.topics); } catch (e) {}   // the old built-in cache is no longer used; frees storage
   migrateMistakeLogIfNeeded();
@@ -10708,7 +10727,7 @@ function safetyBackup(reason) {
     const c = safetyCounts(p); if (!c.tagged && !c.concepts && !c.cards) return;       // nothing worth keeping yet
     if (list.length && list[0].hash === h) return;                                    // unchanged since the last backup
     list.unshift({ ts: nowIso(), reason: reason || "auto", hash: h, data: p });
-    while (list.length > 6) list.pop();
+    while (list.length > 3) list.pop();
     for (let n = 0; n < 6; n++) { try { localStorage.setItem(SAFE_KEY, JSON.stringify(list)); return; } catch (e) { if (list.length <= 1) return; list.pop(); } }   // storage full: keep fewer
   } catch (e) { /* a backup must never break the app */ }
 }
