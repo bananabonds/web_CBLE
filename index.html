@@ -1866,7 +1866,24 @@ function repoNameClashes() {
 const REPO_CLASH = repoNameClashes();
 const REPO_PREFIX = REPO_CLASH.length ? OLD_REPO_PREFIX : "";
 function repoBankPath() { const c = getGithubConfig(); return (c && c.bankPath) || "question_bank.json"; }
-function loadRepoBankCache() { const c = loadJson(KEYS.repoBanks, null); return (c && c.banks && typeof c.banks === "object") ? c : { banks: {}, sha: null, fetchedAt: null, migrated: null }; }
+let _repoCacheMem = null, _repoCacheStored = true;   // this session's copy of the repo banks, even when browser storage has no room for it
+function storageTop() {
+  const rows = []; for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); rows.push([k, (localStorage.getItem(k) || "").length]); }
+  return rows.sort((a, b) => b[1] - a[1]).slice(0, 5).map(r => `${r[0]} ${(r[1] / 1e6).toFixed(2)}M`).join(", ");
+}
+// Saves the repo-bank copy. If storage is full it frees what can be re-downloaded (old built-in cache) and retries;
+// failing that, the lists still work for this session from memory instead of vanishing.
+function saveRepoCache(obj) {
+  _repoCacheMem = obj;
+  const txt = JSON.stringify(obj);
+  try { localStorage.setItem(KEYS.repoBanks, txt); _repoCacheStored = true; return true; } catch (e) {}
+  try { localStorage.removeItem("cble.backupBeforeRepoPrefixStrip"); if (obj.migrated) localStorage.removeItem(KEYS.topics); localStorage.setItem(KEYS.repoBanks, txt); _repoCacheStored = true; return true; } catch (e) {}
+  _repoCacheStored = false;
+  console.warn("Repo bank copy not stored; biggest items:", storageTop());
+  toast("Browser storage is too full to keep an offline copy of the lists. They work this session; see Settings > Move built-in lists for details.", 5000);
+  return false;
+}
+function loadRepoBankCache() { if (_repoCacheMem) return _repoCacheMem; const c = loadJson(KEYS.repoBanks, null); return (c && c.banks && typeof c.banks === "object") ? c : { banks: {}, sha: null, fetchedAt: null, migrated: null }; }
 function loadRepoBanksRaw() { return loadRepoBankCache().banks; }
 function loadRepoBanks() {
   const raw = loadRepoBanksRaw(), tagged = {};
@@ -1904,7 +1921,7 @@ async function pullRepoBanks(showToast) {
   try {
     const { data, sha } = await githubGetJsonAtPath(repoBankPath());
     const file = normalizeRepoFile(data);
-    saveJson(KEYS.repoBanks, { banks: file.banks, sha, fetchedAt: nowIso(), path: repoBankPath(), migrated: file.migrated_builtin || null });
+    saveRepoCache({ banks: file.banks, sha, fetchedAt: nowIso(), path: repoBankPath(), migrated: file.migrated_builtin || null });
     if (showToast) toast(`Pulled ${Object.keys(file.banks).length} repository bank(s).`);
     return true;
   } catch (e) {
@@ -1925,7 +1942,7 @@ async function commitRepoBanks(mutate, message) {
     file.updated_at = nowIso();
     try {
       const newSha = await githubPutFileAtPath(path, JSON.stringify(file, null, 2), sha, message);
-      saveJson(KEYS.repoBanks, { banks: file.banks, sha: newSha, fetchedAt: nowIso(), path, migrated: file.migrated_builtin || null });
+      saveRepoCache({ banks: file.banks, sha: newSha, fetchedAt: nowIso(), path, migrated: file.migrated_builtin || null });
       return file;
     } catch (e) {
       lastErr = e;
@@ -1980,6 +1997,7 @@ async function migrateBuiltinToRepo() {
   try {
     say("Reading built-in lists…");
     const topics = await fetchAllTopicsFromNetwork(), raw = {}, src = {};
+    try { localStorage.removeItem(KEYS.topics); } catch (e) {}   // re-downloadable, and it would double the storage the repo copy needs
     for (const [n, qs] of Object.entries(topics)) { raw[n] = qs.map(q => ({ text: q.text, options: q.options, correct: q.correct })); src[n] = raw[n].map(cleanBankQuestion); }
     say("Checking your repository file for name clashes…");
     const cur = normalizeRepoFile((await githubGetJsonAtPath(repoBankPath())).data), clash = [];
@@ -2002,7 +2020,7 @@ async function migrateBuiltinToRepo() {
     if (bad.length) { say("Verification FAILED for: " + bad.join(", ") + "\nThe built-in source is still in use and nothing was switched off. The backup file is in your repo: " + bpath); return; }
     await commitRepoBanks((b, f) => { f.migrated_builtin = { at: nowIso(), lists: Object.keys(raw).length, questions: total, backup: bpath }; }, "Mark built-in lists as migrated");
     refreshListsDisplay(); if (typeof renderQB === "function") renderQB();
-    say(`Done. ${Object.keys(raw).length} lists / ${total} questions copied and verified in order. The other repo is no longer used.\nBackup: ${bpath}`);
+    say(`Done. ${Object.keys(raw).length} lists / ${total} questions copied and verified in order. The other repo is no longer used.\nBackup: ${bpath}` + (_repoCacheStored ? "" : `\nNote: browser storage is too full to keep an offline copy, so the lists load from GitHub each session. Biggest items: ${storageTop()}`));
   } catch (e) { console.error(e); say("Stopped with an error, nothing was switched off: " + e.message); }
 }
 let _topicCache = null; // in-memory per session, mirrors _topic_cache
@@ -2078,7 +2096,7 @@ function isExcludedEntry(e) {
 }
 let _retiredMemo = { key: null, val: null };
 function getRetiredIndicesByList() {
-  const key = (localStorage.getItem(KEYS.banks) || "") + "\u0001" + (localStorage.getItem(KEYS.repoBanks) || "");
+  const key = (localStorage.getItem(KEYS.banks) || "") + "\u0001" + ((loadRepoBankCache().fetchedAt || "") + (loadRepoBankCache().sha || ""));
   if (_retiredMemo.key === key) return _retiredMemo.val;
   const out = {};
   const scan = (raw, prefix) => { for (const [name, qs] of Object.entries(raw || {})) (qs || []).forEach((q, i) => { if (q && q.retired) (out[prefix + name] = out[prefix + name] || new Set()).add(i); }); };
