@@ -303,10 +303,29 @@ input[type=date]{width:100%;border:1px solid var(--line);border-radius:8px;paddi
 .ma-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px;}
 .ma-chip{font-size:.68rem;padding:2px 8px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--sub);}
 .ma-note{font-size:.72rem;color:var(--sub);margin-top:4px;}
-.rt-opt{display:block;width:100%;text-align:left;margin:6px 0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:.9rem;line-height:1.4;}
-.rt-opt.sel{border-color:var(--navy);background:#EEF2FF;}
-.rt-opt.ok{border-color:var(--green);background:var(--green-bg);}
-.rt-opt.bad{border-color:var(--red);background:var(--red-bg);}
+/* ---------- Quick concept retest (never saved to Test History) ---------- */
+#retestOverlay{background:var(--paper);}
+.rt-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px;margin-bottom:12px;}
+.rt-box h4{font-size:.74rem;color:var(--sub);font-weight:700;margin-bottom:8px;}
+.rt-qnum{color:var(--navy);font-weight:700;font-size:.78rem;font-family:"IBM Plex Mono",monospace;margin-bottom:6px;}
+.rt-qtext{font-size:1rem;line-height:1.5;white-space:pre-wrap;}
+.rt-opts{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:12px;}
+.rt-opts .option-row{cursor:pointer;}
+.rt-opts .option-row.right{background:var(--green-bg,#DCFCE7);}
+.rt-opts .option-row.wrong{background:#FEE2E2;}
+.rt-opts.locked .option-row{cursor:default;}
+.rt-result{border-radius:var(--radius);padding:12px 14px;margin-bottom:12px;font-size:.88rem;line-height:1.45;border:1px solid var(--line);}
+.rt-result.ok{background:var(--green-bg,#DCFCE7);border-color:var(--green);}
+.rt-result.no{background:#FEE2E2;border-color:var(--red);}
+.rt-foot{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;gap:8px;}
+.rt-foot .btn{flex:1;}
+.rt-dots{display:flex;flex-wrap:wrap;gap:4px;margin:2px 0 10px;}
+.rt-dot{min-width:26px;height:26px;padding:0 4px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:.7rem;font-weight:700;color:var(--sub);cursor:pointer;}
+.rt-dot.picked{border-color:var(--navy);color:var(--navy);}
+.rt-dot.ok{background:var(--green);border-color:var(--green);color:#fff;}
+.rt-dot.unsure{background:var(--amber);border-color:var(--amber);color:#fff;}
+.rt-dot.bad{background:var(--red);border-color:var(--red);color:#fff;}
+.rt-dot.cur{outline:2px solid var(--navy);outline-offset:1px;}
 .fc-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 4px;}
 .fc-chip{font-size:.7rem;padding:3px 9px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--sub);font-weight:600;}
 .fc-chip.group{background:var(--navy);color:#fff;border-color:var(--navy);}
@@ -1088,6 +1107,7 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <label class="field-label" style="margin-top:8px;">Concept</label>
         <select id="rvConceptSel"></select>
         <div class="hint" id="rvShowing" style="margin-top:6px;"></div>
+        <div id="rvRetestRow" style="margin-top:8px;"></div>
         <div class="row wrap" style="gap:6px;margin-top:6px;"><button class="btn" id="rvExpandAll">Expand all questions</button><button class="btn" id="rvCollapseAll">Collapse all</button></div>
         <label class="row" style="margin-top:10px;font-size:.82rem;"><input type="checkbox" id="rvShowResolved"><span>Show resolved questions too</span></label>
       </div>
@@ -1506,11 +1526,14 @@ Python: Bank_Name = [ {"text":"...","options":[...],"correct":0}, ... ]
   <div class="fc-body"><div class="fc-card" id="fcCard"></div></div>
   <div class="fc-actions" id="fcActions"></div>
 </div>
-<div id="rtOverlay" class="overlay fc-overlay hidden">
-  <div class="fc-top"><button id="rtClose" aria-label="Close">&#10005;</button><div class="fc-progress"><div id="rtBar" style="height:100%;width:0;background:var(--navy);border-radius:4px;"></div></div><span id="rtCount" class="mono" style="font-size:.78rem;"></span></div>
-  <div class="fc-chips" id="rtChips"></div>
-  <div class="fc-body"><div class="fc-card" id="rtCard" style="cursor:default;display:block;"></div></div>
-  <div class="fc-actions" id="rtActions"></div>
+<!-- ============ QUICK RETEST OVERLAY (per concept; not saved to Test History) ============ -->
+<div class="overlay hidden" id="retestOverlay">
+  <div class="app-header-bar">
+    <div class="exam-title" id="rtTitle">Quick retest</div>
+    <button class="btn" id="rtClose" style="flex:none;">Close</button>
+  </div>
+  <div class="app-body" id="rtBody"></div>
+  <div class="rt-foot" id="rtFoot"></div>
 </div>
 <script>
 "use strict";
@@ -8705,7 +8728,7 @@ function renderStudioConcept(c, pfx) {
   row.innerHTML = `<div class="top-row"><span class="name">${esc(c.name)}</span><span class="row" style="gap:4px;flex:none;"><button class="btn" data-act="tts" data-cid="${id}" data-tts-cn="${id}" title="Read this concept's cards and open questions aloud" style="padding:2px 8px;">\u{1F50A}</button><span class="status-pill ${cs.cls}">${esc(cs.label)}</span></span></div>
     <div class="meta">${pfx && pfx.label ? `<b>${esc(pfx.label)}</b> &middot; ` : ""}${open.length} open question${open.length === 1 ? "" : "s"}${bits.length ? " (" + esc(bits.join(", ")) + ")" : ""}${progress ? " &middot; " + esc(progress) : ""}${nSkipped ? ` &middot; ${nSkipped} skipped in samples` : ""}</div>
     <div class="row wrap" style="margin-top:8px;gap:6px;">
-      <button class="btn primary" data-act="addcard" data-cid="${id}">\uFF0B Add card</button>${cards.some(k => (k.back || "").trim()) ? `<button class="btn" data-act="review" data-cid="${id}">Review cards</button>` : ""}<button class="btn" data-act="prompt" data-cid="${id}">\u{1F4CB} Copy AI prompt</button>${rtPlan(c.id).ok.length ? `<button class="btn primary" data-act="retest" data-cid="${id}">\u25B6 Retest (${rtPlan(c.id).ok.length})</button>` : ""}
+      <button class="btn primary" data-act="addcard" data-cid="${id}">\uFF0B Add card</button>${cards.some(k => (k.back || "").trim()) ? `<button class="btn" data-act="review" data-cid="${id}">Review cards</button>` : ""}<button class="btn" data-act="prompt" data-cid="${id}">\u{1F4CB} Copy AI prompt</button>${rtCountFor(open) ? `<button class="btn primary" data-act="retest" data-cid="${id}">\u26A1 Retest (${rtCountFor(open)})</button>` : ""}
       ${hasNeed("source") ? `<button class="btn" data-act="read" data-cid="${id}">\u2713 I read the section</button>` : ""}${hasNeed("drill") ? `<button class="btn" data-act="rep" data-cid="${id}">+1 closed-book rep</button><button class="btn" data-act="resetreps" data-cid="${id}">Reset reps</button>` : ""}${open.length ? `<button class="btn" data-act="resolveall" data-cid="${id}">Resolve all ${open.length}</button>` : ""}
     </div>`;
   if (!cards.length) { const h = el("div", "hint"); h.style.margin = "8px 0 0"; h.textContent = "No cards yet."; row.appendChild(h); }
@@ -8918,8 +8941,111 @@ function refreshReviewer() {
   }
   renderStudio();
   renderFullPicker();
+  rtRefreshRow();
   if (typeof ttsMark === "function") ttsMark();
 }
+
+/* ---------------------------------------------------------------------
+   Quick concept retest (exam-style screen). Answer a concept's open questions right now, with Prev / Next.
+   Nothing is saved to Test History, samples, bank usage or the mistake log's attempts.
+   The only thing that changes: a question answered RIGHT and marked Confident or Sure I'm Right becomes Resolved.
+   --------------------------------------------------------------------- */
+const RT_OK_CONF = ["Confident", "Sure I'm Right"];
+let RT = { cid: "", name: "", queue: [], i: 0, st: [], skipped: 0 };    // st[i] = this question's own state, so Prev / Next keep every answer
+let _rtListsMemo = { t: 0, v: null };
+function rtLists(fresh) { const now = Date.now(); if (fresh || !_rtListsMemo.v || now - _rtListsMemo.t > 1500) _rtListsMemo = { t: now, v: getAllLists() }; return _rtListsMemo.v; }
+// The bank question behind a tagged item, only when it is clearly the same question and can be answered.
+function rtBankQuestion(it, lists) {
+  const e = it.e, q = ((lists || rtLists())[it.subject] || [])[Number(e.reference_no) - 1];
+  if (!q || q.retired || !Array.isArray(q.options) || q.options.length < 2) return null;
+  if (!Number.isInteger(q.correct) || q.options[q.correct] == null) return null;
+  if (e.question && qsNorm(e.question).slice(0, 30) !== qsNorm(q.text).slice(0, 30)) return null;
+  return q;
+}
+function rtOpenItems(cid) { return (rvAllItems || []).filter(i => i.conceptId === cid && !i.resolved); }
+function rtCountFor(open) { const l = rtLists(); return (open || []).filter(i => rtBankQuestion(i, l)).length; }
+function rtRefreshRow() {
+  const row = $("rvRetestRow"); if (!row) return;
+  const n = rvConcept ? rtCountFor(rtOpenItems(rvConcept)) : 0;
+  row.innerHTML = n ? `<button class="btn success block" id="rvRetestBtn">\u26A1 Retest this concept now &middot; ${n} open question${n === 1 ? "" : "s"}</button>` : "";
+  const b = $("rvRetestBtn"); if (b) b.onclick = () => rtStart(rvConcept);
+}
+function rtStart(cid) {
+  const c = findConcept(cid); if (!c) return;
+  const lists = rtLists(true), queue = []; let skipped = 0;
+  for (const it of rtOpenItems(cid)) { const q = rtBankQuestion(it, lists); if (q) queue.push({ it, q }); else skipped++; }
+  if (!queue.length) { toast("Nothing to retest here: no open question in this concept can be found in the bank."); return; }
+  rtBegin(c, shuffle(queue.slice()), skipped);
+}
+function rtBegin(c, queue, skipped) {
+  RT = { cid: c.id, name: c.name, queue, i: 0, st: queue.map(() => ({ pick: null, conf: null, checked: false, right: false, ok: false })), skipped: skipped || 0 };
+  openOverlay("retestOverlay"); rtRender();
+}
+function rtClose() {
+  closeOverlay("retestOverlay"); RT.queue = []; RT.st = [];
+  refreshReviewer(); afterTagChange();
+}
+function rtGo(i) { RT.i = Math.max(0, Math.min(RT.queue.length, i)); rtRender(); $("rtBody").scrollTop = 0; }
+function rtCheck() {
+  const cur = RT.queue[RT.i], s = RT.st[RT.i]; if (!cur || s.checked || s.pick === null || !s.conf) return;
+  const right = s.pick === cur.q.correct, sure = RT_OK_CONF.includes(s.conf), ok = right && sure;
+  if (ok) { setItemResolved(cur.it, true); cur.it.resolved = true; }
+  s.checked = true; s.right = right; s.ok = ok;
+  rtRender();
+}
+function rtDots() {   // one dot per question: tap to jump. green = resolved, amber = right but unsure, red = wrong, grey = not answered
+  return `<div class="rt-dots">` + RT.queue.map((_, k) => {
+    const s = RT.st[k], cls = s.checked ? (s.ok ? "ok" : s.right ? "unsure" : "bad") : (s.pick !== null ? "picked" : "");
+    return `<button class="rt-dot ${cls}${k === RT.i ? " cur" : ""}" data-go="${k}" aria-label="Question ${k + 1}">${k + 1}</button>`;
+  }).join("") + `</div>`;
+}
+function rtRender() {
+  const body = $("rtBody"), foot = $("rtFoot");
+  $("rtTitle").textContent = `\u26A1 RETEST \u2014 ${RT.name}`;
+  if (RT.i >= RT.queue.length) return rtSummary(body, foot);
+  const { it, q } = RT.queue[RT.i], s = RT.st[RT.i], e = it.e, done = s.checked;
+  const opts = q.options.map(cleanOcrText), first = RT.i === 0, last = RT.i === RT.queue.length - 1, answered = RT.st.filter(x => x.checked).length;
+  let h = `<div class="rt-box"><div class="rt-qnum">Question ${RT.i + 1} of ${RT.queue.length} &middot; ${answered} answered &middot; Ref #${esc(e.reference_no)} &middot; ${esc(fcCleanName(it.subject))}</div>${rtDots()}<div class="rt-qtext">${esc(cleanOcrText(q.text))}</div></div>`;
+  h += `<div class="rt-opts${done ? " locked" : ""}">` + opts.map((o, i) => {
+    const cls = "option-row" + (done ? (i === q.correct ? " right" : (i === s.pick ? " wrong" : "")) : (s.pick === i ? " chosen" : ""));
+    return `<div class="${cls}" data-opt="${i}"><input type="radio" ${s.pick === i ? "checked" : ""} ${done ? "disabled" : ""}><label>${esc(o)}</label></div>`;
+  }).join("") + `</div>`;
+  h += `<div class="rt-box"><h4>Confidence in your answer</h4><div class="conf-choices">` + CONFIDENCE_LEVELS.map((l, i) => `<button class="conf-chip${s.conf === l ? " active" : ""}" data-conf="${i}" ${done ? "disabled" : ""}>${esc(l)}</button>`).join("") + `</div>
+    ${done ? "" : `<div class="hint" style="margin-top:8px;">Resolved only if you are right <b>and</b> pick Confident or Sure I'm Right. Not saved to Test History.</div>`}</div>`;
+  if (done) {
+    const sure = RT_OK_CONF.includes(s.conf);
+    const msg = s.ok ? "\u2713 Correct and confident \u2014 <b>resolved</b>."
+      : s.right ? `Correct, but you marked it <b>${esc(s.conf)}</b>. It stays open until you get it right as Confident or Sure I'm Right.`
+      : (sure ? `\u2717 Wrong, and you were <b>${esc(s.conf)}</b> \u2014 overconfident. It stays open.` : "\u2717 Wrong. It stays open.");
+    h += `<div class="rt-result ${s.ok ? "ok" : "no"}">${msg}${s.right ? "" : `<div style="margin-top:6px;">Correct answer: <b>${esc(opts[q.correct])}</b></div>`}${(e.note || "").trim() ? `<div class="meta" style="margin-top:6px;white-space:pre-wrap;"><b>Your note:</b> ${esc(e.note)}</div>` : ""}</div>`;
+  }
+  body.innerHTML = h;
+  const ready = s.pick !== null && s.conf;
+  foot.innerHTML = `<button class="btn" id="rtPrev" ${first ? "disabled" : ""}>\u25C0 Prev</button>` +
+    (done ? "" : `<button class="btn primary" id="rtCheck" ${ready ? "" : "disabled"}>${s.pick === null ? "Pick an answer" : (!s.conf ? "Pick confidence" : "Check answer")}</button>`) +
+    `<button class="btn ${done ? "primary" : ""}" id="rtNext">${last ? "Results" : "Next \u25B6"}</button>`;
+  if (!done) {
+    body.querySelectorAll("[data-opt]").forEach(r => r.addEventListener("click", () => { s.pick = Number(r.dataset.opt); rtRender(); }));
+    body.querySelectorAll("[data-conf]").forEach(b => b.addEventListener("click", () => { s.conf = CONFIDENCE_LEVELS[Number(b.dataset.conf)]; rtRender(); }));
+    $("rtCheck").addEventListener("click", rtCheck);
+  }
+  body.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => rtGo(Number(b.dataset.go))));
+  $("rtPrev").addEventListener("click", () => rtGo(RT.i - 1));
+  $("rtNext").addEventListener("click", () => rtGo(RT.i + 1));
+}
+function rtSummary(body, foot) {
+  const rows = RT.queue.map((x, k) => ({ it: x.it, q: x.q, s: RT.st[k] }));
+  const won = rows.filter(r => r.s.ok), still = rows.filter(r => !r.s.ok), asked = rows.filter(r => r.s.checked).length;
+  let h = `<div class="rt-box"><div class="rt-qnum">Round finished</div><div class="rt-qtext"><b>${won.length}</b> of ${rows.length} resolved${asked < rows.length ? ` &middot; ${rows.length - asked} not answered` : ""}${still.length ? ` &middot; <b>${still.length}</b> still open` : " \u2014 this concept is clear for now."}</div></div>`;
+  if (still.length) h += `<div class="rt-box"><h4>Still open</h4>` + still.map(r => `<div class="meta" style="margin:4px 0;">Ref #${esc(r.it.e.reference_no)} &middot; ${esc(fcCleanName(r.it.subject))} &middot; ${!r.s.checked ? "not answered" : r.s.right ? "right but only " + esc(r.s.conf) : "wrong"}</div>`).join("") + `</div>`;
+  if (RT.skipped) h += `<div class="hint">${RT.skipped} open question${RT.skipped === 1 ? " was" : "s were"} left out because the bank question is missing or retired.</div>`;
+  body.innerHTML = h;
+  foot.innerHTML = `<button class="btn" id="rtBack">\u25C0 Back</button>` + (still.length ? `<button class="btn primary" id="rtAgain">Retest the ${still.length} still open</button>` : "") + `<button class="btn" id="rtDone">Done</button>`;
+  $("rtBack").addEventListener("click", () => rtGo(RT.queue.length - 1));
+  const a = $("rtAgain"); if (a) a.addEventListener("click", () => { const c = findConcept(RT.cid); rtBegin(c || { id: RT.cid, name: RT.name }, shuffle(still.map(r => ({ it: r.it, q: r.q }))), RT.skipped); });
+  $("rtDone").addEventListener("click", rtClose);
+}
+$("rtClose").addEventListener("click", rtClose);
 
 /* ---- wiring for the permanent (static) parts ---- */
 (function rvWire() {
@@ -8939,7 +9065,8 @@ function refreshReviewer() {
   $("csNewAdd").addEventListener("click", () => {
     const nm = $("csNewName").value.trim(); if (!nm) { toast("Type the concept name first."); return; }
     const c = addConcept(nm, $("csNewSubject").value); csCid = c.id;
-    { const pk = (conceptPrefixMap().get(c.id) || { key: "" }).key; if (rvPrefix && !rvPrefixMatch(pk)) rvPrefix = ""; if (rvConcept && rvConcept !== c.id) rvConcept = ""; viewSave(); }   // make sure the new concept is visible in the current sort $("csNewName").value = ""; $("csNewRow").style.display = "none"; toast("Concept added."); refreshReviewer(); $("csFront").focus();
+    { const pk = (conceptPrefixMap().get(c.id) || { key: "" }).key; if (rvPrefix && !rvPrefixMatch(pk)) rvPrefix = ""; if (rvConcept && rvConcept !== c.id) rvConcept = ""; viewSave(); }   // make sure the new concept is visible in the current sort
+    $("csNewName").value = ""; $("csNewRow").style.display = "none"; toast("Concept added."); refreshReviewer(); $("csFront").focus();
   });
   $("csNewName").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); $("csNewAdd").click(); } });
   $("csRename").addEventListener("click", () => { const c = findConcept(csCid); if (!c) return; const nm = window.prompt("Rename concept", c.name); if (nm === null) return; if (renameConcept(csCid, nm)) { toast("Renamed."); refreshReviewer(); afterTagChange(); } else toast("That name is empty or already used."); });
@@ -10632,85 +10759,6 @@ let sfGhPayload = null;
     const r = safetyRestore(sfGhPayload, { addEntries: $("sfAddEntries").checked }); toast(`Restored: ${safetyReportText(r)}.`, 4000); sfGhPayload = null; $("sfGhRestore").disabled = true; safetyAfterRestore();
   });
   setTimeout(() => { safetyBackup("opened the app"); renderSafetyCard(); }, 1500);
-})();
-
-/* =====================================================================
-   Retest by concept: a quick practice round on one concept's questions. Nothing is added to test
-   history, mistake history or scores. The only effect: a right answer given with Confident / Sure I'm
-   Right marks that question resolved.
-   ===================================================================== */
-let RT = null;
-function rtBankQuestion(subject, ref) {
-  const q = (getAllLists()[subject] || [])[Number(ref) - 1];
-  return (q && Array.isArray(q.options) && q.options.length > 1 && Number.isInteger(q.correct) && q.options[q.correct] != null) ? q : null;
-}
-function rtPlan(cid) {
-  const ok = [], skipped = [];
-  for (const it of collectTagItems(null).filter(i => i.conceptId === cid && (rvShowResolved || !i.resolved))) { const q = rtBankQuestion(it.subject, it.e.reference_no); if (q) ok.push({ it, q }); else skipped.push(it); }
-  return { ok, skipped };
-}
-function rtStart(cid, onlyIds) {
-  const plan = rtPlan(cid); let list = plan.ok;
-  if (onlyIds) list = list.filter(x => onlyIds.includes(x.it.e.id));
-  if (!list.length) { toast(plan.skipped.length ? "Those questions aren't in your question bank anymore, so they can't be retested." : "No open questions to retest for this concept."); return; }
-  RT = { cid, name: conceptName(cid), list, i: 0, stage: "answer", chosen: -1, results: [], skipped: plan.skipped.length };
-  $("rtOverlay").classList.remove("hidden"); rtRender();
-}
-function rtClose() { const done = RT && RT.results.length; RT = null; $("rtOverlay").classList.add("hidden"); if (done) { refreshReviewer(); afterTagChange(); } }
-function rtOptsHtml(cur, mode) {
-  return cur.q.options.map((o, i) => {
-    let cls = "rt-opt";
-    if (mode === "pick") cls += RT.chosen === i ? " sel" : "";
-    if (mode === "feedback") { if (i === cur.q.correct) cls += " ok"; else if (i === RT.chosen) cls += " bad"; }
-    return `<button class="${cls}" data-rt-opt="${i}"${mode === "feedback" || mode === "conf" ? " disabled" : ""}><b>${String.fromCharCode(65 + i)}.</b> ${esc(String(o))}</button>`;
-  }).join("");
-}
-function rtRender() {
-  if (!RT) return;
-  const card = $("rtCard"), acts = $("rtActions");
-  if (RT.i >= RT.list.length) { rtSummary(); return; }
-  const cur = RT.list[RT.i], it = cur.it;
-  $("rtCount").textContent = `${RT.i + 1}/${RT.list.length}`; $("rtBar").style.width = `${RT.i / RT.list.length * 100}%`;
-  $("rtChips").innerHTML = `<span class="fc-chip">${esc(RT.name)}</span><span class="fc-chip">Ref #${esc(it.e.reference_no)}</span>${it.resolved ? `<span class="fc-chip">already resolved</span>` : ""}`;
-  const qHtml = `<div class="fc-label">Retest &middot; not recorded in your test history</div><div style="font-size:.95rem;line-height:1.55;white-space:pre-wrap;word-break:break-word;margin:6px 0 10px;">${esc(cur.q.text || it.e.question || "")}</div>`;
-  acts.innerHTML = "";
-  if (RT.stage === "answer") card.innerHTML = qHtml + rtOptsHtml(cur, "pick") + `<div class="hint" style="margin-top:8px;">Pick your answer.</div>`;
-  else if (RT.stage === "conf") card.innerHTML = qHtml + rtOptsHtml(cur, "pick").replace(/data-rt-opt/g, "disabled data-rt-x") + `<div class="field-label" style="margin-top:12px;">How sure are you?</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">${CONFIDENCE_LEVELS.map(c => `<button class="btn" data-rt-conf="${esc(c)}">${esc(c)}</button>`).join("")}</div>`;
-  else {
-    const r = RT.results[RT.results.length - 1];
-    const msg = r.right ? (r.resolvedNow ? `\u2713 Correct, and you were sure \u2014 <b>resolved</b>.` : r.alreadyResolved ? `\u2713 Correct (it was already resolved).` : `\u2713 Correct, but only resolves when you answer <b>Confident</b> or <b>Sure I'm Right</b>. It stays open.`) : `\u2717 Not this one. The correct answer is <b>${String.fromCharCode(65 + cur.q.correct)}</b>. It stays open.`;
-    card.innerHTML = qHtml + rtOptsHtml(cur, "feedback") + `<div class="rv-note" style="margin-top:12px;border-left:3px solid ${r.right ? "var(--green)" : "var(--red)"};">${msg}<div class="meta" style="margin-top:4px;">You said: ${esc(r.conf)}</div></div>`;
-    acts.innerHTML = `<button class="btn primary block" data-rt-next="1">${RT.i + 1 >= RT.list.length ? "Finish" : "Next question"} &rarr;</button>`;
-  }
-}
-function rtSummary() {
-  const right = RT.results.filter(r => r.right).length, res = RT.results.filter(r => r.resolvedNow).length, open = RT.results.filter(r => !r.resolvedNow && !r.alreadyResolved);
-  $("rtCount").textContent = "done"; $("rtBar").style.width = "100%"; $("rtChips").innerHTML = `<span class="fc-chip">${esc(RT.name)}</span>`;
-  $("rtCard").innerHTML = `<div class="fc-label">Retest finished</div><div style="font-size:1.4rem;font-weight:700;margin:6px 0;">${right} of ${RT.results.length} right</div>
-    <div>\u2705 <b>${res}</b> resolved (right and sure)</div><div>\u{1F4CC} <b>${open.length}</b> still open</div>${RT.skipped ? `<div class="hint" style="margin-top:6px;">${RT.skipped} question${RT.skipped === 1 ? " isn't" : "s aren't"} in your question bank anymore and was left out.</div>` : ""}
-    <div class="hint" style="margin-top:10px;">None of this was added to your test history.</div>`;
-  $("rtActions").innerHTML = (open.length ? `<button class="btn primary block" data-rt-again="1">Retest the ${open.length} still open</button>` : "") + `<button class="btn block" data-rt-done="1" style="margin-top:6px;">Done</button>`;
-}
-(function rtWire() {
-  if (!$("rtOverlay")) return;
-  $("rtClose").addEventListener("click", rtClose);
-  $("rtCard").addEventListener("click", (e) => {
-    if (!RT) return;
-    const o = e.target.closest("[data-rt-opt]"), c = e.target.closest("[data-rt-conf]");
-    if (o && RT.stage === "answer") { RT.chosen = +o.dataset.rtOpt; RT.stage = "conf"; rtRender(); }
-    else if (c && RT.stage === "conf") {
-      const cur = RT.list[RT.i], conf = c.dataset.rtConf, right = RT.chosen === cur.q.correct, sure = conf === "Confident" || conf === "Sure I'm Right";
-      const already = cur.it.resolved, resolvedNow = right && sure && !already;
-      if (resolvedNow) setItemResolved(cur.it, true);          // the only thing a retest changes
-      RT.results.push({ id: cur.it.e.id, right, conf, resolvedNow, alreadyResolved: already && right }); RT.stage = "feedback"; rtRender();
-    }
-  });
-  $("rtActions").addEventListener("click", (e) => {
-    if (!RT) return;
-    if (e.target.closest("[data-rt-next]")) { RT.i++; RT.stage = "answer"; RT.chosen = -1; rtRender(); }
-    else if (e.target.closest("[data-rt-again]")) { const ids = RT.results.filter(r => !r.resolvedNow && !r.alreadyResolved).map(r => r.id), cid = RT.cid; rtClose(); rtStart(cid, ids); }
-    else if (e.target.closest("[data-rt-done]")) rtClose();
-  });
 })();
 </script>
 </body>
