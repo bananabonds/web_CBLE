@@ -94504,10 +94504,10 @@
       "source_list": "D2_L6_Particle_Technology",
       "reference_no": 64,
       "question": "A random handful of silica particles ranging in size from 28 mesh to 200 mesh is thrown to a very deep body of water (without tides or turbulence) Data: Viscosity of water = 0.01 poise Density of silica = 2.65 g/cm3 28 mesh B 0.0589 cm 200 mesh = 0.0074 cm The distance between the largest and smallest particles after 10 min is",
-      "category": "",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-20T16:05:55",
+      "date_logged": "2026-10-20T16:15:30",
       "occurrences": [
         {
           "exam_id": "17925123558416",
@@ -94517,9 +94517,9 @@
           "correct_answer": "A. 4700 cm"
         }
       ],
-      "updated_at": "2026-10-20T16:05:55",
-      "concept_id": "",
-      "tag_at": "",
+      "updated_at": "2026-10-20T16:15:30",
+      "concept_id": "1792318516515459",
+      "tag_at": "2026-10-20T16:15:30",
       "note_at": ""
     },
     {
@@ -94527,10 +94527,10 @@
       "source_list": "D2_L5_Transport_Phenomenon",
       "reference_no": 35,
       "question": "In a 1-1 shell and tube heat exchanger, steam is condensing on the shell side at Ts °C, and the cold fluid is being heated on the tube side from t °C to t₂ °C. The followingequation relates t₂ to the other variables. ln (Ts - t1 / Ts - t2) = UA/W Cp Where 'U' is the overall heat transfer coefficient, 'A' is the heat transfer area, W' is the mass flow rate and 'Cp' is the heat capacity. The tube side coefficient is controlling, andthe tube side fluid is in turbulent flow. T5 = 130°C, t = 30°C, t₂ = 80°C. If the mass flow rate of the cold fluid is double while keeping all the other conditions it, find the new value of t₂ at steady state.",
-      "category": "",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-20T16:05:55",
+      "date_logged": "2026-10-20T16:15:47",
       "occurrences": [
         {
           "exam_id": "17925123558416",
@@ -94540,9 +94540,9 @@
           "correct_answer": "D. 75°C"
         }
       ],
-      "updated_at": "2026-10-20T16:05:55",
-      "concept_id": "",
-      "tag_at": "",
+      "updated_at": "2026-10-20T16:15:47",
+      "concept_id": "1792512945505871",
+      "tag_at": "2026-10-20T16:15:47",
       "note_at": ""
     },
     {
@@ -94550,10 +94550,10 @@
       "source_list": "D2_L1_ChE_Calculations",
       "reference_no": 56,
       "question": "A pure saturated hydrocarbon is burnt with excess air. Orsat analysis of the stack gas shows 7.9% CO2, 1.18% CO, 0.24% H2, 5.25% 02, and 85.43% N₂. Air is substantially dry. The stack gases leave at 750 mmHg pressure. Calculate: The % excess air",
-      "category": "",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-20T16:05:55",
+      "date_logged": "2026-10-20T16:15:57",
       "occurrences": [
         {
           "exam_id": "17925123558416",
@@ -94563,9 +94563,9 @@
           "correct_answer": "A. 25%"
         }
       ],
-      "updated_at": "2026-10-20T16:05:55",
-      "concept_id": "",
-      "tag_at": "",
+      "updated_at": "2026-10-20T16:15:57",
+      "concept_id": "1792307418606446",
+      "tag_at": "2026-10-20T16:15:57",
       "note_at": ""
     },
     {
@@ -96981,6 +96981,14 @@
       "progress": {},
       "created_at": "2026-10-20T16:13:57",
       "updated_at": "2026-10-20T16:13:57"
+    },
+    {
+      "id": "1792512945505871",
+      "name": "Heat Exchanger",
+      "subject": "D2_L5_Transport_Phenomenon",
+      "progress": {},
+      "created_at": "2026-10-20T16:15:45",
+      "updated_at": "2026-10-20T16:15:45"
     }
   ],
   "concept_cards": [
@@ -98497,5 +98505,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-20T16:14:41"
+  "updated_at": "2026-10-20T16:16:22"
 }
