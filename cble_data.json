@@ -92687,7 +92687,7 @@
       "question": "A binary mixture with components A and B is to be separated in a distillation column to obtain 95 mol% A as the top product. The binary mixture has a constant relative volatility aAB = 2. The column feed is a saturated liquidcontaining 50 mol% A. Under the usual simplifyingassumptions such as constant molal overflow, negligible heat loss, ideal trays, the minimum reflux ratio for this separation is",
       "category": "Formula / Equation Error",
       "note": "Saturated liquid meaning the liquid in feed is the liquid the pinch point (intersection of ope and recti line). Get vapor mol frac, y = ax/[1+(a-1)x]. Get rectifying line slope m = xd - y / xd - x. Get Rmin from Rmin/(Rmin + 1) = m.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-18T10:38:38",
       "occurrences": [
         {
@@ -92698,7 +92698,7 @@
           "correct_answer": "A. 1.7"
         }
       ],
-      "updated_at": "2026-10-18T10:38:38",
+      "updated_at": "2026-10-22T07:25:32",
       "concept_id": "1792306934086228",
       "tag_at": "",
       "note_at": ""
@@ -99209,5 +99209,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-22T07:24:18"
+  "updated_at": "2026-10-22T07:25:39"
 }
