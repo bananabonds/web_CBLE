@@ -42375,6 +42375,631 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1792705735005105",
+      "name": "D3_S5",
+      "created_at": "2026-10-22T21:48:55",
+      "composition": {
+        "D3_L13_EngineeringDataAnalysis": 4,
+        "D3_L5_Geometry": 3,
+        "D3_L3_Algebra": 3,
+        "D3_L1_ChE_Laws": 3,
+        "D3_L7_Differential_Calculus": 3,
+        "D3_L10_ProcessSafety": 4,
+        "D3_L4_Trigonometry": 3,
+        "D3_L8_Integral_Calculus": 3,
+        "D3_L12_EngineeringEconomics": 4,
+        "D3_L14_Physics": 4,
+        "D3_L9_CPI": 3,
+        "D3_L6_AnalyticGeometry": 3,
+        "D3_L15_Engineering_Mechanics": 3,
+        "D3_L2_Process_Control_Analysis": 3,
+        "D3_L11_Differential_Equations": 4
+      },
+      "questions": [
+        {
+          "text": "[Questions 36-37: The number of cars passing a point on a road may be modelled by a Poisson distribution. On average, 4 cars enter the Caibaan Diversion Road in Tacloban City every 5 minutes.] Find the probability that in a 5-minute period, exactly two cars go past.",
+          "options": [
+            "A. 0.038",
+            "B. 0.146",
+            "C. 0.238",
+            "D. 0.382"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 35
+        },
+        {
+          "text": "What is the measure of one exterior angle of a regular hectogon?",
+          "options": [
+            "A. 3.6u00b0",
+            "B. 1.8u00b0",
+            "C. 18u00b0",
+            "D. 36u00b0"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 6
+        },
+        {
+          "text": "The arithmetic mean of 80 numbers is 55. If two numbers namely 250 and 850 are removed, what is the arithmetic mean of the remaining numbers?",
+          "options": [
+            "A. 42.31",
+            "B. 50",
+            "C. 38.62",
+            "D. 57.12"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 15
+        },
+        {
+          "text": "Refusal to pay taxes in violation of tax laws:",
+          "options": [
+            "A. tax evasion",
+            "B. tax avoidance",
+            "C. tax declaration",
+            "D. estimated tax"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 107
+        },
+        {
+          "text": "[Situation 1: f(x) = x³/9 - 3x] At what interval will the function be increasing?",
+          "options": [
+            "A. (-∞, -3]",
+            "B. [-3, 3]",
+            "C. [3, +∞)",
+            "D. both A and C"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 34
+        },
+        {
+          "text": "The Benxihu Colliery disaster of 1942 holds a grim record. What is that record?",
+          "options": [
+            "A. The largest chemical spill in peacetime history",
+            "B. The deadliest industrial accident ever recorded",
+            "C. The first underground mine disaster involving toxic gas",
+            "D. The deadliest nuclear-related accident in history"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 54
+        },
+        {
+          "text": "In triangle ABC we have AB = 7, AC = 8 and BC = 9. Point D is on the circumscribed circle of the triangle so that AD bisects angle BAC. What is the value of AD/CD?",
+          "options": [
+            "A. 9/8",
+            "B. 5/3",
+            "C. 2",
+            "D. 17/7"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 22
+        },
+        {
+          "text": "If tan x + tan y = 25 and cot x + cot y = 30, what is tan (x + y)?",
+          "options": [
+            "A. 150",
+            "B. 100",
+            "C. 200",
+            "D. 250"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 14
+        },
+        {
+          "text": "When does the patent become effective?",
+          "options": [
+            "A. upon application of patent",
+            "B. date of publication of the grant of the patent",
+            "C. 18 months after publication",
+            "D. tomorrow"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 59
+        },
+        {
+          "text": "A certain angle has explement 5 times the supplement. Find the angle.",
+          "options": [
+            "A. 135u00b0",
+            "B. 90u00b0",
+            "C. 120u00b0",
+            "D. 150u00b0"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 4
+        },
+        {
+          "text": "A 5 N monkey is attached to a 20 m hanging rope that weighs 0.3 N/m. The monkey climbs the rope up to the top. How much work has it done?",
+          "options": [
+            "A. 130J",
+            "B. 150J",
+            "C. 160J",
+            "D. 20J"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 44
+        },
+        {
+          "text": "If the supplement of an angle is 5/2 of its complement, find the measurement of the angle.",
+          "options": [
+            "A. 45u00b0",
+            "B. 135u00b0",
+            "C. 30u00b0",
+            "D. 60u00b0"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 3
+        },
+        {
+          "text": "A flexible hose used for a chemical transfer was last used three months ago and stored coiled in a rack outdoors. A shift operator picks it up for a new transfer without inspection. What is the primary risk being overlooked?",
+          "options": [
+            "A. The hose may not be the correct length for the connection",
+            "B. The hose may have suffered corrosion, wear, or damage",
+            "C. The hose may need recertification if more than 6 months old",
+            "D. The hose coupling may have loosened due to temperature changes"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 36
+        },
+        {
+          "text": "All incorporators must",
+          "options": [
+            "A. be natural born persons",
+            "B. must be 18 years of age",
+            "C. have a college degree",
+            "D. must be religious"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 111
+        },
+        {
+          "text": "A man wants to make 14% nominal interest compounded semi-annually on a bond investment. How much should he be willing to pay now for a 12%, P10,000 bond that will mature in 10 years and pays interest semi-annually?",
+          "options": [
+            "A. P8940.23",
+            "B. P9000.00",
+            "C. P8850.00",
+            "D. P9050.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 68
+        },
+        {
+          "text": "Find the mean proportional of 4 and 36.",
+          "options": [
+            "A. 72",
+            "B. 24",
+            "C. 12",
+            "D. 20"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 20
+        },
+        {
+          "text": "For the function f(x) = 4x³ - 3x² + 2x + 1, find the linear approximation around x = 3",
+          "options": [
+            "A. y = 35x - 163",
+            "B. y = 92x + 187",
+            "C. y = 29x + 143",
+            "D. y = 92x - 188"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 26
+        },
+        {
+          "text": "A university student wants to take exactly one elective course this semester. The university offers 4 unique history courses, 5 unique philosophy courses, and 3 unique art courses, none of which overlap in content or scheduling. In how many different ways can the student select their elective course?",
+          "options": [
+            "A. 12",
+            "B. 20",
+            "C. 60",
+            "D. 15"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 3
+        },
+        {
+          "text": "Four light bulbs are chosen at random from 20 bulbs, of which 5 are defective. Find the probability that exactly one is defective.",
+          "options": [
+            "A. 0.2787",
+            "B. 0.0493",
+            "C. 0.1897",
+            "D. 0.4696"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 30
+        },
+        {
+          "text": "A cart travels along a frictionless roller coaster track. At point A, the cart is 10 m above the ground and traveling at 2 m/s. The track dips down to the ground (point B), then rises again to point C, which is at a height of 3 m, before continuing on toward point D. What is the velocity of the cart at point B when it reaches the ground?",
+          "options": [
+            "A. 13.13 m/s",
+            "B. 14.15 m/s",
+            "C. 15.16 m/s",
+            "D. 16.16 m/s"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 6
+        },
+        {
+          "text": "The primary focus of lower management levels in a safety management system is to:",
+          "options": [
+            "A. Develop safety policies",
+            "B. Allocate safety budgets",
+            "C. Control hazards at the job level",
+            "D. Review safety legislation"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 68
+        },
+        {
+          "text": "What is the typical concentration range of helium in natural gas fields required for extraction to be economically viable?",
+          "options": [
+            "A. 0.01 to 0.03 percent",
+            "B. 1.50 to 5.00 percent",
+            "C. 0.04 to 0.65 percent",
+            "D. 10.00 to 12.50 percent"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 76
+        },
+        {
+          "text": "A circle has a diameter whose ends are at (-3, 2) and (12, -6). Its equation is:",
+          "options": [
+            "A. 4x^2 + 4y^2 u2013 36x + 16y + 192 = 0",
+            "B. 4x^2 + 4y^2 u2013 36x + 16y u2013 192 = 0",
+            "C. 4x^2 + 4y^2 u2013 36x u2013 16y u2013 192 = 0",
+            "D. 4x^2 + 4y^2 u2013 36x u2013 16y + 192 = 0"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 28
+        },
+        {
+          "text": "A fixed crane has a mass of 1000 kg and is used to lift a 2400 kg crate. The crane's vertical post is 1.5 m tall and is held by a pin support at A (top of the post) and a rocker support at B (bottom of the post, which provides only a horizontal reaction). The boom extends horizontally 2 m from the post to point C, then continues 4 m further to where the crate hangs. The center of gravity of the crane is located at G. What is the vertical component of the reaction at A?",
+          "options": [
+            "A. 18.39kN",
+            "B. 26.74kN",
+            "C. 30.02kN",
+            "D. 33.35kN"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 11
+        },
+        {
+          "text": "Most industrial facilities require multiple variables to be controlled simultaneously using many manipulated variables. The main variables of concern are typically product quality and product throughput: One way to reduce the number of control schemes is by selecting only the best controller pairings, ie. which controlled variables have the most impact for each manipulated variable The most popular method of determining the best controller pairing is called the:",
+          "options": [
+            "A. Process interaction minimization",
+            "B. Relative gain array method",
+            "C. Decoupling method",
+            "D. Model predictive control"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 47
+        },
+        {
+          "text": "What was historically significant about Peregrine Phillips' patent for the \"contact process\"?",
+          "options": [
+            "A. It was the first mention of heterogeneous catalysis for a large-scale process.",
+            "B. It introduced the use of coal tar for dyes.",
+            "C. It was the first process to use electrical power.",
+            "D. It replaced the need for sulfuric acid entirely."
+          ],
+          "correct": 0,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 2
+        },
+        {
+          "text": "Which of the following is considered as the Volterra equation of the first kind?",
+          "options": [
+            "A. u(x) = λ∫[a,x] K(x,t)u(t)dt",
+            "B. u(x) = f(x) + λ∫[a,x] K(x,t)u(t)dt",
+            "C. u(x) = λ∫[a,b] K(x,t)u(t)dt",
+            "D. u(x) = f(x) + λ∫[a,b] K(x,t)u(t)dt"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 47
+        },
+        {
+          "text": "The lengths of the major and minor axes of an ellipse are 10 m and 8 m, respectively. Find the distance between the foci.",
+          "options": [
+            "A. 3",
+            "B. 4",
+            "C. 5",
+            "D. 6"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 33
+        },
+        {
+          "text": "Find the differential equations of the family of lines passing through the origin.",
+          "options": [
+            "A. y dx – x dy = 0",
+            "B. x dy – y dx = 0",
+            "C. x dx + y dy = 0",
+            "D. y dx + x dy = 0"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 4
+        },
+        {
+          "text": "A qualified Safety Officer 4 or its equivalent, duly certified by DOLE to perform and/or render consultative services on Occupational Safety and health in at least two (2) fields of specialization as determined by DOLE.",
+          "options": [
+            "A. OSH consultant",
+            "B. OSH personnel",
+            "C. OSH practitioner",
+            "D. First-Aider"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 4
+        },
+        {
+          "text": "Two red books and 4 blue books are placed at random on a shelf. What is the probability that the blue books will be together?",
+          "options": [
+            "A. 0.1",
+            "B. 0.143",
+            "C. 0.2",
+            "D. 0.341"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 26
+        },
+        {
+          "text": "A stone is dropped from a height of 80 m. Find the final velocity after it reaches the ground.",
+          "options": [
+            "A. 29.62 m/s",
+            "B. 34.62 m/s",
+            "C. 39.62 m/s",
+            "D. 44.62 m/s"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 50
+        },
+        {
+          "text": "This type of flowmeter takes advantage of the frequency shift observed in sound waves passed through the fluid flow, which is directly proportional to fluid velocity.",
+          "options": [
+            "A. Ultrasonic flowmeters",
+            "B. Coriolis flowmeters",
+            "C. Magnetic flowmeters",
+            "D. Thermal mass flowmeters"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 58
+        },
+        {
+          "text": "What is the term for the scientific study of sight and the behavior of light, or the properties of transmission and deflection of other forms of radiation?",
+          "options": [
+            "A. Optics",
+            "B. Acoustics",
+            "C. Thermodynamics",
+            "D. Kinematics"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 40
+        },
+        {
+          "text": "The fundamental frequency of an open-end organ pipe is 392 Hz. The third harmonic of a closed-end organ pipe has the same frequency. The speed of sound in air is 346 m/s. Determine the length of the closed-end pipe.",
+          "options": [
+            "A. 22.1 cm",
+            "B. 44.4 cm",
+            "C. 66.2 cm",
+            "D. 88.6 cm"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 25
+        },
+        {
+          "text": "What rate of interest compounded annually is the same as the rate of interest of 8% compounded quarterly?",
+          "options": [
+            "A. 8.24%",
+            "B. 8.00%",
+            "C. 8.50%",
+            "D. 8.16%"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 38
+        },
+        {
+          "text": "Evaluate the particular solution of the differential equation: y' − y tan x = sin x, y(0) = 1",
+          "options": [
+            "A. y = (5-cos(2x))/(4cosx)",
+            "B. y = (5-sin(2x))/(4sinx)",
+            "C. y = (5+cos(2x))/(4cosx)",
+            "D. y = (5+sin(2x))/(4sinx)"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 23
+        },
+        {
+          "text": "Find the equation of the family of orthogonal trajectories of the system of parabolas y² = 2x + C.",
+          "options": [
+            "A. y = Ce^(-x)",
+            "B. y = Ce^(2x)",
+            "C. y = Ce^x",
+            "D. y = Ce^(-2x)"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 49
+        },
+        {
+          "text": "The equation whose roots are the reciprocal of the roots of 2x^2 - 3x - 5 = 0 is",
+          "options": [
+            "A. 5x^2 + 3x - 2 = 0",
+            "B. 2x^2 + 3x - 5 = 0",
+            "C. 3x^2 - 3x + 2 = 0",
+            "D. 2x^2 + 5x - 3 = 0"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 13
+        },
+        {
+          "text": "Conversion of CO to CO2 by steam in presence of a catalyst is called",
+          "options": [
+            "A. Steam reforming",
+            "B. Steam gasification",
+            "C. Shift conversion",
+            "D. None of these"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 79
+        },
+        {
+          "text": "What variables should we measure to monitor the operational performance of a plant?",
+          "options": [
+            "A. Control objectives",
+            "B. Controller output",
+            "C. Manipulated variable",
+            "D. Setpoint"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 3
+        },
+        {
+          "text": "Find the inclination of the line passing through (-5, 3) and (10, 7).",
+          "options": [
+            "A. 14.73",
+            "B. 14.93",
+            "C. 14.83",
+            "D. 14.63"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 6
+        },
+        {
+          "text": "A fixed crane has a mass of 1000 kg and is used to lift a 2400 kg crate. The crane's vertical post is 1.5 m tall and is held by a pin support at A (top of the post) and a rocker support at B (bottom of the post, which provides only a horizontal reaction). The boom extends horizontally 2 m from the post to point C, then continues 4 m further to where the crate hangs. The center of gravity of the crane is located at G. What is the horizontal component of the reaction at B?",
+          "options": [
+            "A. 107.26kN",
+            "B. 120.28kN",
+            "C. 116.78kN",
+            "D. 112.29kN"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 12
+        },
+        {
+          "text": "Find the area bounded by the curves x²+y²=9 and 4x²+9y²=36 on the first quadrant.",
+          "options": [
+            "A. 2.09",
+            "B. 1.57",
+            "C. 2.36",
+            "D. 1.17"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 26
+        },
+        {
+          "text": "At 6%, find the capitalized cost of a bridge whose cost is P250M and life is 20 years, if the bridge must be partially rebuilt at a cost of P100M at the end of each 20 years.",
+          "options": [
+            "A. P295.31M",
+            "B. P290.00M",
+            "C. P300.00M",
+            "D. P285.00M"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 51
+        },
+        {
+          "text": "A resistor of 10 Ω is connected across a 12 V battery. Find the current flowing through the resistor.",
+          "options": [
+            "A. 0.8 A",
+            "B. 1.0 A",
+            "C. 1.2 A",
+            "D. 1.5 A"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 50
+        },
+        {
+          "text": "[Situation 7: f(x,y,z) = x³y⁵z⁷ + xy² + y³z] Find f_zyx",
+          "options": [
+            "A. 6y⁵z⁷",
+            "B. 30xy⁴z⁷",
+            "C. 42xy⁵z⁶",
+            "D. 105x²y⁴z⁶"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 82
+        },
+        {
+          "text": "When the use of one of the factors of production is limited, either in increasing cost or by absolute quantity, a point will be reached beyond which an increase in the variable factors will result in a less than proportionate increase in output.",
+          "options": [
+            "A. Law of Supply and Demand",
+            "B. Law of Diminishing Returns",
+            "C. Law of Diminishing Marginal Utility",
+            "D. Law of Economies of Scale"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 14
+        },
+        {
+          "text": "What is the order and degree of the differential equation below? (dr/dθ)^(4/3) + r = 2",
+          "options": [
+            "A. 1st order, 4/3 degree",
+            "B. 1st order, 4th degree",
+            "C. 1st order, 3rd degree",
+            "D. 4th order, 3rd degree"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 0
+        },
+        {
+          "text": "A cone is inscribed in a hemisphere of radius r. If the cone and the hemisphere share bases, find the volume of the region inside the hemisphere but outside the cone.",
+          "options": [
+            "A. 4u03c0r^3/3",
+            "B. 2u03c0r^3/3",
+            "C. u03c0r^2h/3",
+            "D. u03c0r^3/3"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 28
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -102976,5 +103601,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-22T21:47:12"
+  "updated_at": "2026-10-22T21:49:02"
 }
