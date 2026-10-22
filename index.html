@@ -1784,18 +1784,44 @@ function conceptPrefixMap() {
 /* ---------------------------------------------------------------------
    Generic storage helpers (mirrors load_json_file / save_json_file)
    --------------------------------------------------------------------- */
+/* ---- Compression for the big, repetitive data sets (lz-string, MIT licence) so they take ~5x less of the browser's storage ---- */
+var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",n="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-$",e={};function t(r,o){if(!e[r]){e[r]={};for(var n=0;n<r.length;n++)e[r][r.charAt(n)]=n}return e[r][o]}var i={compressToBase64:function(r){if(null==r)return"";var n=i._compress(r,6,function(r){return o.charAt(r)});switch(n.length%4){default:case 0:return n;case 1:return n+"===";case 2:return n+"==";case 3:return n+"="}},decompressFromBase64:function(r){return null==r?"":""==r?null:i._decompress(r.length,32,function(n){return t(o,r.charAt(n))})},compressToUTF16:function(o){return null==o?"":i._compress(o,15,function(o){return r(o+32)})+" "},decompressFromUTF16:function(r){return null==r?"":""==r?null:i._decompress(r.length,16384,function(o){return r.charCodeAt(o)-32})},compressToUint8Array:function(r){for(var o=i.compress(r),n=new Uint8Array(2*o.length),e=0,t=o.length;e<t;e++){var s=o.charCodeAt(e);n[2*e]=s>>>8,n[2*e+1]=s%256}return n},decompressFromUint8Array:function(o){if(null==o)return i.decompress(o);for(var n=new Array(o.length/2),e=0,t=n.length;e<t;e++)n[e]=256*o[2*e]+o[2*e+1];var s=[];return n.forEach(function(o){s.push(r(o))}),i.decompress(s.join(""))},compressToEncodedURIComponent:function(r){return null==r?"":i._compress(r,6,function(r){return n.charAt(r)})},decompressFromEncodedURIComponent:function(r){return null==r?"":""==r?null:(r=r.replace(/ /g,"+"),i._decompress(r.length,32,function(o){return t(n,r.charAt(o))}))},compress:function(o){return i._compress(o,16,function(o){return r(o)})},_compress:function(r,o,n){if(null==r)return"";var e,t,i,s={},u={},a="",p="",c="",l=2,f=3,h=2,d=[],m=0,v=0;for(i=0;i<r.length;i+=1)if(a=r.charAt(i),Object.prototype.hasOwnProperty.call(s,a)||(s[a]=f++,u[a]=!0),p=c+a,Object.prototype.hasOwnProperty.call(s,p))c=p;else{if(Object.prototype.hasOwnProperty.call(u,c)){if(c.charCodeAt(0)<256){for(e=0;e<h;e++)m<<=1,v==o-1?(v=0,d.push(n(m)),m=0):v++;for(t=c.charCodeAt(0),e=0;e<8;e++)m=m<<1|1&t,v==o-1?(v=0,d.push(n(m)),m=0):v++,t>>=1}else{for(t=1,e=0;e<h;e++)m=m<<1|t,v==o-1?(v=0,d.push(n(m)),m=0):v++,t=0;for(t=c.charCodeAt(0),e=0;e<16;e++)m=m<<1|1&t,v==o-1?(v=0,d.push(n(m)),m=0):v++,t>>=1}0==--l&&(l=Math.pow(2,h),h++),delete u[c]}else for(t=s[c],e=0;e<h;e++)m=m<<1|1&t,v==o-1?(v=0,d.push(n(m)),m=0):v++,t>>=1;0==--l&&(l=Math.pow(2,h),h++),s[p]=f++,c=String(a)}if(""!==c){if(Object.prototype.hasOwnProperty.call(u,c)){if(c.charCodeAt(0)<256){for(e=0;e<h;e++)m<<=1,v==o-1?(v=0,d.push(n(m)),m=0):v++;for(t=c.charCodeAt(0),e=0;e<8;e++)m=m<<1|1&t,v==o-1?(v=0,d.push(n(m)),m=0):v++,t>>=1}else{for(t=1,e=0;e<h;e++)m=m<<1|t,v==o-1?(v=0,d.push(n(m)),m=0):v++,t=0;for(t=c.charCodeAt(0),e=0;e<16;e++)m=m<<1|1&t,v==o-1?(v=0,d.push(n(m)),m=0):v++,t>>=1}0==--l&&(l=Math.pow(2,h),h++),delete u[c]}else for(t=s[c],e=0;e<h;e++)m=m<<1|1&t,v==o-1?(v=0,d.push(n(m)),m=0):v++,t>>=1;0==--l&&(l=Math.pow(2,h),h++)}for(t=2,e=0;e<h;e++)m=m<<1|1&t,v==o-1?(v=0,d.push(n(m)),m=0):v++,t>>=1;for(;;){if(m<<=1,v==o-1){d.push(n(m));break}v++}return d.join("")},decompress:function(r){return null==r?"":""==r?null:i._decompress(r.length,32768,function(o){return r.charCodeAt(o)})},_decompress:function(o,n,e){var t,i,s,u,a,p,c,l=[],f=4,h=4,d=3,m="",v=[],g={val:e(0),position:n,index:1};for(t=0;t<3;t+=1)l[t]=t;for(s=0,a=Math.pow(2,2),p=1;p!=a;)u=g.val&g.position,g.position>>=1,0==g.position&&(g.position=n,g.val=e(g.index++)),s|=(u>0?1:0)*p,p<<=1;switch(s){case 0:for(s=0,a=Math.pow(2,8),p=1;p!=a;)u=g.val&g.position,g.position>>=1,0==g.position&&(g.position=n,g.val=e(g.index++)),s|=(u>0?1:0)*p,p<<=1;c=r(s);break;case 1:for(s=0,a=Math.pow(2,16),p=1;p!=a;)u=g.val&g.position,g.position>>=1,0==g.position&&(g.position=n,g.val=e(g.index++)),s|=(u>0?1:0)*p,p<<=1;c=r(s);break;case 2:return""}for(l[3]=c,i=c,v.push(c);;){if(g.index>o)return"";for(s=0,a=Math.pow(2,d),p=1;p!=a;)u=g.val&g.position,g.position>>=1,0==g.position&&(g.position=n,g.val=e(g.index++)),s|=(u>0?1:0)*p,p<<=1;switch(c=s){case 0:for(s=0,a=Math.pow(2,8),p=1;p!=a;)u=g.val&g.position,g.position>>=1,0==g.position&&(g.position=n,g.val=e(g.index++)),s|=(u>0?1:0)*p,p<<=1;l[h++]=r(s),c=h-1,f--;break;case 1:for(s=0,a=Math.pow(2,16),p=1;p!=a;)u=g.val&g.position,g.position>>=1,0==g.position&&(g.position=n,g.val=e(g.index++)),s|=(u>0?1:0)*p,p<<=1;l[h++]=r(s),c=h-1,f--;break;case 2:return v.join("")}if(0==f&&(f=Math.pow(2,d),d++),l[c])m=l[c];else{if(c!==h)return null;m=i+i.charAt(0)}v.push(m),l[h++]=i+m.charAt(0),i=m,0==--f&&(f=Math.pow(2,d),d++)}}};return i}();"function"==typeof define&&define.amd?define(function(){return LZString}):"undefined"!=typeof module&&null!=module?module.exports=LZString:"undefined"!=typeof angular&&null!=angular&&angular.module("LZString",[]).factory("LZString",function(){return LZString});
+const LZ_PREFIX = "\u0001z", LZ_KEYS = new Set(["cble.examDetails", "cble.sampleSets", "cble.mistakeLog", "cble.safetyBackups"]), _lzCache = new Map();
+function lsGetText(key) {   // the stored text for a key, whether or not it was compressed
+  const raw = localStorage.getItem(key); if (raw === null) return null;
+  if (raw.charCodeAt(0) !== 1 || !raw.startsWith(LZ_PREFIX)) return raw;
+  const c = _lzCache.get(key); if (c && c.raw === raw) return c.text;
+  const text = LZString.decompressFromUTF16(raw.slice(LZ_PREFIX.length));
+  if (text === null) return null;
+  _lzCache.set(key, { raw, text }); return text;
+}
+function lsSetJson(key, data) {   // throws if storage is full
+  const text = JSON.stringify(data);
+  if (!LZ_KEYS.has(key)) { localStorage.setItem(key, text); return; }
+  const raw = LZ_PREFIX + LZString.compressToUTF16(text);
+  localStorage.setItem(key, raw); _lzCache.set(key, { raw, text });
+}
+function compressBigKeys() {   // one-time: shrink values saved before compression existed (verified before it replaces anything)
+  for (const key of LZ_KEYS) {
+    try {
+      const raw = localStorage.getItem(key); if (!raw || raw.charCodeAt(0) === 1) continue;
+      const comp = LZ_PREFIX + LZString.compressToUTF16(raw);
+      if (LZString.decompressFromUTF16(comp.slice(LZ_PREFIX.length)) === raw && comp.length < raw.length) localStorage.setItem(key, comp);
+    } catch (e) { console.warn("Couldn't compress", key, e); }
+  }
+}
 function loadJson(key, fallback) {
   try {
-    const raw = localStorage.getItem(key);
-    if (raw === null) return fallback;
-    return JSON.parse(raw);
+    const text = lsGetText(key);
+    if (text === null) return fallback;
+    return JSON.parse(text);
   } catch (e) {
     return fallback;
   }
 }
 function saveJson(key, data) {
   try {
-    localStorage.setItem(key, JSON.stringify(data));
+    lsSetJson(key, data);
     return true;
   } catch (e) {
     console.error("Storage write failed", e);
@@ -1879,7 +1905,7 @@ function saveRepoCache(obj) {
 }
 async function hydrateRepoCache() {
   try {
-    const l = loadJson("cble.safetyBackups", []); if (l.length > 3) localStorage.setItem("cble.safetyBackups", JSON.stringify(l.slice(0, 3)));   // keep the 3 newest
+    const l = loadJson("cble.safetyBackups", []); if (l.length > 3) lsSetJson("cble.safetyBackups", l.slice(0, 3));   // keep the 3 newest
     let c = await idbGet(KEYS.repoBanks);
     if (!c) { const ls = loadJson(KEYS.repoBanks, null); if (ls && ls.banks) { await idbSet(KEYS.repoBanks, ls); c = ls; } }   // move the old localStorage copy over
     if (c && c.banks) { try { localStorage.removeItem(KEYS.repoBanks); } catch (e) {} if (!_repoCacheMem) { _repoCacheMem = c; refreshListsDisplay(); if (typeof refreshHome === "function") refreshHome(); } }
@@ -1988,13 +2014,13 @@ function migrateRepoPrefix() {
   if (REPO_CLASH.length) return;
   const todo = [];
   for (const key of PREFIX_DATA_KEYS) {
-    const raw = localStorage.getItem(key); if (!raw || raw.indexOf(OLD_REPO_PREFIX) === -1) continue;
+    const raw = lsGetText(key); if (!raw || raw.indexOf(OLD_REPO_PREFIX) === -1) continue;
     let parsed; try { parsed = JSON.parse(raw); } catch (e) { continue; }
     const r = stripRepoPrefixDeep(parsed); if (r.changed) todo.push({ key, value: r.value });
   }
   if (!todo.length) return;
   const failed = [];
-  for (const t of todo) { try { localStorage.setItem(t.key, JSON.stringify(t.value)); } catch (e) { failed.push(t.key); } }
+  for (const t of todo) { try { lsSetJson(t.key, t.value); } catch (e) { failed.push(t.key); } }
   if (failed.length) toast("Storage is full, so some data kept its old [Repo] names. Export a backup, free space, and reopen.", 5000);
   else scheduleGithubSync();
 }
@@ -10189,6 +10215,7 @@ function migrateMistakeLogIfNeeded() {
 }
 
 (function init() {
+  compressBigKeys();
   hydrateRepoCache();
   migrateRepoPrefix();
   try { localStorage.removeItem(KEYS.topics); } catch (e) {}   // the old built-in cache is no longer used; frees storage
@@ -10728,7 +10755,7 @@ function safetyBackup(reason) {
     if (list.length && list[0].hash === h) return;                                    // unchanged since the last backup
     list.unshift({ ts: nowIso(), reason: reason || "auto", hash: h, data: p });
     while (list.length > 3) list.pop();
-    for (let n = 0; n < 6; n++) { try { localStorage.setItem(SAFE_KEY, JSON.stringify(list)); return; } catch (e) { if (list.length <= 1) return; list.pop(); } }   // storage full: keep fewer
+    for (let n = 0; n < 6; n++) { try { lsSetJson(SAFE_KEY, list); return; } catch (e) { if (list.length <= 1) return; list.pop(); } }   // storage full: keep fewer
   } catch (e) { /* a backup must never break the app */ }
 }
 // Add back whatever is missing from a payload. dry=true only counts.
