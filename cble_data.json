@@ -42613,6 +42613,15 @@
       "pct": 38,
       "date": "2026-10-20T16:05:55",
       "time_used_seconds": 4395.4
+    },
+    {
+      "id": "1792701431052738",
+      "source": "D2_S5",
+      "score": 24,
+      "total": 50,
+      "pct": 48,
+      "date": "2026-10-22T20:37:11",
+      "time_used_seconds": 8545.5
     }
   ],
   "exam_details": [
@@ -81986,6 +81995,563 @@
           "correct_answer": "C. 1.79 kg"
         }
       ]
+    },
+    {
+      "exam_id": "1792701431052738",
+      "source": "D2_S5",
+      "date": "2026-10-22T20:37:11",
+      "items": [
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 93,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Air in an amount 1000 cfm at 1500 F, 20% RH is passed over refrigerated coil and thereby brought to 60'F, 90% RH with the condensed moisture withdrawn at 55 F. The air is then reheated by means of an electric heating coil to 150'F. Calculate the wattage of the heating coil required:",
+          "your_answer": "B. 16 kW",
+          "correct_answer": "C. 25 kW"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 94,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A benzene-toluene feed with (40 mol% benzene and60 mol% benzene) to a distillation column is at a temperature of 20°C. The molar heat capacity of the feed is 159.2 kJ/kmol-K. Molar latent heats of vaporization of benzene and toluene are 30 813 and 33 325 kJ/kmol, respectively. The bubble point of the mixture is 95 °C. The slope of the q line is closest to",
+          "your_answer": "B. 1",
+          "correct_answer": "C. 3.7"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 27,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A pump discharges ethanol at 38 C into a smooth tube of 50 mm ID at a gage pressure of 280 kPa. This pipe is 40 m long (total equivalent length) and supplies ethanol at a gage pressure of 140 kPa to reactor. What is the volumetric flow rate of ethanol to the reactor? There is negligible change in elevation between the pump and reactor. p = 820 kg/m3 and u = 0.9 cP",
+          "your_answer": "B. 0.03 m3/s",
+          "correct_answer": "A. 0.01 m3/s"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 24,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Carbon tetrachloride, flowing at 19000 kg/hr is to be cooled from 85°C to 40°C in a double pipe heat exchanger using 13500 kg/hr of cooling water at 20°C. The overall heat transfer coefficient is 1500 W/m²-K. Assume specific heat of CCl is0.88 J/g C. Determine the area (in m²) needed if flow is countercurrent.",
+          "your_answer": "B. 1.9",
+          "correct_answer": "C. 4.2"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 80,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "It is desired to absorb 90% of the acetone in a gas containing 1 mol% acetone in air in a countercurrent stage tower. The total inlet gas flow to the tower is 30 kmol/hr, and the total inlet pure water flow to be used to absorb acetone is 90 kmol/hr. The process is to operate isothermally at 300 K and a total pressure of 101.3 kPa. The equilibrium relation for the acetone (A) in the gas - liquid is y = 2.53x. Determine the number of theoretical stages required for this separation.",
+          "your_answer": "B. 3.3 stages",
+          "correct_answer": "C. 5.2 stages"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The number of kg vaporized per kg of steam fed to the evaporator is defined as",
+          "your_answer": "B. economy",
+          "correct_answer": "B. economy"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 76,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A centrifuge bowl is spinning at a constant 1500rev/min. What radius bowl is needed for a force of500 g's.",
+          "your_answer": "A. 0.1 m",
+          "correct_answer": "B. 0.2 m"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 123,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An ideal Diesel engine uses air initially at 20°C and 90 kPa at the beginning of the compression process. If the compression ratio is 15 and the maximum temperature in the cycle is 2000°C, determine the following: mean effective pressure (kPa)",
+          "your_answer": "B. 930",
+          "correct_answer": "B. 930"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "6 gm of carbon is burnt with an amount of air containing 18 gmoxygen. The product contains 16.5 gms CO₂ and 2.8 gms CO besidesother constituents. What is the degree of conversion based on disappearance of limiting reactant?",
+          "your_answer": "C. 95%",
+          "correct_answer": "C. 95%"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 28,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "For the liquid phase reaction A→P, in a series of experiments in a batch reactor, the half-life was found to be inversely proportional to the square root of the initial concentration of A. The order of the reaction is",
+          "your_answer": "B. 1/2",
+          "correct_answer": "A. 3/2"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 53,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "The vapor pressure of styrene is 100 mmHg at 82\"C and 200 mmHg at 100'C. A gas that consists of 10 mol% styrene and 90 mol% non-condensable contained in tank a 100'C and 1000 mmHg: Calculate: percentage saturation",
+          "your_answer": "B. 55.5%",
+          "correct_answer": "C. 44.4 %"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 6,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In a determination of the solution retention data, the mass fraction of the solute in the extract was determined to be 0.6. The corresponding underflow analysis showed a retention of 0.6 kg solvent per kg of the inert solid. The mass fraction of solute in the underflow is most likely",
+          "your_answer": "A. 0.60",
+          "correct_answer": "B. 0.36"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 50,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Propane is dehydrogenated to formpropylene in a catalytic reactor. The process is to be designed for a 95% overall conversion of propane. Thereaction products are separated into twostreams: the first, which contains H₂, СзH6 and 0.555% of the propane that leaves thereactor, is taken off as a product; thesecond stream, which contains thebalance of the unreacted propane and 5%of the propylene in the first stream, is recycled to the reactor. What is the single-pass conversion?",
+          "your_answer": "B. 13.5%",
+          "correct_answer": "A. 9.6%"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 38,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "Calculate the theoretical adiabatic horsepower to compress 1 000 cfm of helium from standard atmospheric pressure and 80°F to 200 psig. In a single stage.",
+          "your_answer": "B. 228 hp",
+          "correct_answer": "A. 308 hp"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 72,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A high volatile B bituminous coal analyzing 22% VCM, 64% FC, 4% M, 1.4% N and 1.6% S has a calorific value of 32.5 MJ/kg. It is burned in excess air supplied essentially dry at 28°C and 1 atm. The dry stack gases leave at 250°C, 740 mmHg and contain 8.37% CO2, 4.19% CO and 2.51% H2. Calculate: The % excess 02",
+          "your_answer": "B. 40%",
+          "correct_answer": "B. 40%"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In a first order reaction the time required to reduce the concentration of reactant from 1 mol/L to 0.5 mol/L will be that required to reduce it from 10 mol/L to 5 mol/L in the same volume.",
+          "your_answer": "C. same as",
+          "correct_answer": "C. same as"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 100,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Find the specific volume for H₂0 at 1000 kN/m² and 300°Cby using steam tables.",
+          "your_answer": "B. 0.19 m³/kg",
+          "correct_answer": "A. 0.26 m³/kg"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 97,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Filtration of water in a paper mill is done bya/an filter.",
+          "your_answer": "C. plate and frame",
+          "correct_answer": "A. open sand"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 54,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Orsat analysis of the stack gas from the combustion of a gaseous mixture of acetylene and methane shows 9.82% CO₂, 1.37% CO, 0.69% H2, 5.43% 02 and 82.69% N₂. Determine: The % excess air",
+          "your_answer": "B. 20%",
+          "correct_answer": "D. 25%"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 91,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Air in an amount 1000 cfm at 1500 F, 20% RH is passed over refrigerated coil and thereby brought to 60'F, 90% RH with the condensed moisture withdrawn at 55 F. The air is then reheated by means of an electric heating coil to 150'F. Compute the moisture removed in Ib/min:",
+          "your_answer": "D. 4.19",
+          "correct_answer": "A. 1.44"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 70,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "In a reactor where the volumetric flow rate is constant at 12 L/min, the conversion of A is 85% according to the reaction A → B. The entering molar composition is 1.5 mol/L. For the reaction at 25 °C, use k = 0.258 min-¹. If the length of the tubular reactor was doubled, what would be the new conversion?",
+          "your_answer": "B. 97.8%",
+          "correct_answer": "B. 97.8%"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 22,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In a continuous distillation column, the optimum reflux ratio ranges from times the minimum reflux ratio:",
+          "your_answer": "A. 11 to 1.5",
+          "correct_answer": "A. 11 to 1.5"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 21,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "The critical radius of insulation for a spherical shell is(where k = thermal conductivity of insulatingmaterial and ho = heat transfer coefficient of theouter surface)",
+          "your_answer": "A. k/ho",
+          "correct_answer": "B. 2k/ho"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 59,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Condensation of a vapor-gas mixture just begins, when (where, p = partial pressure of the vapor P = vapor pressure of the liquid)",
+          "your_answer": "A. a. p= P",
+          "correct_answer": "A. a. p= P"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The amount of heat absorbed when CO₂ gas reacts with a solid Ca0 to form solid CaCO3 is measured in a bomb calorimeter at constant volume. The data obtainedgive a direct measure of",
+          "your_answer": "A. dU",
+          "correct_answer": "A. dU"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 59,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Boiling point diagram is",
+          "your_answer": "B. affected by pressure.",
+          "correct_answer": "B. affected by pressure."
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 61,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Determine the terminal settling velocity of dustparticles having a diameter of 60 microns at 294.3 K and 101.32 kРa. The dust particles can be consideredspherical with a density of 1280 kg/m³.",
+          "your_answer": "B. 0.14 m/s",
+          "correct_answer": "B. 0.14 m/s"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 60,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Value of Peclet number = 0, is the representative of",
+          "your_answer": "D. eddy - diffusivity",
+          "correct_answer": "B. complete back mixing:"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 54,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "For the gaseous reaction 2 A → B where the feed consist of 50 mol% A and 50 mol% inert, the expansion factor is",
+          "your_answer": "B. -0.5",
+          "correct_answer": "C. -0.25"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 34,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "In a shell and tube heat exchanger; the shortest center to center distance between the adjacent tubes is",
+          "your_answer": "A. called tube pitch:",
+          "correct_answer": "A. called tube pitch:"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 27,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "The material is crushed in a gyratory crusher bythe action of",
+          "your_answer": "A. impact",
+          "correct_answer": "C. compression"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 26,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Water is flowing at a rate of 80 gpm through 50 ft of an annular conduit made of 1½ in and 1 14 in schedule 40 steel pipe. What is the pressure drop in the 50 ft? Assume as average properties, a density of 62.3 lb/ft³ and a viscosity of 0.88 centipoise.",
+          "your_answer": "C. 115 psia",
+          "correct_answer": "D. 155 psia"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Wine making involves a series of very complex reactions most of which are performed by microorganisms. The starting concentration of sugars determines the final alcohol content and sweetness of the wine. The specific gravity of the starting stock is therefore adjusted to achieve desired quality of wine. A starting stock solution has a specific gravity of 1.075 and contains 12.7 wt% sugar. If all the sugar is assumed to be C₁2H22011, determine g sugar/L solution",
+          "your_answer": "B. 136",
+          "correct_answer": "B. 136"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 62,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A particle A of diameter 10 microns settles in an oil of specific gravity 0.9 and viscosity 10 poise under Stoke's law. A particle B with diameter 20 microns settling in the same oilwill have a settling velocity",
+          "your_answer": "C. one fourth as that of A.",
+          "correct_answer": "C. one fourth as that of A."
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 73,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In general, operating pressure should be ____ and temperature ____ for an absorber, to minimize stage requirements and / or absorbent flow rate to lower the equipment volume required to accomodate the gas flow",
+          "your_answer": "A. high, low",
+          "correct_answer": "A. high, low"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 92,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Melting of wax is accompanied with entropy",
+          "your_answer": "A. increase",
+          "correct_answer": "A. increase"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 87,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What could be the effect of lowering the temperature of stripping?",
+          "your_answer": "A. number of stages increases",
+          "correct_answer": "A. number of stages increases"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 112,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Can the efficiency of a plate in the distillation tower be greater than 100%?",
+          "your_answer": "C. Never",
+          "correct_answer": "C. Never"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 12,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A pump draws 69.1 gal/min of a liquid solution having a density of 114.8 lb/ft³ from an open storage feed tank of large cross sectional area through a 3-inch sch 40 suction line. The pump discharges its flow through a 2-inch sch40 line to an open overhead tank. The end of the discharge line is 50 ft above the level of the liquid in the feed tank. The friction losses in the piping system are 10 ft-lb/lb. What pressure must the pump develop?",
+          "your_answer": "A. 35 psi",
+          "correct_answer": "C. 48 psi"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 76,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The safe distance of habitation from a hazardous chemical plant (TLV of its product 1000 ppm) should be about___________kms",
+          "your_answer": "B. 5",
+          "correct_answer": "B. 5"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Wine making involves a series of very complex reactions most of which are performed by microorganisms. The starting concentration of sugars determines the final alcohol content and sweetness of the wine. The specific gravity of the starting stock is therefore adjusted to achieve desired quality of wine. A starting stock solution has a specific gravity of 1.075 and contains 12.7 wt% sugar. If all the sugar is assumed to be C₁2H22011, determine kg sugar/ kg H₂0",
+          "your_answer": "C. 0.145",
+          "correct_answer": "C. 0.145"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Neem oil is a traditional plant product which possesses spermicidal properties. A group of students working on their investigatory project wanted to test how effective the said oil was as contraceptive by using it as a component for contraceptives. The students were able to gather 5 kg of Neem Tree Seeds that contains 30% of soluble oil and 70% inert solids and they decided to use 5 kg of pure hexane to extract the oil. What percentage of oil will they be able to recover given that the ratio of the liquid to solid components in the underflow is 0.5? Assume ideal leaching.",
+          "your_answer": "C. 73%",
+          "correct_answer": "C. 73%"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 73,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Five kilograms of carbon tetrachloride undergo a mechanically reversible, isobaric change of state at 1 bar during which the temperature changes from 0°C to 20°C. The properties for liquid carbon tetrachloride at 1 bar and 0 °C may be assumed independent of temperature: ẞ = 1.2x10-3/K, Cp = 0.84 kJ/kg-K and p = 1590 kg/m³. Determine the following: W",
+          "your_answer": "B. -2 J",
+          "correct_answer": "C. -8 J"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "In an air pipeline, the flow has the following conditions at section 1: 25°C, 1.8 bar, 15 m/s velocity, and 50 mm inside diameter of pipe. At section 2 the conditions are: 25°C, 1.3 bar, and 75 mm inside diameter of pipe. Determine the velocity at the section 2.",
+          "your_answer": "C. 9.2 m/s",
+          "correct_answer": "C. 9.2 m/s"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 114,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Pick out the correct statement.",
+          "your_answer": "B. A sharp decrease in pressure drop is an indication of flooding in a distillation column.",
+          "correct_answer": "A. Ponchon-Savarit method is more accurate than McCabe Thiele method to determine the number of theoretical stages required for the separation of non-ideal binary system by distillation."
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 39,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A barytes composed of 100 percentBaSO4 is fused with carbon in the formof coke containing 6% ash (which isinfusible). The composition of the fusionmass is BaSO 11.1%, BaS 72.8%, C 13.9%, Ash 2.2%, Reaction: BaSO+4 C→ BaS + 4 CO. Find the excess reactant.",
+          "your_answer": "A. C",
+          "correct_answer": "A. C"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 24,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "In packed absorption tower; onset of flooding usually occurs at a pressure drop of about_ _________mm of water column per meter height of packing:",
+          "your_answer": "B. 50-75",
+          "correct_answer": "B. 50-75"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 74,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Five kilograms of carbon tetrachloride undergo a mechanically reversible, isobaric change of state at 1 bar during which the temperature changes from 0°C to 20°C. The properties for liquid carbon tetrachloride at 1 bar and 0 °C may be assumed independent of temperature: ẞ = 1.2x10-3/K, Cp = 0.84 kJ/kg-K and p = 1590 kg/m³. Determine the following: Q",
+          "your_answer": "B. 52 kJ",
+          "correct_answer": "D. 84 kJ"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 42,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "dimension of surface tension is (where F = force and L = length)",
+          "your_answer": "C. F L ^-2",
+          "correct_answer": "A. FL^-1"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 42,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The radiation heat flux from a heating element at a temperature of 800°C, in a furnace maintained at 300°C is8 kW/m². The flux, when the element temperature isincreased to 1000°C for the same furnace temperature is",
+          "your_answer": "B. 14.6 kW/m²",
+          "correct_answer": "D. 16.5 kW/m²"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -96010,6 +96576,526 @@
       "concept_id": "1792310915966408",
       "tag_at": "2026-10-20T16:19:32",
       "note_at": ""
+    },
+    {
+      "id": "179270143121883",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 93,
+      "question": "Air in an amount 1000 cfm at 1500 F, 20% RH is passed over refrigerated coil and thereby brought to 60'F, 90% RH with the condensed moisture withdrawn at 55 F. The air is then reheated by means of an electric heating coil to 150'F. Calculate the wattage of the heating coil required:",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "B. 16 kW",
+          "correct_answer": "C. 25 kW"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701431276505",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 94,
+      "question": "A benzene-toluene feed with (40 mol% benzene and60 mol% benzene) to a distillation column is at a temperature of 20°C. The molar heat capacity of the feed is 159.2 kJ/kmol-K. Molar latent heats of vaporization of benzene and toluene are 30 813 and 33 325 kJ/kmol, respectively. The bubble point of the mixture is 95 °C. The slope of the q line is closest to",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "B. 1",
+          "correct_answer": "C. 3.7"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701431328288",
+      "source_list": "D2_L4_Momentum_Transfer",
+      "reference_no": 27,
+      "question": "A pump discharges ethanol at 38 C into a smooth tube of 50 mm ID at a gage pressure of 280 kPa. This pipe is 40 m long (total equivalent length) and supplies ethanol at a gage pressure of 140 kPa to reactor. What is the volumetric flow rate of ethanol to the reactor? There is negligible change in elevation between the pump and reactor. p = 820 kg/m3 and u = 0.9 cP",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "B. 0.03 m3/s",
+          "correct_answer": "A. 0.01 m3/s"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701431376226",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 24,
+      "question": "Carbon tetrachloride, flowing at 19000 kg/hr is to be cooled from 85°C to 40°C in a double pipe heat exchanger using 13500 kg/hr of cooling water at 20°C. The overall heat transfer coefficient is 1500 W/m²-K. Assume specific heat of CCl is0.88 J/g C. Determine the area (in m²) needed if flow is countercurrent.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "B. 1.9",
+          "correct_answer": "C. 4.2"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701431424903",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 80,
+      "question": "It is desired to absorb 90% of the acetone in a gas containing 1 mol% acetone in air in a countercurrent stage tower. The total inlet gas flow to the tower is 30 kmol/hr, and the total inlet pure water flow to be used to absorb acetone is 90 kmol/hr. The process is to operate isothermally at 300 K and a total pressure of 101.3 kPa. The equilibrium relation for the acetone (A) in the gas - liquid is y = 2.53x. Determine the number of theoretical stages required for this separation.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "B. 3.3 stages",
+          "correct_answer": "C. 5.2 stages"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701431477462",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 76,
+      "question": "A centrifuge bowl is spinning at a constant 1500rev/min. What radius bowl is needed for a force of500 g's.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "A. 0.1 m",
+          "correct_answer": "B. 0.2 m"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701431523185",
+      "source_list": "D2_L9_Chemical_Reaction_Engineering",
+      "reference_no": 28,
+      "question": "For the liquid phase reaction A→P, in a series of experiments in a batch reactor, the half-life was found to be inversely proportional to the square root of the initial concentration of A. The order of the reaction is",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "B. 1/2",
+          "correct_answer": "A. 3/2"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "17927014315847",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 53,
+      "question": "The vapor pressure of styrene is 100 mmHg at 82\"C and 200 mmHg at 100'C. A gas that consists of 10 mol% styrene and 90 mol% non-condensable contained in tank a 100'C and 1000 mmHg: Calculate: percentage saturation",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "B. 55.5%",
+          "correct_answer": "C. 44.4 %"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701431642376",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 6,
+      "question": "In a determination of the solution retention data, the mass fraction of the solute in the extract was determined to be 0.6. The corresponding underflow analysis showed a retention of 0.6 kg solvent per kg of the inert solid. The mass fraction of solute in the underflow is most likely",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "A. 0.60",
+          "correct_answer": "B. 0.36"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701431687239",
+      "source_list": "D2_L1_ChE_Calculations",
+      "reference_no": 50,
+      "question": "Propane is dehydrogenated to formpropylene in a catalytic reactor. The process is to be designed for a 95% overall conversion of propane. Thereaction products are separated into twostreams: the first, which contains H₂, СзH6 and 0.555% of the propane that leaves thereactor, is taken off as a product; thesecond stream, which contains thebalance of the unreacted propane and 5%of the propylene in the first stream, is recycled to the reactor. What is the single-pass conversion?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "B. 13.5%",
+          "correct_answer": "A. 9.6%"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701431733908",
+      "source_list": "D2_L4_Momentum_Transfer",
+      "reference_no": 38,
+      "question": "Calculate the theoretical adiabatic horsepower to compress 1 000 cfm of helium from standard atmospheric pressure and 80°F to 200 psig. In a single stage.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "B. 228 hp",
+          "correct_answer": "A. 308 hp"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701431781625",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 100,
+      "question": "Find the specific volume for H₂0 at 1000 kN/m² and 300°Cby using steam tables.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "B. 0.19 m³/kg",
+          "correct_answer": "A. 0.26 m³/kg"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701431827140",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 97,
+      "question": "Filtration of water in a paper mill is done bya/an filter.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "C. plate and frame",
+          "correct_answer": "A. open sand"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701431874188",
+      "source_list": "D2_L1_ChE_Calculations",
+      "reference_no": 54,
+      "question": "Orsat analysis of the stack gas from the combustion of a gaseous mixture of acetylene and methane shows 9.82% CO₂, 1.37% CO, 0.69% H2, 5.43% 02 and 82.69% N₂. Determine: The % excess air",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "B. 20%",
+          "correct_answer": "D. 25%"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701431922775",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 91,
+      "question": "Air in an amount 1000 cfm at 1500 F, 20% RH is passed over refrigerated coil and thereby brought to 60'F, 90% RH with the condensed moisture withdrawn at 55 F. The air is then reheated by means of an electric heating coil to 150'F. Compute the moisture removed in Ib/min:",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "D. 4.19",
+          "correct_answer": "A. 1.44"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701431967310",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 21,
+      "question": "The critical radius of insulation for a spherical shell is(where k = thermal conductivity of insulatingmaterial and ho = heat transfer coefficient of theouter surface)",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:11",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:11",
+          "your_answer": "A. k/ho",
+          "correct_answer": "B. 2k/ho"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:11"
+    },
+    {
+      "id": "1792701432013802",
+      "source_list": "D2_L8_Equipment_Plant_Design",
+      "reference_no": 60,
+      "question": "Value of Peclet number = 0, is the representative of",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:12",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:12",
+          "your_answer": "D. eddy - diffusivity",
+          "correct_answer": "B. complete back mixing:"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:12"
+    },
+    {
+      "id": "1792701432061834",
+      "source_list": "D2_L9_Chemical_Reaction_Engineering",
+      "reference_no": 54,
+      "question": "For the gaseous reaction 2 A → B where the feed consist of 50 mol% A and 50 mol% inert, the expansion factor is",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:12",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:12",
+          "your_answer": "B. -0.5",
+          "correct_answer": "C. -0.25"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:12"
+    },
+    {
+      "id": "1792701432107364",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 27,
+      "question": "The material is crushed in a gyratory crusher bythe action of",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:12",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:12",
+          "your_answer": "A. impact",
+          "correct_answer": "C. compression"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:12"
+    },
+    {
+      "id": "179270143215424",
+      "source_list": "D2_L4_Momentum_Transfer",
+      "reference_no": 26,
+      "question": "Water is flowing at a rate of 80 gpm through 50 ft of an annular conduit made of 1½ in and 1 14 in schedule 40 steel pipe. What is the pressure drop in the 50 ft? Assume as average properties, a density of 62.3 lb/ft³ and a viscosity of 0.88 centipoise.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:12",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:12",
+          "your_answer": "C. 115 psia",
+          "correct_answer": "D. 155 psia"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:12"
+    },
+    {
+      "id": "1792701432201800",
+      "source_list": "D2_L4_Momentum_Transfer",
+      "reference_no": 12,
+      "question": "A pump draws 69.1 gal/min of a liquid solution having a density of 114.8 lb/ft³ from an open storage feed tank of large cross sectional area through a 3-inch sch 40 suction line. The pump discharges its flow through a 2-inch sch40 line to an open overhead tank. The end of the discharge line is 50 ft above the level of the liquid in the feed tank. The friction losses in the piping system are 10 ft-lb/lb. What pressure must the pump develop?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:12",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:12",
+          "your_answer": "A. 35 psi",
+          "correct_answer": "C. 48 psi"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:12"
+    },
+    {
+      "id": "1792701432246617",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 73,
+      "question": "Five kilograms of carbon tetrachloride undergo a mechanically reversible, isobaric change of state at 1 bar during which the temperature changes from 0°C to 20°C. The properties for liquid carbon tetrachloride at 1 bar and 0 °C may be assumed independent of temperature: ẞ = 1.2x10-3/K, Cp = 0.84 kJ/kg-K and p = 1590 kg/m³. Determine the following: W",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:12",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:12",
+          "your_answer": "B. -2 J",
+          "correct_answer": "C. -8 J"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:12"
+    },
+    {
+      "id": "1792701432292750",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 114,
+      "question": "Pick out the correct statement.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:12",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:12",
+          "your_answer": "B. A sharp decrease in pressure drop is an indication of flooding in a distillation column.",
+          "correct_answer": "A. Ponchon-Savarit method is more accurate than McCabe Thiele method to determine the number of theoretical stages required for the separation of non-ideal binary system by distillation."
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:12"
+    },
+    {
+      "id": "179270143234045",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 74,
+      "question": "Five kilograms of carbon tetrachloride undergo a mechanically reversible, isobaric change of state at 1 bar during which the temperature changes from 0°C to 20°C. The properties for liquid carbon tetrachloride at 1 bar and 0 °C may be assumed independent of temperature: ẞ = 1.2x10-3/K, Cp = 0.84 kJ/kg-K and p = 1590 kg/m³. Determine the following: Q",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:12",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:12",
+          "your_answer": "B. 52 kJ",
+          "correct_answer": "D. 84 kJ"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:12"
+    },
+    {
+      "id": "1792701432385344",
+      "source_list": "D2_L4_Momentum_Transfer",
+      "reference_no": 42,
+      "question": "dimension of surface tension is (where F = force and L = length)",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:12",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:12",
+          "your_answer": "C. F L ^-2",
+          "correct_answer": "A. FL^-1"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:12"
+    },
+    {
+      "id": "1792701432431158",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 42,
+      "question": "The radiation heat flux from a heating element at a temperature of 800°C, in a furnace maintained at 300°C is8 kW/m². The flux, when the element temperature isincreased to 1000°C for the same furnace temperature is",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-22T20:37:12",
+      "occurrences": [
+        {
+          "exam_id": "1792701431052738",
+          "exam_source": "D2_S5",
+          "date": "2026-10-22T20:37:12",
+          "your_answer": "B. 14.6 kW/m²",
+          "correct_answer": "D. 16.5 kW/m²"
+        }
+      ],
+      "updated_at": "2026-10-22T20:37:12"
     }
   ],
   "guess_notes": [
@@ -99907,5 +100993,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-22T19:50:55"
+  "updated_at": "2026-10-22T20:37:14"
 }
