@@ -45376,6 +45376,625 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1792772238682123",
+      "name": "D2_S7",
+      "created_at": "2026-10-23T16:17:18",
+      "composition": {
+        "D2_L3_Thermodynamics": 6,
+        "D2_L1_ChE_Calculations": 6,
+        "D2_L8_Equipment_Plant_Design": 5,
+        "D2_L4_Momentum_Transfer": 6,
+        "D2_L2_Separation_Processes": 6,
+        "D2_L7_Heat_Mass_Transfer": 5,
+        "D2_L6_Particle_Technology": 5,
+        "D2_L5_Transport_Phenomenon": 6,
+        "D2_L9_Chemical_Reaction_Engineering": 5
+      },
+      "questions": [
+        {
+          "text": "From PVn = C, the process is isochoric if n equals",
+          "options": [
+            "A. 0",
+            "B. δ",
+            "C. 1",
+            "D. ∞"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 53
+        },
+        {
+          "text": "An ideal Diesel engine uses air initially at 20°C and 90 kPa at the beginning of the compression process. If the compression ratio is 15 and the maximum temperature in the cycle is 2000°C, determine the following: cut-off ratio",
+          "options": [
+            "A. 1.3",
+            "B. 2.8",
+            "C. 2.6",
+            "D. 5.7"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 123
+        },
+        {
+          "text": "A boiler is fired with coal containing 72.63% C, 14% ash, 1.6%\r\nand 1.2% S burnt under conditions that the elimination\r\ncombustibles from the refuse is complete. The air enters the\r\nfurnace at 25°C, 760 mmHg with 80% RH. The flue gases go to the\r\nstack at 280°C and 110 kPa. The average flue gas Orsat analysis is\r\n8.41% CO₂, 2.52% CO, 0.76% H2 and 9.86% 02. Calculate the % excess\r\nN\r\nof\r\nair.",
+          "options": [
+            "A. 65%",
+            "B. 79%",
+            "C. 58%",
+            "D. 83%"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 70
+        },
+        {
+          "text": "In the allocated cap area, bubble caps are generally arranged on equilateral triangular pitch: Number of caps fixed on a plate is with a",
+          "options": [
+            "A. clearance of 25-75 mm",
+            "B.  cap pitch of 1.3-2 times the cap diameter",
+            "C. either 'a' or 'b'",
+            "D. neither 'a' nor 'b'"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 7
+        },
+        {
+          "text": "A cooling water pump is operating\r\nat a speed of 2800 rpm. Its flow rate\r\nis 1000 gal/min at a head of 160 ft. When a fluid flows through a reducer\r\nin a piping system, the velocity at the\r\noutlet end is _ the velocity at the inlet.",
+          "options": [
+            "A.  less than",
+            "B.  more than",
+            "C. the same as",
+            "D.  one-half"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 31
+        },
+        {
+          "text": "extractor uses centrifugal forcefor separating the two phases.",
+          "options": [
+            "A. Treybal",
+            "B. Podbielniak",
+            "C. Schiebel",
+            "D.  None of these"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 45
+        },
+        {
+          "text": "Ammonium sulfate is to be crystallized from solution containing 48% (NH 4)2SO4, by cooling it in counter flow crystallizer from 85 to 35\"C. During cooling the amount of water that evaporates is 5% of the mass of the feed solution_ Data: Feed rate 1000 kg/h Solubility of (NH4)2SO4 at 35 C = 75 kg /100 kg of water Specific heat of 48% (NH4)2SO4 at solution 2.97 kJ/kg-K Heat of crystallization of (NH4)2SO4 = 75.2 kJ/kg  What is the cooling water rate, if it is heated from 18 to 29 C?",
+          "options": [
+            "A. 764 kg/h",
+            "B.  505 kg/h",
+            "C. 810 kg/h",
+            "D. 427 kg/h"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 42
+        },
+        {
+          "text": "Pick out the wrong statement pertaining to a shelland tube heat exchanger",
+          "options": [
+            "A. The minimum value of baffle spacing is 50 mm",
+            "B. The maximum value of baffle spacing is equalto the I.D. ofthe shell",
+            "C. The maximum unsupported tube span is generally about 75 times tube diameter; but is reduced to about 60 times for aluminum; copper & alloys of these",
+            "D. Disk and doughnut baffle is the most commonly used baffle"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 44
+        },
+        {
+          "text": "A saturated solution containing 1500 kg of potassium chloride at 360 K is cooled in an\r\nopen tank to 290 K. If the specific gravity of the solution is 1.2, the solubility of\r\npotassium chloride per 100 parts water is 53.55 at 360 K and 34.5 at 290 K. What is the capacity of the tank?",
+          "options": [
+            "A. 4.56 m³",
+            "B. 3.58 m³",
+            "C. 2.99 m³",
+            "D. 5.71 m³"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 37
+        },
+        {
+          "text": "The pressure after the pump in a 6-inch inside diameter\r\nsmooth pipe conducting water is 20 psia. The water is\r\ndischarged at an open tank 100 ft from the pump. Calculate\r\nthe rate of discharge of water in ft³/s.",
+          "options": [
+            "A. 2.5",
+            "B. 5.8",
+            "C. 1.6",
+            "D. 3.6"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 27
+        },
+        {
+          "text": "Fresh air containing 4 mol% water vapor is to\r\nbe cooled and dehumidified to a water content\r\nof 1.70 mol% H₂O. A stream of fresh air is\r\ncombined with a recycle stream of previously\r\ndehumidified air and passed through the cooler.\r\nThe blended stream entering the unit contains\r\n2.3 mol% H₂0. In the air conditioner, some of the\r\nwater in the feed stream is condensed and\r\nremoved as liquid. A fraction of the\r\ndehumidified air leaving the cooler is recycled\r\nand the remainder is delivered to a room.\r\nTaking 100 mol of dehumidified air delivered to\r\nthe room as a basis of calculation, calculate the\r\nfollowing: The moles of fresh feed",
+          "options": [
+            "A. 115 mol",
+            "B.  126 mol",
+            "C.  102 mol",
+            "D. 133 mol"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 27
+        },
+        {
+          "text": "Ipil-ipil leaves will be dried in moving train of trays dryers: The wet leaves containing 75 % water (wet basis) is to be dried to 15% (wet basis) in tray containing 1m x 1.5 m. The wet leaves are spread out in the tray to a uniform thickness of 8 cm: Calculate: The number of   trays needed to produce 1 MT of the dried leaves",
+          "options": [
+            "A. 20",
+            "B.  38",
+            "C. 45",
+            "D. 17"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 101
+        },
+        {
+          "text": "A process stream contains 4% (weight) salt and the rest\r\nwater. This is prepared by passing a part of pure water stream\r\nthrough a saturator containing the salt. The solution leaving\r\nthe saturator containing 20% salt is mixed with the pure water\r\nbypassed to get the process stream. What fraction of the pure\r\nwater available is to be passed through the saturator?",
+          "options": [
+            "A.  0.23",
+            "B. 0.17",
+            "C. 0.29",
+            "D. 0.10"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 31
+        },
+        {
+          "text": "A water storage tank supplies water into a factory. Water is\r\nsupplied to the tank through a booster pump installed in the water\r\nline. The theoretical pump horsepower required is 3.25 hp. What is\r\nthe monthly operating cost of the pump, if electrical power cost on\r\nthe average is P 3.73/kWh? The pump is 65% efficient and operates\r\nfor 12 hours a day.",
+          "options": [
+            "A.  P 3300",
+            "B. P 7000",
+            "C.  Р 5000",
+            "D.  P 9000"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 16
+        },
+        {
+          "text": "Kick's law relates to",
+          "options": [
+            "A. energy consumption",
+            "B. feed size",
+            "C. final particle size",
+            "D. none of these"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 43
+        },
+        {
+          "text": "In gas absorption, one solute is being absorbed while the rest of the components are assumed to be _____ and the liquid is _____",
+          "options": [
+            "A. inert, volatile",
+            "B. non-soluble. non-volatile",
+            "C. non-soluble, volatile",
+            "D. soluble, volatile"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 75
+        },
+        {
+          "text": "A material is crushed in a Blake Jaw Crusher and the average\r\nsize of particles reduced from 50 mm to 10 mm with the\r\nconsumption of energy at the rate of 13 kW/(kg/s). The consumption\r\nof energy needed to crush the same material of an average size 75\r\nmm to an average size 25 mm assuming Kick's Law applies is",
+          "options": [
+            "A. 8.88 kW/(kg/s)",
+            "B.  4.33 kW/(kg/s)",
+            "C. 8.08 kW/(kg/s)",
+            "D. 4.66 kW/(kg/s)"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 51
+        },
+        {
+          "text": "Fundamental principle of refrigeration is based on thelaw of thermodynamics",
+          "options": [
+            "A. zeroth",
+            "B. second",
+            "C. first",
+            "D. third"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 107
+        },
+        {
+          "text": "A dimensionless number that represents the ratio of the molecular momentum diffusion to the molecular mass diffusivity",
+          "options": [
+            "A. Sherwood Number",
+            "B. Reynolds Number",
+            "C. Schmidt Number",
+            "D. Rayleigh Number"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 67
+        },
+        {
+          "text": "Acrylonitrile is produced in thereaction of propylene, ammonia andoxygen:C3H + NH3 + 3/2 0₂ → C3H3N + 3 H2O The feed contains 10 mole % propylene,12 mole% ammonia, and 78% air. A fractional conversion of 30% of the limiting reactant is achieved. Taking 100 mol of feed as basis, determine the following: The mole% of water in the product\r\ngas",
+          "options": [
+            "A. 6%",
+            "B.  7%",
+            "C. 5%",
+            "D. 9%"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 44
+        },
+        {
+          "text": "Back-trapping in a distillation column results due to",
+          "options": [
+            "A. low gas velocity:",
+            "B. high gas velocity:",
+            "C. excessive liquid gradient over the tray:",
+            "D. low reflux ratio"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 16
+        },
+        {
+          "text": "Ten kilograms each of salts A and B are\r\ndissolved in 50 kg of water. The solubility of\r\nA in water is 1 kg per kg water and that of B\r\nis 0.5 kg per kg of water. The solution is\r\nheated to evaporate water. When the\r\nconcentration of the solution reaches the\r\nsaturation concentration of any salt, further\r\nevaporation results in the crystallization of\r\nthat salt. If 70% of the water that is\r\noriginally present in the solution is driven\r\noff by evaporation, determine the following: The weight of the crystals formed",
+          "options": [
+            "A. 2.5",
+            "B. 5.5",
+            "C. 0",
+            "D. 1.5"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 13
+        },
+        {
+          "text": "Power number is the ratio of",
+          "options": [
+            "A. drag stress to inertial stress",
+            "B. inertial stress to drag stress",
+            "C. inertial stress to gravitational stress",
+            "D. gravitational stress to drag stress"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 44
+        },
+        {
+          "text": "Which of the following provides maximum contact surface for \r\na liquid-vapor system?",
+          "options": [
+            "A. Packed tower",
+            "B. Sieve-plate column",
+            "C. Bubble-cap plate",
+            "D. Wetted wall column"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 96
+        },
+        {
+          "text": "Ammonium sulfate is to be crystallized from solution containing 48% (NH 4)2SO4, by cooling it in counter flow crystallizer from 85 to 35\"C. During cooling the amount of water that evaporates is 5% of the mass of the feed solution_ Data: Feed rate 1000 kg/h Solubility of (NH4)2SO4 at 35 C = 75 kg /100 kg of water Specific heat of 48% (NH4)2SO4 at solution 2.97 kJ/kg-K Heat of crystallization of (NH4)2SO4 = 75.2 kJ/kg Calculate the rate of formation of crystals.",
+          "options": [
+            "A. 127.5 kg/h",
+            "B.  678.3 kg/h",
+            "C.  822.5 kg/h",
+            "D.  321.7 kg/h"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 41
+        },
+        {
+          "text": "For the same feed, feed quality and separation (in a\r\ndistillation column), with the increase of total pressure,\r\nthe number of ideal plates will",
+          "options": [
+            "A. increase",
+            "B. decrease",
+            "C. remains same",
+            "D. data insufficient, can't be predicted"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 108
+        },
+        {
+          "text": "Carbon black is pulverized in a",
+          "options": [
+            "A.  hammer crusher",
+            "B. roll crusher",
+            "C. ball mill",
+            "D. gyratory crusher"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 33
+        },
+        {
+          "text": "In a distillation column, minimum clearance to be maintained between the overflow weir and the last row of the bubble caps is _______cm",
+          "options": [
+            "A. 2.5",
+            "B. 7.5",
+            "C. 15",
+            "D. 20"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 19
+        },
+        {
+          "text": "Weight of 1 m3? of humid air as compared to 1 m3 of dry air; under the same conditions, is",
+          "options": [
+            "A. less more",
+            "B.  same",
+            "C. more",
+            "D. unpredictable"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 57
+        },
+        {
+          "text": "The ideal size of round bubble caps to be used in industrial distillation column having a diameter of 3-6 meters is_______cm",
+          "options": [
+            "A. 5",
+            "B. 15",
+            "C.  7.5",
+            "D.  50"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 18
+        },
+        {
+          "text": "A polymerization reaction occurs at constant temperature in\r\nhomogeneous phase. For the initial monomer concentrations of 0.3, 0.5\r\nand 0.9 mol/L, 30% of the monomer reacts in 40 minutes. Find the\r\nreaction rate constant.",
+          "options": [
+            "A. 0.129/hr",
+            "B.  0.535 /hr",
+            "C. 0.451/hr",
+            "D. 0.964 /hr"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 14
+        },
+        {
+          "text": "The following data was obtained in a test on a flat-walled furnace the linings of which\r\nconsist of a 4.5 in non-corrosive brick of unknown conductivity and the outer wall of 8 in\r\nclay brick, also of unknown conductivity. The temperature of the inner wall (flame side) was\r\nfound to be 1105°F and that of the outer wall 365°F. This furnace was lagged with 2 in of\r\nmagnesia (k=0.04) thermocouples inserted at various points and the following data taken.\r\nTemperature of inner wall (flame side)\r\nTemperature at the junction of brick layers\r\nTemperature at the junction of ordinary brick and magnesia\r\nTemperature of the outer surface of magnesia\r\nCalculate the % of heat loss that is saved by the lagging.\r\n1355°F\r\n1290°F\r\n890°F\r\n190°F",
+          "options": [
+            "A. 50%",
+            "B.  28%",
+            "C. 37%",
+            "D. 44%"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 9
+        },
+        {
+          "text": "The following is data for the reaction: A→ B: Time (sec) - [0 25 50 75]   [A] (M) - [1.00 0.914 0.829 0.744]  Time (sec) - [100 125 150 200]  [A] (M)-  [0.659 0.573 0.488  ?] The order of the reactant A",
+          "options": [
+            "A. 0",
+            "B. 2",
+            "C. 1",
+            "D. 3"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 29
+        },
+        {
+          "text": "Back-trapping in a distillation column",
+          "options": [
+            "A. increases tray efficiency.",
+            "B. decreases tray efficiency.",
+            "C. reduces pressure drop.",
+            "D. is desirable, as it provides improved vaporliquid contact."
+          ],
+          "correct": 1,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 131
+        },
+        {
+          "text": "One drier will dry a material from 45% moisture (wb) to\r\n20% moisture (db) from here the material enters another drier\r\nwhere the H20 content is further reduced to give a final\r\nproduct weighing 1000 kg. If the total evaporation from both\r\ndriers is 800 kg, the moisture of the final product is",
+          "options": [
+            "A. 5%",
+            "B. 3%",
+            "C. 2%",
+            "D. 1%"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 21
+        },
+        {
+          "text": "If a first order reversible liquid reaction A = B is conducted in a batch\r\nreactor. The initial concentrations are CAo = 0.5 gmol/L and CRo = 0. After 8\r\nminutes, the fractional conversion of A is 1/3 and at equilibrium, the fractional\r\nconversion of A is 2/3. Find the equilibrium constant.",
+          "options": [
+            "A. 1",
+            "B. 3",
+            "C. 2",
+            "D. 4"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 46
+        },
+        {
+          "text": "Five kilograms of carbon tetrachloride undergo a mechanically reversible, isobaric change of state at 1 bar during which the temperature changes from 0°C to 20°C. The properties for liquid carbon tetrachloride at 1 bar and 0 °C may be assumed independent of temperature: ẞ = 1.2x10-3/K, Cp = 0.84 kJ/kg-K and p = 1590 kg/m³. Determine the following: dV",
+          "options": [
+            "A. 8x10-5 m³",
+            "B. 2x10-5 m³",
+            "C. 6 x10-5 m³",
+            "D. 5x10-5 m³"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 71
+        },
+        {
+          "text": "A binary feed mixture containing equimolar quantities of components S\r\nand T is to be distilled in a fractionating tower at atmospheric pressure.\r\nThe distillate contains 96 mol % S. The q-line (feed line) intersects the equilibrium line at x' = 0.46 and y'= 0.66, where x' and y' are mole\r\nfraction s. Assume that the McCabe-Thiele method is applicable and the\r\nrelative volatility is constant. The feed is",
+          "options": [
+            "A.  at dew point",
+            "B. superheated vapor",
+            "C. at bubble point",
+            "D. partially vapor"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 97
+        },
+        {
+          "text": "The equilibrium constant of a chemical reaction",
+          "options": [
+            "A. increases in the presence of catalyst",
+            "B.  decreases in the presence of catalyst",
+            "C.  remains unaffected in the presence of a catalyst",
+            "D. can either increase or decrease; depends on the type of catalyst"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 44
+        },
+        {
+          "text": "Reported values for the virial coefficients of isopropanol vapor at 200°C are: B = -388 cm³/mol and C = -26000 cm/mol2. Calculate V and Z for isopropanol vapor at 200°C and 10 bar by Ideal Gas",
+          "options": [
+            "A. 1, 3934 cm³/mol",
+            "B. 1, 3539 cm³/mol",
+            "C. 1, 3488 cm³/mol",
+            "D. 1. 3495 cm³/mol"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 61
+        },
+        {
+          "text": "Buoyant force",
+          "options": [
+            "A. for non-symmetrical bodies is not vertical",
+            "B. depends on the depth of the submergence of the floatingbody",
+            "C. depends on the weight of the floating body",
+            "D. none of these"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 54
+        },
+        {
+          "text": "Water in the bottom of a narrow metal tube is held at a constant\r\ntemperature of 293 K. The total pressure of air (assumed dry) is 1.01325 x\r\n105 Pa (1.0 atm) and the temperature is 293 K (20 °C). Water evaporates\r\nand diffuses through the air in the tube, and the diffusion path z₂ - z, is0.1524 m (0.5 ft) long. Calculate the rate of evaporation at steady state inkg mol/s-m². The diffusivity of water vapor at 293 K and 1 am pressure is0.250 x 10-4 m²/s. Assume that the system is isothermal.",
+          "options": [
+            "A.  3.8x10-7 kmol A /s-m²",
+            "B. 5.5x10-7 kmol A /s-m²",
+            "C. 2.0x10-7 kmol A /s-m²",
+            "D. 1.6x10-7 kmol A /s-m²"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 53
+        },
+        {
+          "text": "The dimensionless number that\r\ncharacterizes the flows of fluid in a conduit.",
+          "options": [
+            "A. Nusselt number",
+            "B. Peclet number",
+            "C. Grashof number",
+            "D.  Reynolds number"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 3
+        },
+        {
+          "text": "Fenske's equation for determining  the minimum number of theoretical stages in distillation column holds good when the",
+          "options": [
+            "A. relative volatility is reasonably constant",
+            "B. mixture (to be seperated) shows negative deviation from ideality",
+            "C. mixture (to be seperated) shows positive deviation from ideality",
+            "D. multicomponent distillation is involved"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 107
+        },
+        {
+          "text": "For the reaction, 2X + Y → Z, the rate of formation of Z is 0.2\r\nmole/liter-hr. what is the rate of disappearance of X in mole/literhr?",
+          "options": [
+            "A. 0.4",
+            "B.  0.2",
+            "C. 0.1",
+            "D. none of these"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 0
+        },
+        {
+          "text": "Steam distillation is used to",
+          "options": [
+            "A. reduce the number of plates.",
+            "B. avoid thermal decomposition of a component.",
+            "C. increase the efficiency of separation.",
+            "D.  increase the total pressure of distillation."
+          ],
+          "correct": 1,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 82
+        },
+        {
+          "text": "Pure aniline is evaporating through a stagnant air film of 1 mm thickness at 300 K and a\r\ntotal pressure of 100 kPa. The vapor pressure of aniline at 300 K is 0.1 kPa. The total molar\r\nconcentration under these conditions is 40.1 mol/m³. The diffusivity of aniline in air is 0.74 x\r\n10-5 m²/s.\r\n The rate of evaporation of aniline is 2.97 x 104. Its units are",
+          "options": [
+            "A. mol/s",
+            "B.  mol/cm²-s",
+            "C. mol/m²",
+            "D.  kmol/ m²-s"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 63
+        },
+        {
+          "text": "Screen capacity is not a function of",
+          "options": [
+            "A. its openings size",
+            "B. screening surface",
+            "C. screening mechanism",
+            "D. atmospheric humidity"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 14
+        },
+        {
+          "text": "A gas initially at 15 psia and 2 ft3 undergoes a process to 90 psia and 0.6 ft3, during which the enthalpy increases by 15.5 BTU; Cv=2.44 BTU/lb-R. Determine Cp in BTU/lb-R",
+          "options": [
+            "A. 3.42",
+            "B. 5.56",
+            "C. 4.01",
+            "D. 2.98"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 26
+        },
+        {
+          "text": "Water at 20°C is pumped at a constant rate of 9 m³/h from a large\r\nreservoir resting on the floor to the open top of an experimental\r\nabsorption tower. The point of discharges is 5 m above the floor, and\r\nthe frictional losses in the 50 mm pipe from the reservoir to the\r\ntower amount to 2.5 J/kg. At what height in the reservoir must the\r\nwater level be kept if the pump can develop only 0.1 kW?",
+          "options": [
+            "A. 2.50 m",
+            "B. 1.26 m",
+            "C. 3.84 m",
+            "D.  0.77 m"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 10
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -112208,5 +112827,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-23T16:16:26"
+  "updated_at": "2026-10-23T16:17:25"
 }
