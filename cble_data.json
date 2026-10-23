@@ -43000,6 +43000,622 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1792731252966344",
+      "name": "D1_S10",
+      "created_at": "2026-10-23T04:54:12",
+      "composition": {
+        "D1_L5_Material_Science_Engineering": 10,
+        "D1_L7_Biochemistry": 10,
+        "D1_L2_Environmental_EngSci": 10,
+        "D1_L4_Organic_Chemistry": 10,
+        "D1_L6_Physical_Chemistry": 10
+      },
+      "questions": [
+        {
+          "text": "Which factor directly affects the thermal conductivity of a metal?",
+          "options": [
+            "A. Number of valence electrons",
+            "B. Grain size",
+            "C. Free electron density",
+            "D. Atomic weight"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 50
+        },
+        {
+          "text": "Consider a 1000-L CSTR in which biomass is being produced with glucose as the substrate. The microbial system follows a Monod relationship with u03bcmax = 0.4 /h, Ks = 1.5 g/L, and a biomass yield factor of YX/S = 0.5 g biomass/g substrate. If normal operation is with a sterile feed containing 10 g/L glucose at a rate of 100 L/hr, what is the specific growth rate at steady state?",
+          "options": [
+            "A. 0.1 /h",
+            "B. 0.2 /h",
+            "C. 0.5 /h",
+            "D. 0.7 /h"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 112
+        },
+        {
+          "text": "What is the primary reaction mechanism behind the formation of tropospheric ozone?",
+          "options": [
+            "A. CO2 reacting with water vapor",
+            "B. VOCs and NOx reacting under sunlight",
+            "C. SO2 and NO2 condensation",
+            "D. Methane combustion"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 100
+        },
+        {
+          "text": "A 0.03 mol solution of HCl is used to completely titrate an unknown amount of NaOH. How many moles of NaOH were present in the analyte?",
+          "options": [
+            "A. 0.015 mol",
+            "B. 0.045 mol",
+            "C. 0.030 mol",
+            "D. 0.060 mol"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 82
+        },
+        {
+          "text": "Which of the following is the final and major product of this reaction? Reaction: phenylacetylene (C₆H₅–C≡CH) + H₂O with H₂SO₄/HgSO₄. Products drawn: a = C₆H₅–C(=O)–CH₃ (acetophenone); b = C₆H₅–C(OH)=CH₂ (enol); c = C₆H₅–CH₂–CHO (phenylacetaldehyde); d = C₆H₅–CH=CH–OH (enol); e = C₆H₅–CH(OH)–CH₂OH (diol).",
+          "options": [
+            "A. C₆H₅–C(=O)–CH₃",
+            "B. C₆H₅–C(OH)=CH₂",
+            "C. C₆H₅–CH₂–CHO",
+            "D. C₆H₅–CH=CH–OH",
+            "E. C₆H₅–CH(OH)–CH₂OH"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 81
+        },
+        {
+          "text": "The direction [111] in a cubic crystal is along:",
+          "options": [
+            "A. x-axis",
+            "B. y-axis",
+            "C. z-axis",
+            "D. Body diagonal of the cube"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 25
+        },
+        {
+          "text": "A home water softener has 0.1 m3 of ion-exchange resin with an exchange capacity of 62 kgu00b7mu22123. The four home residents each use water at a rate of 400 Lu00b7dayu22121. The well water they are using contains 340.0 mgu00b7Lu22121 of hardness as CaCO3. It is desirable to soften it to achieve a total hardness of 100 mgu00b7Lu22121 as CaCO3. What should the bypass flow rate be?",
+          "options": [
+            "A. 471 L/d",
+            "B. 333 L/d",
+            "C. 560 L/d",
+            "D. 600 L/d"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 45
+        },
+        {
+          "text": "The most significant source of anthropogenic methane is:",
+          "options": [
+            "A. Volcanoes",
+            "B. Landfills",
+            "C. Lightning",
+            "D. Ocean currents"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 91
+        },
+        {
+          "text": "What is the IUPAC name for the following compound? Structure: CH₂=C(CH₃)–CH₂–CH₃ (a four-carbon chain with a terminal C=C and a CH₃ branch on the second carbon).",
+          "options": [
+            "A. 2-methyl-1-butene",
+            "B. Isopentene",
+            "C. 2-methylbutene",
+            "D. 2-Ethylpropene"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 17
+        },
+        {
+          "text": "(Situation: A 1000-L CSTR produces biomass from glucose following Monod kinetics with u03bcmax = 0.4 /h, Ks = 1.5 g/L, and YX/S = 0.5 g biomass/g substrate; sterile feed of 10 g/L glucose enters at 100 L/hr.) What is the biomass production rate at steady state?",
+          "options": [
+            "A. 0.555 g/L-h",
+            "B. 0.475 g/L-h",
+            "C. 0.695 g/L-h",
+            "D. 0.315 g/L-h"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 114
+        },
+        {
+          "text": "Which protocol was established to reduce greenhouse gas emissions?",
+          "options": [
+            "A. Montreal Protocol",
+            "B. Kyoto Protocol",
+            "C. Basel Convention",
+            "D. Stockholm Convention"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 104
+        },
+        {
+          "text": "NAD+, FAD, and FMN are all cofactors for:",
+          "options": [
+            "A. Oxidoreductases",
+            "B. Transferases",
+            "C. Hydrolases",
+            "D. Ligases"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 71
+        },
+        {
+          "text": "What kind of cubic is diamond?",
+          "options": [
+            "A. SC",
+            "B. HCP",
+            "C. FCC",
+            "D. BCC"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 19
+        },
+        {
+          "text": "An enantiomeric mixture of a chiral drug has an enantiomeric excess (ee) of 60% in favor of the (S)-enantiomer. What is the percentage of the (S)-enantiomer in the mixture?",
+          "options": [
+            "A. 60%",
+            "B. 30%",
+            "C. 70%",
+            "D. 80%"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 42
+        },
+        {
+          "text": "In a batch-fed (fed-batch) reactor configuration, substrate is added:",
+          "options": [
+            "A. only at the beginning of the fermentation process",
+            "B. periodically throughout the fermentation process",
+            "C. only at the end of the fermentation process",
+            "D. never"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 108
+        },
+        {
+          "text": "(Situation: An aqueous solution at 26.85 u02daC of 0.72% by weight HCl freezes at -0.706 u02daC.) Calculate the boiling point of the solution in u02daC.",
+          "options": [
+            "A. 100.1",
+            "B. 100.2",
+            "C. 100.3",
+            "D. 100.4"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 56
+        },
+        {
+          "text": "It is the international salute that is currently the primary basis of the Philippines in its latest environmental dispute with Canada.",
+          "options": [
+            "A. Kyoto Protocol",
+            "B. Basel Convention",
+            "C. Copenhagen Talks",
+            "D. Montreal Protocol"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 51
+        },
+        {
+          "text": "Secondary alcohol when undergoes oxidation forms",
+          "options": [
+            "A. aldehydes",
+            "B. acid",
+            "C. ketone",
+            "D. ester"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 65
+        },
+        {
+          "text": "Thermoplastics can be described as polymers that:",
+          "options": [
+            "A. Harden permanently when heated",
+            "B. Cannot be reshaped once formed",
+            "C. Soften when heated and harden when cooled, repeatedly",
+            "D. Are always biodegradable"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 48
+        },
+        {
+          "text": "This is the pressure exerted by the gas molecules that are in equilibrium with the liquid.",
+          "options": [
+            "A. Partial pressure",
+            "B. Atmospheric pressure",
+            "C. Total pressure",
+            "D. Vapor pressure"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 36
+        },
+        {
+          "text": "During the titration of a weak acid with a strong base, the pH rises from 3.0 to 4.7. What primarily causes this increase in pH?",
+          "options": [
+            "A. The complete neutralization of the weak acid",
+            "B. The formation of its conjugate base, which partially resists further pH changes",
+            "C. The rapid dissociation of water molecules",
+            "D. The presence of excess strong base in the solution"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 85
+        },
+        {
+          "text": "How many sections are included in a standard Safety Data Sheet (SDS) according to the Globally Harmonized System (GHS)?",
+          "options": [
+            "A. 8",
+            "B. 16",
+            "C. 12",
+            "D. 20"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 63
+        },
+        {
+          "text": "The amount of heat absorbed when CO2 gas reacts with a solid CaO to form solid CaCO3 is measured in a bomb calorimeter. The data obtained give a direct measure of:",
+          "options": [
+            "A. u0394U",
+            "B. Vu0394P",
+            "C. u0394H",
+            "D. CP"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 14
+        },
+        {
+          "text": "Which is the correct order of decreasing acidity of alkanes, alkenes and alkynes?",
+          "options": [
+            "A. alkyne > alkene > alkane",
+            "B. alkane > alkene > alkyne",
+            "C. alkyne > alkane > alkene",
+            "D. alkane > alkyne > alkene"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 5
+        },
+        {
+          "text": "The main purpose of the electron transport chain is to:",
+          "options": [
+            "A. Use high energy electrons from other cycles to convert ADP into ATP",
+            "B. Maintain a stable balance of high energy electrons",
+            "C. Constantly distribute electrons throughout the cell",
+            "D. Tell the cell when glycolysis should stop or start"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 55
+        },
+        {
+          "text": "Which of the following microorganisms is used for the production of citric acid?",
+          "options": [
+            "A. Lactobacillus bulgaricus",
+            "B. Aspergillus niger",
+            "C. Saccharomyces cerevisiae",
+            "D. Streptococcus lactis"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 101
+        },
+        {
+          "text": "In a study of the equilibrium H2 + I2 u21cc 2HI, 1 mol of H2 and 3 mol of I2 gave rise at equilibrium to x mol of HI. Addition of a further 2 mol of H2 gave an additional x mol of HI. What is K at the temperature of the experiment?",
+          "options": [
+            "A. 3",
+            "B. 4",
+            "C. 5",
+            "D. 6"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 28
+        },
+        {
+          "text": "Which of the following statements about an SN1 mechanism is (are) true?",
+          "options": [
+            "A. The reaction is fastest with 3° halides.",
+            "B. The rate of the reaction increases when the solvent is changed from (CH₃)₂C=O to CH₃CH₂OH.",
+            "C. The identity of the leaving group does not affect the reaction rate.",
+            "D. Only Statements A and B are true."
+          ],
+          "correct": 3,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 51
+        },
+        {
+          "text": "(Situation: 150 g of NaCl is dissolved in 300 g of diethyl ether. The boiling point elevation of the solution is 26 K; normal boiling point of diethyl ether is 34.6 u02daC.) Compute for the Van't Hoff factor.",
+          "options": [
+            "A. 1.36",
+            "B. 1.23",
+            "C. 1.63",
+            "D. 1.32"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 58
+        },
+        {
+          "text": "Which of the following is the electrophile that attacks the aromatic ring during nitration?",
+          "options": [
+            "A. NO₂",
+            "B. HNO₃",
+            "C. NO₂⁻",
+            "D. NO₂⁺"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 105
+        },
+        {
+          "text": "What is the main source of carbon footprint in cement production?",
+          "options": [
+            "A. Fuel combustion",
+            "B. Transportation",
+            "C. Chemical decomposition of limestone",
+            "D. Electricity consumption"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 89
+        },
+        {
+          "text": "What is the IUPAC name for the following alkyne? Structure: CH₃–C≡C–CH₂–C(Br)(CH₃)–CH₃ (the carbon bearing Br also carries two CH₃ groups).",
+          "options": [
+            "A. 3-Bromo-5-heptyne",
+            "B. 2-Bromo-2-methyl-4-hexyne",
+            "C. 5-Bromo-5,5-dimethylhexyne",
+            "D. 5-Bromo-5-methyl-2-hexyne"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 19
+        },
+        {
+          "text": "Identify the symbol. Figure: a GHS hazard pictogram, a red-bordered diamond containing a black flame above a circle (a flame over a circle).",
+          "options": [
+            "A. flammable",
+            "B. corrosive",
+            "C. oxidizing",
+            "D. toxic"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 64
+        },
+        {
+          "text": "The coexistence curve, where the plot of pressure versus temperature along which two phases coexist, was shown by Clausius-Clapeyron. What did Clausius postulate?",
+          "options": [
+            "A. The Clapeyron equation was simplified by assuming that the vapor obeys the ideal gas law and by neglecting the molar volume of the liquid VL in comparison with the molar volume of the gas VG",
+            "B. The Clausius-Clapeyron equation does not apply to this situation",
+            "C. The Clausius-Clapeyron theory is applicable only for vaporization and sublimation conditions",
+            "D. Both scientists apply their postulates to linear and curvilinear representation"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 40
+        },
+        {
+          "text": "You learned from your environmental engineering class that the change in dissolve oxygen (DO) concentration with respect to time can be determined from the rate of re-aeration and the rate of decomposition of oxygen demanding material. Rate of re-aeration of DO = -tu00b2 + 5. Rate of O2 demanding material decomposition = 2t - tu00b2. Where t is time in days and the rates are in units of mg/L-days. If the DO saturation is 6.25 mg/L and that at t = 0, the DO concentration is also zero, what is the oxygen deficit of the lake, in mg/L after 1 day?",
+          "options": [
+            "A. 1.69 mg/L",
+            "B. 0.88 mg/L",
+            "C. 2.25 mg/L",
+            "D. 3.03 mg/L"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 25
+        },
+        {
+          "text": "The following mineral analysis was reported for a water sample taken from well No. 1 at Magnolia, Illinois (Woller and Sanderson, 1976b). Iron(2+) 0.42, Manganese 0.04, Ammonium 11.0, Sodium 78.0, Potassium 2.6, Calcium 78.0, Magnesium 40.0, Barium 0.5, Copper 0.01, Silica 20.0, Fluoride 0.3, Boron 0.3, Nitrate 0.0, Chloride 9.0, Sulfate 29.0, Zinc 0.01, pH 7.7 units, Alkalinity 494.035 as CaCO3. Determine the noncarbonate hardness (in mg/L as CaCO3), using the predominant polyvalent cation definition of hardness.",
+          "options": [
+            "A. 0",
+            "B. 494",
+            "C. 327",
+            "D. 110"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 42
+        },
+        {
+          "text": "(Situation: Accurate vapor-pressure data for a substance: T = 40 u02daC, P = 55.364 torr; T = 50 u02daC, P = 92.592 torr; T = 60 u02daC, P = 149.51 torr; T = 70 u02daC, P = 233.847 torr; T = 80 u02daC, P = 355.343 torr.) Estimate the boiling point of this substance.",
+          "options": [
+            "A. 40",
+            "B. 60",
+            "C. 80",
+            "D. 100"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 45
+        },
+        {
+          "text": "Which crystal system has all sides equal and all angles 90°?",
+          "options": [
+            "A. Tetragonal",
+            "B. Orthorhombic",
+            "C. Cubic",
+            "D. Hexagonal"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 14
+        },
+        {
+          "text": "What is the primary advantage of using anaerobic digestion in wastewater treatment?",
+          "options": [
+            "A. It produces a high-quality effluent for drinking water",
+            "B. It reduces the volume of sludge generated and produces biogas",
+            "C. It is cheaper than aerobic processes",
+            "D. It increases the dissolved oxygen levels in the effluent"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 73
+        },
+        {
+          "text": "Among the following, which compound will produce the least lowering of the vapor pressure of a solution?",
+          "options": [
+            "A. Sucrose",
+            "B. Aluminum chloride",
+            "C. Table salt",
+            "D. Sodium sulfate"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 50
+        },
+        {
+          "text": "Storage polysaccharide made by animals is",
+          "options": [
+            "A. amylopectin",
+            "B. glycogen",
+            "C. cellulose",
+            "D. amylose"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 2
+        },
+        {
+          "text": "What does insulin do?",
+          "options": [
+            "A. inhibit gluconeogenesis and stimulate glycolysis",
+            "B. stimulate both gluconeogenesis and glycolysis",
+            "C. stimulate gluconeogenesis and inhibit glycolysis",
+            "D. inhibit both gluconeogenesis and glycolysis"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 62
+        },
+        {
+          "text": "What are primary bonds?",
+          "options": [
+            "A. Weak forces between molecules",
+            "B. Bonds formed due to temporary dipoles",
+            "C. Strong bonds involving the sharing or transfer of electrons",
+            "D. Bonds only found in gases"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 1
+        },
+        {
+          "text": "What are the products of the citric acid cycle?",
+          "options": [
+            "A. NADH, ATP, FADH2 and CO2",
+            "B. O2, ADP, 1 FAD, and NAD+",
+            "C. Glucose, ATP, O2 and NADH",
+            "D. heat, H2O, NADH, and pyruvate"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 53
+        },
+        {
+          "text": "What is the goal of the Paris Agreement?",
+          "options": [
+            "A. Eliminate fossil fuel usage",
+            "B. Keep global warming below 2u00b0C",
+            "C. Reduce ozone depletion",
+            "D. Promote nuclear energy"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 106
+        },
+        {
+          "text": "(Situation: A 3.6 kg iron block at 807 u02daC is inserted into 1 L of water at 30 u02daC, isolated from the environment. The water first heats to its boiling point, then evaporates, until the iron and water reach a common final temperature of 100 u02daC. Specific heat of solid iron = 0.45 J/g-K; heat of vaporization of water = 2259.23 J/g.) How much sensible heat was used by the water to get to its boiling point, in J?",
+          "options": [
+            "A. 200,000",
+            "B. 300,000",
+            "C. 400,000",
+            "D. 500,000"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 19
+        },
+        {
+          "text": "What is the ionic strength in M of a solution that is 0.1 M potassium nitrate and 0.2 M potassium sulfate?",
+          "options": [
+            "A. 0.5",
+            "B. 0.6",
+            "C. 0.7",
+            "D. 0.8"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 53
+        },
+        {
+          "text": "The primary stabilizing force of protein secondary structure.",
+          "options": [
+            "A. Ionic bonds",
+            "B. Covalent bonds",
+            "C. Van der Waals forces",
+            "D. Hydrogen bonds"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 18
+        },
+        {
+          "text": "How many degrees of unsaturation does the following structure have? Structure: a benzene ring fused to a saturated six-membered ring that contains an N–H; one carbon of the saturated ring bears both an OH group and an ethynyl group (–C≡C–H). Molecular formula C₁₁H₁₁NO.",
+          "options": [
+            "A. 4",
+            "B. 5",
+            "C. 6",
+            "D. 7"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 6
+        },
+        {
+          "text": "What is the major product of the following reaction? Reactant: a benzene ring bearing a CH₃ group and an isopropyl group [–CH(CH₃)₂] meta to each other, treated with Br₂ and light. Products drawn: a = primary side-chain bromide, 3-CH₃-C₆H₄–CH(CH₃)CH₂Br; b = dibromide with Br on the ring CH₃ carbon and on a CH₃ of the isopropyl group, BrCH₂–C₆H₄–CH(CH₃)CH₂Br; c = a non-benzylic side-chain monobromide isomer (ring CH₃ unchanged); d = tertiary benzylic bromide, 3-CH₃-C₆H₄–C(CH₃)₂Br.",
+          "options": [
+            "A. 3-CH₃-C₆H₄–CH(CH₃)CH₂Br",
+            "B. BrCH₂–C₆H₄–CH(CH₃)CH₂Br",
+            "C. non-benzylic side-chain monobromide isomer",
+            "D. 3-CH₃-C₆H₄–C(CH₃)₂Br"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 67
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -104610,5 +105226,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-23T04:52:42"
+  "updated_at": "2026-10-23T04:54:24"
 }
