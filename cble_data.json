@@ -45995,6 +45995,631 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1792817843594355",
+      "name": "D3_S6",
+      "created_at": "2026-10-24T04:57:23",
+      "composition": {
+        "D3_L12_EngineeringEconomics": 4,
+        "D3_L6_AnalyticGeometry": 3,
+        "D3_L15_Engineering_Mechanics": 3,
+        "D3_L2_Process_Control_Analysis": 3,
+        "D3_L14_Physics": 4,
+        "D3_L11_Differential_Equations": 4,
+        "D3_L10_ProcessSafety": 4,
+        "D3_L8_Integral_Calculus": 3,
+        "D3_L3_Algebra": 3,
+        "D3_L1_ChE_Laws": 3,
+        "D3_L9_CPI": 3,
+        "D3_L5_Geometry": 3,
+        "D3_L4_Trigonometry": 3,
+        "D3_L13_EngineeringDataAnalysis": 4,
+        "D3_L7_Differential_Calculus": 3
+      },
+      "questions": [
+        {
+          "text": "The first year maintenance cost for a new automobile is estimated to be P10,000 and it increases at a uniform rate of 10% per year. Using an 8% interest rate, calculate the present worth of cost of the first 5 years of maintenance.",
+          "options": [
+            "A. P48,044.00",
+            "B. P47,500.00",
+            "C. P48,500.00",
+            "D. P47,000.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 50
+        },
+        {
+          "text": "Find the coordinates of the point that divides the directed line segment MN with the coordinates of endpoints at M(-4,0) and N(0,4) in the ratio 3:1.",
+          "options": [
+            "A. (-2,0)",
+            "B. (-1,3)",
+            "C. (0,2)",
+            "D. (1,1)"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 2
+        },
+        {
+          "text": "At the surface of the earth, g = 9.806 m/s². Assume the earth to be a sphere of radius 6,371 km. Compute the mass of the earth.",
+          "options": [
+            "A. 5.12 x 10²³ kg",
+            "B. 5.12 x 10²⁴ kg",
+            "C. 5.96 x 10²³ kg",
+            "D. 5.96 x 10²⁴ kg"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 65
+        },
+        {
+          "text": "Time-delays are typical part of process control systems because of delays in fluid flow effects and dead time in composition analysis, among other reasons They limit the effectivity of the PID feedback control system. The most common algorithm used in compensating for time-delay is",
+          "options": [
+            "A. Auctioneering",
+            "B. Smith predictor",
+            "C. Override",
+            "D. Adaptive control"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 44
+        },
+        {
+          "text": "Find the speed of sound in air at T = 20°C. The mean molar mass for air (a mixture of mostly nitrogen and oxygen) is M = 28.8 g/mol and the ratio of heat capacities is 1.40.",
+          "options": [
+            "A. 344 m/s",
+            "B. 340 m/s",
+            "C. 350 m/s",
+            "D. 330 m/s"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 29
+        },
+        {
+          "text": "Evaluate the general solution of the differential equation: x³(d³y/dx³) + 5x²(d²y/dx²) − 2x(dy/dx) − 6y = 0",
+          "options": [
+            "A. y = C1/x + C2x² + C3/x³",
+            "B. y = C1x + C2x² + C3x³",
+            "C. y = C1x + C2/x² + C3x³",
+            "D. y = C1/x + C2/x² + C3/x³"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 36
+        },
+        {
+          "text": "The Bhopal Gas Disaster occurred at a plant owned by which company?",
+          "options": [
+            "A. Dow Chemical Company",
+            "B. ICI (Imperial Chemical Industries)",
+            "C. Union Carbide India Limited (UCIL)",
+            "D. BASF"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 53
+        },
+        {
+          "text": "The line 2x u2013 3y + 2 = 0 is perpendicular to another line L1 of unknown equation. Find the slope of L1.",
+          "options": [
+            "A. 3/2",
+            "B. -3/2",
+            "C. 2/3",
+            "D. -2/3"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 16
+        },
+        {
+          "text": "(Torricelli's law) A cylindrical keg with radius 10cm and height 25cm has a drain hole at the bottom with an area of 2cm². How fast is the height dropping when there are 4L of beverage remaining?",
+          "options": [
+            "A. 0.2 cm/s",
+            "B. 0.4 cm/s",
+            "C. 0.6 cm/s",
+            "D. 0.8 cm/s"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 52
+        },
+        {
+          "text": "Find the area of one leaf of the four-leaved clover r=4sin(2θ).",
+          "options": [
+            "A. π",
+            "B. 2π",
+            "C. 4π",
+            "D. 8π"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 27
+        },
+        {
+          "text": "A broadcasting corporation purchased equipment for P53,000 and paid P1,500 for freight and delivery charges to the job site. The equipment has a normal life of 10 years with a trade-in value of P5,000 against the purchase of new equipment at the end of the life. Using sinking fund method (assume annual interest of 6%), determine the total depreciation after 5 years.",
+          "options": [
+            "A. P21,170.00",
+            "B. P21,000.00",
+            "C. P21,500.00",
+            "D. P20,800.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 57
+        },
+        {
+          "text": "A rubber ball is made to fall from a height of 50 ft. and is observed to rebound 2/3 of the distance it falls. How far will the ball travel before coming to rest if the ball continues to fall in this manner?",
+          "options": [
+            "A. 420",
+            "B. 343",
+            "C. 271",
+            "D. 250"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 26
+        },
+        {
+          "text": "These are plans intended to cover a period of less than one year First-line supervisors are mostly concerned with these planes:",
+          "options": [
+            "A. Short-range plans",
+            "B. Standing Plans",
+            "C. Long-range plans",
+            "D. Single-Use Plans"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 154
+        },
+        {
+          "text": "How many milliliters of water at 23°C with a density of 1 g/mL must be mixed with 180 mL of coffee at 95°C so that the resulting combination will have a temperature of 60°C? Assume that the coffee and water have the same density and the same specific heat.",
+          "options": [
+            "A. 167.27 mL",
+            "B. 168.27 mL",
+            "C. 169.27 mL",
+            "D. 170.27 mL"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 68
+        },
+        {
+          "text": "What major shift occurred in catalysis during the 1970s, exemplified by the development of the catalytic converter?",
+          "options": [
+            "A. A shift toward producing only bioethanol.",
+            "B. The total abandonment of metal-based catalysts.",
+            "C. The birth of environmental catalysis to control emissions.",
+            "D. A focus purely on carbon nanotube production."
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 25
+        },
+        {
+          "text": "The volume of a sphere is 904.78m^3. Find the volume of the spherical segment of height 4m.",
+          "options": [
+            "A. 234.57 cm^3",
+            "B. 256.58 cm^3",
+            "C. 145.69 cm^3",
+            "D. 124.58 cm^3"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 36
+        },
+        {
+          "text": "Determine the particular solution of the differential equation: y'' − 4y' − 12y = sin(2t)",
+          "options": [
+            "A. (1/40)cos(2t) + (1/20)sin(2t)",
+            "B. (1/40)cos(2t) - (1/20)sin(2t)",
+            "C. (1/20)cos(2t) + (1/40)sin(2t)",
+            "D. (1/20)cos(2t) - (1/40)sin(2t)"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 38
+        },
+        {
+          "text": "The sides of a triangular lot are 130m, 180m and 190m. This lot is to be divided by a line bisecting the longest side and drawn from the opposite vertex. Find the length of this line.",
+          "options": [
+            "A. 120m",
+            "B. 130m",
+            "C. 135m",
+            "D. 125m"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 30
+        },
+        {
+          "text": "What is the measure of the side of a regular dodecagon if the radius of the circumscribing circle is 14in?",
+          "options": [
+            "A. 7.25in",
+            "B. 6.50in",
+            "C. 8.75in",
+            "D. 9.00in"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 9
+        },
+        {
+          "text": "A flagpole 3m high stands on top of a pedestal 2m high above the ground. At a distance u201cxu201d meters from the base of the pedestal and on the same horizontal plane as that of the pedestal, the flagpole and the pedestal subtend equal angles. Find the value of x.",
+          "options": [
+            "A. 3u221a3",
+            "B. 2u221a3",
+            "C. 2u221a5",
+            "D. u221a21"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 20
+        },
+        {
+          "text": "A transfer function for a process is proposed as: G(s) = (4s^2 + 2s + 7)/ (s+3) According to the concept of physical realizability, what is the issue with this transfer function?",
+          "options": [
+            "A. The denominator has a positive root (s = -3), making the system unstable",
+            "B. The order of the numerator (m = 2) exceeds the order of the denominator (n = 1) , so it is not physically realizable",
+            "C. The transfer function has no steady-state gain because the denominator goes to zero at s = 0",
+            "D.  The coefficients of the numerator and denominator must be equal in number for a physically realizable system"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 16
+        },
+        {
+          "text": "Which of the following is classified as a function?",
+          "options": [
+            "A. Y = x^2 + 1",
+            "B. Y^2 = x + 1",
+            "C. Both A and B",
+            "D. Neither A nor B"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 30
+        },
+        {
+          "text": "The 1947 Texas City Disaster triggered a chain of explosions originating from a fire aboard one ship. What was the name of that ship?",
+          "options": [
+            "A. SS High Flyer",
+            "B. SS Grandcamp",
+            "C. SS Wilson B. Keene",
+            "D. SS Benjamin R. Curtis"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 57
+        },
+        {
+          "text": "In the measurement 29.4 cm, what number(s) is the uncertain digit?",
+          "options": [
+            "A. 9 and 4 are both uncertain.",
+            "B. 4 is uncertain.",
+            "C. All numbers in this measurement are uncertain.",
+            "D. 2 and 9 are both uncertain."
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 2
+        },
+        {
+          "text": "Most graduate schools of business require applicants for admission to take the Graduate Management Admission Council's GMAT examination. Scores on the GMAT are roughly normally distributed with a mean of 527 and a standard deviation of 112. What is the probability of an individual scoring above 500 on the GMAT?",
+          "options": [
+            "A. 0.5714",
+            "B. 0.5803",
+            "C. 0.5953",
+            "D. 0.6006"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 32
+        },
+        {
+          "text": "According to the central limit theorem, what will the sampling distribution of the mean look like if the sample size is large enough?",
+          "options": [
+            "A. Skewed",
+            "B. Uniform",
+            "C. Bimodal",
+            "D. Normal distributed"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 65
+        },
+        {
+          "text": "What is the 1st derivative y' of the expression (xy)^x = e?",
+          "options": [
+            "A. 0",
+            "B. x/y",
+            "C. -y[(1 + ln(xy))/x]",
+            "D. -y[(1 - ln(xy))/x²]"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 24
+        },
+        {
+          "text": "Suppose all 6 men at a party throw their hats into the center of the room. Each man then randomly selects a hat. Find the probability that none of the 6 men selects his own hat.",
+          "options": [
+            "A. 25/72",
+            "B. 17/48",
+            "C. 13/36",
+            "D. 53/144"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 27
+        },
+        {
+          "text": "A laser beam is aimed 15.95° above the horizontal at a mirror 11,648 m away. It glances off the mirror and continues for an additional 8570 m at 11.44° above the horizon until it hits its target. What is the resultant displacement of the beam to the target?",
+          "options": [
+            "A. 18,030 m at 12.87°",
+            "B. 20,200 m at 14.04°",
+            "C. 21,380 m at 15.15°",
+            "D. 22,200 m at 16.78°"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 4
+        },
+        {
+          "text": "After completing flange maintenance on a heat exchanger, the maintenance crew re-bolts the flange and informs the operator the job is done. The operator is ready to reintroduce the process fluid. What must happen before this step?",
+          "options": [
+            "A. A visual inspection of the flange by the operator is sufficient",
+            "B. Test the heat exchanger using a different fluid like water",
+            "C. Reintroduction can proceed since the maintenance crew is certified",
+            "D. The flange only needs re-checking if the process fluid is above 100°C"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 33
+        },
+        {
+          "text": "What refers to the techniques that encompass risk assignment and the inclusive evaluation of risk, costs and benefits of alternative projects or policies?",
+          "options": [
+            "A. Risk management",
+            "B. Benefit management",
+            "C. Risk-benefit analysis",
+            "D. Uncertainty analysis"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 146
+        },
+        {
+          "text": "What is the discriminant of the equation 4x^2 = 8x - 5?",
+          "options": [
+            "A. 8",
+            "B. -16",
+            "C. 16",
+            "D. -8"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 10
+        },
+        {
+          "text": "Find the area bounded by the line x-2y+10=0, the coordinate axis in the first quadrant, and the line x=10.",
+          "options": [
+            "A. 45",
+            "B. 36",
+            "C. 75",
+            "D. 18"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 23
+        },
+        {
+          "text": "Industrial production of chloroform requires acetone and",
+          "options": [
+            "A. Phosgene",
+            "B. Chlorine",
+            "C. Calcium hypochlorite",
+            "D. Ammonium chloride"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 114
+        },
+        {
+          "text": "What is the Laplace transform of cos(2t)?",
+          "options": [
+            "A. 2/(s²+2)",
+            "B. 2/(s²+4)",
+            "C. s/(s²+2)",
+            "D. s/(s²+4)"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 52
+        },
+        {
+          "text": "Find the midrange for the following set of numbers: 2, 4, 7, 10, 14, 35.",
+          "options": [
+            "A. 14.5",
+            "B. 15.5",
+            "C. 18.5",
+            "D. 16.5"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 58
+        },
+        {
+          "text": "By the condition of a will, the sum of P20000 is left to a girl to be held in trust fund by her guardian until it amounts to P50000. When will the girl receive the money if the fund is invested at 8% compounded quarterly?",
+          "options": [
+            "A. 11.57 years",
+            "B. 12.00 years",
+            "C. 10.57 years",
+            "D. 11.00 years"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 43
+        },
+        {
+          "text": "What do you call the intersection of all the angle bisectors of a triangle?",
+          "options": [
+            "A. Centroid",
+            "B. Circumcenter",
+            "C. Incenter",
+            "D. Orthocenter"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 25
+        },
+        {
+          "text": "Which among these countries have not ratified the Kyoto Protocol and thus: has not made the international agreement binding; although the agreement was symbolically signed by the countrys official representative?",
+          "options": [
+            "A. Philippines",
+            "B. Russia",
+            "C. USA",
+            "D. Australia"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 81
+        },
+        {
+          "text": "Evaluate the general solution of the differential equation: d²x/dt² − 6(dx/dt) + 9x = 0",
+          "options": [
+            "A. y = e^x(C1 + C2x)",
+            "B. x = e^t(C1 + C2t)",
+            "C. y = e^(3x)(C1 + C2x)",
+            "D. x = e^(3t)(C1 + C2t)"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 28
+        },
+        {
+          "text": "First Benchmark Publishing's gross margin is 50% of sales. The operating costs of the publishing are estimated at 15% of sales. If the company is within the 40% tax bracket, determine the percent of sales of their profit after taxes.",
+          "options": [
+            "A. 21%",
+            "B. 20%",
+            "C. 19%",
+            "D. 18%"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 75
+        },
+        {
+          "text": "How did the Monsanto process for acetic acid production improve upon the earlier BASF process?",
+          "options": [
+            "A. It switched from homogeneous to heterogeneous catalyst.",
+            "B. It used a rhodium-based catalyst instead of cobalt-based.",
+            "C. It eliminated the need for methanol.",
+            "D. It was used for high-pressure synthesis only."
+          ],
+          "correct": 1,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 23
+        },
+        {
+          "text": "The output variables can be classified into",
+          "options": [
+            "A. manipulated variable and disturbances",
+            "B. setpoint and desired variables",
+            "C. measured and unmeasured variables",
+            "D. Controller output and Control law"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 6
+        },
+        {
+          "text": "The volume of a truncated prism with an equilateral triangle as its horizontal base is equal to 1800 cu. cm. The vertical edges at each corner are 3, 4, and 5 cm., respectively. Find one side of the base.",
+          "options": [
+            "A. 10.39 cm",
+            "B. 15.87 cm",
+            "C. 32.23 cm",
+            "D. 27.17 cm"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 27
+        },
+        {
+          "text": "A wheel has an initial angular velocity of 5 rad/s and accelerates uniformly at 1.5 rad/s². Find the total angular displacement after the wheel reaches a velocity of 11 rad/s.",
+          "options": [
+            "A. 24 rad",
+            "B. 28 rad",
+            "C. 32 rad",
+            "D. 36 rad"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 57
+        },
+        {
+          "text": "The image would be _______, if the concave mirror had a focal length of 6 cm and the object was 4 cm from the mirror.",
+          "options": [
+            "A. Erect and virtual",
+            "B. Erect and real",
+            "C. Inverted and real",
+            "D. Inverted and virtual"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 44
+        },
+        {
+          "text": "A line passes thru (1, -3) and (-4, 2). Write the equation of the line in slope-intercept form.",
+          "options": [
+            "A. y u2013 4 = x",
+            "B. y = -x u2013 2",
+            "C. y = x u2013 4",
+            "D. y u2013 2 = x"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 11
+        },
+        {
+          "text": "A statue 3 m high is standing on a base 4 m high. If an observer's eye is 1.5 m above the ground, how far should he stand from the base in order that the angle subtended by the statue is a maximum?",
+          "options": [
+            "A. 3.41 m",
+            "B. 3.51 m",
+            "C. 3.71 m",
+            "D. 4.41 m"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 51
+        },
+        {
+          "text": "A certain travel agency offered a tour that will cost each person P1500.00 if not more than 150 persons will join, however the cost per person will be reduced by P5.00 per person in excess of 150. How many persons will make the profit a maximum?",
+          "options": [
+            "A. 75",
+            "B. 150",
+            "C. 225",
+            "D. 250"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 53
+        },
+        {
+          "text": "An example of sensory information for CCP criteria is",
+          "options": [
+            "A. pH",
+            "B. Texture",
+            "C. Temperature",
+            "D. Water Activity"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 94
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -114037,5 +114662,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-24T04:53:22"
+  "updated_at": "2026-10-24T04:57:30"
 }
