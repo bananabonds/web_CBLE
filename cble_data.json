@@ -110014,10 +110014,10 @@
       "source_list": "D3_L6_AnalyticGeometry",
       "reference_no": 29,
       "question": "A circle has a diameter whose ends are at (-3, 2) and (12, -6). Its equation is:",
-      "category": "",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-24T04:27:25",
+      "date_logged": "2026-10-24T16:47:40",
       "occurrences": [
         {
           "exam_id": "1792816044636908",
@@ -110027,9 +110027,9 @@
           "correct_answer": "B. 4x^2 + 4y^2 u2013 36x + 16y u2013 192 = 0"
         }
       ],
-      "updated_at": "2026-10-24T04:27:25",
-      "concept_id": "",
-      "tag_at": "",
+      "updated_at": "2026-10-24T16:47:40",
+      "concept_id": "1792308607006341",
+      "tag_at": "2026-10-24T16:47:40",
       "note_at": ""
     },
     {
@@ -114678,6 +114678,21 @@
       "category": "Unfamiliar Topic",
       "concept_id": "1792311344109127",
       "updated_at": "2026-10-24T16:44:13"
+    },
+    {
+      "id": "1792860454490156",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 27,
+      "resolved": false,
+      "created_at": "2026-10-24T16:47:34",
+      "question": "For the function f(x) = 4x³ - 3x² + 2x + 1, find the linear approximation around x = 3",
+      "correct_answer": "D. y = 92x - 188",
+      "kind": "guess",
+      "exam_id": "1792816044636908",
+      "exam_source": "D3_S5",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792309283782918",
+      "updated_at": "2026-10-24T16:47:34"
     }
   ],
   "checklist": [],
@@ -114708,5 +114723,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-24T16:47:09"
+  "updated_at": "2026-10-24T16:47:41"
 }
