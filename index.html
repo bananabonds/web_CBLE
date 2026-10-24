@@ -834,9 +834,10 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
       </div>
       <div class="card">
         <h3>Score Trend</h3>
-        <p class="hint" style="margin-bottom:10px;">Tests whose names start the same (for example Sample 1, Sample 2, Sample 3) are recognised as one series and drawn together, lined up by attempt number so you can see progression across the series. Switch to date order to see every test, pick tests, and break scores down by subject.</p>
+        <p class="hint" style="margin-bottom:10px;">Tests whose names start the same (for example Sample 1, Sample 2, Sample 3) are recognised as one series and drawn together, lined up by attempt number so you can see progression across the series. Switch to date order to see every test, pick tests, and break scores down by subject. Choose <b>Subject prefix groups</b> to get full statistics for each prefix (T1, T2&hellip;): accuracy, first-seen accuracy, questions, tests, change and more.</p>
         <select id="trendModeSelect" style="margin-bottom:8px;">
           <option value="series">Graph: Group tests by name prefix (aligned by attempt)</option>
+          <option value="groups">Graph: Subject prefix groups (T1, T2&hellip; with statistics)</option>
           <option value="time">Graph: Every test in date order</option>
         </select>
         <div id="trendSeriesChips" class="row wrap" style="gap:6px;margin-bottom:8px;"></div>
@@ -926,6 +927,8 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
             <button class="btn link" id="btnPrioritySelectAll">All</button>
             <button class="btn link" id="btnPriorityClearAll">None</button>
           </div>
+          <p class="hint" style="margin-bottom:6px;">Tap a prefix to add or remove its whole group; <b>only</b> keeps just that group.</p>
+          <div id="prioritySubjectChips" class="row wrap" style="gap:6px;margin-bottom:8px;"></div>
           <div id="prioritySubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
         </div>
         <div id="priorityBars"></div>
@@ -953,6 +956,8 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
             <button class="btn link" id="btnProgSelectAll">All</button>
             <button class="btn link" id="btnProgClearAll">None</button>
           </div>
+          <p class="hint" style="margin-bottom:6px;">Tap a prefix to add or remove its whole group; <b>only</b> keeps just that group.</p>
+          <div id="progSubjectChips" class="row wrap" style="gap:6px;margin-bottom:8px;"></div>
           <div id="progSubjectChecks" style="max-height:220px;overflow-y:auto;"></div>
         </div>
         <div id="progressionChart"></div>
@@ -1105,6 +1110,8 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         </div>
         <label class="field-label" style="margin-top:12px;">Subject prefix <span class="hint">(T1, T2&hellip; &mdash; what the concept's subjects start with)</span></label>
         <select id="rvPrefixSel"></select>
+        <label class="field-label" style="margin-top:8px;">Subject <span class="hint">(one subject, e.g. T1_People)</span></label>
+        <select id="rvSubjectSel"></select>
         <label class="field-label" style="margin-top:8px;">Concept</label>
         <select id="rvConceptSel"></select>
         <div class="hint" id="rvShowing" style="margin-top:6px;"></div>
@@ -1779,6 +1786,51 @@ function conceptPrefixMap() {
     out.set(c.id, { key: best[0], label: best[1].label, share: best[1].n / tot });
   }
   return out;
+}
+
+/* ---- subject prefix groups: one grouping shared by the Reviewer, Test History and Study Priority (T1_People + T1_Animal -> "T1") ---- */
+function subjectGroups(subjects) {
+  const by = new Map();
+  for (const s of new Set((subjects || []).filter(Boolean))) {
+    const p = subjectPrefix(s), k = p.toLowerCase();
+    if (!by.has(k)) by.set(k, { key: k, label: p || "No prefix", members: [] });
+    by.get(k).members.push(s);
+  }
+  const cmp = (a, b) => String(a).localeCompare(String(b), undefined, { numeric: true });
+  return Array.from(by.values()).sort((a, b) => cmp(a.label, b.label)).map(g => { g.members.sort((x, y) => cmp(fcCleanName(x), fcCleanName(y))); return g; });
+}
+// A subject checklist grouped by prefix. o = { chips, isOn(s), setMany(list, on), onChange(), glyph?(s) }
+// Tap a prefix chip (or the group's checkbox) to add/remove the whole group; "only" keeps just that group.
+function renderGroupedChecks(box, subjects, o) {
+  const keep = box.scrollTop;
+  box.innerHTML = "";
+  if (o.chips) o.chips.innerHTML = "";
+  if (!subjects.length) { box.appendChild(el("div", "empty-state", "No subjects with data yet.")); return; }
+  const again = () => { o.onChange(); renderGroupedChecks(box, subjects, o); };
+  for (const g of subjectGroups(subjects)) {
+    const on = g.members.filter(o.isOn).length, full = on === g.members.length;
+    if (o.chips) {
+      const b = el("button", "lg-chip" + (full ? " on" : on ? " part" : ""));
+      b.textContent = `${g.label} \u00b7 ${g.members.length}`;
+      b.title = g.members.join("\n");
+      b.addEventListener("click", () => { o.setMany(g.members, !full); again(); });
+      o.chips.appendChild(b);
+    }
+    const head = el("div", "rv-prefhead"); head.style.cssText += "display:flex;gap:8px;align-items:center;";
+    const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = full; cb.indeterminate = !full && on > 0; cb.style.width = "auto";
+    cb.addEventListener("change", () => { o.setMany(g.members, cb.checked); again(); });
+    const t = el("span", "", `${esc(g.label)} \u00b7 ${on}/${g.members.length} shown`); t.style.flex = "1";
+    const only = el("button", "btn link", "only");
+    only.addEventListener("click", () => { o.setMany(subjects, false); o.setMany(g.members, true); again(); });
+    head.appendChild(cb); head.appendChild(t); head.appendChild(only); box.appendChild(head);
+    for (const s of g.members) {
+      const row = el("label", "row"); row.style.cssText = "margin:0 0 6px 8px;font-size:.82rem;";
+      row.innerHTML = `<input type="checkbox" ${o.isOn(s) ? "checked" : ""}>${o.glyph ? o.glyph(s) : ""}<span>${esc(s)}</span>`;
+      row.querySelector("input").addEventListener("change", (e) => { o.setMany([s], e.target.checked); again(); });
+      box.appendChild(row);
+    }
+  }
+  box.scrollTop = keep;
 }
 
 /* ---------------------------------------------------------------------
@@ -5264,10 +5316,11 @@ function renderTrendSubjectChecks(subjects) {
 }
 function renderHistoryTrend() {
   const base = computeHistoryTrendStats();
-  const seriesMode = $("trendModeSelect").value === "series";
-  $("trendClassicControls").style.display = seriesMode ? "none" : "";
-  $("trendSeriesChips").style.display = seriesMode ? "" : "none";
+  const mode = $("trendModeSelect").value, seriesMode = mode === "series", groupMode = mode === "groups";
+  $("trendClassicControls").style.display = (seriesMode || groupMode) ? "none" : "";
+  $("trendSeriesChips").style.display = (seriesMode || groupMode) ? "" : "none";
   if (seriesMode) { renderSeriesTrend(base); return; }
+  if (groupMode) { renderGroupTrend(base); return; }
   const tableBox = $("historyTrendTable");
   const chartBox = $("historyTrendChart");
   const detailBox = $("historyTrendSubjectTable");
@@ -5366,22 +5419,12 @@ let analysisRowMap = new Map();   // subject -> planner row (gap, status, counts
 let priorityMetric = "firstseen";
 
 function renderPrioritySubjectChecks(subjects) {
-  const box = $("prioritySubjectChecks");
-  box.innerHTML = "";
-  const sorted = subjects.slice().sort();
-  if (!sorted.length) { box.appendChild(el("div", "empty-state", "No subjects with data yet.")); return; }
-  for (const s of sorted) {
-    const row = el("label", "row");
-    row.style.marginBottom = "6px";
-    row.style.fontSize = ".82rem";
-    const checked = !priorityHiddenSubjects.has(s);
-    row.innerHTML = `<input type="checkbox" ${checked ? "checked" : ""}><span>${esc(s)}</span>`;
-    row.querySelector("input").addEventListener("change", (e) => {
-      if (e.target.checked) priorityHiddenSubjects.delete(s); else priorityHiddenSubjects.add(s);
-      renderPriorityBars();
-    });
-    box.appendChild(row);
-  }
+  renderGroupedChecks($("prioritySubjectChecks"), subjects.slice().sort(), {
+    chips: $("prioritySubjectChips"),
+    isOn: s => !priorityHiddenSubjects.has(s),
+    setMany: (list, on) => list.forEach(s => { if (on) priorityHiddenSubjects.delete(s); else priorityHiddenSubjects.add(s); }),
+    onChange: renderPriorityBars,
+  });
 }
 const PRIOR_STRENGTH = 10;   // pseudo-questions of "pooled average" blended into every subject's estimate
 const LOW_N = 10;            // below this many questions a bar is flagged "low n"
@@ -5514,20 +5557,13 @@ function refreshAnalysis() {
 let progSelectedSubjects = new Set();
 let progTouched = false;   // once the user changes the selection, stop auto-picking the first subject
 function renderProgSubjectChecks(subjects) {
-  const box = $("progSubjectChecks");
-  box.innerHTML = "";
-  if (!subjects.length) { box.appendChild(el("div", "empty-state", "No subjects with data yet.")); return; }
-  subjects.forEach((subj, idx) => {
-    const row = el("label", "row");
-    row.style.marginBottom = "6px";
-    row.style.fontSize = ".82rem";
-    row.innerHTML = `<input type="checkbox" ${progSelectedSubjects.has(subj) ? "checked" : ""}>${legendGlyph(CHART_PALETTE[idx % CHART_PALETTE.length], idx)}<span>${esc(subj)}</span>`;
-    row.querySelector("input").addEventListener("change", (e) => {
-      progTouched = true;
-      if (e.target.checked) progSelectedSubjects.add(subj); else progSelectedSubjects.delete(subj);
-      drawProgressionChart();
-    });
-    box.appendChild(row);
+  const sorted = subjects.slice().sort();   // same order the chart uses, so each subject keeps its colour
+  renderGroupedChecks($("progSubjectChecks"), sorted, {
+    chips: $("progSubjectChips"),
+    isOn: s => progSelectedSubjects.has(s),
+    setMany: (list, on) => { progTouched = true; list.forEach(s => { if (on) progSelectedSubjects.add(s); else progSelectedSubjects.delete(s); }); },
+    onChange: drawProgressionChart,
+    glyph: s => { const idx = sorted.indexOf(s); return legendGlyph(CHART_PALETTE[idx % CHART_PALETTE.length], idx); },
   });
 }
 $("btnProgFilterToggle").addEventListener("click", () => {
@@ -8693,9 +8729,20 @@ function scopedReviewerAttempts() {
    Concepts can be sorted/filtered by the prefix of the subjects they contain (T1_People + T1_Animal -> "T1").
    The Concept Card Studio (cards) and the two AI prompts live here permanently, so typed text is never lost.
    --------------------------------------------------------------------- */
-let rvShowResolved = false, rvPrefix = "", rvConcept = "";
+let rvShowResolved = false, rvPrefix = "", rvConcept = "", rvSubject = "";
 let rvNoteDrafts = {}, rvLineDrafts = {}, rvOrderIds = [], csCid = "", csEditId = null, rvAllItems = [], rvShownConcepts = new Set(), rvExpanded = {}, rvShownIds = [];
 function rvPrefixMatch(key) { if (!rvPrefix) return true; return key === (rvPrefix === "__none__" ? "" : rvPrefix); }
+// The prefix group an item belongs to: its concept's prefix, else its own subject's prefix.
+function rvItemPfx(it, pm) {
+  if (it.conceptId && findConcept(it.conceptId)) return pm.get(it.conceptId) || { key: "", label: "No subject yet" };
+  const p = subjectPrefix(it.subject); return { key: p.toLowerCase(), label: p };
+}
+// Concept ids that have at least one tagged question in the chosen subject (null = no subject chosen).
+function rvConceptsInSubject(items) {
+  if (!rvSubject) return null;
+  const s = new Set(); for (const it of items || []) if (it.subject === rvSubject && it.conceptId) s.add(it.conceptId);
+  return s;
+}
 function rvIsoDiff(a, b) { return Math.round((Date.parse(b) - Date.parse(a)) / 864e5); }
 function conceptCardsStatus(cid) {
   const cn = findConcept(cid), cards = conceptDigest(cid), srs = fcLoadSrs(), t = fcToday();
@@ -8712,7 +8759,7 @@ const PROMPT_OPT_DEFAULTS = { includeResolved: false, includeCards: true, includ
 function cpPrefs() { return Object.assign({ n: 4 }, PROMPT_OPT_DEFAULTS, loadJson(KEYS.builderPrefs, {}).conceptPrompt || {}); }
 function rpPrefs() { return Object.assign({ selected: null, maxQ: 15 }, PROMPT_OPT_DEFAULTS, loadJson(KEYS.builderPrefs, {}).reviewerPrompt || {}); }
 function prefSave(group, k, v) { const p = loadJson(KEYS.builderPrefs, {}); p[group] = Object.assign({}, p[group], { [k]: v }); saveJson(KEYS.builderPrefs, p); }
-function viewSave() { const p = loadJson(KEYS.builderPrefs, {}); p.reviewerView = { prefix: rvPrefix, concept: rvConcept }; saveJson(KEYS.builderPrefs, p); }
+function viewSave() { const p = loadJson(KEYS.builderPrefs, {}); p.reviewerView = { prefix: rvPrefix, concept: rvConcept, subject: rvSubject }; saveJson(KEYS.builderPrefs, p); }
 
 /* ---- the data block for one concept (shared by both prompts) ---- */
 function conceptBlockLines(cid, P, o) {
@@ -8836,7 +8883,8 @@ function openStudio(cid, cardId) {
 }
 function studioConcepts(pm) {   // the concepts the current sort (prefix + concept dropdowns) is about
   const st = conceptStats();
-  return loadConcepts().filter(c => rvPrefixMatch((pm.get(c.id) || { key: "" }).key) && (!rvConcept || c.id === rvConcept))
+  const inSub = rvConceptsInSubject(rvAllItems);
+  return loadConcepts().filter(c => rvPrefixMatch((pm.get(c.id) || { key: "" }).key) && (!inSub || inSub.has(c.id)) && (!rvConcept || c.id === rvConcept))
     .sort((a, b) => ((pm.get(a.id) || {}).label || "").localeCompare((pm.get(b.id) || {}).label || "") || ((st.get(b.id) || { open: 0 }).open - (st.get(a.id) || { open: 0 }).open) || a.name.localeCompare(b.name));
 }
 function renderStudio() {
@@ -8994,11 +9042,11 @@ function rvItemRow(it, withLine) {
 function renderRvNeedCard(need, items, hiddenResolved, pm) {
   const info = NEED_INFO[need], tx = ACTION_TAXONOMY.filter(t => t.need === need);
   const open = items.filter(i => !i.resolved).length;
-  const prefOf = it => it.conceptId && findConcept(it.conceptId) ? (pm.get(it.conceptId) || { key: "", label: "No subject yet" }) : (() => { const p = subjectPrefix(it.subject); return { key: p.toLowerCase(), label: p }; })();
-  let list = items.map(it => ({ it, pfx: prefOf(it) }));
+  let list = items.map(it => ({ it, pfx: rvItemPfx(it, pm) }));
   if (rvPrefix) list = list.filter(x => rvPrefixMatch(x.pfx.key));
+  if (rvSubject) list = list.filter(x => x.it.subject === rvSubject);
   if (rvConcept) list = list.filter(x => x.it.conceptId === rvConcept);
-  const filtered = !!(rvPrefix || rvConcept), shownOpen = list.filter(x => !x.it.resolved).length;
+  const filtered = !!(rvPrefix || rvConcept || rvSubject), shownOpen = list.filter(x => !x.it.resolved).length;
   const card = el("div", "card");
   card.innerHTML = `<h3>${info.icon} ${esc(info.label)} <span class="count">(${filtered ? shownOpen + " of " + open : open} open)</span></h3>
     <p class="hint" style="margin-bottom:8px;"><b>${esc(tx[0].action)}</b> &middot; from: ${esc(tx.map(t => t.name).join(", "))}${hiddenResolved ? ` &middot; ${hiddenResolved} resolved hidden` : ""}</p>`;
@@ -9018,28 +9066,42 @@ function renderRvNeedCard(need, items, hiddenResolved, pm) {
   }
   return card;
 }
-// Two dropdowns decide what is shown: a subject prefix, then a concept within it.
+// Three dropdowns decide what is shown: a subject prefix, one subject, then a concept.
 function renderRvFilters(all, pm) {
-  const psel = $("rvPrefixSel"), csel = $("rvConceptSel");
-  const stat = new Map();
-  for (const it of all) { if (!it.conceptId || !findConcept(it.conceptId)) continue; const o = stat.get(it.conceptId) || { open: 0, total: 0 }; o.total++; if (!it.resolved) o.open++; stat.set(it.conceptId, o); }
-  const concepts = loadConcepts(), pref = new Map();
-  for (const c of concepts) { const p = pm.get(c.id) || { key: "", label: "No subject yet" }; const r = pref.get(p.key) || { label: p.label, n: 0 }; r.n++; pref.set(p.key, r); }
-  const val = k => k || "__none__";
+  const psel = $("rvPrefixSel"), ssel = $("rvSubjectSel"), csel = $("rvConceptSel");
+  const concepts = loadConcepts(), val = k => k || "__none__", plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`, qa = s => esc(s).replace(/"/g, "&quot;");
+  // prefix groups: tagged questions (all / still open) and concepts in each
+  const pref = new Map();
+  const grab = (p) => { let r = pref.get(p.key); if (!r) { r = { label: p.label || "No subject yet", q: 0, open: 0, cs: new Set() }; pref.set(p.key, r); } return r; };
+  for (const c of concepts) grab(pm.get(c.id) || { key: "", label: "No subject yet" }).cs.add(c.id);
+  for (const it of all) { const r = grab(rvItemPfx(it, pm)); r.q++; if (!it.resolved) r.open++; if (it.conceptId && findConcept(it.conceptId)) r.cs.add(it.conceptId); }
   if (rvPrefix && !pref.has(rvPrefix === "__none__" ? "" : rvPrefix)) rvPrefix = "";
-  psel.innerHTML = `<option value="">All prefixes (${concepts.length} concept${concepts.length === 1 ? "" : "s"})</option>` + Array.from(pref.entries()).sort((a, b) => a[1].label.localeCompare(b[1].label)).map(([k, r]) => `<option value="${esc(val(k))}">${esc(r.label)} (${r.n})</option>`).join("");
+  const totOpen = all.filter(i => !i.resolved).length;
+  psel.innerHTML = `<option value="">All prefixes \u00b7 ${plural(all.length, "question")} (${totOpen} open) \u00b7 ${plural(concepts.length, "concept")}</option>` + Array.from(pref.entries()).sort((a, b) => a[1].label.localeCompare(b[1].label, undefined, { numeric: true })).map(([k, r]) => `<option value="${qa(val(k))}">${esc(r.label)} \u00b7 ${plural(r.q, "question")} (${r.open} open) \u00b7 ${plural(r.cs.size, "concept")}</option>`).join("");
   psel.value = rvPrefix;
-  const inPrefix = concepts.filter(c => rvPrefixMatch((pm.get(c.id) || { key: "" }).key));
+  // subjects inside the chosen prefix
+  const subs = new Map();
+  for (const it of all) { if (!rvPrefixMatch(rvItemPfx(it, pm).key)) continue; const r = subs.get(it.subject) || { q: 0, open: 0 }; r.q++; if (!it.resolved) r.open++; subs.set(it.subject, r); }
+  if (rvSubject && !subs.has(rvSubject)) rvSubject = "";
+  const sopt = s => { const r = subs.get(s); return `<option value="${qa(s)}">${esc(fcCleanName(s))} \u00b7 ${plural(r.q, "question")} (${r.open} open)</option>`; };
+  const sg = subjectGroups(Array.from(subs.keys()));
+  ssel.innerHTML = `<option value="">All subjects${rvPrefix ? " in this prefix" : ""} (${subs.size})</option>` + (rvPrefix || sg.length < 2 ? sg.map(g => g.members.map(sopt).join("")).join("") : sg.map(g => `<optgroup label="${qa(g.label)}">${g.members.map(sopt).join("")}</optgroup>`).join(""));
+  ssel.value = rvSubject;
+  // concepts inside the chosen prefix and subject
+  const inSub = rvConceptsInSubject(all);
+  const inPrefix = concepts.filter(c => rvPrefixMatch((pm.get(c.id) || { key: "" }).key) && (!inSub || inSub.has(c.id)));
   if (rvConcept && !inPrefix.some(c => c.id === rvConcept)) rvConcept = "";
+  const stat = new Map();
+  for (const it of all) { if (rvSubject && it.subject !== rvSubject) continue; if (!it.conceptId || !findConcept(it.conceptId)) continue; const o = stat.get(it.conceptId) || { open: 0, total: 0 }; o.total++; if (!it.resolved) o.open++; stat.set(it.conceptId, o); }
   const openOf = c => (stat.get(c.id) || { open: 0 }).open;
   const opt = c => `<option value="${esc(c.id)}">${esc(c.name)} \u00b7 ${openOf(c)} open</option>`;
   const sorted = a => a.slice().sort((x, y) => (openOf(y) - openOf(x)) || x.name.localeCompare(y.name));
-  let h = `<option value="">All concepts${rvPrefix ? " in this prefix" : ""} (${inPrefix.length})</option>`;
-  if (rvPrefix) h += sorted(inPrefix).map(opt).join("");
+  let h = `<option value="">All concepts${rvPrefix || rvSubject ? " in this choice" : ""} (${inPrefix.length})</option>`;
+  if (rvPrefix || rvSubject) h += sorted(inPrefix).map(opt).join("");
   else {
     const g = new Map();
     for (const c of inPrefix) { const p = pm.get(c.id) || { key: "", label: "No subject yet" }; if (!g.has(p.key)) g.set(p.key, { label: p.label, list: [] }); g.get(p.key).list.push(c); }
-    h += Array.from(g.values()).sort((a, b) => a.label.localeCompare(b.label)).map(x => `<optgroup label="${esc(x.label)}">${sorted(x.list).map(opt).join("")}</optgroup>`).join("");
+    h += Array.from(g.values()).sort((a, b) => a.label.localeCompare(b.label)).map(x => `<optgroup label="${qa(x.label)}">${sorted(x.list).map(opt).join("")}</optgroup>`).join("");
   }
   csel.innerHTML = h; csel.value = rvConcept;
 }
@@ -9192,11 +9254,12 @@ $("rtClose").addEventListener("click", rtClose);
 
 /* ---- wiring for the permanent (static) parts ---- */
 (function rvWire() {
-  const v = loadJson(KEYS.builderPrefs, {}).reviewerView || {}; rvPrefix = v.prefix || ""; rvConcept = v.concept || "";
+  const v = loadJson(KEYS.builderPrefs, {}).reviewerView || {}; rvPrefix = v.prefix || ""; rvConcept = v.concept || ""; rvSubject = v.subject || "";
   $("rvShowResolved").addEventListener("change", (e) => { rvShowResolved = e.target.checked; refreshReviewer(); });
   $("rvExpandAll").addEventListener("click", () => { rvShownIds.forEach(id => { rvExpanded[id] = true; }); refreshReviewer(); });
   $("rvCollapseAll").addEventListener("click", () => { rvExpanded = {}; refreshReviewer(); });
-  $("rvPrefixSel").addEventListener("change", (e) => { rvPrefix = e.target.value; rvConcept = ""; viewSave(); refreshReviewer(); });
+  $("rvPrefixSel").addEventListener("change", (e) => { rvPrefix = e.target.value; rvSubject = ""; rvConcept = ""; viewSave(); refreshReviewer(); });
+  $("rvSubjectSel").addEventListener("change", (e) => { rvSubject = e.target.value; rvConcept = ""; viewSave(); refreshReviewer(); });
   $("rvConceptSel").addEventListener("change", (e) => { rvConcept = e.target.value; viewSave(); refreshReviewer(); });
   // Concept Card Studio
   $("csConcept").addEventListener("change", (e) => {
@@ -9208,7 +9271,7 @@ $("rtClose").addEventListener("click", rtClose);
   $("csNewAdd").addEventListener("click", () => {
     const nm = $("csNewName").value.trim(); if (!nm) { toast("Type the concept name first."); return; }
     const c = addConcept(nm, $("csNewSubject").value); csCid = c.id;
-    { const pk = (conceptPrefixMap().get(c.id) || { key: "" }).key; if (rvPrefix && !rvPrefixMatch(pk)) rvPrefix = ""; if (rvConcept && rvConcept !== c.id) rvConcept = ""; viewSave(); }   // make sure the new concept is visible in the current sort
+    { const pk = (conceptPrefixMap().get(c.id) || { key: "" }).key; if (rvPrefix && !rvPrefixMatch(pk)) rvPrefix = ""; if (rvConcept && rvConcept !== c.id) rvConcept = ""; rvSubject = ""; viewSave(); }   // make sure the new concept is visible in the current sort
     $("csNewName").value = ""; $("csNewRow").style.display = "none"; toast("Concept added."); refreshReviewer(); $("csFront").focus();
   });
   $("csNewName").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); $("csNewAdd").click(); } });
@@ -10039,7 +10102,7 @@ function testSeriesMap(tests) {
 }
 let trendSeriesOff = new Set(), trendSeriesTouched = false;
 (function initTrendMode() {
-  try { const v = localStorage.getItem("cble_trend_mode"); if (v === "series" || v === "time") $("trendModeSelect").value = v; } catch (e) {}
+  try { const v = localStorage.getItem("cble_trend_mode"); if (v === "series" || v === "time" || v === "groups") $("trendModeSelect").value = v; } catch (e) {}
   $("trendModeSelect").addEventListener("change", () => { try { localStorage.setItem("cble_trend_mode", $("trendModeSelect").value); } catch (e) {} renderHistoryTrend(); });
 })();
 function renderSeriesTrend(base) {
@@ -10088,6 +10151,86 @@ function renderSeriesTrend(base) {
   }).join("");
   table.innerHTML = `<div class="table-wrap"><table class="data-table"><tr><th>Series</th><th>Tests</th><th>First</th><th>Latest</th><th>Change</th><th>Best</th></tr>${rows}</table></div>
     <p class="hint" style="margin-top:6px;">Each line is one series of tests whose names start the same, in the order you took them (#1 = first test of that series), so series with different start dates line up by attempt. &plusmn; is the margin of error from the number of questions in the first and latest test; a change smaller than it may just be chance.${loose ? ` ${loose} other test${loose === 1 ? " has" : "s have"} no related test yet and ${loose === 1 ? "isn't" : "aren't"} shown.` : ""}</p>`;
+}
+
+let trendGroupOff = new Set(), trendGroupTouched = false, trendGroupMetric = "accuracy", trendGroupSubjects = false;
+// Everything one subject prefix group (T1, T2...) has done: per test, in order, and in total.
+function groupStatsFor(g, progression) {
+  const tests = new Map();
+  const subs = g.members.map(s => {
+    const o = { s, n: 0, k: 0, fsN: 0, fsK: 0, oc: 0, tests: 0 };
+    for (const e of (progression[s] || [])) {
+      const c = Math.round((e.accuracy_pct || 0) * (e.n_answered || 0) / 100);
+      o.n += e.n_answered || 0; o.k += c; o.fsN += e.fs_n || 0; o.fsK += e.fs_k || 0; o.oc += e.overconfident_wrong || 0; o.tests++;
+      const key = progKeyOf(e), t = tests.get(key) || { key, source: e.exam_source, date: e.date, n: 0, k: 0, fsN: 0, fsK: 0, subs: new Set() };
+      t.n += e.n_answered || 0; t.k += c; t.fsN += e.fs_n || 0; t.fsK += e.fs_k || 0; t.subs.add(s); tests.set(key, t);
+    }
+    return o;
+  }).filter(o => o.tests);
+  const list = Array.from(tests.values()).sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  const sum = f => subs.reduce((a, o) => a + o[f], 0);
+  return { g, subs, tests: list, n: sum("n"), k: sum("k"), fsN: sum("fsN"), fsK: sum("fsK"), oc: sum("oc") };
+}
+function renderGroupTrend(base) {
+  const chips = $("trendSeriesChips"), table = $("historyTrendTable"), chart = $("historyTrendChart"), detail = $("historyTrendSubjectTable");
+  chips.innerHTML = ""; table.innerHTML = ""; chart.innerHTML = ""; detail.innerHTML = "";
+  if (!base) { table.appendChild(el("div", "empty-state", "Take a test to see your score trend here.")); return; }
+  const { progression } = computeSubjectAnalysis(getScopeSubjects());
+  const stats = subjectGroups(Object.keys(progression)).map(g => groupStatsFor(g, progression)).filter(x => x.tests.length);
+  if (!stats.length) { table.appendChild(el("div", "empty-state", "No answered questions yet, so there are no prefix groups to show.")); return; }
+  if (!trendGroupTouched) trendGroupOff = new Set();
+  const on = x => !trendGroupOff.has(x.g.key), colorOf = i => CHART_PALETTE[i % CHART_PALETTE.length];
+  stats.forEach((x, i) => {
+    const b = el("button", "btn");
+    b.style.cssText = `border-left:4px solid ${colorOf(i)};${on(x) ? "background:var(--navy);color:#fff;" : ""}`;
+    b.textContent = `${x.g.label} \u00b7 ${x.g.members.length} subject${x.g.members.length === 1 ? "" : "s"}`;
+    b.title = x.g.members.join("\n");
+    b.addEventListener("click", () => { trendGroupTouched = true; if (on(x)) trendGroupOff.add(x.g.key); else trendGroupOff.delete(x.g.key); renderHistoryTrend(); });
+    chips.appendChild(b);
+  });
+  const quick = (txt, fn) => { const b = el("button", "btn link"); b.textContent = txt; b.addEventListener("click", () => { trendGroupTouched = true; fn(); renderHistoryTrend(); }); chips.appendChild(b); };
+  quick("All", () => { trendGroupOff = new Set(); });
+  quick("None", () => { trendGroupOff = new Set(stats.map(x => x.g.key)); });
+  const sel = el("select", "", `<option value="accuracy">Line: Accuracy % (all attempts)</option><option value="firstseen">Line: First-seen accuracy %</option>`);
+  sel.style.cssText = "width:auto;flex:none;"; sel.value = trendGroupMetric;
+  sel.addEventListener("change", () => { trendGroupMetric = sel.value; renderHistoryTrend(); });
+  chips.appendChild(sel);
+  const lab = el("label", "row", `<input type="checkbox" ${trendGroupSubjects ? "checked" : ""}><span>Show subjects inside each group</span>`);
+  lab.style.cssText = "font-size:.8rem;gap:6px;flex:none;";
+  lab.querySelector("input").addEventListener("change", (e) => { trendGroupSubjects = e.target.checked; renderHistoryTrend(); });
+  chips.appendChild(lab);
+
+  const shown = stats.map((x, i) => ({ x, i })).filter(p => on(p.x));
+  if (!shown.length) { table.appendChild(el("div", "empty-state", "No group selected \u2014 tap one above.")); return; }
+  const fs = trendGroupMetric === "firstseen";
+  const pctOf = t => fs ? (t.fsN ? t.fsK / t.fsN * 100 : null) : (t.n ? t.k / t.n * 100 : null);
+  const maxN = Math.max(...shown.map(p => p.x.tests.length));
+  const lines = shown.map(({ x, i }) => ({
+    label: x.g.label, group: x.g.label, color: colorOf(i), marker: i, dash: "",
+    points: Array.from({ length: maxN }, (_, j) => {
+      const t = x.tests[j], y = t ? pctOf(t) : null;
+      return y == null ? { y: null } : { y, tooltip: `${x.g.label} #${j + 1} \u2013 ${t.source}: ${y.toFixed(1)}% (${fs ? t.fsK + "/" + t.fsN + " first-seen" : t.k + "/" + t.n}; ${t.subs.size} subject${t.subs.size === 1 ? "" : "s"}, ${formatDateNice(dateOnly(t.date))})` };
+    }),
+  }));
+  chart.innerHTML = buildLineGraphSVG(lines, { yMin: 0, yMax: 100, xLabels: Array.from({ length: maxN }, (_, j) => "#" + (j + 1)) }) + chartLegendHTML(lines);
+
+  const sub = txt => `<span style="color:var(--sub);">${txt}</span>`;
+  const rows = shown.map(({ x, i }) => {
+    const a = x.tests[0], z = x.tests[x.tests.length - 1], pa = a.n ? a.k / a.n : null, pz = z.n ? z.k / z.n : null;
+    let change = "&ndash;";
+    if (x.tests.length >= 2 && pa != null && pz != null) {
+      const d = (pz - pa) * 100, m = 1.64 * Math.sqrt(pa * (1 - pa) / a.n + pz * (1 - pz) / z.n) * 100;
+      change = `${d >= 0 ? "+" : ""}${d.toFixed(0)} pts (&plusmn;${m.toFixed(0)})${Math.abs(d) < m ? " " + sub("(within noise)") : ""}`;
+    }
+    const per = x.tests.map(t => t.n ? t.k / t.n * 100 : 0), fsAcc = x.fsN ? x.fsK / x.fsN * 100 : null;
+    return `<tr><td style="font-family:inherit;"><span class="fc-dot" style="background:${colorOf(i)};margin-right:5px;"></span>${esc(x.g.label)}</td><td>${x.g.members.length}</td><td>${x.tests.length}</td><td>${x.n}</td><td>${x.n ? (x.k / x.n * 100).toFixed(1) + "%" : "&ndash;"} ${sub("(" + x.k + "/" + x.n + ")")}</td><td>${fsAcc == null ? "&ndash;" : fsAcc.toFixed(1) + "%"}</td><td>${x.fsN}</td><td>${pz == null ? "&ndash;" : (pz * 100).toFixed(0) + "%"}</td><td>${change}</td><td>${Math.max(...per).toFixed(0)}%</td><td>${Math.min(...per).toFixed(0)}%</td><td>${x.oc}</td></tr>`;
+  }).join("");
+  table.innerHTML = `<div class="table-wrap"><table class="data-table"><tr><th>Group</th><th>Subjects</th><th>Tests</th><th>Answered</th><th>Accuracy</th><th>First-seen</th><th>Unique Qs</th><th>Latest</th><th>Change</th><th>Best</th><th>Worst</th><th>Confident but wrong</th></tr>${rows}</table></div>
+    <p class="hint" style="margin-top:6px;">A group is every subject whose name starts with the same prefix (T1_People + T1_Animal &rarr; T1), the same grouping as the Reviewer. <b>Answered</b> counts every attempt; <b>Accuracy</b> = correct &divide; answered. <b>First-seen</b> only counts the first time each question was answered, and <b>Unique Qs</b> is how many different questions that covers. Each line is the group's tests in the order you took them (#1 = its first test). &plusmn; is the margin of error from the first and latest test's size. Flagged bank issues and unanswered questions are left out.</p>`;
+  if (trendGroupSubjects) {
+    const sr = shown.map(({ x, i }) => `<tr><td colspan="6" style="font-family:inherit;font-weight:700;"><span class="fc-dot" style="background:${colorOf(i)};margin-right:5px;"></span>${esc(x.g.label)}</td></tr>` + x.subs.map(o => `<tr><td style="font-family:inherit;padding-left:16px;">${esc(o.s)}</td><td>${o.tests}</td><td>${o.n}</td><td>${o.n ? (o.k / o.n * 100).toFixed(1) + "%" : "&ndash;"} ${sub("(" + o.k + "/" + o.n + ")")}</td><td>${o.fsN ? (o.fsK / o.fsN * 100).toFixed(1) + "%" : "&ndash;"} ${sub("(n=" + o.fsN + ")")}</td><td>${o.oc}</td></tr>`).join("")).join("");
+    detail.innerHTML = `<div class="table-wrap"><table class="data-table"><tr><th>Subject</th><th>Tests</th><th>Answered</th><th>Accuracy</th><th>First-seen (n)</th><th>Confident but wrong</th></tr>${sr}</table></div>`;
+  }
 }
 
 /* =====================================================================
