@@ -47864,6 +47864,631 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1792935031668894",
+      "name": "D3_S8",
+      "created_at": "2026-10-25T13:30:31",
+      "composition": {
+        "D3_L2_Process_Control_Analysis": 3,
+        "D3_L5_Geometry": 3,
+        "D3_L11_Differential_Equations": 4,
+        "D3_L3_Algebra": 3,
+        "D3_L13_EngineeringDataAnalysis": 4,
+        "D3_L12_EngineeringEconomics": 4,
+        "D3_L10_ProcessSafety": 4,
+        "D3_L1_ChE_Laws": 3,
+        "D3_L7_Differential_Calculus": 3,
+        "D3_L8_Integral_Calculus": 3,
+        "D3_L15_Engineering_Mechanics": 3,
+        "D3_L14_Physics": 4,
+        "D3_L6_AnalyticGeometry": 3,
+        "D3_L4_Trigonometry": 3,
+        "D3_L9_CPI": 3
+      },
+      "questions": [
+        {
+          "text": "A _________is a device that translates a mechanical signal into an electrical signal .",
+          "options": [
+            "A. Transducer",
+            "B. Power supply",
+            "C. Converter",
+            "D. PID Controller"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 9
+        },
+        {
+          "text": "Given a polygon, the sum of its exterior angles is:",
+          "options": [
+            "A. 0 degree",
+            "B. 90 degrees",
+            "C. 180 degrees",
+            "D. 360 degrees"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 2
+        },
+        {
+          "text": "Evaluate the general solution of the differential equation: y^(4) + 32y'' + 256y = 0",
+          "options": [
+            "A. y = C1e^(4x) + C2e^(-4x) + x(C3e^(4x) + C4e^(-4x))",
+            "B. y = C1e^(4x) + C2e^(4x) + C3 cos 4x + C4 sin 4x",
+            "C. y = e^(4x)(C1 + C2x + C3x² + C4x³)",
+            "D. y = C1 cos 4x + C2 sin 4x + x(C3 cos 4x + C4 sin 4x)"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 31
+        },
+        {
+          "text": "Given the equation 3x^2 + Bx + 12 = 0. What is the value of B so that the roots of the equation are equal?",
+          "options": [
+            "A. 4",
+            "B. 8",
+            "C. 10",
+            "D. -12"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 11
+        },
+        {
+          "text": "Bay Area rapid food sells chicken nuggets. You can buy packages of 11 or 7. What is the largest integer n such that there is no way to buy exactly n nuggets?",
+          "options": [
+            "A. 56",
+            "B. 57",
+            "C. 58",
+            "D. 59"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 16
+        },
+        {
+          "text": "An asset has a 1st cost of P22,000, an estimated life of 30 years. Using the double declining balance method, determine the depreciation charge during the 6th year.",
+          "options": [
+            "A. P1038.75",
+            "B. P1050.00",
+            "C. P1020.00",
+            "D. P1060.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 64
+        },
+        {
+          "text": "What is the differential equation of the family of parabolas having their vertices at the origin and their foci on the x-axis.",
+          "options": [
+            "A. 2x dy – y dx = 0",
+            "B. x dy + y dx = 0",
+            "C. 2y dx – x dy = 0",
+            "D. dy/dx – x = 0"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 5
+        },
+        {
+          "text": "A maintenance technician is about to open a flange on a pipeline. He checks the pressure gauge and it reads zero. The isolation plan shows one valve closed upstream. What is the most critical concern before proceeding?",
+          "options": [
+            "A. Whether the correct PPE is available nearby",
+            "B. Whether the flange bolts are the right specification",
+            "C. Whether a second isolation barrier is in place",
+            "D. Whether permit to work was signed by the shift supervisor"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 29
+        },
+        {
+          "text": "It is an economic or market situation in which there are many sellers or producers that supplies a commodity or a service to very few consumers.",
+          "options": [
+            "A. Monopsony",
+            "B. Oligopoly",
+            "C. Oligopsony",
+            "D. Monopoly"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 5
+        },
+        {
+          "text": "Evaluate the general solution of the differential equation: x²(d²y/dx²) − 7x(dy/dx) + 25y = 0",
+          "options": [
+            "A. y = e^(4x)(C1 sin 3x + C2 cos 3x)",
+            "B. y = e^(3x)(C1 sin 4x + C2 cos 4x)",
+            "C. y = x^4(C1 sin(3 ln x) + C2 cos(3 ln x))",
+            "D. y = x^3(C1 sin(4 ln x) + C2 cos(4 ln x))"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 35
+        },
+        {
+          "text": "Calculate the 20th Percentile from the following data: 3, 13, 11, 11, 5, 4, 2.",
+          "options": [
+            "A. 3.1",
+            "B. 4.8",
+            "C. 2.6",
+            "D. 3.5"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 62
+        },
+        {
+          "text": "What is the order and degree of the differential equation below? [2(d²y/dx²) + (dy/dx)²]^(3/2) = d³y/dx³",
+          "options": [
+            "A. 3rd order, 1st degree",
+            "B. 3rd order, 2/3 degree",
+            "C. 3rd order, 2nd degree",
+            "D. 1st order, 6th degree"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 1
+        },
+        {
+          "text": "A semi-circle of radius 14 cm is formed from a piece of wire. If it is bent into a rectangle whose length is 1cm more than its width, find the area of the rectangle.",
+          "options": [
+            "A. 256.25 sq. cm.",
+            "B. 323.57 sq. cm.",
+            "C. 386.54 sq. cm.",
+            "D. 452.24 sq. cm."
+          ],
+          "correct": 1,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 24
+        },
+        {
+          "text": "___________ establishes the relationship between the contaminant/s of concern and the receptor.",
+          "options": [
+            "A. Hazard identification",
+            "B. Risk characterization",
+            "C. Toxicity assessment",
+            "D. Exposure assessment"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 61
+        },
+        {
+          "text": "What describes how to determine the number of service units that will minimize both customer's waiting time and cost of service?",
+          "options": [
+            "A. Queuing theory",
+            "B. Sampling theory",
+            "C. Network model",
+            "D. Simulation"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 132
+        },
+        {
+          "text": "[Situation 2: Cone with altitude 12 m and base radius 15 m; cylinder inscribed with maximum volume] What is the height of the cylinder?",
+          "options": [
+            "A. 4m",
+            "B. 5m",
+            "C. 6m",
+            "D. 7m"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 54
+        },
+        {
+          "text": "Integrate: sin(1/x)/x² dx",
+          "options": [
+            "A. sec(1/x) - cot²(1/x) + c",
+            "B. tan(1/x) - x + c",
+            "C. cos(1/x) + c",
+            "D. sin(1/x) - csc²(1/x) + c"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 2
+        },
+        {
+          "text": "The distance between Earth and Moon (r) is 3.84 x 10⁸ m. What is the magnitude of gravitational force each exerts on the other? (Note: mass of earth = 5.97 x 10²⁴ kg; mass of moon = 7.35 x 10²² kg)",
+          "options": [
+            "A. 1.764 x 10²⁰ N",
+            "B. 1.789 x 10²⁰ N",
+            "C. 1.809 x 10²⁰ N",
+            "D. 1.986 x 10²⁰ N"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 64
+        },
+        {
+          "text": "A 0.25 hp motor is used to lift a load at a constant rate of 5.00 cm/s. How great a load (mass) can it lift at this constant speed?",
+          "options": [
+            "A. 381 kg",
+            "B. 350 kg",
+            "C. 421 kg",
+            "D. 400 kg"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 12
+        },
+        {
+          "text": "4x^2 u2013 y^2 = 16 is the equation of a/an?",
+          "options": [
+            "A. parabola",
+            "B. hyperbola",
+            "C. circle",
+            "D. ellipse"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 37
+        },
+        {
+          "text": "A stone is dropped from rest from the top of a building. Find its velocity after 5 seconds.",
+          "options": [
+            "A. 39.24 m/s",
+            "B. 44.15 m/s",
+            "C. 49.05 m/s",
+            "D. 53.90 m/s"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 47
+        },
+        {
+          "text": "Given that the value of sin x u2013 cos x = -1/3, find the numerical value of sin 2x.",
+          "options": [
+            "A. 1/9",
+            "B. 8/9",
+            "C. 4/9",
+            "D. 2/9"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 11
+        },
+        {
+          "text": "If A + B + C = 180u00b0 and tan A + tan B + tan C = 3, find the numerical value of tanAu00b7tanBu00b7tanC.",
+          "options": [
+            "A. 1/3",
+            "B. 2",
+            "C. 3",
+            "D. 1/2"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 24
+        },
+        {
+          "text": "An employee doing things_other than the mandated activity of the company during hours is considered",
+          "options": [
+            "A. ethical",
+            "B. not ethical",
+            "C. not concern for the company",
+            "D. depends on the situation"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 70
+        },
+        {
+          "text": "The alkylation process, commercialized in the late 1930s, is primarily used in the petroleum industry to produce what?",
+          "options": [
+            "A. Low-density polyethene",
+            "B. Acetic acid",
+            "C. High-octane alkylate",
+            "D. Carbon nanotubes"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 17
+        },
+        {
+          "text": "A man invested P10,000 at an interest rate of 10% compounded annually. What will be the final amount of his investment in terms of today's pesos after five years if inflation remains the same at the rate of 8% per year?",
+          "options": [
+            "A. P10,961.03",
+            "B. P11,000.00",
+            "C. P10,900.00",
+            "D. P11,050.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 71
+        },
+        {
+          "text": "In the purification stage of the Contact Process, which impurity is notoriously known for \"poisoning\" the catalyst?",
+          "options": [
+            "A. Arsenic compounds",
+            "B. Hydrogen sulfide",
+            "C. Nitrogen oxides",
+            "D. Carbon dioxide"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 65
+        },
+        {
+          "text": "Determine which of the following equations does NOT represent y as a function of x",
+          "options": [
+            "A. x^3 + y^2 = 1",
+            "B. x^2 + y^3 = 1",
+            "C. x^2 y = 1 - 3y",
+            "D. All of the above"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 31
+        },
+        {
+          "text": "Given f(x) = -x^2 + 6x - 11, find f(4x - 1).",
+          "options": [
+            "A. 3x^2 - 4x + 25",
+            "B. -16x^2 + 32x - 18",
+            "C. 12x^2 - 25x + 8",
+            "D. -10x^2 - 8x + 14"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 33
+        },
+        {
+          "text": "A 15 g bullet is fired horizontally into a 3 kg block of wood suspended by a long cord. The bullet sticks in the block. Compute the velocity of the bullet if the impact causes the block to swing 10 cm above its initial level.",
+          "options": [
+            "A. 281 m/s",
+            "B. 381 m/s",
+            "C. 331 m/s",
+            "D. 140 m/s"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 16
+        },
+        {
+          "text": "The response of interacting capacities is always________",
+          "options": [
+            "A. Undamped",
+            "B. Critically damped",
+            "C. Under damped",
+            "D. Overdamped"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 22
+        },
+        {
+          "text": "What is the area of a regular undecagon if one of its sides measure 4.7m?",
+          "options": [
+            "A. 186.24m^2",
+            "B. 193.29m^2",
+            "C. 206.89m^2",
+            "D. 218.84m^2"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 13
+        },
+        {
+          "text": "Evaluate: ∫[0 to π/2] sin²¹(x)cos³³(x) dx",
+          "options": [
+            "A. 6.973×10⁻⁹",
+            "B. 3.486×10⁻⁹",
+            "C. 2.789×10⁻⁸",
+            "D. 1.673×10⁻⁷"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 17
+        },
+        {
+          "text": "A 3-input; 3-output process is being analyzed  It is observed that changing input u1 affects output y1, changing u2 affects output y2 , and changing u3 affects output y3, with no croSS-effects whatsoever: How should this process be classified?",
+          "options": [
+            "A. Interacting; because it has multiple inputs and outputs",
+            "B. Noninteracting; because no input affects more than one output",
+            "C. Interacting; because the transfer function matrix will always be second order for MIMO systems",
+            "D. Noninteracting only if all three time constants are equal"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 20
+        },
+        {
+          "text": "[Situation 8: f(x,y,z) = xy²z²] Find all points on the portion of the plane x + y + z = 5 in the first octant at which f(x,y,z) has a maximum value.",
+          "options": [
+            "A. (1, 2, 2)",
+            "B. (3, 1, 1)",
+            "C. (1, 3, 1)",
+            "D. (2, 2, 1)"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 84
+        },
+        {
+          "text": "Phenol is mainly used",
+          "options": [
+            "A. To produce benzene",
+            "B. To produce phenol formaldehyde",
+            "C. To produce polyester resin",
+            "D. As a plasticiser for unsaturated polyester"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 110
+        },
+        {
+          "text": "A motorcycle moving at 5 m/s accelerates uniformly at 3 m/s² for 4 s. Find its final velocity.",
+          "options": [
+            "A. 15 m/s",
+            "B. 17 m/s",
+            "C. 19 m/s",
+            "D. 21 m/s"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 43
+        },
+        {
+          "text": "A researcher wants to know if there is a significant difference in the weight of newborn babies between two hospitals in a city. The researcher randomly selects 20 newborns from Hospital A and 20 newborns from Hospital B and records their weights: Hospital A has n=20, mean=7.5 lb, standard deviation=0.8; Hospital B has n=20, mean=7.1 lb, standard deviation=1.2. If the critical t-value is 2.024, calculate the t-value.",
+          "options": [
+            "A. 1.24",
+            "B. 2.24",
+            "C. 3.24",
+            "D. 4.24"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 70
+        },
+        {
+          "text": "A firm procures canned peas and adds to accumulate inventory as follows: January: 55pcs @ P50/can, February: 125pcs @ P55/can, March: 100pcs @ P75/can. What is the cost of goods sold for the 60 units that left the stock using First In First Out (FIFO)?",
+          "options": [
+            "A. P3025",
+            "B. P3000",
+            "C. P4500",
+            "D. P3300"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 82
+        },
+        {
+          "text": "A simple pendulum has a length of 1.5 m. Find its period of oscillation. (Use T = 2π√(L/g))",
+          "options": [
+            "A. 1.23 s",
+            "B. 2.46 s",
+            "C. 3.69 s",
+            "D. 4.92 s"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 20
+        },
+        {
+          "text": "Find the area bounded by the parabola y²=4x, the x-axis, and the lines x=1 and x=3.",
+          "options": [
+            "A. 7.677",
+            "B. 5.595",
+            "C. 4.454",
+            "D. 8.3"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 20
+        },
+        {
+          "text": "A lens has a convex surface of radius 17 cm and a concave surface of radius 38 cm and is made of glass of refractive index of 1.55. Calculate the focal length of the lens and classify the type of the lens whether it's diverging or converging.",
+          "options": [
+            "A. 55.93 cm, converging",
+            "B. 57.45 cm, converging",
+            "C. 55.93 cm, diverging",
+            "D. 57.45 cm, diverging"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 48
+        },
+        {
+          "text": "Which safety audit technique is MOST effective for identifying gaps between documented procedures and actual work practices?",
+          "options": [
+            "A. Document review",
+            "B. Workplace inspection",
+            "C. Observational audit",
+            "D. Performance data review"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 73
+        },
+        {
+          "text": "We measure the heights of 40 randomly chosen students and get a mean height of 175 cm with a population standard deviation of 20 cm. Find the confidence interval at the 95% confidence level.",
+          "options": [
+            "A. 175 ± 3.56",
+            "B. 175 ± 6.19",
+            "C. 175 ± 4.51",
+            "D. 175 ± 7.54"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 66
+        },
+        {
+          "text": "[Situation 7: f(x,y,z) = x³y⁵z⁷ + xy² + y³z] Find f_xxy",
+          "options": [
+            "A. 6y⁵z⁷",
+            "B. 30xy⁴z⁷",
+            "C. 42xy⁵z⁶",
+            "D. 105x²y⁴z⁶"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 81
+        },
+        {
+          "text": "The points (a, 1), (b, 2) and (c, 3) are collinear. Which of the following is true?",
+          "options": [
+            "A. c u2013 b = c u2013 a",
+            "B. c u2013 b = b u2013 a",
+            "C. c u2013 a = a u2013 b",
+            "D. c u2013 a = b u2013 a"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 5
+        },
+        {
+          "text": "Find the value of sec x + tan x if sec x u2013 tan x = 3.",
+          "options": [
+            "A. -3",
+            "B. 2",
+            "C. 1/2",
+            "D. 1/3"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 12
+        },
+        {
+          "text": "What engineering system is HACCP based on?",
+          "options": [
+            "A. Failure Modes Analysis Scheme",
+            "B. Success Modes Analysis Scheme",
+            "C. Safe Modes Analysis Scheme",
+            "D. Unsafe Modes Analysis Scheme"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 86
+        },
+        {
+          "text": "It is also known as the Toxic Substances and Hazardous Nuclear Wastes Control Act of 1990 is also known as",
+          "options": [
+            "A. RA 6969",
+            "B. RA 9696",
+            "C. RA 9669",
+            "D. RA 6996"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 32
+        },
+        {
+          "text": "Which of the following lines is parallel to the line 3x u2013 2y + 6 = 0?",
+          "options": [
+            "A. 3x + 2y u2013 12 = 0",
+            "B. 4x u2013 9y = 6",
+            "C. 12x + 18y = 15",
+            "D. 15x u2013 10y u2013 9 = 0"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 14
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -119658,5 +120283,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-25T13:30:02"
+  "updated_at": "2026-10-25T13:30:51"
 }
