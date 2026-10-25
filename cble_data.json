@@ -114547,10 +114547,10 @@
       "source_list": "D3_L13_EngineeringDataAnalysis",
       "reference_no": 28,
       "question": "Suppose all 6 men at a party throw their hats into the center of the room. Each man then randomly selects a hat. Find the probability that none of the 6 men selects his own hat.",
-      "category": "",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-25T10:34:55",
+      "date_logged": "2026-10-25T14:02:48",
       "occurrences": [
         {
           "exam_id": "1792924493177482",
@@ -114560,9 +114560,9 @@
           "correct_answer": "D. 53/144"
         }
       ],
-      "updated_at": "2026-10-25T10:34:55",
-      "concept_id": "",
-      "tag_at": "",
+      "updated_at": "2026-10-25T14:02:48",
+      "concept_id": "17923214786028",
+      "tag_at": "2026-10-25T14:02:48",
       "note_at": ""
     },
     {
@@ -120493,6 +120493,21 @@
       "category": "Unfamiliar Topic",
       "concept_id": "1792322398274332",
       "updated_at": "2026-10-25T14:00:51"
+    },
+    {
+      "id": "1792936986185361",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 39,
+      "resolved": false,
+      "created_at": "2026-10-25T14:03:06",
+      "question": "Determine the particular solution of the differential equation: y'' − 4y' − 12y = sin(2t)",
+      "correct_answer": "B. (1/40)cos(2t) - (1/20)sin(2t)",
+      "kind": "guess",
+      "exam_id": "1792924493177482",
+      "exam_source": "D3_S6",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792309187862581",
+      "updated_at": "2026-10-25T14:03:06"
     }
   ],
   "checklist": [],
@@ -120523,5 +120538,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-25T14:02:37"
+  "updated_at": "2026-10-25T14:03:07"
 }
