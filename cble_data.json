@@ -115559,10 +115559,10 @@
       "source_list": "D3_L4_Trigonometry",
       "reference_no": 16,
       "question": "In triangle ABC, AB = 18m and BC = 6m. Which of the following values can be equal to side AC?",
-      "category": "",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-25T13:29:29",
+      "date_logged": "2026-10-25T13:37:32",
       "occurrences": [
         {
           "exam_id": "1792934968331988",
@@ -115572,9 +115572,9 @@
           "correct_answer": "D. 13m"
         }
       ],
-      "updated_at": "2026-10-25T13:29:29",
-      "concept_id": "",
-      "tag_at": "",
+      "updated_at": "2026-10-25T13:37:32",
+      "concept_id": "1792308764846840",
+      "tag_at": "2026-10-25T13:37:32",
       "note_at": ""
     },
     {
@@ -120298,6 +120298,36 @@
       "category": "Unfamiliar Topic",
       "concept_id": "1792321082715344",
       "updated_at": "2026-10-25T13:36:56"
+    },
+    {
+      "id": "1792935439653332",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 41,
+      "resolved": false,
+      "created_at": "2026-10-25T13:37:19",
+      "question": "If y = 4cos(x) + sin(2x), what is the slope of the curve when x = 2 radians?",
+      "correct_answer": "B. -4.94",
+      "kind": "guess",
+      "exam_id": "1792934968331988",
+      "exam_source": "D3_S7",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792309283782918",
+      "updated_at": "2026-10-25T13:37:19"
+    },
+    {
+      "id": "1792935444927118",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 33,
+      "resolved": false,
+      "created_at": "2026-10-25T13:37:24",
+      "question": "Evaluate the general solution of the differential equation: x²y'' − 4xy' + 6y = 0",
+      "correct_answer": "B. y = C1x³ + C2x²",
+      "kind": "guess",
+      "exam_id": "1792934968331988",
+      "exam_source": "D3_S7",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792309187862581",
+      "updated_at": "2026-10-25T13:37:24"
     }
   ],
   "checklist": [],
@@ -120328,5 +120358,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-25T13:37:17"
+  "updated_at": "2026-10-25T13:37:37"
 }
