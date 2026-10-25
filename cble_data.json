@@ -120418,6 +120418,36 @@
       "category": "Unfamiliar Topic",
       "concept_id": "1792311851589860",
       "updated_at": "2026-10-25T13:53:28"
+    },
+    {
+      "id": "179293646074372",
+      "source_list": "D3_L2_Process_Control_Analysis",
+      "reference_no": 17,
+      "resolved": false,
+      "created_at": "2026-10-25T13:54:20",
+      "question": "A transfer function for a process is proposed as: G(s) = (4s^2 + 2s + 7)/ (s+3) According to the concept of physical realizability, what is the issue with this transfer function?",
+      "correct_answer": "B. The order of the numerator (m = 2) exceeds the order of the denominator (n = 1) , so it is not physically realizable",
+      "kind": "guess",
+      "exam_id": "1792924493177482",
+      "exam_source": "D3_S6",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792309142350928",
+      "updated_at": "2026-10-25T13:54:20"
+    },
+    {
+      "id": "1792936474648178",
+      "source_list": "D3_L6_AnalyticGeometry",
+      "reference_no": 12,
+      "resolved": false,
+      "created_at": "2026-10-25T13:54:34",
+      "question": "A line passes thru (1, -3) and (-4, 2). Write the equation of the line in slope-intercept form.",
+      "correct_answer": "B. y = -x u2013 2",
+      "kind": "guess",
+      "exam_id": "1792924493177482",
+      "exam_source": "D3_S6",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792309396390761",
+      "updated_at": "2026-10-25T13:54:34"
     }
   ],
   "checklist": [],
@@ -120448,5 +120478,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-25T13:54:13"
+  "updated_at": "2026-10-25T13:54:39"
 }
