@@ -48820,6 +48820,15 @@
       "pct": 52,
       "date": "2026-10-25T11:57:37",
       "time_used_seconds": 3498.6
+    },
+    {
+      "id": "1792934968331988",
+      "source": "D3_S7",
+      "score": 20,
+      "total": 50,
+      "pct": 40,
+      "date": "2026-10-25T13:29:28",
+      "time_used_seconds": 3297.6
     }
   ],
   "exam_details": [
@@ -94243,6 +94252,563 @@
           "correct_answer": "B. 0.17"
         }
       ]
+    },
+    {
+      "exam_id": "1792934968331988",
+      "source": "D3_S7",
+      "date": "2026-10-25T13:29:28",
+      "items": [
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 34,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the surface area of a regular icosahedron when each edge is of length 5.",
+          "your_answer": "A. 216.5",
+          "correct_answer": "A. 216.5"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 57,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "During a given month, ten farmers sold 13, 17, 10, 18, 18, 9, 17, 13, 15, 14 sacks of rice respectively. What is the mode of this group of data?",
+          "your_answer": "D. all of the above",
+          "correct_answer": "D. all of the above"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 71,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Claude process of gas liquefaction employs",
+          "your_answer": "A. Merely compression of gas beyond its critical pressure",
+          "correct_answer": "D. Adiabatic expansion against a piston or in a turbine"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 88,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The first cost of a permanent road that will improve access to a rural area is P1,000,000. The annual maintenance cost is expected to be P20,000 per year. Improved accessibility will result in benefits of P70,000 per year. At an interest rate of 6% per year, the conventional B/C ratio is nearest to:",
+          "your_answer": "B. 0.68",
+          "correct_answer": "D. 0.88"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 104,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The food, drug and cosmetic act is",
+          "your_answer": "B. RA 3620",
+          "correct_answer": "C. RA 3720"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 2,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The line segment connecting (x, 6) and (9, y) is bisected by the point (7, 3). Find the values of x and y.",
+          "your_answer": "B. 33, 12",
+          "correct_answer": "C. 5, 0"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 45,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the minimum distance from the point (4, 2) to the parabola y² = 8x.",
+          "your_answer": "B. 2√2",
+          "correct_answer": "B. 2√2"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 64,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "The term of protection for copyright is",
+          "your_answer": "B. lifetime plus 50 years after his death",
+          "correct_answer": "B. lifetime plus 50 years after his death"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 39,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A couple has two children. Find the probability p that both children are boys, given that at least one of the children is a boy.",
+          "your_answer": "A. 1/2",
+          "correct_answer": "B. 1/3"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 120,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What refers to the activity of incorporating the technical know-how with the ability to organize and coordinate workforce; materials, equipment and all other resources including money?",
+          "your_answer": "A. Engineering management",
+          "correct_answer": "A. Engineering management"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 56,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The accuracy of an instrument indicates how close to the true values its measurement is. Which of the following is not an expression for accuracy?",
+          "your_answer": "D. Number of times the instrument read the exact actual value to 3 decimal places",
+          "correct_answer": "D. Number of times the instrument read the exact actual value to 3 decimal places"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 68,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Suppose you have a sample of 30 students' test scores with a sample mean of 70 and a sample standard deviation of 10. Construct a 95% confidence interval for the population mean. (The critical value from the t-distribution with 29 degrees of freedom, t0.025,29, is 2.045.)",
+          "your_answer": "B. 70 ± 4.73",
+          "correct_answer": "C. 70 ± 3.73"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 63,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which of the following risk assessment tool is used for the determination of spatial distribution of contaminants at the site?",
+          "your_answer": "A. Hazard identification",
+          "correct_answer": "C. Exposure assessment"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 49,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "What is meant by steady-state optimization?",
+          "your_answer": "C. Reduction of irrelevant controlled variables to construct an effective dynamic control system",
+          "correct_answer": "B. Real-time evaluation of process operating conditions and adjustment of controlled variables to attain business objectives"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 23,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The fourth term of a Geometric Progression is 189 and the sixth term is 1701, the 8th term is:",
+          "your_answer": "B. 45927",
+          "correct_answer": "D. 15309"
+        },
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 19,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A rhombus has diagonals of 32 and 20 inches. Determine its area.",
+          "your_answer": "B. 280 in^2",
+          "correct_answer": "C. 320 in^2"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 30,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Evaluate the general solution of the differential equation: (D² + 64)y = 0",
+          "your_answer": "C. y = C1 sin 32x + C2 cos 32x",
+          "correct_answer": "A. y = C1 sin 8x + C2 cos 8x"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A set of rules issued by DOLE which mandates the adoption and use of appropriate practices, means, methods operations or processes, and working conditions reasonably necessary to ensure safe and healthful employment.",
+          "your_answer": "D. OSH standards",
+          "correct_answer": "D. OSH standards"
+        },
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 36,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Determine the distance of the centroid from the y-axis of the plane area bounded by the curve x²=16y, the line x=12, and the x-axis.",
+          "your_answer": "B. 5",
+          "correct_answer": "C. 9"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A 200 N force is applied to an object that moves in the direction of the force. If the object travels with a constant velocity of 10 m/s, calculate the power expended on the object.",
+          "your_answer": "B. 2000 W",
+          "correct_answer": "B. 2000 W"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 145,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which of the following compounds is widely used as a flavoring agent but has no flavor by itself?",
+          "your_answer": "B. Sodium citrate",
+          "correct_answer": "C. l-glutamate"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 23,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the probability of drawing either an ace or a king in a single draw from a deck of 52 playing cards?",
+          "your_answer": "C. 2/13",
+          "correct_answer": "C. 2/13"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 55,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A conical funnel has a radius 4cm and a height 8cm. Use Torricelli's law for the rate at which the liquid is draining. Assume the area of the hole in the funnel is 2mm². How long does it take for the funnel to drain?",
+          "your_answer": "B. 104.5s",
+          "correct_answer": "C. 106.5s"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 36,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An earth satellite has an apogee of 40,000 km and a perigee of 6,600 km. Assuming the radius of the earth as 6,400 km, what will be the eccentricity of the elliptical path described by the satellite with the center of the earth at one of the foci?",
+          "your_answer": "B. 0.49",
+          "correct_answer": "D. 0.56"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 27,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Evaluate the general solution of the differential equation: x³y' + x²y − y² = 2x⁴",
+          "your_answer": "B. y = x³ + x/(Cx²+1)",
+          "correct_answer": "A. y = x² + x²/(Cx+1)"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 34,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the radius of the circle that can be inscribed in a triangle with sides 7cm, 24cm and 25cm.",
+          "your_answer": "B. 3.5cm",
+          "correct_answer": "A. 3cm"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Creating standard checklists for cleaning and tool placement supports:",
+          "your_answer": "B. Maintaining a consistent and organized workplace",
+          "correct_answer": "B. Maintaining a consistent and organized workplace"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 11,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A truss frame is supported by a pin support at joint A (bottom-left) and a roller support at joint B (bottom-right). Three downward vertical loads of 10 kN, 10 kN, and 15 kN are applied along the top chord of the truss (left to right), and a horizontal load of 5 kN is applied at the top-right joint, pointing to the right. What is the vertical component of the reaction at B?",
+          "your_answer": "B. 10kN",
+          "correct_answer": "D. 22.5kN"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the length (magnitude) of the vector (2, 4, 4).",
+          "your_answer": "C. 6.00",
+          "correct_answer": "C. 6.00"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 41,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "If y = 4cos(x) + sin(2x), what is the slope of the curve when x = 2 radians?",
+          "your_answer": "B. -4.94",
+          "correct_answer": "B. -4.94"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 33,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Evaluate the general solution of the differential equation: x²y'' − 4xy' + 6y = 0",
+          "your_answer": "B. y = C1x³ + C2x²",
+          "correct_answer": "B. y = C1x³ + C2x²"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 16,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "In triangle ABC, AB = 18m and BC = 6m. Which of the following values can be equal to side AC?",
+          "your_answer": "B. 11m",
+          "correct_answer": "D. 13m"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 22,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the derivative of (x+1)³/x",
+          "your_answer": "B. (4(x+1)²/x) - (2(x+1)³/x)",
+          "correct_answer": "D. (3(x+1)²/x) - ((x+1)³/x²)"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Which of the following is equal to 100 grads?",
+          "your_answer": "D. 90u00b0",
+          "correct_answer": "D. 90u00b0"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 49,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A person buys a piece of lot for P100,000 down payment and 10 deferred semi-annual payments of P8,000 each, starting three years from now. What is the present value of the investment if the rate of interest is 12% compounded semi-annually?",
+          "your_answer": "C. P145,000.00",
+          "correct_answer": "A. P143,992.83"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 86,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Styrene is produced from ethyl benzene by the process of",
+          "your_answer": "A. Dehydrogenation",
+          "correct_answer": "A. Dehydrogenation"
+        },
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 60,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What is the Laplace transform of sin(t)sinh(t)?",
+          "your_answer": "B. s³/(s⁴+4)",
+          "correct_answer": "A. 2s/(s⁴+4)"
+        },
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 18,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A trapezoid has an area of 36 m^2 and an altitude of 2 m. Its two bases have the ratio of 4:5. What are the lengths of the bases?",
+          "your_answer": "B. 7, 11",
+          "correct_answer": "D. 16, 20"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 49,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A stone is dropped from rest from the top of a building. How far does the stone fall in 5 seconds?",
+          "your_answer": "C. 122.6 m",
+          "correct_answer": "C. 122.6 m"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 36,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A tanker arrives to deliver a chemical. The driver presents documentation showing the correct chemical name. The operator, who is running behind schedule, connects the hose and is about to begin unloading. What critical step is being skipped?",
+          "your_answer": "A. Checking that the hose pressure rating matches the tanker specification",
+          "correct_answer": "C. Performing a positive identification of the chemical"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The arithmetic mean of 6 numbers is 17. If two numbers are added to the progression, the new set of numbers will have an arithmetic mean of 19. What are the two numbers if their difference is 4?",
+          "your_answer": "B. 23, 27",
+          "correct_answer": "B. 23, 27"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 90,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Tech Solutions Ltd. has the following financial details at the end of Q1: Current assets: $450,000, Inventory: $180,000, Current liabilities: $320,000. Calculate the acid test ratio of Tech Solutions Ltd.",
+          "your_answer": "B. 0.64",
+          "correct_answer": "D. 0.84"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 5,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Simplify: sqrt(ab / cbrt(ab))",
+          "your_answer": "B. sqrt(ab)",
+          "correct_answer": "A. cbrt(ab)"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 33,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What is the speed of light in diamond whose index of refraction is 2.42? It is _______ x 10^8 m/s",
+          "your_answer": "C. 2.98",
+          "correct_answer": "B. 1.24"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 8,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Given three vertices of a triangle whose coordinates are A (1, 1), B (3, -3) and (5, -3). Find the area of the triangle.",
+          "your_answer": "C. 5",
+          "correct_answer": "B. 4"
+        },
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 4,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Integrate: sin(2θ)/cos²(θ) dθ",
+          "your_answer": "C. 2 ln|cos θ| + c",
+          "correct_answer": "B. -2 ln|cos θ| + c"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 26,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "This depreciation method assumes a sinking fund is established in which funds accumulate for replacement, with the deposits earning compound interest: d = (C0 − SV)i / ((1+i)^n − 1).",
+          "your_answer": "C. Sinking Fund Method",
+          "correct_answer": "C. Sinking Fund Method"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 28,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "The purpose of valve packing is to:",
+          "your_answer": "A. Help reduce cavitation in the valve trim",
+          "correct_answer": "D. Seal process fluid from escaping past the stem"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 50,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "The focal length of two lenses are 10 ft and 20 ft. What is the focal length of the combined lenses when they are in contact?",
+          "your_answer": "D. 6.67 ft",
+          "correct_answer": "D. 6.67 ft"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A cart travels along a frictionless roller coaster track. At point A, the cart is 10 m above the ground and traveling at 2 m/s. The track dips down to the ground at point B, then rises again to point C. What is the velocity of the cart at point C when the cart reaches a height of 3 m?",
+          "your_answer": "D. 11.89 m/s",
+          "correct_answer": "D. 11.89 m/s"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -113948,6 +114514,606 @@
       "concept_id": "",
       "tag_at": "",
       "note_at": ""
+    },
+    {
+      "id": "1792934968537595",
+      "source_list": "D3_L9_CPI",
+      "reference_no": 71,
+      "question": "Claude process of gas liquefaction employs",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:28",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:28",
+          "your_answer": "A. Merely compression of gas beyond its critical pressure",
+          "correct_answer": "D. Adiabatic expansion against a piston or in a turbine"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:28"
+    },
+    {
+      "id": "179293496862417",
+      "source_list": "D3_L12_EngineeringEconomics",
+      "reference_no": 88,
+      "question": "The first cost of a permanent road that will improve access to a rural area is P1,000,000. The annual maintenance cost is expected to be P20,000 per year. Improved accessibility will result in benefits of P70,000 per year. At an interest rate of 6% per year, the conventional B/C ratio is nearest to:",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:28",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:28",
+          "your_answer": "B. 0.68",
+          "correct_answer": "D. 0.88"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:28"
+    },
+    {
+      "id": "1792934968697996",
+      "source_list": "D3_L1_ChE_Laws",
+      "reference_no": 104,
+      "question": "The food, drug and cosmetic act is",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:28",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:28",
+          "your_answer": "B. RA 3620",
+          "correct_answer": "C. RA 3720"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:28"
+    },
+    {
+      "id": "1792934968769541",
+      "source_list": "D3_L6_AnalyticGeometry",
+      "reference_no": 2,
+      "question": "The line segment connecting (x, 6) and (9, y) is bisected by the point (7, 3). Find the values of x and y.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:28",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:28",
+          "your_answer": "B. 33, 12",
+          "correct_answer": "C. 5, 0"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:28"
+    },
+    {
+      "id": "1792934968844120",
+      "source_list": "D3_L13_EngineeringDataAnalysis",
+      "reference_no": 39,
+      "question": "A couple has two children. Find the probability p that both children are boys, given that at least one of the children is a boy.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:28",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:28",
+          "your_answer": "A. 1/2",
+          "correct_answer": "B. 1/3"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:28"
+    },
+    {
+      "id": "1792934968942390",
+      "source_list": "D3_L13_EngineeringDataAnalysis",
+      "reference_no": 68,
+      "question": "Suppose you have a sample of 30 students' test scores with a sample mean of 70 and a sample standard deviation of 10. Construct a 95% confidence interval for the population mean. (The critical value from the t-distribution with 29 degrees of freedom, t0.025,29, is 2.045.)",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:28",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:28",
+          "your_answer": "B. 70 ± 4.73",
+          "correct_answer": "C. 70 ± 3.73"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:28"
+    },
+    {
+      "id": "1792934969003872",
+      "source_list": "D3_L10_ProcessSafety",
+      "reference_no": 63,
+      "question": "Which of the following risk assessment tool is used for the determination of spatial distribution of contaminants at the site?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "A. Hazard identification",
+          "correct_answer": "C. Exposure assessment"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969072767",
+      "source_list": "D3_L2_Process_Control_Analysis",
+      "reference_no": 49,
+      "question": "What is meant by steady-state optimization?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "C. Reduction of irrelevant controlled variables to construct an effective dynamic control system",
+          "correct_answer": "B. Real-time evaluation of process operating conditions and adjustment of controlled variables to attain business objectives"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "179293496912986",
+      "source_list": "D3_L3_Algebra",
+      "reference_no": 23,
+      "question": "The fourth term of a Geometric Progression is 189 and the sixth term is 1701, the 8th term is:",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "B. 45927",
+          "correct_answer": "D. 15309"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969192820",
+      "source_list": "D3_L5_Geometry",
+      "reference_no": 19,
+      "question": "A rhombus has diagonals of 32 and 20 inches. Determine its area.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "B. 280 in^2",
+          "correct_answer": "C. 320 in^2"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969257398",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 30,
+      "question": "Evaluate the general solution of the differential equation: (D² + 64)y = 0",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "C. y = C1 sin 32x + C2 cos 32x",
+          "correct_answer": "A. y = C1 sin 8x + C2 cos 8x"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969319935",
+      "source_list": "D3_L8_Integral_Calculus",
+      "reference_no": 36,
+      "question": "Determine the distance of the centroid from the y-axis of the plane area bounded by the curve x²=16y, the line x=12, and the x-axis.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "B. 5",
+          "correct_answer": "C. 9"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969384343",
+      "source_list": "D3_L9_CPI",
+      "reference_no": 145,
+      "question": "Which of the following compounds is widely used as a flavoring agent but has no flavor by itself?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "B. Sodium citrate",
+          "correct_answer": "C. l-glutamate"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969440495",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 55,
+      "question": "A conical funnel has a radius 4cm and a height 8cm. Use Torricelli's law for the rate at which the liquid is draining. Assume the area of the hole in the funnel is 2mm². How long does it take for the funnel to drain?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "B. 104.5s",
+          "correct_answer": "C. 106.5s"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969500758",
+      "source_list": "D3_L6_AnalyticGeometry",
+      "reference_no": 36,
+      "question": "An earth satellite has an apogee of 40,000 km and a perigee of 6,600 km. Assuming the radius of the earth as 6,400 km, what will be the eccentricity of the elliptical path described by the satellite with the center of the earth at one of the foci?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "B. 0.49",
+          "correct_answer": "D. 0.56"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969557771",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 27,
+      "question": "Evaluate the general solution of the differential equation: x³y' + x²y − y² = 2x⁴",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "B. y = x³ + x/(Cx²+1)",
+          "correct_answer": "A. y = x² + x²/(Cx+1)"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969620513",
+      "source_list": "D3_L4_Trigonometry",
+      "reference_no": 34,
+      "question": "Find the radius of the circle that can be inscribed in a triangle with sides 7cm, 24cm and 25cm.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "B. 3.5cm",
+          "correct_answer": "A. 3cm"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969678238",
+      "source_list": "D3_L15_Engineering_Mechanics",
+      "reference_no": 11,
+      "question": "A truss frame is supported by a pin support at joint A (bottom-left) and a roller support at joint B (bottom-right). Three downward vertical loads of 10 kN, 10 kN, and 15 kN are applied along the top chord of the truss (left to right), and a horizontal load of 5 kN is applied at the top-right joint, pointing to the right. What is the vertical component of the reaction at B?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "B. 10kN",
+          "correct_answer": "D. 22.5kN"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969738890",
+      "source_list": "D3_L4_Trigonometry",
+      "reference_no": 16,
+      "question": "In triangle ABC, AB = 18m and BC = 6m. Which of the following values can be equal to side AC?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "B. 11m",
+          "correct_answer": "D. 13m"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969797271",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 22,
+      "question": "Find the derivative of (x+1)³/x",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "B. (4(x+1)²/x) - (2(x+1)³/x)",
+          "correct_answer": "D. (3(x+1)²/x) - ((x+1)³/x²)"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969857809",
+      "source_list": "D3_L12_EngineeringEconomics",
+      "reference_no": 49,
+      "question": "A person buys a piece of lot for P100,000 down payment and 10 deferred semi-annual payments of P8,000 each, starting three years from now. What is the present value of the investment if the rate of interest is 12% compounded semi-annually?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "C. P145,000.00",
+          "correct_answer": "A. P143,992.83"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969920847",
+      "source_list": "D3_L8_Integral_Calculus",
+      "reference_no": 60,
+      "question": "What is the Laplace transform of sin(t)sinh(t)?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "B. s³/(s⁴+4)",
+          "correct_answer": "A. 2s/(s⁴+4)"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934969981890",
+      "source_list": "D3_L5_Geometry",
+      "reference_no": 18,
+      "question": "A trapezoid has an area of 36 m^2 and an altitude of 2 m. Its two bases have the ratio of 4:5. What are the lengths of the bases?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:29",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:29",
+          "your_answer": "B. 7, 11",
+          "correct_answer": "D. 16, 20"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:29"
+    },
+    {
+      "id": "1792934970045587",
+      "source_list": "D3_L10_ProcessSafety",
+      "reference_no": 36,
+      "question": "A tanker arrives to deliver a chemical. The driver presents documentation showing the correct chemical name. The operator, who is running behind schedule, connects the hose and is about to begin unloading. What critical step is being skipped?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:30",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:30",
+          "your_answer": "A. Checking that the hose pressure rating matches the tanker specification",
+          "correct_answer": "C. Performing a positive identification of the chemical"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:30"
+    },
+    {
+      "id": "1792934970107305",
+      "source_list": "D3_L12_EngineeringEconomics",
+      "reference_no": 90,
+      "question": "Tech Solutions Ltd. has the following financial details at the end of Q1: Current assets: $450,000, Inventory: $180,000, Current liabilities: $320,000. Calculate the acid test ratio of Tech Solutions Ltd.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:30",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:30",
+          "your_answer": "B. 0.64",
+          "correct_answer": "D. 0.84"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:30"
+    },
+    {
+      "id": "1792934970171925",
+      "source_list": "D3_L3_Algebra",
+      "reference_no": 5,
+      "question": "Simplify: sqrt(ab / cbrt(ab))",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:30",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:30",
+          "your_answer": "B. sqrt(ab)",
+          "correct_answer": "A. cbrt(ab)"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:30"
+    },
+    {
+      "id": "1792934970227315",
+      "source_list": "D3_L14_Physics",
+      "reference_no": 33,
+      "question": "What is the speed of light in diamond whose index of refraction is 2.42? It is _______ x 10^8 m/s",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:30",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:30",
+          "your_answer": "C. 2.98",
+          "correct_answer": "B. 1.24"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:30"
+    },
+    {
+      "id": "179293497028819",
+      "source_list": "D3_L6_AnalyticGeometry",
+      "reference_no": 8,
+      "question": "Given three vertices of a triangle whose coordinates are A (1, 1), B (3, -3) and (5, -3). Find the area of the triangle.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:30",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:30",
+          "your_answer": "C. 5",
+          "correct_answer": "B. 4"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:30"
+    },
+    {
+      "id": "1792934970353267",
+      "source_list": "D3_L8_Integral_Calculus",
+      "reference_no": 4,
+      "question": "Integrate: sin(2θ)/cos²(θ) dθ",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:30",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:30",
+          "your_answer": "C. 2 ln|cos θ| + c",
+          "correct_answer": "B. -2 ln|cos θ| + c"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:30"
+    },
+    {
+      "id": "1792934970415494",
+      "source_list": "D3_L2_Process_Control_Analysis",
+      "reference_no": 28,
+      "question": "The purpose of valve packing is to:",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-25T13:29:30",
+      "occurrences": [
+        {
+          "exam_id": "1792934968331988",
+          "exam_source": "D3_S7",
+          "date": "2026-10-25T13:29:30",
+          "your_answer": "A. Help reduce cavitation in the valve trim",
+          "correct_answer": "D. Seal process fluid from escaping past the stem"
+        }
+      ],
+      "updated_at": "2026-10-25T13:29:30"
     }
   ],
   "guess_notes": [
@@ -118402,5 +119568,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-25T12:33:12"
+  "updated_at": "2026-10-25T13:29:41"
 }
