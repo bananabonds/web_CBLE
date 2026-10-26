@@ -97815,7 +97815,7 @@
       "question": "For numbers 18 to 20: The dilution factor P for an unseeded mixture of waste and water is 0.030. The DO of the mixture is initially 9.0 mg/L, and after five days, it has dropped to 3 mg/L. The reaction rate constant k has been found to be 0.22 /day.: What would be the remaining oxygen demand after five days?",
       "category": "Formula / Equation Error",
       "note": "Dilution factor scales the change in DO of the sample to the actual Oxygen demand of the total volume. BOD5 = (DOi-DOf)/P, then BOD5 = Lo(1-e^-kt), then L5 (remaining demand) = Lo - BOD5",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-18T10:55:13",
       "occurrences": [
         {
@@ -97827,7 +97827,7 @@
         }
       ],
       "concept_id": "1792308304806475",
-      "updated_at": "2026-10-18T10:55:13",
+      "updated_at": "2026-10-26T09:31:15",
       "tag_at": "",
       "note_at": ""
     },
@@ -120538,5 +120538,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-26T09:30:50"
+  "updated_at": "2026-10-26T09:31:22"
 }
