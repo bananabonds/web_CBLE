@@ -99201,7 +99201,7 @@
       "question": "It is an odorless and colorless gas that is lethal to humans with exposure as short as a few minutes to concentrations exceeding 5000 ppm. It reacts with hemoglobin in the blood rendering the latter incapable of carrying oxygen to the body.",
       "category": "Other",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-09-27T14:05:07",
       "occurrences": [
         {
@@ -99214,7 +99214,9 @@
       ],
       "concept_id": "",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "skip_in_samples": false,
+      "updated_at": "2026-10-26T13:37:53"
     },
     {
       "id": "1790522974545914",
@@ -120539,5 +120541,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-26T13:37:40"
+  "updated_at": "2026-10-26T13:38:08"
 }
