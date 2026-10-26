@@ -1086,6 +1086,7 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <p class="hint">Your tagged questions sorted by what to do about them. Each action lists only the <b>questions</b> that need it, with your notes. Concept cards and progress live in the Concept Card Studio below, which follows the same sort.</p>
         <select class="examScopeSelect" id="reviewerExamScope" style="margin-top:8px;"></select>
         <div id="rvExamSummary"></div>
+        <div id="rvProgress"></div>
         <div id="rvFocusBox" style="margin-top:6px;"></div>
         <div id="ttsBar" class="list-item" style="margin-top:10px;">
           <div class="row wrap" style="gap:6px;">
@@ -1756,7 +1757,7 @@ function collectTagItems(scopeSet) {
 }
 function setItemResolved(item, resolved) {
   if (item.store === "mistake") setMistakeResolved(item.e.id, resolved);
-  else { const list = loadShaky(), e = list.find(x => x.id === item.e.id); if (e) { e.resolved = !!resolved; e.updated_at = nowIso(); saveShaky(list); } }
+  else { const list = loadShaky(), e = list.find(x => x.id === item.e.id); if (e) { stampResolved(e, !!resolved); e.resolved = !!resolved; e.updated_at = nowIso(); saveShaky(list); } }
 }
 /* ---- pre-submit checklist (what "Needs checklist" produces) ---- */
 function loadChecklist() { return loadJson(KEYS.checklist, []); }
@@ -1883,6 +1884,11 @@ function saveJson(key, data) {
 }
 function uid() { return `${Date.now()}${Math.floor(Math.random() * 1000)}`; }
 function nowIso() { return new Date().toISOString().slice(0, 19); }
+// Remember WHEN a question was resolved (resolved_at) so the Reviewer can show today's progress and your pace. Call before setting e.resolved.
+function stampResolved(e, nowResolved) {
+  if (nowResolved) { if (!e.resolved) e.resolved_at = nowIso(); }
+  else delete e.resolved_at;
+}
 function todayStamp() {
   const d = new Date();
   const pad = n => String(n).padStart(2, "0");
@@ -2568,7 +2574,7 @@ function recordMistakeOccurrence(examId, examSource, sourceList, referenceNo, qu
     log.push(entry);
   } else {
     if (question) entry.question = question;
-    if (entry.resolved) { entry.resolved = false; reopened = true; }
+    if (entry.resolved) { delete entry.resolved_at; entry.resolved = false; reopened = true; }
   }
   entry.updated_at = nowIso();
   addMistakeOccurrence(entry, examId, examSource, yourAnswer, correctAnswer);
@@ -2602,6 +2608,7 @@ function saveMistakeEntry(examId, examSource, sourceList, referenceNo, question,
   entry.tag_at = nowIso();
   if (conceptId !== undefined) entry.concept_id = conceptId;
   entry.note = note;
+  stampResolved(entry, !!resolved);
   entry.resolved = resolved;
   entry.date_logged = nowIso();
   entry.updated_at = nowIso();
@@ -6771,6 +6778,7 @@ function setMistakeResolved(entryId, resolved) {
   const log = loadMistakeLog();
   const entry = log.find(e => e.id === entryId);
   if (!entry) return;
+  stampResolved(entry, !!resolved);
   entry.resolved = resolved;
   entry.updated_at = nowIso();
   // Deliberately NOT touching date_logged here -- bumping it on every resolve toggle used to make rows jump around.
@@ -7519,7 +7527,7 @@ $("btnSubmitQuestion").addEventListener("click", async () => {
 function qbMarkFixed(entryId) {
   const log = loadMistakeLog(), e = log.find(x => x.id === entryId);
   if (!e) return;
-  e.skip_in_samples = false; e.resolved = true; e.updated_at = nowIso();
+  e.skip_in_samples = false; stampResolved(e, true); e.resolved = true; e.updated_at = nowIso();
   saveJson(KEYS.mistakes, log); scheduleGithubSync();
   toast("Marked fixed. It can be sampled again.");
   refreshListsDisplay(); renderQB();
@@ -9066,6 +9074,123 @@ function renderRvNeedCard(need, items, hiddenResolved, pm) {
   }
   return card;
 }
+/* ---- Reviewer progress monitor: today's wins, progress per prefix group, pace and time left ---- */
+let rvProgOpen = true;
+function pmLocalDay(iso) {
+  if (!iso) return "";
+  const s = String(iso), d = new Date(s.length === 19 ? s + "Z" : s);   // nowIso() is UTC without a Z
+  return isNaN(d) ? "" : fcFmt(d);
+}
+function pmDaysBetween(a, b) {
+  const pa = a.split("-").map(Number), pb = b.split("-").map(Number);
+  return Math.round((new Date(pb[0], pb[1] - 1, pb[2]) - new Date(pa[0], pa[1] - 1, pa[2])) / 86400000);
+}
+function pmNice(iso) { const p = iso.split("-").map(Number); return new Date(p[0], p[1] - 1, p[2]).toLocaleDateString(undefined, { month: "short", day: "numeric" }); }
+// The exam the countdown uses: the exam you're focused on if it's still ahead, else the nearest upcoming one.
+function pmPickExam() {
+  const today = fcToday(), ex = getActiveExam();
+  if (ex && ex.date && ex.date >= today) return ex;
+  return loadExamDates().filter(d => d.date && d.date >= today).sort((a, b) => a.date.localeCompare(b.date))[0] || null;
+}
+function renderRvProgress(all, pm) {
+  const host = $("rvProgress"); if (!host) return;
+  const today = fcToday(), dayOf = it => it.resolved ? pmLocalDay(it.e.resolved_at || it.e.updated_at) : "";
+  const perDay = new Map(); let legacy = 0, first = "";
+  for (const it of all) {
+    if (!it.resolved) continue;
+    if (!it.e.resolved_at) legacy++;
+    const d = dayOf(it); if (!d) continue;
+    perDay.set(d, (perDay.get(d) || 0) + 1); if (!first || d < first) first = d;
+  }
+  const total = all.length, resolvedN = all.filter(i => i.resolved).length, open = total - resolvedN, qToday = perDay.get(today) || 0;
+  // concepts: cleared = every tagged question under it is resolved; it was cleared on the day its last question was resolved
+  const cons = new Map();
+  for (const it of all) {
+    if (!it.conceptId || !findConcept(it.conceptId)) continue;
+    const c = cons.get(it.conceptId) || { n: 0, res: 0, last: "" }; c.n++;
+    if (it.resolved) { c.res++; const d = dayOf(it); if (d > c.last) c.last = d; }
+    cons.set(it.conceptId, c);
+  }
+  let cCleared = 0, cToday = 0;
+  for (const c of cons.values()) if (c.res === c.n) { cCleared++; if (c.last === today) cToday++; }
+  const groups = new Map();
+  const grp = p => { let g = groups.get(p.key); if (!g) { g = { label: p.label || "No subject yet", q: 0, qr: 0, qt: 0, c: 0, cc: 0 }; groups.set(p.key, g); } return g; };
+  for (const it of all) { const g = grp(rvItemPfx(it, pm)); g.q++; if (it.resolved) { g.qr++; if (dayOf(it) === today) g.qt++; } }
+  for (const [id, c] of cons) { const g = grp(pm.get(id) || { key: "", label: "No subject yet" }); g.c++; if (c.res === c.n) g.cc++; }
+  // streak, best day, last 14 days
+  let streak = 0, cur = qToday ? today : fcAddDays(today, -1);
+  while (perDay.get(cur)) { streak++; cur = fcAddDays(cur, -1); }
+  let best = 0, bestDay = ""; for (const [d, n] of perDay) if (n > best) { best = n; bestDay = d; }
+  const days14 = Array.from({ length: 14 }, (_, i) => fcAddDays(today, i - 13)), vals14 = days14.map(d => perDay.get(d) || 0), max14 = Math.max(1, ...vals14);
+  // pace = questions resolved per day over the last 7 days (fewer if you only just started)
+  const span = first ? Math.max(1, pmDaysBetween(first, today) + 1) : 0, win = Math.min(7, span);
+  let paceN = 0; for (let i = 0; i < win; i++) paceN += perDay.get(fcAddDays(today, -i)) || 0;
+  const pace = win ? paceN / win : 0;
+  // time left: study days run from today up to the day before the exam
+  const ex = pmPickExam(), sd = ex ? Math.max(0, pmDaysBetween(today, ex.date)) : null;
+  const needPerDay = sd ? open / sd : null, daysAt = r => Math.ceil(open / r), finishAt = r => fcAddDays(today, daysAt(r) - 1);
+  const goal = sd ? Math.max(1, Math.ceil((open + qToday) / sd)) : Math.max(1, Math.ceil(pace) || 5);
+  const pct = (a, b) => b ? Math.round(a / b * 100) : 0, plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
+  const G = "var(--green)", A = "var(--amber-ink)", R = "var(--red)";
+  const tile = (n, label, color) => `<div class="fc-stat" style="border-top:3px solid ${color};"><b>${n}</b><span>${label}</span></div>`;
+
+  // verdict
+  let vTitle = "", vColor = "var(--sub)", vText = "";
+  if (!open) { vTitle = "All clear"; vColor = G; vText = total ? "Every tagged question is resolved. Nothing is left to clear." : "No tagged questions yet."; }
+  else if (!ex) {
+    vTitle = "No exam date"; vText = pace ? `At ${pace.toFixed(1)} resolved a day you'd clear the ${open} open questions in about ${daysAt(pace)} days (around ${pmNice(finishAt(pace))}). Add an exam date in Upcoming Exams to see whether that's in time.` : `Resolve a few questions so your pace can be measured, and add an exam date in Upcoming Exams to see if you'll finish in time.`;
+  } else if (!sd) { vTitle = "Exam day"; vColor = R; vText = `There are no study days left and ${plural(open, "question")} still open.`; }
+  else if (!pace) { vTitle = "No pace yet"; vColor = A; vText = `You need about ${needPerDay.toFixed(1)} resolved a day to clear ${open} questions in the ${plural(sd, "study day")} left. Resolve a few to start measuring your pace.`; }
+  else {
+    const ratio = pace / needPerDay, d = daysAt(pace), spare = sd - d;
+    [vTitle, vColor] = ratio >= 1.15 ? ["On track", G] : ratio >= 1 ? ["On track, but tight", G] : ratio >= 0.75 ? ["Slightly behind", A] : ["Behind", R];
+    const gain = d - daysAt(pace + 1);
+    vText = `You're resolving ${pace.toFixed(1)} a day and need ${needPerDay.toFixed(1)} a day to clear ${open} questions in ${plural(sd, "study day")}. At this pace you'd finish around ${pmNice(finishAt(pace))}, ${spare >= 0 ? `${plural(spare, "day")} before the exam` : `${plural(-spare, "day")} after the exam`}.${gain > 0 ? ` One more question a day would finish you ${plural(gain, "day")} sooner.` : ""}`;
+  }
+  const msg = qToday >= goal ? `\u{1F389} Today's goal reached: ${qToday} resolved.` : qToday ? `Nice, ${qToday} resolved today. ${goal - qToday} more reaches today's goal.` : streak ? `Resolve one today to keep your ${plural(streak, "day")} streak going.` : `Nothing resolved yet today. One question gets you started.`;
+
+  // sensitivity
+  let sens = "";
+  if (open) {
+    const rows = [];
+    const add = (label, r) => { if (r > 0 && !rows.some(x => Math.abs(x.r - r) < 1e-9)) rows.push({ label, r }); };
+    if (sd) { add("Half my pace", pace / 2); add("My current pace", pace); add("Needed to finish in time", Math.ceil(needPerDay)); add("Needed + 25% buffer", Math.ceil(needPerDay * 1.25)); add("Needed + 50% buffer", Math.ceil(needPerDay * 1.5)); }
+    else { add("Half my pace", pace / 2); add("My current pace", pace); add("1.5\u00d7 my pace", pace * 1.5); add("Double my pace", pace * 2); }
+    rows.sort((a, b) => a.r - b.r);
+    const tr = rows.map(x => { const d = daysAt(x.r), spare = sd ? sd - d : null, col = spare == null ? "inherit" : spare >= 0 ? G : R; return `<tr><td style="font-family:inherit;">${x.label}</td><td>${x.r % 1 ? x.r.toFixed(1) : x.r}</td><td>${plural(d, "day")}</td><td>${pmNice(finishAt(x.r))}</td>${sd ? `<td style="color:${col};font-weight:700;">${spare >= 0 ? plural(spare, "day") + " spare" : plural(-spare, "day") + " late"}</td>` : ""}</tr>`; }).join("");
+    sens += `<div class="field-label" style="margin-top:12px;">If I resolve this many a day&hellip;</div><div class="table-wrap"><table class="data-table"><tr><th>Scenario</th><th>Per day</th><th>Takes</th><th>Done by</th>${sd ? "<th>Vs exam</th>" : ""}</tr>${tr}</table></div>`;
+    if (sd) {
+      const cell = (extra, rest) => { const n = Math.ceil(open * (1 + extra / 100) / Math.max(1, Math.floor(sd * (7 - rest) / 7))), col = !pace ? "inherit" : n <= pace ? G : n <= pace * 1.5 ? A : R; return `<td style="color:${col};font-weight:700;">${n}</td>`; };
+      const gr = [0, 10, 25, 50].map(x => `<tr><td style="font-family:inherit;">${x ? "+" + x + "% new questions" : "No new questions"}</td>${[0, 1, 2, 3].map(r => cell(x, r)).join("")}</tr>`).join("");
+      sens += `<div class="field-label" style="margin-top:12px;">Questions I must resolve each study day</div><div class="table-wrap"><table class="data-table"><tr><th>If more get added</th><th>Study daily</th><th>1 rest day/wk</th><th>2 rest days/wk</th><th>3 rest days/wk</th></tr>${gr}</table></div><p class="hint" style="margin-top:6px;">Each cell is how many questions to resolve on every study day to clear everything by the exam.${pace ? ` <span style="color:${G};font-weight:700;">Green</span> is within your current pace, <span style="color:${A};font-weight:700;">amber</span> is up to 1.5&times; your pace, <span style="color:${R};font-weight:700;">red</span> is beyond that.` : ""} New questions come from tests you take before the exam.</p>`;
+    }
+  }
+
+  // progress per prefix group
+  const gl = Array.from(groups.values()).sort((a, b) => a.label.localeCompare(b.label, undefined, { numeric: true }));
+  const withQ = gl.filter(g => g.q), lowest = withQ.length > 1 ? withQ.reduce((m, g) => pct(g.qr, g.q) < pct(m.qr, m.q) ? g : m) : null;
+  const bar = (a, b, color) => b ? `<div style="display:flex;align-items:center;gap:6px;"><div class="bar-track" style="min-width:56px;"><div class="bar-fill" style="width:${pct(a, b)}%;background:${color};"></div></div><span style="font-size:.72rem;white-space:nowrap;">${pct(a, b)}% <span style="color:var(--sub);">(${a}/${b})</span></span></div>` : "&ndash;";
+  const trg = gl.map(g => `<tr><td style="font-family:inherit;font-weight:600;">${esc(g.label)}${lowest === g && pct(g.qr, g.q) < 100 ? ` <span style="color:${A};font-size:.68rem;">lowest</span>` : ""}</td><td>${bar(g.cc, g.c, G)}</td><td>${bar(g.qr, g.q, "var(--navy)")}</td><td>${g.qt || "&ndash;"}</td></tr>`).join("");
+
+  host.innerHTML = `<details id="rvProgDetails" class="list-item" style="margin-top:10px;"${rvProgOpen ? " open" : ""}>
+    <summary style="cursor:pointer;font-weight:700;color:var(--navy);">Progress monitor</summary>
+    <div class="fc-stats" style="grid-template-columns:repeat(4,1fr);margin-top:8px;">${tile(qToday, "resolved today", "var(--green)")}${tile(cToday, "concepts cleared today", "var(--navy)")}${tile(streak, streak === 1 ? "day streak" : "day streak \u{1F525}", "var(--amber-ink)")}${tile(sd == null ? "&ndash;" : sd, sd == null ? "no exam date" : "study days left", ex && sd != null && sd <= 14 ? "var(--red)" : "var(--sub)")}</div>
+    ${progressBarRow("Today's goal", Math.min(qToday, goal), goal, qToday >= goal ? G : "var(--navy)", `${qToday}/${goal}`)}
+    <div class="hint" style="margin:-2px 0 8px;">${msg}${sd ? ` The goal is your ${plural(open + qToday, "question")} spread over the ${plural(sd, "study day")} left.` : ""}</div>
+    ${progressBarRow("Concepts", cCleared, cons.size, G, `${cCleared}/${cons.size}`)}${progressBarRow("Questions", resolvedN, total, "var(--navy)", `${resolvedN}/${total}`)}
+    <div class="hint" style="margin:-2px 0 6px;">A concept is cleared once every tagged question under it is resolved.</div>
+    <div style="display:flex;align-items:flex-end;gap:3px;height:44px;margin-top:6px;">${vals14.map((v, i) => `<div title="${pmNice(days14[i])}: ${v} resolved" style="flex:1;height:${Math.max(3, Math.round(v / max14 * 44))}px;background:${i === 13 ? G : "var(--navy)"};opacity:${v ? 1 : .25};border-radius:2px;"></div>`).join("")}</div>
+    <div class="hint" style="display:flex;justify-content:space-between;"><span>14 days ago</span><span>${best ? `Best day: ${best} (${pmNice(bestDay)})` : ""}</span><span>Today</span></div>
+    <div class="list-item" style="margin-top:8px;border-left:4px solid ${vColor};"><div style="font-weight:700;color:${vColor};">${vTitle}</div><div class="hint" style="margin-top:4px;">${vText}</div>
+      <div class="hint" style="margin-top:6px;">${ex ? `Exam: ${esc(ex.label || "Exam")} &middot; ${pmNice(ex.date)} &middot; ` : ""}${plural(open, "question")} open &middot; pace ${pace.toFixed(1)}/day (last ${win || 0} day${win === 1 ? "" : "s"})</div></div>
+    ${sens}
+    <div class="field-label" style="margin-top:12px;">Progress by prefix group</div>
+    ${gl.length ? `<div class="table-wrap"><table class="data-table"><tr><th>Group</th><th>Concepts cleared</th><th>Questions resolved</th><th>Today</th></tr>${trg}</table></div>` : `<div class="empty-state">No tagged questions yet.</div>`}
+    <p class="hint" style="margin-top:6px;">This monitor covers all your tagged questions for the exam focus above and ignores the filters below. Pace is the average of the last 7 days. The countdown uses the exam you've focused on, else your nearest upcoming exam date. It assumes no new questions are added, which the grid above covers.${legacy ? ` ${plural(legacy, "question")} resolved before this feature ${legacy === 1 ? "has" : "have"} no exact resolve time, so ${legacy === 1 ? "it is" : "they are"} dated by ${legacy === 1 ? "its" : "their"} last edit.` : ""}</p>
+  </details>`;
+  const dt = $("rvProgDetails"); if (dt) dt.addEventListener("toggle", () => { rvProgOpen = dt.open; });
+}
+
 // Three dropdowns decide what is shown: a subject prefix, one subject, then a concept.
 function renderRvFilters(all, pm) {
   const psel = $("rvPrefixSel"), ssel = $("rvSubjectSel"), csel = $("rvConceptSel");
@@ -9123,6 +9248,7 @@ function refreshReviewer() {
     <div class="fc-stats" style="grid-template-columns:repeat(5,1fr);margin-top:8px;">${tiles}</div>
     ${untagged ? `<button class="btn block" id="rvGoTag" style="margin-top:8px;">Tag the ${untagged} item${untagged === 1 ? "" : "s"} still missing a tag or concept &rarr;</button>` : ""}`;
   const g = $("rvGoTag"); if (g) g.onclick = () => { switchTab("mistakes"); const r = computeTestsWithUnloggedMistakes()[0]; if (r) jumpToExamInMistakeLog(r.examId); };
+  renderRvProgress(all, pm);
   const q = fcBuildQueue({}), c = q.counts, n = q.cards.length;
   $("rvFocusBox").innerHTML = fcFinalBanner() + `<div class="field-label" style="margin-top:10px;">Concept cards today</div><div class="fc-stats"><div class="fc-stat"><b>${c.due}</b><span>due</span></div><div class="fc-stat"><b>${Math.min(c.newAllowed, c.fresh)}</b><span>new today</span></div><div class="fc-stat"><b>${q.pool.length}</b><span>cards</span></div></div>` +
     (n ? `<button class="btn primary block" data-fcstart="1">Start review &middot; ${n} card${n === 1 ? "" : "s"} &#9654;</button>` : `<div class="empty-state">${q.pool.length ? "Nothing due right now." : "No concept cards yet. Make some in the Concept Card Studio below."}</div>${c.later ? `<button class="btn block" data-fcahead="1">Practice ahead &middot; ${c.later} not yet due</button>` : ""}`);
