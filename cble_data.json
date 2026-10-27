@@ -107913,7 +107913,7 @@
       "question": "Propane is dehydrogenated to formpropylene in a catalytic reactor. The process is to be designed for a 95% overall conversion of propane. Thereaction products are separated into twostreams: the first, which contains H₂, СзH6 and 0.555% of the propane that leaves thereactor, is taken off as a product; thesecond stream, which contains thebalance of the unreacted propane and 5%of the propylene in the first stream, is recycled to the reactor. Calculate the ratio of moles recycled / mole fresh feed",
       "category": "Forgot a Concept",
       "note": "The question says that 0.555% of the propane that leaves the reactor is in the product stream. The product stream has 5 mol of propane assuming F = 100 mol since X = 0.95. We get the total propane that exits the reactor by 5/0.00555 = 900.9. We get propane in recycle as 900.9-5 = 895.9. We get the total propane feed from F = 100 + Recycle propane. We calculate the single pass by dividing the 95 mol propylene in the product by the total propane feed.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-19T13:06:59",
       "occurrences": [
         {
@@ -107924,10 +107924,11 @@
           "correct_answer": "D. 9.0"
         }
       ],
-      "updated_at": "2026-10-19T13:06:59",
+      "updated_at": "2026-10-27T04:34:42",
       "concept_id": "1792319736426849",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-10-27T04:34:42"
     },
     {
       "id": "1792171215218576",
@@ -121964,5 +121965,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-27T04:26:13"
+  "updated_at": "2026-10-27T04:34:50"
 }
