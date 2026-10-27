@@ -117399,6 +117399,20 @@
       "updated_at": "2026-10-26T17:31:38",
       "tag_at": "",
       "note_at": ""
+    },
+    {
+      "id": "1793082383370553",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 69,
+      "question": "For turbulent mass transfer in pipes, the Sherwood number depends upon the Reynolds number Re as",
+      "category": "Other",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-27T06:26:23",
+      "occurrences": [],
+      "concept_id": "1792311571141408",
+      "tag_at": "2026-10-27T06:26:23",
+      "updated_at": "2026-10-27T06:26:23"
     }
   ],
   "guess_notes": [
@@ -121419,21 +121433,6 @@
       "updated_at": "2026-10-22T21:59:36"
     },
     {
-      "id": "1792740968034899",
-      "source_list": "D2_L5_Transport_Phenomenon",
-      "reference_no": 69,
-      "resolved": false,
-      "created_at": "2026-10-23T07:36:08",
-      "question": "For turbulent mass transfer in pipes, the Sherwood number depends upon the Reynolds number Re as",
-      "correct_answer": "A. Re ^ 0.33",
-      "kind": "guess",
-      "exam_id": "1792739990061999",
-      "exam_source": "D2_S6",
-      "category": "Unfamiliar Topic",
-      "concept_id": "1792311571141408",
-      "updated_at": "2026-10-27T06:26:09"
-    },
-    {
       "id": "1792741044672966",
       "source_list": "D2_L4_Momentum_Transfer",
       "reference_no": 37,
@@ -121965,11 +121964,12 @@
       "1792766548138423",
       "1792331382111757",
       "1792308099464590",
-      "1792310917832516"
+      "1792310917832516",
+      "1792740968034899"
     ],
     "checklist": [
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-27T06:26:17"
+  "updated_at": "2026-10-27T06:26:31"
 }
