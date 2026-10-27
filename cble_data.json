@@ -108444,7 +108444,7 @@
       "question": "Water at 80°F at 10 ft/s through a 6 inches sch 40 steel pipe with length of 1000 ft. The Reynolds number is",
       "category": "Formula / Equation Error",
       "note": "No need to account for length. Find the properties and solve for Nre = pDv/u. Nre = pvL/u is for flat plate",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-18T10:41:18",
       "occurrences": [
         {
@@ -108455,10 +108455,11 @@
           "correct_answer": "C. 550 000"
         }
       ],
-      "updated_at": "2026-10-18T10:41:18",
+      "updated_at": "2026-10-27T06:22:58",
       "concept_id": "1792311571141408",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-10-27T06:22:58"
     },
     {
       "id": "1792222116388143",
@@ -121970,5 +121971,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-27T06:21:11"
+  "updated_at": "2026-10-27T06:23:07"
 }
