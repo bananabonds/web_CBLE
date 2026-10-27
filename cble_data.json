@@ -107775,7 +107775,7 @@
       "question": "TiCl4, can be formed by reacting titaniumdioxide (TiO,) with hydrochloric acid. TiO₂is available as an ore containing 78 % TiO2and 22% inerts. The HCL is available as 45wt% solution (the balance is water). Theper pass conversion of TiO₂ is 75 %. TheHCl is fed into the reactor in 20% excessbased on the reaction. Pure unreacted TiO2 is recycled back to mix with the Ti02 feed. TiO2+ 4 HCL→ TiCl4 + 2H₂0 For 1 kg of TiCl4 produced, determine: The ratio of recycle stream to fresh TiO2 ore (in kg).",
       "category": "Formula / Equation Error",
       "note": "Get TiO2 required for 1 kg TiCl4. Divide it by the per pass conversion then subtract the required from it and ratio that difference to the total mass of the ore containing theoretical TiO2",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-18T10:35:38",
       "occurrences": [
         {
@@ -107786,10 +107786,11 @@
           "correct_answer": "A. 0.26"
         }
       ],
-      "updated_at": "2026-10-18T10:35:38",
+      "updated_at": "2026-10-27T05:08:54",
       "concept_id": "1792319736426849",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-10-27T05:08:54"
     },
     {
       "id": "1792160602470540",
@@ -121966,5 +121967,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-27T05:01:12"
+  "updated_at": "2026-10-27T05:09:02"
 }
