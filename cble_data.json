@@ -114643,7 +114643,7 @@
       "question": "This type of flowmeter takes advantage of the frequency shift observed in sound waves passed through the fluid flow, which is directly proportional to fluid velocity.",
       "category": "Conceptual Misunderstanding",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-24T16:45:22",
       "occurrences": [
         {
@@ -114654,10 +114654,11 @@
           "correct_answer": "A. Ultrasonic flowmeters"
         }
       ],
-      "updated_at": "2026-10-24T16:45:22",
+      "updated_at": "2026-10-27T07:25:31",
       "concept_id": "1792319694003453",
       "tag_at": "2026-10-24T16:45:22",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-10-27T07:25:31"
     },
     {
       "id": "1792816045468549",
@@ -121976,5 +121977,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-27T07:25:13"
+  "updated_at": "2026-10-27T07:25:39"
 }
