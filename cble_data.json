@@ -110405,7 +110405,7 @@
       "question": "In a 1-1 shell and tube heat exchanger, steam is condensing on the shell side at Ts °C, and the cold fluid is being heated on the tube side from t °C to t₂ °C. The followingequation relates t₂ to the other variables. ln (Ts - t1 / Ts - t2) = UA/W Cp Where 'U' is the overall heat transfer coefficient, 'A' is the heat transfer area, W' is the mass flow rate and 'Cp' is the heat capacity. The tube side coefficient is controlling, andthe tube side fluid is in turbulent flow. T5 = 130°C, t = 30°C, t₂ = 80°C. If the mass flow rate of the cold fluid is double while keeping all the other conditions it, find the new value of t₂ at steady state.",
       "category": "Unfamiliar Topic",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-20T16:15:47",
       "occurrences": [
         {
@@ -110416,10 +110416,11 @@
           "correct_answer": "D. 75°C"
         }
       ],
-      "updated_at": "2026-10-20T16:15:47",
+      "updated_at": "2026-10-27T13:19:33",
       "concept_id": "1792512945505871",
       "tag_at": "2026-10-20T16:15:47",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-10-27T13:19:33"
     },
     {
       "id": "1792512355954891",
@@ -121988,5 +121989,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-27T13:16:47"
+  "updated_at": "2026-10-27T13:19:40"
 }
