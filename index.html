@@ -1648,7 +1648,17 @@ function migrateTaxonomyIfNeeded() {
 /* ---- concepts: the labels in the tagging dropdown. Their flashcards are separate "concept cards" (below). ---- */
 function loadConcepts() { return loadJson(KEYS.concepts, []); }
 function saveConcepts(arr) { saveJson(KEYS.concepts, arr); scheduleGithubSync(); }
-function findConcept(id) { return id ? (loadConcepts().find(c => c.id === id) || null) : null; }
+let _conceptIdx = { text: undefined, map: null };
+function findConcept(id) {   // an index rebuilt only when the stored list changes (it used to re-read the whole list on every call)
+  if (!id) return null;
+  const text = lsGetText(KEYS.concepts);
+  if (_conceptIdx.text !== text || !_conceptIdx.map) {
+    const map = new Map(); let arr = []; try { arr = text === null ? [] : JSON.parse(text); } catch (e) {}
+    for (const c of (Array.isArray(arr) ? arr : [])) if (c && !map.has(c.id)) map.set(c.id, c);
+    _conceptIdx = { text, map };
+  }
+  return _conceptIdx.map.get(id) || null;
+}
 function conceptName(id) { const c = findConcept(id); return c ? c.name : ""; }
 function addConcept(name, subject) {
   const nm = String(name || "").trim(); if (!nm) return null;
@@ -1753,18 +1763,22 @@ function setItemNote(item, text) {
   else { const list = loadShaky(), e = list.find(x => x.id === item.e.id); if (e) { e.note = text; e.updated_at = nowIso(); saveShaky(list); } }
 }
 // Everything tagged, as one list (bank problems tagged "Other" are left out).
-function collectTagItems(scopeSet) {
-  const out = [];
-  const add = (store, e, kind) => {
-    if (!e.category) return;
-    if (scopeSet && !scopeSet.has(e.source_list)) return;
-    const cat = normCategory(e.category);
-    if (cat.toLowerCase() === OTHER_CATEGORY.toLowerCase()) return;
-    out.push({ store, e, kind, cat, tax: taxInfo(cat), conceptId: e.concept_id || "", resolved: !!e.resolved, subject: e.source_list || "Unknown" });
-  };
-  for (const e of loadMistakeLog()) add("mistake", e, "wrong");
-  for (const e of loadShaky()) add("shaky", e, e.kind || "guess");
-  return out;
+let _tagMemo = null;
+function collectTagItems(scopeSet) {   // built once per version of the stored log, then filtered per call (callers get their own array)
+  const mt = lsGetText(KEYS.mistakes), st = lsGetText(KEYS.shaky);
+  if (!_tagMemo || _tagMemo.mt !== mt || _tagMemo.st !== st) {
+    const out = [];
+    const add = (store, e, kind) => {
+      if (!e.category) return;
+      const cat = normCategory(e.category);
+      if (cat.toLowerCase() === OTHER_CATEGORY.toLowerCase()) return;
+      out.push({ store, e, kind, cat, tax: taxInfo(cat), conceptId: e.concept_id || "", resolved: !!e.resolved, subject: e.source_list || "Unknown" });
+    };
+    for (const e of loadMistakeLog()) add("mistake", e, "wrong");
+    for (const e of loadShaky()) add("shaky", e, e.kind || "guess");
+    _tagMemo = { mt, st, items: out };
+  }
+  return scopeSet ? _tagMemo.items.filter(i => scopeSet.has(i.e.source_list)) : _tagMemo.items.slice();
 }
 function setItemResolved(item, resolved) {
   if (item.store === "mistake") setMistakeResolved(item.e.id, resolved);
@@ -3644,7 +3658,10 @@ function renderWeakestSubjectSpotlight() {
 /* ---------------------------------------------------------------------
    Study Streak + activity heatmap
    --------------------------------------------------------------------- */
+let _actMemo = null;
 function computeActivityMap() {
+  const srcTexts = [KEYS.history, KEYS.samples, KEYS.mistakes, KEYS.guessNotes, KEYS.shaky, KEYS.checklist, KEYS.flashSrs].map(lsGetText);
+  if (_actMemo && _actMemo.src.every((t, i) => t === srcTexts[i])) return _actMemo.map;   // nothing changed since last time
   const map = new Map(); // dateStr -> event count
   const bump = (d) => { const k = dateOnly(d); if (!k) return; map.set(k, (map.get(k) || 0) + 1); };
   for (const h of loadJson(KEYS.history, [])) bump(h.date);
@@ -3654,6 +3671,7 @@ function computeActivityMap() {
   for (const sh of loadShaky()) { bump(sh.tag_at); if (sh.resolved) bump(sh.resolved_at || sh.updated_at); }
   for (const c of loadChecklist()) bump(c.created_at);
   for (const s of Object.values(fcLoadSrs())) bump(s.last);   // concept-card reviews
+  _actMemo = { src: srcTexts, map };
   return map;
 }
 function computeStreaks(activityMap) {
@@ -3693,6 +3711,7 @@ function renderStreakAndHeatmap() {
   }
 
   renderStreakRewards();
+  const frozenSet = rwFrozenSet();
   const grid = $("homeHeatmap");
   const monthsRow = $("homeHeatmapMonths");
   grid.innerHTML = "";
@@ -3713,7 +3732,7 @@ function renderStreakAndHeatmap() {
     if (cellDate > todayD) { grid.appendChild(el("div", "heat-cell", "")); grid.lastChild.style.visibility = "hidden"; continue; }
     const count = activityMap.get(cellStr) || 0;
     const level = heatLevel(count);
-    const isFrozen = !count && rwFrozenSet().has(cellStr);
+    const isFrozen = !count && frozenSet.has(cellStr);
     const cell = el("div", `heat-cell heat-${level}${isFrozen ? " heat-frozen" : ""}${cellStr === todayDateStr() ? " heat-today" : ""}`);
     cell.title = isFrozen ? `${formatDateNice(cellStr)}: covered by a streak freeze` : `${formatDateNice(cellStr)}: ${count} event${count === 1 ? "" : "s"}`;
     grid.appendChild(cell);
@@ -3730,18 +3749,20 @@ function renderStreakAndHeatmap() {
    --------------------------------------------------------------------- */
 const RW_POWER = { resolved: 15, concepts: 2 };   // the "Power Day" that earns a freeze: resolve this many questions AND clear this many concepts in one day
 const RW_FREEZE_CAP = 2;                           // freezes you can hold; one can be claimed per calendar month
-const RW_XP = { answered: 1, resolved: 10, cleared: 40, tests: 50, days: 15 };
+const RW_XP = { answered: 1, resolved: 10, cleared: 40, tests: 50, days: 15 };   // XP per action (raise these to climb faster)
+const RW_VER = 2;                                  // bump to reset everyone's earned ranks when the ladder changes
+// Ranks are per exam: each exam you've set up (with its subjects) climbs its own ladder from the questions, tests and reviewing inside that exam.
 const RW_RANKS = [
-  { id: "r0", title: "Lab Trainee", icon: "\u{1F9EA}", xp: 0, theme: "navy" },
-  { id: "r1", title: "Lab Aide", icon: "\u{1F97D}", xp: 120, theme: "forest" },
-  { id: "r2", title: "Bench Technician", icon: "\u2697\uFE0F", xp: 350, theme: "ocean" },
-  { id: "r3", title: "Analyst", icon: "\u{1F52C}", xp: 750, theme: "crimson" },
-  { id: "r4", title: "Senior Analyst", icon: "\u{1F4CA}", xp: 1300, theme: "royal" },
-  { id: "r5", title: "Process Technician", icon: "\u2699\uFE0F", xp: 2100, theme: "sunset" },
-  { id: "r6", title: "Lead Technician", icon: "\u{1F9EC}", xp: 3200, theme: "graphite" },
-  { id: "r7", title: "Plant Chemist", icon: "\u{1F3ED}", xp: 4700, theme: "midnight" },
-  { id: "r8", title: "Chief Chemist", icon: "\u{1F451}", xp: 6800, theme: "gold" },
-  { id: "r9", title: "Licensed Chemical Technician", icon: "\u{1F3C6}", xp: 9500, theme: "aurora" },
+  { id: "r0", title: "Iron", icon: "\u{1F529}", xp: 0, theme: "navy" },
+  { id: "r1", title: "Bronze", icon: "\u{1F949}", xp: 500, theme: "forest" },
+  { id: "r2", title: "Silver", icon: "\u{1F948}", xp: 2500, theme: "ocean" },
+  { id: "r3", title: "Gold", icon: "\u{1F947}", xp: 10000, theme: "crimson" },
+  { id: "r4", title: "Platinum", icon: "\u{1F4A0}", xp: 50000, theme: "royal" },
+  { id: "r5", title: "Diamond", icon: "\u{1F48E}", xp: 500000, theme: "sunset" },
+  { id: "r6", title: "Mythril", icon: "\u{1F52E}", xp: 5000000, theme: "graphite" },
+  { id: "r7", title: "Adamantite", icon: "\u{1F6E1}\uFE0F", xp: 50000000, theme: "midnight" },
+  { id: "r8", title: "Orichalcum", icon: "\u269C\uFE0F", xp: 250000000, theme: "gold" },
+  { id: "r9", title: "Celestial", icon: "\u{1F31F}", xp: 1000000000, theme: "aurora" },
 ];
 const RW_THEMES = {
   navy: { name: "Classic Navy", navy: "#1E3A8A", dark: "#152a63", paper: "#F3F4F6", line: "#E1E4E9", sel: "#c7d6f7" },
@@ -3756,13 +3777,22 @@ const RW_THEMES = {
   aurora: { name: "Aurora", navy: "#0F766E", dark: "#115E59", paper: "#EEF7F6", line: "#D6E8E5", sel: "#b3e4de" },
 };
 const RW_SPECIAL = [
-  { id: "s_week", title: "Week Warrior", icon: "\u{1F525}", need: "Reach a 7-day study streak", test: S => S.longest >= 7 },
-  { id: "s_power", title: "Power Player", icon: "\u26A1", need: "Complete a Power Day", test: S => S.powerEver },
-  { id: "s_month", title: "Unbreakable", icon: "\u{1F6E1}\uFE0F", need: "Reach a 30-day study streak", test: S => S.longest >= 30 },
+  { id: "s_week", title: "Week Warrior", icon: "\u{1F525}", need: "Reach a 7-day study streak", test: G => G.longest >= 7 },
+  { id: "s_power", title: "Power Player", icon: "\u26A1", need: "Complete a Power Day", test: G => G.powerEver },
+  { id: "s_month", title: "Unbreakable", icon: "\u{1F6E1}\uFE0F", need: "Reach a 30-day study streak", test: G => G.longest >= 30 },
 ];
-function rwLoad() { return Object.assign({ maxRank: 0, title: "", theme: "navy", freezes: 0, frozen: [], claims: {}, autoFreeze: true, specials: [] }, loadJson(KEYS.rewards, {}) || {}); }
+function rwLoad() {
+  const s = Object.assign({ ver: 0, maxRank: 0, ranks: {}, title: "", theme: "navy", freezes: 0, frozen: [], claims: {}, autoFreeze: true, specials: [] }, loadJson(KEYS.rewards, {}) || {});
+  if (s.ver !== RW_VER) { s.ver = RW_VER; s.maxRank = 0; s.ranks = {}; }   // the ladder changed: ranks are earned again on the new scale
+  return s;
+}
 function rwSave(s) { saveJson(KEYS.rewards, s); }
 function rwFrozenSet() { return new Set(rwLoad().frozen || []); }
+function rwFmt(n) {
+  const t = x => String(Math.round(x * 10) / 10);
+  return n >= 1e9 ? t(n / 1e9) + "B" : n >= 1e6 ? t(n / 1e6) + "M" : n >= 1e4 ? t(n / 1e3) + "K" : Math.round(n).toLocaleString();
+}
+function rwEta(days) { return days < 60 ? `${days} day${days === 1 ? "" : "s"}` : days < 730 ? `${Math.round(days / 30)} months` : days < 36500 ? `${(days / 365).toFixed(1)} years` : "over 100 years"; }
 function rwApplyTheme() {
   const st = rwLoad(), idx = RW_RANKS.findIndex(r => r.theme === st.theme), t = RW_THEMES[idx >= 0 && idx <= st.maxRank ? st.theme : "navy"];
   let s = document.getElementById("rwThemeStyle");
@@ -3772,9 +3802,17 @@ function rwApplyTheme() {
 }
 setTimeout(rwApplyTheme, 0);   // after the whole script has loaded
 
-// Everything the XP and the Power Day need from tagged questions (all subjects, exact resolve times only).
-function rwItemsStats() {
-  const items = collectTagItems(null), perDay = new Map(), cons = new Map(); let resolved = 0;
+// Results are reused until the stored data they were built from changes (or the day rolls over).
+const _rwMemo = new Map();
+function rwMemo(name, keys, extra, compute) {
+  const srcTexts = keys.map(lsGetText); srcTexts.push(extra);
+  const m = _rwMemo.get(name);
+  if (m && m.src.every((t, i) => t === srcTexts[i])) return m.val;
+  const val = compute(); _rwMemo.set(name, { src: srcTexts, val }); return val;
+}
+// Resolved questions and cleared concepts inside a subject set (null = all subjects), with the day each happened.
+function rwItemsStats(set) {
+  const items = collectTagItems(set), perDay = new Map(), cons = new Map(); let resolved = 0;
   for (const it of items) {
     const day = it.resolved && it.e.resolved_at ? dateOnly(it.e.resolved_at) : "";
     if (it.resolved) resolved++;
@@ -3785,29 +3823,59 @@ function rwItemsStats() {
   for (const c of cons.values()) if (c.res === c.n) { cleared++; if (c.last) clearedDay.set(c.last, (clearedDay.get(c.last) || 0) + 1); }
   return { resolved, cleared, perDay, clearedDay };
 }
-function rwStats() {
-  const map = computeActivityMap(), { current, longest } = computeStreaks(map), today = todayDateStr(), month = today.slice(0, 7);
-  const hist = loadJson(KEYS.history, []), ans = computeQuestionsAnsweredStats(), it = rwItemsStats();
-  const parts = [
-    { label: "Questions answered", n: ans.allTime, w: RW_XP.answered }, { label: "Questions resolved", n: it.resolved, w: RW_XP.resolved },
-    { label: "Concepts cleared", n: it.cleared, w: RW_XP.cleared }, { label: "Tests finished", n: hist.length, w: RW_XP.tests }, { label: "Active days", n: map.size, w: RW_XP.days },
-  ];
-  const xp = parts.reduce((s, p) => s + p.n * p.w, 0);
-  const todayRes = it.perDay.get(today) || 0, todayCons = it.clearedDay.get(today) || 0;
-  const xpToday = ans.today * RW_XP.answered + todayRes * RW_XP.resolved + todayCons * RW_XP.cleared + hist.filter(h => dateOnly(h.date) === today).length * RW_XP.tests + (map.has(today) ? RW_XP.days : 0);
-  let powerEver = false, powerMonth = "";
-  for (const [d, n] of it.perDay) if (n >= RW_POWER.resolved && (it.clearedDay.get(d) || 0) >= RW_POWER.concepts) { powerEver = true; if (d.slice(0, 7) === month && d > powerMonth) powerMonth = d; }
-  let rank = 0; RW_RANKS.forEach((r, i) => { if (xp >= r.xp) rank = i; });
-  return { xp, xpToday, parts, rank, current, longest, powerEver, powerMonth, month, today, todayRes, todayCons };
+// Study streak and Power Day: these look at everything you do, whatever the exam.
+function rwGlobal() {
+  const keys = [KEYS.history, KEYS.samples, KEYS.mistakes, KEYS.guessNotes, KEYS.shaky, KEYS.checklist, KEYS.flashSrs, KEYS.rewards, KEYS.concepts];
+  return rwMemo("global", keys, todayDateStr(), () => {
+    const map = computeActivityMap(), { current, longest } = computeStreaks(map), today = todayDateStr(), month = today.slice(0, 7), it = rwItemsStats(null);
+    let powerEver = false, powerMonth = "";
+    for (const [d, n] of it.perDay) if (n >= RW_POWER.resolved && (it.clearedDay.get(d) || 0) >= RW_POWER.concepts) { powerEver = true; if (d.slice(0, 7) === month && d > powerMonth) powerMonth = d; }
+    return { current, longest, powerEver, powerMonth, month, today, todayRes: it.perDay.get(today) || 0, todayCons: it.clearedDay.get(today) || 0 };
+  });
 }
-// Ranks and titles are never taken away: the highest rank you've reached stays unlocked even if XP later dips.
-function rwSync(S, quiet) {
+// One ladder per exam that has subjects, plus an "All subjects" ladder for when no exam is focused.
+function rwTracks() {
+  const ex = loadExamDates().filter(e => (e.subjects || []).length).sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  return [{ key: "all", label: "All subjects", scope: null }].concat(ex.map(e => ({ key: e.id, label: e.label || "Exam", scope: e.subjects.slice() })));
+}
+function rwActiveTrack() { const a = getActiveExam(), ts = rwTracks(); return (a && ts.find(t => t.key === a.id)) || ts[0]; }
+function rwTrack(tr) {
+  const keys = [KEYS.details, KEYS.mistakes, KEYS.shaky, KEYS.concepts];
+  return rwMemo("track:" + tr.key, keys, todayDateStr() + "|" + (tr.scope || []).join("\n"), () => {
+    const set = tr.scope ? new Set(tr.scope) : null, today = todayDateStr(), xpDay = new Map(), act = new Set();
+    const addDay = (d, xp) => { if (!d) return; xpDay.set(d, (xpDay.get(d) || 0) + xp); act.add(d); };
+    let answered = 0, tests = 0;
+    for (const d of loadJson(KEYS.details, [])) {
+      let n = 0, any = false;
+      for (const it of (d.items || [])) { if (set && !set.has(it.source_list)) continue; any = true; if (it.is_answered) n++; }
+      if (any) { tests++; addDay(dateOnly(d.date), RW_XP.tests); }
+      if (n) { answered += n; addDay(dateOnly(d.date), n * RW_XP.answered); }
+    }
+    const it = rwItemsStats(set);
+    for (const [d, n] of it.perDay) addDay(d, n * RW_XP.resolved);
+    for (const [d, n] of it.clearedDay) addDay(d, n * RW_XP.cleared);
+    for (const d of act) xpDay.set(d, xpDay.get(d) + RW_XP.days);
+    const parts = [
+      { label: "Questions answered", n: answered, w: RW_XP.answered }, { label: "Questions resolved", n: it.resolved, w: RW_XP.resolved },
+      { label: "Concepts cleared", n: it.cleared, w: RW_XP.cleared }, { label: "Tests finished", n: tests, w: RW_XP.tests }, { label: "Active days", n: act.size, w: RW_XP.days },
+    ];
+    const xp = parts.reduce((s, p) => s + p.n * p.w, 0);
+    let rank = 0; RW_RANKS.forEach((r, i) => { if (xp >= r.xp) rank = i; });
+    let recent = 0; for (let i = 0; i < 14; i++) recent += xpDay.get(fcAddDays(today, -i)) || 0;
+    return { key: tr.key, label: tr.label, xp, xpToday: xpDay.get(today) || 0, perDay: recent / 14, parts, rank };
+  });
+}
+// Ranks and titles are never taken away: the best rank an exam has reached stays, and the best across exams unlocks themes and titles.
+function rwSync(trackStats, G, quiet) {
   const st = rwLoad(); let changed = false;
-  if (S.rank > st.maxRank) {
-    st.maxRank = S.rank; changed = true;
-    if (!quiet) { const r = RW_RANKS[S.rank]; toast(`${r.icon} Rank up! You're now ${r.title}. Unlocked: ${RW_THEMES[r.theme].name} theme. Equip it in Rank & Rewards.`, 4800); }
+  for (const T of trackStats) {
+    if (T.rank > (st.ranks[T.key] || 0)) {
+      const unlock = T.rank > st.maxRank, r = RW_RANKS[T.rank];
+      st.ranks[T.key] = T.rank; changed = true; if (unlock) st.maxRank = T.rank;
+      if (!quiet) toast(`${r.icon} ${T.label}: you reached ${r.title}!${unlock ? ` Unlocked the ${RW_THEMES[r.theme].name} theme. Equip it in Rank & Rewards.` : ""}`, 4800);
+    }
   }
-  for (const sp of RW_SPECIAL) if (!st.specials.includes(sp.id) && sp.test(S)) { st.specials.push(sp.id); changed = true; if (!quiet) toast(`${sp.icon} New title unlocked: ${sp.title}`, 3800); }
+  for (const sp of RW_SPECIAL) if (!st.specials.includes(sp.id) && sp.test(G)) { st.specials.push(sp.id); changed = true; if (!quiet) toast(`${sp.icon} New title unlocked: ${sp.title}`, 3800); }
   if (changed) rwSave(st);
   return st;
 }
@@ -3820,7 +3888,7 @@ function rwRenderChip(st) {
   const c = $("rankChip"); if (!c) return;
   const e = rwEquipped(st); c.style.display = ""; c.textContent = `${e.icon} ${e.title}`;
 }
-function rwCheck() { const S = rwStats(), st = rwSync(S); rwApplyTheme(); rwRenderChip(st); }
+function rwCheck() { const G = rwGlobal(), st = rwSync(rwTracks().map(rwTrack), G); rwApplyTheme(); rwRenderChip(st); }
 $("rankChip").addEventListener("click", () => { switchTab("home"); setTimeout(() => scrollHomeTo("homeRewardsCard"), 60); });
 
 // A streak that broke: the days you missed, and the run you had before.
@@ -3842,9 +3910,9 @@ function rwAutoFreeze() {
 }
 function renderStreakRewards() {
   const box = $("homeStreakRewards"); if (!box) return;
-  const S = rwStats(), st = rwSync(S, true), gap = rwGap(new Set(computeActivityMap().keys()), new Set(st.frozen));
-  const claimed = st.claims[S.month], done = !!S.powerMonth, full = st.freezes >= RW_FREEZE_CAP, snow = "\u2744\uFE0F";
-  const nextMonth = new Date(Number(S.month.slice(0, 4)), Number(S.month.slice(5, 7)), 1).toLocaleDateString(undefined, { month: "long" });
+  const G = rwGlobal(), st = rwSync([], G, true), gap = rwGap(new Set(computeActivityMap().keys()), new Set(st.frozen));
+  const claimed = st.claims[G.month], done = !!G.powerMonth, full = st.freezes >= RW_FREEZE_CAP, snow = "\u2744\uFE0F";
+  const nextMonth = new Date(Number(G.month.slice(0, 4)), Number(G.month.slice(5, 7)), 1).toLocaleDateString(undefined, { month: "long" });
   let h = `<div class="row" style="gap:8px;align-items:center;margin-top:12px;"><div style="flex:1;"><b>${snow} ${st.freezes}/${RW_FREEZE_CAP}</b> streak freeze${st.freezes === 1 ? "" : "s"}</div><label class="row" style="flex:none;gap:6px;font-size:.78rem;margin:0;"><input type="checkbox" id="rwAuto" ${st.autoFreeze ? "checked" : ""}><span>Auto-use when I miss a day</span></label></div>`;
   h += `<div class="hint" style="margin-top:4px;">Anything you do here counts as study: tests, tagging, resolving mistakes, concept cards. A freeze covers one missed day (shown light blue on the map). It keeps your streak alive but doesn't add a day.</div>`;
   if (gap && gap.run >= 2) {
@@ -3852,10 +3920,10 @@ function renderStreakRewards() {
     h += `<div class="list-item" style="margin-top:10px;border-left:4px solid var(--amber);"><div style="font-weight:700;">Your ${gap.run}-day streak broke</div><div class="hint" style="margin-top:4px;">You missed ${gap.missed.map(pmNice).join(" and ")}. ${can ? `Spend ${need} freeze${need > 1 ? "s" : ""} to restore it.` : need > 2 ? "It's been too long to restore. Start a new streak today." : "You need more freezes to restore it. Earn one with a Power Day."}</div>${can ? `<button class="btn primary" data-rw-restore="1" style="margin-top:8px;">Restore my streak (${need} ${snow})</button>` : ""}</div>`;
   }
   h += `<div class="list-item" style="margin-top:10px;"><div style="font-weight:700;">${"\u26A1"} Power Day: this month's freeze</div><div class="hint" style="margin:4px 0 8px;">In one day, resolve ${RW_POWER.resolved} questions and clear ${RW_POWER.concepts} concepts. Complete it once to claim a free streak freeze. One claim per month.</div>`
-    + progressBarRow("Resolved today", Math.min(S.todayRes, RW_POWER.resolved), RW_POWER.resolved, S.todayRes >= RW_POWER.resolved ? "var(--green)" : "var(--navy)", `${S.todayRes}/${RW_POWER.resolved}`)
-    + progressBarRow("Concepts today", Math.min(S.todayCons, RW_POWER.concepts), RW_POWER.concepts, S.todayCons >= RW_POWER.concepts ? "var(--green)" : "var(--navy)", `${S.todayCons}/${RW_POWER.concepts}`);
+    + progressBarRow("Resolved today", Math.min(G.todayRes, RW_POWER.resolved), RW_POWER.resolved, G.todayRes >= RW_POWER.resolved ? "var(--green)" : "var(--navy)", `${G.todayRes}/${RW_POWER.resolved}`)
+    + progressBarRow("Concepts today", Math.min(G.todayCons, RW_POWER.concepts), RW_POWER.concepts, G.todayCons >= RW_POWER.concepts ? "var(--green)" : "var(--navy)", `${G.todayCons}/${RW_POWER.concepts}`);
   if (claimed) h += `<div class="hint">${snow} Claimed this month on ${pmNice(claimed)}. The next one opens in ${nextMonth}.</div>`;
-  else if (done) h += full ? `<div class="hint">Power Day complete (${pmNice(S.powerMonth)}). You're holding the maximum of ${RW_FREEZE_CAP} freezes, so use one before claiming.</div>` : `<div class="hint" style="color:var(--green);font-weight:700;">Power Day complete on ${pmNice(S.powerMonth)}!</div><button class="btn primary" data-rw-claim="1" style="margin-top:6px;">Claim ${snow} streak freeze</button>`;
+  else if (done) h += full ? `<div class="hint">Power Day complete (${pmNice(G.powerMonth)}). You're holding the maximum of ${RW_FREEZE_CAP} freezes, so use one before claiming.</div>` : `<div class="hint" style="color:var(--green);font-weight:700;">Power Day complete on ${pmNice(G.powerMonth)}!</div><button class="btn primary" data-rw-claim="1" style="margin-top:6px;">Claim ${snow} streak freeze</button>`;
   else h += `<div class="hint">Not done yet this month. The claim lapses at month end if you don't claim it.</div>`;
   h += `</div>`;
   box.innerHTML = h;
@@ -3867,7 +3935,7 @@ function renderStreakRewards() {
       const g = rwGap(real, new Set(s.frozen));
       if (g && g.missed.length <= 2 && s.freezes >= g.missed.length) { rwUseFreezes(s, g.missed); toast(`${snow} Streak restored: ${g.run} days.`, 3200); refreshHome(); }
     } else if (b.dataset.rwClaim) {
-      const t = rwStats();
+      const t = rwGlobal();
       if (t.powerMonth && !s.claims[t.month] && s.freezes < RW_FREEZE_CAP) { s.claims[t.month] = t.today; s.freezes++; rwSave(s); toast(`${snow} Streak freeze claimed.`, 2800); renderStreakRewards(); }
     }
   };
@@ -3875,18 +3943,27 @@ function renderStreakRewards() {
 
 function renderRewardsCard() {
   const box = $("homeRewards"); if (!box) return;
-  const S = rwStats(), st = rwSync(S), cur = Math.max(S.rank, st.maxRank), eq = rwEquipped(st), next = RW_RANKS[cur + 1], base = RW_RANKS[cur].xp;
+  const tracks = rwTracks(), stats = tracks.map(rwTrack), G = rwGlobal(), st = rwSync(stats, G);
+  const act = rwActiveTrack(), T = stats[tracks.findIndex(t => t.key === act.key)] || stats[0];
+  const eq = rwEquipped(st), cur = Math.max(T.rank, st.ranks[T.key] || 0), here = RW_RANKS[cur], next = RW_RANKS[cur + 1], base = here.xp;
   rwApplyTheme(); rwRenderChip(st);
   const swatch = t => `<span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:${t.navy};vertical-align:-1px;margin-right:4px;"></span>`;
-  let h = `<div style="display:flex;align-items:center;gap:10px;"><div style="font-size:2.1rem;line-height:1;">${eq.icon}</div><div style="flex:1;min-width:0;"><div style="font-weight:700;font-size:1.05rem;">${esc(eq.title)}</div><div class="hint">Rank ${cur + 1} of ${RW_RANKS.length} &middot; ${S.xp} XP${S.xpToday ? ` &middot; <b style="color:var(--green);">+${S.xpToday} today</b>` : ""}</div></div></div>`;
-  h += next ? `<div style="margin-top:10px;">${progressBarRow("Next rank", Math.max(0, S.xp - base), next.xp - base, "var(--navy)", `${S.xp}/${next.xp}`)}</div><div class="hint">${next.xp - S.xp > 0 ? `${next.xp - S.xp} XP to <b>${next.title}</b>` : `Ready for <b>${next.title}</b>`}. Unlocks the ${swatch(RW_THEMES[next.theme])}${RW_THEMES[next.theme].name} theme and the ${next.title} title.</div>` : `<div class="hint" style="margin-top:8px;">Top rank reached. Every theme is unlocked.</div>`;
+  let h = `<div style="display:flex;align-items:center;gap:10px;"><div style="font-size:2.1rem;line-height:1;">${eq.icon}</div><div style="flex:1;min-width:0;"><div style="font-weight:700;font-size:1.05rem;">${esc(eq.title)}</div><div class="hint">${esc(T.label)}: <b>${here.icon} ${here.title}</b> &middot; ${T.xp.toLocaleString()} XP${T.xpToday ? ` &middot; <b style="color:var(--green);">+${T.xpToday.toLocaleString()} today</b>` : ""}</div></div></div>`;
+  if (next) {
+    const need = Math.max(0, next.xp - T.xp), eta = T.perDay > 0 ? `About ${rwEta(Math.ceil(need / T.perDay))} at your recent pace of ${Math.round(T.perDay).toLocaleString()} XP a day.` : "Study a bit and your pace will show here.";
+    h += `<div style="margin-top:10px;">${progressBarRow("Next rank", Math.max(0, T.xp - base), next.xp - base, "var(--navy)", `${rwFmt(T.xp)}/${rwFmt(next.xp)}`)}</div><div class="hint">${need.toLocaleString()} XP to <b>${next.icon} ${next.title}</b>. ${eta} It unlocks the ${swatch(RW_THEMES[next.theme])}${RW_THEMES[next.theme].name} theme and the ${next.title} title.</div>`;
+  } else h += `<div class="hint" style="margin-top:8px;">Top rank reached in this exam.</div>`;
+  h += `<div class="hint" style="margin-top:6px;">Ranks are earned per exam, from the questions, tests and reviewing inside that exam's subjects. Switch the exam focus at the top of Home to see another. Themes and titles unlock from the best rank you've reached in any exam.</div>`;
+  const byExam = stats.map((S, i) => { const c = Math.max(S.rank, st.ranks[S.key] || 0), r = RW_RANKS[c], nx = RW_RANKS[c + 1];
+    return `<div class="list-item" style="margin-top:6px;${S.key === T.key ? "border-left:4px solid var(--navy);" : ""}"><div style="display:flex;gap:8px;align-items:center;"><span style="font-size:1.3rem;">${r.icon}</span><div style="flex:1;min-width:0;"><div style="font-weight:700;">${esc(S.label)}</div><div class="hint">${r.title} &middot; ${S.xp.toLocaleString()} XP${nx ? ` &middot; next ${rwFmt(nx.xp)}` : ""}</div></div></div></div>`; }).join("");
   const rows = RW_RANKS.map((r, i) => {
     const on = i <= st.maxRank, th = RW_THEMES[r.theme], wearing = eq.id === r.id, themed = st.theme === r.theme && on;
-    return `<div class="list-item" style="display:flex;gap:8px;align-items:center;margin-top:6px;${on ? "" : "opacity:.6;"}"><span style="font-size:1.3rem;">${on ? r.icon : "\u{1F512}"}</span><div style="flex:1;min-width:0;"><div style="font-weight:700;">${esc(r.title)}</div><div class="hint">${r.xp} XP &middot; ${swatch(th)}${th.name}</div></div>${on ? `<div class="row" style="gap:6px;flex:none;"><button class="btn ${wearing ? "primary" : ""}" data-rw-title="${r.id}">${wearing ? "Title \u2713" : "Title"}</button><button class="btn ${themed ? "primary" : ""}" data-rw-theme="${r.theme}">${themed ? "Theme \u2713" : "Theme"}</button></div>` : ""}</div>`;
+    return `<div class="list-item" style="display:flex;gap:8px;align-items:center;margin-top:6px;${on ? "" : "opacity:.6;"}"><span style="font-size:1.3rem;">${on ? r.icon : "\u{1F512}"}</span><div style="flex:1;min-width:0;"><div style="font-weight:700;">${esc(r.title)}</div><div class="hint">${rwFmt(r.xp)} XP &middot; ${swatch(th)}${th.name}</div></div>${on ? `<div class="row" style="gap:6px;flex:none;"><button class="btn ${wearing ? "primary" : ""}" data-rw-title="${r.id}">${wearing ? "Title \u2713" : "Title"}</button><button class="btn ${themed ? "primary" : ""}" data-rw-theme="${r.theme}">${themed ? "Theme \u2713" : "Theme"}</button></div>` : ""}</div>`;
   }).join("");
   const sp = RW_SPECIAL.map(x => { const on = st.specials.includes(x.id), wearing = eq.id === x.id; return `<div class="list-item" style="display:flex;gap:8px;align-items:center;margin-top:6px;${on ? "" : "opacity:.6;"}"><span style="font-size:1.3rem;">${on ? x.icon : "\u{1F512}"}</span><div style="flex:1;min-width:0;"><div style="font-weight:700;">${esc(x.title)}</div><div class="hint">${x.need}</div></div>${on ? `<button class="btn ${wearing ? "primary" : ""}" data-rw-title="${x.id}" style="flex:none;">${wearing ? "Title \u2713" : "Title"}</button>` : ""}</div>`; }).join("");
-  h += `<details style="margin-top:10px;"><summary style="cursor:pointer;color:var(--navy);font-size:.85rem;font-weight:600;">Ranks, themes and titles</summary><div class="hint" style="margin-top:6px;">Tap <b>Title</b> to wear a title next to your name and <b>Theme</b> to recolor the app. Anything you've unlocked stays yours.</div>${rows}<div class="field-label" style="margin-top:12px;">Special titles</div>${sp}<button class="btn link" data-rw-auto="1" style="margin-top:8px;">Wear my highest rank automatically</button></details>`;
-  h += `<details style="margin-top:8px;"><summary style="cursor:pointer;color:var(--navy);font-size:.85rem;font-weight:600;">Where your XP comes from</summary><div class="table-wrap"><table class="data-table" style="margin-top:6px;"><tr><th>Source</th><th>Count</th><th>XP each</th><th>XP</th></tr>${S.parts.map(p => `<tr><td style="font-family:inherit;">${p.label}</td><td>${p.n}</td><td>${p.w}</td><td>${p.n * p.w}</td></tr>`).join("")}<tr><td style="font-family:inherit;font-weight:700;">Total</td><td></td><td></td><td style="font-weight:700;">${S.xp}</td></tr></table></div><div class="hint" style="margin-top:6px;">XP is calculated from your history, so it always matches your data. Your rank never drops once reached.</div></details>`;
+  h += `<details style="margin-top:10px;"><summary style="cursor:pointer;color:var(--navy);font-size:.85rem;font-weight:600;">Rank in each exam</summary>${byExam}</details>`;
+  h += `<details style="margin-top:8px;"><summary style="cursor:pointer;color:var(--navy);font-size:.85rem;font-weight:600;">Ranks, themes and titles</summary><div class="hint" style="margin-top:6px;">Tap <b>Title</b> to wear a title next to your name and <b>Theme</b> to recolor the app. Anything you've unlocked stays yours.</div>${rows}<div class="field-label" style="margin-top:12px;">Special titles</div>${sp}<button class="btn link" data-rw-auto="1" style="margin-top:8px;">Wear my highest rank automatically</button></details>`;
+  h += `<details style="margin-top:8px;"><summary style="cursor:pointer;color:var(--navy);font-size:.85rem;font-weight:600;">Where this exam's XP comes from</summary><div class="table-wrap"><table class="data-table" style="margin-top:6px;"><tr><th>Source</th><th>Count</th><th>XP each</th><th>XP</th></tr>${T.parts.map(p => `<tr><td style="font-family:inherit;">${p.label}</td><td>${p.n.toLocaleString()}</td><td>${p.w}</td><td>${(p.n * p.w).toLocaleString()}</td></tr>`).join("")}<tr><td style="font-family:inherit;font-weight:700;">Total</td><td></td><td></td><td style="font-weight:700;">${T.xp.toLocaleString()}</td></tr></table></div><div class="hint" style="margin-top:6px;">XP is calculated from your history, so it always matches your data. A rank you've reached never drops.</div></details>`;
   box.innerHTML = h;
   box.onclick = (e) => {
     const b = e.target.closest("button"); if (!b) return;
@@ -6456,7 +6533,7 @@ function computeTestsWithUnloggedMistakes() {
   for (const h of history) {
     const d = details.find(dd => dd.exam_id === h.id);
     if (!d) continue;
-    const items = examTagItems(h.id, scopeUL);
+    const items = examTagItems(h.id, scopeUL, details);
     if (!items.length) continue;   // nothing to tag in this test
     const left = { wrong: 0, guess: 0, flag: 0 };
     for (const { it, type } of items) if (!tagged.has(mistakeKey(it.source_list, it.reference_no))) left[type]++;
@@ -6602,8 +6679,8 @@ const TAG_TYPE = {
 };
 const NEW_CONCEPT = "__new__";
 // What needs a tag in one test: wrong answers, right guesses, and flagged questions you got right.
-function examTagItems(examId, scopeSet) {
-  const d = loadJson(KEYS.details, []).find(x => x.exam_id === examId);
+function examTagItems(examId, scopeSet, detailsList) {
+  const d = (detailsList || loadJson(KEYS.details, [])).find(x => x.exam_id === examId);
   if (!d) return [];
   const out = [];
   for (const it of (d.items || [])) {
@@ -11347,7 +11424,7 @@ let sfGhPayload = null;
     if (!sfGhPayload) return; safetyBackup("before restoring from GitHub history");
     const r = safetyRestore(sfGhPayload, { addEntries: $("sfAddEntries").checked }); toast(`Restored: ${safetyReportText(r)}.`, 4000); sfGhPayload = null; $("sfGhRestore").disabled = true; safetyAfterRestore();
   });
-  setTimeout(() => { safetyBackup("opened the app"); renderSafetyCard(); }, 1500);
+  (window.requestIdleCallback ? (f) => window.requestIdleCallback(f, { timeout: 15000 }) : (f) => setTimeout(f, 6000))(() => { safetyBackup("opened the app"); renderSafetyCard(); });
 })();
 </script>
 </body>
