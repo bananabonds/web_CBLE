@@ -98630,7 +98630,7 @@
       "question": "How many stereoisomers exist with the following basic connectivity? CH₃CHClCH₂CHClCH₃",
       "category": "Conceptual Misunderstanding",
       "note": "Draw the compound with all atoms visible then assess via Cahn-Ingold Prelog to determine the R and S configurations of the chiral centers. RR, SS, RS (meso if plane of symmetry counted as 1)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-18T10:44:17",
       "occurrences": [
         {
@@ -98642,9 +98642,10 @@
         }
       ],
       "concept_id": "1792308157902275",
-      "updated_at": "2026-10-18T10:44:17",
+      "updated_at": "2026-10-28T06:15:54",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-10-28T06:15:54"
     },
     {
       "id": "1790228948202539",
@@ -122011,5 +122012,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-28T06:14:56"
+  "updated_at": "2026-10-28T06:16:02"
 }
