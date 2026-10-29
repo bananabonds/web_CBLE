@@ -98779,7 +98779,7 @@
       "question": "Given a cyclic quadrilateral whose sides are 4 cm, 5 cm, 8 cm, and 11 cm. Its area is:",
       "category": "Unfamiliar Topic",
       "note": "Use Brahmagupta's Formula. sqrt(product of the differences between the semiperimeter and each side). Semi perimeter (s) = SUM(all sides)/2 then sqrt((s-a)* (s-b)*(s-c)*(s-d))",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-19T13:16:47",
       "occurrences": [
         {
@@ -98790,10 +98790,11 @@
           "correct_answer": "A. 40.25 sq. cm."
         }
       ],
-      "updated_at": "2026-10-19T13:16:47",
+      "updated_at": "2026-10-29T07:08:53",
       "concept_id": "1792311851589860",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-10-29T07:08:53"
     },
     {
       "id": "1790059859772844",
@@ -123671,5 +123672,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-29T07:08:23"
+  "updated_at": "2026-10-29T07:09:00"
 }
