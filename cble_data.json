@@ -98987,7 +98987,7 @@
       "question": "A cylinder is circumscribed about a right prism having a square base one meter on an edge. The volume of the cylinder is 6.283 cu. m. Compute its altitude.",
       "category": "Unfamiliar Topic",
       "note": "Find the diameter of cylinder from the diagonal of the square = square base * sqrt(2), r = diagonal/2 then from the volume find the height, V = 2pi * r^2 * h.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-19T13:17:25",
       "occurrences": [
         {
@@ -98998,10 +98998,11 @@
           "correct_answer": "B. 4"
         }
       ],
-      "updated_at": "2026-10-19T13:17:25",
+      "updated_at": "2026-10-29T12:11:50",
       "concept_id": "1792309543006667",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-10-29T12:11:50"
     },
     {
       "id": "179006652213020",
@@ -123688,5 +123689,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-29T12:09:45"
+  "updated_at": "2026-10-29T12:12:42"
 }
