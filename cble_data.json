@@ -120379,10 +120379,10 @@
       "source_list": "D3_L13_EngineeringDataAnalysis",
       "reference_no": 67,
       "question": "We measure the heights of 40 randomly chosen students and get a mean height of 175 cm with a population standard deviation of 20 cm. Find the confidence interval at the 95% confidence level.",
-      "category": "",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-29T14:54:33",
+      "date_logged": "2026-10-29T14:59:02",
       "occurrences": [
         {
           "exam_id": "1793285672891614",
@@ -120392,9 +120392,9 @@
           "correct_answer": "B. 175 ± 6.19"
         }
       ],
-      "updated_at": "2026-10-29T14:54:33",
-      "concept_id": "",
-      "tag_at": "",
+      "updated_at": "2026-10-29T14:59:02",
+      "concept_id": "1792322161042608",
+      "tag_at": "2026-10-29T14:59:02",
       "note_at": ""
     },
     {
@@ -125369,6 +125369,21 @@
       "category": "Formula / Equation Error",
       "concept_id": "1792306934086228",
       "updated_at": "2026-10-29T01:11:51"
+    },
+    {
+      "id": "1793285947694522",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 82,
+      "resolved": false,
+      "created_at": "2026-10-29T14:59:07",
+      "question": "[Situation 7: f(x, y, z) = x³y⁵z⁷ + xy² + y³z] Find f_xxy",
+      "correct_answer": "B. 30xy⁴z⁷",
+      "kind": "guess",
+      "exam_id": "1793285672891614",
+      "exam_source": "D3_S8",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792309187862581",
+      "updated_at": "2026-10-29T14:59:07"
     }
   ],
   "checklist": [],
@@ -125413,5 +125428,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-29T14:58:46"
+  "updated_at": "2026-10-29T14:59:09"
 }
