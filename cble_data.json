@@ -49106,6 +49106,625 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1793236430347778",
+      "name": "D2_S9",
+      "created_at": "2026-10-29T01:13:50",
+      "composition": {
+        "D2_L1_ChE_Calculations": 6,
+        "D2_L7_Heat_Mass_Transfer": 5,
+        "D2_L4_Momentum_Transfer": 6,
+        "D2_L9_Chemical_Reaction_Engineering": 5,
+        "D2_L6_Particle_Technology": 5,
+        "D2_L3_Thermodynamics": 6,
+        "D2_L2_Separation_Processes": 6,
+        "D2_L5_Transport_Phenomenon": 6,
+        "D2_L8_Equipment_Plant_Design": 5
+      },
+      "questions": [
+        {
+          "text": "The burning of pure butane with excess air\r\ngives a stack gas which analyzes 11.55% CO₂ on a\r\ndry basis. Assuming complete combustion,\r\ncalculate the % excess air",
+          "options": [
+            "A. 16%",
+            "B. 20%",
+            "C. 11%",
+            "D. 23%"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 61
+        },
+        {
+          "text": "In the Deacon process for the manufacture of\r\nchlorine, HCl and O₂ react to form Cl₂ and H₂0. Sufficient\r\nair is fed to provide 35% excess oxygen and the\r\nfractional conversion of HCl is 85%. Calculate the mole\r\nfraction of water in the product stream.",
+          "options": [
+            "A. 0.18",
+            "B. 0.12",
+            "C. 0.10",
+            "D.  0.15"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 42
+        },
+        {
+          "text": "The air supply for a dryer has a dry-bulb temperature of 70 F and a wet bulb temperature of 60 F. It is heated to 200 F by coils and blown into the dryer: In the dryer it cools along an adiabatic cooling line and leaves the dryer fully saturated:  What is its humidity?",
+          "options": [
+            "A.  0.0066",
+            "B. 0.0090",
+            "C. 0.0087",
+            "D. 0.0052"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 77
+        },
+        {
+          "text": "Which of the following is not true?",
+          "options": [
+            "A. A pump will operate safely if its NPSH is greater than zero.",
+            "B.  Fans and blowers are used to transport gases.",
+            "C.  Pumps and blowers increase the mechanical energy of the fluid.",
+            "D. The power loss due to friction in a venturi meter is greater than\r\nin an orifice meter."
+          ],
+          "correct": 3,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 57
+        },
+        {
+          "text": "The slow gas - phase reaction A → 2.4 R\r\nwith first - order kinetics takes place\r\nisothermally (25°C) in a constant volume\r\nbomb. Starting with pure A at 1 atm, the\r\npressure in the bomb rises to 1.8 atm in 75\r\nminutes.\r\n The concentration of A (M) after 75\r\nminutes.",
+          "options": [
+            "A.  0.0411",
+            "B.  0.0327",
+            "C. 0.0175",
+            "D. 0.0972"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 48
+        },
+        {
+          "text": "A stream of air at 100 C and 5260 mmHg contains 10% water by volume Calculate the percent condensation if; instead of being cooled, the air is compressed isothermally to 8500 mmHg:",
+          "options": [
+            "A.  12%",
+            "B. 18%",
+            "C. 15%",
+            "D. 13%"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 69
+        },
+        {
+          "text": "The opening of a 200-mesh screen (Tylerseries) is",
+          "options": [
+            "A. 0.0074 cm",
+            "B. 0.0047 cm",
+            "C.  0.0074 mm",
+            "D. 74 millimicrons"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 4
+        },
+        {
+          "text": "A central power plant, rated at 800 000 kW, generatessteam at 585 K and discards heat to a river at 295 K. If thethermal efficiency of the plant is 70% of the maximumpossible value, how much heat is discarded to the river atrated power?",
+          "options": [
+            "A. 1.5x103 MW",
+            "B. 3.0 x103 MW",
+            "C. 2.3 x103 MW",
+            "D. 4.9 x103 MW"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 76
+        },
+        {
+          "text": "What is the hydraulic diameter of a rectangular\r\nduct with dimensions 6 inches by 12 inches?",
+          "options": [
+            "A. 8 inches",
+            "B. 10 inches",
+            "C. 10.63 inches",
+            "D. 11.86 inches"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 23
+        },
+        {
+          "text": "Fenske equation determines the",
+          "options": [
+            "A. maximum number of ideal plates.",
+            "B. height of the distillation column.",
+            "C. minimum number of theoretical plates.",
+            "D. optimum reflux ratio."
+          ],
+          "correct": 2,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 100
+        },
+        {
+          "text": "At a given value of E/R, the ratio of the rate constants at 500 K\r\nand 400 K is 2 if Arrhenius Law is used. What will be this ratio if\r\ntransition-state theory is used with the same value of E/R?",
+          "options": [
+            "A. 1.6",
+            "B. 2",
+            "C. 2.24",
+            "D. 2.5"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 40
+        },
+        {
+          "text": "Which of the following solutions will followRaoult's law most closely?",
+          "options": [
+            "A. A solution of benzene, toluene and oxylene",
+            "B. 35% solution of camphor in water",
+            "C. 35% solution of NH₂ in water",
+            "D. A solution of polar organic compounds (not ofhomologs of a series)."
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 54
+        },
+        {
+          "text": "Size reduction does not occur due to compression in case of",
+          "options": [
+            "A. rod mills",
+            "B.  jaw crushers",
+            "C.  gyratory crushers",
+            "D. smooth roll crushers"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 27
+        },
+        {
+          "text": "1200 lb of barium nitrate is dissolved in sufficient water to\r\nform a saturated solution at 90°C. Assuming that 5% of the\r\nweight of the original solution is lost through evaporation\r\ncalculate the crop of crystals obtained when cooled at 20°C.\r\nSolubility data for barium nitrate at 90°C is 30.6% wt and 8.6\r\nwt% at 20°C.",
+          "options": [
+            "A. 952.4 lbs",
+            "B. 970 lbs",
+            "C.  962.4 lbs",
+            "D. 980 lbs"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 14
+        },
+        {
+          "text": "Two large parallel plates with gray surfaces are\r\nplaced 75 mm apart. One has emissivity of 0.8 andat T=350 K; and the other has emissivity of 0.4 andat T=300 K. Calculate the net heat transfer byradiation in W/m².",
+          "options": [
+            "A. 108",
+            "B. 142",
+            "C. 255",
+            "D. 194"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 45
+        },
+        {
+          "text": "In a distillation column, with increase in the\r\nreflux ratio, the heat removed in the cooler",
+          "options": [
+            "A. increases",
+            "B. decreases",
+            "C. remains unaffected.",
+            "D. and the heat required in reboiler decreases."
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 105
+        },
+        {
+          "text": "The wall thickness of thin cylindrical shell with hemispherical ends is _______ that of the spherical ends",
+          "options": [
+            "A. equal to",
+            "B. more than",
+            "C. less than",
+            "D. either (b) or (c); depends on maximum permissible internal pressure"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 46
+        },
+        {
+          "text": "A gas initially at 15 psia and 2 ft3 undergoes a process to 90 psia and 0.6 ft3, during which the enthalpy increases by 15.5 BTU; Cv=2.44 BTU/lb-R. Determine R in in BTU/lb-R",
+          "options": [
+            "A. 0.54",
+            "B. 0.61",
+            "C. 0.98",
+            "D. 0.12"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 27
+        },
+        {
+          "text": "In a size reduction crushing operation, the feedsize is 10 to 50 mm, while the product size is 2 to 10mm. This is a case of crushing.",
+          "options": [
+            "A. primary",
+            "B. fine",
+            "C. secondary",
+            "D. ultrafine"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 23
+        },
+        {
+          "text": "A liquid mixture of ethyl alcohol and water is in\r\nequilibrium with a vapor containing ethyl alcohol andwater at a total pressure of 760 mmHg. A sample of the\r\nvapor indicates that it contains 3.3 mol of ethyl alcoholfor every 1.7 mol of water. If the liquid has a molfraction of 0.52 ethyl, what is the relative volatility for\r\nthe mixture?",
+          "options": [
+            "A. 1.59",
+            "B. 1.79",
+            "C. 1.69",
+            "D. 1.89"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 65
+        },
+        {
+          "text": "Small scale evaporation is done in a",
+          "options": [
+            "A. heat exchange",
+            "B. condenser",
+            "C. multiple effect evaporator",
+            "D. steam jacketed kettle"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 13
+        },
+        {
+          "text": "A hydrocarbon gas was completely combusted and produced 3.3 g CO2 and 1.125 g H2O. What is the empirical formula of the gas",
+          "options": [
+            "A. CH",
+            "B. CH3",
+            "C. C2H5",
+            "D. C3H5"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 58
+        },
+        {
+          "text": "Sphericity for a cylinder whose lengthequals its diameter",
+          "options": [
+            "A. 1.5",
+            "B. 0.5",
+            "C. 0.87",
+            "D. 0.73"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 15
+        },
+        {
+          "text": "Equation which relates pressure, volume, andtemperature of a gas is called",
+          "options": [
+            "A. Equation of state",
+            "B. ideal gas equation",
+            "C. Gibbs Duhem equation",
+            "D. all of these"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 37
+        },
+        {
+          "text": "A hallow metal sphere is heated so that the inside walltemperature is 300°F. The sphere has an internal diameter of 6inches and is 2 inches thick. What is the heat loss from thesphere if the outer surface is maintained at 212°F? The thermalconductivity of the metal is 8 BTU-ft/hr-ft2-oF?",
+          "options": [
+            "A. 7650 BTU/hr",
+            "B. 4156 BTU/hr",
+            "C. 1802 BTU/hr",
+            "D.  5529 BTU/hr"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 12
+        },
+        {
+          "text": "The minimum plate spacing in most of the petroleum refinery distillation columns (of D > 3ft) is normally___ inches",
+          "options": [
+            "A. 6",
+            "B. 12",
+            "C. 18",
+            "D. 34"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 11
+        },
+        {
+          "text": "If 1 L of ethyl alcohol is mixed with 1 L of water at 20°C. How many liters?",
+          "options": [
+            "A. 1.93 L",
+            "B. 1.88 L",
+            "C. 2.00 L",
+            "D. 2.15 L"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 7
+        },
+        {
+          "text": "A heat exchanger is required to cool continuously 20 kg/s of water from 360 K to 335 K\r\nby means of 25 kg/s of cold water, inlet temperature 300 K. Assuming that the water\r\nvelocities are such as to give an overall coefficient of heat transfer of 2 kW/m²-К.,assumed constant, calculate the total area of surface required. In a counterflow heat exchanger",
+          "options": [
+            "A. 28 m²",
+            "B.  25 m²",
+            "C. 32 m²",
+            "D. 36 m²"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 28
+        },
+        {
+          "text": "A gas is confined in a 0.47 m diameter cylinder by piston, on which rests a weight. The mass of the piston and weight together is 150 kg. The local gravity acceleration is 9.813 m/s², the atmospheric pressure is 101.57 kPa. What is the force exerted on the gas by the atmosphere, the piston and the weight, assuming no friction between the piston and cylinder?",
+          "options": [
+            "A. 1.91 x104 N",
+            "B. 2.03 x104 N",
+            "C. 1.56 x104 N",
+            "D. 2.28 x104 N"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 1
+        },
+        {
+          "text": "For a gas phase diffusion, unicomponent diffusion throughgas liquid interface will likely to occur if",
+          "options": [
+            "A.  one component is soluble and the other is not",
+            "B.  both components are soluble in the solvent",
+            "C. both components are insoluble in the solvent",
+            "D. none of these"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 51
+        },
+        {
+          "text": "it is desired to design a packed tower for continously absorbing NH3 from air by countercurrent water flow using the following data: y1 = 0.05, L'/V' = 1.2, y2 = 0.0005, Qv1 = 108000 ft3/hr at 27 C and 1 atm, Qv = 20 lbmol air/hr ft2, equilibrium relationship : y* = 0.8 x kya = 10 lbmol/hr ft3, kxa = 19.2 lbmol/hr ft3 Calculate the following:  Packed height, Z",
+          "options": [
+            "A. 32 ft",
+            "B. 19 ft",
+            "C. 44 ft",
+            "D. 27 ft"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 91
+        },
+        {
+          "text": "A tank holds 10000 kg of a saturated solution of Na2CO3; at 30C. You want to crystallize from this solution 3000 kg Na2CO3 * 10 H2O without any accompanying water: To what temperature must the solution be cooled? Temperature (C) 0, 10, 20, 30 Solubility  (g Na2CO3: _ 100 g Hzo) 7, 12.5, 21.5, 38.8",
+          "options": [
+            "A. 26 C",
+            "B. 18 C",
+            "C. 10 C",
+            "D. 15 C"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 39
+        },
+        {
+          "text": "Calculate the equilibrium compositions of the liquid and the\r\nvapor phases for the mixture of methyl alcohol in water at a\r\ntemperature of 50°C and under a pressure of 40 kPa. Assume that\r\nboth the liquid and the vapor behave ideally. At 50°C, the vapor\r\npressure of methyl alcohol is 53.32 kPa and that of water is 12.33 kPa.",
+          "options": [
+            "A. 67.5% methyl alcohol in liquid and 89.98% methyl alcohol\r\nvapor",
+            "B.  50.2% methyl alcohol in liquid and 77.60% methyl alcohol\r\nvapor",
+            "C.  61.1% methyl alcohol in liquid and 62.12% methyl alcohol in vapor",
+            "D. 54.6% methyl alcohol in liquid and 94.33% methyl alcohol in\r\nvapor"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 55
+        },
+        {
+          "text": "The slow gas - phase reaction A → 2.4 R\r\nwith first - order kinetics takes place\r\nisothermally (25°C) in a constant volume\r\nbomb. Starting with pure A at 1 atm, the\r\npressure in the bomb rises to 1.8 atm in 75\r\nminutes.\r\n The actual conversion of A in the\r\nconstant volume bomb.",
+          "options": [
+            "A. 0.57",
+            "B. 0.75",
+            "C.  0.66",
+            "D. 0.88"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 47
+        },
+        {
+          "text": "A pump draws 69.1 gal/min of a\r\nliquid solution having a density of\r\n114.8 lb/ft³ from an open storage\r\nfeed tank of large cross sectional area\r\nthrough a 3-inch sch 40 suction line.\r\nThe pump discharges its flow\r\nthrough a 2-inch sch40 line to an\r\nopen overhead tank. The end of the\r\ndischarge line is 50 ft above the level\r\nof the liquid in the feed tank. The\r\nfriction losses in the piping system\r\nare 10 ft-lb/lb.  What is the horsepower of the\r\npump if the efficiency is 65%? The\r\nflow is turbulent.",
+          "options": [
+            "A.  3 hp",
+            "B. 7 hp",
+            "C.  5 hp",
+            "D. 2 hp"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 12
+        },
+        {
+          "text": "The function of manholes provided in the shell of a distillation column is to",
+          "options": [
+            "A.  keep a check on the liquid gradient over the plate by direct visual observation",
+            "B.  give access to the individual trays for cleaning, maintenance and installation.",
+            "C. guard against foaming & entrainment by dumping antifoaming agent through it",
+            "D. d.all (a), (b) and (c)"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 14
+        },
+        {
+          "text": "For sizing of fine materials, the mostsuitable equipment is a",
+          "options": [
+            "A. trommel",
+            "B. shaking screen",
+            "C. grizzly",
+            "D.  vibrating screen"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 1
+        },
+        {
+          "text": "The viscosity of a gas",
+          "options": [
+            "A. decreases with increase in temperature",
+            "B.  increases with increase in temperature",
+            "C.  is independent of temperature",
+            "D.  is independent of pressure for very highpressure intensities"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 1
+        },
+        {
+          "text": "The concentration of A in a first order reaction, А → В,\r\ndecreases",
+          "options": [
+            "A. linearly with time.",
+            "B. exponentially with time.",
+            "C. very abruptly towards the end of the reaction.",
+            "D.  logarithmically with time."
+          ],
+          "correct": 1,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 15
+        },
+        {
+          "text": "An ideal surface that absorbs all incident radiation,regardless of the wavelengths and direction and isalso considered to be a perfect emitter is referred toas a",
+          "options": [
+            "A. gray body",
+            "B. black hole",
+            "C. black body",
+            "D. pin hole"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 39
+        },
+        {
+          "text": "A liquid mixture of acetaldehyde and toluene contains 8 lЬ\r\nof acetaldehyde and 90 lb of toluene. Part of the acetaldehydein this solution is to be extracted using pure water as the\r\nextracting agent. The extraction is to be performed in two\r\nstages, using 25 lb of fresh water for each stage. The raffinate\r\nlayer from the first stage is treated by fresh water in the\r\nsecond stage. The extraction takes place at 17°C and the equilibrium equation Y=2.2X may be employed. Assuming\r\ntoluene and water is immiscible, what would be the weight\r\npercent of acetaldehyde in a mixture of the extracts from both\r\nstage if each of the extraction were theoretically perfect?",
+          "options": [
+            "A. 8.96%",
+            "B. 7.10%",
+            "C. 9.33%",
+            "D. 5.52%"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 28
+        },
+        {
+          "text": "A steam turbine inlet state is given by 6 MPa and 500 C. The outlet pressure is 10 kPa. Determine the work output per unit mass if the process is reversible and adiabatic",
+          "options": [
+            "A. 1242 kJ/kg",
+            "B. 2097 kJ/kg",
+            "C. 1567 kJ/kg",
+            "D. 2868 kJ/kg"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 124
+        },
+        {
+          "text": "The length of straight rectangular weir used on croSS-flow trays is generally _________the column diameter:",
+          "options": [
+            "A. 0.6-0.8 times",
+            "B. equal to",
+            "C.  twice",
+            "D. 2ft irrespective of (for column > 3 ft diameter)"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 8
+        },
+        {
+          "text": "A liquid having a density of 801\r\nkg/m³ and a viscosity 1.49x10-3 Pa-s\r\nis flowing through a horizontal\r\nstraight pipe of a velocity of 4.57\r\nm/s. The commercial steel pipe is 1\r\n1/½ in nominal pipe size, schedule 40.\r\nFor a length of a pipe of 61 m, do as\r\nfollows: For smooth tube of the same inside\r\ndiameter, calculate the friction loss.",
+          "options": [
+            "A. 410 J/kg",
+            "B. 350 J/kg",
+            "C. 100 J/kg",
+            "D. 280 J/kg"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 19
+        },
+        {
+          "text": "The thermal efficiency of a reversible heat engine operatingbetween two given thermal reservoirs is 0.4. The device is used eitheras a refrigerator or as a heat pump between the same reservoirs. Thenthe coefficient of performance as a refrigerator (COP)R and thecoefficient of performance as a heat pump (COP)HP are",
+          "options": [
+            "A.  (COP)R = (COP)HP = 0.6",
+            "B. (COP)R = 2.5; (COР)HP = 1.5",
+            "C.  (COP)R = 1.5; (COР)HP = 2.5",
+            "D. (COP)R = (COP)HPHP = 2.5"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 113
+        },
+        {
+          "text": "Pick out the wrong statement about the design of sieve plate column and the bubble cap column:",
+          "options": [
+            "A. The downcomer design and the residence time in the downcomer is almost same for sieve plate and bubble cap columns",
+            "B. Weir length for a bubble cap plate is the same as that for the sieve plate:",
+            "C.  Weir height for a bubble cap plate column is the same as that for a sieve plate column",
+            "D. Weir height in case of a bubble cap plate ranges from 50 to 150 mm and is higher than the sieve plate"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 26
+        },
+        {
+          "text": "An adiabatic tunnel dryer handles 100 kg of banana chips per batch reducing the moisture content from 50% and 12% wet basis Drying takes 10 hours to complete by flowing air at 82 C and 5% RH. The air leaves the dryer saturated: Assuming that the rate of drying is constant, calculate the volume of air blown in m3/hr:",
+          "options": [
+            "A. 222",
+            "B. 267",
+            "C.  250",
+            "D.  208"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 104
+        },
+        {
+          "text": "An evaporator is fed continuously with 25 MT/h\r\nof a solution consisting of 10% NaOH, 10% NaCl,\r\nand 80% H₂0. During evaporation, water is\r\nboiled off, and salt precipitates as crystals,\r\nwhich are settled and removed from the\r\nremaining liquor. The concentrated liquor\r\nleaving the evaporator contains 50% NaOH, 2%\r\nNaCl and 48% H₂0. Calculate the kg of water evaporated per\r\nhour",
+          "options": [
+            "A. 19300",
+            "B. 18500",
+            "C. 17600",
+            "D. 16200"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 9
+        },
+        {
+          "text": "For an ideal fluid flow, the Reynolds number is",
+          "options": [
+            "A. 2100",
+            "B. 100",
+            "C. zero",
+            "D. infinity"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 13
+        },
+        {
+          "text": "A space velocity of 5/hour means that",
+          "options": [
+            "A.  five reactor volumes of feed (at specified conditions) are being fed into the\r\nreactor per hour",
+            "B.  after five hours, reactor is being filled with the feed",
+            "C. percent conversion can be achieved in at least 5 hours",
+            "D. a fixed conversion of a given batch of feed takes 5 hours"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 61
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -123031,5 +123650,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-29T01:12:41"
+  "updated_at": "2026-10-29T01:13:57"
 }
