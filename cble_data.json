@@ -54707,57 +54707,20 @@
       "exam_id": "1790584132394843"
     },
     {
-      "id": "1793367938910918",
+      "id": "1793370228970404",
       "name": "D2_S13",
-      "created_at": "2026-10-30T13:45:38",
+      "created_at": "2026-10-30T14:23:48",
       "composition": {
-        "D2_L7_Heat_Mass_Transfer": 5,
+        "D2_L9_Chemical_Reaction_Engineering": 6,
         "D2_L3_Thermodynamics": 7,
+        "D2_L7_Heat_Mass_Transfer": 7,
+        "D2_L6_Particle_Technology": 7,
+        "D2_L8_Equipment_Plant_Design": 6,
         "D2_L5_Transport_Phenomenon": 7,
-        "D2_L9_Chemical_Reaction_Engineering": 5,
-        "D2_Concepts_Compilation": 7,
-        "D2_L1_ChE_Calculations": 2,
-        "D2_L8_Equipment_Plant_Design": 5,
-        "D2_L2_Separation_Processes": 7,
-        "D2_L6_Particle_Technology": 5
+        "D2_L2_Separation_Processes": 8,
+        "D2_L1_ChE_Calculations": 2
       },
       "questions": [
-        {
-          "text": "In case of vertical tube evaporator, with\r\nincrease in liquor level, the overall heat transfer\r\ncoefficient",
-          "options": [
-            "A. increases",
-            "B. decreases",
-            "C.  is not affected",
-            "D. may increase or decrease; depends on the feed"
-          ],
-          "correct": 1,
-          "_source_list": "D2_L7_Heat_Mass_Transfer",
-          "_source_index": 22
-        },
-        {
-          "text": "A group of 50 persons attended a secret meeting in a room which is12 m by 10 m long and a ceiling of 3 m. The room is completely sealed off and insulated. Each person gives off 150 kcal per hour of heat and occupies a volume of 0.2 m³. The room has an initial pressure of 101.3kPa and temperature of 16°C. Calculate the room temperature after 10minutes in °C",
-          "options": [
-            "A. 25",
-            "B. 33",
-            "C. 36",
-            "D. 29"
-          ],
-          "correct": 1,
-          "_source_list": "D2_L3_Thermodynamics",
-          "_source_index": 31
-        },
-        {
-          "text": "A gas mixture containing 1% acetone and 99% dry air by volume is contacted with pure water in a plate gas absorber in which 90% of the acetone is recovered. The inlet gas flow rate is 30 kmol/hr and the inlet water flow rate is 90 kmol/hr. The absorber operates at 27 C and 1 atm. The equilibrium curve is given by y* = 2.53x.  What is the concentration of the strong liquor?",
-          "options": [
-            "A. 0.003",
-            "B. 0.002",
-            "C. 0.001",
-            "D. 0.004"
-          ],
-          "correct": 0,
-          "_source_list": "D2_L5_Transport_Phenomenon",
-          "_source_index": 77
-        },
         {
           "text": "With increases in temperature, the rate constant obeying Arrhenius\r\nequation",
           "options": [
@@ -54771,400 +54734,16 @@
           "_source_index": 37
         },
         {
-          "text": "Saddle supports are used for supporting __________ vessels.",
+          "text": "Determine the theoretical work required for theisothermal compression of 800 ft3/min of air from14.7 to 120 psia",
           "options": [
-            "A. tall vertical",
-            "B. thick walled vertical",
-            "C. horizontal cylindrical",
-            "D. spherical"
-          ],
-          "correct": 2,
-          "_source_list": "D2_Concepts_Compilation",
-          "_source_index": 132
-        },
-        {
-          "text": "The vapor pressure of styrene is 100 mmHg at 82\"C and 200 mmHg at 100'C. A gas that consists of 10 mol% styrene and 90 mol% non-condensable contained in tank a 100'C and 1000 mmHg: Calculate: The relative saturation",
-          "options": [
-            "A. 20%",
-            "B. 40%",
-            "C. 30%",
-            "D.  50%"
-          ],
-          "correct": 3,
-          "_source_list": "D2_L7_Heat_Mass_Transfer",
-          "_source_index": 50
-        },
-        {
-          "text": "The critical radius 'r' of insulation on a pipe is given\r\nby",
-          "options": [
-            "A. r = 2k/h",
-            "B. r = k/2h",
-            "C. k/h",
-            "D. h/k"
-          ],
-          "correct": 2,
-          "_source_list": "D2_L5_Transport_Phenomenon",
-          "_source_index": 19
-        },
-        {
-          "text": "The overall mass transfer coefficient have the following values in a packed tower operated isothermally at a pressure of 3 atm: \r\nGas phase: KGa = 0.396 kmol/hr-m3-Ay\r\nLiquid phase: KLa = 13.9 kmol/hr-m3-Ax\r\nwhere Ax and Ay refers to the driving force in mole fraction. \r\nThe equilibrium compositions of the gaseous and liquid \r\nphases are characterized by the equation of Henry's law. What \r\nis the value of Henry's law constant, H?",
-          "options": [
-            "A. 80000 mmHg",
-            "B. 50000 mmHg",
-            "C. 20000 mmHg\r\nb",
-            "D. 60000 mmHg\r\nx0c"
-          ],
-          "correct": 0,
-          "_source_list": "D2_L5_Transport_Phenomenon",
-          "_source_index": 89
-        },
-        {
-          "text": "Fouling factor must be included in the calculation of overall design heat transfer coefficient, when the liquid",
-          "options": [
-            "A. containing suspended solids flows at low velocity.",
-            "B. containing suspended solids flows at high velocity.",
-            "C. is highly viscous.",
-            "D. is of high specific gravity."
-          ],
-          "correct": 0,
-          "_source_list": "D2_Concepts_Compilation",
-          "_source_index": 54
-        },
-        {
-          "text": "Determine the molar volume of n-butane at 510 K and 25 bar by each of the following: Equation, with the generalized correlation for B",
-          "options": [
-            "A. 1483 cm³/mol",
-            "B. 1486 cm³/mol",
-            "C. 1480 cm³/mol",
-            "D. 1489 cm³/mol"
-          ],
-          "correct": 3,
-          "_source_list": "D2_L3_Thermodynamics",
-          "_source_index": 67
-        },
-        {
-          "text": "No work is done by the system, when a reactionoccurs at constant",
-          "options": [
-            "A. volume",
-            "B. pressure",
-            "C. temperature",
-            "D. none of these"
-          ],
-          "correct": 0,
-          "_source_list": "D2_L3_Thermodynamics",
-          "_source_index": 44
-        },
-        {
-          "text": "For every 10°C rise in temperature, the rate of chemical reactiondoubles. When the temperature is increased from 30 to 70°C, the rateof reaction increases____times",
-          "options": [
-            "A. 8",
-            "B. 16",
-            "C. 12",
-            "D. 32"
-          ],
-          "correct": 1,
-          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
-          "_source_index": 36
-        },
-        {
-          "text": "A limestone analysis: CaCO3 - 92.89%,\r\nMgC03 - 5.41% and unreactive - 1.70%.\r\nBy heating the limestone, you recover\r\noxides that together known as lime: How many pounds of calcium oxide\r\ncan be made from 1 ton of limestone?",
-          "options": [
-            "A. 1041 lb",
-            "B. 3567 lb",
-            "C. 2348 lb",
-            "D. 4020 lb"
-          ],
-          "correct": 0,
-          "_source_list": "D2_L1_ChE_Calculations",
-          "_source_index": 32
-        },
-        {
-          "text": "For a given filtration resistance and fluid viscosity, the filtration rate is directly proportional to:",
-          "options": [
-            "A. Pressure drop",
-            "B. Fluid viscosity",
-            "C. Cake resistance",
-            "D. Filter-medium resistance"
-          ],
-          "correct": 0,
-          "_source_list": "D2_Concepts_Compilation",
-          "_source_index": 37
-        },
-        {
-          "text": "The vapor pressure of styrene is 100 mmHg at 82\"C and 200 mmHg at 100'C. A gas that consists of 10 mol% styrene and 90 mol% non-condensable contained in tank a 100'C and 1000 mmHg: Calculate:  The molal saturation",
-          "options": [
-            "A. 0.111",
-            "B. 0.206",
-            "C. 0.087",
-            "D. 0.150"
-          ],
-          "correct": 0,
-          "_source_list": "D2_L7_Heat_Mass_Transfer",
-          "_source_index": 51
-        },
-        {
-          "text": "The ratio propeller agitator D/tank D is normally taken as",
-          "options": [
-            "A.  0.15-0.30",
-            "B. 0.5-0.65",
-            "C.  0.75-0.85",
-            "D. 0.60-0.90"
-          ],
-          "correct": 0,
-          "_source_list": "D2_L8_Equipment_Plant_Design",
-          "_source_index": 58
-        },
-        {
-          "text": "Benzoic acid is 9 times more soluble in chloroform than in water. The percent\r\nbenzoic acid that will remain from a water solution of benzoic acid if Twice as much as chloroform as water is used",
-          "options": [
-            "A. 2.6%",
-            "B. 5.3%",
-            "C. 3.5%",
-            "D. 6.0%"
-          ],
-          "correct": 1,
-          "_source_list": "D2_L2_Separation_Processes",
-          "_source_index": 52
-        },
-        {
-          "text": "In a binary gas-liquid system, NAEMD is the molar flux of a gas A\r\nfor equimolar counter diffusion with a liquid B. NA,UMD is themolar flux of A for steady one component diffusion throughstagnant B. Using the mole fraction of A in the bulk of the gasphase as 0.2 and that at the gas-liquid interface as 0.1 for boththe modes of diffusion, the ratio of NAUMD to NAEMD is equal to",
-          "options": [
-            "A.  2.3",
-            "B.  0.8",
-            "C. 0.4",
-            "D.  1.2"
-          ],
-          "correct": 3,
-          "_source_list": "D2_L5_Transport_Phenomenon",
-          "_source_index": 52
-        },
-        {
-          "text": "The porosity of a compressible cake is",
-          "options": [
-            "A. minimum at the filter medium",
-            "B. minimum at the upstream face",
-            "C. maximum at the filter medium",
-            "D. same throughout the thickness"
-          ],
-          "correct": 0,
-          "_source_list": "D2_L6_Particle_Technology",
-          "_source_index": 101
-        },
-        {
-          "text": "The reaction in which rate equation corresponds to a\r\nstoichiometric equation is called",
-          "options": [
-            "A.  elementary reaction",
-            "B.  parallel reaction",
-            "C. non-elementary reaction",
-            "D. autocatalytic reaction"
-          ],
-          "correct": 0,
-          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
-          "_source_index": 1
-        },
-        {
-          "text": "For a cylindrical internally pressurized vessel, which of the following closure types would withstand highest pressure, if each closure is of the same material and thickness?",
-          "options": [
-            "A. flat plate",
-            "B. conical",
-            "C. ellipsoidal",
-            "D. hemispherical"
-          ],
-          "correct": 3,
-          "_source_list": "D2_Concepts_Compilation",
-          "_source_index": 137
-        },
-        {
-          "text": "Air flows steadily at a rate of 0.5 kg/s through an air compressor,entering at 7 m/s speed, 100 kPa pressure and. 0.95 m³/kg specificvolume, and leaving at 5 m/s, 700 kPa, and 0.19 m³/kg. The internalenergy of the air leaving is 90 kJ/kg greater than of the air entering.Cooling water in the compressor jackets absorbs heat from the air at rate of 58 kW. Compute the work in kW.",
-          "options": [
-            "A. 211 kW",
-            "B. 112 kW",
-            "C. 122 kW",
-            "D. 212 kW"
-          ],
-          "correct": 2,
-          "_source_list": "D2_L3_Thermodynamics",
-          "_source_index": 32
-        },
-        {
-          "text": "Which of the following is a vacuum filter?",
-          "options": [
-            "A. Filter press",
-            "B. Rotary disc filter",
-            "C. Batch basket centrifuge",
-            "D. Tank filter (Nutsch filter)"
-          ],
-          "correct": 1,
-          "_source_list": "D2_L6_Particle_Technology",
-          "_source_index": 98
-        },
-        {
-          "text": "In batch distillation with constant reflux,overhead product composition with time.",
-          "options": [
-            "A. increases",
-            "B. decreases",
-            "C.  does not vary",
-            "D. may increase on decrease, depends on the\r\nsystem."
-          ],
-          "correct": 1,
-          "_source_list": "D2_L2_Separation_Processes",
-          "_source_index": 69
-        },
-        {
-          "text": "The enrichment of ethyl alcohol in the vapor phase froman aqueous ethyl alcohol solution during rectification is an\r\nexample of",
-          "options": [
-            "A. unicomponent diffusion",
-            "B. equimolal counterdiffusion",
-            "C. phase drift",
-            "D. convective diffusion"
-          ],
-          "correct": 1,
-          "_source_list": "D2_L5_Transport_Phenomenon",
-          "_source_index": 48
-        },
-        {
-          "text": "A nuclear power plant generates 750 MW; the reactor temperature is 315°C and a river with water temperature of 20°C is available If the actual thermal efficiency of the plant is 60% of the maximum, what is the temperature rise in 0C of the river if it has a flow of 165 m³ s-?",
-          "options": [
-            "A. 4.0",
-            "B.  2.5",
-            "C. 3.6",
-            "D. 1.1"
+            "A.  103 hp",
+            "B. 108 hp",
+            "C. 110 hp",
+            "D.  115 hp"
           ],
           "correct": 1,
           "_source_list": "D2_L3_Thermodynamics",
-          "_source_index": 78
-        },
-        {
-          "text": "The relative volatility of a binarymixture at the azeotropic composition is",
-          "options": [
-            "A. 1",
-            "B. 0",
-            "C. \">1\"",
-            "D. ∞"
-          ],
-          "correct": 0,
-          "_source_list": "D2_L2_Separation_Processes",
-          "_source_index": 125
-        },
-        {
-          "text": "A roughly equimolar benzene-toluene mixture is fractionally distilled. Benzene boils at about 80°C and toluene at about 110°C. At which of the following temperatures would the vapor first be strongly enriched in benzene?",
-          "options": [
-            "A. 60°C",
-            "B. 90°C",
-            "C. 70°C",
-            "D. 115°C"
-          ],
-          "correct": 1,
-          "_source_list": "D2_Concepts_Compilation",
-          "_source_index": 27
-        },
-        {
-          "text": "A solution of 5% acetaldehyde in toluene is to be extracted with\r\nwater in a five stage concurrent unit. If 25 kg water per 100 kg\r\nof feed is used, calculate the following: The mass of acetaldehyde extracted if the equilibriumrelation is given by: kg acetaldehyde per kg water = 2.20 (kg acetaldehyde per kg toluene).",
-          "options": [
-            "A. 4.49 kg / 100 kg feed",
-            "B. 1.11 kg / 100 kg feed",
-            "C. 3.36 kg / 100 kg feed",
-            "D. 2.98 kg / 100 kg feed"
-          ],
-          "correct": 0,
-          "_source_list": "D2_L2_Separation_Processes",
-          "_source_index": 30
-        },
-        {
-          "text": "Cv is given by",
-          "options": [
-            "A. (ƏU/ ƏT)v",
-            "B. (ƏU/ƏP)v",
-            "C. (ƏU/ƏV)T",
-            "D. (ƏV/ ƏT)P"
-          ],
-          "correct": 0,
-          "_source_list": "D2_L3_Thermodynamics",
-          "_source_index": 21
-        },
-        {
-          "text": "To get ultrafine particles, the equipmentused is",
-          "options": [
-            "A. ball mill",
-            "B. rod mill",
-            "C.  hammer crusher",
-            "D.  fluid energy mill"
-          ],
-          "correct": 3,
-          "_source_list": "D2_L6_Particle_Technology",
-          "_source_index": 30
-        },
-        {
-          "text": "A homogeneous liquid phase reaction, A →R; -r= kCa^2 takesplace with 50% conversion in a well-mixed reactor operatingisothermally. What will be the conversion if the reactor is replaced bya plug flow type of equal size — all else remaining the same?",
-          "options": [
-            "A. 10%",
-            "B.  50%",
-            "C. 20%",
-            "D.  67%"
-          ],
-          "correct": 3,
-          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
-          "_source_index": 64
-        },
-        {
-          "text": "_______tower is the most suitable gas-liquid contacting device involving highly corrosive fluids",
-          "options": [
-            "A. Sieve plate",
-            "B. Packed",
-            "C.  Bubble cap plate",
-            "D.  None of these"
-          ],
-          "correct": 1,
-          "_source_list": "D2_L8_Equipment_Plant_Design",
-          "_source_index": 0
-        },
-        {
-          "text": "What bacteria is able to break down and consume plastics (PET)?",
-          "options": [
-            "A. Ideonella sakaiensis",
-            "B. Escherichia coli",
-            "C. Lactobacillus",
-            "D. Bacillus anthracis"
-          ],
-          "correct": 0,
-          "_source_list": "D2_Concepts_Compilation",
-          "_source_index": 181
-        },
-        {
-          "text": "One hundred mols of 15% by mole n-butane/npentane mixture is distilled until the residual liquidcontains 45.5 mols. Using the value of the relative\r\nvolatility obtained in problem no.60, find the average\r\nconcentration of the distillate in mol% butane.",
-          "options": [
-            "A. 20.6",
-            "B. 24.7",
-            "C. 32.4",
-            "D. 48.5"
-          ],
-          "correct": 1,
-          "_source_list": "D2_L2_Separation_Processes",
-          "_source_index": 71
-        },
-        {
-          "text": "Minimum tube pitch recommended for shell and tube heat exchangers is about _________times the outside diameter of the tube:",
-          "options": [
-            "A. 1.25",
-            "B.  1.75",
-            "C. 2.5",
-            "D. 3.5"
-          ],
-          "correct": 0,
-          "_source_list": "D2_L8_Equipment_Plant_Design",
-          "_source_index": 35
-        },
-        {
-          "text": "Acetone is recovered from an acetone-air mixture\r\ncontaining 25% (volume) acetone by scrubbing with water.\r\nAssuming that air is insoluble in water, determine the percent\r\nof acetone in the entering gas that is absorbed if the gas\r\nleaving the scrubber analyzes 5% acetone.",
-          "options": [
-            "A. 96%",
-            "B. 84%",
-            "C. 65%",
-            "D.  73%"
-          ],
-          "correct": 1,
-          "_source_list": "D2_L1_ChE_Calculations",
-          "_source_index": 17
+          "_source_index": 49
         },
         {
           "text": "The homogeneous gas phase decomposition ofphosphine 4PH3(g) →P4(g)+ 6H2( g)proceeds at 649 °C with first - order rate [- r(phosphine)=(10/hr) Ca]. The reactor operates at 649 °C and460 kPa can produce 80% conversion of a feedconsisting of 40 mole of pure phosphine perhour.  The initial concentration of A",
@@ -55179,88 +54758,340 @@
           "_source_index": 65
         },
         {
-          "text": "Generally; as the length of the liquid path on a trayis increased beyond 5 ft; the overall column efficiency",
+          "text": "A stream of air at 100 C and 5260 mmHg contains 10% water by volume  Calculate the percentage of the vapor condenses and the final composition of the gas phase if the air is cooled to 80\"C at constant pressure:",
           "options": [
-            "A. increases",
-            "B. decreases",
-            "C. remains same",
-            "D. may increase or decrease depending upon the plate spacing"
+            "A. 20%",
+            "B. 30%",
+            "C. 25%",
+            "D. 35%"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 68
+        },
+        {
+          "text": "If a centrifuge is 0.9 m diameter and rotates at20 Hz, at what speed should a laboratory centrifugeof 150 mm diameter be run if it is to duplicate theperformance of the large unit?",
+          "options": [
+            "A. 49 Hz",
+            "B. 36 Hz",
+            "C. 55 Hz",
+            "D. 27 Hz"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 76
+        },
+        {
+          "text": "Smoker's equation for the calculation of number of equilibrium stages in a continuous binary distillation column is used, when the",
+          "options": [
+            "A. relative volatility is close to one (e.g-, separation of close boiling isomers)",
+            "B.  feed is not atits bubble point",
+            "C. number of equilibrium stages in only stripping section is to be calculated",
+            "D. number of equilibrium stages required is likely to be very small"
           ],
           "correct": 0,
           "_source_list": "D2_L8_Equipment_Plant_Design",
-          "_source_index": 22
+          "_source_index": 20
         },
         {
-          "text": "For turbulent flow in a tube, the heat transfer coefficientis obtained from the Dittus-Boelter correlation. If the tubediameter is halved and the flow rate is doubled, then theheat transfer coefficient will change by a factor of",
+          "text": "Heat transfer co-efficient for a horizontal condenser as compared to a vertical condenser operating under similar conditions is",
           "options": [
-            "A. 1",
-            "B. 6.1",
-            "C. 1.74",
-            "D. 37"
+            "A. same",
+            "B. less",
+            "C. about 3 times",
+            "D. about 0.33 times"
           ],
-          "correct": 1,
-          "_source_list": "D2_L5_Transport_Phenomenon",
+          "correct": 2,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
           "_source_index": 36
         },
         {
-          "text": "The equipment used in the extraction ofhighly corrosive radioactive liquids is",
+          "text": "Prandtl number for water at 20°C is about",
           "options": [
-            "A. pulse column",
-            "B. mixer settler",
-            "C. spray column",
-            "D. baffle tower"
-          ],
-          "correct": 0,
-          "_source_list": "D2_L2_Separation_Processes",
-          "_source_index": 42
-        },
-        {
-          "text": "What is the steam economy in case of a\r\nsingle effect evaporator system?",
-          "options": [
-            "A. 1",
-            "B. <1",
-            "C. \">1\"",
-            "D.  0.1"
-          ],
-          "correct": 1,
-          "_source_list": "D2_L7_Heat_Mass_Transfer",
-          "_source_index": 3
-        },
-        {
-          "text": "Normally; the length to diameter ratio of rotary dryers varies from 4 to 10 and for its economic operation, the number of transfer units (NTU) for such dryers varies from",
-          "options": [
-            "A. 1.5-2.5",
-            "B. 3.5-5.5",
-            "C. 7.5-10.0",
-            "D. 10-15"
-          ],
-          "correct": 0,
-          "_source_list": "D2_L8_Equipment_Plant_Design",
-          "_source_index": 29
-        },
-        {
-          "text": "A steel pipeline, 2 in-sch40, contains saturated steam at 121.1 °C. The pipeline isinsulated with 1 inch of asbestos (k=0.182 Sl units). Assuming that the inside surfacetemperature of the pipe wall is at 121.1°C and the outer surface of the insulation is at26.7°C. Calculate the heat loss (in Watts) for L=30.5 m.",
-          "options": [
-            "A. 5400",
-            "B. 4375",
-            "C. 4910",
-            "D. 3862"
+            "A. 7",
+            "B. 0.7",
+            "C. 70",
+            "D. 150"
           ],
           "correct": 0,
           "_source_list": "D2_L5_Transport_Phenomenon",
-          "_source_index": 13
+          "_source_index": 33
         },
         {
-          "text": "Solid spherical particles having a diameter of 0.09 mm\r\nand a solid density of 2002 kg/m³ are settling in a solution of\r\nwater at 26.7°C. The volume fraction of the solids in the\r\nsolution is 0.45. The settling velocity is_. For H₂0: p = 994.7\r\nkg/m³ and μ = 0.861x10-3 Pa-s.",
+          "text": "In inclined long tube vertical evaporators, the tubes are inclined at an angle of",
           "options": [
-            "A. 5.3x10-3 m/s",
-            "B. 3.26 x10-3 m/s",
-            "C.  2.369х10-4 m/s",
-            "D.  3x10-5 m/s"
+            "A. 15 deg",
+            "B. 90 deg",
+            "C. 45 deg",
+            "D. 60 deg"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 42
+        },
+        {
+          "text": "The energy required per unit mass to grind limestone\r\nparticles of very large size to 100 µm is 12.7 kWh/ton. An\r\nestimate (using Bond's law) of the energy to grind theparticles from a very large size to 50 μm is",
+          "options": [
+            "A. 6.35 kWh/ton",
+            "B. 18 kWh/ton",
+            "C. 9.0 kWh/ton",
+            "D. 25.4 kWh/ton"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 47
+        },
+        {
+          "text": "At a fixed pressure, the humidity depends upon the partial pressure of vapor in the mixture: Humidity of a vapor free gas is ___percent",
+          "options": [
+            "A.  100",
+            "B. 50",
+            "C. 0",
+            "D.  between 0 and 100"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 48
+        },
+        {
+          "text": "Cv is given by",
+          "options": [
+            "A. (ƏU/ ƏT)v",
+            "B. (ƏU/ƏP)v",
+            "C. (ƏU/ƏV)T",
+            "D. (ƏV/ ƏT)P"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 21
+        },
+        {
+          "text": "A 30% (by volume) suspension of spherical sand particlesin a viscous oil has a hindered settling velocity of 4.44 µm/s.\r\nIf the Richardson Zaki hindered settling index is 4.5, then the\r\nterminal velocity of a sand grain is",
+          "options": [
+            "A.  0.90 µm/s",
+            "B. 22.1 µm/s",
+            "C.  1 μm/s",
+            "D. 0.02 µm/s"
           ],
           "correct": 2,
           "_source_list": "D2_L6_Particle_Technology",
-          "_source_index": 68
+          "_source_index": 67
+        },
+        {
+          "text": "The following is data for the reaction: A→ B: Time (sec) - [0 25 50 75]   [A] (M) - [1.00 0.914 0.829 0.744]  Time (sec) - [100 125 150 200]  [A] (M)-  [0.659 0.573 0.488  ?] The concentration at 200 seconds is",
+          "options": [
+            "A. 0.12 M",
+            "B. 0.28 M",
+            "C. 0.25 M",
+            "D. 0.32 M"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 31
+        },
+        {
+          "text": "Hydrogen, initially at 15 psia and 80°F, is compressed at the rate of 20 cfm in a hot environment to a pressure of 75.3 psig. The details of the process are unknown but it us estimated the heat enters at the rate of 20 BTU/min. For a change of entropy of 0.0268 BTU/min-R. Determine: The work if the system is steady flow.",
+          "options": [
+            "A. 246 BTU/min",
+            "B. 257 BTU/min",
+            "C. 188 BTU/min",
+            "D. 135 BTU/min"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 89
+        },
+        {
+          "text": "The overall mass transfer coefficient have the following values in a packed tower operated isothermally at a pressure of 3 atm: \r\nGas phase: KGa = 0.396 kmol/hr-m3-Ay\r\nLiquid phase: KLa = 13.9 kmol/hr-m3-Ax\r\nwhere Ax and Ay refers to the driving force in mole fraction. \r\nThe equilibrium compositions of the gaseous and liquid \r\nphases are characterized by the equation of Henry's law. What \r\nis the value of Henry's law constant, H?",
+          "options": [
+            "A. 80000 mmHg",
+            "B. 50000 mmHg",
+            "C. 20000 mmHg\r\nb",
+            "D. 60000 mmHg\r\nx0c"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 89
+        },
+        {
+          "text": "The sphericity of a cylinder of 1 mm\r\ndiameter and length 3 mm is",
+          "options": [
+            "A. 0.9",
+            "B.  0.6",
+            "C. 0.78",
+            "D. 0.5"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 18
+        },
+        {
+          "text": "In the case of a shell and tube heat exchanger; the logarithmic mean temperature difference",
+          "options": [
+            "A. is always less than arithmetic average value",
+            "B. is always more than arithmetic mean value and the geometric mean value",
+            "C. is always less than arithmetic mean value, but more than geometric mean value",
+            "D.  may be either more or less than geometric mean and arithmetic mean value depending upon whether the flow of stream is CO-current or counter-current:"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 43
+        },
+        {
+          "text": "A particle A of diameter 10 microns settles in an oil of specific  gravity 0.9 and viscosity 10 poise under Stokes law. A particle B with diameter 20 microns settling in the same oil will have a settling velocity",
+          "options": [
+            "A. same as that of A",
+            "B. twice as that of A",
+            "C. one fourth as that of A",
+            "D. four times as that of A"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 80
+        },
+        {
+          "text": "For a constant pressure reversible process, theenthalpy (AH) change of the system is",
+          "options": [
+            "A. C vdT",
+            "B. integ(CpdT)",
+            "C. CpdT",
+            "D. integ(CvdT)"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 20
+        },
+        {
+          "text": "When the mixture to be distilled has a very\r\nhigh boiling point and the product material is\r\nheat sensitive, the separation technique to beused is distillation.",
+          "options": [
+            "A. continuous",
+            "B. azeotropic",
+            "C. steam",
+            "D. none of these"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 81
+        },
+        {
+          "text": "In a salt recovery plant, rock salt is being leached to produce industrialsalt in a continuous counter current system consisting of two idealstages using water as leaching medium. the average composition of therock salt is: inerts = 70%, soluble salts = 25%, moisture = 5%, allpercentage by weight. The underflow from each stage contains 0.3 kg ofsolution per kg of inerts. The plant leaches 50 MT of rock salt per day using 50 MT of water. The quantity of soluble salts recovered in MT/day is",
+          "options": [
+            "A. 12.1",
+            "B. 14",
+            "C.  13.1",
+            "D.  11.2"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 6
+        },
+        {
+          "text": "A limestone analysis: CaCO3 - 92.89%,\r\nMgC03 - 5.41% and unreactive - 1.70%.\r\nBy heating the limestone, you recover\r\noxides that together known as lime: How many pounds of calcium oxide\r\ncan be made from 1 ton of limestone?",
+          "options": [
+            "A. 1041 lb",
+            "B. 3567 lb",
+            "C. 2348 lb",
+            "D. 4020 lb"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 32
+        },
+        {
+          "text": "The hardness of a mineral is a criterion of\r\nits resistance to crushing. Which of thefollowing is an example of a hard material?",
+          "options": [
+            "A. talc",
+            "B. calcite",
+            "C. sapphire",
+            "D. feldspar"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 20
+        },
+        {
+          "text": "After 8 minutes in a batch reactor, reactant (CA0 = 1 mol/L) is\r\n80% converted; after 18 minutes, conversion is 90%. What is the\r\norder of the reaction?",
+          "options": [
+            "A. 1/2",
+            "B. 3/2",
+            "C. 2",
+            "D. 3"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 19
+        },
+        {
+          "text": "Given a relative volatility of 4,600 mols of A and 400 mols of B\r\nare fed in a kettle for distillation. A is more volatile than B. What is the amount of the overhead product if the remaining\r\nmixture in the kettle is 80%B?",
+          "options": [
+            "A. 826 mol",
+            "B.  641 mol",
+            "C. 725 mol",
+            "D. 503 mol"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 73
+        },
+        {
+          "text": "When heat is transferred from hot body to cold body,in a straight line, without affecting the interveningmedium, it is referred as heat transfer by",
+          "options": [
+            "A. conduction",
+            "B. convection",
+            "C. radiation",
+            "D. convection and radiation"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 38
+        },
+        {
+          "text": "Consider air at 1 atm, 35 C and 40% relative humidity: Using: psychrometric chart, determine  The humid volume of the air:",
+          "options": [
+            "A. 0.89 m3/kg",
+            "B. 0.75 m3/kg",
+            "C. 0.97 m3/kg",
+            "D. 0.66 m3/kg"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 75
+        },
+        {
+          "text": "Under the same temperature gradient across various metalplates of the same thickness, the heat conducted per unitof surface area will be largest across",
+          "options": [
+            "A. lead",
+            "B. copper",
+            "C. iron",
+            "D. nickel"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 2
+        },
+        {
+          "text": "The air supply for a dryer has a dry-bulb temperature of 70 F and a wet bulb temperature of 60 F. It is heated to 200 F by coils and blown into the dryer: In the dryer it cools along an adiabatic cooling line and leaves the dryer fully saturated:  How much heat is needed to heat 100 ft3 to 200 F?",
+          "options": [
+            "A.  235 BTU",
+            "B.  107 BTU",
+            "C. 168 BTU",
+            "D. 240 BTU"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 79
+        },
+        {
+          "text": "The absolute saturation of a carbon dioxide-water vapor mixture at 310 K and 100 kPa is measured to be 0.022 kg water per kg dry carbon dioxide Calculate the following: The temperature to which the gas is to be heated at constant pressure to reduce its percent saturation to 30 percent",
+          "options": [
+            "A.  337.5 K",
+            "B. 327.5 K",
+            "C.  345.5 K",
+            "D. 461.5 K"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 62
         },
         {
           "text": "An Otto cycle has a compression ratio of 9.5. The air is at 100 kPa, 17°C, and 600 cm³ prior to the compression stroke. Temperature at the end of isentropic expansion is 800 K. Using constant specific heat, calculate the following: Highest temperature in the cycle",
@@ -55275,52 +55106,842 @@
           "_source_index": 117
         },
         {
-          "text": "Calculate the Reynolds number",
+          "text": "An ideal mixture of A and B is to be distilled continuously. If the relative volatility is constant at 1.75 and\r\nfeed = saturated liquid with 50 mol% A feed rate = 200 lbmol/hr\r\ndistillation composition = 90% A\r\nbottoms composition = 10% A Find the minimum number of theoretical stages",
           "options": [
-            "A. 9.89x10-3",
-            "B. 4.33x10-3",
-            "C. 5.61х10-3",
-            "D. 2.05x10-3"
+            "A. 4.22",
+            "B. 6.85",
+            "C. 7.85",
+            "D.  8.19"
           ],
-          "correct": 0,
-          "_source_list": "D2_L6_Particle_Technology",
-          "_source_index": 69
-        },
-        {
-          "text": "Which modification can increase the reaction rate in an adiabatic reactor without supplying external heat?",
-          "options": [
-            "A. Add a suitable catalyst",
-            "B. Decrease reactant concentration",
-            "C. Increase activation energy",
-            "D. Remove the catalyst"
-          ],
-          "correct": 0,
-          "_source_list": "D2_Concepts_Compilation",
-          "_source_index": 42
-        },
-        {
-          "text": "It is planned to feed continuously 100 mol per hour of a solution containing 80 mol of A and 20 mol of B to an externally fired kettle by which there is good agitation due to boiling.\r\nThe residue and vapor will be withdrawn continuously, the vapor condensed, cooled and\r\nsent to storage. There is no return of residue or condensate to kettle, hence, this will be\r\ncontinuous simple distillation. It is planned to regulate the heat supply that D grams of\r\ndistillate per hour will contain 72 mol of the more volatile component A which is five times\r\nmore volatile than B.\r\n Calculate the mols of distillate per hundred moles of feed",
-          "options": [
-            "A. 85",
-            "B. 62",
-            "C. 79",
-            "D. 90"
-          ],
-          "correct": 0,
+          "correct": 2,
           "_source_list": "D2_L2_Separation_Processes",
-          "_source_index": 86
+          "_source_index": 101
         },
         {
-          "text": "In a vessel at 101.325 kN/m2? and 300K, the percentage relative humidity of the water vapor in the air is 25. If partial pressure of water vapor when air is saturated with vapor at 300K is 3.6 kN/m2, calculate:  The percentage humidity",
+          "text": "A saturated solution containing 1500 kg of potassium chloride at 360 K is cooled in an\r\nopen tank to 290 K. If the specific gravity of the solution is 1.2, the solubility of\r\npotassium chloride per 100 parts water is 53.55 at 360 K and 34.5 at 290 K.  Calculate the mass of the crystals obtained, neglecting loss of water\r\nevaporation.",
           "options": [
-            "A. 31%",
-            "B.  46%",
-            "C. 10%",
-            "D.  25 %"
+            "A. 489 kg",
+            "B. 653 kg",
+            "C. 112 kg",
+            "D. 534 kg"
           ],
           "correct": 3,
           "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 38
+        },
+        {
+          "text": "From PVn = C, when n = 0, the process is",
+          "options": [
+            "A. isochoric",
+            "B. isothermal",
+            "C. polytropic",
+            "D. isobaric"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 52
+        },
+        {
+          "text": "In a CO2 absorber using a carbonate solution as absorbent, 1,000 kmols/h of flue gases containing 50% by volume CO2 and the balance being inert gases, is fed into the column. The lean gas leaves the absorber with a 2% by volume CO2. Calculate the quantity of CO2, in kg/h, that is recovered from the regeneration of the fat liquor.",
+          "options": [
+            "A. 15900 kg/hr",
+            "B. 27700 kg/hr",
+            "C. 18500 kg/hr",
+            "D. 21600 kg/hr"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 76
+        },
+        {
+          "text": "The half-life of a material undergoing second order decay is",
+          "options": [
+            "A.  proportional to the square ofinitial concentration",
+            "B. independent of initial concentration",
+            "C. proportional to initial concentration",
+            "D.  inversely proportional to initial concentration"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 25
+        },
+        {
+          "text": "Large process vessels operating under extreme temperature and pressure conditions are normally clad/ lined with materials like stainless steel, aluminum_ nickel & its 'alloys, copper & its alloys and titanium. The cladding thickness is generally about _________percent of the total thickness",
+          "options": [
+            "A. 1 to 5",
+            "B. 10 to 20",
+            "C. 30 to 40",
+            "D. 40 to 50"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 49
+        },
+        {
+          "text": "A process consists of two steps: (1) One mole of air at T = 800 K and P = 4 baris cooled at constant volume to T = 350 K. (2) The air is then heated at constantpressure until its temperature reaches 800 K. If this two-step process isreplaced by a single isothermal expansion of air from 800 K and 4 bar to some final pressure P, what is the value of P that makes the work of the twoprocesses the same? Assume mechanical reversibility and treat air as an idealgas with Cp = (7/2)R and Cv = (5/2)R",
+          "options": [
+            "A. 2.28 bar",
+            "B.  3.01 bar",
+            "C. 2.52 bar",
+            "D. 1.86 bar"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 50
+        },
+        {
+          "text": "Solid particles having a size of 0.12 mm, a shape\r\nfactor of 0.88, and a density of 1000 kg/m³ are to\r\nbe fluidized using air at 2 atm and 25°C. The\r\nvoidage at minimum fluidizing conditions is 0.42.  Calculate minimum velocity for fluidization.",
+          "options": [
+            "A.  0.004 m/s",
+            "B. 0.001 m/s",
+            "C.  0.005 m/s",
+            "D. 0.002 m/s"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 104
+        },
+        {
+          "text": "In extractive distillation, solvent is",
+          "options": [
+            "A. added to alter the relative volatility of the mixture.",
+            "B. of high volatility.",
+            "C. present in overhead stream.",
+            "D. of high viscosity to give high tray efficiency."
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 119
+        },
+        {
+          "text": "In a binary gas-liquid system, NAEMD is the molar flux of a gas A\r\nfor equimolar counter diffusion with a liquid B. NA,UMD is themolar flux of A for steady one component diffusion throughstagnant B. Using the mole fraction of A in the bulk of the gasphase as 0.2 and that at the gas-liquid interface as 0.1 for boththe modes of diffusion, the ratio of NAUMD to NAEMD is equal to",
+          "options": [
+            "A.  2.3",
+            "B.  0.8",
+            "C. 0.4",
+            "D.  1.2"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 52
+        },
+        {
+          "text": "The solvent used in liquid extraction should not have\r\nhigh latent heat of vaporization, because",
+          "options": [
+            "A. the pressure drop and hence the pumping cost will be very\r\nhigh.",
+            "B. it cannot be recovered by distillation.",
+            "C.  its recovery cost by distillation may be prohibitively high.",
+            "D. it will decompose while recovering by distillation."
+          ],
+          "correct": 2,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 24
+        },
+        {
+          "text": "In a vertical short tube evaporator (Calendria type), the",
+          "options": [
+            "A. tube dia of 2.5-7.5 cm, tube length of 75-200 cms and cylindrical drum dia of 1- 6 meters are normally used.",
+            "B. area of central downtake is equal to 40 to 100% of total cross-sectional area of the surrounding tube",
+            "C. liquor is inside the tube while the steam is outside the tube",
+            "D. all (a); (b) & (c):"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 31
+        },
+        {
+          "text": "A minimum boiling azeotrope is exemplifiedby",
+          "options": [
+            "A. toluene-benzene",
+            "B. acetone-carbon disulfide",
+            "C. water-isobutyl alcohol",
+            "D.  none of these"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 126
+        },
+        {
+          "text": "The critical radius 'r' of insulation on a pipe is given\r\nby",
+          "options": [
+            "A. r = 2k/h",
+            "B. r = k/2h",
+            "C. k/h",
+            "D. h/k"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 19
+        },
+        {
+          "text": "The optimum moisture content in solids tobe crushed/ground ranges from\r\npercent.",
+          "options": [
+            "A. 3 to 4",
+            "B.  10 to 15",
+            "C. 8 to 10",
+            "D. 15 to 20"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 40
+        },
+        {
+          "text": "4500 kg/h of a 10% wt sugar solution is\r\nto be concentrated to 30% wt using\r\nsingle effect evaporator. Feed enters\r\nat 21°C. Saturated steam at 110°C is\r\navailable and the temperature in the\r\ncondenser is 43°C. Specific heat of the\r\nsolutions may be taken as constant at\r\n4 J/g-°C. The over-all heat transfer\r\ncoefficient is 2840 W/m2-°C. What is the steam economy?",
+          "options": [
+            "A.  0.82",
+            "B. 0.88",
+            "C. 0.90",
+            "D. 0.92"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 10
+        },
+        {
+          "text": "A homogeneous liquid phase reaction, A →R; -r= kCa^2 takesplace with 50% conversion in a well-mixed reactor operatingisothermally. What will be the conversion if the reactor is replaced bya plug flow type of equal size — all else remaining the same?",
+          "options": [
+            "A. 10%",
+            "B.  50%",
+            "C. 20%",
+            "D.  67%"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 64
+        },
+        {
+          "text": "Acetone is recovered from an acetone-air mixture\r\ncontaining 25% (volume) acetone by scrubbing with water.\r\nAssuming that air is insoluble in water, determine the percent\r\nof acetone in the entering gas that is absorbed if the gas\r\nleaving the scrubber analyzes 5% acetone.",
+          "options": [
+            "A. 96%",
+            "B. 84%",
+            "C. 65%",
+            "D.  73%"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 17
+        }
+      ],
+      "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1793370263184762",
+      "name": "D3_S14",
+      "created_at": "2026-10-30T14:24:23",
+      "composition": {
+        "D3_L15_Engineering_Mechanics": 4,
+        "D3_L9_CPI": 4,
+        "D3_L2_Process_Control_Analysis": 4,
+        "D3_L6_AnalyticGeometry": 2,
+        "D3_L11_Differential_Equations": 4,
+        "D3_L10_ProcessSafety": 6,
+        "D3_L14_Physics": 4,
+        "D3_L13_EngineeringDataAnalysis": 5,
+        "D3_L8_Integral_Calculus": 4,
+        "D3_L1_ChE_Laws": 4,
+        "D3_L7_Differential_Calculus": 4,
+        "D3_L12_EngineeringEconomics": 5
+      },
+      "questions": [
+        {
+          "text": "Three forces of 20N, 30N and 40N are in equilibrium (they form a closed force triangle). Find the angle between the 30N and 40N force vectors.",
+          "options": [
+            "A. 28.96°",
+            "B. 40°",
+            "C. 25.97°",
+            "D. 30°15'25\""
+          ],
+          "correct": 0,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 2
+        },
+        {
+          "text": "Which of the following mentioned is a source of H2 to produce ammonia by Haber's process?",
+          "options": [
+            "A. Producer gas",
+            "B. Synthesis gas",
+            "C. Water gas",
+            "D. None of the mentioned"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 48
+        },
+        {
+          "text": "A liquid with a composition c1(t) enters one end of a plug-flow pipe. The pipe has a volume V = 0.5 m³ and the volumetric flow rate is q = 0.1 m³/min (constant). The velocity profile is flat (turbulent flow, no axial mixing). What is the transfer function C2'(s)/C1'(s) relating outlet to inlet composition, and what is c2(t) if c1(t) is a unit step starting at t = 0?",
+          "options": [
+            "A. C2'(s)/C1'(s) = 1/(5s+1); c2(t) = 1 − e^(−t/5)",
+            "B. C2'(s)/C1'(s) = e^(−5s); c2(t) = 0 for t < 5, c2(t) = 1 for t ≥ 5",
+            "C. C2'(s)/C1'(s) = 5s; c2(t) is the derivative of the inlet step",
+            "D. C2'(s)/C1'(s) = e^(+5s); c2(t) predicts the inlet composition 5 min in advance"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 45
+        },
+        {
+          "text": "Find the angle between the lines 3x + 2y = 6 and x + y = 6.",
+          "options": [
+            "A. 12u00b0 20u2019",
+            "B. 11u00b0 19u2019",
+            "C. 14u00b0 25u2019",
+            "D. 13u00b0 06u2019"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 22
+        },
+        {
+          "text": "Which of the following equations is a variable separable DE?",
+          "options": [
+            "A. (x + x²y)dy = (2x + xy²)dx",
+            "B. (x + y)dx – 2ydy = 0",
+            "C. 2ydx = (x² + 1)dy",
+            "D. y²dx + (2x – 3y)dy = 0"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 7
+        },
+        {
+          "text": "A small but persistent drip from a flange on a non-critical cooling water line has been known for weeks. The maintenance team is busy and an operator decides it can wait until the next planned shutdown. What safety concern does this raise?",
+          "options": [
+            "A. Cooling water leaks are relatively safe and can be deferred",
+            "B. The leak could indicate flange degradation and should be formally reported",
+            "C. The leak becomes a concern if it worsens/affects operations",
+            "D. Since it is cooling water, there is no loss of containment of hazardous chemicals"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 41
+        },
+        {
+          "text": "An advertisement claims that a certain 1200 kg car can accelerate from rest to a speed of 25 m/s in a time of 8.0 s. What average power must the motor produce to cause this acceleration?",
+          "options": [
+            "A. 52.3 hp",
+            "B. 48.6 hp",
+            "C. 62.8 hp",
+            "D. 70.2 hp"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 11
+        },
+        {
+          "text": "The escape speed at the surface of Earth is approximately 11 km/s. What is the mass, in units of Earth's mass, of a planet with twice the radius of Earth for which the escape speed is twice that for Earth?",
+          "options": [
+            "A. 2",
+            "B. 4",
+            "C. 8",
+            "D. ½"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 67
+        },
+        {
+          "text": "A food inspector examined a random sample of 7 cans of a certain brand of tuna to determine the percent of foreign impurities. The following data were recorded: 1.8, 2.1, 1.7, 1.6, 0.9, 2.7, and 1.8. Compute the sample mean.",
+          "options": [
+            "A. 1.5",
+            "B. 1.8",
+            "C. 1.6",
+            "D. 2.0"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 53
+        },
+        {
+          "text": "Find the moment of inertia of the area bounded by the curve x²=4y, the line y=1, and the y-axis on the first quadrant with respect to the y-axis.",
+          "options": [
+            "A. 1.07",
+            "B. 1.70",
+            "C. 1.10",
+            "D. 1.01"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 36
+        },
+        {
+          "text": "Consider the third-order differential equation: y''' + 4y'' − 5y' + y = 0. Write the system in matrix form.",
+          "options": [
+            "A. Y' = [[1,0,0],[0,1,0],[2,-5,4]] Y",
+            "B. Y' = [[0,1,0],[0,0,1],[2,-5,4]] Y",
+            "C. Y' = [[0,1,0],[0,0,1],[-1,5,-4]] Y",
+            "D. Y' = [[1,0,0],[0,1,0],[1,5,-4]] Y"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 51
+        },
+        {
+          "text": "The parabolic reflector of an automobile headlight is 12 cm in diameter and 4 cm in depth. What is the surface area in cm²?",
+          "options": [
+            "A. 153.94",
+            "B. 135.97",
+            "C. 127.82",
+            "D. 156.35"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 41
+        },
+        {
+          "text": "A 6.0 kg box is at rest on a table. The static friction coefficient between the box and table is 0.40 and the kinetic friction coefficient is 0.20. A 30N horizontal force is applied to the box. What is the best estimate of the magnitude of the box's acceleration?",
+          "options": [
+            "A. 1 m/s²",
+            "B. 2 m/s²",
+            "C. 3 m/s²",
+            "D. 4 m/s²"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 17
+        },
+        {
+          "text": "What kind of certificate should one obtain in order to prove that helshe complies with the standard clean air act?",
+          "options": [
+            "A. certificate of graduation",
+            "B. certificate of conformity",
+            "C. certificate of clean air act",
+            "D. certificate of participation"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 100
+        },
+        {
+          "text": "Given the ODE 3 dy/dx + 6y = 9 with initial condition y(0) = 2, what is the dt correct Laplace-domain expression?",
+          "options": [
+            "A. 3sY(s) + 6Y(s) = 9/s",
+            "B. 3(sY(s) - 2) + 6Y(s) = 9/s",
+            "C. 3sY(s) - 2 + 6Y(s) = 9",
+            "D. 3(sY(s) - 2) + 6Y(s) = 9s"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 14
+        },
+        {
+          "text": "Which promoter used in the platinum catalyst in production of nitric acid?",
+          "options": [
+            "A. Alkali promoter",
+            "B. Rh promoter",
+            "C. Metallic compounds promoter",
+            "D. Arsenic promoter"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 53
+        },
+        {
+          "text": "[Situation 1: f(x) = x³/9 - 3x] What is the relative maximum point of the function?",
+          "options": [
+            "A. (-3, -6)",
+            "B. (3, -6)",
+            "C. (-3, 6)",
+            "D. (3, 6)"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 36
+        },
+        {
+          "text": "Determine the ordinary simple interest on P5000 for 9 months and 10 days if the rate of interest is 12%.",
+          "options": [
+            "A. P466.67",
+            "B. P500.00",
+            "C. P450.00",
+            "D. P480.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 29
+        },
+        {
+          "text": "An explosion occurring within a vessel or building",
+          "options": [
+            "A. Confined Explosion",
+            "B. BLEVE",
+            "C. Unconfined Explosion",
+            "D. None of above"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 49
+        },
+        {
+          "text": "When a valve is installed in a process with where the differential pressure (drop) across the valve decreases with increasing flow; the best trim characteristic for the valve is:",
+          "options": [
+            "A. Ported",
+            "B. Equal percentage",
+            "C. Quick-opening",
+            "D. Linear"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 30
+        },
+        {
+          "text": "The MIE depends on",
+          "options": [
+            "A. the specific mixture",
+            "B. the concentration",
+            "C. pressure and temperature",
+            "D. all of above"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 46
+        },
+        {
+          "text": "Which two major industrial chemicals saw new commercial production processes in 1960 via the Wacker and SOHIO processes, respectively?",
+          "options": [
+            "A. Acetaldehyde and Acrylonitrile",
+            "B. Acetic acid and Methanol",
+            "C. LDPE and HDPE",
+            "D. Ethanol and Benzene"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 22
+        },
+        {
+          "text": "In which process of ammonia production higher amount of conversion can be obtained?",
+          "options": [
+            "A. Claude process",
+            "B. Haber",
+            "C. Casale",
+            "D. Kellogg"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 49
+        },
+        {
+          "text": "The fundamental frequency of an open-end organ pipe is 392 Hz. The third harmonic of a closed-end organ pipe has the same frequency. The speed of sound in air is 346 m/s. Determine the length of the open-end pipe.",
+          "options": [
+            "A. 11.13 cm",
+            "B. 22.07 cm",
+            "C. 44.13 cm",
+            "D. 88.27 cm"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 24
+        },
+        {
+          "text": "What does the \"Plan-Do-Check-Act\" (PDCA) cycle represent in an SMS?",
+          "options": [
+            "A. A method for implementing safety protocols",
+            "B. A continuous improvement process for safety management",
+            "C. A training module for employees",
+            "D. A one-time evaluation of safety performance"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 65
+        },
+        {
+          "text": "Integrate: e^(y⁴)·4y³ dy",
+          "options": [
+            "A. 4y·e^(y⁴) + c",
+            "B. e^(y⁴) + 4y + c",
+            "C. e^(y⁴) + y³ + c",
+            "D. e^(y⁴) + c"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 4
+        },
+        {
+          "text": "The exact simple interest of P5000 invested from June 21, 1995 to December 25, 1995 is P100. What is the rate of interest?",
+          "options": [
+            "A. 3.90%",
+            "B. 4.00%",
+            "C. 3.50%",
+            "D. 4.20%"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 33
+        },
+        {
+          "text": "A step test yields a process reaction curve for an FOPTD model. Using the slopeintercept (tangent line) method, it is found that the tangent drawn at the inflection point crosses the baseline (y = 0) at t = 3.5 min and crosses the y/KM = 1 line at t = 11.5 min. Additionally, the output's final steady-state change is 6 units in response to a step of magnitude M = 2. What are θ, τ, and K?",
+          "options": [
+            "A. θ = 11.5 min, τ = 3.5 min, K = 3",
+            "B. θ = 3.5 min, τ = 8.0 min, K = 3",
+            "C. θ = 3.5 min, τ = 8.0 min, K = 12",
+            "D. θ = 8.0 min, τ = 3.5 min, K = 3"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 25
+        },
+        {
+          "text": "Evaluate the general solution of the differential equation: x²y'' + 9xy' + 16y = 0",
+          "options": [
+            "A. y = x^8(C1 + C2 ln x)",
+            "B. y = x^6(C1 + C2 ln x)",
+            "C. y = x^4(C1 + C2 ln x)",
+            "D. y = x^2(C1 + C2 ln x)"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 33
+        },
+        {
+          "text": "An emergency kit should include the following except:",
+          "options": [
+            "A. Non-perishable foods",
+            "B. Electric can opener",
+            "C. Water",
+            "D. Flashlight"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 101
+        },
+        {
+          "text": "What government agency supervises the Bureau of Patents, Trademarks and Technology transfer",
+          "options": [
+            "A. DOST",
+            "B. DSWD",
+            "C. DTI",
+            "D. DPWH"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 38
+        },
+        {
+          "text": "This depreciation method applies a constant rate, twice the straight-line rate, to the declining book value of the asset each year: BVn = C0(1 − 2/L)^n.",
+          "options": [
+            "A. Sinking Fund Method",
+            "B. Double Declining Balance Method",
+            "C. Straight Line Method",
+            "D. Sum-of-the-Years'-Digits Method"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 26
+        },
+        {
+          "text": "Find the total capacitance for three capacitors connected in series, given their individual capacitances are 1, 5 and 8 μF.",
+          "options": [
+            "A. 0.667 μF",
+            "B. 0.755 μF",
+            "C. 0.845 μF",
+            "D. 0.903 μF"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
           "_source_index": 56
+        },
+        {
+          "text": "Protection of utility model is for a period of",
+          "options": [
+            "A. 15 years",
+            "B. 5 years and renewed for two 5 years",
+            "C. 7 years, after the filing of application and paid filing fee",
+            "D. none of these"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 64
+        },
+        {
+          "text": "Which sampling method ensures representation from each subgroup within the population?",
+          "options": [
+            "A. Simple random sampling",
+            "B. Systematic sampling",
+            "C. Stratified sampling",
+            "D. Cluster sampling"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 63
+        },
+        {
+          "text": "Evaluate: lim(m→∞) (1 + r/m)^m",
+          "options": [
+            "A. e",
+            "B. e^r",
+            "C. e^(-r)",
+            "D. e^(1/r)"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 6
+        },
+        {
+          "text": "In a class of 28 students, the teacher selects four people at random to participate in a geography contest. What is the probability that this group of four students includes at least two of the top three geography students in the class? Express your answer as a common fraction.",
+          "options": [
+            "A. 37/819",
+            "B. 73/918",
+            "C. 73/819",
+            "D. 37/918"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 37
+        },
+        {
+          "text": "Evaluate the general solution of the differential equation: (x²D² + xD + 4)y = 0",
+          "options": [
+            "A. y = C1 sin(2 ln x) + C2 cos(2 ln x)",
+            "B. y = C1 sin(ln x) + C2 cos(ln x)",
+            "C. y = C1 sin(ln 2x) + C2 cos(ln 2x)",
+            "D. y = C1 sin 2x + C2 cos 2x"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 34
+        },
+        {
+          "text": "This international agreement aims to protect the earth' stratospheric ozone layer from ozone depleting substances:",
+          "options": [
+            "A. Madrid Protocol",
+            "B. Kyoto Protocol",
+            "C. Montreal Protocol",
+            "D. Paris Convention"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 79
+        },
+        {
+          "text": "Find the derivative with respect to x of e^(cos x)",
+          "options": [
+            "A. e^(cos x)·sin(x)",
+            "B. e^(cos x)·cos(x)",
+            "C. -e^(cos x)·sin(x)",
+            "D. -e^(cos x)·cos(x)"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 16
+        },
+        {
+          "text": "Persons A, B, C and D sit in four seats 1, 2, 3, 4 in this order. How many sitting arrangements are there in which none of the four persons sits in his original chair?",
+          "options": [
+            "A. 7",
+            "B. 8",
+            "C. 9",
+            "D. 10"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 17
+        },
+        {
+          "text": "Determine the area under the parametric curve x=6(θ-sinθ), y=6(1-cosθ), for 0≤θ≤2π.",
+          "options": [
+            "A. 100pi",
+            "B. 108pi",
+            "C. 116pi",
+            "D. 124pi"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 29
+        },
+        {
+          "text": "Which of the following is a reactive safety measure in SMS?",
+          "options": [
+            "A. Conducting safety training",
+            "B. Investigating incidents after they occur",
+            "C. Performing regular safety inspections",
+            "D. Identifying potential hazards"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 79
+        },
+        {
+          "text": "A load of 100 lbs is hung from the middle of a rope which is stretched between two rigid walls 30 ft apart. Due to the load, the rope sags 4 ft in the middle. Determine the tension in the rope.",
+          "options": [
+            "A. 165 lbs",
+            "B. 173 lbs",
+            "C. 194 lbs",
+            "D. 149 lbs"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 6
+        },
+        {
+          "text": "What annuity is required over 12 years to equate with a future amount of P20000? Assume i = 6% annually.",
+          "options": [
+            "A. P1185.44",
+            "B. P1200.00",
+            "C. P1150.00",
+            "D. P1220.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 45
+        },
+        {
+          "text": "A detective figures that he has a one in nine chance of recovering stolen property. His out-of-pocket expenses for the investigation are $9,000. If he is paid his fee only if he recovers the stolen property, what should he charge clients to break even?",
+          "options": [
+            "A. $108,000",
+            "B. $90,000",
+            "C. $81,000",
+            "D. $117,000"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 43
+        },
+        {
+          "text": "The monthly demand for ice cans being manufactured by Mr. Camus is 3200 pieces. With a manual operated guillotine, the unit cutting cost is P25.00. An electrically operated hydraulic guillotine was offered to Mr. Camus at a price of P275,000.00 and which cuts the unit cutting cost by 30%. Disregarding the cost of money, how many months will Mr. Camus be able to recover the cost of the machine if he decides to buy now?",
+          "options": [
+            "A. 10",
+            "B. 11",
+            "C. 12",
+            "D. 13"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 78
+        },
+        {
+          "text": "Compute the magnetic field at a point a distance of 0.05 m from a long straight wire carrying a current of 2 A.",
+          "options": [
+            "A. 2 uT",
+            "B. 4 uT",
+            "C. 6 uT",
+            "D. 8 uT"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 59
+        },
+        {
+          "text": "Given the equation of the parabola: y^2 u2013 8x u2013 4y u2013 20 = 0. The length of its latus rectum is:",
+          "options": [
+            "A. 2",
+            "B. 4",
+            "C. 6",
+            "D. 8"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 30
+        },
+        {
+          "text": "A machine is rolling a metal cylinder under pressure. The radius of the cylinder is decreasing at the rate of 0.05 cm per second and the volume V is 128pi cu.cm. At what rate is the length 'h' changing when the radius is 2.5 cm?",
+          "options": [
+            "A. 0.8192 cm/sec",
+            "B. 0.7652 cm/sec",
+            "C. 0.6178 cm/sec",
+            "D. 0.5214 cm/sec"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 70
         }
       ],
       "exam_id": "1790584132394843"
@@ -135488,7 +136109,8 @@
       ],
       "updated_at": "2026-10-30T14:22:59",
       "concept_id": "1792311851589860",
-      "tag_at": "2026-10-30T14:22:59"
+      "tag_at": "2026-10-30T14:22:59",
+      "note_at": ""
     },
     {
       "id": "1793370177692983",
@@ -135510,7 +136132,8 @@
       ],
       "updated_at": "2026-10-30T14:22:59",
       "concept_id": "1792307192342152",
-      "tag_at": "2026-10-30T14:22:59"
+      "tag_at": "2026-10-30T14:22:59",
+      "note_at": ""
     },
     {
       "id": "179337017780123",
@@ -135532,7 +136155,8 @@
       ],
       "updated_at": "2026-10-30T14:22:59",
       "concept_id": "1792321149650591",
-      "tag_at": "2026-10-30T14:22:59"
+      "tag_at": "2026-10-30T14:22:59",
+      "note_at": ""
     },
     {
       "id": "1793370177910964",
@@ -135554,7 +136178,8 @@
       ],
       "updated_at": "2026-10-30T14:22:59",
       "concept_id": "1792321206714282",
-      "tag_at": "2026-10-30T14:22:59"
+      "tag_at": "2026-10-30T14:22:59",
+      "note_at": ""
     },
     {
       "id": "1793370178011478",
@@ -135576,7 +136201,8 @@
       ],
       "updated_at": "2026-10-30T14:23:00",
       "concept_id": "1792321292394767",
-      "tag_at": "2026-10-30T14:23:00"
+      "tag_at": "2026-10-30T14:23:00",
+      "note_at": ""
     },
     {
       "id": "1793370178117301",
@@ -135598,7 +136224,8 @@
       ],
       "updated_at": "2026-10-30T14:23:00",
       "concept_id": "1792311155293548",
-      "tag_at": "2026-10-30T14:23:00"
+      "tag_at": "2026-10-30T14:23:00",
+      "note_at": ""
     },
     {
       "id": "1793370178208188",
@@ -135620,7 +136247,8 @@
       ],
       "updated_at": "2026-10-30T14:23:00",
       "concept_id": "1792309396390761",
-      "tag_at": "2026-10-30T14:23:00"
+      "tag_at": "2026-10-30T14:23:00",
+      "note_at": ""
     },
     {
       "id": "1793370178309954",
@@ -135642,7 +136270,8 @@
       ],
       "updated_at": "2026-10-30T14:23:00",
       "concept_id": "1792311424189512",
-      "tag_at": "2026-10-30T14:23:00"
+      "tag_at": "2026-10-30T14:23:00",
+      "note_at": ""
     },
     {
       "id": "1793370178409155",
@@ -135664,7 +136293,8 @@
       ],
       "updated_at": "2026-10-30T14:23:00",
       "concept_id": "1792309396390761",
-      "tag_at": "2026-10-30T14:23:00"
+      "tag_at": "2026-10-30T14:23:00",
+      "note_at": ""
     },
     {
       "id": "1793370178506786",
@@ -135686,7 +136316,8 @@
       ],
       "updated_at": "2026-10-30T14:23:00",
       "concept_id": "1792311344109127",
-      "tag_at": "2026-10-30T14:23:00"
+      "tag_at": "2026-10-30T14:23:00",
+      "note_at": ""
     },
     {
       "id": "1793370178610321",
@@ -135708,7 +136339,8 @@
       ],
       "updated_at": "2026-10-30T14:23:00",
       "concept_id": "17923214786028",
-      "tag_at": "2026-10-30T14:23:00"
+      "tag_at": "2026-10-30T14:23:00",
+      "note_at": ""
     },
     {
       "id": "1793370178702899",
@@ -135730,7 +136362,8 @@
       ],
       "updated_at": "2026-10-30T14:23:00",
       "concept_id": "179232221653083",
-      "tag_at": "2026-10-30T14:23:00"
+      "tag_at": "2026-10-30T14:23:00",
+      "note_at": ""
     },
     {
       "id": "179337017880262",
@@ -135752,7 +136385,8 @@
       ],
       "updated_at": "2026-10-30T14:23:00",
       "concept_id": "1792308820694471",
-      "tag_at": "2026-10-30T14:23:00"
+      "tag_at": "2026-10-30T14:23:00",
+      "note_at": ""
     },
     {
       "id": "1793370178900116",
@@ -135774,7 +136408,8 @@
       ],
       "updated_at": "2026-10-30T14:23:01",
       "concept_id": "1792311155293548",
-      "tag_at": "2026-10-30T14:23:01"
+      "tag_at": "2026-10-30T14:23:01",
+      "note_at": ""
     },
     {
       "id": "1793370179008852",
@@ -135796,7 +136431,8 @@
       ],
       "updated_at": "2026-10-30T14:23:01",
       "concept_id": "179232221653083",
-      "tag_at": "2026-10-30T14:23:01"
+      "tag_at": "2026-10-30T14:23:01",
+      "note_at": ""
     },
     {
       "id": "1793370179115629",
@@ -135818,7 +136454,8 @@
       ],
       "updated_at": "2026-10-30T14:23:01",
       "concept_id": "1792321082715344",
-      "tag_at": "2026-10-30T14:23:01"
+      "tag_at": "2026-10-30T14:23:01",
+      "note_at": ""
     },
     {
       "id": "1793370179207153",
@@ -135840,7 +136477,8 @@
       ],
       "updated_at": "2026-10-30T14:23:01",
       "concept_id": "1792860767807909",
-      "tag_at": "2026-10-30T14:23:01"
+      "tag_at": "2026-10-30T14:23:01",
+      "note_at": ""
     },
     {
       "id": "1793370179310130",
@@ -135862,7 +136500,8 @@
       ],
       "updated_at": "2026-10-30T14:23:01",
       "concept_id": "1792311155293548",
-      "tag_at": "2026-10-30T14:23:01"
+      "tag_at": "2026-10-30T14:23:01",
+      "note_at": ""
     },
     {
       "id": "1793370179411841",
@@ -135884,7 +136523,8 @@
       ],
       "updated_at": "2026-10-30T14:23:01",
       "concept_id": "1792309223198176",
-      "tag_at": "2026-10-30T14:23:01"
+      "tag_at": "2026-10-30T14:23:01",
+      "note_at": ""
     },
     {
       "id": "1793370179509457",
@@ -135906,7 +136546,8 @@
       ],
       "updated_at": "2026-10-30T14:23:01",
       "concept_id": "1792309349198633",
-      "tag_at": "2026-10-30T14:23:01"
+      "tag_at": "2026-10-30T14:23:01",
+      "note_at": ""
     },
     {
       "id": "1793370179611852",
@@ -135928,7 +136569,8 @@
       ],
       "updated_at": "2026-10-30T14:23:01",
       "concept_id": "1792322448466809",
-      "tag_at": "2026-10-30T14:23:01"
+      "tag_at": "2026-10-30T14:23:01",
+      "note_at": ""
     }
   ],
   "guess_notes": [
@@ -141420,7 +142062,8 @@
       "1793351386525399",
       "1793355563443138",
       "1793355535242348",
-      "1793363805634900"
+      "1793363805634900",
+      "1793367938910918"
     ],
     "test_history": [
       "1793336102530407"
@@ -141457,5 +142100,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-30T14:23:14"
+  "updated_at": "2026-10-30T14:24:42"
 }
