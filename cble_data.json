@@ -55136,6 +55136,15 @@
       "pct": 42,
       "date": "2026-10-30T11:34:14",
       "time_used_seconds": 1573.5
+    },
+    {
+      "id": "1793363745811606",
+      "source": "D3_S12",
+      "score": 20,
+      "total": 50,
+      "pct": 40,
+      "date": "2026-10-30T12:35:45",
+      "time_used_seconds": 1984.9
     }
   ],
   "exam_details": [
@@ -106686,6 +106695,563 @@
           "correct_answer": "A. subcooled, superheated, mixture (0.50)"
         }
       ]
+    },
+    {
+      "exam_id": "1793363745811606",
+      "source": "D3_S12",
+      "date": "2026-10-30T12:35:45",
+      "items": [
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 136,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Enamels' purpose is which of the following?",
+          "your_answer": "A. Give good glossy finish",
+          "correct_answer": "A. Give good glossy finish"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 3,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Simplify: {x^(2/3) [x^(-1/3) y^(-1/2) (x^2 y^-2)^(-2/3)]^(1/2)}^6",
+          "your_answer": "D. y^(3/2)/x^2",
+          "correct_answer": "A. y^(5/2)/x"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 32,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "During startup of a furnace after an overnight trip, the operations team is under pressure to restore production quickly. A junior operator suggests skipping the full purge cycle due to the short downtime. What is the correct response?",
+          "your_answer": "C. Refuse as a full purge must be completed regardless of the shutdown duration",
+          "correct_answer": "C. Refuse as a full purge must be completed regardless of the shutdown duration"
+        },
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 12,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Evaluate: ∫ x²/√(1-x⁶) dx",
+          "your_answer": "A. (1/6)arcsin(x²) + c",
+          "correct_answer": "C. (1/3)arcsin(x³) + c"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 1,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "This entity shall set and enforce mandatory occupational safety and health standards to eliminate or reduce occupational safety and health hazards in all workplaces.",
+          "your_answer": "B. DOLE Department Order no. 13, s. 1998",
+          "correct_answer": "C. Republic Act no. 11058"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A system continuously adjusts set points for individual regulatory control loops based on current market prices for crude oil and refined products, running calculations every few hours to several days to determine the most economically profitable operating conditions. Which level of the control hierarchy does this describe?",
+          "your_answer": "C. Real-Time Optimization",
+          "correct_answer": "C. Real-Time Optimization"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 27,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What is the period of f(t) = 2cos(u03c0x/3 u2013 1)?",
+          "your_answer": "C. 6",
+          "correct_answer": "C. 6"
+        },
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 26,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the area bounded by the parabolas y²=4x and x²=4y.",
+          "your_answer": "B. 5.71",
+          "correct_answer": "A. 5.33"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 27,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the shortest distance from the point (1, 2) to a point on the circumference of the circle defined by the equation x^2 + y^2 + 10x + 6y + 30 = 0.",
+          "your_answer": "D. 5.91",
+          "correct_answer": "C. 5.81"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 91,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is not a policy of the clean air act?",
+          "your_answer": "D. none of the above",
+          "correct_answer": "D. none of the above"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "These are tangible things – things that you can touch – that satisfy human wants.",
+          "your_answer": "B. Goods",
+          "correct_answer": "B. Goods"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 113,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Bisphenol A is produced by the condensation of acetone with",
+          "your_answer": "D. Phenol",
+          "correct_answer": "D. Phenol"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 50,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Given the probability density function (PDF) of a continuous random variable X: fx(x) = k(1 - x²) for -1 < x < 1, and 0 otherwise. Find the value of k.",
+          "your_answer": "C. 3/4",
+          "correct_answer": "C. 3/4"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 29,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "During a routine draining operation, an operator is called away to assist with an urgent equipment alarm in another area. The drain valve is open and the tank contains hydrocarbons. What should the operator do first?",
+          "your_answer": "B. Stop the draining process before leaving the drain",
+          "correct_answer": "B. Stop the draining process before leaving the drain"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 25,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A horizontal truss spans three 10 m panels (total 30 m) between a pin support at A (far left) and a roller support at F (far right), with top-chord joints A, B, D, F and bottom-chord joints C, E. A diagonal member near B makes a 20° angle with the horizontal. A 60 kN downward load is applied at joint B and an 80 kN downward load is applied at joint D (both on the top chord). What is the force acting on member BD?",
+          "your_answer": "D. 94.56kN, tension",
+          "correct_answer": "B. 201.48kN, tension"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 11,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The limit of function f(x) as x approaches a (a is finite or else x is said to increase without bound) is the number N. This statement is termed as:",
+          "your_answer": "B. Leibniz Definition of Limit",
+          "correct_answer": "D. Epsilon-Delta Definition of Limit"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 42,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Suppose a voter poll is taken in three states. In state A, 50% of voters support the liberal candidate; in state B, 60% support the liberal candidate; and in state C, 35% support the liberal candidate. Of the total population of the three states, 40% live in state A, 25% live in state B, and 35% live in state C. Given that a voter supports the liberal candidate, what is the probability that she lives in state B?",
+          "your_answer": "C. 10/21",
+          "correct_answer": "A. 20/63"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 118,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "What is the responsibility of the local health authority sewage collection and disposal raccoediding to the Sewage Collection and Disposal section?",
+          "your_answer": "D. Supervise the construction of approved types of toilets and sewage disposal systems",
+          "correct_answer": "D. Supervise the construction of approved types of toilets and sewage disposal systems"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 88,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The first step in HACCP involves analyzing food production to identify potential hazards. Which HACCP principle does this represent?",
+          "your_answer": "A. Establish Critical Limits",
+          "correct_answer": "B. Conduct a Hazard Analysis"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 47,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "This type of control system changes multiple manipulated variables to control one output variable.",
+          "your_answer": "A. MIMO control",
+          "correct_answer": "D. Split-range control"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 26,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Evaluate the particular solution of the differential equation: y' + (4/x)y = x³y², y(2) = -1",
+          "your_answer": "C. y = -16/(x^4(1-16 ln(x/2)))",
+          "correct_answer": "D. y = -16/(x^4(1+16 ln(x/2)))"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the cgs unit of force?",
+          "your_answer": "C. Dyne",
+          "correct_answer": "C. Dyne"
+        },
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 1,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Evaluate: ∫ x²√(x³+3) dx",
+          "your_answer": "B. (1/3)(x³+3)^(2/3) + c",
+          "correct_answer": "A. (2/9)(x³+3)^(3/2) + c"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 37,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The earthu2019s orbit is an ellipse with the sun at one of the foci. If the farthest distance of the sun from the earth is 105.5 million km and the nearest distance of the sun from the earth is 78.25 million km, find the eccentricity of the ellipse.",
+          "your_answer": "B. 0.25",
+          "correct_answer": "A. 0.15"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 30,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The equation represents y = |x|, with y >= 0, represents",
+          "your_answer": "A. y as a function of x",
+          "correct_answer": "A. y as a function of x"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 20,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Evaluate the integrating factor of the differential equation: (x²y² + 2)ydx + (2 − x²y²)xdy = 0",
+          "your_answer": "B. 2x^3y^3",
+          "correct_answer": "D. 1/(2x^3y^3)"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The quantity of a certain commodity that is bought at a certain price at a given place and time.",
+          "your_answer": "B. Demand",
+          "correct_answer": "B. Demand"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 28,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A steel rod has a Young's modulus Y = 2 x 10^11 Pa and density ρ = 8000 kg/m³. Find the speed of sound in the steel. (Use v = √(Y/ρ))",
+          "your_answer": "B. 4000 m/s",
+          "correct_answer": "C. 5000 m/s"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 10,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Solve (y – √(x² + y²)) dx – x dy = 0",
+          "your_answer": "B. √(x² + y² + y) = C",
+          "correct_answer": "A. √(x² + y²) + y = C"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 47,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is an example of a discrete random variable?",
+          "your_answer": "B. The number of defective items in a batch of 50",
+          "correct_answer": "B. The number of defective items in a batch of 50"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 73,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A man 6 ft. tall is walking toward a building at the rate of 5 ft/sec. If there is a light on the ground 50 ft. from the building, how fast is the man's shadow on the building growing shorter when he is 30 ft. from the building?",
+          "your_answer": "B. -7.35 fps",
+          "correct_answer": "A. -3.75 fps"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 67,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Water is flowing into a conical cistern at the rate of 8 m³/min. If the height of the inverted cone is 12 m and the radius of its circular opening is 6 m, how fast is the water level rising when the water is 4 m deep?",
+          "your_answer": "B. 0.56 m/min",
+          "correct_answer": "A. 0.64 m/min"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 31,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A 2-kg rectangular thin plate has a length of 0.5 m and a width of 0.2 m. The axis of rotation is located at the center of the plate, perpendicular to its face. What is the moment of inertia of the rectangular plate?",
+          "your_answer": "C. 0.036 kg-m²",
+          "correct_answer": "D. 0.048 kg-m²"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 40,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find a particular solution for the differential equation: y'' − 4y' − 12y = 2t³ − t + 3",
+          "your_answer": "B. (-1/5)t³ + (1/5)t² – (1/8)t – (5/26)",
+          "correct_answer": "A. (-1/6)t³ + (1/6)t² – (1/9)t – (5/27)"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 98,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Liquefied Petroleum gas contains propane which can be cracked. Is the statement true/false?",
+          "your_answer": "A. True",
+          "correct_answer": "A. True"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 41,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "In a certain college, 4% of the men and 1% of the women are taller than 6 feet. Furthermore, 60% of the students are women. If a student is selected at random and is taller than 6 feet, what is the probability that the student is a woman?",
+          "your_answer": "D. 1/11",
+          "correct_answer": "B. 3/11"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 9,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "In a Cartesian coordinates, the vertices of a quadrilateral are: (1, 1), (0, 8), (4, 5) and (-3, 4). What is the area?",
+          "your_answer": "D. 35 sq. units",
+          "correct_answer": "C. 25 sq. units"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 53,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "An equipment is purchased for P50,000. If the annual maintenance cost is P1500, determine the capitalized cost of perpetual service with an interest rate of 6%.",
+          "your_answer": "A. P75,000",
+          "correct_answer": "A. P75,000"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 100,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "AIl motor vehicles and engines shall not be registered unless it complies with emission standards of the clean air act:",
+          "your_answer": "C. false",
+          "correct_answer": "A. true"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 16,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A process engineer is solving an ODE using Laplace transforms and reaches the following expression for the transformed output: Y(s) = (3s + 6 ) / s(2s + 6) Without performing the full inverse Laplace transform or partial fraction expansion, what is the predicted steady-state value of y(t) as t->infinity, using the Final Value Theorem?",
+          "your_answer": "B. 3",
+          "correct_answer": "C. 1"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 25,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "This depreciation method assumes the loss in value is directly proportional to the age of the property, giving equal annual depreciation charges: d = (C0 − SV)/L.",
+          "your_answer": "B. Straight Line Method",
+          "correct_answer": "B. Straight Line Method"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 4,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Two forces of 30N at 90° and 40N at 180° act at the origin. Determine the magnitude and direction of the equilibrant force (the force that balances their resultant).",
+          "your_answer": "B. 50N @ 53°",
+          "correct_answer": "C. 50N @ 323°"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 22,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A simple pendulum has a length of 1.5 m. Find its frequency of oscillation. (Use f = (1/2π)√(g/L))",
+          "your_answer": "B. 0.41 Hz",
+          "correct_answer": "B. 0.41 Hz"
+        },
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "How many diagonals does a hexacontakaimonogon have?",
+          "your_answer": "A. 1769",
+          "correct_answer": "A. 1769"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "If log_a 10 = 0.25, what is the value of log_10 a?",
+          "your_answer": "B. 4",
+          "correct_answer": "B. 4"
+        },
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 21,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the area of a quadrilateral having sides 12 m, 20 m, 8 m and 16.97 m. If the sum of the opposite angles is equal to 225u00b0, find the area of the quadrilateral.",
+          "your_answer": "D. 158 m^2",
+          "correct_answer": "C. 168 m^2"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 20,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A man whose eye is 1.5m above his sole stands on a 48.5m high building. The angle of depression of the top and foot of a nearby building are 50 and 80 degrees respectively. Find the height of the 2nd building.",
+          "your_answer": "B. 30.5m",
+          "correct_answer": "D. 39.5m"
+        },
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 5,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "If twice the sum of interior angles is equivalent to thrice the sum of exterior angles, what polygon satisfies the statement?",
+          "your_answer": "A. quadrilateral",
+          "correct_answer": "B. pentagon"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 1,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A cylinder made of platinum-iridium alloy is used to define a certain SI base unit. What is the name of this cylinder?",
+          "your_answer": "C. Standard Kilogram",
+          "correct_answer": "A. Le Grand K"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 14,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "What is the numerical value of versin 60u00b0?",
+          "your_answer": "A. 3/2",
+          "correct_answer": "B. 1/2"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -132402,6 +132968,666 @@
       "concept_id": "1792320138179303",
       "tag_at": "2026-10-30T11:34:20",
       "note_at": ""
+    },
+    {
+      "id": "1793363746082333",
+      "source_list": "D3_L3_Algebra",
+      "reference_no": 3,
+      "question": "Simplify: {x^(2/3) [x^(-1/3) y^(-1/2) (x^2 y^-2)^(-2/3)]^(1/2)}^6",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:49",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:46",
+          "your_answer": "D. y^(3/2)/x^2",
+          "correct_answer": "A. y^(5/2)/x"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:49",
+      "concept_id": "1792311174117874",
+      "tag_at": "2026-10-30T12:35:49"
+    },
+    {
+      "id": "179336374618854",
+      "source_list": "D3_L8_Integral_Calculus",
+      "reference_no": 12,
+      "question": "Evaluate: ∫ x²/√(1-x⁶) dx",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:49",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:46",
+          "your_answer": "A. (1/6)arcsin(x²) + c",
+          "correct_answer": "C. (1/3)arcsin(x³) + c"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:49",
+      "concept_id": "1792311424189512",
+      "tag_at": "2026-10-30T12:35:49"
+    },
+    {
+      "id": "1793363746284267",
+      "source_list": "D3_L10_ProcessSafety",
+      "reference_no": 1,
+      "question": "This entity shall set and enforce mandatory occupational safety and health standards to eliminate or reduce occupational safety and health hazards in all workplaces.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:49",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:46",
+          "your_answer": "B. DOLE Department Order no. 13, s. 1998",
+          "correct_answer": "C. Republic Act no. 11058"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:49",
+      "concept_id": "1792309349198633",
+      "tag_at": "2026-10-30T12:35:49"
+    },
+    {
+      "id": "1793363746382638",
+      "source_list": "D3_L8_Integral_Calculus",
+      "reference_no": 26,
+      "question": "Find the area bounded by the parabolas y²=4x and x²=4y.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:49",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:46",
+          "your_answer": "B. 5.71",
+          "correct_answer": "A. 5.33"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:49",
+      "concept_id": "1792311851589860",
+      "tag_at": "2026-10-30T12:35:49"
+    },
+    {
+      "id": "1793363746485361",
+      "source_list": "D3_L6_AnalyticGeometry",
+      "reference_no": 27,
+      "question": "Find the shortest distance from the point (1, 2) to a point on the circumference of the circle defined by the equation x^2 + y^2 + 10x + 6y + 30 = 0.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:49",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:46",
+          "your_answer": "D. 5.91",
+          "correct_answer": "C. 5.81"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:49",
+      "concept_id": "1792308607006341",
+      "tag_at": "2026-10-30T12:35:49"
+    },
+    {
+      "id": "1793363746586160",
+      "source_list": "D3_L15_Engineering_Mechanics",
+      "reference_no": 25,
+      "question": "A horizontal truss spans three 10 m panels (total 30 m) between a pin support at A (far left) and a roller support at F (far right), with top-chord joints A, B, D, F and bottom-chord joints C, E. A diagonal member near B makes a 20° angle with the horizontal. A 60 kN downward load is applied at joint B and an 80 kN downward load is applied at joint D (both on the top chord). What is the force acting on member BD?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:49",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:46",
+          "your_answer": "D. 94.56kN, tension",
+          "correct_answer": "B. 201.48kN, tension"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:49",
+      "concept_id": "1792309253134574",
+      "tag_at": "2026-10-30T12:35:49"
+    },
+    {
+      "id": "1793363746689914",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 11,
+      "question": "The limit of function f(x) as x approaches a (a is finite or else x is said to increase without bound) is the number N. This statement is termed as:",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:49",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:46",
+          "your_answer": "B. Leibniz Definition of Limit",
+          "correct_answer": "D. Epsilon-Delta Definition of Limit"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:49",
+      "concept_id": "1792321206714282",
+      "tag_at": "2026-10-30T12:35:49"
+    },
+    {
+      "id": "1793363746788239",
+      "source_list": "D3_L13_EngineeringDataAnalysis",
+      "reference_no": 42,
+      "question": "Suppose a voter poll is taken in three states. In state A, 50% of voters support the liberal candidate; in state B, 60% support the liberal candidate; and in state C, 35% support the liberal candidate. Of the total population of the three states, 40% live in state A, 25% live in state B, and 35% live in state C. Given that a voter supports the liberal candidate, what is the probability that she lives in state B?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:49",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:46",
+          "your_answer": "C. 10/21",
+          "correct_answer": "A. 20/63"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:49",
+      "concept_id": "17923214786028",
+      "tag_at": "2026-10-30T12:35:49"
+    },
+    {
+      "id": "1793363746888613",
+      "source_list": "D3_L10_ProcessSafety",
+      "reference_no": 88,
+      "question": "The first step in HACCP involves analyzing food production to identify potential hazards. Which HACCP principle does this represent?",
+      "category": "Conceptual Misunderstanding",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:49",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:46",
+          "your_answer": "A. Establish Critical Limits",
+          "correct_answer": "B. Conduct a Hazard Analysis"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:49",
+      "concept_id": "1792322398274332",
+      "tag_at": "2026-10-30T12:35:49"
+    },
+    {
+      "id": "179336374699287",
+      "source_list": "D3_L2_Process_Control_Analysis",
+      "reference_no": 47,
+      "question": "This type of control system changes multiple manipulated variables to control one output variable.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:49",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:46",
+          "your_answer": "A. MIMO control",
+          "correct_answer": "D. Split-range control"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:49",
+      "concept_id": "179232221653083",
+      "tag_at": "2026-10-30T12:35:49"
+    },
+    {
+      "id": "1793363747077588",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 26,
+      "question": "Evaluate the particular solution of the differential equation: y' + (4/x)y = x³y², y(2) = -1",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:49",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:47",
+          "your_answer": "C. y = -16/(x^4(1-16 ln(x/2)))",
+          "correct_answer": "D. y = -16/(x^4(1+16 ln(x/2)))"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:49",
+      "concept_id": "1792309187862581",
+      "tag_at": "2026-10-30T12:35:49"
+    },
+    {
+      "id": "1793363747170151",
+      "source_list": "D3_L8_Integral_Calculus",
+      "reference_no": 1,
+      "question": "Evaluate: ∫ x²√(x³+3) dx",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:50",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:47",
+          "your_answer": "B. (1/3)(x³+3)^(2/3) + c",
+          "correct_answer": "A. (2/9)(x³+3)^(3/2) + c"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:50",
+      "concept_id": "1792311424189512",
+      "tag_at": "2026-10-30T12:35:50"
+    },
+    {
+      "id": "1793363747254325",
+      "source_list": "D3_L6_AnalyticGeometry",
+      "reference_no": 37,
+      "question": "The earthu2019s orbit is an ellipse with the sun at one of the foci. If the farthest distance of the sun from the earth is 105.5 million km and the nearest distance of the sun from the earth is 78.25 million km, find the eccentricity of the ellipse.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:50",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:47",
+          "your_answer": "B. 0.25",
+          "correct_answer": "A. 0.15"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:50",
+      "concept_id": "1792321047251886",
+      "tag_at": "2026-10-30T12:35:50"
+    },
+    {
+      "id": "1793363747343999",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 20,
+      "question": "Evaluate the integrating factor of the differential equation: (x²y² + 2)ydx + (2 − x²y²)xdy = 0",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:50",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:47",
+          "your_answer": "B. 2x^3y^3",
+          "correct_answer": "D. 1/(2x^3y^3)"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:50",
+      "concept_id": "1792308635686195",
+      "tag_at": "2026-10-30T12:35:50"
+    },
+    {
+      "id": "1793363747434674",
+      "source_list": "D3_L14_Physics",
+      "reference_no": 28,
+      "question": "A steel rod has a Young's modulus Y = 2 x 10^11 Pa and density ρ = 8000 kg/m³. Find the speed of sound in the steel. (Use v = √(Y/ρ))",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:50",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:47",
+          "your_answer": "B. 4000 m/s",
+          "correct_answer": "C. 5000 m/s"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:50",
+      "concept_id": "1792321010674764",
+      "tag_at": "2026-10-30T12:35:50"
+    },
+    {
+      "id": "1793363747535194",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 10,
+      "question": "Solve (y – √(x² + y²)) dx – x dy = 0",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:50",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:47",
+          "your_answer": "B. √(x² + y² + y) = C",
+          "correct_answer": "A. √(x² + y²) + y = C"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:50",
+      "concept_id": "1792309187862581",
+      "tag_at": "2026-10-30T12:35:50"
+    },
+    {
+      "id": "1793363747638620",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 73,
+      "question": "A man 6 ft. tall is walking toward a building at the rate of 5 ft/sec. If there is a light on the ground 50 ft. from the building, how fast is the man's shadow on the building growing shorter when he is 30 ft. from the building?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:50",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:47",
+          "your_answer": "B. -7.35 fps",
+          "correct_answer": "A. -3.75 fps"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:50",
+      "concept_id": "1792309283782918",
+      "tag_at": "2026-10-30T12:35:50"
+    },
+    {
+      "id": "179336374772929",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 67,
+      "question": "Water is flowing into a conical cistern at the rate of 8 m³/min. If the height of the inverted cone is 12 m and the radius of its circular opening is 6 m, how fast is the water level rising when the water is 4 m deep?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:50",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:47",
+          "your_answer": "B. 0.56 m/min",
+          "correct_answer": "A. 0.64 m/min"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:50",
+      "concept_id": "1792309283782918",
+      "tag_at": "2026-10-30T12:35:50"
+    },
+    {
+      "id": "1793363747828864",
+      "source_list": "D3_L15_Engineering_Mechanics",
+      "reference_no": 31,
+      "question": "A 2-kg rectangular thin plate has a length of 0.5 m and a width of 0.2 m. The axis of rotation is located at the center of the plate, perpendicular to its face. What is the moment of inertia of the rectangular plate?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:50",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:47",
+          "your_answer": "C. 0.036 kg-m²",
+          "correct_answer": "D. 0.048 kg-m²"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:50",
+      "concept_id": "1792705996608796",
+      "tag_at": "2026-10-30T12:35:50"
+    },
+    {
+      "id": "1793363747926816",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 40,
+      "question": "Find a particular solution for the differential equation: y'' − 4y' − 12y = 2t³ − t + 3",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:50",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:47",
+          "your_answer": "B. (-1/5)t³ + (1/5)t² – (1/8)t – (5/26)",
+          "correct_answer": "A. (-1/6)t³ + (1/6)t² – (1/9)t – (5/27)"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:50",
+      "concept_id": "1792309187862581",
+      "tag_at": "2026-10-30T12:35:50"
+    },
+    {
+      "id": "1793363748027462",
+      "source_list": "D3_L13_EngineeringDataAnalysis",
+      "reference_no": 41,
+      "question": "In a certain college, 4% of the men and 1% of the women are taller than 6 feet. Furthermore, 60% of the students are women. If a student is selected at random and is taller than 6 feet, what is the probability that the student is a woman?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:50",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:48",
+          "your_answer": "D. 1/11",
+          "correct_answer": "B. 3/11"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:50",
+      "concept_id": "17923214786028",
+      "tag_at": "2026-10-30T12:35:50"
+    },
+    {
+      "id": "1793363748127288",
+      "source_list": "D3_L6_AnalyticGeometry",
+      "reference_no": 9,
+      "question": "In a Cartesian coordinates, the vertices of a quadrilateral are: (1, 1), (0, 8), (4, 5) and (-3, 4). What is the area?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:51",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:48",
+          "your_answer": "D. 35 sq. units",
+          "correct_answer": "C. 25 sq. units"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:51",
+      "concept_id": "1792311851589860",
+      "tag_at": "2026-10-30T12:35:51"
+    },
+    {
+      "id": "1793363748233413",
+      "source_list": "D3_L1_ChE_Laws",
+      "reference_no": 100,
+      "question": "AIl motor vehicles and engines shall not be registered unless it complies with emission standards of the clean air act:",
+      "category": "Misread the Question",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:51",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:48",
+          "your_answer": "C. false",
+          "correct_answer": "A. true"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:51",
+      "concept_id": "1792309349198633",
+      "tag_at": "2026-10-30T12:35:51"
+    },
+    {
+      "id": "1793363748339607",
+      "source_list": "D3_L2_Process_Control_Analysis",
+      "reference_no": 16,
+      "question": "A process engineer is solving an ODE using Laplace transforms and reaches the following expression for the transformed output: Y(s) = (3s + 6 ) / s(2s + 6) Without performing the full inverse Laplace transform or partial fraction expansion, what is the predicted steady-state value of y(t) as t->infinity, using the Final Value Theorem?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:51",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:48",
+          "your_answer": "B. 3",
+          "correct_answer": "C. 1"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:51",
+      "concept_id": "179231194895735",
+      "tag_at": "2026-10-30T12:35:51"
+    },
+    {
+      "id": "1793363748431783",
+      "source_list": "D3_L15_Engineering_Mechanics",
+      "reference_no": 4,
+      "question": "Two forces of 30N at 90° and 40N at 180° act at the origin. Determine the magnitude and direction of the equilibrant force (the force that balances their resultant).",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:51",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:48",
+          "your_answer": "B. 50N @ 53°",
+          "correct_answer": "C. 50N @ 323°"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:51",
+      "concept_id": "1792321082715344",
+      "tag_at": "2026-10-30T12:35:51"
+    },
+    {
+      "id": "1793363748528878",
+      "source_list": "D3_L5_Geometry",
+      "reference_no": 21,
+      "question": "Find the area of a quadrilateral having sides 12 m, 20 m, 8 m and 16.97 m. If the sum of the opposite angles is equal to 225u00b0, find the area of the quadrilateral.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:51",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:48",
+          "your_answer": "D. 158 m^2",
+          "correct_answer": "C. 168 m^2"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:51",
+      "concept_id": "1792311851589860",
+      "tag_at": "2026-10-30T12:35:51"
+    },
+    {
+      "id": "1793363748619341",
+      "source_list": "D3_L4_Trigonometry",
+      "reference_no": 20,
+      "question": "A man whose eye is 1.5m above his sole stands on a 48.5m high building. The angle of depression of the top and foot of a nearby building are 50 and 80 degrees respectively. Find the height of the 2nd building.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:51",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:48",
+          "your_answer": "B. 30.5m",
+          "correct_answer": "D. 39.5m"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:51",
+      "concept_id": "1792311136853274",
+      "tag_at": "2026-10-30T12:35:51"
+    },
+    {
+      "id": "1793363748712295",
+      "source_list": "D3_L5_Geometry",
+      "reference_no": 5,
+      "question": "If twice the sum of interior angles is equivalent to thrice the sum of exterior angles, what polygon satisfies the statement?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:51",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:48",
+          "your_answer": "A. quadrilateral",
+          "correct_answer": "B. pentagon"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:51",
+      "concept_id": "1792308984782665",
+      "tag_at": "2026-10-30T12:35:51"
+    },
+    {
+      "id": "1793363748805165",
+      "source_list": "D3_L14_Physics",
+      "reference_no": 1,
+      "question": "A cylinder made of platinum-iridium alloy is used to define a certain SI base unit. What is the name of this cylinder?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:51",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:48",
+          "your_answer": "C. Standard Kilogram",
+          "correct_answer": "A. Le Grand K"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:51",
+      "concept_id": "1792322077010354",
+      "tag_at": "2026-10-30T12:35:51"
+    },
+    {
+      "id": "1793363748892507",
+      "source_list": "D3_L4_Trigonometry",
+      "reference_no": 14,
+      "question": "What is the numerical value of versin 60u00b0?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T12:35:51",
+      "occurrences": [
+        {
+          "exam_id": "1793363745811606",
+          "exam_source": "D3_S12",
+          "date": "2026-10-30T12:35:48",
+          "your_answer": "A. 3/2",
+          "correct_answer": "B. 1/2"
+        }
+      ],
+      "updated_at": "2026-10-30T12:35:51",
+      "concept_id": "1792311344109127",
+      "tag_at": "2026-10-30T12:35:51"
     }
   ],
   "guess_notes": [
@@ -137667,6 +138893,66 @@
       "category": "Unfamiliar Topic",
       "concept_id": "1792307225926418",
       "updated_at": "2026-10-30T11:34:20"
+    },
+    {
+      "id": "1793363749289623",
+      "source_list": "D3_L4_Trigonometry",
+      "reference_no": 27,
+      "resolved": false,
+      "created_at": "2026-10-30T12:35:49",
+      "question": "What is the period of f(t) = 2cos(u03c0x/3 u2013 1)?",
+      "correct_answer": "C. 6",
+      "kind": "guess",
+      "exam_id": "1793363745811606",
+      "exam_source": "D3_S12",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792311344109127",
+      "updated_at": "2026-10-30T12:35:49"
+    },
+    {
+      "id": "1793363749480288",
+      "source_list": "D3_L13_EngineeringDataAnalysis",
+      "reference_no": 50,
+      "resolved": false,
+      "created_at": "2026-10-30T12:35:49",
+      "question": "Given the probability density function (PDF) of a continuous random variable X: fx(x) = k(1 - x²) for -1 < x < 1, and 0 otherwise. Find the value of k.",
+      "correct_answer": "C. 3/4",
+      "kind": "guess",
+      "exam_id": "1793363745811606",
+      "exam_source": "D3_S12",
+      "category": "Unfamiliar Topic",
+      "concept_id": "17923214786028",
+      "updated_at": "2026-10-30T12:35:49"
+    },
+    {
+      "id": "1793363751437748",
+      "source_list": "D3_L5_Geometry",
+      "reference_no": 8,
+      "resolved": false,
+      "created_at": "2026-10-30T12:35:51",
+      "question": "How many diagonals does a hexacontakaimonogon have?",
+      "correct_answer": "A. 1769",
+      "kind": "guess",
+      "exam_id": "1793363745811606",
+      "exam_source": "D3_S12",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792308984782665",
+      "updated_at": "2026-10-30T12:35:51"
+    },
+    {
+      "id": "1793363751439668",
+      "source_list": "D3_L3_Algebra",
+      "reference_no": 9,
+      "resolved": false,
+      "created_at": "2026-10-30T12:35:51",
+      "question": "If log_a 10 = 0.25, what is the value of log_10 a?",
+      "correct_answer": "B. 4",
+      "kind": "guess",
+      "exam_id": "1793363745811606",
+      "exam_source": "D3_S12",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792311174117874",
+      "updated_at": "2026-10-30T12:35:51"
     }
   ],
   "checklist": [],
@@ -137719,5 +139005,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-30T11:53:06"
+  "updated_at": "2026-10-30T12:36:12"
 }
