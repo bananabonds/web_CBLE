@@ -54700,6 +54700,630 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1793363826231820",
+      "name": "D3_S13",
+      "created_at": "2026-10-30T12:37:06",
+      "composition": {
+        "D3_L11_Differential_Equations": 5,
+        "D3_L7_Differential_Calculus": 3,
+        "D3_L12_EngineeringEconomics": 5,
+        "D3_L14_Physics": 4,
+        "D3_L4_Trigonometry": 1,
+        "D3_L10_ProcessSafety": 5,
+        "D3_L13_EngineeringDataAnalysis": 4,
+        "D3_L9_CPI": 3,
+        "D3_L2_Process_Control_Analysis": 4,
+        "D3_L5_Geometry": 2,
+        "D3_L8_Integral_Calculus": 3,
+        "D3_L15_Engineering_Mechanics": 4,
+        "D3_L6_AnalyticGeometry": 3,
+        "D3_L1_ChE_Laws": 4
+      },
+      "questions": [
+        {
+          "text": "Determine the differential equation of the family of circles with center on the y-axis.",
+          "options": [
+            "A. (y'')³ – xy'' + y' = 0",
+            "B. y'' – xyy'' + y' = 0",
+            "C. xy'' – (y')³ – y' = 0",
+            "D. (y')³ + (y'')² + xy = 0"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 6
+        },
+        {
+          "text": "What is the derivative of arcsin(x) with respect to x?",
+          "options": [
+            "A. -1/(1+x²)",
+            "B. 1/(1+x²)",
+            "C. -1/√(1-x²)",
+            "D. 1/√(1-x²)"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 18
+        },
+        {
+          "text": "Is a type of annuity where the payments are made at the beginning of each period starting from the 1st period.",
+          "options": [
+            "A. Ordinary Annuity",
+            "B. Annuity Due",
+            "C. Deferred Annuity",
+            "D. Perpetuity"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 19
+        },
+        {
+          "text": "An 8 g bullet is fired horizontally into a 9 kg block of wood and sticks in it. The block, which is free to move, has a velocity of 40 cm/s after impact. Find the velocity of the bullet.",
+          "options": [
+            "A. 550 m/s",
+            "B. 450 m/s",
+            "C. 380 m/s",
+            "D. 250 m/s"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 15
+        },
+        {
+          "text": "Three resistors R1 = 5 Ω, R2 = 10 Ω, and R3 = 15 Ω are connected in series across a 12 V battery. Find the total resistance.",
+          "options": [
+            "A. 20 Ω",
+            "B. 25 Ω",
+            "C. 30 Ω",
+            "D. 35 Ω"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 51
+        },
+        {
+          "text": "An object falls from rest in a medium offering a resistance. The velocity of the object before the object reaches the ground is given by the differential equation dV/dt + V/10 = 32, ft/sec. What is the velocity of the object one second after if falls?",
+          "options": [
+            "A. 40.54 ft/sec",
+            "B. 38.65 ft/sec",
+            "C. 30.45 ft/sec",
+            "D. 34.12 ft/sec"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 45
+        },
+        {
+          "text": "Is a series of disbursements or receipts that increases or decreases in each succeeding period by constant amount.",
+          "options": [
+            "A. Geometric Gradient",
+            "B. Arithmetic Gradient",
+            "C. Perpetuity",
+            "D. Sinking Fund"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 21
+        },
+        {
+          "text": "Find the area of a circle circumscribing an equilateral triangle having each side measuring 10 cm.",
+          "options": [
+            "A. 154.43",
+            "B. 159.21",
+            "C. 104.72",
+            "D. 115.34"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 31
+        },
+        {
+          "text": "Labeling storage areas and arranging tools for easy access improves:",
+          "options": [
+            "A. Worker morale only",
+            "B. Productivity, efficiency, and reduced search time",
+            "C. Compliance with environmental regulations only",
+            "D. Employee discipline exclusively"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 11
+        },
+        {
+          "text": "A process unit is running slightly above its maximum operating temperature due to a high ambient temperature and a heavier-than-usual feedstock. The deviation is relatively small. What should be done?",
+          "options": [
+            "A. Continue operating and notify the next shift during handover",
+            "B. Increase cooling flow to compensate. Documentation is not needed as it is part of operation procedures.",
+            "C. Report and investigate the cause and take action to bring it back within limits",
+            "D. Accept the deviation since the temperature is still within equipment design limits"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 37
+        },
+        {
+          "text": "[Questions 31-39 refer to the following: The times required by three workers to perform an assembly-line task were recorded on five randomly selected occasions. Worker 1: 8, 10, 9, 11, 10. Worker 2: 8, 9, 9, 8, 10. Worker 3: 10, 9, 10, 11, 9.] Compute the sum of squares total.",
+          "options": [
+            "A. 13.6",
+            "B. 2.8",
+            "C. 10.8",
+            "D. 1.4"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 76
+        },
+        {
+          "text": "The \"lead chamber process,\" initiated by John Roebuck, was used to produce which major industrial chemical?",
+          "options": [
+            "A. Sodium carbonate",
+            "B. Ammonia",
+            "C. Sulfuric acid",
+            "D. Chlorine"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 0
+        },
+        {
+          "text": "Main constituent of dolomite is",
+          "options": [
+            "A. CaCO3",
+            "B. K2CO3",
+            "C. MgCO3",
+            "D. Na2CO3"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 102
+        },
+        {
+          "text": "This type of controller is preferred when slow cycling is acceptable , meaning the equipment can run and shut alternatively to maintain the manipulated variable within an acceptable range.",
+          "options": [
+            "A. Continuous Control",
+            "B. On/Off Control",
+            "C. Switch Control",
+            "D. Alternating Control"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 38
+        },
+        {
+          "text": "Which among the following is a major source of aluminum oxide?",
+          "options": [
+            "A. Hematite",
+            "B. Magnetite",
+            "C. Siderite",
+            "D. Bauxite"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 143
+        },
+        {
+          "text": "Radium decomposes at a rate proportional to the amount present. If the half of the original amount disappears after 1000 years, what is the percentage lost in 100 years?",
+          "options": [
+            "A. 6.70%",
+            "B. 4.50%",
+            "C. 5.35%",
+            "D. 4.30%"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 42
+        },
+        {
+          "text": "What do you call a polygon with countably infinite number of sides?",
+          "options": [
+            "A. circle",
+            "B. ellipse",
+            "C. apeirogon",
+            "D. oblong"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 1
+        },
+        {
+          "text": "A tank has 40L of sewage runoff. It initially consists of 60% water and 40% pollutants. Another sewage runoff with 70% water and 30% pollutant is being added to the tank at a rate of 3L/min. As the tank is being filled, the solution is also being drained at a rate of 4L/min. How much pollutant is in the tank after 7 mins?",
+          "options": [
+            "A. 10.75L",
+            "B. 11.75L",
+            "C. 12.75L",
+            "D. 13.75L"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 48
+        },
+        {
+          "text": "Solve: ∫[0 to 2π] ∫[π/4 to 3π/4] ∫[0 to √2] ρ²sin(Φ) dρ dΦ dθ",
+          "options": [
+            "A. 4π/3",
+            "B. 8π/3",
+            "C. 16π/3",
+            "D. 16π/9"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 19
+        },
+        {
+          "text": "A plate in the shape of a parallelogram ABCD is acted upon by two couples. A pair of 84 N forces act horizontally along the top and bottom edges of the parallelogram (opposite directions), separated by a vertical (perpendicular) distance of 16 cm. A pair of 48 N forces act along the slanted left and right edges (AD and BC), which make an angle α with the horizontal at vertex A; the horizontal base length is d. Determine the perpendicular distance between the 48 N forces if the resultant of the two couples is zero.",
+          "options": [
+            "A. 22cm",
+            "B. 24cm",
+            "C. 26cm",
+            "D. 28cm"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 15
+        },
+        {
+          "text": "Through a refinery, fuel ethanol is flowing in a pipe at a velocity of 1 m/s and at atmospheric pressure. The refinery needs the ethanol to be at a pressure of 2 atm on a lower level. How far must the pipe drop in height in order to achieve this pressure? Assume the velocity does not change. Use density of ethanol as 789 kg/m³.",
+          "options": [
+            "A. -10.09 m",
+            "B. -11.09 m",
+            "C. -12.09 m",
+            "D. -13.09 m"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 71
+        },
+        {
+          "text": "Evaluate the general solution of the differential equation: (x²y² + 2)ydx + (2 − x²y²)xdy = 0",
+          "options": [
+            "A. (1/2)ln(y/x) + 1/(2x²y²) = c",
+            "B. (1/2)ln(x/y) − 1/(2x²y²) = c",
+            "C. (1/2)ln(x/y) − (1/2)x²y² = c",
+            "D. (1/2)ln(xy) + (1/2)x²y² = c"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 20
+        },
+        {
+          "text": "The segment from (-1, 4) to (2, -2) is extended three times its own length. The terminal point is",
+          "options": [
+            "A. (11, -18)",
+            "B. (11, -24)",
+            "C. (11, -20)",
+            "D. (-11, -20)"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 3
+        },
+        {
+          "text": "What organizational structure is based on the assumption that each unit should specialize in a specific functional area and perform all of the tasks that require its expertise?",
+          "options": [
+            "A. Functional organization",
+            "B. Process organization",
+            "C. Territorial organization",
+            "D. Product organization"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 136
+        },
+        {
+          "text": "The average number of acres burned by forest and range fires in a large New Mexico county is 4,300 acres per year, with a standard deviation of 750 acres. The distribution of the number of acres burned is normal. What is the probability that between 2,500 and 4,200 acres will be burned in any given year?",
+          "options": [
+            "A. 0.4388",
+            "B. 0.4499",
+            "C. 0.4545",
+            "D. 0.4662"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 33
+        },
+        {
+          "text": "Is a type of annuity where the payments are made at the end of each period beginning from the 1st period.",
+          "options": [
+            "A. Annuity Due",
+            "B. Deferred Annuity",
+            "C. Ordinary Annuity",
+            "D. Perpetuity"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 18
+        },
+        {
+          "text": "Which agency is responsible for enforcing occupational safety and health standards in the Philippines?",
+          "options": [
+            "A. Department of Health (DOH)",
+            "B. Department of Public Works and Highways (DPWH)",
+            "C. Department of Labor and Employment (DOLE)",
+            "D. Bureau of Fire Protection (BFP)"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 1
+        },
+        {
+          "text": "Find the slope of the curve x² + y² - 6x + 10y + 5 = 0 at point (1, 0).",
+          "options": [
+            "A. 1/5",
+            "B. 2/5",
+            "C. 1/4",
+            "D. 2"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 41
+        },
+        {
+          "text": "Find the centroid of a triangle whose vertices are (2, 3), (-4, 6) and (2, -6).",
+          "options": [
+            "A. (0, 1)",
+            "B. (0, -1)",
+            "C. (1, 0)",
+            "D. (-1, 0)"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 21
+        },
+        {
+          "text": "The overall response of interacting capacities are more ______________than the noninteracting capacities",
+          "options": [
+            "A. Speed",
+            "B. Sluggish",
+            "C. Fast",
+            "D. Quick"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 24
+        },
+        {
+          "text": "Foreign chemical engineers may be allowed to practice the profession in the country as long as their country also allows Filipino chemical engineers to practice the protession in their territory by virtue of reciprocity:",
+          "options": [
+            "A. this statement is TRUE",
+            "B. this statement is FALSE",
+            "C. this statement is TRUE for foreign countries who have active diplomatic ties with the Philippines",
+            "D. this statement is true for chemical engineers under the age of 60 years"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 20
+        },
+        {
+          "text": "If the sides of a parallelogram and an included angle are 6, 10 and 100u00b0, respectively, find the length of the shorter diagonal.",
+          "options": [
+            "A. 10.63",
+            "B. 10.37",
+            "C. 10.73",
+            "D. 10.23"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 19
+        },
+        {
+          "text": "A circular road course track has a radius of 500 m and is banked at 10°. The coefficient of friction between the road and tire is 0.25. Compute the optimum speed to avoid wear and tear of the tires (i.e., the speed requiring no friction).",
+          "options": [
+            "A. 29.39 m/s",
+            "B. 36.36 m/s",
+            "C. 46.77 m/s",
+            "D. 51.12 m/s"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 41
+        },
+        {
+          "text": "A bag has 4 red marbles, 5 white marbles, and 6 blue marbles. Three marbles are drawn from the bag without replacement. What is the probability that they are all the same color?",
+          "options": [
+            "A. 34/455",
+            "B. 17/455",
+            "C. 43/455",
+            "D. 71/455"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 19
+        },
+        {
+          "text": "A train moving at 20 m/s is uniformly decelerated at 2 m/s². Find the total distance traveled before coming to rest.",
+          "options": [
+            "A. 80 m",
+            "B. 90 m",
+            "C. 100 m",
+            "D. 110 m"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 46
+        },
+        {
+          "text": "A train covers a distance of 1.2 km in 2 minutes with uniform motion. Find its speed in m/s.",
+          "options": [
+            "A. 8 m/s",
+            "B. 10 m/s",
+            "C. 12 m/s",
+            "D. 14 m/s"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 42
+        },
+        {
+          "text": "Is defined as a series of equal payments occurring at equal interval of time.",
+          "options": [
+            "A. Annuity",
+            "B. Gradient",
+            "C. Perpetuity",
+            "D. Amortization"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 17
+        },
+        {
+          "text": "The startup and shutdown of a cooling water pump as a response to variations in the temperature of cooling water in a jacketed stirred-tank reactor is a type of _____ event.",
+          "options": [
+            "A. Continuous",
+            "B. Discrete",
+            "C. Abrupt",
+            "D. Alternating"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 35
+        },
+        {
+          "text": "A farmer selling eggs at P50 a dozen gains 20%. If he sells the eggs at the same price after the costs of the eggs rises 12.5%, how much will be his new gain in percent?",
+          "options": [
+            "A. 6.89%",
+            "B. 6.67%",
+            "C. 6.58%",
+            "D. 6.12%"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 76
+        },
+        {
+          "text": "A police car moves away from an observer at 25 m/s, and the observer moves away from the car at 5 m/s. The siren frequency is 600 Hz. Find the observed frequency. (Assume the speed of sound as 350 m/s)",
+          "options": [
+            "A. 500 Hz",
+            "B. 552 Hz",
+            "C. 600 Hz",
+            "D. 620 Hz"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 31
+        },
+        {
+          "text": "According to the Chemical Engineering Law of 2004, who appoints the members of the ChE Regulatory Board?",
+          "options": [
+            "A. PRC",
+            "B. President",
+            "C. President of PICHE",
+            "D. none of the above"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 18
+        },
+        {
+          "text": "Evaluate: lim(x→1) [(x-3)(x²-2)] / (x²+1)",
+          "options": [
+            "A. 1",
+            "B. 2",
+            "C. 3",
+            "D. 4"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 0
+        },
+        {
+          "text": "[Questions 31-39 refer to the following: The times required by three workers to perform an assembly-line task were recorded on five randomly selected occasions. Worker 1: 8, 10, 9, 11, 10. Worker 2: 8, 9, 9, 8, 10. Worker 3: 10, 9, 10, 11, 9.] Compute the sum of squares error.",
+          "options": [
+            "A. 2.8",
+            "B. 2",
+            "C. 12",
+            "D. 10.8"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 72
+        },
+        {
+          "text": "The equation of the line through (-3, -5) parallel to 7x + 2y u2013 4 = 0 is",
+          "options": [
+            "A. 7x + 2y + 31 = 0",
+            "B. 7x u2013 2y + 30 = 0",
+            "C. 7x u2013 2y u2013 4 = 0",
+            "D. 2x + 7y + 30 = 0"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 15
+        },
+        {
+          "text": "Which of the following correctly represent the components of a control system?",
+          "options": [
+            "A. Thermocouple; displacer device, heating coil",
+            "B. Measuring element; thermometer; pressure gauge",
+            "C. Process, measuring element; controller and final control element",
+            "D. Process, measuring element;, amplifier and final control element"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 2
+        },
+        {
+          "text": "Which of the following is an example of a lagging indicator in safety management?",
+          "options": [
+            "A. Number of completed safety audits",
+            "B. Frequency of hazard reporting",
+            "C. Number of workplace injuries in the past year",
+            "D. Percentage of employees trained"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 24
+        },
+        {
+          "text": "Evaluate: ∫ (z²+2z+3)/[(z-6)(z²+4)] dz",
+          "options": [
+            "A. (51/40)ln|z-6| + (11/80)ln|z²+4| - (7/40)tan⁻¹(z/2) + c",
+            "B. (51/40)ln|z-6| - (11/80)ln|z²+4| - (7/40)tan⁻¹(z/2) + c",
+            "C. (51/40)ln|z-6| - (11/80)ln|z²+4| + (7/40)tan⁻¹(z/2) + c",
+            "D. (51/40)ln|z-6| + (11/80)ln|z²+4| + (7/40)tan⁻¹(z/2) + c"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 14
+        },
+        {
+          "text": "Equipment has been blocked for two days due to polymer buildup. An experienced operator decides to connect a high-pressure nitrogen line directly to the blocked section to force the blockage clear, without a formal plan. What is the most significant risk?",
+          "options": [
+            "A. The nitrogen could react with the polymer residue",
+            "B. The operation could violate permit-to-work procedures for nitrogen use",
+            "C. The nitrogen pressure may be insufficient to clear blockage",
+            "D. Trapped material behind the plug could be released violently"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 39
+        },
+        {
+          "text": "What is the Laplace transform of sin(2t) + sinh(2t)?",
+          "options": [
+            "A. s²/(s⁴-16)",
+            "B. 4s²/(s⁴-16)",
+            "C. s³/(s⁴-16)",
+            "D. 2s³/(s⁴-16)"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 61
+        },
+        {
+          "text": "The procesS of determining the physical arrangement of the production system",
+          "options": [
+            "A. Work-Flow Layout",
+            "B. Quality Control",
+            "C. Inventory Control",
+            "D. Purchasing and Materials Management"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 165
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -139654,5 +140278,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-30T12:37:04"
+  "updated_at": "2026-10-30T12:37:31"
 }
