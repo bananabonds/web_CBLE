@@ -52613,6 +52613,15 @@
       "pct": 58,
       "date": "2026-10-30T04:55:02",
       "time_used_seconds": 3601.9
+    },
+    {
+      "id": "1793340364595337",
+      "source": "D2_S10",
+      "score": 18,
+      "total": 50,
+      "pct": 36,
+      "date": "2026-10-30T06:06:04",
+      "time_used_seconds": 3807.9
     }
   ],
   "exam_details": [
@@ -101935,6 +101944,563 @@
           "correct_answer": "B. 1.33"
         }
       ]
+    },
+    {
+      "exam_id": "1793340364595337",
+      "source": "D2_S10",
+      "date": "2026-10-30T06:06:04",
+      "items": [
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 83,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Steady state temperature reached by a small amount of liquid evaporating into a large amount of unsaturated vapor-gas mixture is",
+          "your_answer": "D. adiabatic saturation temperature",
+          "correct_answer": "B. wet bulb temperature"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 58,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Estimate the diffusivity of benzene vapor in air at 25°Cand 2 atm using the Fuller-Schettler-Giddings correlation.",
+          "your_answer": "B. 0.063 cm²/s",
+          "correct_answer": "D. 0.045 cm²/s"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 35,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A limestone analysis: CaCO3 - 92.89%, MgC03 - 5.41% and unreactive - 1.70%. By heating the limestone, you recover oxides that together known as lime: How many pounds of limestone are needed to make 1 ton of lime?",
+          "your_answer": "A. 3100",
+          "correct_answer": "C. 3550"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 71,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Water at 25 C is flowing in a covered irrigation ditch below ground. Every 100 m, there is a vent line 30 mm inside diameter and 1 m long to the outside atmosphere at 25 C There are 10 vents in the 1000 m ditch. The outside air can be assumed to be dry. Calculate the total evaporation loss of water in kg/day",
+          "your_answer": "B. 1.5* 10 ^ -4",
+          "correct_answer": "D. 3.7* 10 ^ -4"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "If the rate of reaction independent of the concentration of the reactants, the reaction is said to be?",
+          "your_answer": "D. zero order",
+          "correct_answer": "D. zero order"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 40,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which of the following lengths of heat exchanger tubes are normally not used practice?",
+          "your_answer": "C. 10 meters",
+          "correct_answer": "D. 0.5 meter"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 56,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In a vessel at 101.325 kN/m2? and 300K, the percentage relative humidity of the water vapor in the air is 25. If partial pressure of water vapor when air is saturated with vapor at 300K is 3.6 kN/m2, calculate: The humidity of the air",
+          "your_answer": "D. 0.008",
+          "correct_answer": "A. 0.006"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 6,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Pulverized coal passing through 200-meshscreen has a diameter of 0.074 mm (74 micron). The same passing through 50-mesh screen willhave a diameter of ____ mm.",
+          "your_answer": "D. 0.014",
+          "correct_answer": "C. 0.30"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 63,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "In a double pipe (concentric) heat exchanger; the hydraulic radius for heat transfer (for a fluid flowing through the annulus) would be",
+          "your_answer": "D. D2 - D1 (D1 and D2 are I. D. of inner and outer pipes)",
+          "correct_answer": "C. more than that for fluid flow:"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 60,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "A sharp edged circular orifice is to be used to measure the flowrate of water at 20 C p = 1000 kg/m3 , u = 1 mPa s in a pipeline with an internal diameter of 250 mm. The orifice diameter is 50 mm. The reading of a mercury manometer at the throat tap position is 242 mm, Calculate the flowrate in L/s",
+          "your_answer": "A. 5.85 L/s",
+          "correct_answer": "D. 9.27 L/s"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 45,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following gives the crushingenergy required to create new surfacе?",
+          "your_answer": "B. Rittinger's law",
+          "correct_answer": "B. Rittinger's law"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 53,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "If blasius or darcy friction factor is f1 then the fanning friction factor is equal to",
+          "your_answer": "A. f1/4",
+          "correct_answer": "A. f1/4"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 39,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The equation, PV = nRT is best obeyed by gases at",
+          "your_answer": "A. low pressure and high temperature",
+          "correct_answer": "A. low pressure and high temperature"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 47,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "TiCl4, can be formed by reacting titaniumdioxide (TiO,) with hydrochloric acid. TiO₂is available as an ore containing 78 % TiO2and 22% inerts. The HCL is available as 45wt% solution (the balance is water). Theper pass conversion of TiO₂ is 75 %. TheHCl is fed into the reactor in 20% excessbased on the reaction. Pure unreacted TiO2 is recycled back to mix with the Ti02 feed. TiO2+ 4 HCL→ TiCl4 + 2H₂0 For 1 kg of TiCl4 produced, determine: The kg of 45 wt % HCl solution fed.",
+          "your_answer": "B. 0.54",
+          "correct_answer": "C. 2.05"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 27,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "For the preparation of potassium nitrate, 10000 kg/h of a 20% KNO3 solution is mixed with a recycle stream and sent to an evaporator. The rate of evaporation is 1.5 times the rate of introduction of recycle stream. The concentrated solution leaving the evaporator contains 50% KNO3. This is admitted to the crystallizer which yields crystals containing 5% water. At the crystallization temperature the solubility is 50 kg/100 kg of water. The major part of the mother liquor leaving the crystallizer is returned to the evaporator as recycle. Calculate the following: The flow rate of recycle stream in kg/h",
+          "your_answer": "A. 5143",
+          "correct_answer": "A. 5143"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 80,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Ultracentrifuges running at speeds up to 100000 rpm is normally used for the",
+          "your_answer": "A. separation of isotopes based on their density or molecular weights difference.",
+          "correct_answer": "A. separation of isotopes based on their density or molecular weights difference."
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 62,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Baffles may be eliminated for",
+          "your_answer": "B. high viscosity liquids (> 600 poise)",
+          "correct_answer": "B. high viscosity liquids (> 600 poise)"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 104,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Solid particles having a size of 0.12 mm, a shape factor of 0.88, and a density of 1000 kg/m³ are to be fluidized using air at 2 atm and 25°C. The voidage at minimum fluidizing conditions is 0.42. Calculate the pressure drop at the minimum fluidizing conditions.",
+          "your_answer": "B. 0.065 x105 Рa",
+          "correct_answer": "A. 0.098 x105 Рa"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 9,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A furnace wall is constructed of firebrick 6 in thick. The temperature of the inside of the wall is 1300°F and thetemperature of the outside of the wall is 175°F. If the mean thermal conductivity under these conditions is 0.17 BTU/hr-ft °F, what is the rate of heat loss through 10 ft2 of wall surface? T1 = 1200 K, x1 = 0.2 m k = 1.4: x2 = 0.1 m, k = 0.21: x3 = 0.2 m, k = 0.7 : T2 = 330 K The temperature at the junction of the firebrick and the insulating brick is",
+          "your_answer": "A. 983 K",
+          "correct_answer": "C. 1063 К"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 14,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "With increase in initial concentration, the fractional conversion of a first order reaction in each given time",
+          "your_answer": "A. increases",
+          "correct_answer": "B. remains constant"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 67,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A stream of air at 100 kPa pressure and 300 K is flowing the top surface of a thin flat sheet of solid napthalene vapor in air = 6 ^10^ -6 m^2/s, Kinematic viscosity of air = 1.5 * 10 ^ -5 m2/s Concentration of napthalene at the air solid napthalene interface = 1*10 ^ -5 kmol/m3 Calculate the following: The rate of loss of napthalene from the surface per unit width",
+          "your_answer": "B. 3.33*10^-8 kmol/s",
+          "correct_answer": "C. 2.65*10^-8 kmol/s"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 65,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Le/D for couplings and unions would be",
+          "your_answer": "B. 200",
+          "correct_answer": "D. negligible"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "The rate of the reaction, X → Y, quadruples when theconcentration of 'X' is doubled. The rate expression for thereaction is, -r = k Cx^n, the value of 'n' in this case will be",
+          "your_answer": "B. 2",
+          "correct_answer": "B. 2"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 35,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An ideal centrifugal air compressor takes in air at 1 bar, 15°Cand compresses it reversibly and adiabatically to a pressure of4 bar. If kinetic energy and potential energy changes arenegligible calculate the specific work transfer in thecompression process",
+          "your_answer": "B. 307 kJ/kg",
+          "correct_answer": "A. 141 kJ/kg"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 17,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Bollman extractor",
+          "your_answer": "D. employs only counter-current extraction.",
+          "correct_answer": "B. is used for extraction of oil from oilseed."
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 33,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "For pipes that must be broken at intervals for maintenance, the connector used should be a/an",
+          "your_answer": "C. tee",
+          "correct_answer": "A. union"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 71,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Determine the relative volatility of n-butane/npentane mixture at 30°C and 1 atm abs",
+          "your_answer": "B. 3.04",
+          "correct_answer": "C. 3.46"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 88,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "If 100 lb of air at 50'F db and 50'F wb is mixed with 300 lb of dry air at 110 F db and 80\"F wb What is the wet bulb temperature of the resulting mixture for the mixed air?",
+          "your_answer": "B. 73 F",
+          "correct_answer": "B. 73 F"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 15,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Ground roasted coffee contains 8% soluble solids, 2% water, and 90% inert insoluble solids. In order to obtain an extract with high soluble solids content without having to concentrate it for spray drying, a countercurrent extraction process is to be used to prepare the extract. It is desired that the final extract contains 0.15 kg soluble/ kg water and that the soluble of the spent coffee grounds not to exceed 0.008 kg/kg dry inert solids. The coffee grounds carry 1 kg water/ kg of soluble free inert solids and this quantity is constant with the solute concentration in the extract. Determine the number of extraction stages needed for this process.",
+          "your_answer": "B. 4",
+          "correct_answer": "D. 6"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 117,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A nuclear reactor generates 3000 MW of heat. The heat is transferred in a heat exchanger of energy transfer efficiency 75% into steam which isexpanded in a turbine in order to produce a power output. The steam iscondensed in a condenser, releasing 1800 MW of heat, and pumped backthrough the heat exchanger by a feed pump which requires 3% of the power output from the turbine. Determine the power output from the turbine.",
+          "your_answer": "A. 463 MW",
+          "correct_answer": "A. 463 MW"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 103,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Gaseous nitrogen actuates a Carnot power cycle in which respective volumes at the four corners of the cycle, starting at the beginning of the isothermal expansion, are V=10.10 L, V2=14.53 L, V3=226.54 L, and V-157.73 L. The cycle receives 21.1 kJ of heat. Calculate the following: Work, W",
+          "your_answer": "B. 17 kJ",
+          "correct_answer": "D. 14 kJ"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Maximum plate efficiency is achieved in case of _____ flow:",
+          "your_answer": "B. cross",
+          "correct_answer": "B. cross"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "4500 kg/h of a 10% wt sugar solution is to be concentrated to 30% wt using single effect evaporator. Feed enters at 21°C. Saturated steam at 110°C is available and the temperature in the condenser is 43°C. Specific heat of the solutions may be taken as constant at 4 J/g-°C. The over-all heat transfer coefficient is 2840 W/m2-°C. How many square meters of heating surface are required?",
+          "your_answer": "B. 9 m²",
+          "correct_answer": "B. 9 m²"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "You have a 200 g of coffee at 100°C, too hotto drink. How much will you cool by adding 50g of water at O°C?",
+          "your_answer": "C. 80°C",
+          "correct_answer": "C. 80°C"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 29,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "Fresh air containing 4 mol% water vapor is to be cooled and dehumidified to a water content of 1.70 mol% H₂O. A stream of fresh air is combined with a recycle stream of previously dehumidified air and passed through the cooler. The blended stream entering the unit contains 2.3 mol% H₂0. In the air conditioner, some of the water in the feed stream is condensed and removed as liquid. A fraction of the dehumidified air leaving the cooler is recycled and the remainder is delivered to a room. Taking 100 mol of dehumidified air delivered to the room as a basis of calculation, calculate the following: The moles of water condensed",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 2.4 mol"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 14,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "A steel pipeline, 2 in-sch40, contains saturated steam at 121.1 °C. The pipeline isinsulated with 1 inch of asbestos (k=0.182 Sl units). Assuming that the inside surfacetemperature of the pipe wall is at 121.1°C and the outer surface of the insulation is at26.7°C. Calculate the heat loss (in Watts) for L=30.5 m.",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "A. 5400"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 10,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "Water at 20°C enters an inclined 1-inch ID where the upstream point is at 10 psig. The downstream point is 12 inch ID and 40 ft below the upstream point where the water discharges at 30 gpm to the atmosphere. What is the friction in ft of water?",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 28.1"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 93,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Operating velocity in a packed tower is usually",
+          "your_answer": "A. half the flooding velocity",
+          "correct_answer": "A. half the flooding velocity"
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 51,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A fluid whose apparent viscosity increases with shear rate is termed as the ____ fluid",
+          "your_answer": "C. dilatant",
+          "correct_answer": "C. dilatant"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 89,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "1000 cfm of air (A) at 95'F dry bulb, 74'F wet bulb is mixed with 2000 cfm of air (B) at 65'F dry bulb, 54'F wet bulb. Determine for the mixed stream: The dry bulb temperature",
+          "your_answer": "C. 75 F",
+          "correct_answer": "C. 75 F"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 78,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "A nuclear power plant generates 750 MW; the reactor temperature is 315°C and a river with water temperature of 20°C is available What is the minimum rate at which heat must be discarded to the river?",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "D. 745 MW"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 53,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "A fuel containing 75% ethane and 25% propane is burned with dry air. All the Н₂ burns to H₂0 and the CO2 to CO ratio is 10:1. Fifteen% excess air is supplied. Calculate: Percent CO in the complete analysis of stack gas",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 0.89%"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 20,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "After 8 minutes in a batch reactor, reactant (CA0 = 1 mol/L) is 80% converted; after 18 minutes, conversion is 90%. What is the order of the reaction?",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 2"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 26,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "For the preliminary breaking of hard rock, we use",
+          "your_answer": "A. gyratory crusher",
+          "correct_answer": "A. gyratory crusher"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 68,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "A homogeneous gas phase reaction A → 3R has reported at 215°C,-rA=10^-2 Ca^ 0.5 (mol/L-s). Find the space time needed for 80% conversion of50% A-50% inert feed to a plug flow operating at 215°C and 5 atm.",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "A. 33 s"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 32,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "A solution of 5% acetaldehyde in toluene is to be extracted with water in a five stage concurrent unit. If 25 kg water per 100 kg of feed is used, calculate the following: The final concentration in weight percent is",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 0.54%"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 61,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "The percentage change in the boiling point of a 20 mole benzene - toluene solution when the pressure is increased from 1 atm to 2 atm is",
+          "your_answer": "A. 10.5% increase",
+          "correct_answer": "B. 25.5% increase"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 64,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Relative volatility varies with the concentration of component for an ideal solution. The relative volatility of a binary mixture may be defined as the ratio of vapor pressure of component 'A' to that of component 'B', when",
+          "your_answer": "D. Vapor phase obeys Dalton's law and liquid phase obeys Raoult's law.",
+          "correct_answer": "D. Vapor phase obeys Dalton's law and liquid phase obeys Raoult's law."
+        },
+        {
+          "source_list": "D2_L4_Momentum_Transfer",
+          "reference_no": 31,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A cooling water pump is operating at a speed of 2800 rpm. Its flow rate is 1000 gal/min at a head of 160 ft. If the pump speed is increased to 5000 rpm, determine the new power requirement.",
+          "your_answer": "C. 80 kW",
+          "correct_answer": "D. 170 kW"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 18,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "Acetone is recovered from an acetone-air mixture containing 25% (volume) acetone by scrubbing with water. Assuming that air is insoluble in water, determine the percent of acetone in the entering gas that is absorbed if the gas leaving the scrubber analyzes 5% acetone.",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "B. 84%"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -124796,6 +125362,646 @@
       "concept_id": "",
       "tag_at": "",
       "note_at": ""
+    },
+    {
+      "id": "1793340364833837",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 83,
+      "question": "Steady state temperature reached by a small amount of liquid evaporating into a large amount of unsaturated vapor-gas mixture is",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:04",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:04",
+          "your_answer": "D. adiabatic saturation temperature",
+          "correct_answer": "B. wet bulb temperature"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:04"
+    },
+    {
+      "id": "1793340364931338",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 58,
+      "question": "Estimate the diffusivity of benzene vapor in air at 25°Cand 2 atm using the Fuller-Schettler-Giddings correlation.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:04",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:04",
+          "your_answer": "B. 0.063 cm²/s",
+          "correct_answer": "D. 0.045 cm²/s"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:04"
+    },
+    {
+      "id": "1793340365002742",
+      "source_list": "D2_L1_ChE_Calculations",
+      "reference_no": 35,
+      "question": "A limestone analysis: CaCO3 - 92.89%, MgC03 - 5.41% and unreactive - 1.70%. By heating the limestone, you recover oxides that together known as lime: How many pounds of limestone are needed to make 1 ton of lime?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:05",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:05",
+          "your_answer": "A. 3100",
+          "correct_answer": "C. 3550"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:05"
+    },
+    {
+      "id": "179334036507337",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 71,
+      "question": "Water at 25 C is flowing in a covered irrigation ditch below ground. Every 100 m, there is a vent line 30 mm inside diameter and 1 m long to the outside atmosphere at 25 C There are 10 vents in the 1000 m ditch. The outside air can be assumed to be dry. Calculate the total evaporation loss of water in kg/day",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:05",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:05",
+          "your_answer": "B. 1.5* 10 ^ -4",
+          "correct_answer": "D. 3.7* 10 ^ -4"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:05"
+    },
+    {
+      "id": "1793340365143724",
+      "source_list": "D2_L8_Equipment_Plant_Design",
+      "reference_no": 40,
+      "question": "Which of the following lengths of heat exchanger tubes are normally not used practice?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:05",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:05",
+          "your_answer": "C. 10 meters",
+          "correct_answer": "D. 0.5 meter"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:05"
+    },
+    {
+      "id": "179334036521077",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 56,
+      "question": "In a vessel at 101.325 kN/m2? and 300K, the percentage relative humidity of the water vapor in the air is 25. If partial pressure of water vapor when air is saturated with vapor at 300K is 3.6 kN/m2, calculate: The humidity of the air",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:05",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:05",
+          "your_answer": "D. 0.008",
+          "correct_answer": "A. 0.006"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:05"
+    },
+    {
+      "id": "1793340365283222",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 6,
+      "question": "Pulverized coal passing through 200-meshscreen has a diameter of 0.074 mm (74 micron). The same passing through 50-mesh screen willhave a diameter of ____ mm.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:05",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:05",
+          "your_answer": "D. 0.014",
+          "correct_answer": "C. 0.30"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:05"
+    },
+    {
+      "id": "1793340365356642",
+      "source_list": "D2_L8_Equipment_Plant_Design",
+      "reference_no": 63,
+      "question": "In a double pipe (concentric) heat exchanger; the hydraulic radius for heat transfer (for a fluid flowing through the annulus) would be",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:05",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:05",
+          "your_answer": "D. D2 - D1 (D1 and D2 are I. D. of inner and outer pipes)",
+          "correct_answer": "C. more than that for fluid flow:"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:05"
+    },
+    {
+      "id": "179334036543299",
+      "source_list": "D2_L4_Momentum_Transfer",
+      "reference_no": 60,
+      "question": "A sharp edged circular orifice is to be used to measure the flowrate of water at 20 C p = 1000 kg/m3 , u = 1 mPa s in a pipeline with an internal diameter of 250 mm. The orifice diameter is 50 mm. The reading of a mercury manometer at the throat tap position is 242 mm, Calculate the flowrate in L/s",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:05",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:05",
+          "your_answer": "A. 5.85 L/s",
+          "correct_answer": "D. 9.27 L/s"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:05"
+    },
+    {
+      "id": "1793340365505587",
+      "source_list": "D2_L1_ChE_Calculations",
+      "reference_no": 47,
+      "question": "TiCl4, can be formed by reacting titaniumdioxide (TiO,) with hydrochloric acid. TiO₂is available as an ore containing 78 % TiO2and 22% inerts. The HCL is available as 45wt% solution (the balance is water). Theper pass conversion of TiO₂ is 75 %. TheHCl is fed into the reactor in 20% excessbased on the reaction. Pure unreacted TiO2 is recycled back to mix with the Ti02 feed. TiO2+ 4 HCL→ TiCl4 + 2H₂0 For 1 kg of TiCl4 produced, determine: The kg of 45 wt % HCl solution fed.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:05",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:05",
+          "your_answer": "B. 0.54",
+          "correct_answer": "C. 2.05"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:05"
+    },
+    {
+      "id": "1793340365579442",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 104,
+      "question": "Solid particles having a size of 0.12 mm, a shape factor of 0.88, and a density of 1000 kg/m³ are to be fluidized using air at 2 atm and 25°C. The voidage at minimum fluidizing conditions is 0.42. Calculate the pressure drop at the minimum fluidizing conditions.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:05",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:05",
+          "your_answer": "B. 0.065 x105 Рa",
+          "correct_answer": "A. 0.098 x105 Рa"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:05"
+    },
+    {
+      "id": "1793340365653665",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 9,
+      "question": "A furnace wall is constructed of firebrick 6 in thick. The temperature of the inside of the wall is 1300°F and thetemperature of the outside of the wall is 175°F. If the mean thermal conductivity under these conditions is 0.17 BTU/hr-ft °F, what is the rate of heat loss through 10 ft2 of wall surface? T1 = 1200 K, x1 = 0.2 m k = 1.4: x2 = 0.1 m, k = 0.21: x3 = 0.2 m, k = 0.7 : T2 = 330 K The temperature at the junction of the firebrick and the insulating brick is",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:05",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:05",
+          "your_answer": "A. 983 K",
+          "correct_answer": "C. 1063 К"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:05"
+    },
+    {
+      "id": "1793340365725615",
+      "source_list": "D2_L9_Chemical_Reaction_Engineering",
+      "reference_no": 14,
+      "question": "With increase in initial concentration, the fractional conversion of a first order reaction in each given time",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:05",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:05",
+          "your_answer": "A. increases",
+          "correct_answer": "B. remains constant"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:05"
+    },
+    {
+      "id": "1793340365800568",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 67,
+      "question": "A stream of air at 100 kPa pressure and 300 K is flowing the top surface of a thin flat sheet of solid napthalene vapor in air = 6 ^10^ -6 m^2/s, Kinematic viscosity of air = 1.5 * 10 ^ -5 m2/s Concentration of napthalene at the air solid napthalene interface = 1*10 ^ -5 kmol/m3 Calculate the following: The rate of loss of napthalene from the surface per unit width",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:05",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:05",
+          "your_answer": "B. 3.33*10^-8 kmol/s",
+          "correct_answer": "C. 2.65*10^-8 kmol/s"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:05"
+    },
+    {
+      "id": "1793340365874275",
+      "source_list": "D2_L8_Equipment_Plant_Design",
+      "reference_no": 65,
+      "question": "Le/D for couplings and unions would be",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:05",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:05",
+          "your_answer": "B. 200",
+          "correct_answer": "D. negligible"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:05"
+    },
+    {
+      "id": "1793340365949940",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 35,
+      "question": "An ideal centrifugal air compressor takes in air at 1 bar, 15°Cand compresses it reversibly and adiabatically to a pressure of4 bar. If kinetic energy and potential energy changes arenegligible calculate the specific work transfer in thecompression process",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:05",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:05",
+          "your_answer": "B. 307 kJ/kg",
+          "correct_answer": "A. 141 kJ/kg"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:05"
+    },
+    {
+      "id": "179334036602261",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 17,
+      "question": "Bollman extractor",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:06",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:06",
+          "your_answer": "D. employs only counter-current extraction.",
+          "correct_answer": "B. is used for extraction of oil from oilseed."
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:06"
+    },
+    {
+      "id": "1793340366098222",
+      "source_list": "D2_L4_Momentum_Transfer",
+      "reference_no": 33,
+      "question": "For pipes that must be broken at intervals for maintenance, the connector used should be a/an",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:06",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:06",
+          "your_answer": "C. tee",
+          "correct_answer": "A. union"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:06"
+    },
+    {
+      "id": "1793340366171998",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 71,
+      "question": "Determine the relative volatility of n-butane/npentane mixture at 30°C and 1 atm abs",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:06",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:06",
+          "your_answer": "B. 3.04",
+          "correct_answer": "C. 3.46"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:06"
+    },
+    {
+      "id": "1793340366245649",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 15,
+      "question": "Ground roasted coffee contains 8% soluble solids, 2% water, and 90% inert insoluble solids. In order to obtain an extract with high soluble solids content without having to concentrate it for spray drying, a countercurrent extraction process is to be used to prepare the extract. It is desired that the final extract contains 0.15 kg soluble/ kg water and that the soluble of the spent coffee grounds not to exceed 0.008 kg/kg dry inert solids. The coffee grounds carry 1 kg water/ kg of soluble free inert solids and this quantity is constant with the solute concentration in the extract. Determine the number of extraction stages needed for this process.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:06",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:06",
+          "your_answer": "B. 4",
+          "correct_answer": "D. 6"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:06"
+    },
+    {
+      "id": "1793340366321241",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 103,
+      "question": "Gaseous nitrogen actuates a Carnot power cycle in which respective volumes at the four corners of the cycle, starting at the beginning of the isothermal expansion, are V=10.10 L, V2=14.53 L, V3=226.54 L, and V-157.73 L. The cycle receives 21.1 kJ of heat. Calculate the following: Work, W",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:06",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:06",
+          "your_answer": "B. 17 kJ",
+          "correct_answer": "D. 14 kJ"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:06"
+    },
+    {
+      "id": "1793340366395998",
+      "source_list": "D2_L1_ChE_Calculations",
+      "reference_no": 29,
+      "question": "Fresh air containing 4 mol% water vapor is to be cooled and dehumidified to a water content of 1.70 mol% H₂O. A stream of fresh air is combined with a recycle stream of previously dehumidified air and passed through the cooler. The blended stream entering the unit contains 2.3 mol% H₂0. In the air conditioner, some of the water in the feed stream is condensed and removed as liquid. A fraction of the dehumidified air leaving the cooler is recycled and the remainder is delivered to a room. Taking 100 mol of dehumidified air delivered to the room as a basis of calculation, calculate the following: The moles of water condensed",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:06",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:06",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 2.4 mol"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:06"
+    },
+    {
+      "id": "1793340366470969",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 14,
+      "question": "A steel pipeline, 2 in-sch40, contains saturated steam at 121.1 °C. The pipeline isinsulated with 1 inch of asbestos (k=0.182 Sl units). Assuming that the inside surfacetemperature of the pipe wall is at 121.1°C and the outer surface of the insulation is at26.7°C. Calculate the heat loss (in Watts) for L=30.5 m.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:06",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:06",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "A. 5400"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:06"
+    },
+    {
+      "id": "1793340366544158",
+      "source_list": "D2_L4_Momentum_Transfer",
+      "reference_no": 10,
+      "question": "Water at 20°C enters an inclined 1-inch ID where the upstream point is at 10 psig. The downstream point is 12 inch ID and 40 ft below the upstream point where the water discharges at 30 gpm to the atmosphere. What is the friction in ft of water?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:06",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:06",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 28.1"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:06"
+    },
+    {
+      "id": "179334036661970",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 78,
+      "question": "A nuclear power plant generates 750 MW; the reactor temperature is 315°C and a river with water temperature of 20°C is available What is the minimum rate at which heat must be discarded to the river?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:06",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:06",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "D. 745 MW"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:06"
+    },
+    {
+      "id": "1793340366695178",
+      "source_list": "D2_L1_ChE_Calculations",
+      "reference_no": 53,
+      "question": "A fuel containing 75% ethane and 25% propane is burned with dry air. All the Н₂ burns to H₂0 and the CO2 to CO ratio is 10:1. Fifteen% excess air is supplied. Calculate: Percent CO in the complete analysis of stack gas",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:06",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:06",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 0.89%"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:06"
+    },
+    {
+      "id": "1793340366789584",
+      "source_list": "D2_L9_Chemical_Reaction_Engineering",
+      "reference_no": 20,
+      "question": "After 8 minutes in a batch reactor, reactant (CA0 = 1 mol/L) is 80% converted; after 18 minutes, conversion is 90%. What is the order of the reaction?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:06",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:06",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 2"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:06"
+    },
+    {
+      "id": "1793340366854330",
+      "source_list": "D2_L9_Chemical_Reaction_Engineering",
+      "reference_no": 68,
+      "question": "A homogeneous gas phase reaction A → 3R has reported at 215°C,-rA=10^-2 Ca^ 0.5 (mol/L-s). Find the space time needed for 80% conversion of50% A-50% inert feed to a plug flow operating at 215°C and 5 atm.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:06",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:06",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "A. 33 s"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:06"
+    },
+    {
+      "id": "1793340366924524",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 32,
+      "question": "A solution of 5% acetaldehyde in toluene is to be extracted with water in a five stage concurrent unit. If 25 kg water per 100 kg of feed is used, calculate the following: The final concentration in weight percent is",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:06",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:06",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 0.54%"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:06"
+    },
+    {
+      "id": "1793340366994393",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 61,
+      "question": "The percentage change in the boiling point of a 20 mole benzene - toluene solution when the pressure is increased from 1 atm to 2 atm is",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:06",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:06",
+          "your_answer": "A. 10.5% increase",
+          "correct_answer": "B. 25.5% increase"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:06"
+    },
+    {
+      "id": "1793340367060795",
+      "source_list": "D2_L4_Momentum_Transfer",
+      "reference_no": 31,
+      "question": "A cooling water pump is operating at a speed of 2800 rpm. Its flow rate is 1000 gal/min at a head of 160 ft. If the pump speed is increased to 5000 rpm, determine the new power requirement.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:07",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:07",
+          "your_answer": "C. 80 kW",
+          "correct_answer": "D. 170 kW"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:07"
+    },
+    {
+      "id": "1793340367131300",
+      "source_list": "D2_L1_ChE_Calculations",
+      "reference_no": 18,
+      "question": "Acetone is recovered from an acetone-air mixture containing 25% (volume) acetone by scrubbing with water. Assuming that air is insoluble in water, determine the percent of acetone in the entering gas that is absorbed if the gas leaving the scrubber analyzes 5% acetone.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T06:06:07",
+      "occurrences": [
+        {
+          "exam_id": "1793340364595337",
+          "exam_source": "D2_S10",
+          "date": "2026-10-30T06:06:07",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "B. 84%"
+        }
+      ],
+      "updated_at": "2026-10-30T06:06:07"
     }
   ],
   "guess_notes": [
@@ -129506,5 +130712,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-30T05:55:13"
+  "updated_at": "2026-10-30T06:06:10"
 }
