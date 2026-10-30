@@ -52213,6 +52213,631 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1793351445237251",
+      "name": "D3_S11",
+      "created_at": "2026-10-30T09:10:45",
+      "composition": {
+        "D3_L5_Geometry": 3,
+        "D3_L14_Physics": 4,
+        "D3_L15_Engineering_Mechanics": 3,
+        "D3_L3_Algebra": 3,
+        "D3_L12_EngineeringEconomics": 4,
+        "D3_L7_Differential_Calculus": 3,
+        "D3_L6_AnalyticGeometry": 3,
+        "D3_L8_Integral_Calculus": 3,
+        "D3_L11_Differential_Equations": 4,
+        "D3_L10_ProcessSafety": 4,
+        "D3_L2_Process_Control_Analysis": 3,
+        "D3_L9_CPI": 3,
+        "D3_L1_ChE_Laws": 3,
+        "D3_L4_Trigonometry": 3,
+        "D3_L13_EngineeringDataAnalysis": 4
+      },
+      "questions": [
+        {
+          "text": "What type of polygon has all of its interior angles less than 180 degrees?",
+          "options": [
+            "A. concave",
+            "B. convex",
+            "C. irregular",
+            "D. regular"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 0
+        },
+        {
+          "text": "A Kelvin thermometer and a Fahrenheit thermometer both give the same numerical reading for a certain sample. The corresponding Celsius temperature is:",
+          "options": [
+            "A. 574°C",
+            "B. 232°C",
+            "C. 301°C",
+            "D. 614°C"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 66
+        },
+        {
+          "text": "What is the moment of inertia of a circle with radius of 5 m with respect to its centroidal axis?",
+          "options": [
+            "A. 329.83 m⁴",
+            "B. 374.28 m⁴",
+            "C. 432.06 m⁴",
+            "D. 490.87 m⁴"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 35
+        },
+        {
+          "text": "Given f(x) = 3x^2 - 4x + 25, find f(-3).",
+          "options": [
+            "A. -25",
+            "B. 64",
+            "C. 32",
+            "D. 28"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 32
+        },
+        {
+          "text": "An asset is purchased for P120,000. Its estimated economic life is 10 years, after which it will be sold for P12,000. Using SOYD, find the depreciation charge during the 3rd year.",
+          "options": [
+            "A. P15,709.09",
+            "B. P15,700.00",
+            "C. P15,750.00",
+            "D. P15,650.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 66
+        },
+        {
+          "text": "Find all the real values of x such that ((1/5)(x^2 - 10x + 26))^(x^2 - 6x + 5) = 1",
+          "options": [
+            "A. x = 1, 3, 5, 7",
+            "B. x = 2, 4, 6, 8",
+            "C. x = 0, 1, 2, 3",
+            "D. x = 1, 2, 3, 4"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 0
+        },
+        {
+          "text": "Find the minimum amount of tin sheet that can be made into a closed cylinder having a volume of 108 cu. inches, in square inches.",
+          "options": [
+            "A. 125.50",
+            "B. 127.50",
+            "C. 129.50",
+            "D. 123.50"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 45
+        },
+        {
+          "text": "The tension in a belt-driven pulley system is 110 N when stationary (this is the initial/average tension, T0 = (T1+T2)/2). Calculate the tension in each side of the belt and the power transmitted when the belt is on the point of slipping on the smaller wheel. The wheel is 240 mm in diameter, the coefficient of friction is 0.32, the angle of lap is 165°, and the wheel speed is 1500 rev/min.",
+          "options": [
+            "A. F1 = 140 N, F2 = 60 N, P = 1,500 W",
+            "B. F1 = 157 N, F2 = 62 N, P = 1,786 W",
+            "C. F1 = 130 N, F2 = 70 N, P = 1,632 W",
+            "D. F1 = 120 N, F2 = 50 N, P = 1,720 W"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 21
+        },
+        {
+          "text": "Three forces act on a point: 3 N at 0°, 4 N at 90°, and 5 N at 217°. What is the net force?",
+          "options": [
+            "A. 1.1N at 108°",
+            "B. 1.3N at 120°",
+            "C. 1.2N at 90°",
+            "D. 1.4N at 135°"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 5
+        },
+        {
+          "text": "Find the equation of the tangent to the curve x^2 + y^2 + 4x + 16y u2013 32 = 0 through (4, 0).",
+          "options": [
+            "A. 3x u2013 4y + 12 = 0",
+            "B. 3x u2013 4y u2013 12 = 0",
+            "C. 3x + 4y + 12 = 0",
+            "D. 3x + 4y u2013 12 = 0"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 39
+        },
+        {
+          "text": "A conical tank, 10 m deep and radius 4 meters, is filled with water to a depth of 5 m. The tank is emptied by pumping the water over the top edge. Find the work done in the process.",
+          "options": [
+            "A. 1382 kJ",
+            "B. 1283 kJ",
+            "C. 1832 kJ",
+            "D. 1328 kJ"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 46
+        },
+        {
+          "text": "Find the fourth proportional of 7, 12 and 21.",
+          "options": [
+            "A. 36",
+            "B. 34",
+            "C. 32",
+            "D. 40"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L3_Algebra",
+          "_source_index": 21
+        },
+        {
+          "text": "Products or services that are desired by humans and will be purchased if money is available after the required necessities have been obtained.",
+          "options": [
+            "A. Necessities",
+            "B. Goods",
+            "C. Luxuries",
+            "D. Services"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 10
+        },
+        {
+          "text": "Evaluate the general solution of the differential equation: y'' + 3y' − 4y = 0",
+          "options": [
+            "A. y = C1e^(4x) + C2e^(-x)",
+            "B. y = C1e^(3x) + C2e^(-4x)",
+            "C. y = C1e^(-4x) + C2e^(x)",
+            "D. y = C1e^(-3x) + C2e^(4x)"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 27
+        },
+        {
+          "text": "Evaluate the general solution of the differential equation: y' − y tan x = sin x",
+          "options": [
+            "A. y = (c-cos2x)/(4cos(x))",
+            "B. y = (c+cos2x)/(4sinx)",
+            "C. y = (c-sin2x)/(4sinx)",
+            "D. y = (c+sin2x)/(4cosx)"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 22
+        },
+        {
+          "text": "Evaluate the general solution of the differential equation: x²ydx − (x³ + xy²)dy = 0",
+          "options": [
+            "A. x²/(2y²) + ln x = c",
+            "B. −y²/(2x²) + ln y = c",
+            "C. y²/(2x²) + ln x = c",
+            "D. −x²/(2y²) + ln y = c"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 18
+        },
+        {
+          "text": "Find the total capacitance for three capacitors connected in parallel, given their individual capacitances are 1, 5 and 8 μF.",
+          "options": [
+            "A. 11 μF",
+            "B. 12 μF",
+            "C. 13 μF",
+            "D. 14 μF"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 57
+        },
+        {
+          "text": "Evaluate the Laplace transform of 2t⁵/5.",
+          "options": [
+            "A. 2s⁵/5",
+            "B. 2/(5s⁵)",
+            "C. 2/(5s⁶)",
+            "D. 48/s⁶"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 51
+        },
+        {
+          "text": "In a scenario where a batch of milk fails pasteurization, which HACCP principle is applied to decide the action to take (e.g., reprocess or discard)?",
+          "options": [
+            "A. Establish Monitoring Procedures",
+            "B. Establish Corrective Actions",
+            "C. Record-Keeping and Documentation",
+            "D. Critical Limits"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 91
+        },
+        {
+          "text": "Who is responsible for ensuring the workers are provided with safe working environment?",
+          "options": [
+            "A. HAZAN",
+            "B. AICHE",
+            "C. HAZOP",
+            "D. OSHA"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 17
+        },
+        {
+          "text": "Industrial processes can have tens to hundreds of steps and each step contributes to the final quality of the product: Hence, even a small inaccuracy in each process step can result in large financial losses in the form of waste. This data-driven management philosophy focuses on achieving sustainable and predictable process results by reducing process variations.",
+          "options": [
+            "A. Shewhart charts",
+            "B. Six sigma approach",
+            "C. Statistical process control",
+            "D. Lean management"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 49
+        },
+        {
+          "text": "What industrial advancement did Eugene Houdry develop that led to the creation of the first modern oil refinery?",
+          "options": [
+            "A. Steam reforming",
+            "B. Fluidized-bed coal gasification",
+            "C. Industrial-scale catalytic cracking",
+            "D. Synthesis of neoprene"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 14
+        },
+        {
+          "text": "Evaluate the general solution of (x² + y² + 3)dx − 2xydy = 0",
+          "options": [
+            "A. y − x²/y − 3/y = c",
+            "B. x − y²/x − 3/x = c",
+            "C. y + x²/y + 3/y = c",
+            "D. x + y²/x + 3/x = c"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L11_Differential_Equations",
+          "_source_index": 14
+        },
+        {
+          "text": "What color alerts to dangerous parts of machines or energized equipment which may cause injury/hazard?",
+          "options": [
+            "A. Red",
+            "B. White",
+            "C. Green",
+            "D. Orange"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 8
+        },
+        {
+          "text": "A chemical engineer shall not accept allowances or commissions from suppliers, contractors and other entities dealing with clients or employers of the Chemical in connection with work for Ehgchecendhemoan the Engineer is responsible:",
+          "options": [
+            "A. absolutely true",
+            "B. absolutely not true",
+            "C. can directly accept",
+            "D.  can accept if immediate superior approves"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 41
+        },
+        {
+          "text": "A loop of area 200 cm² is positioned perpendicular to a uniform magnetic field. Without changing the direction of the magnetic field, its magnitude is reduced by 0.08 T in the time interval 0.02 s. Find the average induced emf in the loop.",
+          "options": [
+            "A. 0.02 V",
+            "B. 0.04 V",
+            "C. 0.06 V",
+            "D. 0.08 V"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 58
+        },
+        {
+          "text": "Find the volume obtained if the region bounded by y=x² and y=2x is rotated about the x-axis.",
+          "options": [
+            "A. 64pi/15",
+            "B. 45pi/4",
+            "C. 54pi/8",
+            "D. 36pi/27"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 40
+        },
+        {
+          "text": "Which of the following conservation balancing equations is required for modelling a heater system?",
+          "options": [
+            "A. Heat and Energy balance",
+            "B. Heat and Mass balance",
+            "C. Mass and matter balance",
+            "D. Energy and Exergy balance"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 1
+        },
+        {
+          "text": "If a chemical engineer's professional judgement or work, for which he is responsible, is overruled, he must",
+          "options": [
+            "A. keep silent and accept the decision",
+            "B. insist forcefully that his opinion be followed",
+            "C. present the consequences or the risk of overruling his opinion",
+            "D. sue his employer"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 85
+        },
+        {
+          "text": "A company, InnovateTech Inc., reports the following financial information for the end of the fiscal year: Cash and cash equivalents: $150,000, Marketable securities: $80,000, Accounts receivable: $120,000, Inventory: $200,000, Current liabilities: $300,000. Calculate the company's acid-test ratio.",
+          "options": [
+            "A. 1.07",
+            "B. 1.17",
+            "C. 1.27",
+            "D. 1.37"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 88
+        },
+        {
+          "text": "An insect, trapped and preserved within amber (index of refraction ≈ 1.54), appears to be 2.78 cm beneath the surface, when viewed directly from above. How far below the surface is the insect actually located?",
+          "options": [
+            "A. 4.29 cm",
+            "B. 3.19 cm",
+            "C. 1.54 cm",
+            "D. 1.16 cm"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 39
+        },
+        {
+          "text": "The general equation of a conic section is given by the following equation: Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0. A curve may be identified as an ellipse by which of the following conditions?",
+          "options": [
+            "A. B^2 u2013 4AC < 0",
+            "B. B^2 u2013 4AC = 0",
+            "C. B^2 u2013 4AC > 0",
+            "D. B^2 u2013 4AC = 1"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 32
+        },
+        {
+          "text": "Find the number of radians in arccot (-5.2418).",
+          "options": [
+            "A. -10.8",
+            "B. -1.38",
+            "C. -0.189",
+            "D. -0.723"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 22
+        },
+        {
+          "text": "A man walks across a bridge at the rate of 5 fps as a boat passes directly beneath him at 10 fps. If the bridge is 10 feet above the boat, how fast are the man and the boat separating 1 second later?",
+          "options": [
+            "A. 8 fps",
+            "B. 8.25 fps",
+            "C. 8.33 fps",
+            "D. 8.67 fps"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 64
+        },
+        {
+          "text": "Find the reference angle and the first negative co-terminal angle, respectively, of 135u00b0.",
+          "options": [
+            "A. 45u00b0, -45u00b0",
+            "B. 45u00b0, -135u00b0",
+            "C. 45u00b0, -225u00b0",
+            "D. 45u00b0, -315u00b0"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 2
+        },
+        {
+          "text": "Consider the function: f(x) = 1/(2x-4). The lim(x→2) f(x) does not exist and produces what type of discontinuity?",
+          "options": [
+            "A. Infinite Discontinuity",
+            "B. Jump Discontinuity",
+            "C. Removable Discontinuity",
+            "D. The function is continuous"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 12
+        },
+        {
+          "text": "Why is sulfur trioxide (SO3) not directly dissolved in water to make sulfuric acid?",
+          "options": [
+            "A. The reaction is too slow",
+            "B. It produces a highly corrosive and dangerous acid fog",
+            "C. It causes the catalyst to decompose",
+            "D. Water acts as a reducing agent in this case"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 64
+        },
+        {
+          "text": "If the slope of the line connecting the origin and point P is 3/4, find the abscissa of P if its ordinate is 6.",
+          "options": [
+            "A. 2",
+            "B. 6",
+            "C. 7",
+            "D. 8"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L6_AnalyticGeometry",
+          "_source_index": 4
+        },
+        {
+          "text": "Reagent used for drying of Cl2 is ______________",
+          "options": [
+            "A. H3PO4",
+            "B. HCl",
+            "C. H2SO4",
+            "D. HNO3"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 38
+        },
+        {
+          "text": "[Questions 31-39 refer to the following: The times required by three workers to perform an assembly-line task were recorded on five randomly selected occasions. Worker 1: 8, 10, 9, 11, 10. Worker 2: 8, 9, 9, 8, 10. Worker 3: 10, 9, 10, 11, 9.] Compute the mean square error.",
+          "options": [
+            "A. 1.4",
+            "B. 0.9",
+            "C. 1.56",
+            "D. 2.8"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 78
+        },
+        {
+          "text": "The following may be taken as grounds for the revocation of a ChE license except",
+          "options": [
+            "A. tax evasion",
+            "B. acts of misrepresentation",
+            "C. gross immorality",
+            "D. Inone of the above"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 19
+        },
+        {
+          "text": "What is the probability that exactly 2 out of 3 tosses of a fair coin will be heads?",
+          "options": [
+            "A. 1/4",
+            "B. 1/2",
+            "C. 3/8",
+            "D. 5/8"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 29
+        },
+        {
+          "text": "A _________is a device that converts a reading from a transducer into a standard signal and transmits that signal to a monitor or controller",
+          "options": [
+            "A. Transducer",
+            "B. Transmitter",
+            "C. Converter",
+            "D. PID Controller"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 10
+        },
+        {
+          "text": "Refers to the present worth of a property that is assumed to last forever. The capitalized cost of any property is the sum of the first cost and the present costs of perpetual replacement, operation and maintenance.",
+          "options": [
+            "A. Capitalized Cost",
+            "B. Sunk Cost",
+            "C. Book Value",
+            "D. Salvage Value"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 22
+        },
+        {
+          "text": "My school's ECE club has 6 boys and 8 girls. I need to select a team of 6 people to send to the IECEP competition. In how many ways can I select the team to have 4 girls and 2 boys?",
+          "options": [
+            "A. 1414",
+            "B. 1050",
+            "C. 28",
+            "D. 56"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 10
+        },
+        {
+          "text": "Any person trained and duly certified to administer first aid by the Philippine Red Cross or any organization authorized by DOLE Secretary.",
+          "options": [
+            "A. OSH consultant",
+            "B. OSH personnel",
+            "C. OSH practitioner",
+            "D. First-Aider"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 2
+        },
+        {
+          "text": "A wedge is cut from a cylinder of radius 3 m by two planes, one perpendicular to the axis of the cylinder and the other passing through the diameter of the section made by the first plane and inclined to this plane at an angle of 45 deg. Find the volume of the wedge.",
+          "options": [
+            "A. 16m^3",
+            "B. 18m^3",
+            "C. 20m^3",
+            "D. 22m^3"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 29
+        },
+        {
+          "text": "Both the bus and you arrive at the bus stop at random times between 12pm and 1pm. When the bus arrives, it waits 5 minutes before leaving. When you arrive, you wait 20 minutes before leaving if the bus hasn't come. What is the probability that you catch the bus?",
+          "options": [
+            "A. 103/288",
+            "B. 1/4",
+            "C. 47/144",
+            "D. 15/16"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 25
+        },
+        {
+          "text": "Simplify the expression: 4 cos y sin y (1 - 2sin^2 y)",
+          "options": [
+            "A. 2 sin y",
+            "B. cos 4y",
+            "C. cos 2y",
+            "D. sin 4y"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L4_Trigonometry",
+          "_source_index": 6
+        },
+        {
+          "text": "If the edge of the cube is decreased by 12%, by what percent does the surface area decrease?",
+          "options": [
+            "A. 23%",
+            "B. 77%",
+            "C. 73%",
+            "D. 27%"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L5_Geometry",
+          "_source_index": 30
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -132061,5 +132686,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-30T09:10:27"
+  "updated_at": "2026-10-30T09:10:53"
 }
