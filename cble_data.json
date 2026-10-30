@@ -124264,10 +124264,10 @@
       "source_list": "D3_L11_Differential_Equations",
       "reference_no": 51,
       "question": "Consider the third-order differential equation: y''' + 4y'' − 5y' + y = 0. Reduce this differential equation to a system of first-order differential equations.",
-      "category": "",
+      "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-29T18:40:15",
+      "date_logged": "2026-10-30T07:34:57",
       "occurrences": [
         {
           "exam_id": "1793299214963294",
@@ -124277,9 +124277,9 @@
           "correct_answer": "B. y1'=y2, y2'=y3, y3'=-y1+5y2-4y3"
         }
       ],
-      "updated_at": "2026-10-30T06:06:50",
-      "concept_id": "",
-      "tag_at": "",
+      "updated_at": "2026-10-30T07:34:57",
+      "concept_id": "1792322448466809",
+      "tag_at": "2026-10-30T07:34:57",
       "note_at": ""
     },
     {
@@ -130080,6 +130080,21 @@
       "category": "Unfamiliar Topic",
       "concept_id": "1792311344109127",
       "updated_at": "2026-10-30T07:33:35"
+    },
+    {
+      "id": "1793345703294114",
+      "source_list": "D3_L8_Integral_Calculus",
+      "reference_no": 25,
+      "resolved": false,
+      "created_at": "2026-10-30T07:35:03",
+      "question": "What is the area of the region bounded by the curve x²+2x=8-y and the x-axis?",
+      "correct_answer": "B. 36",
+      "kind": "guess",
+      "exam_id": "1793299214963294",
+      "exam_source": "D3_S9",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792311851589860",
+      "updated_at": "2026-10-30T07:35:03"
     }
   ],
   "checklist": [],
@@ -130129,5 +130144,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-30T07:34:56"
+  "updated_at": "2026-10-30T07:35:05"
 }
