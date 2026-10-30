@@ -57018,6 +57018,15 @@
       "pct": 58,
       "date": "2026-10-30T14:22:57",
       "time_used_seconds": 1811.8
+    },
+    {
+      "id": "1793373100412503",
+      "source": "D2_S13",
+      "score": 23,
+      "total": 50,
+      "pct": 46,
+      "date": "2026-10-30T15:11:40",
+      "time_used_seconds": 1797
     }
   ],
   "exam_details": [
@@ -109682,6 +109691,563 @@
           "correct_answer": "C. xy'' – (y')³ – y' = 0"
         }
       ]
+    },
+    {
+      "exam_id": "1793373100412503",
+      "source": "D2_S13",
+      "date": "2026-10-30T15:11:40",
+      "items": [
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Acetone is recovered from an acetone-air mixture containing 25% (volume) acetone by scrubbing with water. Assuming that air is insoluble in water, determine the percent of acetone in the entering gas that is absorbed if the gas leaving the scrubber analyzes 5% acetone.",
+          "your_answer": "B. 84%",
+          "correct_answer": "B. 84%"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 53,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "From PVn = C, when n = 0, the process is",
+          "your_answer": "A. isochoric",
+          "correct_answer": "D. isobaric"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 39,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A saturated solution containing 1500 kg of potassium chloride at 360 K is cooled in an open tank to 290 K. If the specific gravity of the solution is 1.2, the solubility of potassium chloride per 100 parts water is 53.55 at 360 K and 34.5 at 290 K. Calculate the mass of the crystals obtained, neglecting loss of water evaporation.",
+          "your_answer": "D. 534 kg",
+          "correct_answer": "D. 534 kg"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 105,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Solid particles having a size of 0.12 mm, a shape factor of 0.88, and a density of 1000 kg/m³ are to be fluidized using air at 2 atm and 25°C. The voidage at minimum fluidizing conditions is 0.42. Calculate minimum velocity for fluidization.",
+          "your_answer": "B. 0.001 m/s",
+          "correct_answer": "C. 0.005 m/s"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "The critical radius 'r' of insulation on a pipe is given by",
+          "your_answer": "C. k/h",
+          "correct_answer": "C. k/h"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 76,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Consider air at 1 atm, 35 C and 40% relative humidity: Using: psychrometric chart, determine The humid volume of the air:",
+          "your_answer": "A. 0.89 m3/kg",
+          "correct_answer": "A. 0.89 m3/kg"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 68,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A 30% (by volume) suspension of spherical sand particlesin a viscous oil has a hindered settling velocity of 4.44 µm/s. If the Richardson Zaki hindered settling index is 4.5, then the terminal velocity of a sand grain is",
+          "your_answer": "B. 22.1 µm/s",
+          "correct_answer": "C. 1 μm/s"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 63,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The absolute saturation of a carbon dioxide-water vapor mixture at 310 K and 100 kPa is measured to be 0.022 kg water per kg dry carbon dioxide Calculate the following: The temperature to which the gas is to be heated at constant pressure to reduce its percent saturation to 30 percent",
+          "your_answer": "B. 327.5 K",
+          "correct_answer": "B. 327.5 K"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 20,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "After 8 minutes in a batch reactor, reactant (CA0 = 1 mol/L) is 80% converted; after 18 minutes, conversion is 90%. What is the order of the reaction?",
+          "your_answer": "C. 2",
+          "correct_answer": "C. 2"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 34,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Prandtl number for water at 20°C is about",
+          "your_answer": "B. 0.7",
+          "correct_answer": "A. 7"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 120,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In extractive distillation, solvent is",
+          "your_answer": "A. added to alter the relative volatility of the mixture.",
+          "correct_answer": "A. added to alter the relative volatility of the mixture."
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 74,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Given a relative volatility of 4,600 mols of A and 400 mols of B are fed in a kettle for distillation. A is more volatile than B. What is the amount of the overhead product if the remaining mixture in the kettle is 80%B?",
+          "your_answer": "B. 641 mol",
+          "correct_answer": "C. 725 mol"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 50,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Large process vessels operating under extreme temperature and pressure conditions are normally clad/ lined with materials like stainless steel, aluminum_ nickel & its 'alloys, copper & its alloys and titanium. The cladding thickness is generally about _________percent of the total thickness",
+          "your_answer": "B. 10 to 20",
+          "correct_answer": "B. 10 to 20"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 65,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A homogeneous liquid phase reaction, A →R; -r= kCa^2 takesplace with 50% conversion in a well-mixed reactor operatingisothermally. What will be the conversion if the reactor is replaced bya plug flow type of equal size — all else remaining the same?",
+          "your_answer": "C. 20%",
+          "correct_answer": "D. 67%"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 41,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The optimum moisture content in solids tobe crushed/ground ranges from percent.",
+          "your_answer": "C. 8 to 10",
+          "correct_answer": "A. 3 to 4"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 81,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A particle A of diameter 10 microns settles in an oil of specific gravity 0.9 and viscosity 10 poise under Stokes law. A particle B with diameter 20 microns settling in the same oil will have a settling velocity",
+          "your_answer": "C. one fourth as that of A",
+          "correct_answer": "D. four times as that of A"
+        },
+        {
+          "source_list": "D2_L1_ChE_Calculations",
+          "reference_no": 33,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A limestone analysis: CaCO3 - 92.89%, MgC03 - 5.41% and unreactive - 1.70%. By heating the limestone, you recover oxides that together known as lime: How many pounds of calcium oxide can be made from 1 ton of limestone?",
+          "your_answer": "A. 1041 lb",
+          "correct_answer": "A. 1041 lb"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 44,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "In the case of a shell and tube heat exchanger; the logarithmic mean temperature difference",
+          "your_answer": "C. is always less than arithmetic mean value, but more than geometric mean value",
+          "correct_answer": "A. is always less than arithmetic average value"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 51,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A process consists of two steps: (1) One mole of air at T = 800 K and P = 4 baris cooled at constant volume to T = 350 K. (2) The air is then heated at constantpressure until its temperature reaches 800 K. If this two-step process isreplaced by a single isothermal expansion of air from 800 K and 4 bar to some final pressure P, what is the value of P that makes the work of the twoprocesses the same? Assume mechanical reversibility and treat air as an idealgas with Cp = (7/2)R and Cv = (5/2)R",
+          "your_answer": "A. 2.28 bar",
+          "correct_answer": "A. 2.28 bar"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 39,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "When heat is transferred from hot body to cold body, in a straight line, without affecting the interveningmedium, it is referred as heat transfer by",
+          "your_answer": "A. conduction",
+          "correct_answer": "C. radiation"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 22,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Cv is given by",
+          "your_answer": "A. (ƏU/ ƏT)v",
+          "correct_answer": "A. (ƏU/ ƏT)v"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 49,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "At a fixed pressure, the humidity depends upon the partial pressure of vapor in the mixture: Humidity of a vapor free gas is ___percent",
+          "your_answer": "D. between 0 and 100",
+          "correct_answer": "C. 0"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 21,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Smoker's equation for the calculation of number of equilibrium stages in a continuous binary distillation column is used, when the",
+          "your_answer": "A. relative volatility is close to one (e. g-, separation of close boiling isomers)",
+          "correct_answer": "A. relative volatility is close to one (e. g-, separation of close boiling isomers)"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 82,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "When the mixture to be distilled has a very high boiling point and the product material is heat sensitive, the separation technique to beused is distillation.",
+          "your_answer": "C. steam",
+          "correct_answer": "C. steam"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 90,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The overall mass transfer coefficient have the following values in a packed tower operated isothermally at a pressure of 3 atm: Gas phase: KGa = 0.396 kmol/hr-m3-Ay Liquid phase: KLa = 13.9 kmol/hr-m3-Ax where Ax and Ay refers to the driving force in mole fraction. The equilibrium compositions of the gaseous and liquid phases are characterized by the equation of Henry's law. What is the value of Henry's law constant, H?",
+          "your_answer": "B. 50000 mmHg",
+          "correct_answer": "A. 80000 mmHg"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 32,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The following is data for the reaction: A→ B: Time (sec) - [0 25 50 75] [A] (M) - [1.00 0.914 0.829 0.744] Time (sec) - [100 125 150 200] [A] (M)- [0.659 0.573 0.488 ?] The concentration at 200 seconds is",
+          "your_answer": "B. 0.28 M",
+          "correct_answer": "D. 0.32 M"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 53,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "In a binary gas-liquid system, NAEMD is the molar flux of a gas A for equimolar counter diffusion with a liquid B. NA, UMD is themolar flux of A for steady one component diffusion throughstagnant B. Using the mole fraction of A in the bulk of the gasphase as 0.2 and that at the gas-liquid interface as 0.1 for boththe modes of diffusion, the ratio of NAUMD to NAEMD is equal to",
+          "your_answer": "B. 0.8",
+          "correct_answer": "D. 1.2"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 21,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "For a constant pressure reversible process, theenthalpy (AH) change of the system is",
+          "your_answer": "C. CpdT",
+          "correct_answer": "B. integ(CpdT)"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 66,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The homogeneous gas phase decomposition ofphosphine 4PH3(g) →P4(g)+ 6H2( g)proceeds at 649 °C with first - order rate [- r(phosphine)=(10/hr) Ca]. The reactor operates at 649 °C and460 kPa can produce 80% conversion of a feedconsisting of 40 mole of pure phosphine perhour. The initial concentration of A",
+          "your_answer": "C. 20 mol/m³",
+          "correct_answer": "A. 60 mol/m³"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 7,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "In a salt recovery plant, rock salt is being leached to produce industrialsalt in a continuous counter current system consisting of two idealstages using water as leaching medium. the average composition of therock salt is: inerts = 70%, soluble salts = 25%, moisture = 5%, allpercentage by weight. The underflow from each stage contains 0.3 kg ofsolution per kg of inerts. The plant leaches 50 MT of rock salt per day using 50 MT of water. The quantity of soluble salts recovered in MT/day is",
+          "your_answer": "D. 11.2",
+          "correct_answer": "A. 12.1"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 21,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The hardness of a mineral is a criterion of its resistance to crushing. Which of thefollowing is an example of a hard material?",
+          "your_answer": "C. sapphire",
+          "correct_answer": "C. sapphire"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 102,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An ideal mixture of A and B is to be distilled continuously. If the relative volatility is constant at 1.75 and feed = saturated liquid with 50 mol% A feed rate = 200 lbmol/hr distillation composition = 90% A bottoms composition = 10% A Find the minimum number of theoretical stages",
+          "your_answer": "A. 4.22",
+          "correct_answer": "C. 7.85"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 90,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Hydrogen, initially at 15 psia and 80°F, is compressed at the rate of 20 cfm in a hot environment to a pressure of 75.3 psig. The details of the process are unknown but it us estimated the heat enters at the rate of 20 BTU/min. For a change of entropy of 0.0268 BTU/min-R. Determine: The work if the system is steady flow.",
+          "your_answer": "B. 257 BTU/min",
+          "correct_answer": "D. 135 BTU/min"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 38,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "With increases in temperature, the rate constant obeying Arrhenius equation",
+          "your_answer": "B. decreases",
+          "correct_answer": "A. increases"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 37,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Heat transfer co-efficient for a horizontal condenser as compared to a vertical condenser operating under similar conditions is",
+          "your_answer": "D. about 0.33 times",
+          "correct_answer": "C. about 3 times"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 25,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The solvent used in liquid extraction should not have high latent heat of vaporization, because",
+          "your_answer": "C. its recovery cost by distillation may be prohibitively high.",
+          "correct_answer": "C. its recovery cost by distillation may be prohibitively high."
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 80,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The air supply for a dryer has a dry-bulb temperature of 70 F and a wet bulb temperature of 60 F. It is heated to 200 F by coils and blown into the dryer: In the dryer it cools along an adiabatic cooling line and leaves the dryer fully saturated: How much heat is needed to heat 100 ft3 to 200 F?",
+          "your_answer": "C. 168 BTU",
+          "correct_answer": "A. 235 BTU"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 127,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A minimum boiling azeotrope is exemplifiedby",
+          "your_answer": "B. acetone-carbon disulfide",
+          "correct_answer": "B. acetone-carbon disulfide"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 118,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An Otto cycle has a compression ratio of 9.5. The air is at 100 kPa, 17°C, and 600 cm³ prior to the compression stroke. Temperature at the end of isentropic expansion is 800 K. Using constant specific heat, calculate the following: Highest temperature in the cycle",
+          "your_answer": "B. 1654 K",
+          "correct_answer": "C. 1969 K"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 32,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "In a vertical short tube evaporator (Calendria type), the",
+          "your_answer": "D. all (a); (b) & (c):",
+          "correct_answer": "D. all (a); (b) & (c):"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 77,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In a CO2 absorber using a carbonate solution as absorbent, 1,000 kmols/h of flue gases containing 50% by volume CO2 and the balance being inert gases, is fed into the column. The lean gas leaves the absorber with a 2% by volume CO2. Calculate the quantity of CO2, in kg/h, that is recovered from the regeneration of the fat liquor.",
+          "your_answer": "D. 21600 kg/hr",
+          "correct_answer": "D. 21600 kg/hr"
+        },
+        {
+          "source_list": "D2_L8_Equipment_Plant_Design",
+          "reference_no": 43,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "In inclined long tube vertical evaporators, the tubes are inclined at an angle of",
+          "your_answer": "C. 45 deg",
+          "correct_answer": "C. 45 deg"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "4500 kg/h of a 10% wt sugar solution is to be concentrated to 30% wt using single effect evaporator. Feed enters at 21°C. Saturated steam at 110°C is available and the temperature in the condenser is 43°C. Specific heat of the solutions may be taken as constant at 4 J/g-°C. The over-all heat transfer coefficient is 2840 W/m2-°C. What is the steam economy?",
+          "your_answer": "B. 0.88",
+          "correct_answer": "B. 0.88"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 69,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A stream of air at 100 C and 5260 mmHg contains 10% water by volume Calculate the percentage of the vapor condenses and the final composition of the gas phase if the air is cooled to 80\"C at constant pressure:",
+          "your_answer": "B. 30%",
+          "correct_answer": "D. 35%"
+        },
+        {
+          "source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "reference_no": 26,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "The half-life of a material undergoing second order decay is",
+          "your_answer": "A. proportional to the square ofinitial concentration",
+          "correct_answer": "D. inversely proportional to initial concentration"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Under the same temperature gradient across various metalplates of the same thickness, the heat conducted per unitof surface area will be largest across",
+          "your_answer": "B. copper",
+          "correct_answer": "B. copper"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 19,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The sphericity of a cylinder of 1 mm diameter and length 3 mm is",
+          "your_answer": "C. 0.78",
+          "correct_answer": "A. 0.9"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 77,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "If a centrifuge is 0.9 m diameter and rotates at20 Hz, at what speed should a laboratory centrifugeof 150 mm diameter be run if it is to duplicate theperformance of the large unit?",
+          "your_answer": "A. 49 Hz",
+          "correct_answer": "A. 49 Hz"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 48,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The energy required per unit mass to grind limestone particles of very large size to 100 µm is 12.7 kWh/ton. An estimate (using Bond's law) of the energy to grind theparticles from a very large size to 50 μm is",
+          "your_answer": "B. 18 kWh/ton",
+          "correct_answer": "B. 18 kWh/ton"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 50,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Determine the theoretical work required for theisothermal compression of 800 ft3/min of air from14.7 to 120 psia",
+          "your_answer": "C. 110 hp",
+          "correct_answer": "B. 108 hp"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -133024,7 +133590,7 @@
       "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-10-30T07:32:09",
+      "date_logged": "2026-10-30T15:11:43",
       "occurrences": [
         {
           "exam_id": "1793340364595337",
@@ -133034,9 +133600,9 @@
           "correct_answer": "C. 2"
         }
       ],
-      "updated_at": "2026-10-30T07:32:09",
+      "updated_at": "2026-10-30T15:11:43",
       "concept_id": "17923107278050",
-      "tag_at": "2026-10-30T07:32:09",
+      "tag_at": "2026-10-30T15:11:43",
       "note_at": ""
     },
     {
@@ -136571,6 +137137,600 @@
       "concept_id": "1792322448466809",
       "tag_at": "2026-10-30T14:23:01",
       "note_at": ""
+    },
+    {
+      "id": "1793373100691292",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 53,
+      "question": "From PVn = C, when n = 0, the process is",
+      "category": "Conceptual Misunderstanding",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:43",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:40",
+          "your_answer": "A. isochoric",
+          "correct_answer": "D. isobaric"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:43",
+      "concept_id": "1792320138179303",
+      "tag_at": "2026-10-30T15:11:43"
+    },
+    {
+      "id": "1793373100803799",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 105,
+      "question": "Solid particles having a size of 0.12 mm, a shape factor of 0.88, and a density of 1000 kg/m³ are to be fluidized using air at 2 atm and 25°C. The voidage at minimum fluidizing conditions is 0.42. Calculate minimum velocity for fluidization.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:43",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:40",
+          "your_answer": "B. 0.001 m/s",
+          "correct_answer": "C. 0.005 m/s"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:43",
+      "concept_id": "1792321622482899",
+      "tag_at": "2026-10-30T15:11:43"
+    },
+    {
+      "id": "1793373100905950",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 68,
+      "question": "A 30% (by volume) suspension of spherical sand particlesin a viscous oil has a hindered settling velocity of 4.44 µm/s. If the Richardson Zaki hindered settling index is 4.5, then the terminal velocity of a sand grain is",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:43",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:40",
+          "your_answer": "B. 22.1 µm/s",
+          "correct_answer": "C. 1 μm/s"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:43",
+      "concept_id": "1792318516515459",
+      "tag_at": "2026-10-30T15:11:43"
+    },
+    {
+      "id": "1793373101007157",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 34,
+      "question": "Prandtl number for water at 20°C is about",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:43",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:41",
+          "your_answer": "B. 0.7",
+          "correct_answer": "A. 7"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:43",
+      "concept_id": "1792311571141408",
+      "tag_at": "2026-10-30T15:11:43"
+    },
+    {
+      "id": "1793373101109203",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 74,
+      "question": "Given a relative volatility of 4,600 mols of A and 400 mols of B are fed in a kettle for distillation. A is more volatile than B. What is the amount of the overhead product if the remaining mixture in the kettle is 80%B?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:43",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:41",
+          "your_answer": "B. 641 mol",
+          "correct_answer": "C. 725 mol"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:43",
+      "concept_id": "1792306934086228",
+      "tag_at": "2026-10-30T15:11:43"
+    },
+    {
+      "id": "1793373101210341",
+      "source_list": "D2_L9_Chemical_Reaction_Engineering",
+      "reference_no": 65,
+      "question": "A homogeneous liquid phase reaction, A →R; -r= kCa^2 takesplace with 50% conversion in a well-mixed reactor operatingisothermally. What will be the conversion if the reactor is replaced bya plug flow type of equal size — all else remaining the same?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:44",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:41",
+          "your_answer": "C. 20%",
+          "correct_answer": "D. 67%"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:44",
+      "concept_id": "179230745371061",
+      "tag_at": "2026-10-30T15:11:44"
+    },
+    {
+      "id": "1793373101317462",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 41,
+      "question": "The optimum moisture content in solids tobe crushed/ground ranges from percent.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:44",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:41",
+          "your_answer": "C. 8 to 10",
+          "correct_answer": "A. 3 to 4"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:44",
+      "concept_id": "1792307673190136",
+      "tag_at": "2026-10-30T15:11:44"
+    },
+    {
+      "id": "1793373101424808",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 81,
+      "question": "A particle A of diameter 10 microns settles in an oil of specific gravity 0.9 and viscosity 10 poise under Stokes law. A particle B with diameter 20 microns settling in the same oil will have a settling velocity",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:44",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:41",
+          "your_answer": "C. one fourth as that of A",
+          "correct_answer": "D. four times as that of A"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:44",
+      "concept_id": "1792318516515459",
+      "tag_at": "2026-10-30T15:11:44"
+    },
+    {
+      "id": "1793373101527898",
+      "source_list": "D2_L8_Equipment_Plant_Design",
+      "reference_no": 44,
+      "question": "In the case of a shell and tube heat exchanger; the logarithmic mean temperature difference",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:44",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:41",
+          "your_answer": "C. is always less than arithmetic mean value, but more than geometric mean value",
+          "correct_answer": "A. is always less than arithmetic average value"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:44",
+      "concept_id": "1792512945505871",
+      "tag_at": "2026-10-30T15:11:44"
+    },
+    {
+      "id": "1793373101626951",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 39,
+      "question": "When heat is transferred from hot body to cold body, in a straight line, without affecting the interveningmedium, it is referred as heat transfer by",
+      "category": "Conceptual Misunderstanding",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:44",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:41",
+          "your_answer": "A. conduction",
+          "correct_answer": "C. radiation"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:44",
+      "concept_id": "1792319818450685",
+      "tag_at": "2026-10-30T15:11:44"
+    },
+    {
+      "id": "1793373101724242",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 49,
+      "question": "At a fixed pressure, the humidity depends upon the partial pressure of vapor in the mixture: Humidity of a vapor free gas is ___percent",
+      "category": "Conceptual Misunderstanding",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:44",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:41",
+          "your_answer": "D. between 0 and 100",
+          "correct_answer": "C. 0"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:44",
+      "concept_id": "1792306108462690",
+      "tag_at": "2026-10-30T15:11:44"
+    },
+    {
+      "id": "1793373101818375",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 90,
+      "question": "The overall mass transfer coefficient have the following values in a packed tower operated isothermally at a pressure of 3 atm: Gas phase: KGa = 0.396 kmol/hr-m3-Ay Liquid phase: KLa = 13.9 kmol/hr-m3-Ax where Ax and Ay refers to the driving force in mole fraction. The equilibrium compositions of the gaseous and liquid phases are characterized by the equation of Henry's law. What is the value of Henry's law constant, H?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:44",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:41",
+          "your_answer": "B. 50000 mmHg",
+          "correct_answer": "A. 80000 mmHg"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:44",
+      "concept_id": "179230686815982",
+      "tag_at": "2026-10-30T15:11:44"
+    },
+    {
+      "id": "1793373101920818",
+      "source_list": "D2_L9_Chemical_Reaction_Engineering",
+      "reference_no": 32,
+      "question": "The following is data for the reaction: A→ B: Time (sec) - [0 25 50 75] [A] (M) - [1.00 0.914 0.829 0.744] Time (sec) - [100 125 150 200] [A] (M)- [0.659 0.573 0.488 ?] The concentration at 200 seconds is",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:44",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:41",
+          "your_answer": "B. 0.28 M",
+          "correct_answer": "D. 0.32 M"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:44",
+      "concept_id": "1792321847578523",
+      "tag_at": "2026-10-30T15:11:44"
+    },
+    {
+      "id": "179337310202426",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 53,
+      "question": "In a binary gas-liquid system, NAEMD is the molar flux of a gas A for equimolar counter diffusion with a liquid B. NA, UMD is themolar flux of A for steady one component diffusion throughstagnant B. Using the mole fraction of A in the bulk of the gasphase as 0.2 and that at the gas-liquid interface as 0.1 for boththe modes of diffusion, the ratio of NAUMD to NAEMD is equal to",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:44",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:42",
+          "your_answer": "B. 0.8",
+          "correct_answer": "D. 1.2"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:44",
+      "concept_id": "1792701557213788",
+      "tag_at": "2026-10-30T15:11:44"
+    },
+    {
+      "id": "1793373102120216",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 21,
+      "question": "For a constant pressure reversible process, theenthalpy (AH) change of the system is",
+      "category": "Conceptual Misunderstanding",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:44",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:42",
+          "your_answer": "C. CpdT",
+          "correct_answer": "B. integ(CpdT)"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:44",
+      "concept_id": "1792320138179303",
+      "tag_at": "2026-10-30T15:11:44"
+    },
+    {
+      "id": "1793373102215126",
+      "source_list": "D2_L9_Chemical_Reaction_Engineering",
+      "reference_no": 66,
+      "question": "The homogeneous gas phase decomposition ofphosphine 4PH3(g) →P4(g)+ 6H2( g)proceeds at 649 °C with first - order rate [- r(phosphine)=(10/hr) Ca]. The reactor operates at 649 °C and460 kPa can produce 80% conversion of a feedconsisting of 40 mole of pure phosphine perhour. The initial concentration of A",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:45",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:42",
+          "your_answer": "C. 20 mol/m³",
+          "correct_answer": "A. 60 mol/m³"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:45",
+      "concept_id": "179230745371061",
+      "tag_at": "2026-10-30T15:11:45"
+    },
+    {
+      "id": "1793373102311211",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 7,
+      "question": "In a salt recovery plant, rock salt is being leached to produce industrialsalt in a continuous counter current system consisting of two idealstages using water as leaching medium. the average composition of therock salt is: inerts = 70%, soluble salts = 25%, moisture = 5%, allpercentage by weight. The underflow from each stage contains 0.3 kg ofsolution per kg of inerts. The plant leaches 50 MT of rock salt per day using 50 MT of water. The quantity of soluble salts recovered in MT/day is",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:45",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:42",
+          "your_answer": "D. 11.2",
+          "correct_answer": "A. 12.1"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:45",
+      "concept_id": "179232188889813",
+      "tag_at": "2026-10-30T15:11:45"
+    },
+    {
+      "id": "1793373102414489",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 102,
+      "question": "An ideal mixture of A and B is to be distilled continuously. If the relative volatility is constant at 1.75 and feed = saturated liquid with 50 mol% A feed rate = 200 lbmol/hr distillation composition = 90% A bottoms composition = 10% A Find the minimum number of theoretical stages",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:45",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:42",
+          "your_answer": "A. 4.22",
+          "correct_answer": "C. 7.85"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:45",
+      "concept_id": "1792306934086228",
+      "tag_at": "2026-10-30T15:11:45"
+    },
+    {
+      "id": "1793373102519228",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 90,
+      "question": "Hydrogen, initially at 15 psia and 80°F, is compressed at the rate of 20 cfm in a hot environment to a pressure of 75.3 psig. The details of the process are unknown but it us estimated the heat enters at the rate of 20 BTU/min. For a change of entropy of 0.0268 BTU/min-R. Determine: The work if the system is steady flow.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:45",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:42",
+          "your_answer": "B. 257 BTU/min",
+          "correct_answer": "D. 135 BTU/min"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:45",
+      "concept_id": "1792305732815892",
+      "tag_at": "2026-10-30T15:11:45"
+    },
+    {
+      "id": "1793373102615523",
+      "source_list": "D2_L9_Chemical_Reaction_Engineering",
+      "reference_no": 38,
+      "question": "With increases in temperature, the rate constant obeying Arrhenius equation",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:45",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:42",
+          "your_answer": "B. decreases",
+          "correct_answer": "A. increases"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:45",
+      "concept_id": "1792320065299145",
+      "tag_at": "2026-10-30T15:11:45"
+    },
+    {
+      "id": "1793373102718629",
+      "source_list": "D2_L8_Equipment_Plant_Design",
+      "reference_no": 37,
+      "question": "Heat transfer co-efficient for a horizontal condenser as compared to a vertical condenser operating under similar conditions is",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:45",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:42",
+          "your_answer": "D. about 0.33 times",
+          "correct_answer": "C. about 3 times"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:45",
+      "concept_id": "1792512945505871",
+      "tag_at": "2026-10-30T15:11:45"
+    },
+    {
+      "id": "1793373102824821",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 80,
+      "question": "The air supply for a dryer has a dry-bulb temperature of 70 F and a wet bulb temperature of 60 F. It is heated to 200 F by coils and blown into the dryer: In the dryer it cools along an adiabatic cooling line and leaves the dryer fully saturated: How much heat is needed to heat 100 ft3 to 200 F?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:45",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:42",
+          "your_answer": "C. 168 BTU",
+          "correct_answer": "A. 235 BTU"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:45",
+      "concept_id": "1792306350878981",
+      "tag_at": "2026-10-30T15:11:45"
+    },
+    {
+      "id": "179337310293192",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 118,
+      "question": "An Otto cycle has a compression ratio of 9.5. The air is at 100 kPa, 17°C, and 600 cm³ prior to the compression stroke. Temperature at the end of isentropic expansion is 800 K. Using constant specific heat, calculate the following: Highest temperature in the cycle",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:45",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:42",
+          "your_answer": "B. 1654 K",
+          "correct_answer": "C. 1969 K"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:45",
+      "concept_id": "1792512837801187",
+      "tag_at": "2026-10-30T15:11:45"
+    },
+    {
+      "id": "179337310303919",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 69,
+      "question": "A stream of air at 100 C and 5260 mmHg contains 10% water by volume Calculate the percentage of the vapor condenses and the final composition of the gas phase if the air is cooled to 80\"C at constant pressure:",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:45",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:43",
+          "your_answer": "B. 30%",
+          "correct_answer": "D. 35%"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:45",
+      "concept_id": "1792306108462690",
+      "tag_at": "2026-10-30T15:11:45"
+    },
+    {
+      "id": "1793373103134862",
+      "source_list": "D2_L9_Chemical_Reaction_Engineering",
+      "reference_no": 26,
+      "question": "The half-life of a material undergoing second order decay is",
+      "category": "Conceptual Misunderstanding",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:45",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:43",
+          "your_answer": "A. proportional to the square ofinitial concentration",
+          "correct_answer": "D. inversely proportional to initial concentration"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:45",
+      "concept_id": "1792305770783235",
+      "tag_at": "2026-10-30T15:11:45"
+    },
+    {
+      "id": "1793373103270856",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 19,
+      "question": "The sphericity of a cylinder of 1 mm diameter and length 3 mm is",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:45",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:43",
+          "your_answer": "C. 0.78",
+          "correct_answer": "A. 0.9"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:45",
+      "concept_id": "1792307384294938",
+      "tag_at": "2026-10-30T15:11:45"
+    },
+    {
+      "id": "1793373103362534",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 50,
+      "question": "Determine the theoretical work required for theisothermal compression of 800 ft3/min of air from14.7 to 120 psia",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T15:11:46",
+      "occurrences": [
+        {
+          "exam_id": "1793373100412503",
+          "exam_source": "D2_S13",
+          "date": "2026-10-30T15:11:43",
+          "your_answer": "C. 110 hp",
+          "correct_answer": "B. 108 hp"
+        }
+      ],
+      "updated_at": "2026-10-30T15:11:46",
+      "concept_id": "1792305866742164",
+      "tag_at": "2026-10-30T15:11:46"
     }
   ],
   "guess_notes": [
@@ -142046,6 +143206,141 @@
       "category": "Unfamiliar Topic",
       "concept_id": "1792309396390761",
       "updated_at": "2026-10-30T14:23:01"
+    },
+    {
+      "id": "1793373103656653",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 76,
+      "resolved": false,
+      "created_at": "2026-10-30T15:11:43",
+      "question": "Consider air at 1 atm, 35 C and 40% relative humidity: Using: psychrometric chart, determine The humid volume of the air:",
+      "correct_answer": "A. 0.89 m3/kg",
+      "kind": "guess",
+      "exam_id": "1793373100412503",
+      "exam_source": "D2_S13",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792306108462690",
+      "updated_at": "2026-10-30T15:11:43"
+    },
+    {
+      "id": "1793373103759868",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 63,
+      "resolved": false,
+      "created_at": "2026-10-30T15:11:43",
+      "question": "The absolute saturation of a carbon dioxide-water vapor mixture at 310 K and 100 kPa is measured to be 0.022 kg water per kg dry carbon dioxide Calculate the following: The temperature to which the gas is to be heated at constant pressure to reduce its percent saturation to 30 percent",
+      "correct_answer": "B. 327.5 K",
+      "kind": "guess",
+      "exam_id": "1793373100412503",
+      "exam_source": "D2_S13",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792306108462690",
+      "updated_at": "2026-10-30T15:11:43"
+    },
+    {
+      "id": "1793373104377665",
+      "source_list": "D2_L1_ChE_Calculations",
+      "reference_no": 33,
+      "resolved": false,
+      "created_at": "2026-10-30T15:11:44",
+      "question": "A limestone analysis: CaCO3 - 92.89%, MgC03 - 5.41% and unreactive - 1.70%. By heating the limestone, you recover oxides that together known as lime: How many pounds of calcium oxide can be made from 1 ton of limestone?",
+      "correct_answer": "A. 1041 lb",
+      "kind": "guess",
+      "exam_id": "1793373100412503",
+      "exam_source": "D2_S13",
+      "category": "Formula / Equation Error",
+      "concept_id": "1792319736426849",
+      "updated_at": "2026-10-30T15:11:44"
+    },
+    {
+      "id": "1793373104477383",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 51,
+      "resolved": false,
+      "created_at": "2026-10-30T15:11:44",
+      "question": "A process consists of two steps: (1) One mole of air at T = 800 K and P = 4 baris cooled at constant volume to T = 350 K. (2) The air is then heated at constantpressure until its temperature reaches 800 K. If this two-step process isreplaced by a single isothermal expansion of air from 800 K and 4 bar to some final pressure P, what is the value of P that makes the work of the twoprocesses the same? Assume mechanical reversibility and treat air as an idealgas with Cp = (7/2)R and Cv = (5/2)R",
+      "correct_answer": "A. 2.28 bar",
+      "kind": "guess",
+      "exam_id": "1793373100412503",
+      "exam_source": "D2_S13",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792320138179303",
+      "updated_at": "2026-10-30T15:11:44"
+    },
+    {
+      "id": "1793373104571582",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 22,
+      "resolved": false,
+      "created_at": "2026-10-30T15:11:44",
+      "question": "Cv is given by",
+      "correct_answer": "A. (ƏU/ ƏT)v",
+      "kind": "guess",
+      "exam_id": "1793373100412503",
+      "exam_source": "D2_S13",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792320138179303",
+      "updated_at": "2026-10-30T15:11:44"
+    },
+    {
+      "id": "1793373105784365",
+      "source_list": "D2_L8_Equipment_Plant_Design",
+      "reference_no": 32,
+      "resolved": false,
+      "created_at": "2026-10-30T15:11:45",
+      "question": "In a vertical short tube evaporator (Calendria type), the",
+      "correct_answer": "D. all (a); (b) & (c):",
+      "kind": "guess",
+      "exam_id": "1793373100412503",
+      "exam_source": "D2_S13",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792321737674800",
+      "updated_at": "2026-10-30T15:11:45"
+    },
+    {
+      "id": "1793373105786434",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 11,
+      "resolved": false,
+      "created_at": "2026-10-30T15:11:45",
+      "question": "4500 kg/h of a 10% wt sugar solution is to be concentrated to 30% wt using single effect evaporator. Feed enters at 21°C. Saturated steam at 110°C is available and the temperature in the condenser is 43°C. Specific heat of the solutions may be taken as constant at 4 J/g-°C. The over-all heat transfer coefficient is 2840 W/m2-°C. What is the steam economy?",
+      "correct_answer": "B. 0.88",
+      "kind": "guess",
+      "exam_id": "1793373100412503",
+      "exam_source": "D2_S13",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792321737674800",
+      "updated_at": "2026-10-30T15:11:45"
+    },
+    {
+      "id": "1793373106049914",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 77,
+      "resolved": false,
+      "created_at": "2026-10-30T15:11:46",
+      "question": "If a centrifuge is 0.9 m diameter and rotates at20 Hz, at what speed should a laboratory centrifugeof 150 mm diameter be run if it is to duplicate theperformance of the large unit?",
+      "correct_answer": "A. 49 Hz",
+      "kind": "guess",
+      "exam_id": "1793373100412503",
+      "exam_source": "D2_S13",
+      "category": "Unfamiliar Topic",
+      "concept_id": "179251263422411",
+      "updated_at": "2026-10-30T15:11:46"
+    },
+    {
+      "id": "179337310605129",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 48,
+      "resolved": false,
+      "created_at": "2026-10-30T15:11:46",
+      "question": "The energy required per unit mass to grind limestone particles of very large size to 100 µm is 12.7 kWh/ton. An estimate (using Bond's law) of the energy to grind theparticles from a very large size to 50 μm is",
+      "correct_answer": "B. 18 kWh/ton",
+      "kind": "guess",
+      "exam_id": "1793373100412503",
+      "exam_source": "D2_S13",
+      "category": "Formula / Equation Error",
+      "concept_id": "1792307673190136",
+      "updated_at": "2026-10-30T15:11:46"
     }
   ],
   "checklist": [],
@@ -142100,5 +143395,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-30T14:33:24"
+  "updated_at": "2026-10-30T15:11:49"
 }
