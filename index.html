@@ -1194,6 +1194,15 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
 
     <!-- ---- Tab: Question Bank ---- -->
     <section class="panel" id="panel-editor">
+      <div class="card" id="qbFindCard">
+        <h3>Find questions <span class="count" id="qbFindCount"></span></h3>
+        <div class="hint" style="margin-bottom:6px;">Search every bank at once, then narrow it down. Type <b>#12</b> to find question number 12.</div>
+        <input type="text" id="qbFindInput" placeholder="Search question text, options or notes&hellip;">
+        <div class="row wrap" style="gap:6px;margin-top:6px;"><select id="qbFindWhere" style="flex:1;min-width:130px;"><option value="all">Everywhere</option><option value="repo">Repository banks</option><option value="local">Local banks</option><option value="builtin">Built-in lists</option></select><select id="qbFindBank" style="flex:1;min-width:130px;"></select></div>
+        <div class="qb-chips" id="qbFindChips"></div>
+        <div id="qbFindList" style="margin-top:8px;"></div>
+      </div>
+
       <div class="card" id="qbDestCard">
         <h3>Where are you saving?</h3>
         <div class="qb-seg">
@@ -1258,7 +1267,7 @@ Python: Bank_Name = [ {"text":"...","options":[...],"correct":0}, ... ]
         <div class="hint" style="margin-bottom:6px;">Edits here are staged: nothing is saved until you press the Save / Commit button that appears at the bottom. Questions are never deleted or reordered (your history refers to them by position); <b>Retire</b> hides a question from all samples instead.</div>
         <div class="row wrap"><button class="btn violet" id="qbBtnAdd">+ Add question</button></div>
         <div class="qb-chips" id="qbChips"></div>
-        <input type="text" id="qbSearch" placeholder="Search this bank&hellip;">
+        <input type="text" id="qbSearch" placeholder="Search this bank&hellip; (#12 = question 12)">
         <div id="qbList" style="margin-top:8px;"></div>
         <div class="qb-savebar" id="qbSaveBar" style="display:none;">
           <div class="hint" id="qbSaveInfo" style="margin-bottom:8px;"></div>
@@ -1491,7 +1500,19 @@ Python: Bank_Name = [ {"text":"...","options":[...],"correct":0}, ... ]
   <div class="sheet-inner">
     <h2 id="historyDetailTitle">Test</h2>
     <div id="historyDetailBody"></div>
-    <button class="btn block" id="btnCloseHistoryDetail" style="margin-top:12px;">Close</button>
+    <button class="btn danger block" id="btnDeleteHistory" style="margin-top:12px;">Delete this test&hellip;</button>
+    <button class="btn block" id="btnCloseHistoryDetail" style="margin-top:8px;">Close</button>
+  </div>
+</div>
+
+<div class="sheet hidden" id="historyDeleteSheet">
+  <div class="sheet-inner">
+    <h2 id="hdTitle">Delete this test?</h2>
+    <div id="hdBody"></div>
+    <label class="row" style="gap:8px;margin-top:10px;align-items:flex-start;"><input type="checkbox" id="hdTags" style="margin-top:3px;"><span style="font-size:.85rem;">Also delete the tags, notes and tagged guesses I made from this test, even mistakes I tagged</span></label>
+    <label class="row" id="hdSampleRow" style="gap:8px;margin-top:8px;align-items:flex-start;"><input type="checkbox" id="hdSample" style="margin-top:3px;"><span style="font-size:.85rem;" id="hdSampleLbl"></span></label>
+    <div class="hint" style="margin-top:10px;">Score trends, Study Priority, coverage, streak days and XP that came from this test update on their own. This can't be undone.</div>
+    <div class="row" style="gap:8px;margin-top:12px;"><button class="btn block" id="hdCancel">Cancel</button><button class="btn danger block" id="hdConfirm">Delete test</button></div>
   </div>
 </div>
 
@@ -3092,8 +3113,8 @@ function mergeByStamp(remoteArr, localArr, idKey, deletedKeys) {
   (remoteArr || []).forEach(x => add(x, false)); (localArr || []).forEach(x => add(x, true));
   return Array.from(map.values());
 }
-function mergeMistakeLogs(remoteArr, localArr, deletedIds) {
-  const dead = new Set(deletedIds || []);
+function mergeMistakeLogs(remoteArr, localArr, deletedIds, deletedTests) {
+  const dead = new Set(deletedIds || []), deadTests = new Set(deletedTests || []);
   const stampOf = (e) => e.updated_at || "";
   const byKey = new Map();
   const add = (e, isLocal) => {
@@ -3119,7 +3140,9 @@ function mergeMistakeLogs(remoteArr, localArr, deletedIds) {
   };
   for (const r of (remoteArr || [])) add(r, false);
   for (const l of (localArr || [])) add(l, true);
-  return Array.from(byKey.values());
+  const out = Array.from(byKey.values());
+  if (deadTests.size) for (const e of out) if ((e.occurrences || []).some(o => deadTests.has(o.exam_id))) e.occurrences = e.occurrences.filter(o => !deadTests.has(o.exam_id));
+  return out;
 }
 function mergeBanks(remoteBanks, localBanks, deletedNames) {
   const dead = new Set(deletedNames || []);
@@ -3136,7 +3159,7 @@ function mergeSnapshots(remote, local) {
     sample_sets: mergeById(remote && remote.sample_sets, local.sample_sets, "id", tomb.sample_sets),
     test_history: mergeById(remote && remote.test_history, local.test_history, "id", tomb.test_history),
     exam_details: mergeById(remote && remote.exam_details, local.exam_details, "exam_id", tomb.exam_details),
-    mistake_log: mergeMistakeLogs(remote && remote.mistake_log, local.mistake_log, tomb.mistake_log),
+    mistake_log: mergeMistakeLogs(remote && remote.mistake_log, local.mistake_log, tomb.mistake_log, tomb.test_history),
     guess_notes: mergeById(remote && remote.guess_notes, local.guess_notes, "id", tomb.guess_notes),
     exam_dates: mergeById(remote && remote.exam_dates, local.exam_dates, "id", tomb.exam_dates),
     prompt_sets: mergeByStamp(remote && remote.prompt_sets, local.prompt_sets, "id", tomb.prompt_sets),
@@ -5389,8 +5412,74 @@ function openHistoryDetail(h) {
     <p class="hint" style="margin-top:6px;">Qs = questions from that subject in the test. Acc = correct \u00f7 answered. Sure+wrong = confident answers that were wrong.</p>`;
   }
   $("historyDetailBody").innerHTML = html;
+  $("btnDeleteHistory").onclick = () => openHistoryDelete(h);
   openSheet("historyDetailSheet");
 }
+
+/* ---- delete one test and everything that belongs to it ---- */
+let hdCurrent = null;
+// What a test owns: its result, its per-question records, its "missed" marks in the mistake log, and (if you choose) the tags/notes/saved set that came with it.
+function testDeletePlan(h, o, dry) {
+  o = o || {};
+  const id = h.id, rep = { questions: 0, marks: 0, removed: 0, kept: 0, notes: 0, guesses: 0, samples: 0 };
+  const details = loadJson(KEYS.details, []);
+  rep.questions = details.filter(x => x.exam_id === id).reduce((n, x) => n + (x.items || []).length, 0);
+  const log = loadMistakeLog(), keep = [], dead = [];
+  for (const e of log) {
+    const occ = e.occurrences || [], here = occ.filter(x => x.exam_id === id);
+    if (!here.length) { keep.push(e); continue; }
+    rep.marks += here.length;
+    const rest = occ.filter(x => x.exam_id !== id), mine = !!(e.category || (e.note || "").trim() || e.concept_id || e.resolved);
+    if (!rest.length && (!mine || o.tags)) { dead.push(e.id); rep.removed++; continue; }   // only this test ever missed it (and you didn't tag it, or you chose to drop tags)
+    e.occurrences = rest; e.updated_at = nowIso(); keep.push(e); rep.kept++;
+  }
+  const notes = loadGuessNotes(), noteGone = o.tags ? notes.filter(n => n.exam_id === id) : [];
+  const shaky = loadShaky(), shakyGone = o.tags ? shaky.filter(s => s.exam_id === id) : [];
+  const shared = loadJson(KEYS.history, []).some(x => x.id !== id && x.source === h.source);
+  const sampGone = (o.sample && !shared) ? loadJson(KEYS.samples, []).filter(s => s.name === h.source) : [];
+  rep.notes = noteGone.length; rep.guesses = shakyGone.length; rep.samples = sampGone.length;
+  if (dry) return rep;
+  saveJson(KEYS.details, details.filter(x => x.exam_id !== id)); addTombstone("exam_details", id);
+  saveJson(KEYS.history, loadJson(KEYS.history, []).filter(x => x.id !== id)); addTombstone("test_history", id);
+  saveJson(KEYS.mistakes, keep); dead.forEach(x => addTombstone("mistake_log", x));
+  if (noteGone.length) { const ids = new Set(noteGone.map(n => n.id)); saveJson(KEYS.guessNotes, notes.filter(n => !ids.has(n.id))); noteGone.forEach(n => addTombstone("guess_notes", n.id)); }
+  if (shakyGone.length) { const ids = new Set(shakyGone.map(s => s.id)); saveShaky(shaky.filter(s => !ids.has(s.id))); shakyGone.forEach(s => addTombstone("shaky_tags", s.id)); }
+  sampGone.forEach(s => deleteSampleSet(s.id));
+  for (const k of Object.keys(guessNoteDrafts)) if (k.startsWith(id + "::")) delete guessNoteDrafts[k];
+  saveGuessNoteDrafts();
+  scheduleGithubSync(true);
+  return rep;
+}
+function openHistoryDelete(h) {
+  hdCurrent = h; $("hdTags").checked = false; $("hdSample").checked = false;
+  const sets = loadJson(KEYS.samples, []).filter(s => s.name === h.source), shared = loadJson(KEYS.history, []).filter(x => x.id !== h.id && x.source === h.source).length;
+  $("hdSampleRow").style.display = sets.length ? "" : "none";
+  $("hdSample").disabled = shared > 0;
+  $("hdSampleLbl").textContent = shared > 0 ? `The saved question set "${h.source}" is kept, because ${shared} other test${shared === 1 ? "" : "s"} used it too.` : `Also delete the saved question set "${h.source}" (you won't be able to retake it)`;
+  renderHistoryDelete();
+  closeSheet("historyDetailSheet"); openSheet("historyDeleteSheet");
+}
+function renderHistoryDelete() {
+  const h = hdCurrent; if (!h) return;
+  const r = testDeletePlan(h, { tags: $("hdTags").checked, sample: $("hdSample").checked && !$("hdSample").disabled }, true), n = (k, w) => `${k} ${w}${k === 1 ? "" : "s"}`;
+  $("hdTitle").textContent = `Delete "${h.source || "this test"}"?`;
+  const li = [`The result (${h.score}/${h.total}, ${esc(formatDateNice(dateOnly(h.date)))}) and its ${n(r.questions, "question record")}`];
+  if (r.marks) li.push(`${n(r.marks, "\u201cmissed\u201d mark")} in the mistake log (${r.removed} ${r.removed === 1 ? "entry" : "entries"} removed, ${r.kept} kept)`);
+  if (r.notes) li.push(n(r.notes, "guess note"));
+  if (r.guesses) li.push(n(r.guesses, "tagged guess or flag"));
+  if (r.samples) li.push(n(r.samples, "saved question set"));
+  $("hdBody").innerHTML = `<div class="hint" style="margin-bottom:6px;">This will remove:</div><ul style="margin:0 0 0 18px;padding:0;font-size:.85rem;line-height:1.5;">${li.map(x => `<li>${x}</li>`).join("")}</ul>${r.marks && !$("hdTags").checked ? `<div class="hint" style="margin-top:6px;">Mistakes you tagged or wrote notes on are kept (minus this test's mark), so your work isn't lost.</div>` : ""}`;
+}
+$("hdTags").addEventListener("change", renderHistoryDelete);
+$("hdCancel").addEventListener("click", () => { hdCurrent = null; closeSheet("historyDeleteSheet"); });
+$("hdConfirm").addEventListener("click", () => {
+  const h = hdCurrent; if (!h) return;
+  testDeletePlan(h, { tags: $("hdTags").checked, sample: $("hdSample").checked && !$("hdSample").disabled }, false);
+  hdCurrent = null; closeSheet("historyDeleteSheet");
+  refreshListsDisplay(); refreshSavedSamplesList(); refreshHistoryList(); refreshHome();
+  try { safetyAfterRestore(); } catch (e) {}
+  toast(`Deleted "${h.source || "the test"}" and its data.`, 3600);
+});
 $("btnCloseHistoryDetail").addEventListener("click", () => closeSheet("historyDetailSheet"));
 $("historySearchInput").addEventListener("input", refreshHistoryList);
 $("historySortSelect").addEventListener("change", refreshHistoryList);
@@ -7254,11 +7343,11 @@ function qbActionLabel(n, verb) {
 /* ---------- master render ---------- */
 function renderQB() {
   if (!qb || !$("qbDestCard")) return;
-  qbRenderDest(); qbRenderPicker(); qbRenderPasteHeader(); qbRenderPreview(); qbRenderEditor(); qbRenderProblems();
+  qbRenderDest(); qbRenderPicker(); qbRenderPasteHeader(); qbRenderPreview(); qbRenderEditor(); qbRenderProblems(); qbFindRender();
 }
 function qbRefreshPickers() {   // called whenever lists change elsewhere; never touches the working copy
   if (!qb || !$("qbDestCard")) return;
-  qbRenderDest(); qbRenderPicker(); qbRenderProblems();
+  qbRenderDest(); qbRenderPicker(); qbRenderProblems(); qbFindRender();
 }
 function refreshEditorBankChoicesQuiet() { qbRefreshPickers(); }
 function refreshEditorBankChoices() { renderQB(); }
@@ -7598,6 +7687,93 @@ function qbProblemMap() {
   for (const e of loadMistakeLog()) if (isExcludedEntry(e)) m.set(e.source_list + "::" + Number(e.reference_no), e);
   return m;
 }
+// Word-by-word search (every word must appear); "#12" means question number 12.
+function qbMatchTerm(raw, q, idx) {
+  const t = String(raw || "").trim(); if (!t) return true;
+  const m = t.match(/^#\s*(\d+)$/); if (m) return Number(m[1]) === idx + 1;
+  const hay = qbNorm(q.text + " " + (q.options || []).join(" ") + " " + (q.note || ""));
+  return qbNorm(t).split(" ").every(w => hay.includes(w));
+}
+// How often each question was answered and missed in your tests: "list::number" -> { att, wrong, last }
+function qbQuestionStats() {
+  return rwMemo("qbstats", [KEYS.details], "", () => {
+    const m = new Map();
+    for (const d of loadJson(KEYS.details, [])) for (const it of (d.items || [])) {
+      if (!it.is_answered || it.source_list == null) continue;
+      const ref = refNumOf(it); if (ref === null) continue;
+      const k = it.source_list + "::" + ref, o = m.get(k) || { att: 0, wrong: 0, last: "" };
+      o.att++; if (!it.is_correct) o.wrong++; if ((d.date || "") > o.last) o.last = d.date;
+      m.set(k, o);
+    }
+    return m;
+  });
+}
+const qf = { term: "", where: "all", bank: "", filter: "all", shown: 50 };
+function qbFindRender() {
+  const box = $("qbFindList"); if (!box) return;
+  const chipsBox = $("qbFindChips"), all = getAllLists(), stats = qbQuestionStats(), probs = qbProblemMap();
+  const bankName = l => qbKind(l) === "local" ? l.slice(LOCAL_PREFIX.length) : (qbKind(l) === "repo" && REPO_PREFIX) ? l.slice(REPO_PREFIX.length) : l;
+  // bank dropdown follows the "where" choice
+  const names = Object.keys(all).filter(l => qf.where === "all" || qbKind(l) === qf.where).sort((a, b) => bankName(a).localeCompare(bankName(b)));
+  if (qf.bank && !names.includes(qf.bank)) qf.bank = "";
+  const sel = $("qbFindBank");
+  sel.innerHTML = `<option value="">All banks (${names.length})</option>` + names.map(l => `<option value="${esc(l).replace(/"/g, "&quot;")}">${esc(bankName(l))} (${all[l].length})</option>`).join("");
+  sel.value = qf.bank;
+  const active = !!(qf.term.trim() || qf.filter !== "all" || qf.bank || qf.where !== "all");
+  const FLAGS = { never: r => !r.st, answered: r => !!r.st, missed: r => !!(r.st && r.st.wrong > 0), flagged: r => !!r.prob, retired: r => !!r.q.retired, note: r => !!(r.q.note || "").trim() };
+  const counts = { all: 0 }; Object.keys(FLAGS).forEach(k => counts[k] = 0);
+  const rows = [];
+  if (active) for (const l of names) if (!qf.bank || l === qf.bank) all[l].forEach((q, i) => {
+    if (!qbMatchTerm(qf.term, q, i)) return;
+    const r = { list: l, kind: qbKind(l), i, q, st: stats.get(l + "::" + (i + 1)) || null, prob: probs.get(l + "::" + (i + 1)) || null };
+    counts.all++; for (const k in FLAGS) if (FLAGS[k](r)) counts[k]++;
+    if (qf.filter === "all" || FLAGS[qf.filter](r)) rows.push(r);
+  });
+  chipsBox.innerHTML = "";
+  [["all", "All"], ["never", "Never answered"], ["answered", "Answered"], ["missed", "Missed before"], ["flagged", "Flagged"], ["retired", "Retired"], ["note", "Has note"]].forEach(([k, t]) => {
+    const c = el("button", "qb-chip" + (qf.filter === k ? " active" : ""), `${t}${active ? ` (${counts[k]})` : ""}`);
+    c.addEventListener("click", () => { qf.filter = k; qf.shown = 50; qbFindRender(); });
+    chipsBox.appendChild(c);
+  });
+  $("qbFindCount").textContent = active ? `(${rows.length})` : "";
+  box.innerHTML = "";
+  if (!active) { box.appendChild(el("div", "hint", "Type a word, or pick a filter, to list matching questions from all your banks.")); return; }
+  if (!rows.length) { box.appendChild(el("div", "empty-state", "No questions match.")); return; }
+  rows.slice(0, qf.shown).forEach(r => {
+    const item = el("div", "list-item qb-q" + (r.q.retired ? " retired" : "") + (r.prob ? " flagged" : ""));
+    const st = r.st ? `Answered ${r.st.att} time${r.st.att === 1 ? "" : "s"}${r.st.wrong ? `, missed ${r.st.wrong}` : ""}${r.st.last ? ` &middot; last ${esc(formatDateNice(dateOnly(r.st.last)))}` : ""}` : "Never answered";
+    item.innerHTML = `<div class="top-row"><span class="name">#${r.i + 1} &middot; ${esc(bankName(r.list))}</span><span>${qbBadge(r.kind)} ${r.prob ? `<span class="qb-badge warn">&#9888; flagged</span> ` : ""}${r.q.retired ? `<span class="qb-badge retired">retired</span>` : ""}</span></div>
+      <div style="font-size:.84rem;margin:4px 0;">${esc(r.q.text).replace(/\n/g, "<br>")}</div>
+      <ul class="qb-opts">${r.q.options.map((o, k) => `<li class="${k === r.q.correct ? "correct" : ""}">${String.fromCharCode(65 + k)}. ${esc(o)}${k === r.q.correct ? " &#10003;" : ""}</li>`).join("")}</ul>
+      ${r.q.note ? `<div class="hint">Note: ${esc(r.q.note)}</div>` : ""}<div class="hint">${st}</div>`;
+    if (r.kind !== "builtin") {
+      const b = el("button", "btn", "Open in editor"); b.style.marginTop = "6px";
+      b.addEventListener("click", () => qbOpenFromFind(r));
+      item.appendChild(b);
+    }
+    box.appendChild(item);
+  });
+  if (rows.length > qf.shown) {
+    const more = el("button", "btn block", `Show ${Math.min(50, rows.length - qf.shown)} more (${rows.length - qf.shown} left)`);
+    more.addEventListener("click", () => { qf.shown += 50; qbFindRender(); });
+    box.appendChild(more);
+  }
+}
+function qbOpenFromFind(r) {
+  if (!qbConfirmDiscard()) return;
+  const name = r.kind === "local" ? r.list.slice(LOCAL_PREFIX.length) : (REPO_PREFIX ? r.list.slice(REPO_PREFIX.length) : r.list);
+  if (qb.dest !== r.kind) { qb.dest = r.kind; const p = loadSizePrefs(); p.qbDest = r.kind; saveJson(KEYS.sizePrefs, p); qbResetEditor(); qb.parsed = null; }
+  qbLoadBank(name); qb.search = "#" + (r.i + 1); $("qbSearch").value = qb.search;
+  renderQB();
+  $("qbEditCard").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+(function qbFindWire() {
+  let t = null;
+  $("qbFindInput").addEventListener("input", () => { clearTimeout(t); t = setTimeout(() => { qf.term = $("qbFindInput").value; qf.shown = 50; qbFindRender(); }, 150); });
+  $("qbFindWhere").addEventListener("change", () => { qf.where = $("qbFindWhere").value; qf.bank = ""; qf.shown = 50; qbFindRender(); });
+  $("qbFindBank").addEventListener("change", () => { qf.bank = $("qbFindBank").value; qf.shown = 50; qbFindRender(); });
+})();
+
 function qbRenderEditor() {
   const has = qb.isNew || !!qb.name;
   const kind = qb.dest;
@@ -7616,17 +7792,21 @@ function qbRenderEditor() {
   const probs = qbProblemMap();
   const flagged = qb.work.map((q, i) => probs.has(listName + "::" + (i + 1))).filter(Boolean).length;
   const retired = qb.work.filter(q => q.retired).length;
-  [["all", `All (${qb.work.length})`], ["flagged", `Flagged (${flagged})`], ["retired", `Retired (${retired})`]].forEach(([k, t]) => {
+  const qst = qbQuestionStats(), seen = qb.work.map((q, i) => qst.get(listName + "::" + (i + 1)) || null);
+  const never = seen.filter(s => !s).length, missed = seen.filter(s => s && s.wrong > 0).length;
+  [["all", `All (${qb.work.length})`], ["never", `Never answered (${never})`], ["missed", `Missed before (${missed})`], ["flagged", `Flagged (${flagged})`], ["retired", `Retired (${retired})`]].forEach(([k, t]) => {
     const c = el("button", "qb-chip" + (qb.filter === k ? " active" : ""), t);
     c.addEventListener("click", () => { qb.filter = k; qb.shown = 50; qbRenderEditor(); });
     chips.appendChild(c);
   });
-  const term = qbNorm(qb.search), baseArr = JSON.parse(qb.baseJson) || [];
+  const baseArr = JSON.parse(qb.baseJson) || [];
   const idxs = [];
   qb.work.forEach((q, i) => {
     if (qb.filter === "flagged" && !probs.has(listName + "::" + (i + 1))) return;
     if (qb.filter === "retired" && !q.retired) return;
-    if (term && !qbNorm(q.text + " " + q.options.join(" ")).includes(term)) return;
+    if (qb.filter === "never" && seen[i]) return;
+    if (qb.filter === "missed" && !(seen[i] && seen[i].wrong > 0)) return;
+    if (!qbMatchTerm(qb.search, q, i)) return;
     idxs.push(i);
   });
   if (!idxs.length) list.appendChild(el("div", "empty-state", qb.work.length ? "No questions match." : "No questions yet. Paste some above, or press + Add question."));
