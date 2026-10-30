@@ -52613,6 +52613,15 @@
       "pct": 36,
       "date": "2026-10-30T06:06:04",
       "time_used_seconds": 3807.9
+    },
+    {
+      "id": "1793351230721899",
+      "source": "D3_S10",
+      "score": 28,
+      "total": 50,
+      "pct": 56,
+      "date": "2026-10-30T09:07:10",
+      "time_used_seconds": 2361.9
     }
   ],
   "exam_details": [
@@ -101935,6 +101944,563 @@
           "correct_answer": "B. 84%"
         }
       ]
+    },
+    {
+      "exam_id": "1793351230721899",
+      "source": "D3_S10",
+      "date": "2026-10-30T09:07:10",
+      "items": [
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 91,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The cost of producing a small transistor radio set consists of P23 for labor and P37 for materials. The fixed charges in operating the plant are P100,000 per month. The variable cost is P1 per set. The radio set can be sold for P75 each. Determine how many sets must be produced per month to breakeven.",
+          "your_answer": "B. 7000 sets",
+          "correct_answer": "A. 7143 sets"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 34,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "The Sun is about 1.5 x 10^11 m away. The time for light to travel this distance is about:",
+          "your_answer": "D. 8 min",
+          "correct_answer": "D. 8 min"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 2,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "It is the positive acute angle between the x-axis and the terminal side of an angle",
+          "your_answer": "C. Angle of Elevation",
+          "correct_answer": "B. Reference Angle"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 39,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A 900-kg car moving at 10 m/s takes a turn around a circle with a radius of 25.0 m. Determine the (centripetal) acceleration.",
+          "your_answer": "C. 3 m/s²",
+          "correct_answer": "D. 4 m/s²"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 109,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Cumene is the starting material for the production of",
+          "your_answer": "C. Phenol and acetone",
+          "correct_answer": "C. Phenol and acetone"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 56,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A hemispherical bowl has top radius 4ft and at time t = 0 is full of water. At 1pm, a circular hole of unknown radius is opened, and at 1:30pm, the depth of the water in the tank is 2ft. Using Torricelli's law and g = 32ft/s², what is the radius of the bottom hole?",
+          "your_answer": "B. 0.53in",
+          "correct_answer": "B. 0.53in"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 15,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Consider the function f(x) = (x²-4)/(x-2). The lim(x→2) f(x) exists but produces what type of discontinuity?",
+          "your_answer": "B. Jump Discontinuity",
+          "correct_answer": "C. Removable Discontinuity"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 1,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the coordinate of a point equidistant from (1, -6), (5, -6) and (6, -1).",
+          "your_answer": "B. (3, -2)",
+          "correct_answer": "C. (3, -3)"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 24,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A line with an inclination of 45u00ba passes through (-5/2, -9/2). What is the x-coordinate of a point on the line if its corresponding y-coordinate is 6?",
+          "your_answer": "C. 8",
+          "correct_answer": "C. 8"
+        },
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Integrate: (2 + tan θ)/cos θ dθ",
+          "your_answer": "B. 2 ln(sec θ + tan θ) + sec θ - 1 + c",
+          "correct_answer": "B. 2 ln(sec θ + tan θ) + sec θ - 1 + c"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 44,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "According to Newton's law of cooling, the rate at which a substance cools in air is directly proportional to the difference between the temperatures of the substance and that of air. If the temperature of the air is 30° and the substance cools from 100° to 70° in 15 minutes, how long will it take to cool 100° to 50°?",
+          "your_answer": "A. 33.59 min",
+          "correct_answer": "A. 33.59 min"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 31,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Determine the future worth of P5000 invested for 9 months and 10 days at 12% ordinary simple interest.",
+          "your_answer": "A. P5466.67",
+          "correct_answer": "A. P5466.67"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 45,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which of the following refers to a numerical quantity that takes on different values based on the outcome of a random experiment?",
+          "your_answer": "D. Expected Value",
+          "correct_answer": "B. Random Variable"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "It is a market situation in which there are so few suppliers of a particular product that one supplier's actions significantly impact prices and supply.",
+          "your_answer": "C. Oligopoly",
+          "correct_answer": "C. Oligopoly"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 29,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "The proper \"fail safe\" status of a valve should be dictated by:",
+          "your_answer": "D. the nature of the process",
+          "correct_answer": "D. the nature of the process"
+        },
+        {
+          "source_list": "D3_L6_AnalyticGeometry",
+          "reference_no": 41,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the equation of the normal to the curve y^2 + 2x + 3y = 0 through point (-5,2).",
+          "your_answer": "A. 7x + 2y + 39 = 0",
+          "correct_answer": "B. 7x u2013 2y + 39 = 0"
+        },
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The base areas of a frustum of a cone are 25cm^2 and 16cm^2, respectively. If its altitude is 6cm, find its volume.",
+          "your_answer": "B. 122 cm^3",
+          "correct_answer": "B. 122 cm^3"
+        },
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 38,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A water tank is in the form of a spherical segment whose base radii are 4m and 3m and whose altitude is 6m. The capacity of the tank is",
+          "your_answer": "B. 101pi m^3",
+          "correct_answer": "D. 111pi m^3"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 38,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What is the moment of inertia of a right triangle with base and height measuring 6 cm and 11 cm, respectively, with respect to the y-axis if the centroid is on the origin?",
+          "your_answer": "C. 183.21 cm⁴",
+          "correct_answer": "A. 66 cm⁴"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 46,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "What is the promoter used in the manufacture of ammonia by Haber's process?",
+          "your_answer": "C. Molybdenum",
+          "correct_answer": "C. Molybdenum"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 149,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In the process of performing a project, after the need for a product or Service is identified, what is usually the next step?",
+          "your_answer": "A. Define the goals f the project and their relative importance",
+          "correct_answer": "A. Define the goals f the project and their relative importance"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 57,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "[Situation 2: Cone with altitude 12 m and base radius 15 m; cylinder inscribed with maximum volume] What is the volume of the cylinder?",
+          "your_answer": "B. 200pi m³",
+          "correct_answer": "D. 400pi m³"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the number of ordered triples of positive integers (a, b, c) such that a + b + c = 8.",
+          "your_answer": "B. 21",
+          "correct_answer": "B. 21"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "What is the term for the case of refraction where the light ray bends so much that it never goes beyond the boundary between two media (θc = sin⁻¹(n2/n1))?",
+          "your_answer": "B. Total internal reflection",
+          "correct_answer": "B. Total internal reflection"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 18,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the 30th term of the A. P. 4, 7, 10 ...",
+          "your_answer": "B. 75",
+          "correct_answer": "C. 91"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 7,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Solve for x in the following equations: 27^x = 9^y and 81^y * 3^-x = 243",
+          "your_answer": "B. 1.5",
+          "correct_answer": "A. 1"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 106,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "CaO(s) + H2O -> Ca(OH)2, where does this chemical reaction occur?",
+          "your_answer": "D. Hydrated lime",
+          "correct_answer": "D. Hydrated lime"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 104,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Typically, the best course of action to take during a medical emergency is to _________________.",
+          "your_answer": "A. begin first aid immediately",
+          "correct_answer": "A. begin first aid immediately"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 74,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "[Questions 31-39 refer to the following: The times required by three workers to perform an assembly-line task were recorded on five randomly selected occasions. Worker 1: 8, 10, 9, 11, 10. Worker 2: 8, 9, 9, 8, 10. Worker 3: 10, 9, 10, 11, 9.] Compute the degrees of freedom for treatments.",
+          "your_answer": "B. 2",
+          "correct_answer": "B. 2"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 30,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Three circles with centers A, B and C have respective radii 50, 30 and 20 inches and are tangent to each other externally. Find the area (in square inches) of the curvilinear triangle formed by the three circles.",
+          "your_answer": "B. 146",
+          "correct_answer": "A. 142"
+        },
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 29,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the area inside the cardioid r=4(1+cosθ) but outside the circle r=4.",
+          "your_answer": "D. 66.71 sq. units",
+          "correct_answer": "B. 44.57 sq. units"
+        },
+        {
+          "source_list": "D3_L4_Trigonometry",
+          "reference_no": 28,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "For what value of C will make f(t) = tan (Ct + 3) have a period of 2u03c0?",
+          "your_answer": "C. 2",
+          "correct_answer": "B. 1/2"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Solve the general solution of the differential equation 2xydx + (x² + 3y²)dy = 0.",
+          "your_answer": "A. x²y + y³ = c",
+          "correct_answer": "A. x²y + y³ = c"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 71,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Failures at the lower management level are MOST likely to result in:",
+          "your_answer": "C. Unsafe acts and hazards during operations",
+          "correct_answer": "C. Unsafe acts and hazards during operations"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 53,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which of the following chemical is responsible for acute lung disease from Bhopal gas tragedy?",
+          "your_answer": "A. Methylisocyanate",
+          "correct_answer": "A. Methylisocyanate"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 17,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "PHA stands for",
+          "your_answer": "A. Process Hazard Analysis",
+          "correct_answer": "A. Process Hazard Analysis"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 56,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Three resistors R1 = 4 Ω, R2 = 6 Ω, R3 = 12 Ω are connected in parallel to a 24 V battery. Find the current through each resistor (I1, I2, I3 respectively).",
+          "your_answer": "A. 6A, 4A, 2A",
+          "correct_answer": "A. 6A, 4A, 2A"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 103,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What kind of gasoline was phased out last December 23, 2000?",
+          "your_answer": "C. Leaded Gasoline",
+          "correct_answer": "C. Leaded Gasoline"
+        },
+        {
+          "source_list": "D3_L3_Algebra",
+          "reference_no": 25,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the sum of the first 10 terms of the geometric progression 2, 4, 8, 16, ...",
+          "your_answer": "A. 1203",
+          "correct_answer": "C. 2046"
+        },
+        {
+          "source_list": "D3_L13_EngineeringDataAnalysis",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In a press conference before the All-Star Game, eight All-Stars will be taking questions: three are Cubs, three are Red Sox, and two are Yankees. If teammates insist on sitting together, how many ways can the eight All-Stars be seated in a row?",
+          "your_answer": "C. 432",
+          "correct_answer": "C. 432"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 51,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "This type of process plant is capable of producing small quantities of a variety of products, particularly found in food, chemicals, and pharmaceuticals industries",
+          "your_answer": "A. Specialty plants",
+          "correct_answer": "A. Specialty plants"
+        },
+        {
+          "source_list": "D3_L11_Differential_Equations",
+          "reference_no": 41,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Radium decomposes at a rate proportional to the amount at any instant. In 100 years, 100 mg of radium decomposes to 96 mg. How many mg will be left after another 100 years?",
+          "your_answer": "C. 92.16",
+          "correct_answer": "C. 92.16"
+        },
+        {
+          "source_list": "D3_L15_Engineering_Mechanics",
+          "reference_no": 67,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A spaceship orbits the moon at a height of 20 km. Assuming it to be subject only to the gravitational pull of the moon, find the time it takes for one orbit. (Note: radius of moon = 1.738 x 10⁶ m; mass of moon = 7.35 x 10²² kg)",
+          "your_answer": "B. 90 min",
+          "correct_answer": "A. 110 min"
+        },
+        {
+          "source_list": "D3_L14_Physics",
+          "reference_no": 66,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which one of the following statements is true?",
+          "your_answer": "C. Temperatures which differ by 10° on the Celsius scale must differ by 18° on the Fahrenheit scale",
+          "correct_answer": "C. Temperatures which differ by 10° on the Celsius scale must differ by 18° on the Fahrenheit scale"
+        },
+        {
+          "source_list": "D3_L5_Geometry",
+          "reference_no": 16,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What is the area of a hexagon if the radius of circumscribing circle is 6.2?",
+          "your_answer": "C. 119.06",
+          "correct_answer": "A. 99.87"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 30,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Which of the following is/are the critical value(s) of the function f(x) = x²/(9-x²)?",
+          "your_answer": "B. -3",
+          "correct_answer": "A. 0"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 44,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What is an Order or Writ to secure the production of documents in connection with any administrative case before the Board of Chemical Engineering?",
+          "your_answer": "C. warrant of arrest",
+          "correct_answer": "D. subpoena duces tecum"
+        },
+        {
+          "source_list": "D3_L2_Process_Control_Analysis",
+          "reference_no": 58,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Manometers are pressure-measuring devices belonging to which of the following classes?",
+          "your_answer": "B. Liquid column methods",
+          "correct_answer": "B. Liquid column methods"
+        },
+        {
+          "source_list": "D3_L8_Integral_Calculus",
+          "reference_no": 33,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the length of the curve given its parametric equations x=t³-3t and y=3t² from t=0 to t=1.",
+          "your_answer": "A. 2",
+          "correct_answer": "C. 4"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 94,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A manufacturer of sports equipment produces tennis rackets for which there is a demand of 200 per month. The production setup cost for each batch of rackets is $300. In addition, the inventory carrying cost for each racket is $24 per year. Using the EOQ model, which is most nearly the best production batch size for the rackets?",
+          "your_answer": "B. 240 units",
+          "correct_answer": "A. 245 units"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -125385,6 +125951,486 @@
       "concept_id": "1792701557213788",
       "tag_at": "2026-10-30T07:33:23",
       "note_at": ""
+    },
+    {
+      "id": "1793351230959663",
+      "source_list": "D3_L12_EngineeringEconomics",
+      "reference_no": 91,
+      "question": "The cost of producing a small transistor radio set consists of P23 for labor and P37 for materials. The fixed charges in operating the plant are P100,000 per month. The variable cost is P1 per set. The radio set can be sold for P75 each. Determine how many sets must be produced per month to breakeven.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:12",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:10",
+          "your_answer": "B. 7000 sets",
+          "correct_answer": "A. 7143 sets"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:12",
+      "concept_id": "1792860767807909",
+      "tag_at": "2026-10-30T09:07:12"
+    },
+    {
+      "id": "1793351231064871",
+      "source_list": "D3_L4_Trigonometry",
+      "reference_no": 2,
+      "question": "It is the positive acute angle between the x-axis and the terminal side of an angle",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:12",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:11",
+          "your_answer": "C. Angle of Elevation",
+          "correct_answer": "B. Reference Angle"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:12",
+      "concept_id": "1792311344109127",
+      "tag_at": "2026-10-30T09:07:12"
+    },
+    {
+      "id": "1793351231185193",
+      "source_list": "D3_L15_Engineering_Mechanics",
+      "reference_no": 39,
+      "question": "A 900-kg car moving at 10 m/s takes a turn around a circle with a radius of 25.0 m. Determine the (centripetal) acceleration.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:13",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:11",
+          "your_answer": "C. 3 m/s²",
+          "correct_answer": "D. 4 m/s²"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:13",
+      "concept_id": "1792321082715344",
+      "tag_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351231272100",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 15,
+      "question": "Consider the function f(x) = (x²-4)/(x-2). The lim(x→2) f(x) exists but produces what type of discontinuity?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:13",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:11",
+          "your_answer": "B. Jump Discontinuity",
+          "correct_answer": "C. Removable Discontinuity"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:13",
+      "concept_id": "1792321206714282",
+      "tag_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351231360776",
+      "source_list": "D3_L6_AnalyticGeometry",
+      "reference_no": 1,
+      "question": "Find the coordinate of a point equidistant from (1, -6), (5, -6) and (6, -1).",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:13",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:11",
+          "your_answer": "B. (3, -2)",
+          "correct_answer": "C. (3, -3)"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:13",
+      "concept_id": "1792311689077280",
+      "tag_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351231452753",
+      "source_list": "D3_L13_EngineeringDataAnalysis",
+      "reference_no": 45,
+      "question": "Which of the following refers to a numerical quantity that takes on different values based on the outcome of a random experiment?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:13",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:11",
+          "your_answer": "D. Expected Value",
+          "correct_answer": "B. Random Variable"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:13",
+      "concept_id": "17923214786028",
+      "tag_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351231530847",
+      "source_list": "D3_L6_AnalyticGeometry",
+      "reference_no": 41,
+      "question": "Find the equation of the normal to the curve y^2 + 2x + 3y = 0 through point (-5,2).",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:11",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:11",
+          "your_answer": "A. 7x + 2y + 39 = 0",
+          "correct_answer": "B. 7x u2013 2y + 39 = 0"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:11"
+    },
+    {
+      "id": "1793351231612515",
+      "source_list": "D3_L5_Geometry",
+      "reference_no": 38,
+      "question": "A water tank is in the form of a spherical segment whose base radii are 4m and 3m and whose altitude is 6m. The capacity of the tank is",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:13",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:11",
+          "your_answer": "B. 101pi m^3",
+          "correct_answer": "D. 111pi m^3"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:13",
+      "concept_id": "1792311851589860",
+      "tag_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351231693606",
+      "source_list": "D3_L15_Engineering_Mechanics",
+      "reference_no": 38,
+      "question": "What is the moment of inertia of a right triangle with base and height measuring 6 cm and 11 cm, respectively, with respect to the y-axis if the centroid is on the origin?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:13",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:11",
+          "your_answer": "C. 183.21 cm⁴",
+          "correct_answer": "A. 66 cm⁴"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:13",
+      "concept_id": "1792705996608796",
+      "tag_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351231775444",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 57,
+      "question": "[Situation 2: Cone with altitude 12 m and base radius 15 m; cylinder inscribed with maximum volume] What is the volume of the cylinder?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:11",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:11",
+          "your_answer": "B. 200pi m³",
+          "correct_answer": "D. 400pi m³"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:11"
+    },
+    {
+      "id": "1793351231853722",
+      "source_list": "D3_L3_Algebra",
+      "reference_no": 18,
+      "question": "Find the 30th term of the A. P. 4, 7, 10 ...",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:13",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:11",
+          "your_answer": "B. 75",
+          "correct_answer": "C. 91"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:13",
+      "concept_id": "1792309489485845",
+      "tag_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351231939376",
+      "source_list": "D3_L3_Algebra",
+      "reference_no": 7,
+      "question": "Solve for x in the following equations: 27^x = 9^y and 81^y * 3^-x = 243",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:13",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:11",
+          "your_answer": "B. 1.5",
+          "correct_answer": "A. 1"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:13",
+      "concept_id": "1792311174117874",
+      "tag_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351232019297",
+      "source_list": "D3_L4_Trigonometry",
+      "reference_no": 30,
+      "question": "Three circles with centers A, B and C have respective radii 50, 30 and 20 inches and are tangent to each other externally. Find the area (in square inches) of the curvilinear triangle formed by the three circles.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:13",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:12",
+          "your_answer": "B. 146",
+          "correct_answer": "A. 142"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:13",
+      "concept_id": "1792311851589860",
+      "tag_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351232099991",
+      "source_list": "D3_L8_Integral_Calculus",
+      "reference_no": 29,
+      "question": "Find the area inside the cardioid r=4(1+cosθ) but outside the circle r=4.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:13",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:12",
+          "your_answer": "D. 66.71 sq. units",
+          "correct_answer": "B. 44.57 sq. units"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:13",
+      "concept_id": "1792311851589860",
+      "tag_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351232169374",
+      "source_list": "D3_L4_Trigonometry",
+      "reference_no": 28,
+      "question": "For what value of C will make f(t) = tan (Ct + 3) have a period of 2u03c0?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:13",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:12",
+          "your_answer": "C. 2",
+          "correct_answer": "B. 1/2"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:13",
+      "concept_id": "1792311344109127",
+      "tag_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351232243959",
+      "source_list": "D3_L3_Algebra",
+      "reference_no": 25,
+      "question": "Find the sum of the first 10 terms of the geometric progression 2, 4, 8, 16, ...",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:13",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:12",
+          "your_answer": "A. 1203",
+          "correct_answer": "C. 2046"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:13",
+      "concept_id": "1792309489485845",
+      "tag_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351232326963",
+      "source_list": "D3_L15_Engineering_Mechanics",
+      "reference_no": 67,
+      "question": "A spaceship orbits the moon at a height of 20 km. Assuming it to be subject only to the gravitational pull of the moon, find the time it takes for one orbit. (Note: radius of moon = 1.738 x 10⁶ m; mass of moon = 7.35 x 10²² kg)",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:13",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:12",
+          "your_answer": "B. 90 min",
+          "correct_answer": "A. 110 min"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:13",
+      "concept_id": "1792321082715344",
+      "tag_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351232413375",
+      "source_list": "D3_L5_Geometry",
+      "reference_no": 16,
+      "question": "What is the area of a hexagon if the radius of circumscribing circle is 6.2?",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:14",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:12",
+          "your_answer": "C. 119.06",
+          "correct_answer": "A. 99.87"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:14",
+      "concept_id": "1792309543006667",
+      "tag_at": "2026-10-30T09:07:14"
+    },
+    {
+      "id": "1793351232499449",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 30,
+      "question": "Which of the following is/are the critical value(s) of the function f(x) = x²/(9-x²)?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:14",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:12",
+          "your_answer": "B. -3",
+          "correct_answer": "A. 0"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:14",
+      "concept_id": "1792308931558341",
+      "tag_at": "2026-10-30T09:07:14"
+    },
+    {
+      "id": "1793351232584765",
+      "source_list": "D3_L1_ChE_Laws",
+      "reference_no": 44,
+      "question": "What is an Order or Writ to secure the production of documents in connection with any administrative case before the Board of Chemical Engineering?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:14",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:12",
+          "your_answer": "C. warrant of arrest",
+          "correct_answer": "D. subpoena duces tecum"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:14",
+      "concept_id": "1792309349198633",
+      "tag_at": "2026-10-30T09:07:14"
+    },
+    {
+      "id": "1793351232672466",
+      "source_list": "D3_L8_Integral_Calculus",
+      "reference_no": 33,
+      "question": "Find the length of the curve given its parametric equations x=t³-3t and y=3t² from t=0 to t=1.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:14",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:12",
+          "your_answer": "A. 2",
+          "correct_answer": "C. 4"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:14",
+      "concept_id": "1792320991122296",
+      "tag_at": "2026-10-30T09:07:14"
+    },
+    {
+      "id": "1793351232754566",
+      "source_list": "D3_L12_EngineeringEconomics",
+      "reference_no": 94,
+      "question": "A manufacturer of sports equipment produces tennis rackets for which there is a demand of 200 per month. The production setup cost for each batch of rackets is $300. In addition, the inventory carrying cost for each racket is $24 per year. Using the EOQ model, which is most nearly the best production batch size for the rackets?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-30T09:07:14",
+      "occurrences": [
+        {
+          "exam_id": "1793351230721899",
+          "exam_source": "D3_S10",
+          "date": "2026-10-30T09:07:12",
+          "your_answer": "B. 240 units",
+          "correct_answer": "A. 245 units"
+        }
+      ],
+      "updated_at": "2026-10-30T09:07:14",
+      "concept_id": "1792860767807909",
+      "tag_at": "2026-10-30T09:07:14"
     }
   ],
   "guess_notes": [
@@ -130245,6 +131291,81 @@
       "category": "Unfamiliar Topic",
       "concept_id": "1792306216423779",
       "updated_at": "2026-10-30T07:44:08"
+    },
+    {
+      "id": "1793351233091224",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 56,
+      "resolved": false,
+      "created_at": "2026-10-30T09:07:13",
+      "question": "A hemispherical bowl has top radius 4ft and at time t = 0 is full of water. At 1pm, a circular hole of unknown radius is opened, and at 1:30pm, the depth of the water in the tank is 2ft. Using Torricelli's law and g = 32ft/s², what is the radius of the bottom hole?",
+      "correct_answer": "B. 0.53in",
+      "kind": "guess",
+      "exam_id": "1793351230721899",
+      "exam_source": "D3_S10",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792321292394767",
+      "updated_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "179335123326191",
+      "source_list": "D3_L8_Integral_Calculus",
+      "reference_no": 6,
+      "resolved": false,
+      "created_at": "2026-10-30T09:07:13",
+      "question": "Integrate: (2 + tan θ)/cos θ dθ",
+      "correct_answer": "B. 2 ln(sec θ + tan θ) + sec θ - 1 + c",
+      "kind": "guess",
+      "exam_id": "1793351230721899",
+      "exam_source": "D3_S10",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792311424189512",
+      "updated_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351233263275",
+      "source_list": "D3_L11_Differential_Equations",
+      "reference_no": 44,
+      "resolved": false,
+      "created_at": "2026-10-30T09:07:13",
+      "question": "According to Newton's law of cooling, the rate at which a substance cools in air is directly proportional to the difference between the temperatures of the substance and that of air. If the temperature of the air is 30° and the substance cools from 100° to 70° in 15 minutes, how long will it take to cool 100° to 50°?",
+      "correct_answer": "A. 33.59 min",
+      "kind": "guess",
+      "exam_id": "1793351230721899",
+      "exam_source": "D3_S10",
+      "category": "Formula / Equation Error",
+      "concept_id": "1792321292394767",
+      "updated_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351233342269",
+      "source_list": "D3_L5_Geometry",
+      "reference_no": 36,
+      "resolved": false,
+      "created_at": "2026-10-30T09:07:13",
+      "question": "The base areas of a frustum of a cone are 25cm^2 and 16cm^2, respectively. If its altitude is 6cm, find its volume.",
+      "correct_answer": "B. 122 cm^3",
+      "kind": "guess",
+      "exam_id": "1793351230721899",
+      "exam_source": "D3_S10",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792311851589860",
+      "updated_at": "2026-10-30T09:07:13"
+    },
+    {
+      "id": "1793351233491888",
+      "source_list": "D3_L13_EngineeringDataAnalysis",
+      "reference_no": 13,
+      "resolved": false,
+      "created_at": "2026-10-30T09:07:13",
+      "question": "Find the number of ordered triples of positive integers (a, b, c) such that a + b + c = 8.",
+      "correct_answer": "B. 21",
+      "kind": "guess",
+      "exam_id": "1793351230721899",
+      "exam_source": "D3_S10",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792308820694471",
+      "updated_at": "2026-10-30T09:07:13"
     }
   ],
   "checklist": [],
@@ -130294,5 +131415,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-30T07:46:21"
+  "updated_at": "2026-10-30T09:07:17"
 }
