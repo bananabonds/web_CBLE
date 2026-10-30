@@ -56562,6 +56562,626 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "179337586088424",
+      "name": "D3_S15",
+      "created_at": "2026-10-30T15:57:40",
+      "composition": {
+        "D3_L1_ChE_Laws": 5,
+        "D3_L13_EngineeringDataAnalysis": 5,
+        "D3_L7_Differential_Calculus": 5,
+        "D3_L15_Engineering_Mechanics": 5,
+        "D3_L8_Integral_Calculus": 5,
+        "D3_L9_CPI": 5,
+        "D3_L10_ProcessSafety": 5,
+        "D3_L14_Physics": 5,
+        "D3_L12_EngineeringEconomics": 5,
+        "D3_L2_Process_Control_Analysis": 5
+      },
+      "questions": [
+        {
+          "text": "Fuels and additives are registered in DOE: The following should be registered except",
+          "options": [
+            "A. product identity and composition",
+            "B. description of analytical technique",
+            "C. purpose in the use of fuel and additive",
+            "D. none of the above"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 101
+        },
+        {
+          "text": "Given the PMF of a discrete random variable X: P(X=1)=0.2, P(X=2)=0.3, P(X=3)=0.5, and 0 otherwise. What is the variance (σ²) of the random variable X?",
+          "options": [
+            "A. 0.56",
+            "B. 0.7",
+            "C. 0.58",
+            "D. 0.61"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 52
+        },
+        {
+          "text": "A wall 'h' meters high is 2 m away from the building. The shortest ladder that can reach the building with one end resting on the ground outside the wall is 6 m. How high is the wall in meters?",
+          "options": [
+            "A. 2.34",
+            "B. 2.24",
+            "C. 2.44",
+            "D. 2.14"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 50
+        },
+        {
+          "text": "A wheel rotates through 50 rad while accelerating uniformly from 10 rad/s to 20 rad/s. Find the angular acceleration.",
+          "options": [
+            "A. 2 rad/s²",
+            "B. 3 rad/s²",
+            "C. 4 rad/s²",
+            "D. 5 rad/s²"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 54
+        },
+        {
+          "text": "Determine the surface area generated if the line segment intercepted by the coordinate axis is revolved about the y-axis. The equation of the line is 3x + 4y - 12 = 0.",
+          "options": [
+            "A. 10pi",
+            "B. 20pi",
+            "C. 15pi",
+            "D. 25pi"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 42
+        },
+        {
+          "text": "A 900-kg car moving at 10 m/s takes a turn around a circle with a radius of 25.0 m. Determine the net force acting upon the car.",
+          "options": [
+            "A. 1200N",
+            "B. 2400N",
+            "C. 3600N",
+            "D. 4800N"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 39
+        },
+        {
+          "text": "What is used for bromine concentration?",
+          "options": [
+            "A. Seawater with air",
+            "B. Seawater with HCl",
+            "C. Chlorinated seawater with air",
+            "D. Chlorinated seawater with HCl"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 42
+        },
+        {
+          "text": "Water is pouring into a swimming pool. After t hours, there are t + √t gallons in the pool. At what rate is the water pouring into the pool when t = 9 hours?",
+          "options": [
+            "A. 7/6 gph",
+            "B. 8/7 gph",
+            "C. 6/5 gph",
+            "D. 5/4 gph"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 67
+        },
+        {
+          "text": "To be prepared for emergencies that occur in the workplace, each employer should have a(n) ________.",
+          "options": [
+            "A. Employee Assistance Plan",
+            "B. Employee Safety and Health Plan",
+            "C. Emergency Action Plan",
+            "D. Standard Operating Procedure"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 98
+        },
+        {
+          "text": "An object is 30 cm in front of a converging lens of focal length 10 cm. The image is:",
+          "options": [
+            "A. real and larger than the object",
+            "B. real and the same size as the object",
+            "C. real and smaller than the object",
+            "D. virtual and the same size as the object"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 47
+        },
+        {
+          "text": "An I-beam cross-section is oriented with its web vertical (along the y-axis) and centroid at the origin. The top flange has a total width of 48 mm (24 mm on each side of the y-axis) and a thickness of 6 mm. The bottom flange has the same dimensions (48 mm wide, 6 mm thick), symmetric about the x-axis. The web connecting the flanges has a thickness of 8 mm and extends 24 mm above and 24 mm below the x-axis (centroidal axis) to meet the inner faces of the flanges. Determine the radius of gyration with respect to the x-axis.",
+          "options": [
+            "A. 19.26mm",
+            "B. 20.04mm",
+            "C. 21.86mm",
+            "D. 22.26mm"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 32
+        },
+        {
+          "text": "Favorable conditions for liquefaction of gases in general are",
+          "options": [
+            "A. High pressure & low temperature",
+            "B. Low pressure & high temperature",
+            "C. High pressure & high temperature",
+            "D. Low pressure & low temperature"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 74
+        },
+        {
+          "text": "The coefficient of linear expansion of iron is 1.0 x 10^-5 per °C. The total surface area of an iron cube, with an edge length of 5.0 cm, will increase by what amount if it is heated from 10°C to 60°C?",
+          "options": [
+            "A. 0.075 cm²",
+            "B. 0.15 cm²",
+            "C. 0.225 cm²",
+            "D. 0.30 cm²"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 62
+        },
+        {
+          "text": "What is the Laplace transform of cosh(2t)?",
+          "options": [
+            "A. 2/(s²-2)",
+            "B. 2/(s²-4)",
+            "C. s/(s²-2)",
+            "D. s/(s²-4)"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 54
+        },
+        {
+          "text": "A firm procures canned peas and adds to accumulate inventory as follows: January: 55pcs @ P50/can, February: 125pcs @ P55/can, March: 100pcs @ P75/can. What is the cost of goods sold for the 60 units that left the stock using Last In First Out (LIFO)?",
+          "options": [
+            "A. P3025",
+            "B. P3000",
+            "C. P4500",
+            "D. P3300"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 83
+        },
+        {
+          "text": "An engineering is required to finish a certain engineering job in 20 days.  He is said to be ___________if he finished the job within the required period of 20 days :",
+          "options": [
+            "A. Efficient",
+            "B. Reliable",
+            "C. Effective",
+            "D. Qualified"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 129
+        },
+        {
+          "text": "A ball is thrown vertically upward with an initial velocity of 15 m/s. Find the maximum height reached.",
+          "options": [
+            "A. 9.47 m",
+            "B. 10.47 m",
+            "C. 11.47 m",
+            "D. 12.47 m"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 51
+        },
+        {
+          "text": "In how many ways can you invite one or more of your five friends to your birthday party?",
+          "options": [
+            "A. 25",
+            "B. 32",
+            "C. 31",
+            "D. 10"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 11
+        },
+        {
+          "text": "How many distinct permutations does the word ENGINEERING have?",
+          "options": [
+            "A. 277200",
+            "B. 272700",
+            "C. 727200",
+            "D. 277020"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 6
+        },
+        {
+          "text": "A safety interlock on a reactor cooling system keeps tripping and preventing startup. The production manager suggests overriding it temporarily so the batch can be completed, with a technician watching the temperature manually. What is the most critical step before any override is considered?",
+          "options": [
+            "A. Confirm the technician has experience monitoring reactor temperature",
+            "B. Ensure the bypass is registered in a log and formally authorized based on a risk assessment",
+            "C. Override the interlock briefly and restore it once the reaction passes its peak temperature",
+            "D. Check if the same interlock was overridden before without incident"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 32
+        },
+        {
+          "text": "Plans that are used again and again and focus on managerial situations that recur repeatedly: they",
+          "options": [
+            "A. Short-range plans",
+            "B. Standing Plans",
+            "C. Long-range plans",
+            "D. Single-Use Plans"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 156
+        },
+        {
+          "text": "Specifically developed to implement courses of action that are relatively unique and are unlikely to be repeated.",
+          "options": [
+            "A. Short-range plans",
+            "B. Standing Plans",
+            "C. Long-range plans",
+            "D. Single-Use Plans"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 157
+        },
+        {
+          "text": "A transfer function G(s) has a numerator polynomial of degree m = 3 and a denominator polynomial of degree n = 2. Which of the following best describes this system?",
+          "options": [
+            "A. It is a stable,overdamped second-order system",
+            "B. It is not physically realizable because the number of zeros exceeds the number of poles",
+            "C. It will exhibit an inverse response due to the extra zero",
+            "D. It behaves as an integrating process because the denominator is lower order"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 17
+        },
+        {
+          "text": "A ball is thrown with an initial velocity of 20 m/s at an angle of 30° above the horizontal. Find the maximum height reached.",
+          "options": [
+            "A. 3.10 m",
+            "B. 4.10 m",
+            "C. 5.10 m",
+            "D. 6.10 m"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 59
+        },
+        {
+          "text": "Three resistors R1 = 5 Ω, R2 = 10 Ω, and R3 = 15 Ω are connected in series across a 12 V battery. Find the voltage across each resistor (V1, V2, V3 respectively).",
+          "options": [
+            "A. 1V, 2V, 3V",
+            "B. 2V, 4V, 6V",
+            "C. 3V, 6V, 9V",
+            "D. 4V, 8V, 12V"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 53
+        },
+        {
+          "text": "The Edwards's Theater chain has studied its movie customers to determine how much money they spend on concessions. The study revealed that the spending distribution is approximately normally distributed with a mean of $4.11 and a standard deviation of $1.37. What percentage of customers will spend less than $3.00 on concessions?",
+          "options": [
+            "A. 19.73%",
+            "B. 20.89%",
+            "C. 21.18%",
+            "D. 22.56%"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 34
+        },
+        {
+          "text": "How much heat (in calories) is required to change 10 g of ice at 0°C to steam at 100°C? (Latent heat of fusion for ice = 80 cal/g; specific heat of water = 1 cal/g°C; latent heat of vaporization for water = 540 cal/g)",
+          "options": [
+            "A. 6200 cal",
+            "B. 7200 cal",
+            "C. 8200 cal",
+            "D. 9200 cal"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 64
+        },
+        {
+          "text": "Find the length of arc of a circle x²+y²=25 from x=4 to x=-2.",
+          "options": [
+            "A. 6.58",
+            "B. 5.68",
+            "C. 8.65",
+            "D. 6.85"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 30
+        },
+        {
+          "text": "[Situation 3: Sphere with radius 12 in; cylinder inscribed with maximum volume] What is the base radius of the cylinder?",
+          "options": [
+            "A. √6 in",
+            "B. 2√6 in",
+            "C. 3√6 in",
+            "D. 4√6 in"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 58
+        },
+        {
+          "text": "During verification, an auditor finds that monitoring logs were falsified. Which principles are being compromised?",
+          "options": [
+            "A. Documentation and Verification",
+            "B. Critical Limits and Monitoring",
+            "C. Hazard Analysis and CCPs",
+            "D. Corrective Actions and Verification"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 92
+        },
+        {
+          "text": "The Haber-Bosch process is considered a milestone because it allowed for the production of ammonia from:",
+          "options": [
+            "A. Coal tar",
+            "B. Nitrogen and hydrogen",
+            "C. Animal fats",
+            "D. Sodium chloride"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 7
+        },
+        {
+          "text": "A steel drum manufacturer incurs a yearly fixed operating cost of $200,000. Each drum manufactured costs $160 to produce and sells for $200. What is the manufacturer's breakeven sales volume in drums per year?",
+          "options": [
+            "A. 5000 drums",
+            "B. 4800 drums",
+            "C. 5200 drums",
+            "D. 4900 drums"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 92
+        },
+        {
+          "text": "This type of controller is the most used type in the industry:",
+          "options": [
+            "A. On/Off Control",
+            "B. Proportional Control",
+            "C. Proportional-plus-Integral Control",
+            "D. Proportional-plus-Integral-plus-Derivative Control"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 39
+        },
+        {
+          "text": "A machine worth P250,000 has an estimated life of 15 years with a book value of P30,000 at the end of the period. Using the constant percentage (declining balance) method, determine the book value after 10 years.",
+          "options": [
+            "A. P60,821.75",
+            "B. P61,000.00",
+            "C. P60,000.00",
+            "D. P62,000.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 61
+        },
+        {
+          "text": "A firm procures canned peas and adds to accumulate inventory as follows: January: 55pcs @ P50/can, February: 125pcs @ P55/can, March: 100pcs @ P75/can. What is the cost of goods sold for the 60 units that left the stock using average costs?",
+          "options": [
+            "A. P3600.00",
+            "B. P3669.64",
+            "C. P3750.00",
+            "D. P3350.75"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 84
+        },
+        {
+          "text": "In which type of organization where the structure can lead to a \"dual boss\" phenomenon?",
+          "options": [
+            "A. Functional organization",
+            "B. Process organization",
+            "C. Matrix organization",
+            "D. Product organization"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 139
+        },
+        {
+          "text": "Which promoter mentioned below is used in the contact process?",
+          "options": [
+            "A. Iron",
+            "B. Acid",
+            "C. Alkali",
+            "D. Air"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 62
+        },
+        {
+          "text": "Find the moment of inertia with respect to the y-axis of the area bounded by the parabola x²=8y, the line x=4, and the x-axis on the first quadrant.",
+          "options": [
+            "A. 65.2",
+            "B. 25.6",
+            "C. 26.5",
+            "D. 56.2"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 37
+        },
+        {
+          "text": "[Situation 6: C(x) = 10000 + 90x - 0.05x²] What is the actual additional cost of producing the 501st tank?",
+          "options": [
+            "A. $39.95",
+            "B. $40",
+            "C. $40.05",
+            "D. $40.10"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 77
+        },
+        {
+          "text": "Static electricity is generated when",
+          "options": [
+            "A. mists or sprays pass through process",
+            "B. mists or sprays pass through orifices",
+            "C. air pass through pipe",
+            "D. water pass through pipe"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 47
+        },
+        {
+          "text": "Three resistors R1 = 4 Ω, R2 = 6 Ω, R3 = 12 Ω are connected in parallel to a 24 V battery. Find the equivalent resistance.",
+          "options": [
+            "A. 1 Ω",
+            "B. 2 Ω",
+            "C. 3 Ω",
+            "D. 4 Ω"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 54
+        },
+        {
+          "text": "A boatman is at A which is 4.5 km from the nearest point B on a straight shore BM. He wishes to reach in minimum time point C situated on the shore 9 km from B. How far from C should he land if he can row at the rate of 6 kph and can walk at the rate of 7.5 kph?",
+          "options": [
+            "A. 4.15 km",
+            "B. 3.0 km",
+            "C. 3.25 km",
+            "D. 4.0 km"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 48
+        },
+        {
+          "text": "An example of this structure found in production facilities is an entire polymerization reactor with the corresponding recirculation pumps, reflux condenser; cooling water pump and jacket; and preheating exchangers.",
+          "options": [
+            "A. Item of equipment",
+            "B. Equipment suite",
+            "C. Process unit",
+            "D. Plant"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 53
+        },
+        {
+          "text": "A loan for P50000 is to be paid in 3 years at the amount of P65000. What is the effective rate of money?",
+          "options": [
+            "A. 9.14%",
+            "B. 10.00%",
+            "C. 8.50%",
+            "D. 9.50%"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 40
+        },
+        {
+          "text": "What is the Laplace transform of cos(t)cosh(t)?",
+          "options": [
+            "A. 2s/(s²+4)",
+            "B. s³/(s²+4)",
+            "C. 2/(s²+4)",
+            "D. s³/(s²+1)"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 60
+        },
+        {
+          "text": "A process is known to have a transfer function with a zero located at s = +2 (i.e,, in the right-half plane). A positive step change is applied to its input: Which of the following most accurately describes the initial behavior of the output?",
+          "options": [
+            "A. The output immediately rises steeply before settling at its new steady-state value",
+            "B. The output initially decreases before eventually settling at a positive steady-state value",
+            "C. The output oscillates symmetrically above and below zero before settling",
+            "D. The output rises linearly without ever reaching a steady state"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 19
+        },
+        {
+          "text": "A fluid flows through an equal percentage valve at a rate of 5 m3/h when the valve is 10% open. When the valve opens to 20%, the flow rate increases to 10 m3/h. What is the flow rate in m3/h when the valve opens to 30%? The pressure drop across the valve remains constant.",
+          "options": [
+            "A. 15",
+            "B. 20",
+            "C. 30",
+            "D. 10"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 31
+        },
+        {
+          "text": "Which catalyst is used in the Contact Process to convert SO2 into SO3?",
+          "options": [
+            "A. Iron (Fe)",
+            "B. Vanadium oxide (V2O5)",
+            "C. Platinum (Pt)",
+            "D. Nickel (Ni)"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 63
+        },
+        {
+          "text": "Pikachu tries to solve a hard problem once each day. He has a 1/4 probability of solving it each day. What is the probability that he will solve it before his sixth try?",
+          "options": [
+            "A. 0.763",
+            "B. 0.367",
+            "C. 0.237",
+            "D. 0.732"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 20
+        },
+        {
+          "text": "What is the full form of HACCP?",
+          "options": [
+            "A. Health Analysis and Critical Control Points",
+            "B. Health Analysis and Critical Criteria for Production",
+            "C. Hazard Analysis and Critical Control Points",
+            "D. Hazard Analysis and Critical Criteria for Production"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 85
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -145315,5 +145935,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-30T15:57:04"
+  "updated_at": "2026-10-30T15:57:48"
 }
