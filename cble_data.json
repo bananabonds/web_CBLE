@@ -51594,6 +51594,625 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1793351386525399",
+      "name": "D2_S11",
+      "created_at": "2026-10-30T09:09:46",
+      "composition": {
+        "D2_L5_Transport_Phenomenon": 7,
+        "D2_L1_ChE_Calculations": 7,
+        "D2_L4_Momentum_Transfer": 2,
+        "D2_L9_Chemical_Reaction_Engineering": 5,
+        "D2_L6_Particle_Technology": 5,
+        "D2_L8_Equipment_Plant_Design": 5,
+        "D2_L7_Heat_Mass_Transfer": 5,
+        "D2_L2_Separation_Processes": 7,
+        "D2_L3_Thermodynamics": 7
+      },
+      "questions": [
+        {
+          "text": "The Nusselt number for fully developed (boththermally and hydrodynamically) laminar flowthrough a circular pipe whose surfacetemperature remains constant is",
+          "options": [
+            "A.  1.66",
+            "B.  3.66",
+            "C. 88.66",
+            "D. dependent on NRe only"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 35
+        },
+        {
+          "text": "An aqueous solution containing 15%\r\nNaOH and 0.5% NaCl is concentrated at\r\na rate of 100 kg/min in an evaporator.\r\nThe concentrated solution is then\r\nmixed with 2000 kg of aqueous NaOH\r\nsolution in a mixer. At the end of one\r\nhour a sample is collected from the\r\nmixer and analyzed. The analysis\r\nshows 40% NaOH and 0.8574% NaCl.\r\nCalculate the following:\r\n The mass of water (in kilograms)\r\nevaporated in one hour",
+          "options": [
+            "A. 3200 kg",
+            "B. 5100 kg",
+            "C. 4500 kg",
+            "D.  6600 kg"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 23
+        },
+        {
+          "text": "All pipes of a particular nominal size have the same",
+          "options": [
+            "A. inside diameter",
+            "B. outside diameter",
+            "C. thickness",
+            "D. none of these"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 47
+        },
+        {
+          "text": "For the liquid phase zero order irreversible reaction A →B, the conversion\r\nof A in a CSTR is found to be 0.3 at a space velocity of 0.1 min-¹. What willbe the\r\nconversion for a PFR with a space velocity of0.2 min-¹? Assume that all the other\r\noperating conditions are the same for CSTR and PFR.",
+          "options": [
+            "A. 0.15",
+            "B.  0.30",
+            "C. 0.60",
+            "D.  0.90"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 63
+        },
+        {
+          "text": "The most suitable equipment for the\r\ntransportation of 200 mesh size particles is a",
+          "options": [
+            "A.  bucket elevator",
+            "B. screw conveyor",
+            "C. pneumatic conveyor",
+            "D. belt conveyor"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 46
+        },
+        {
+          "text": "Water at 20°C enters an inclined 1-inch ID where the\r\nupstream point is at 10 psig. The downstream point is 12\r\ninch ID and 40 ft below the upstream point where the water\r\ndischarges at 30 gpm to the atmosphere. What is the\r\nfriction in ft of water?",
+          "options": [
+            "A.  10.2",
+            "B.  8.6",
+            "C. 28.1",
+            "D. 45.2"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L4_Momentum_Transfer",
+          "_source_index": 9
+        },
+        {
+          "text": "What is the slope of the operating line in the rectifying section of a distillation column?",
+          "options": [
+            "A. 0",
+            "B. infinite",
+            "C. '>1'",
+            "D. <1"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 9
+        },
+        {
+          "text": "In a vessel at 101.325 kN/m2? and 300K, the percentage relative humidity of the water vapor in the air is 25. If partial pressure of water vapor when air is saturated with vapor at 300K is 3.6 kN/m2, calculate:  The partial pressure of the water vapor in the vessels",
+          "options": [
+            "A.  0.2",
+            "B.  0.5",
+            "C. 0.7",
+            "D. 0.9"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 54
+        },
+        {
+          "text": "A suspension of glass beads in ethylene glycol has a\r\nhindered settling velocity of 1.7 mm/s, while the terminalsettling velocity of a single glass bead in ethylene glycol is 17\r\nmm/s. If the Richardson-Zaki hindered settling index is 4.5,the volume fraction of solids in the suspension is",
+          "options": [
+            "A. 0.1",
+            "B. 0.6",
+            "C. 0.4",
+            "D. none of these"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 66
+        },
+        {
+          "text": "Leaching of sugar from sugar beets is done using",
+          "options": [
+            "A. hot water",
+            "B. hexane",
+            "C. dilute HSO4",
+            "D. lime water"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 4
+        },
+        {
+          "text": "At what percentage (by volume) ofalcohol composition, it forms an azeotrope\r\nwith water?",
+          "options": [
+            "A. 90",
+            "B. 95",
+            "C. 91.5",
+            "D. 99"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 127
+        },
+        {
+          "text": "The air supply for a dryer has a dry-bulb temperature of 70 F and a wet bulb temperature of 60 F. It is heated to 200 F by coils and blown into the dryer: In the dryer it cools along an adiabatic cooling line and leaves the dryer fully saturated: How much water will be evaporated per 100 ft3 of entering air?",
+          "options": [
+            "A. 0.262 lb",
+            "B.  0.333 lb",
+            "C. 0.185 lb",
+            "D.  0.497 lb"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 80
+        },
+        {
+          "text": "An equimolar mixture of benzene and toluene is\r\nsubjected to a single batch distillation. Distillation is\r\ndiscontinued when 60% of the benzene in the feed is\r\ndistilled. At this instance the bottom product when\r\nanalyzed shows benzene to be 36.4% by mole. In the\r\ndistillate the mole% of benzene is",
+          "options": [
+            "A. 58.1",
+            "B. 66.6",
+            "C. 54.7",
+            "D. 33.6"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 18
+        },
+        {
+          "text": "Methane is burned completely with theoretical air. What is the air-fuel volume ratio",
+          "options": [
+            "A. 2:1",
+            "B. 9.52:1",
+            "C. 4.76:1",
+            "D. 19.04:1"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 59
+        },
+        {
+          "text": "The synthesis of ammonia proceeds\r\naccording to the following reaction:\r\nN2+ 3 H2→ 2 NH3\r\nIn a given plant, 4202 lb of nitrogen and\r\n1046 lb of hydrogen are fed to the synthesis\r\nreactor per hour. Production of pure\r\nammonia from this reactor is 3060 lb per\r\nhour.\r\n What is the limiting reactant?",
+          "options": [
+            "A. N₂",
+            "B. H₂",
+            "C. both N₂ and H₂",
+            "D. NH3"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 35
+        },
+        {
+          "text": "A mixture of 60 mole % A and 40 mol % B is\r\nsubject to flash distillation at a separator pressure of 1\r\natm. The relative volatility of A with respect to B is\r\nconstant 3. What fraction of the feed must be vaporized\r\nto have the composition of the vapor leaving the\r\nseparator be 75 mol % A?",
+          "options": [
+            "A. 0.3",
+            "B. 0.6",
+            "C. 0.5",
+            "D. 0.4"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 77
+        },
+        {
+          "text": "For a zero-order reaction A → rR taking placeina constant - volume bomb,pi= 1 when t= 0and π = 1.5 when t = 1. For the same reaction,same feed composition and initial pressure takingplace in a constant pressure setup, find V at t=1if V= 1 at t=0. Find V at t=1 if V= 1 at t=0.",
+          "options": [
+            "A. 1.5 Vo",
+            "B.  1.65Vo",
+            "C. 1.6Vo",
+            "D. 1.85Vo"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 57
+        },
+        {
+          "text": "A solution of sodium nitrate in\r\nwater at a temperature of 40°C\r\ncontains 49% NaNO3 by weight. Calculate the lb of NaNO3 that\r\ncrystallized from 1000 lb of this\r\nsolution by cooling it to 10°C.",
+          "options": [
+            "A. 94 lb",
+            "B. 76 lb",
+            "C. 82 lb",
+            "D.  63 lb"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 33
+        },
+        {
+          "text": "The shell side pressure drop in a shell and tube heat exchanger is maximum for _______baffle",
+          "options": [
+            "A. disk and ring",
+            "B. segmental",
+            "C. orifice",
+            "D. independent of the type of"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 34
+        },
+        {
+          "text": "A solid is transformed into vapor without goingthrough the liquid phase at",
+          "options": [
+            "A.  below triple point",
+            "B. boiling point",
+            "C. triple point",
+            "D. always"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 40
+        },
+        {
+          "text": "Heat transfer in turbulent flow may be described byan empirical equation correlating",
+          "options": [
+            "A. Nusselt, Peclet, Prandtl numbers",
+            "B.  Nusselt, Prandtl, Stanton numbers",
+            "C. Nusselt, Prandtl, Reynolds numbers",
+            "D. Nusselt, Graetz, Schimdt numbers"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 31
+        },
+        {
+          "text": "1000 cfm of air (A) at 95'F dry bulb, 74'F wet bulb is mixed with 2000 cfm of air (B) at 65'F dry bulb, 54'F wet bulb. Determine for the mixed stream: The wet bulb temperature",
+          "options": [
+            "A. 61 F",
+            "B. 55 F",
+            "C.  50 F",
+            "D. 68 F"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 89
+        },
+        {
+          "text": "is the most used 'filter aid\".",
+          "options": [
+            "A. Diatomaceous earth",
+            "B. Vermiculite",
+            "C. Fuller's earth",
+            "D. Semi-plastic clay"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 94
+        },
+        {
+          "text": "Two Carnot engines are operating in series. The first one absorbs heat at a temperature of 1111 K and rejects heat to the second engine at a temperature T. The second engine receives the heat at the intermediate temperature T and rejects it to a reservoir at 300 K. Calculate T if The efficiencies of two engines are equal",
+          "options": [
+            "A. 577 K",
+            "B. 621 K",
+            "C. 705 K",
+            "D. 818 K"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 79
+        },
+        {
+          "text": "Two aqueous sulfuric acid solutions containing 20 wt% H2SO, (SG=1.139) and 60 wt% H₂SO (SG=1.498) are mixed to form a 4 M solution (SG-1.213).  Calculate the mass fraction of sulfuric acid in the product solution.",
+          "options": [
+            "A. 0.105",
+            "B.  0.667",
+            "C.  0.323",
+            "D. 0.548"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 3
+        },
+        {
+          "text": "Flash distillation is suitable for separatingthe constituents of a binary system, which",
+          "options": [
+            "A. form minimum boiling azeotrope.",
+            "B. have very wide boiling points.",
+            "C. have very close boiling points.",
+            "D.  form constant boiling azeotrope."
+          ],
+          "correct": 1,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 76
+        },
+        {
+          "text": "Pick out the wrong statement.",
+          "options": [
+            "A. The mole fraction of solute is directly proportional to the\r\nmolality of a 'dilute' solution.",
+            "B. For a non-reacting binary mixture of ideal gases, the partialpressure distribution of both components is nonlinear in the\r\ncase of steady state unimolal unidirectional diffusion.",
+            "C. Azeotropes obey Raoult's law at all temperature.",
+            "D. The relative volatility of a binary mixture at the azeotropic\r\ncomposition is 1"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 124
+        },
+        {
+          "text": "The initial moisture content of a food product is 77% (wet basis) , and the critical moisture content is 30% (wet basis). If the constant drying rate is 0.1 kg H2O 1 m2-s, compute the time required for the product to begin the falling rate drying period  Neglect  equilibrium moisture content: The product has a cube shape with 5 cm sides, and the initial product density is 950 kg/m3:.",
+          "options": [
+            "A.  23.4 s",
+            "B. 48.5 s",
+            "C. 34.6 s",
+            "D. 53.2 s"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 99
+        },
+        {
+          "text": "The reverse is true for stripping. However, the operating pressure should not be too high and the operating temperature should not be too low as to the feed gas.",
+          "options": [
+            "A. a.\tvaporize",
+            "B. b.\tcompress",
+            "C. condense",
+            "D. none of these"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 87
+        },
+        {
+          "text": "Steams flows at steady state through a converging insulated nozzle, 25 cm long and with an inlet diameter of 5 cm. At the nozzle entrance, the temperature and pressure are 325°C and 700 kPa, and the velocity is 30 m/s. At the nozzle exit, the steam temperature and pressure are 240°C and 350 kPa. Property values are: H₁ = 3112.5 kJ/kg H₂= 2945.7 kJ/kg V₁ = 388.61 cm³/g V₂ = 667.75 cm³/g What is the velocity of the steam at thenozzle exit?",
+          "options": [
+            "A. 578 m/s",
+            "B. 325 m/s",
+            "C. 756 m/s",
+            "D. 149 m/s"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 35
+        },
+        {
+          "text": "A fuel containing 75% ethane and 25% propane is burned with dry air. All the Н₂\r\nburns to H₂0 and the CO2 to CO ratio is 10:1. Fifteen% excess air is supplied.\r\nCalculate: Percent CO in the complete analysis of stack gas",
+          "options": [
+            "A. 0.65%",
+            "B. 0.33%",
+            "C. 0.89%",
+            "D. 0.99%"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 52
+        },
+        {
+          "text": "A stream of air at 100 kPa pressure and 300 K is flowing the top surface of a thin flat sheet of solid napthalene vapor in air = 6  ^10^ -6 m^2/s, Kinematic viscosity  of air = 1.5 * 10 ^ -5 m2/s Concentration of napthalene at the air solid napthalene interface = 1*10 ^ -5 kmol/m3 Calculate the following: The average mass transfer coefficient over the flat plate",
+          "options": [
+            "A. 5.62 * 10^-6 kmol/m2 s kPa",
+            "B. 1.58 * 10 -6 kmol/m2 s kPa",
+            "C. 2.09 *10-6 kmol / m2 s kPa",
+            "D. 3.75 * 10 ^-6 kmol/m2 s kPa"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 65
+        },
+        {
+          "text": "Column support for the roof of cylindrical storage tank must be provided for",
+          "options": [
+            "A. small diameter tanks",
+            "B. large diameter tanks",
+            "C. small diameter tall tanks",
+            "D.  all tanks irrespective of their heights and diameters"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 51
+        },
+        {
+          "text": "A flat wall is to be constructed of firebrick, insulating brick, and building brick in series such that theheat loss will not exceed 250 BTU/hr-ft2 when the hot face of the firebrick is 2000°F and the cold face\r\nof the building is 100°F. What minimum wall thickness is required?\r\nk, BTU/hr-ft-°F brick thickness, in max allow, °F\r\nfireclay brick 0.90 4.5\r\ninsulating brick 0.12 3.0 1800\r\nbuilding brick 0.40 4.0 300",
+          "options": [
+            "A.  22 in",
+            "B. 9 in",
+            "C. 3 in",
+            "D.  18 in"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 10
+        },
+        {
+          "text": "Ten kilograms each of salts A and B are\r\ndissolved in 50 kg of water. The solubility of\r\nA in water is 1 kg per kg water and that of B\r\nis 0.5 kg per kg of water. The solution is\r\nheated to evaporate water. When the\r\nconcentration of the solution reaches the\r\nsaturation concentration of any salt, further\r\nevaporation results in the crystallization of\r\nthat salt. If 70% of the water that is\r\noriginally present in the solution is driven\r\noff by evaporation, determine the following: The weight of the final solution",
+          "options": [
+            "A. 46.5",
+            "B. 28.5",
+            "C. 11.5",
+            "D. 32.5"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L1_ChE_Calculations",
+          "_source_index": 12
+        },
+        {
+          "text": "Glycerin is steam distilled at 182°C and under a 26\r\nin Hg vacuum. A test shows that one lb of steam is\r\nconsumed per lb of glycerine distilled. What percent\r\nexcess steam is actually used than theoretical? Vapor\r\npressure of glycerine at 182°C is 21 mmHg.",
+          "options": [
+            "A.  37%",
+            "B. 21%",
+            "C. 16%",
+            "D. 54%"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 85
+        },
+        {
+          "text": "Poisson's ratio of a materialis the ratio of unit lateral strain to the unit axial elongation within its elastic limit: The value of Poisson's ratio for structuraland pressure vessel steel may be taken as",
+          "options": [
+            "A.  0.01",
+            "B.  0.3",
+            "C.  0.75",
+            "D. 0.95"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 71
+        },
+        {
+          "text": "In case of a shell and tube heat exchanger; the effect of L/D on inside film heat transfer co-efficient (hi) vanishes after a Reynold number of",
+          "options": [
+            "A. 1000",
+            "B.  3000",
+            "C. 5000",
+            "D. 10000"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L8_Equipment_Plant_Design",
+          "_source_index": 40
+        },
+        {
+          "text": "The efficiency of Carnot cycle is _ the efficiency of Rankine cycle.",
+          "options": [
+            "A. less than",
+            "B. greater than",
+            "C. equal to",
+            "D. less than or greater than"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 104
+        },
+        {
+          "text": "A homogeneous gas phase reaction A → 3R has reported at 215°C,-rA=10^-2 Ca^ 0.5 (mol/L-s). Find the space time needed for 80% conversion of50% A-50% inert feed to a plug flow operating at 215°C and 5 atm.",
+          "options": [
+            "A. 33 s",
+            "B. 22 s",
+            "C.  44 s",
+            "D. 55 s"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 67
+        },
+        {
+          "text": "A centrifuge having a radius of bowl of 0.1016 m is rotating at N=1000 rev/min. Calculate the centrifugal force developed in terms of gravity forces.",
+          "options": [
+            "A. 114",
+            "B. 335",
+            "C. 227",
+            "D. 110"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 73
+        },
+        {
+          "text": "A\r\n1 mixture of He and N₂ gas is contained in a pipe at 298 K and\r\natm total pressure which is constant throughout. At one end ofthe pipe at point 1 the partial pressure PA of He is 0.6 atm andat the other end 0.2 m PA2 = 0.2 atm. Calculate the flux of He atsteady state if DAB of the He-N₂ mixture is 0.687x10-4 m²/s.",
+          "options": [
+            "A. 5.63x10-6 kmol A /s-m²",
+            "B. 2.05x10-6 kmol A /s-m²",
+            "C.  1.94x10-6 kmol A /s-m²",
+            "D. 7.83x10-6 kmol A /s-m²"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 49
+        },
+        {
+          "text": "The reaction A +  B + C -> products has equimolar amounts initially, 1 M If the reaction is second order with respect to A and first order with respect to B and C The concentration of A after 1 hour",
+          "options": [
+            "A. 0.59",
+            "B. 1.277",
+            "C. 7.211",
+            "D. 2.177"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 34
+        },
+        {
+          "text": "Reported values for the virial coefficients of isopropanol vapor at 200°C are: B = -388 cm³/mol and C = -26000 cm/mol2. Calculate V and Z for isopropanol vapor at 200°C and 10 bar by  Virial equation of state",
+          "options": [
+            "A. 0.91, 3934 cm³/mol",
+            "B. 0.95, 3539 cm³/mol",
+            "C. 0.89, 3488 cm³/mol",
+            "D. 0.80, 3495 cm³/mol"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 62
+        },
+        {
+          "text": "With increase in compression ratio, the efficiency of the otto engine",
+          "options": [
+            "A. increases",
+            "B. remains constant",
+            "C. decreases",
+            "D. increases linearly"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 120
+        },
+        {
+          "text": "Nitrogen pentoxide decomposes as follows:N₂05→1/2 O2 + N204  -r N205 = (2.2 x 10 -3/min) C -N2-O5   N2O4 = 2NO2, instantaneous Kp = 45 mmHg The partial pressure of N₂O5 (constantvolume bomb) after 6.5 hours if we start withpure N₂05 at atmospheric pressure.",
+          "options": [
+            "A. 0.254 atm",
+            "B. 0.562 atm",
+            "C.  0.424 atm",
+            "D. 0.137 atm"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L9_Chemical_Reaction_Engineering",
+          "_source_index": 49
+        },
+        {
+          "text": "Inside the distillation column, the",
+          "options": [
+            "A.  driving force for the vapor flow is the pressure\r\ndrop.",
+            "B. liquids are not always at their bubble points.",
+            "C. pressure increases gradually from bottom to the top\r\nof the column.",
+            "D. none of these"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 109
+        },
+        {
+          "text": "Generation of heat by friction is an example ofa/an_ change.",
+          "options": [
+            "A. isothermal",
+            "B. adiabatic",
+            "C. irreversible",
+            "D. reversible"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 60
+        },
+        {
+          "text": "If the radius of a basket centrifuge is halved and the rpm\r\nis doubled, then",
+          "options": [
+            "A. linear speed of the basket is doubled",
+            "B. linear speed of the basket is halved",
+            "C.  centrifugal force is doubled",
+            "D. capacity of centrifuge is increased"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 72
+        },
+        {
+          "text": "A furnace wall is constructed of firebrick 6 in thick. The\r\ntemperature of the inside of the wall is 1300°F and thetemperature of the outside of the wall is 175°F. If the mean\r\nthermal conductivity under these conditions is 0.17 BTU/hr-ft °F,what is the rate of heat loss through 10 ft2 of wall surface? T1 = 1200 K, x1 = 0.2 m k = 1.4: x2 = 0.1 m, k = 0.21: x3 = 0.2 m, k = 0.7 : T2 = 330 K The heat loss per unit area is",
+          "options": [
+            "A.  961 W/m²",
+            "B.  1248 W/m²",
+            "C.  1056 W/m²",
+            "D.  1567 W/m²"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L5_Transport_Phenomenon",
+          "_source_index": 7
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -131441,5 +132060,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-30T09:09:03"
+  "updated_at": "2026-10-30T09:09:54"
 }
