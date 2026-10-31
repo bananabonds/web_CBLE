@@ -59033,6 +59033,624 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "179342685487356",
+      "name": "D3_S17",
+      "created_at": "2026-10-31T06:07:34",
+      "composition": {
+        "D3_L2_Process_Control_Analysis": 5,
+        "D3_L8_Integral_Calculus": 5,
+        "D3_L13_EngineeringDataAnalysis": 5,
+        "D3_L1_ChE_Laws": 5,
+        "D3_L12_EngineeringEconomics": 5,
+        "D3_L9_CPI": 5,
+        "D3_L7_Differential_Calculus": 5,
+        "D3_L10_ProcessSafety": 5,
+        "D3_L15_Engineering_Mechanics": 5,
+        "D3_L14_Physics": 5
+      },
+      "questions": [
+        {
+          "text": "A fluid flows through a linear valve at a rate of 15 m3/h when the valve is 15% open. When the valve opens to 30%, the flow rate increases to 30 m3/h. What is the flow rate in m3/h when the valve opens to 45%? The pressure drop across the valve remains constant.",
+          "options": [
+            "A. 15",
+            "B. 30",
+            "C. 45",
+            "D. 60"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 32
+        },
+        {
+          "text": "Integrate: e^(2x)sin(3x) dx",
+          "options": [
+            "A. e^(2x)[(1/13)sin3x - (2/13)cos3x] + c",
+            "B. e^(2x)[(2/13)sin3x - (1/13)cos3x] + c",
+            "C. e^(2x)[(2/13)sin3x - (3/13)cos3x] + c",
+            "D. e^(2x)[(3/13)sin3x - (2/13)cos3x] + c"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 8
+        },
+        {
+          "text": "In how many ways can you arrange 5 identical black balls, 3 identical green balls, and 4 identical white balls in a straight line?",
+          "options": [
+            "A. 22770",
+            "B. 20727",
+            "C. 72720",
+            "D. 27720"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 5
+        },
+        {
+          "text": "Find the area of the region above the x-axis bounded by the function y=4x-x²-3.",
+          "options": [
+            "A. 0.25",
+            "B. 1.33",
+            "C. 3.11",
+            "D. 2.1"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 22
+        },
+        {
+          "text": "The following scores were given by 6 judges for a gymnast's performance in the vault of an international meet: 7, 5, 9, 7, 8, and 6. Find the population variance and the population standard deviation.",
+          "options": [
+            "A. 1.67 and 1.29",
+            "B. 2.00 and 1.29",
+            "C. 1.67 and 3.25",
+            "D. 2.00 and 3.25"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 59
+        },
+        {
+          "text": "Who conducts the Chemical Engineering Licensure Examination?",
+          "options": [
+            "A. PRC",
+            "B. PICHE",
+            "C. Board of Chemical Engineering",
+            "D. none of these"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 47
+        },
+        {
+          "text": "An act to integrate, coordinate, and intensify scientific and technological research and development and to foster invention to provide funds therefore:",
+          "options": [
+            "A. RA 2068",
+            "B. RA 2607",
+            "C. RA 2067",
+            "D. RA 2670"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 36
+        },
+        {
+          "text": "How much money must you invest today in order to withdraw P2000 annually for 10 years if the interest rate is 9%?",
+          "options": [
+            "A. P12,835.31",
+            "B. P12,800.00",
+            "C. P12,900.00",
+            "D. P12,750.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 46
+        },
+        {
+          "text": "What distinguishes Bakelite, patented by Leo Baekeland, in the history of materials?",
+          "options": [
+            "A. It was the first synthetic aniline dye.",
+            "B. It was the first commercially important plastic.",
+            "C. It was the first catalyst used in the contact process.",
+            "D. It was the first byproduct of the Solvay process."
+          ],
+          "correct": 1,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 9
+        },
+        {
+          "text": "Determine the value of c that will satisfy Rolle's theorem for f(x) = x² - 4x + 3 on the interval [1, 3].",
+          "options": [
+            "A. 1/2",
+            "B. 2",
+            "C. 5/2",
+            "D. 7/3"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 28
+        },
+        {
+          "text": "________ occurs when a tank containing a liquid held above its atmospheric pressure boiling point ruptures, resulting in the explosive vaporization of a large fraction of the tank contents.",
+          "options": [
+            "A. Boiling-Liquid Expanding-Vapor Explosion",
+            "B. Vapor Cloud Explosions",
+            "C. Missile Damage",
+            "D. Blast Damage to People"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 51
+        },
+        {
+          "text": "Given the area bounded by the curve y²=x, the line x=4, and the x-axis. What is the volume generated when this area is revolved about the y-axis?",
+          "options": [
+            "A. 98.4 u³",
+            "B. 80.4 u³",
+            "C. 72.3 u³",
+            "D. 50.5 u³"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 38
+        },
+        {
+          "text": "A VOM has a current selling price of P400. If the selling price is expected to decline at a rate of 10% per annum due to obsolescence, what will be the salvage value if the life expectancy is 10 years?",
+          "options": [
+            "A. P139.47",
+            "B. P140.00",
+            "C. P135.00",
+            "D. P145.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 59
+        },
+        {
+          "text": "Refers to the measurement of products or services against standards set by the company:",
+          "options": [
+            "A. Work-Flow Layout",
+            "B. Quality Control",
+            "C. Inventory Control",
+            "D. Purchasing and Materials Management"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 166
+        },
+        {
+          "text": "[Situation 1: f(x) = x³/9 - 3x] At what interval will the graph have concavity in an upward manner?",
+          "options": [
+            "A. (-∞, 0)",
+            "B. [-3, 3]",
+            "C. (0, +∞)",
+            "D. (0, 3)"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 39
+        },
+        {
+          "text": "What is the Laplace transform of the error function erfc(3/(2√t))?",
+          "options": [
+            "A. e^(-3√(s/2))/s",
+            "B. e^(3√(s/2))/s",
+            "C. e^(3√s)/s",
+            "D. e^(-3√s)/s"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 58
+        },
+        {
+          "text": "A truss has joints labeled A (bottom-left, pin support, hatched wall), B (top-left), C, D, E, F, G, H, I arranged along the truss, with a pin support also at A (bottom, hatched). A horizontal 45 kN load is applied at joint F, and an 80 kN downward load is applied at joint I (bottom-right). For the truss shown, what would be a possible starting joint for a method of joints analysis (assuming the reaction forces have already been calculated)?",
+          "options": [
+            "A. A or B",
+            "B. I",
+            "C. A or I",
+            "D. A or B or I"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 22
+        },
+        {
+          "text": "Two sides of a triangle are 15 cm and 20 cm long respectively. How fast is the third side increasing if the angle between the given sides is 60° and is increasing at the rate of 2°/sec?",
+          "options": [
+            "A. 3.60 cm/sec",
+            "B. 2.70 cm/sec",
+            "C. 1.20 cm/sec",
+            "D. 0.05 cm/sec"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 71
+        },
+        {
+          "text": "If your car weighs below 3500 kg, it falls under the category:",
+          "options": [
+            "A. Medium and Heavy Duty Motor Vehicle",
+            "B. Light Duty Motor Vehicle",
+            "C. Heavy Duty Motorcycle",
+            "D. Light Duty Motorcycle"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 96
+        },
+        {
+          "text": "What is the moment of inertia of a right triangle with base and height measuring 6 cm and 11 cm, respectively, with respect to the x-axis if the centroid is on the origin?",
+          "options": [
+            "A. 66 cm⁴",
+            "B. 221.83 cm⁴",
+            "C. 183.21 cm⁴",
+            "D. 338.72 cm⁴"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 36
+        },
+        {
+          "text": "It is the analysis and evaluation of the factors that will affect the success of engineering projects to the end that a recommendation be made which will ensure the best use of capital.",
+          "options": [
+            "A. Engineering Economy",
+            "B. Economics",
+            "C. Financial Management",
+            "D. Cost Accounting"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 0
+        },
+        {
+          "text": "Given the PMF of a discrete random variable X: P(X=x) = 3kx + 1 for x ∈ {1, 2, 3}, and 0 otherwise. Find the value of k.",
+          "options": [
+            "A. 1/6",
+            "B. -1/2",
+            "C. -1/9",
+            "D. 1/12"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 48
+        },
+        {
+          "text": "What are the monomers of Nylon-6,6?",
+          "options": [
+            "A. ε-Caprolactam + Adipic acid",
+            "B. Hexamethylenediamine + Adipic acid",
+            "C. Hexamethylenediamine + ε-Caprolactam",
+            "D. Glycine + Sebacic acid"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 84
+        },
+        {
+          "text": "A ball is thrown vertically upward with an initial velocity of 15 m/s. Find the time to reach maximum height.",
+          "options": [
+            "A. 1.03 s",
+            "B. 1.53 s",
+            "C. 2.03 s",
+            "D. 2.53 s"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 52
+        },
+        {
+          "text": "The type of lens used to cure farsightedness is ______________ lens.",
+          "options": [
+            "A. Concave",
+            "B. Convex",
+            "C. Biconcave",
+            "D. Plano-convex"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 46
+        },
+        {
+          "text": "___________is a part of final control device that causes a physical change in the final control device when signaled to do so.",
+          "options": [
+            "A. Controller",
+            "B. Transmitter",
+            "C. Pump motor",
+            "D. Actuator"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 13
+        },
+        {
+          "text": "If a star's surface temperature is 30,000 K, how much power does a square meter of its surface radiate? (Use the Stefan-Boltzmann Law, P = σT⁴A)",
+          "options": [
+            "A. 4.6 x 10^10 W",
+            "B. 4.6 x 10^11 W",
+            "C. 4.6 x 10^12 W",
+            "D. 4.6 x 10^13 W"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 67
+        },
+        {
+          "text": "Find ∂⁴f/∂y∂z∂²x of f(x,y,z) = 5x³y + 20zyx + 2x²yz²",
+          "options": [
+            "A. 2z",
+            "B. 4z",
+            "C. 6z",
+            "D. 8z"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 83
+        },
+        {
+          "text": "[Questions 36-37: The number of cars passing a point on a road may be modelled by a Poisson distribution. On average, 4 cars enter the Caibaan Diversion Road in Tacloban City every 5 minutes.] Find the probability that in a 5-minute period, fewer than 3 cars go past.",
+          "options": [
+            "A. 0.038",
+            "B. 0.146",
+            "C. 0.238",
+            "D. 0.382"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 36
+        },
+        {
+          "text": "What are the operating conditions of hydrolysis tower?",
+          "options": [
+            "A. 230-250°C and 40-45 atm",
+            "B. 200-220°C and 40-45 atm",
+            "C. 180-230°C and 20-30 atm",
+            "D. 230-250°C and 20-30 atm"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 128
+        },
+        {
+          "text": "Evaluate: lim(x→-∞) [√(9x²-x) + 3x]",
+          "options": [
+            "A. 1/2",
+            "B. 1/4",
+            "C. 1/6",
+            "D. 1/8"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 4
+        },
+        {
+          "text": "A comparison of coffee prices at 4 randomly selected grocery stores in Sampaloc showed increases from the previous month of P2.00, P5.00, P7.00, and P12.00. Find the variance of this random sample of price increases.",
+          "options": [
+            "A. P17.67",
+            "B. P25.32",
+            "C. P10.25",
+            "D. P13.40"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 60
+        },
+        {
+          "text": "In the Benxihu Colliery disaster, what was the primary cause of death for most of the 1,549 miners?",
+          "options": [
+            "A. Burns from the initial explosion",
+            "B. Structural collapse of the mine shafts",
+            "C. Carbon monoxide poisoning",
+            "D. Flooding of the underground tunnels"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 55
+        },
+        {
+          "text": "The coefficient of linear expansion of steel is 11 x 10^-6 per °C. A steel ball has a volume of exactly 100 cm³ at 0°C. When heated to 100°C, its volume becomes:",
+          "options": [
+            "A. 100.11 cm³",
+            "B. 100.33 cm³",
+            "C. 100.55 cm³",
+            "D. 100.77 cm³"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 63
+        },
+        {
+          "text": "Which of the these receives input; performs a mathematical function with the input; and produces an output signal?",
+          "options": [
+            "A. Actuators",
+            "B. Transducers",
+            "C. Transmitters",
+            "D. Controllers"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 11
+        },
+        {
+          "text": "A ball is dropped from a height h above a tile floor and rebounds to a height of 0.65h. Find the coefficient of restitution between the ball and the floor.",
+          "options": [
+            "A. 0.91",
+            "B. 0.53",
+            "C. 0.81",
+            "D. 0.75"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 18
+        },
+        {
+          "text": "A first-order system has gain K = 2 and time constant τ = 5 min. A step input of magnitude M = 4 is applied at t = 0. What is y(t) at t = 15 min?",
+          "options": [
+            "A. 8.00",
+            "B. 6.53",
+            "C. 3 80",
+            "D. 7.60"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 40
+        },
+        {
+          "text": "Viscose rayon is chemically",
+          "options": [
+            "A. Cellulose nitrate",
+            "B. Cellulose acetate",
+            "C. Regenerated cellulose nitrate",
+            "D. Regenerated cellulose acetate"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 82
+        },
+        {
+          "text": "If the nominal interest rate is 5% percent, how much is P3000 worth in 15 years in a continuously compounded account?",
+          "options": [
+            "A. P6351.00",
+            "B. P6300.00",
+            "C. P6400.00",
+            "D. P6250.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 44
+        },
+        {
+          "text": "Manufacturing of paints involves unit processes. Is the statement true/false?",
+          "options": [
+            "A. True",
+            "B. False"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 131
+        },
+        {
+          "text": "At the middle- and upper- management level we usually concentrate on",
+          "options": [
+            "A. outcomes evaluations",
+            "B. performance measures",
+            "C. results measures",
+            "D. behavioral measures"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 66
+        },
+        {
+          "text": "Evaluate: ∫[0 to 1] sec²(t)·e^(tan t) dt",
+          "options": [
+            "A. 0.147",
+            "B. 4.737",
+            "C. 7.343",
+            "D. 3.747"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 16
+        },
+        {
+          "text": "A block of mass M = 10 kg is sitting on a surface inclined at angle θ = 45°. The coefficient of static friction is μs = 0.5 between the block and surface. A force F is applied parallel to the incline surface, directed up the slope. What is the maximum force F that can be exerted without causing the block to slip (slide up)?",
+          "options": [
+            "A. 103.94N",
+            "B. 112.78N",
+            "C. 129.03N",
+            "D. 130.28N"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 20
+        },
+        {
+          "text": "During an audit, workers state they are trained but are unable to explain safe work procedures when questioned. Which audit technique BEST revealed this weakness?",
+          "options": [
+            "A. Sampling",
+            "B. Observational audit",
+            "C. Interviews",
+            "D. Document review"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 75
+        },
+        {
+          "text": "An organization uses injury statistics and near-miss trends to determine which departments require targeted audits. Which technique is being applied?",
+          "options": [
+            "A. Sampling",
+            "B. Performance data review",
+            "C. Workplace inspection",
+            "D. Checklist auditing"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 76
+        },
+        {
+          "text": "What is the moment of inertia of a 2-kg long uniform rod with a length of 2 m, if the axis of rotation is located at one end of the rod?",
+          "options": [
+            "A. 2.33 kg-m²",
+            "B. 2.67 kg-m²",
+            "C. 3.33 kg-m²",
+            "D. 3.67 kg-m²"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 29
+        },
+        {
+          "text": "The Intellectual Property Code of the Philippines is otherwise known as this",
+          "options": [
+            "A. RA 8293",
+            "B. RA 8297",
+            "C. RA 8295",
+            "D. RA 8299"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 75
+        },
+        {
+          "text": "A barber raises his customer's chair by applying a force of 150 N to a hydraulic piston of area 0.01 m². If the chair is attached to a piston of area 0.1 m², how massive a customer can the chair raise? Assume the chair itself has a mass of 5 kg.",
+          "options": [
+            "A. 146 kg",
+            "B. 147 kg",
+            "C. 148 kg",
+            "D. 149 kg"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 69
+        },
+        {
+          "text": "Non interacting capacities always result in an __________ Or __________",
+          "options": [
+            "A. Under damped; overdamped",
+            "B. Undamped, overdamped",
+            "C. Overdamped, critically damped",
+            "D. None of the above"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 21
+        },
+        {
+          "text": "Mr. Ayala borrows P100,000 at 10% effective annual interest. He must pay back the loan over 30 years with uniform monthly payments due on the first day of each month. What does Mr. Ayala pay each month?",
+          "options": [
+            "A. P839.06",
+            "B. P850.00",
+            "C. P825.00",
+            "D. P860.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 47
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -152863,5 +153481,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-31T06:07:15"
+  "updated_at": "2026-10-31T06:07:42"
 }
