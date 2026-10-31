@@ -65450,6 +65450,15 @@
       "pct": 56,
       "date": "2026-10-31T11:43:37",
       "time_used_seconds": 1618.4
+    },
+    {
+      "id": "1793447151513784",
+      "source": "D3_S24",
+      "score": 4,
+      "total": 5,
+      "pct": 80,
+      "date": "2026-10-31T11:45:51",
+      "time_used_seconds": 47.6
     }
   ],
   "exam_details": [
@@ -126652,6 +126661,68 @@
           "correct_answer": "A. Alkaline"
         }
       ]
+    },
+    {
+      "exam_id": "1793447151513784",
+      "source": "D3_S24",
+      "date": "2026-10-31T11:45:51",
+      "items": [
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 32,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "It is copying of one's written research without acknowledging the author:",
+          "your_answer": "A. plagiarism",
+          "correct_answer": "A. plagiarism"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 52,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "To be considered an invention; it must be",
+          "your_answer": "C. new, industrially applicable and involves inventive step",
+          "correct_answer": "C. new, industrially applicable and involves inventive step"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 68,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Who are disqualified to apply for a patent?",
+          "your_answer": "A. uninterested individual",
+          "correct_answer": "A. uninterested individual"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 46,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which one does not belong to the set of qualifications of the Board Chairman and Members?",
+          "your_answer": "D. none of these",
+          "correct_answer": "D. none of these"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 84,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What do you call the monomer of Nylon-6?",
+          "your_answer": "C. Hexamethylenediamine",
+          "correct_answer": "B. ε-Caprolactam"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -162013,9 +162084,16 @@
           "date": "2026-10-31T11:43:39",
           "your_answer": "No Answer Provided (Skipped)",
           "correct_answer": "B. ε-Caprolactam"
+        },
+        {
+          "exam_id": "1793447151513784",
+          "exam_source": "D3_S24",
+          "date": "2026-10-31T11:45:51",
+          "your_answer": "C. Hexamethylenediamine",
+          "correct_answer": "B. ε-Caprolactam"
         }
       ],
-      "updated_at": "2026-10-31T11:43:39",
+      "updated_at": "2026-10-31T11:45:51",
       "concept_id": "",
       "tag_at": "",
       "note_at": ""
@@ -169173,5 +169251,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-31T11:44:40"
+  "updated_at": "2026-10-31T11:45:55"
 }
