@@ -162624,8 +162624,8 @@
       "id": "1793453307619590",
       "kind": "concept",
       "name": "Textbook Style",
-      "text": "You are helping me build a high-fidelity review for ONE concept from my board exam preparation. Stay strictly inside this concept; do not review the whole subject.\n\n{concept}\n\nTASK\nCreate a html textbook style rhetoric reviewer that categorizes the question contexts based on the order they would have been thought in a classroom or the order they would appear in a standard textbook. \n\nDo not reference the questions and only use them to construct the concepts that they are trying to teach.\n\nIn the case of mathematical concepts create sample problems that start from the fundamental principles of the topic and then progress until it is in the level of the questions included. I want these to be seamlessly integrated during the textbook style narration.\n\nI want it to be concise, simple, and progress with flow. In the case of concept outliers, you may cite the question and explain the answer but put this under the concept discourse. Meanwhile for question bank answer flags, and other concerns, I want this to be the last section so it will not affect the organization.\n\nRULES\n- Use only standard, verifiable facts for this subject. If something is uncertain, say so.\n- If a bank correct answer above looks wrong, ambiguous or condition-dependent, tell me instead of rationalizing it.",
-      "updated_at": "2026-10-31T13:28:27"
+      "text": "You are helping me build a high-fidelity review for ONE concept from my board exam preparation. Stay strictly inside this concept; do not review the whole subject.\n\n{concept}\n\nTASK\nCreate a html textbook style rhetoric reviewer that categorizes the question contexts based on the order they would have been thought in a classroom or the order they would appear in a standard textbook. \n\nDo not reference the questions and only use them to construct the concepts that they are trying to teach.\n\nIn the case of mathematical concepts create sample problems that start from the fundamental principles of the topic and then progress until it is in the level of the questions included. I want these to be seamlessly integrated during the textbook style narration.\n\nI want it to be concise, simple, and capture the nuances while progressing with flow. In the case of concept outliers, you may cite the question and explain the answer but put this under the concept discourse. Meanwhile for question bank answer flags, and other concerns, I want this to be the last section so it will not affect the organization.\n\nIf applicable also create a formula summary compilation a the bottom section of the before the flags, do not format it as one line, use textbook display notation. \n\nRULES\n- Use only standard, verifiable facts for this subject. If something is uncertain, say so.\n- If a bank correct answer above looks wrong, ambiguous or condition-dependent, tell me instead of rationalizing it.",
+      "updated_at": "2026-10-31T15:38:44"
     }
   ],
   "flash_decks": [],
@@ -169258,5 +169258,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-31T15:35:29"
+  "updated_at": "2026-10-31T15:38:57"
 }
