@@ -60778,6 +60778,15 @@
       "pct": 42,
       "date": "2026-10-31T06:06:55",
       "time_used_seconds": 1257
+    },
+    {
+      "id": "179342885125948",
+      "source": "D2_S16",
+      "score": 22,
+      "total": 50,
+      "pct": 44,
+      "date": "2026-10-31T06:40:51",
+      "time_used_seconds": 1607
     }
   ],
   "exam_details": [
@@ -116784,6 +116793,563 @@
           "correct_answer": "B. Improve the precision of the valve"
         }
       ]
+    },
+    {
+      "exam_id": "179342885125948",
+      "source": "D2_S16",
+      "date": "2026-10-31T06:40:51",
+      "items": [
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The operating speed of a ball mill should be",
+          "your_answer": "A. less than the critical speed",
+          "correct_answer": "A. less than the critical speed"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 82,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "For laminar flow of filtrate through the cake deposited on septum, which of the following will be valid?",
+          "your_answer": "C. Blake-Plummer equation",
+          "correct_answer": "A. Kozeney-Karman equation"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 1,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A piece of chocolate cake contains about 400 Calories. A nutritional Calorie is equal to 1000 calories (thermochemical calories). How many 8-inch high steps must a 180-lb man climb to spend 400 Cal from the piece of cake?",
+          "your_answer": "B. 10300",
+          "correct_answer": "B. 10300"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 47,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Glauber's salt , Na2SO4 xlOHzO, is to be produced in a Swenson-Walker crystallizer by cooling to 290 K a solution of anhydrous Na2SO4 which saturates between 300 K and 290 K Cooling water enters and leaves the unit at 280 K and 290 K respectively and evaporation is negligible: The solubilities of anhydrous Na2SO4 in water are 40 and 14 kg/1OO kg water at 300 K and 290 K respectively; the mean heat capacity of the liquor is 3.8 kJ/kg K and the heat of crystallization is 230 kJ/kg: For the crystallizer; the available heat transfer area is 3 m2/m length, the overall coefficient of heat transfer is 0.15 kW/m2 K How many sections of crystallizer; each 3 m long; will be required to process 0.25 kg/s of the product?",
+          "your_answer": "C. 2",
+          "correct_answer": "D. 6"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 3,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "200 mesh screen means 200 openingsper",
+          "your_answer": "D. inch2",
+          "correct_answer": "B. inch"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 25,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Carbon tetrachloride, flowing at 19000 kg/hr is to be cooled from 85°C to 40°C in a double pipe heat exchanger using 13500 kg/hr of cooling water at 20°C. The overall heat transfer coefficient is 1500 W/m²-K. Assume specific heat of CCl is0.88 J/g C. Determine the area (in m²) needed if flow is parallel.",
+          "your_answer": "B. 3.9",
+          "correct_answer": "D. 5.4"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 103,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Solid particles having a size of 0.12 mm, a shape factor of 0.88, and a density of 1000 kg/m³ are to be fluidized using air at 2 atm and 25°C. The voidage at minimum fluidizing conditions is 0.42. If the cross section of the empty bed is 0.30 m² and the bed contains 300 kg of solid, calculate the minimum height of the fluidized bed.",
+          "your_answer": "A. 1.85 m",
+          "correct_answer": "B. 1.72 m"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 79,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "One mole feed of a binary mixture of a given composition is flash vaporized at a fixed P and T. If Raoult'slaw is obeyed, then changing the feed composition would effect",
+          "your_answer": "A. the product composition but not the fraction vaporized.",
+          "correct_answer": "C. the fraction vaporized but not the product composition."
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 92,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Air in an amount 1000 cfm at 1500 F, 20% RH is passed over refrigerated coil and thereby brought to 60'F, 90% RH with the condensed moisture withdrawn at 55 F. The air is then reheated by means of an electric heating coil to 150'F. Compute the heat removed by the refrigerated coil, expressed as tons of refrigerated coil, expressed as tons of refrigeration:",
+          "your_answer": "B. 15",
+          "correct_answer": "B. 15"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 104,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "According to the Fenske equation, what will be the minimum number of plates required in a distillation column to separate an equimolar binarymixture of components A and B into an overhead fraction containing 99 mol% A and a bottom fraction containing 98 mol% B. Assume that relative volatility(AAB = 2) does not change appreciably in the column.",
+          "your_answer": "B. 12",
+          "correct_answer": "B. 12"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 33,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Air flows steadily at a rate of 0.5 kg/s through an air compressor, entering at 7 m/s speed, 100 kPa pressure and. 0.95 m³/kg specificvolume, and leaving at 5 m/s, 700 kPa, and 0.19 m³/kg. The internalenergy of the air leaving is 90 kJ/kg greater than of the air entering. Cooling water in the compressor jackets absorbs heat from the air at rate of 58 kW. Compute the work in kW.",
+          "your_answer": "B. 112 kW",
+          "correct_answer": "C. 122 kW"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 85,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Consider A (L, 75°C) → A (g, 155°C) which is carried out atconstant pressure. The total AS for this process is found to be75.0 J/mol-K. For A (l) and A (g), the Cp are 75 J/mol-K and 29J/mol-K, respectively, and are not independent on temperature. Calculate AHvap for A (1) at 125°C (boiling point).",
+          "your_answer": "B. 5.2x104 J/mol",
+          "correct_answer": "A. 2.5x104 J/mol"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 37,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "For turbulent flow in a tube, the heat transfer coefficientis obtained from the Dittus-Boelter correlation. If the tubediameter is halved and the flow rate is doubled, then theheat transfer coefficient will change by a factor of",
+          "your_answer": "B. 6.1",
+          "correct_answer": "B. 6.1"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 74,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Consider air at 1 atm, 35 C and 40% relative humidity: Using: psychrometric chart, determine The wet-bulb temperature",
+          "your_answer": "B. 28 C",
+          "correct_answer": "C. 24 C"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Cork is a good insulator because it has",
+          "your_answer": "D. porous body",
+          "correct_answer": "D. porous body"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 30,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Size reduction of asbestos and mica is done by",
+          "your_answer": "C. rod mills",
+          "correct_answer": "A. hammer mills"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 52,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "During adiabatic expansion of gas",
+          "your_answer": "D. none of these",
+          "correct_answer": "D. none of these"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Thermal diffusivity of a material",
+          "your_answer": "D. all of these",
+          "correct_answer": "D. all of these"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 70,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In batch distillation with constant reflux, overhead product composition with time.",
+          "your_answer": "B. decreases",
+          "correct_answer": "B. decreases"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 87,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "It is planned to feed continuously 100 mol per hour of a solution containing 80 mol of A and 20 mol of B to an externally fired kettle by which there is good agitation due to boiling. The residue and vapor will be withdrawn continuously, the vapor condensed, cooled and sent to storage. There is no return of residue or condensate to kettle, hence, this will be continuous simple distillation. It is planned to regulate the heat supply that D grams of distillate per hour will contain 72 mol of the more volatile component A which is five times more volatile than B. Calculate the mols of distillate per hundred moles of feed",
+          "your_answer": "B. 62",
+          "correct_answer": "A. 85"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 99,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is a vacuum filter?",
+          "your_answer": "D. Tank filter (Nutsch filter)",
+          "correct_answer": "B. Rotary disc filter"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 22,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Separation of two or more components ofa liquid solution cannot be achieved by",
+          "your_answer": "C. fractional crystallization",
+          "correct_answer": "B. absorption"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 41,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "To plan a liquid-liquid extraction we need to know the solute's distribution ratio between the two phases. One approach is to carry out the extraction on a solution containing a known amount of solute. After extracting the solution, we isolate the organic phase and allow it to evaporate, leaving behind the solute. In one such experiment, 1.235 g of a solute with a molar mass of 117.3 g/mol is dissolved in 10.00 ml of water. After extracting with 5.00 mL of toluene, 0.889 g of the solute is recovered in the organic phase. How many extractions will we need to recover 99.9% of the solute?",
+          "your_answer": "B. 6",
+          "correct_answer": "B. 6"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 82,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Acetone is to be removed from an air/acetone mixture using a plate column at 1 atm. The mixture enters the bottom of the absorber containing 2% acetone by volume. Pure water is used to remove 95% of the acetone. lithe actual liquid flow rate is 1.2 times the minimum required and if is 1.2 times the minimum required and if the equilibrium relationship is represented by = 2.53x, What is the mole fraction of acetone in the lean gas?",
+          "your_answer": "A. 0.0015",
+          "correct_answer": "B. 0.0066"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 29,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "One pound of a gas in a piston cylinder arrangement undergoes expansion from 500 psia to 50 psia. The initial volume of the gas is3 ft³ per lb. The variation of P and V is such that PV1.4 is a constant. Calculate the change in internal energy if the work performed isequal to the amount of heat transferred to the surrounding.",
+          "your_answer": "B. 669 BTU",
+          "correct_answer": "C. -669 BTU"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 37,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A solution of Na2SO4 in water is saturated at 50°C. When a saturated solution of Na2S04 is cooled, crystals of Na2SO, x 10 H20 separate from the solution. If 1000 kg of this solution is cooled to 10°C, the percentage yield obtained is Temperature, °C 50, 10 ; Solubility of Na2SO4(g per 100g water) 46.7, 9",
+          "your_answer": "B. 86%",
+          "correct_answer": "A. 91%"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 116,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "In a Rankine cycle, steam at 6.89 MPa, 516°C enters the turbine with an initial velocity of 30.48 m/s and leaves at 20.68 kPa with a velocity of 91.44 m/s. Mass flow rate of the steam is 136078 kg/hr. At 6.89 MPa and 516°C: H = 3451.16 kJ/kg S = 6.86 kJ/kg-K 20.68 kPa: Hy = 2610.21 kJ/kg H = 254.43 kJ/kg Sy = 7.9 kJ/kg-K S₁ = 0.841 kJ/kg-K V = 7.41 m³/kg V = 1.02x10-3 m³/kg What is the net power produced in hp?",
+          "your_answer": "B. 40000 hp",
+          "correct_answer": "A. 60000 hp"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 97,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A reversible compression of 1 mol of an ideal gas in piston/cylinder device results in a pressure increase from 1 bar to P, and a temperature increase from 400 K to 950 K. the path followed by the gas during compression is given by PV1.55 = k, and the molar heat capacity is given by: Cp/R= 3.85 + 0.57x10-3 T [T=K]. Determine the heat transferred duringthe process",
+          "your_answer": "B. 3355 J",
+          "correct_answer": "C. 6478 J"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 79,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A nuclear power plant generates 750 MW; the reactor temperature is 315°C and a river with water temperature of 20°C is available If the actual thermal efficiency of the plant is 60% of the maximum, what is the temperature rise in 0C of the river if it has a flow of 165 m³ s-?",
+          "your_answer": "B. 2.5",
+          "correct_answer": "B. 2.5"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 87,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A filter press is",
+          "your_answer": "A. a batch filter",
+          "correct_answer": "A. a batch filter"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 29,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A solution with a negligible boiling point rise is being evaporated in a triple effect evaporator using saturated steam at 121.1°C. The pressure in the vapor of the last effect is 25.6 kPa abs. The heat transfer coefficients are U₁ = 2840, U2 = 1988, and U3 = 1420 W/m². K and the areas are equal. Estimate the boiling point in each of the evaporators. T1",
+          "your_answer": "B. 592.3 K",
+          "correct_answer": "A. 381.7 K"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 25,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An insulated, constant-volume system containing1.36 kg of air receives 53 kJ of paddle work. Theinitial temperature is 27°C. Determine the finaltemperature.",
+          "your_answer": "B. 67°C",
+          "correct_answer": "A. 81°C"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The driving potential for the crystal growth during crystallization is the of the solution.",
+          "your_answer": "B. super-saturation",
+          "correct_answer": "B. super-saturation"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "kg of liquid evaporated per hour in an evaporator is defined as its",
+          "your_answer": "A. capacity",
+          "correct_answer": "A. capacity"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 60,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The absolute saturation of a carbon dioxide-water vapor mixture at 310 K and 100 kPa is measured to be 0.022 kg water per kg dry carbon dioxide Calculate the following: The molal saturation",
+          "your_answer": "A. 0.0267",
+          "correct_answer": "C. 0.0537"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 10,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A screen is used to separate the product from theoversize. The feed rate is 10 kg/hr with 30% of thedesired product. 80% of the desired product is recoveredin the 6 kg/hr product stream. Determine theeffectiveness of the screen.",
+          "your_answer": "B. 50%",
+          "correct_answer": "C. 39%"
+        },
+        {
+          "source_list": "D2_L5_Transport_Phenomenon",
+          "reference_no": 78,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A gas mixture containing 1% acetone and 99% dry air by volume is contacted with pure water in a plate gas absorber in which 90% of the acetone is recovered. The inlet gas flow rate is 30 kmol/hr and the inlet water flow rate is 90 kmol/hr. The absorber operates at 27 C and 1 atm. The equilibrium curve is given by y* = 2.53x. What is the concentration of the strong liquor?",
+          "your_answer": "C. 0.001",
+          "correct_answer": "A. 0.003"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 102,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The porosity of a compressible cake is",
+          "your_answer": "A. minimum at the filter medium",
+          "correct_answer": "A. minimum at the filter medium"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 34,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Sides of equilateral-triangular coordinates (onwhich ternary system is plotted) represent",
+          "your_answer": "B. a binary mixture",
+          "correct_answer": "B. a binary mixture"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "kg of liquid evaporated per hour in an evaporator is defined as its",
+          "your_answer": "A. capacity",
+          "correct_answer": "A. capacity"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 45,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "No work is done by the system, when a reactionoccurs at constant",
+          "your_answer": "A. volume",
+          "correct_answer": "A. volume"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 51,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Particles of an average size of 25 x10-4 m are crushed to an average product size of 5 x10-4 m at the rate of 15 tons/hr. At this rate the crusher consumes 32 kW of power of which 2 kW are required for running the mill empty. What would be the power consumptions of 10 tons/hr of this product to further crushed 1x10-4 m size in the same mill? Assume Rittinger's law is applicable",
+          "your_answer": "A. 100 kW",
+          "correct_answer": "A. 100 kW"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 35,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In triangular coordinates, the ternary composition point falls of the triangle.",
+          "your_answer": "C. inside",
+          "correct_answer": "C. inside"
+        },
+        {
+          "source_list": "D2_L6_Particle_Technology",
+          "reference_no": 98,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "For separation of sugar solution from settledout mud, we use a filter.",
+          "your_answer": "C. plate and frame",
+          "correct_answer": "B. centrifugal"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 23,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Solvent extraction is the terminology applied to the liquid-liquid extraction, which is preferred for the separation of the components of liquids, when",
+          "your_answer": "D. one of the liquid components has very high affinitytowards the solvent.",
+          "correct_answer": "D. one of the liquid components has very high affinitytowards the solvent."
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 51,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The vapor pressure of styrene is 100 mmHg at 82\"C and 200 mmHg at 100'C. A gas that consists of 10 mol% styrene and 90 mol% non-condensable contained in tank a 100'C and 1000 mmHg: Calculate: The relative saturation",
+          "your_answer": "B. 40%",
+          "correct_answer": "D. 50%"
+        },
+        {
+          "source_list": "D2_L3_Thermodynamics",
+          "reference_no": 81,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Two Carnot engines are operating in series. The first one absorbs heat at a temperature of 1111 K and rejects heat to the second engine at a temperature T. The second engine receives the heat at the intermediate temperature T and rejects it to a reservoir at 300 K. Calculate T if The works done by the two engines are equal",
+          "your_answer": "B. 621 K",
+          "correct_answer": "C. 705 K"
+        },
+        {
+          "source_list": "D2_L7_Heat_Mass_Transfer",
+          "reference_no": 12,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An evaporator having an area of 83.6 m² and U = 2270 W/m2-Kis used to produce distilled water for a boiler feed. Tap waterhaving 400 ppm is dissolved solids at 15.6°C is fed to theevaporator operating at 1 atm pressure abs. Saturated steam at115.6°C is available for use. Calculate the amount of distilled waterproduced per hour if the outlet liquid contains 800 ppm solids.",
+          "your_answer": "C. 4215 kg/h",
+          "correct_answer": "A. 3595 kg/h"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 36,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The solubility of iodine per unit volume is 200 times greater in ether than in water at a particular temperature. If an aqueous solution of iodine, 30 ml in volume and containing 2 mg of iodine is shaken with 30 ml of ether and the ether is allowed to separate, what quantity of iodine remains in the water layer?",
+          "your_answer": "C. 8.86 x10-3 mg",
+          "correct_answer": "A. 9.95x10-3 mg"
+        },
+        {
+          "source_list": "D2_L2_Separation_Processes",
+          "reference_no": 39,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The solubility of iodine per unit volume is 200 times greater in ether than in water at a particular temperature. If an aqueous solution of iodine, 30 ml in volume and containing 2 mg of iodine is shaken with 30 ml of ether and the ether is allowed to separate, what quantity of iodine remains in the water layer? Which method is more efficient, a single large washing or repeated small washing?",
+          "your_answer": "B. repeated small washing",
+          "correct_answer": "B. repeated small washing"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -147337,6 +147903,622 @@
       "concept_id": "17923214786028",
       "tag_at": "2026-10-31T06:07:01",
       "note_at": ""
+    },
+    {
+      "id": "1793428851578459",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 82,
+      "question": "For laminar flow of filtrate through the cake deposited on septum, which of the following will be valid?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:55",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:51",
+          "your_answer": "C. Blake-Plummer equation",
+          "correct_answer": "A. Kozeney-Karman equation"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:55",
+      "concept_id": "1792701765532879",
+      "tag_at": "2026-10-31T06:40:55"
+    },
+    {
+      "id": "1793428851724319",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 47,
+      "question": "Glauber's salt , Na2SO4 xlOHzO, is to be produced in a Swenson-Walker crystallizer by cooling to 290 K a solution of anhydrous Na2SO4 which saturates between 300 K and 290 K Cooling water enters and leaves the unit at 280 K and 290 K respectively and evaporation is negligible: The solubilities of anhydrous Na2SO4 in water are 40 and 14 kg/1OO kg water at 300 K and 290 K respectively; the mean heat capacity of the liquor is 3.8 kJ/kg K and the heat of crystallization is 230 kJ/kg: For the crystallizer; the available heat transfer area is 3 m2/m length, the overall coefficient of heat transfer is 0.15 kW/m2 K How many sections of crystallizer; each 3 m long; will be required to process 0.25 kg/s of the product?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:55",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:51",
+          "your_answer": "C. 2",
+          "correct_answer": "D. 6"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:55",
+      "concept_id": "1792311497821637",
+      "tag_at": "2026-10-31T06:40:55"
+    },
+    {
+      "id": "1793428851849398",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 3,
+      "question": "200 mesh screen means 200 openingsper",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:55",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:51",
+          "your_answer": "D. inch2",
+          "correct_answer": "B. inch"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:55",
+      "concept_id": "1792320210027423",
+      "tag_at": "2026-10-31T06:40:55"
+    },
+    {
+      "id": "1793428851972346",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 25,
+      "question": "Carbon tetrachloride, flowing at 19000 kg/hr is to be cooled from 85°C to 40°C in a double pipe heat exchanger using 13500 kg/hr of cooling water at 20°C. The overall heat transfer coefficient is 1500 W/m²-K. Assume specific heat of CCl is0.88 J/g C. Determine the area (in m²) needed if flow is parallel.",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:55",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:51",
+          "your_answer": "B. 3.9",
+          "correct_answer": "D. 5.4"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:55",
+      "concept_id": "1792512945505871",
+      "tag_at": "2026-10-31T06:40:55"
+    },
+    {
+      "id": "1793428852111821",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 103,
+      "question": "Solid particles having a size of 0.12 mm, a shape factor of 0.88, and a density of 1000 kg/m³ are to be fluidized using air at 2 atm and 25°C. The voidage at minimum fluidizing conditions is 0.42. If the cross section of the empty bed is 0.30 m² and the bed contains 300 kg of solid, calculate the minimum height of the fluidized bed.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:55",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:52",
+          "your_answer": "A. 1.85 m",
+          "correct_answer": "B. 1.72 m"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:55",
+      "concept_id": "1792321622482899",
+      "tag_at": "2026-10-31T06:40:55"
+    },
+    {
+      "id": "1793428852245917",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 79,
+      "question": "One mole feed of a binary mixture of a given composition is flash vaporized at a fixed P and T. If Raoult'slaw is obeyed, then changing the feed composition would effect",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:55",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:52",
+          "your_answer": "A. the product composition but not the fraction vaporized.",
+          "correct_answer": "C. the fraction vaporized but not the product composition."
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:55",
+      "concept_id": "1792306934086228",
+      "tag_at": "2026-10-31T06:40:55"
+    },
+    {
+      "id": "1793428852366506",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 33,
+      "question": "Air flows steadily at a rate of 0.5 kg/s through an air compressor, entering at 7 m/s speed, 100 kPa pressure and. 0.95 m³/kg specificvolume, and leaving at 5 m/s, 700 kPa, and 0.19 m³/kg. The internalenergy of the air leaving is 90 kJ/kg greater than of the air entering. Cooling water in the compressor jackets absorbs heat from the air at rate of 58 kW. Compute the work in kW.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:55",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:52",
+          "your_answer": "B. 112 kW",
+          "correct_answer": "C. 122 kW"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:55",
+      "concept_id": "1792320138179303",
+      "tag_at": "2026-10-31T06:40:55"
+    },
+    {
+      "id": "1793428852493749",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 85,
+      "question": "Consider A (L, 75°C) → A (g, 155°C) which is carried out atconstant pressure. The total AS for this process is found to be75.0 J/mol-K. For A (l) and A (g), the Cp are 75 J/mol-K and 29J/mol-K, respectively, and are not independent on temperature. Calculate AHvap for A (1) at 125°C (boiling point).",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:56",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:52",
+          "your_answer": "B. 5.2x104 J/mol",
+          "correct_answer": "A. 2.5x104 J/mol"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:56",
+      "concept_id": "1792305732815892",
+      "tag_at": "2026-10-31T06:40:56"
+    },
+    {
+      "id": "1793428852620111",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 74,
+      "question": "Consider air at 1 atm, 35 C and 40% relative humidity: Using: psychrometric chart, determine The wet-bulb temperature",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:56",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:52",
+          "your_answer": "B. 28 C",
+          "correct_answer": "C. 24 C"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:56",
+      "concept_id": "1792306108462690",
+      "tag_at": "2026-10-31T06:40:56"
+    },
+    {
+      "id": "179342885274141",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 30,
+      "question": "Size reduction of asbestos and mica is done by",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:56",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:52",
+          "your_answer": "C. rod mills",
+          "correct_answer": "A. hammer mills"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:56",
+      "concept_id": "1792307673190136",
+      "tag_at": "2026-10-31T06:40:56"
+    },
+    {
+      "id": "1793428852865633",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 87,
+      "question": "It is planned to feed continuously 100 mol per hour of a solution containing 80 mol of A and 20 mol of B to an externally fired kettle by which there is good agitation due to boiling. The residue and vapor will be withdrawn continuously, the vapor condensed, cooled and sent to storage. There is no return of residue or condensate to kettle, hence, this will be continuous simple distillation. It is planned to regulate the heat supply that D grams of distillate per hour will contain 72 mol of the more volatile component A which is five times more volatile than B. Calculate the mols of distillate per hundred moles of feed",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:56",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:52",
+          "your_answer": "B. 62",
+          "correct_answer": "A. 85"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:56",
+      "concept_id": "1792306934086228",
+      "tag_at": "2026-10-31T06:40:56"
+    },
+    {
+      "id": "1793428852996292",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 99,
+      "question": "Which of the following is a vacuum filter?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:56",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:52",
+          "your_answer": "D. Tank filter (Nutsch filter)",
+          "correct_answer": "B. Rotary disc filter"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:56",
+      "concept_id": "1792701765532879",
+      "tag_at": "2026-10-31T06:40:56"
+    },
+    {
+      "id": "1793428853122132",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 22,
+      "question": "Separation of two or more components ofa liquid solution cannot be achieved by",
+      "category": "Misread the Question",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:56",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:53",
+          "your_answer": "C. fractional crystallization",
+          "correct_answer": "B. absorption"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:56",
+      "concept_id": "179232188889813",
+      "tag_at": "2026-10-31T06:40:56"
+    },
+    {
+      "id": "179342885324647",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 82,
+      "question": "Acetone is to be removed from an air/acetone mixture using a plate column at 1 atm. The mixture enters the bottom of the absorber containing 2% acetone by volume. Pure water is used to remove 95% of the acetone. lithe actual liquid flow rate is 1.2 times the minimum required and if is 1.2 times the minimum required and if the equilibrium relationship is represented by = 2.53x, What is the mole fraction of acetone in the lean gas?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:56",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:53",
+          "your_answer": "A. 0.0015",
+          "correct_answer": "B. 0.0066"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:56",
+      "concept_id": "1792701557213788",
+      "tag_at": "2026-10-31T06:40:56"
+    },
+    {
+      "id": "1793428853383435",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 29,
+      "question": "One pound of a gas in a piston cylinder arrangement undergoes expansion from 500 psia to 50 psia. The initial volume of the gas is3 ft³ per lb. The variation of P and V is such that PV1.4 is a constant. Calculate the change in internal energy if the work performed isequal to the amount of heat transferred to the surrounding.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:56",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:53",
+          "your_answer": "B. 669 BTU",
+          "correct_answer": "C. -669 BTU"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:56",
+      "concept_id": "1792320138179303",
+      "tag_at": "2026-10-31T06:40:56"
+    },
+    {
+      "id": "1793428853510587",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 37,
+      "question": "A solution of Na2SO4 in water is saturated at 50°C. When a saturated solution of Na2S04 is cooled, crystals of Na2SO, x 10 H20 separate from the solution. If 1000 kg of this solution is cooled to 10°C, the percentage yield obtained is Temperature, °C 50, 10 ; Solubility of Na2SO4(g per 100g water) 46.7, 9",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:57",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:53",
+          "your_answer": "B. 86%",
+          "correct_answer": "A. 91%"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:57",
+      "concept_id": "1792311497821637",
+      "tag_at": "2026-10-31T06:40:57"
+    },
+    {
+      "id": "1793428853641666",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 116,
+      "question": "In a Rankine cycle, steam at 6.89 MPa, 516°C enters the turbine with an initial velocity of 30.48 m/s and leaves at 20.68 kPa with a velocity of 91.44 m/s. Mass flow rate of the steam is 136078 kg/hr. At 6.89 MPa and 516°C: H = 3451.16 kJ/kg S = 6.86 kJ/kg-K 20.68 kPa: Hy = 2610.21 kJ/kg H = 254.43 kJ/kg Sy = 7.9 kJ/kg-K S₁ = 0.841 kJ/kg-K V = 7.41 m³/kg V = 1.02x10-3 m³/kg What is the net power produced in hp?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:57",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:53",
+          "your_answer": "B. 40000 hp",
+          "correct_answer": "A. 60000 hp"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:57",
+      "concept_id": "1792512837801187",
+      "tag_at": "2026-10-31T06:40:57"
+    },
+    {
+      "id": "1793428853766374",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 97,
+      "question": "A reversible compression of 1 mol of an ideal gas in piston/cylinder device results in a pressure increase from 1 bar to P, and a temperature increase from 400 K to 950 K. the path followed by the gas during compression is given by PV1.55 = k, and the molar heat capacity is given by: Cp/R= 3.85 + 0.57x10-3 T [T=K]. Determine the heat transferred duringthe process",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:57",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:53",
+          "your_answer": "B. 3355 J",
+          "correct_answer": "C. 6478 J"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:57",
+      "concept_id": "1792320138179303",
+      "tag_at": "2026-10-31T06:40:57"
+    },
+    {
+      "id": "1793428853888862",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 29,
+      "question": "A solution with a negligible boiling point rise is being evaporated in a triple effect evaporator using saturated steam at 121.1°C. The pressure in the vapor of the last effect is 25.6 kPa abs. The heat transfer coefficients are U₁ = 2840, U2 = 1988, and U3 = 1420 W/m². K and the areas are equal. Estimate the boiling point in each of the evaporators. T1",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:57",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:53",
+          "your_answer": "B. 592.3 K",
+          "correct_answer": "A. 381.7 K"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:57",
+      "concept_id": "1792321737674800",
+      "tag_at": "2026-10-31T06:40:57"
+    },
+    {
+      "id": "1793428854019565",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 25,
+      "question": "An insulated, constant-volume system containing1.36 kg of air receives 53 kJ of paddle work. Theinitial temperature is 27°C. Determine the finaltemperature.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:57",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:54",
+          "your_answer": "B. 67°C",
+          "correct_answer": "A. 81°C"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:57",
+      "concept_id": "1792320138179303",
+      "tag_at": "2026-10-31T06:40:57"
+    },
+    {
+      "id": "1793428854151384",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 60,
+      "question": "The absolute saturation of a carbon dioxide-water vapor mixture at 310 K and 100 kPa is measured to be 0.022 kg water per kg dry carbon dioxide Calculate the following: The molal saturation",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:57",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:54",
+          "your_answer": "A. 0.0267",
+          "correct_answer": "C. 0.0537"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:57",
+      "concept_id": "1792306108462690",
+      "tag_at": "2026-10-31T06:40:57"
+    },
+    {
+      "id": "1793428854272109",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 10,
+      "question": "A screen is used to separate the product from theoversize. The feed rate is 10 kg/hr with 30% of thedesired product. 80% of the desired product is recoveredin the 6 kg/hr product stream. Determine theeffectiveness of the screen.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:57",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:54",
+          "your_answer": "B. 50%",
+          "correct_answer": "C. 39%"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:57",
+      "concept_id": "1792320210027423",
+      "tag_at": "2026-10-31T06:40:57"
+    },
+    {
+      "id": "1793428854428977",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 78,
+      "question": "A gas mixture containing 1% acetone and 99% dry air by volume is contacted with pure water in a plate gas absorber in which 90% of the acetone is recovered. The inlet gas flow rate is 30 kmol/hr and the inlet water flow rate is 90 kmol/hr. The absorber operates at 27 C and 1 atm. The equilibrium curve is given by y* = 2.53x. What is the concentration of the strong liquor?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:57",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:54",
+          "your_answer": "C. 0.001",
+          "correct_answer": "A. 0.003"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:57",
+      "concept_id": "1792701557213788",
+      "tag_at": "2026-10-31T06:40:57"
+    },
+    {
+      "id": "1793428854559959",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 98,
+      "question": "For separation of sugar solution from settledout mud, we use a filter.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:57",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:54",
+          "your_answer": "C. plate and frame",
+          "correct_answer": "B. centrifugal"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:57",
+      "concept_id": "1792701765532879",
+      "tag_at": "2026-10-31T06:40:57"
+    },
+    {
+      "id": "1793428854686217",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 51,
+      "question": "The vapor pressure of styrene is 100 mmHg at 82\"C and 200 mmHg at 100'C. A gas that consists of 10 mol% styrene and 90 mol% non-condensable contained in tank a 100'C and 1000 mmHg: Calculate: The relative saturation",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:58",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:54",
+          "your_answer": "B. 40%",
+          "correct_answer": "D. 50%"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:58",
+      "concept_id": "1792306108462690",
+      "tag_at": "2026-10-31T06:40:58"
+    },
+    {
+      "id": "1793428854811543",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 81,
+      "question": "Two Carnot engines are operating in series. The first one absorbs heat at a temperature of 1111 K and rejects heat to the second engine at a temperature T. The second engine receives the heat at the intermediate temperature T and rejects it to a reservoir at 300 K. Calculate T if The works done by the two engines are equal",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:58",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:54",
+          "your_answer": "B. 621 K",
+          "correct_answer": "C. 705 K"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:58",
+      "concept_id": "1792512837801187",
+      "tag_at": "2026-10-31T06:40:58"
+    },
+    {
+      "id": "179342885493921",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 12,
+      "question": "An evaporator having an area of 83.6 m² and U = 2270 W/m2-Kis used to produce distilled water for a boiler feed. Tap waterhaving 400 ppm is dissolved solids at 15.6°C is fed to theevaporator operating at 1 atm pressure abs. Saturated steam at115.6°C is available for use. Calculate the amount of distilled waterproduced per hour if the outlet liquid contains 800 ppm solids.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:58",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:54",
+          "your_answer": "C. 4215 kg/h",
+          "correct_answer": "A. 3595 kg/h"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:58",
+      "concept_id": "1792321737674800",
+      "tag_at": "2026-10-31T06:40:58"
+    },
+    {
+      "id": "1793428855067575",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 36,
+      "question": "The solubility of iodine per unit volume is 200 times greater in ether than in water at a particular temperature. If an aqueous solution of iodine, 30 ml in volume and containing 2 mg of iodine is shaken with 30 ml of ether and the ether is allowed to separate, what quantity of iodine remains in the water layer?",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T06:40:58",
+      "occurrences": [
+        {
+          "exam_id": "179342885125948",
+          "exam_source": "D2_S16",
+          "date": "2026-10-31T06:40:55",
+          "your_answer": "C. 8.86 x10-3 mg",
+          "correct_answer": "A. 9.95x10-3 mg"
+        }
+      ],
+      "updated_at": "2026-10-31T06:40:58",
+      "concept_id": "179232188889813",
+      "tag_at": "2026-10-31T06:40:58"
     }
   ],
   "guess_notes": [
@@ -153427,6 +154609,111 @@
       "category": "Unfamiliar Topic",
       "concept_id": "1792309253134574",
       "updated_at": "2026-10-31T06:07:00"
+    },
+    {
+      "id": "1793428855324520",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 1,
+      "resolved": false,
+      "created_at": "2026-10-31T06:40:55",
+      "question": "A piece of chocolate cake contains about 400 Calories. A nutritional Calorie is equal to 1000 calories (thermochemical calories). How many 8-inch high steps must a 180-lb man climb to spend 400 Cal from the piece of cake?",
+      "correct_answer": "B. 10300",
+      "kind": "guess",
+      "exam_id": "179342885125948",
+      "exam_source": "D2_S16",
+      "category": "Formula / Equation Error",
+      "concept_id": "1792320138179303",
+      "updated_at": "2026-10-31T06:40:55"
+    },
+    {
+      "id": "1793428855950141",
+      "source_list": "D2_L7_Heat_Mass_Transfer",
+      "reference_no": 92,
+      "resolved": false,
+      "created_at": "2026-10-31T06:40:55",
+      "question": "Air in an amount 1000 cfm at 1500 F, 20% RH is passed over refrigerated coil and thereby brought to 60'F, 90% RH with the condensed moisture withdrawn at 55 F. The air is then reheated by means of an electric heating coil to 150'F. Compute the heat removed by the refrigerated coil, expressed as tons of refrigerated coil, expressed as tons of refrigeration:",
+      "correct_answer": "B. 15",
+      "kind": "guess",
+      "exam_id": "179342885125948",
+      "exam_source": "D2_S16",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792306108462690",
+      "updated_at": "2026-10-31T06:40:55"
+    },
+    {
+      "id": "1793428856191632",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 37,
+      "resolved": false,
+      "created_at": "2026-10-31T06:40:56",
+      "question": "For turbulent flow in a tube, the heat transfer coefficientis obtained from the Dittus-Boelter correlation. If the tubediameter is halved and the flow rate is doubled, then theheat transfer coefficient will change by a factor of",
+      "correct_answer": "B. 6.1",
+      "kind": "guess",
+      "exam_id": "179342885125948",
+      "exam_source": "D2_S16",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792319818450685",
+      "updated_at": "2026-10-31T06:40:56"
+    },
+    {
+      "id": "1793428856425846",
+      "source_list": "D2_L5_Transport_Phenomenon",
+      "reference_no": 2,
+      "resolved": false,
+      "created_at": "2026-10-31T06:40:56",
+      "question": "Thermal diffusivity of a material",
+      "correct_answer": "D. all of these",
+      "kind": "guess",
+      "exam_id": "179342885125948",
+      "exam_source": "D2_S16",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792319818450685",
+      "updated_at": "2026-10-31T06:40:56"
+    },
+    {
+      "id": "1793428856780973",
+      "source_list": "D2_L2_Separation_Processes",
+      "reference_no": 41,
+      "resolved": false,
+      "created_at": "2026-10-31T06:40:56",
+      "question": "To plan a liquid-liquid extraction we need to know the solute's distribution ratio between the two phases. One approach is to carry out the extraction on a solution containing a known amount of solute. After extracting the solution, we isolate the organic phase and allow it to evaporate, leaving behind the solute. In one such experiment, 1.235 g of a solute with a molar mass of 117.3 g/mol is dissolved in 10.00 ml of water. After extracting with 5.00 mL of toluene, 0.889 g of the solute is recovered in the organic phase. How many extractions will we need to recover 99.9% of the solute?",
+      "correct_answer": "B. 6",
+      "kind": "guess",
+      "exam_id": "179342885125948",
+      "exam_source": "D2_S16",
+      "category": "Unfamiliar Topic",
+      "concept_id": "179232188889813",
+      "updated_at": "2026-10-31T06:40:56"
+    },
+    {
+      "id": "1793428857358404",
+      "source_list": "D2_L3_Thermodynamics",
+      "reference_no": 79,
+      "resolved": false,
+      "created_at": "2026-10-31T06:40:57",
+      "question": "A nuclear power plant generates 750 MW; the reactor temperature is 315°C and a river with water temperature of 20°C is available If the actual thermal efficiency of the plant is 60% of the maximum, what is the temperature rise in 0C of the river if it has a flow of 165 m³ s-?",
+      "correct_answer": "B. 2.5",
+      "kind": "guess",
+      "exam_id": "179342885125948",
+      "exam_source": "D2_S16",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792320138179303",
+      "updated_at": "2026-10-31T06:40:57"
+    },
+    {
+      "id": "1793428857931671",
+      "source_list": "D2_L6_Particle_Technology",
+      "reference_no": 51,
+      "resolved": false,
+      "created_at": "2026-10-31T06:40:57",
+      "question": "Particles of an average size of 25 x10-4 m are crushed to an average product size of 5 x10-4 m at the rate of 15 tons/hr. At this rate the crusher consumes 32 kW of power of which 2 kW are required for running the mill empty. What would be the power consumptions of 10 tons/hr of this product to further crushed 1x10-4 m size in the same mill? Assume Rittinger's law is applicable",
+      "correct_answer": "A. 100 kW",
+      "kind": "guess",
+      "exam_id": "179342885125948",
+      "exam_source": "D2_S16",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792307673190136",
+      "updated_at": "2026-10-31T06:40:57"
     }
   ],
   "checklist": [],
@@ -153481,5 +154768,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-31T06:36:38"
+  "updated_at": "2026-10-31T06:41:01"
 }
