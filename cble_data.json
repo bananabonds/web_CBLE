@@ -63504,6 +63504,15 @@
       "pct": 50,
       "date": "2026-10-31T09:06:54",
       "time_used_seconds": 824.9
+    },
+    {
+      "id": "1793441174428128",
+      "source": "D3_S20",
+      "score": 29,
+      "total": 50,
+      "pct": 58,
+      "date": "2026-10-31T10:06:14",
+      "time_used_seconds": 1038.3
     }
   ],
   "exam_details": [
@@ -122478,6 +122487,563 @@
           "correct_answer": "B. both of them"
         }
       ]
+    },
+    {
+      "exam_id": "1793441174428128",
+      "source": "D3_S20",
+      "date": "2026-10-31T10:06:14",
+      "items": [
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 74,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the typical operating pressure range to which air is initially compressed in Claude's process?",
+          "your_answer": "D. Above 1000 atm",
+          "correct_answer": "C. 40 to 50 atm"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 43,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "If a chemical engineer provided false and inaccurate information about a process equipment but did not cause any adverse incidents, what may happen?",
+          "your_answer": "C. Certificate of registration may be suspended and or/revoked",
+          "correct_answer": "C. Certificate of registration may be suspended and or/revoked"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 35,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Calculate for the exact simple interest on P15,000 for the period from February 12, to August 15, 2004 if the rate of simple interest is 12%.",
+          "your_answer": "A. P909.84",
+          "correct_answer": "A. P909.84"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Differentiate ln(x³ - 4)",
+          "your_answer": "B. 3x²/(x³-4)",
+          "correct_answer": "B. 3x²/(x³-4)"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 53,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Copyright is registered and deposited at the",
+          "your_answer": "D. all of these",
+          "correct_answer": "D. all of these"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 108,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Portland cement consists mainly of",
+          "your_answer": "A. CaO & SiO2",
+          "correct_answer": "A. CaO & SiO2"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 62,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The right to a belongs to the patent",
+          "your_answer": "C. inventor; his heirs or assigns",
+          "correct_answer": "C. inventor; his heirs or assigns"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 6,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Evaluate: lim(x→∞) (1 + 1/x)^x",
+          "your_answer": "D. limit does not exist",
+          "correct_answer": "C. e"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 38,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "[Situation 1: f(x) = x³/9 - 3x] What is the point of inflection of the given function?",
+          "your_answer": "B. (-3, 6)",
+          "correct_answer": "A. (0, 0)"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 22,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The development of the Ziegler catalyst was instrumental in the first commercial production of which specific polymer?",
+          "your_answer": "A. Poly(ethene terephthalate) (PET)",
+          "correct_answer": "C. Isotactic polypropene"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 52,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Nickel is not used as a catalyst in the",
+          "your_answer": "D. Ostwald's process of HNO3 manufacture",
+          "correct_answer": "D. Ostwald's process of HNO3 manufacture"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 98,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of these statements is true? A workplace emergency does not _______________.",
+          "your_answer": "D. Threaten workers, customers, or the public",
+          "correct_answer": "A. Always happen during business hours"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 50,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The Texas Highway Department expects the cost of maintenance for a particular piece of heavy equipment to be P5000 in year 1, P5500 in year 2 and amounts increasing by P500 through year 10. At an interest rate of 10% per year, what is the present worth of the maintenance cost?",
+          "your_answer": "B. P42,000.00",
+          "correct_answer": "A. P42,168.52"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 9,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Evaluate: lim(x→∞) x^(1/x)",
+          "your_answer": "A. 0",
+          "correct_answer": "B. 1"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 63,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A machine worth P250,000 has an estimated life of 15 years with a book value of P30,000 at the end of the period. Using the constant percentage (declining balance) method, determine the depreciation charge during the 10th year.",
+          "your_answer": "B. P9200.00",
+          "correct_answer": "A. P9234.75"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 79,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following best describes \"leading indicators\" in safety management?",
+          "your_answer": "B. Proactive measures that predict and prevent safety incidents",
+          "correct_answer": "B. Proactive measures that predict and prevent safety incidents"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 24,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the 999th derivative of -cos(x) + sin(x)",
+          "your_answer": "B. sin(x) + cos(x)",
+          "correct_answer": "C. -sin(x) - cos(x)"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 50,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Given a cone of diameter x and altitude h. What percent is the volume of the largest cylinder which can be inscribed in the cone to the volume of the cone?",
+          "your_answer": "B. 46%",
+          "correct_answer": "A. 44%"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 146,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What refers to any technique used either to minimize the probability of an accident or to mitigate its consequences?",
+          "your_answer": "B. Risk management",
+          "correct_answer": "B. Risk management"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 68,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which of the following failures would MOST likely be attributed to upper management?",
+          "your_answer": "B. A supervisor fails to enforce a lockout procedure",
+          "correct_answer": "C. Safety is treated as a priority only when incidents occur"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 142,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which of the following is not a major byproduct of sugar industry?",
+          "your_answer": "D. Massecuite",
+          "correct_answer": "D. Massecuite"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 55,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Patents approved in the Philippines are protected in the",
+          "your_answer": "C. Philippines",
+          "correct_answer": "C. Philippines"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 15,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Training employees to follow 5S rules daily ensures:",
+          "your_answer": "B. Continuous improvement and workplace discipline",
+          "correct_answer": "B. Continuous improvement and workplace discipline"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 31,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "At x = 0, which of the following is true of the function f defined by f(x) = x² + e^(-2x)?",
+          "your_answer": "C. f is discontinuous",
+          "correct_answer": "B. f is decreasing"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "It is an economic or market situation in which a single consumer or buyer buys a commodity or a service from suppliers.",
+          "your_answer": "A. Monopsony",
+          "correct_answer": "A. Monopsony"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 85,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which body developed the code of ethics for chemical engineers?",
+          "your_answer": "B. Board of Chemical Engineering",
+          "correct_answer": "B. Board of Chemical Engineering"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 54,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Intellectual Property Office is under the supervision 0f",
+          "your_answer": "A. DTI",
+          "correct_answer": "A. DTI"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 99,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Hydroforming of petrochemical stocks doesn't produce ___",
+          "your_answer": "D. Ethyl Benzene",
+          "correct_answer": "D. Ethyl Benzene"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 92,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A company is considering two alternatives with regards to an equipment which it needs. Alternative A: cost of equipment = P700,000, salvage value = P100,000, daily operating cost = P500, economic life = 10 years. Alternative B: rental at P1,500 per day. At 18% interest, how many days per year must the equipment be used if Alternative A is to be chosen?",
+          "your_answer": "B. more than 150.00 days/year",
+          "correct_answer": "A. more than 151.51 days/year"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 121,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In Kraft process of paper manufacture, white cooking liquor consists of caustic soda",
+          "your_answer": "A. Sodium hydroxide & sodium carbonate",
+          "correct_answer": "D. None of these"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 83,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which GMP practice ensures that errors or deviations during production can be identified and traced?",
+          "your_answer": "B. Comprehensive record-keeping and batch documentation",
+          "correct_answer": "B. Comprehensive record-keeping and batch documentation"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 41,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "During a loading operation of kerosene into a tank, the dip pipe does not reach the bottom of the tank. The operator increases the pump speed to speed up the transfer and meet a schedule. What hazard is being created?",
+          "your_answer": "C. The dip pipe could vibrate and damage internal fittings at high flow",
+          "correct_answer": "B. High-velocity kerosene droplets can generate static charge"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 81,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Find the limit: lim(x, y)→(0,0) sin(x² + y²)/(x² + y²)",
+          "your_answer": "B. 0",
+          "correct_answer": "C. 1"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 168,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A group of activities designed to facilitate and expedite the selling of goods and services;",
+          "your_answer": "B. Marketing",
+          "correct_answer": "B. Marketing"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 59,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The Texas City Disaster (1947) holds which specific distinction in U. S. history.",
+          "your_answer": "B. The deadliest industrial accident in U. S. history",
+          "correct_answer": "B. The deadliest industrial accident in U. S. history"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 51,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "An explosion resulting from the sudden failure of a vessel containing high-pressure nonreactive gas",
+          "your_answer": "C. Mechanical explosion",
+          "correct_answer": "C. Mechanical explosion"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What do the 5S of good housekeeping mean?",
+          "your_answer": "A. Seiri, Seiton, Seiso, Seiketsu, Shitsuke",
+          "correct_answer": "A. Seiri, Seiton, Seiso, Seiketsu, Shitsuke"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 139,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "What organizational structure provides a sound basis for balancing the use of human resources and skills?",
+          "your_answer": "C. Matrix organization",
+          "correct_answer": "C. Matrix organization"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 125,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which catalyst is used in the hydrogenation of oils?",
+          "your_answer": "A. Activated platinum",
+          "correct_answer": "D. Activated nickel"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 82,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In the synthesis of hydrochloric acid from hydrogen chloride gas, what is the final step required to create liquid HCl?",
+          "your_answer": "B. Dissolving the generated hydrogen chloride gas in water",
+          "correct_answer": "B. Dissolving the generated hydrogen chloride gas in water"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 56,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "[Situation 2: Cone with altitude 12 m and base radius 15 m; cylinder inscribed with maximum volume] What is the base radius of the cylinder?",
+          "your_answer": "C. 15m",
+          "correct_answer": "B. 10m"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 68,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An asset is purchased for P120,000. Its estimated economic life is 10 years, after which it will be sold for P12,000. Using SOYD, find the total depreciation after 3 years.",
+          "your_answer": "B. P53,000.00",
+          "correct_answer": "A. P53,018.18"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 28,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Let g be a function such that g'(x) ≥ -6 for all x ∈ [0,2]. If g(0) = 0, determine the least possible value of g(2).",
+          "your_answer": "A. -12",
+          "correct_answer": "A. -12"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 28,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An act to invigorate the economic growth by grabbing certain incentives and exemptions to registered export producers, export traders and service exporters:",
+          "your_answer": "A. RA 1655",
+          "correct_answer": "D. RA 6136"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 81,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "How often should an SMS be reviewed and updated?",
+          "your_answer": "C. When significant changes occur in the workplace",
+          "correct_answer": "C. When significant changes occur in the workplace"
+        },
+        {
+          "source_list": "D3_L9_CPI",
+          "reference_no": 138,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is a colored pigment?",
+          "your_answer": "B. Lead chromate",
+          "correct_answer": "B. Lead chromate"
+        },
+        {
+          "source_list": "D3_L1_ChE_Laws",
+          "reference_no": 4,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A person whose name and registration/license no: is in the commission's registry book & computerized database",
+          "your_answer": "D. all of the above",
+          "correct_answer": "B. professional"
+        },
+        {
+          "source_list": "D3_L10_ProcessSafety",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "An incident can be called hazardous only when?",
+          "your_answer": "A. Has potential to cause harm to humans and surroundings",
+          "correct_answer": "A. Has potential to cause harm to humans and surroundings"
+        },
+        {
+          "source_list": "D3_L12_EngineeringEconomics",
+          "reference_no": 78,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A feasibility study shows that a fixed capital investment of P10,000,000 for a proposed construction firm and an estimated working capital of P2,000,000. Annual depreciation is estimated to be 10% of the fixed capital investment. Determine the rate of return on the total investment if the annual profit is P3,500,000.",
+          "your_answer": "B. 29.17%",
+          "correct_answer": "B. 29.17%"
+        },
+        {
+          "source_list": "D3_L7_Differential_Calculus",
+          "reference_no": 64,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A balloon is released from the ground 100 meters from an observer. The balloon rises directly upward at the rate of 4 meters per second. How fast is the balloon receding from the observer 10 seconds later?",
+          "your_answer": "D. 1.49 m/sec",
+          "correct_answer": "D. 1.49 m/sec"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -156120,6 +156686,468 @@
       "concept_id": "1792309253134574",
       "tag_at": "2026-10-31T09:07:01",
       "note_at": ""
+    },
+    {
+      "id": "1793441174734712",
+      "source_list": "D3_L9_CPI",
+      "reference_no": 74,
+      "question": "What is the typical operating pressure range to which air is initially compressed in Claude's process?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:17",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:14",
+          "your_answer": "D. Above 1000 atm",
+          "correct_answer": "C. 40 to 50 atm"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:17",
+      "concept_id": "1792322199458200",
+      "tag_at": "2026-10-31T10:06:17"
+    },
+    {
+      "id": "1793441174891572",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 6,
+      "question": "Evaluate: lim(x→∞) (1 + 1/x)^x",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:17",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:14",
+          "your_answer": "D. limit does not exist",
+          "correct_answer": "C. e"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:17",
+      "concept_id": "1792321206714282",
+      "tag_at": "2026-10-31T10:06:17"
+    },
+    {
+      "id": "1793441175030125",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 38,
+      "question": "[Situation 1: f(x) = x³/9 - 3x] What is the point of inflection of the given function?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:17",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:15",
+          "your_answer": "B. (-3, 6)",
+          "correct_answer": "A. (0, 0)"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:17",
+      "concept_id": "1792309077798907",
+      "tag_at": "2026-10-31T10:06:17"
+    },
+    {
+      "id": "1793441175170453",
+      "source_list": "D3_L9_CPI",
+      "reference_no": 22,
+      "question": "The development of the Ziegler catalyst was instrumental in the first commercial production of which specific polymer?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:17",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:15",
+          "your_answer": "A. Poly(ethene terephthalate) (PET)",
+          "correct_answer": "C. Isotactic polypropene"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:17",
+      "concept_id": "1792322199458200",
+      "tag_at": "2026-10-31T10:06:17"
+    },
+    {
+      "id": "1793441175338220",
+      "source_list": "D3_L10_ProcessSafety",
+      "reference_no": 98,
+      "question": "Which of these statements is true? A workplace emergency does not _______________.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:17",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:15",
+          "your_answer": "D. Threaten workers, customers, or the public",
+          "correct_answer": "A. Always happen during business hours"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:17",
+      "concept_id": "1792322398274332",
+      "tag_at": "2026-10-31T10:06:17"
+    },
+    {
+      "id": "1793441175502858",
+      "source_list": "D3_L12_EngineeringEconomics",
+      "reference_no": 50,
+      "question": "The Texas Highway Department expects the cost of maintenance for a particular piece of heavy equipment to be P5000 in year 1, P5500 in year 2 and amounts increasing by P500 through year 10. At an interest rate of 10% per year, what is the present worth of the maintenance cost?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:18",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:15",
+          "your_answer": "B. P42,000.00",
+          "correct_answer": "A. P42,168.52"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:18",
+      "concept_id": "1792311155293548",
+      "tag_at": "2026-10-31T10:06:18"
+    },
+    {
+      "id": "1793441175638734",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 9,
+      "question": "Evaluate: lim(x→∞) x^(1/x)",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:18",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:15",
+          "your_answer": "A. 0",
+          "correct_answer": "B. 1"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:18",
+      "concept_id": "1792321206714282",
+      "tag_at": "2026-10-31T10:06:18"
+    },
+    {
+      "id": "1793441175757794",
+      "source_list": "D3_L12_EngineeringEconomics",
+      "reference_no": 63,
+      "question": "A machine worth P250,000 has an estimated life of 15 years with a book value of P30,000 at the end of the period. Using the constant percentage (declining balance) method, determine the depreciation charge during the 10th year.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:18",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:15",
+          "your_answer": "B. P9200.00",
+          "correct_answer": "A. P9234.75"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:18",
+      "concept_id": "1792309443710201",
+      "tag_at": "2026-10-31T10:06:18"
+    },
+    {
+      "id": "1793441175883999",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 24,
+      "question": "Find the 999th derivative of -cos(x) + sin(x)",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:18",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:15",
+          "your_answer": "B. sin(x) + cos(x)",
+          "correct_answer": "C. -sin(x) - cos(x)"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:18",
+      "concept_id": "1792311344109127",
+      "tag_at": "2026-10-31T10:06:18"
+    },
+    {
+      "id": "1793441176038852",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 50,
+      "question": "Given a cone of diameter x and altitude h. What percent is the volume of the largest cylinder which can be inscribed in the cone to the volume of the cone?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:18",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:16",
+          "your_answer": "B. 46%",
+          "correct_answer": "A. 44%"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:18",
+      "concept_id": "1792309543006667",
+      "tag_at": "2026-10-31T10:06:18"
+    },
+    {
+      "id": "1793441176150627",
+      "source_list": "D3_L10_ProcessSafety",
+      "reference_no": 68,
+      "question": "Which of the following failures would MOST likely be attributed to upper management?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:18",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:16",
+          "your_answer": "B. A supervisor fails to enforce a lockout procedure",
+          "correct_answer": "C. Safety is treated as a priority only when incidents occur"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:18",
+      "concept_id": "1792321183003195",
+      "tag_at": "2026-10-31T10:06:18"
+    },
+    {
+      "id": "1793441176260690",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 31,
+      "question": "At x = 0, which of the following is true of the function f defined by f(x) = x² + e^(-2x)?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:18",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:16",
+          "your_answer": "C. f is discontinuous",
+          "correct_answer": "B. f is decreasing"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:18",
+      "concept_id": "1792309283782918",
+      "tag_at": "2026-10-31T10:06:18"
+    },
+    {
+      "id": "1793441176378249",
+      "source_list": "D3_L12_EngineeringEconomics",
+      "reference_no": 92,
+      "question": "A company is considering two alternatives with regards to an equipment which it needs. Alternative A: cost of equipment = P700,000, salvage value = P100,000, daily operating cost = P500, economic life = 10 years. Alternative B: rental at P1,500 per day. At 18% interest, how many days per year must the equipment be used if Alternative A is to be chosen?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:18",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:16",
+          "your_answer": "B. more than 150.00 days/year",
+          "correct_answer": "A. more than 151.51 days/year"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:18",
+      "concept_id": "1792860767807909",
+      "tag_at": "2026-10-31T10:06:18"
+    },
+    {
+      "id": "1793441176500603",
+      "source_list": "D3_L9_CPI",
+      "reference_no": 121,
+      "question": "In Kraft process of paper manufacture, white cooking liquor consists of caustic soda",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:18",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:16",
+          "your_answer": "A. Sodium hydroxide & sodium carbonate",
+          "correct_answer": "D. None of these"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:18",
+      "concept_id": "1792322199458200",
+      "tag_at": "2026-10-31T10:06:18"
+    },
+    {
+      "id": "1793441176620292",
+      "source_list": "D3_L10_ProcessSafety",
+      "reference_no": 41,
+      "question": "During a loading operation of kerosene into a tank, the dip pipe does not reach the bottom of the tank. The operator increases the pump speed to speed up the transfer and meet a schedule. What hazard is being created?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:19",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:16",
+          "your_answer": "C. The dip pipe could vibrate and damage internal fittings at high flow",
+          "correct_answer": "B. High-velocity kerosene droplets can generate static charge"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:19",
+      "concept_id": "1792322398274332",
+      "tag_at": "2026-10-31T10:06:19"
+    },
+    {
+      "id": "1793441176730325",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 81,
+      "question": "Find the limit: lim(x, y)→(0,0) sin(x² + y²)/(x² + y²)",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:19",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:16",
+          "your_answer": "B. 0",
+          "correct_answer": "C. 1"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:19",
+      "concept_id": "1792321206714282",
+      "tag_at": "2026-10-31T10:06:19"
+    },
+    {
+      "id": "179344117684144",
+      "source_list": "D3_L9_CPI",
+      "reference_no": 125,
+      "question": "Which catalyst is used in the hydrogenation of oils?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:19",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:16",
+          "your_answer": "A. Activated platinum",
+          "correct_answer": "D. Activated nickel"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:19",
+      "concept_id": "1792322199458200",
+      "tag_at": "2026-10-31T10:06:19"
+    },
+    {
+      "id": "1793441176962143",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 56,
+      "question": "[Situation 2: Cone with altitude 12 m and base radius 15 m; cylinder inscribed with maximum volume] What is the base radius of the cylinder?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:19",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:16",
+          "your_answer": "C. 15m",
+          "correct_answer": "B. 10m"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:19",
+      "concept_id": "1792309543006667",
+      "tag_at": "2026-10-31T10:06:19"
+    },
+    {
+      "id": "1793441177082944",
+      "source_list": "D3_L12_EngineeringEconomics",
+      "reference_no": 68,
+      "question": "An asset is purchased for P120,000. Its estimated economic life is 10 years, after which it will be sold for P12,000. Using SOYD, find the total depreciation after 3 years.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:19",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:17",
+          "your_answer": "B. P53,000.00",
+          "correct_answer": "A. P53,018.18"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:19",
+      "concept_id": "1792309443710201",
+      "tag_at": "2026-10-31T10:06:19"
+    },
+    {
+      "id": "179344117718479",
+      "source_list": "D3_L1_ChE_Laws",
+      "reference_no": 28,
+      "question": "An act to invigorate the economic growth by grabbing certain incentives and exemptions to registered export producers, export traders and service exporters:",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:19",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:17",
+          "your_answer": "A. RA 1655",
+          "correct_answer": "D. RA 6136"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:19",
+      "concept_id": "1792309349198633",
+      "tag_at": "2026-10-31T10:06:19"
+    },
+    {
+      "id": "1793441177300471",
+      "source_list": "D3_L1_ChE_Laws",
+      "reference_no": 4,
+      "question": "A person whose name and registration/license no: is in the commission's registry book & computerized database",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-10-31T10:06:19",
+      "occurrences": [
+        {
+          "exam_id": "1793441174428128",
+          "exam_source": "D3_S20",
+          "date": "2026-10-31T10:06:17",
+          "your_answer": "D. all of the above",
+          "correct_answer": "B. professional"
+        }
+      ],
+      "updated_at": "2026-10-31T10:06:19",
+      "concept_id": "1792309349198633",
+      "tag_at": "2026-10-31T10:06:19"
     }
   ],
   "guess_notes": [
@@ -162780,6 +163808,126 @@
       "category": "Unfamiliar Topic",
       "concept_id": "1792860767807909",
       "updated_at": "2026-10-31T09:06:59"
+    },
+    {
+      "id": "1793441177545612",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 18,
+      "resolved": false,
+      "created_at": "2026-10-31T10:06:17",
+      "question": "Differentiate ln(x³ - 4)",
+      "correct_answer": "B. 3x²/(x³-4)",
+      "kind": "guess",
+      "exam_id": "1793441174428128",
+      "exam_source": "D3_S20",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792309283782918",
+      "updated_at": "2026-10-31T10:06:17"
+    },
+    {
+      "id": "1793441177906228",
+      "source_list": "D3_L9_CPI",
+      "reference_no": 52,
+      "resolved": false,
+      "created_at": "2026-10-31T10:06:17",
+      "question": "Nickel is not used as a catalyst in the",
+      "correct_answer": "D. Ostwald's process of HNO3 manufacture",
+      "kind": "guess",
+      "exam_id": "1793441174428128",
+      "exam_source": "D3_S20",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792322199458200",
+      "updated_at": "2026-10-31T10:06:17"
+    },
+    {
+      "id": "1793441178865522",
+      "source_list": "D3_L9_CPI",
+      "reference_no": 99,
+      "resolved": false,
+      "created_at": "2026-10-31T10:06:18",
+      "question": "Hydroforming of petrochemical stocks doesn't produce ___",
+      "correct_answer": "D. Ethyl Benzene",
+      "kind": "guess",
+      "exam_id": "1793441174428128",
+      "exam_source": "D3_S20",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792322199458200",
+      "updated_at": "2026-10-31T10:06:18"
+    },
+    {
+      "id": "1793441179362855",
+      "source_list": "D3_L10_ProcessSafety",
+      "reference_no": 59,
+      "resolved": false,
+      "created_at": "2026-10-31T10:06:19",
+      "question": "The Texas City Disaster (1947) holds which specific distinction in U. S. history.",
+      "correct_answer": "B. The deadliest industrial accident in U. S. history",
+      "kind": "guess",
+      "exam_id": "1793441174428128",
+      "exam_source": "D3_S20",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792322398274332",
+      "updated_at": "2026-10-31T10:06:19"
+    },
+    {
+      "id": "1793441179365572",
+      "source_list": "D3_L1_ChE_Laws",
+      "reference_no": 139,
+      "resolved": false,
+      "created_at": "2026-10-31T10:06:19",
+      "question": "What organizational structure provides a sound basis for balancing the use of human resources and skills?",
+      "correct_answer": "C. Matrix organization",
+      "kind": "guess",
+      "exam_id": "1793441174428128",
+      "exam_source": "D3_S20",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792321183003195",
+      "updated_at": "2026-10-31T10:06:19"
+    },
+    {
+      "id": "1793441179718158",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 28,
+      "resolved": false,
+      "created_at": "2026-10-31T10:06:19",
+      "question": "Let g be a function such that g'(x) ≥ -6 for all x ∈ [0,2]. If g(0) = 0, determine the least possible value of g(2).",
+      "correct_answer": "A. -12",
+      "kind": "guess",
+      "exam_id": "1793441174428128",
+      "exam_source": "D3_S20",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792309283782918",
+      "updated_at": "2026-10-31T10:06:19"
+    },
+    {
+      "id": "1793441179959241",
+      "source_list": "D3_L12_EngineeringEconomics",
+      "reference_no": 78,
+      "resolved": false,
+      "created_at": "2026-10-31T10:06:19",
+      "question": "A feasibility study shows that a fixed capital investment of P10,000,000 for a proposed construction firm and an estimated working capital of P2,000,000. Annual depreciation is estimated to be 10% of the fixed capital investment. Determine the rate of return on the total investment if the annual profit is P3,500,000.",
+      "correct_answer": "B. 29.17%",
+      "kind": "guess",
+      "exam_id": "1793441174428128",
+      "exam_source": "D3_S20",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792860767807909",
+      "updated_at": "2026-10-31T10:06:19"
+    },
+    {
+      "id": "1793441179962362",
+      "source_list": "D3_L7_Differential_Calculus",
+      "reference_no": 64,
+      "resolved": false,
+      "created_at": "2026-10-31T10:06:19",
+      "question": "A balloon is released from the ground 100 meters from an observer. The balloon rises directly upward at the rate of 4 meters per second. How fast is the balloon receding from the observer 10 seconds later?",
+      "correct_answer": "D. 1.49 m/sec",
+      "kind": "guess",
+      "exam_id": "1793441174428128",
+      "exam_source": "D3_S20",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1792309283782918",
+      "updated_at": "2026-10-31T10:06:19"
     }
   ],
   "checklist": [],
@@ -162834,5 +163982,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-31T10:03:57"
+  "updated_at": "2026-10-31T10:06:23"
 }
