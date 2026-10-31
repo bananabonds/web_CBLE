@@ -57798,6 +57798,626 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1793421274522723",
+      "name": "D3_S16",
+      "created_at": "2026-10-31T04:34:34",
+      "composition": {
+        "D3_L13_EngineeringDataAnalysis": 5,
+        "D3_L12_EngineeringEconomics": 5,
+        "D3_L9_CPI": 5,
+        "D3_L8_Integral_Calculus": 5,
+        "D3_L1_ChE_Laws": 5,
+        "D3_L10_ProcessSafety": 5,
+        "D3_L7_Differential_Calculus": 5,
+        "D3_L2_Process_Control_Analysis": 5,
+        "D3_L15_Engineering_Mechanics": 5,
+        "D3_L14_Physics": 5
+      },
+      "questions": [
+        {
+          "text": "Pikachu, Mudkip and Cyndaquil have different chances of hitting a target. Pikachu hits the target 3/4 of the time, Mudkip hits it 2/3 of the time, and Cyndaquil hits it 1/2 of the time. They all go for the target simultaneously. What is the probability that at least one of them will hit the target?",
+          "options": [
+            "A. 23/24",
+            "B. 1/4",
+            "C. 1/24",
+            "D. 3/4"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 21
+        },
+        {
+          "text": "A VOM has a current selling price of P400. If the selling price is expected to decline at a rate of 10% per annum due to obsolescence, what will be its selling price after 5 years?",
+          "options": [
+            "A. P236.20",
+            "B. P240.00",
+            "C. P230.00",
+            "D. P245.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 58
+        },
+        {
+          "text": "The Phillips petroleum process became a massive source of polyethene by utilizing which type of catalyst?",
+          "options": [
+            "A. Homogeneous rhodium catalysts",
+            "B. Cobalt-based catalysts",
+            "C. Chromium-based catalysts",
+            "D. Zeolite catalysts"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 20
+        },
+        {
+          "text": "Integrate: x²e^x dx",
+          "options": [
+            "A. xe^x(x² + 2x + 2) + c",
+            "B. e^x(x² - 2x + 2) + c",
+            "C. xe^x(x² + 2) + c",
+            "D. e^x(x - 1) + c"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 6
+        },
+        {
+          "text": "Refuse to pay taxes w/o violating the law:",
+          "options": [
+            "A. tax evasion",
+            "B. tax avoidance",
+            "C. tax declaration",
+            "D. estimated tax"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 106
+        },
+        {
+          "text": "Process of adding inert gas to combustible mixture to reduce concentration of oxygen below limiting oxygen concentration",
+          "options": [
+            "A. Fire Point",
+            "B. Inerting",
+            "C. Flash point",
+            "D. Toxicity"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 45
+        },
+        {
+          "text": "Which evaporator is used to concentrate the clarified juice obtained in extraction of sugarcane to produce white crystalline sugar?",
+          "options": [
+            "A. Open pan evaporators",
+            "B. Vacuum evaporators",
+            "C. Multiple effect evaporators",
+            "D. Agitating film evaporators"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 140
+        },
+        {
+          "text": "What is the derivative of arctanh(x) with respect to x?",
+          "options": [
+            "A. -1/(1-x²)",
+            "B. 1/(1-x²)",
+            "C. -1/√(1+x²)",
+            "D. 1/√(1+x²)"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 19
+        },
+        {
+          "text": "Is the type of annuity where the first payment is made later than the first or is made several periods after the beginning of the annuity.",
+          "options": [
+            "A. Annuity Due",
+            "B. Ordinary Annuity",
+            "C. Perpetuity",
+            "D. Deferred Annuity"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 20
+        },
+        {
+          "text": "Integrate: x³cos(x) dx",
+          "options": [
+            "A. x³cos(x) + 3x²sin(x) - 6xcos(x) - 6sin(x) + c",
+            "B. x³cos(x) - 3x²sin(x) + 6xcos(x) + 6sin(x) + c",
+            "C. x³sin(x) + 3x²cos(x) + 6xsin(x) - 6cos(x) + c",
+            "D. x³sin(x) + 3x²cos(x) - 6xsin(x) - 6cos(x) + c"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 7
+        },
+        {
+          "text": "The input variables can be classified into",
+          "options": [
+            "A. manipulated variable and disturbances",
+            "B. setpoint and desired variables",
+            "C. process variables and controlled variables",
+            "D. Controller output and Control law"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 5
+        },
+        {
+          "text": "An engineer bought a machine for P500,000. Other expenses including installation amounted to P30,000. At the end of its estimated useful life of 10 years, the salvage value will be 10% of the first cost. Using straight line method of depreciation, what is the book value after 5 years?",
+          "options": [
+            "A. P291,500",
+            "B. P290,000",
+            "C. P295,000",
+            "D. P288,000"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 54
+        },
+        {
+          "text": "Is the decrease in the value of physical property due to passage of time.",
+          "options": [
+            "A. Amortization",
+            "B. Depreciation",
+            "C. Inflation",
+            "D. Obsolescence"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 23
+        },
+        {
+          "text": "A processing plant identifies a cooking step where insufficient heating could leave pathogens alive. Deciding the temperature and time required to eliminate the risk corresponds to which HACCP principle?",
+          "options": [
+            "A. Determine Critical Control Points",
+            "B. Establish Critical Limits",
+            "C. Establish Corrective Actions",
+            "D. Verification"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 89
+        },
+        {
+          "text": "Calculate the work done in pumping out the water filling a hemispherical reservoir 3 m deep.",
+          "options": [
+            "A. 623.58 kN-m",
+            "B. 274.48 kN-m",
+            "C. 420.23 kN-m",
+            "D. 374.45 kN-m"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 45
+        },
+        {
+          "text": "A normal window is in the shape of a rectangle surmounted by a semi-circle. What is the ratio of the width of the rectangle to the total height so that it will yield a window admitting the most light for a given perimeter?",
+          "options": [
+            "A. 1",
+            "B. 1/2",
+            "C. 2",
+            "D. 2/3"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 47
+        },
+        {
+          "text": "A ball is thrown with an initial velocity of 20 m/s at an angle of 30° above the horizontal. Find the time it takes to reach the maximum height.",
+          "options": [
+            "A. 0.52 s",
+            "B. 0.77 s",
+            "C. 1.02 s",
+            "D. 1.27 s"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 58
+        },
+        {
+          "text": "A mass of 0.5 kg is attached to a spring of force constant 200 N/m. Find the period of oscillation. (Use T = 2π√(m/k))",
+          "options": [
+            "A. 0.157 s",
+            "B. 0.314 s",
+            "C. 0.471 s",
+            "D. 0.628 s"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 22
+        },
+        {
+          "text": "An act creating a patent office, prescribing its powers and duties, regulating the issuance of patents, and appropriating funds therefore.",
+          "options": [
+            "A. RA 165",
+            "B. RA 5455",
+            "C. RA 166",
+            "D. RA 6136"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 21
+        },
+        {
+          "text": "An I-beam cross-section is oriented with its web vertical (along the y-axis) and centroid at the origin. The top flange has a total width of 48 mm (24 mm on each side of the y-axis) and a thickness of 6 mm. The bottom flange has the same dimensions (48 mm wide, 6 mm thick), symmetric about the x-axis. The web connecting the flanges has a thickness of 8 mm and extends 24 mm above and 24 mm below the x-axis (centroidal axis) to meet the inner faces of the flanges. Determine the moment of inertia with respect to the y-axis.",
+          "options": [
+            "A. 61.18 × 10³ mm⁴",
+            "B. 62.48 × 10³ mm⁴",
+            "C. 63.25 × 10³ mm⁴",
+            "D. 64.26 × 10³ mm⁴"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 33
+        },
+        {
+          "text": "Which of the following is used as a catalyst in the lead chamber process?",
+          "options": [
+            "A. Vanadium pentoxide (V2O5)",
+            "B. Nitrogen oxides (NO / NO2)",
+            "C. Finely divided iron",
+            "D. Platinum (Pt)"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 59
+        },
+        {
+          "text": "_______________ is the CCP for the processing of milk.",
+          "options": [
+            "A. Removal of fat",
+            "B. Evaporation",
+            "C. Milking",
+            "D. Pasteurization"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 93
+        },
+        {
+          "text": "Material a is water and material b is a glass with index of refraction 1.52. If the incident ray makes an angle of 60° with the normal, find the direction of the reflected ray.",
+          "options": [
+            "A. 49.3 deg",
+            "B. 91.3 deg",
+            "C. 60 deg",
+            "D. 34.7 deg"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 38
+        },
+        {
+          "text": "A simple triangular truss has a pinned support at joint A (bottom-left) and a roller support at the bottom (directly below apex B), with member AB rising from A at an angle of 40° from the horizontal base, and another member rising from the roller support at an angle of 65° from the horizontal, meeting AB at apex B, which is 3 m above the base. The horizontal base spans 2 m from A to the roller support. The truss is subjected to a 3 kN horizontal force applied at pin B. Neglecting the truss weight, what is the force in member AB?",
+          "options": [
+            "A. 7kN, compression",
+            "B. 7kN, tension",
+            "C. 5.87kN, compression",
+            "D. 5.87kN, tension"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 23
+        },
+        {
+          "text": "A plate in the shape of a parallelogram ABCD is acted upon by two couples. A pair of 84 N forces act horizontally along the top and bottom edges of the parallelogram (opposite directions), separated by a vertical (perpendicular) distance of 16 cm. A pair of 48 N forces act along the slanted left and right edges (AD and BC), which make an angle α with the horizontal at vertex A; the horizontal base length is d. Determine the moment of the couple formed by the two 84 N forces.",
+          "options": [
+            "A. 11.22 N-m",
+            "B. 12.33 N-m",
+            "C. 13.44 N-m",
+            "D. 14.55 N-m"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 14
+        },
+        {
+          "text": "How many significant figures are in the number 0.220?",
+          "options": [
+            "A. None. Any number less than one is not significant.",
+            "B. Two, only the non-zeros are significant.",
+            "C. Three, the leading zero is not significant, but the rest are.",
+            "D. Four, every digit is significant."
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 4
+        },
+        {
+          "text": "What is the Laplace transform of t·sin(2t)?",
+          "options": [
+            "A. s/(s²+4)²",
+            "B. 2s/(s²+4)²",
+            "C. 3s/(s²+4)²",
+            "D. 4s/(s²+4)²"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 64
+        },
+        {
+          "text": "A stone is dropped from a height of 80 m. Find the time it takes to reach the ground.",
+          "options": [
+            "A. 3.04 s",
+            "B. 3.54 s",
+            "C. 4.04 s",
+            "D. 4.54 s"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 49
+        },
+        {
+          "text": "Applied to goods manufactured or produced in the Philippines for domestic sales or consumption or for any other disposition and to things imported.",
+          "options": [
+            "A. excise tax",
+            "B. estimated tax",
+            "C. VAT",
+            "D. income tax"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 113
+        },
+        {
+          "text": "In how many ways can you arrange 3 different keys on a keychain?",
+          "options": [
+            "A. 6",
+            "B. 1",
+            "C. 2",
+            "D. 12"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 9
+        },
+        {
+          "text": "In which of the following instruments are most likely to indicate discrete measurements?",
+          "options": [
+            "A. Thermocouple at the top tray of a distillation column",
+            "B. Level sensor that detects presence of liquid at a specific level",
+            "C. Industrial sensor that detects excess 02 levels at a furnace effluent",
+            "D. Venturi meters with a pressure differential that can be translated to flowrate"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 54
+        },
+        {
+          "text": "A concave spherical mirror has a focal length of 12 cm. If an object is placed 6 cm in front of it, the image position is:",
+          "options": [
+            "A. 4 cm behind the mirror",
+            "B. 4 cm in front of the mirror",
+            "C. 12 cm behind the mirror",
+            "D. 12 cm in front of the mirror"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 43
+        },
+        {
+          "text": "[Situation 4: Sphere with radius 12 in; cone inscribed with maximum volume] What is the height of the cone?",
+          "options": [
+            "A. 8in",
+            "B. 12in",
+            "C. 16in",
+            "D. 20in"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 60
+        },
+        {
+          "text": "Compute the benefit cost ratio of the following project: Project cost = P120,000, Gross income = P35,000/year, Operating cost = P8,000/year, Salvage value = 0, Life of Project = 10 years, Rate of interest = 15%.",
+          "options": [
+            "A. 1.03",
+            "B. 1.13",
+            "C. 1.23",
+            "D. 1.33"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 86
+        },
+        {
+          "text": "Essential Discontinuity is also known as",
+          "options": [
+            "A. Infinite Discontinuity",
+            "B. Jump Discontinuity",
+            "C. Removable Discontinuity",
+            "D. The function is continuous"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 13
+        },
+        {
+          "text": "A police car moves toward an observer at 25 m/s, and the observer moves toward the car at 5 m/s. The siren frequency is 600 Hz. Find the observed frequency. (Assume the speed of sound as 350 m/s)",
+          "options": [
+            "A. 600 Hz",
+            "B. 630 Hz",
+            "C. 655 Hz",
+            "D. 680 Hz"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L14_Physics",
+          "_source_index": 30
+        },
+        {
+          "text": "What must you decide before using a fire extinguisher?",
+          "options": [
+            "A. if the fire is small enough to be extinguished with one fire extinguisher",
+            "B. if there is a safe exit should the fire get out of control",
+            "C. if the fire extinguisher has already passed its most recent inspection",
+            "D. both answers a and b"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 102
+        },
+        {
+          "text": "Find the number of ordered quadruples of non-negative integers (a, b, c, d) such that a + b + c + d = 12.",
+          "options": [
+            "A. 445",
+            "B. 450",
+            "C. 455",
+            "D. 460"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 13
+        },
+        {
+          "text": "The catalyst used in the production of elemental sulfur from H2S (by oxidation-reduction) is",
+          "options": [
+            "A. Alumina",
+            "B. Platinum",
+            "C. Silica gel",
+            "D. Nickel"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 58
+        },
+        {
+          "text": "Find the 2nd derivative of y by implicit differentiation from the equation 4x² + 8y² = 36",
+          "options": [
+            "A. 64x²",
+            "B. -9/(4y³)",
+            "C. 32xy",
+            "D. -16/(9y³)"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 25
+        },
+        {
+          "text": "The main purpose of a control valve positioner is to:",
+          "options": [
+            "A. Alter the fail-safe status of the valve",
+            "B. Improve the precision of the valve",
+            "C. Alter the characterization of the valve",
+            "D. Increase transmitter accuracy"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 26
+        },
+        {
+          "text": "This type of thermometer takes advantage of the difference in thermal expansion of two metals. Hence, when this composite is heated, its deflection can be translated to a temperature reading.",
+          "options": [
+            "A. Thermocouple",
+            "B. Pyrometers",
+            "C. Resistance thermometers",
+            "D. Bimetal thermometers"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 56
+        },
+        {
+          "text": "Two people are chosen randomly from 4 married couples. What is the probability that they are husband and wife?",
+          "options": [
+            "A. 1/28",
+            "B. 3/28",
+            "C. 1/14",
+            "D. 1/7"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 23
+        },
+        {
+          "text": "What is the leading cause of death on construction sites?",
+          "options": [
+            "A. Struck by object",
+            "B. Caught-in or -between",
+            "C. Falls",
+            "D. Electrocutions"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 27
+        },
+        {
+          "text": "Evaluate: ∫ ln(x) dx",
+          "options": [
+            "A. 1/x + c",
+            "B. x·ln(x) - x + c",
+            "C. e^x + ln(x) + c",
+            "D. 1/e^x + c"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 9
+        },
+        {
+          "text": "If an engineer provides less input (labor and materials) to his project and still come out with the same output, he is said to be more",
+          "options": [
+            "A. Managerial skill",
+            "B. Effective",
+            "C. Economical",
+            "D. Efficient"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 130
+        },
+        {
+          "text": "Fat splitting reaction of soap manufacture takes place in",
+          "options": [
+            "A. blender",
+            "B. mixer",
+            "C. hydrolysis tower",
+            "D. high vacuum still"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 127
+        },
+        {
+          "text": "Ethics is a",
+          "options": [
+            "A. mood of conduct",
+            "B. common sense",
+            "C. norm of conduct",
+            "D. plural of ethic"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 68
+        },
+        {
+          "text": "[Questions 31-39 refer to the following: The times required by three workers to perform an assembly-line task were recorded on five randomly selected occasions. Worker 1: 8, 10, 9, 11, 10. Worker 2: 8, 9, 9, 8, 10. Worker 3: 10, 9, 10, 11, 9.] Compute the degrees of freedom error.",
+          "options": [
+            "A. 2.8",
+            "B. 2",
+            "C. 12",
+            "D. 10.8"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 74
+        },
+        {
+          "text": "Batch plants rely on a specific formula that describes the amount ofraw material for each batch, and a recipe that describes how the raw materials are to be mixed and processed. In which type of batch process does both the formula and recipe change in every batch?",
+          "options": [
+            "A. Cyclical",
+            "B. Flexible batch",
+            "C. Multigrade",
+            "D. Multirecipe"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L2_Process_Control_Analysis",
+          "_source_index": 51
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -149042,5 +149662,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-31T04:33:46"
+  "updated_at": "2026-10-31T04:34:43"
 }
