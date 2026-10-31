@@ -59651,6 +59651,620 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1793428902169535",
+      "name": "D2_S17",
+      "created_at": "2026-10-31T06:41:42",
+      "composition": {
+        "D2_L3_Thermodynamics": 13,
+        "D2_L7_Heat_Mass_Transfer": 12,
+        "D2_L2_Separation_Processes": 13,
+        "D2_L6_Particle_Technology": 12
+      },
+      "questions": [
+        {
+          "text": "How many degrees of freedom has each of the following systems? Liquid water in equilibrium with a mixture of water vapor and nitrogen.",
+          "options": [
+            "A. one",
+            "B. three",
+            "C. two",
+            "D. four"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 14
+        },
+        {
+          "text": "A solution with a negligible boiling point\r\nrise is being evaporated in a triple effect\r\nevaporator using saturated steam at\r\n121.1°C. The pressure in the vapor of the\r\nlast effect is 25.6 kPa abs. The heat\r\ntransfer coefficients are U₁ = 2840, U2 =\r\n1988, and U3 = 1420 W/m².K and the areas\r\nare equal. Estimate the boiling point in\r\neach of the evaporators. T3",
+          "options": [
+            "A.  210.5 K",
+            "B.  338.7 K",
+            "C. 495.2 K",
+            "D. 526.2 K"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 30
+        },
+        {
+          "text": "An Otto cycle has a compression ratio of 9.5. The air is at 100 kPa, 17°C, and 600 cm³ prior to the compression stroke. Temperature at the end of isentropic expansion is 800 K. Using constant specific heat, calculate the following: Thermal Efficiency",
+          "options": [
+            "A. 59.4%",
+            "B.  47.1%",
+            "C. 62.8%",
+            "D. 36.7%"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 118
+        },
+        {
+          "text": "Oxygen has a molecular weight of 32 and a specificheat at constant pressure of 0.91 kJ/kg-K. Calculate theinternal energy if the gas is heated from 300 to 400 K.",
+          "options": [
+            "A. 65 kJ/kg",
+            "B. 72 kJ/kg",
+            "C. 93 kJ/kg",
+            "D.  88 kJ/kg"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 23
+        },
+        {
+          "text": "It is not preferable to use superheatedsteam in evaporators, because of its very",
+          "options": [
+            "A. high temperature",
+            "B. low film coefficient",
+            "C. high pressure",
+            "D. none of these"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 12
+        },
+        {
+          "text": "Compound A is extracted from a solution of A + B into a\r\npure solvent S. A co-current unit is used for the liquid-liquid\r\nextraction. The inlet rate of the solution containing A is 200\r\nmoles of B/hr-m² and the solvent flow, rate is 400 moles of\r\nS/m²-hr. The equilibrium data is represented by Y = 2X,where Y is in moles of a A/moles of B and X is in moles\r\nA/moles of S. The maximum percentage extraction achieved\r\nin the unit is",
+          "options": [
+            "A. 25%",
+            "B. 70%",
+            "C. 50%",
+            "D. 90%"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 26
+        },
+        {
+          "text": "Stoke's law is valid when the particle Reynoldsnumber is",
+          "options": [
+            "A. <1",
+            "B. <5",
+            "C. \">1\"",
+            "D. none of these"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 57
+        },
+        {
+          "text": "A ball mill 1.2 m in diameter is being run at 0.8 Hz. It is\r\nfound that the mill is not working satisfactorily. Would you\r\nsuggest any modification in the condition of operation?",
+          "options": [
+            "A.  The speed of rotation should be doubled",
+            "B. The speed of rotation should be halved",
+            "C. The speed of rotation should be tripled",
+            "D. No, the speed of rotation should be the same"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 38
+        },
+        {
+          "text": "Which of the following represents the plotof filtrate volume versus time for constantpressure filtration?",
+          "options": [
+            "A. Parabola",
+            "B. Hyperbola",
+            "C. Straight line",
+            "D.  Exponential curve"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 88
+        },
+        {
+          "text": "In distillation, overhead product contains",
+          "options": [
+            "A. only one component",
+            "B. two components",
+            "C. any number of components",
+            "D. only saturated liquid"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 72
+        },
+        {
+          "text": "It is desired to separate a mixture of sugar crystals into two fractions, a coarse\r\nfraction retained on an 8-mesh screen, and a fine fraction passing through it.\r\nScreen analysis of the feed, coarse and fine fractions below\r\nMass fraction of +8 particles in feed 0.46\r\nMass fraction of +8 particles in coarse particles 0.88\r\nMass fraction of +8 particles in fine fractions = 0.32\r\nCalculate the overall effectiveness of the screen used for the separation purpose\r\nper 100 kg of feed.",
+          "options": [
+            "A.  45%",
+            "B. 55%",
+            "C. 40%",
+            "D. 50%"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 7
+        },
+        {
+          "text": "The semiconductor plant at the Food  Terminal Export Zone, an adiabatic dryer is used where air enters at 160'F. If the air has a dew of 68'F and it picked up 0.08 lb water per 100 ft3, how saturated is the air coming out of the dryer?",
+          "options": [
+            "A.  50%",
+            "B. 70%",
+            "C. 60%",
+            "D. 80%"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 85
+        },
+        {
+          "text": "A steam turbine with rated capacity of 56 400 kWoperates with steam at inlet conditions of 8600 kPa and500°C, and discharges into a condenser ata pressure of 10kPa. Assuming a turbine efficiency of 0.75, determine themass rate of flow of the steam.",
+          "options": [
+            "A. 45 kg/s",
+            "B. 28 kg/s",
+            "C. 37 kg/s",
+            "D. 59 kg/s"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 101
+        },
+        {
+          "text": "The expression for the work done for a reversible polytropic process can be used to obtain the expressionfor work done for all processes, except reversible process.",
+          "options": [
+            "A. isobaric",
+            "B. adiabatic",
+            "C. isothermal",
+            "D. none of these"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 54
+        },
+        {
+          "text": "What is the steam economy in case of a\r\nsingle effect evaporator system?",
+          "options": [
+            "A. 1",
+            "B. <1",
+            "C. \">1\"",
+            "D.  0.1"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 3
+        },
+        {
+          "text": "Free flowing granular materials can be best dried in ______drier:",
+          "options": [
+            "A.  rotary",
+            "B. drum",
+            "C. cylinder",
+            "D.  freeze"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 108
+        },
+        {
+          "text": "The shape of T-S diagram for Carnot Cycle is a",
+          "options": [
+            "A. rectangle",
+            "B. trapezoid",
+            "C. rhombus",
+            "D. circle"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 105
+        },
+        {
+          "text": "A solution of 5% acetaldehyde in toluene is to be extracted with\r\nwater in a five stage concurrent unit. If 25 kg water per 100 kg\r\nof feed is used, calculate the following: The mass of acetaldehyde extracted if the equilibriumrelation is given by: kg acetaldehyde per kg water = 2.20 (kg acetaldehyde per kg toluene).",
+          "options": [
+            "A. 4.49 kg / 100 kg feed",
+            "B. 1.11 kg / 100 kg feed",
+            "C. 3.36 kg / 100 kg feed",
+            "D. 2.98 kg / 100 kg feed"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 30
+        },
+        {
+          "text": "One mole of an ideal gas undergoes the following sequence ofmechanically reversible processes in a closed system: from an initialstate of 70°C and 1 bar, it is compressed adiabatically to 150°C, it isthen cooled from 150 to 70°C at constant pressure and finally, it isexpanded isothermally to its original state. Calculate W for the entireprocess. Take Cv = 3R/2 and Cp = 5R/2",
+          "options": [
+            "A.  -168 J",
+            "B. O J",
+            "C. 168 J",
+            "D. 237 J"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 55
+        },
+        {
+          "text": "Benzoic acid is 9 times more soluble in chloroform than in water. The percent\r\nbenzoic acid that will remain from a water solution of benzoic acid if Twice as much as chloroform as water is used",
+          "options": [
+            "A. 2.6%",
+            "B. 5.3%",
+            "C. 3.5%",
+            "D. 6.0%"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 52
+        },
+        {
+          "text": "Tung meal containing 55% oil is to be extracted at a\r\nrate of 4000 kg/hr using n-hexane containing 5% wt oilas solvent. A counter current multiple stage extraction\r\nsystem is to be used. The meal retains 2 kg solvent perkg of oil free meal while the residual charge contains 0.11\r\nkg oil per kg oil free meal while the product is\r\ncomposed of 15 weight percent of oil. The theoretical\r\nnumber of stages is",
+          "options": [
+            "A. 4",
+            "B. 5",
+            "C. 3",
+            "D. 6"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 17
+        },
+        {
+          "text": "Arrange the following size reduction equipment in the\r\ndecreasing order of the average particle size produced byeach of them.",
+          "options": [
+            "A. Jaw crusher, Ball mill, Fluid energy mill",
+            "B. Ball mill, Jaw crusher, Fluid energy mill",
+            "C. Fluid energy mill, Jaw crusher, Ball mill",
+            "D. Fluid energy mill, Ball mill, Jaw crusher"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 32
+        },
+        {
+          "text": "A gravity decanter is meant for the separation of two\r\ndensity.",
+          "options": [
+            "A. immiscible liquids of different",
+            "B. miscible liquids of different",
+            "C. immiscible liquids of same",
+            "D.  miscible liquids of same"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 80
+        },
+        {
+          "text": "Glauber's salt , Na2SO4 xlOHzO, is to be produced in a Swenson-Walker crystallizer by cooling to 290 K a solution of anhydrous Na2SO4 which saturates between 300 K and 290 K Cooling water enters and leaves the unit at 280 K and 290 K respectively and evaporation is negligible: The solubilities of anhydrous Na2SO4 in water are 40 and 14 kg/1OO kg water at 300 K and 290 K respectively; the mean heat capacity of the liquor is 3.8 kJ/kg K and the heat of crystallization is 230 kJ/kg: For the crystallizer; the available heat transfer area is 3 m2/m length, the overall coefficient of heat transfer is 0.15 kW/m2 K  Calculate the amount of feed in kg/s",
+          "options": [
+            "A.  0.559",
+            "B. 0.643",
+            "C.  0.342",
+            "D. 0.488"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 44
+        },
+        {
+          "text": "Given a relative volatility of 4,600 mols of A and 400\r\nmols of B are fed in a kettle for distillation. A is more\r\nvolatile than B. If 50% of the feed evaporated, how much A remains\r\nin the kettle?",
+          "options": [
+            "A. 268",
+            "B. 406",
+            "C. 354",
+            "D. 197"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 75
+        },
+        {
+          "text": "A solution of sodium nitrate in\r\nwater at a temperature of 40°C\r\ncontains 49% NaNO3 by weight. Calculate the percentage yield\r\nof the process.",
+          "options": [
+            "A. 15.2%",
+            "B. 16.7%",
+            "C. 18.1%",
+            "D. 17.5%"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 34
+        },
+        {
+          "text": "A nuclear power plant generates 750 MW; the reactor temperature is 315°C and a river with water temperature of 20°C is available What is the minimum rate at which heat must be discarded to the river?",
+          "options": [
+            "A. 680 MW",
+            "B. 330 MW",
+            "C. 420 MW",
+            "D. 745 MW"
+          ],
+          "correct": 3,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 77
+        },
+        {
+          "text": "The minimum plate spacing in most of the petroleum refinery\r\ndistillation columns (of diameter > 3 ft) is normally",
+          "options": [
+            "A. 6",
+            "B. 18",
+            "C. 12",
+            "D. 34"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 130
+        },
+        {
+          "text": "The relative volatility of a binarymixture at the azeotropic composition is",
+          "options": [
+            "A. 1",
+            "B. 0",
+            "C. \">1\"",
+            "D. ∞"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 125
+        },
+        {
+          "text": "The rate of heat transfer is a product ofoverall heat transfer coefficient, thedifference in temperature and the",
+          "options": [
+            "A. heating volume",
+            "B. Nusselt number",
+            "C. heat transfer area",
+            "D. none of these"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 7
+        },
+        {
+          "text": "Increasing the capacity of screen",
+          "options": [
+            "A. decreases the screen effectiveness",
+            "B.  does not affect the screen effectiveness",
+            "C.  increases the screen effectiveness",
+            "D. none of these"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 12
+        },
+        {
+          "text": "The vapor pressure of styrene is 100 mmHg at 82\"C and 200 mmHg at 100'C. A gas that consists of 10 mol% styrene and 90 mol% non-condensable contained in tank a 100'C and 1000 mmHg: Calculate:  The molal saturation",
+          "options": [
+            "A. 0.111",
+            "B. 0.206",
+            "C. 0.087",
+            "D. 0.150"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 51
+        },
+        {
+          "text": "Calculate the work (J) done by a sample of 0.10 mol Ne gas that expands isothermally from 0.6 L to 1.2 L at O°C according to the following conditions: reversibly assuming gas obeys van der Waals equation of state (a=0.86 Pa-m-mol-2 and b = 3.18x10-5 m³-mol-)",
+          "options": [
+            "A. 7",
+            "B. 55",
+            "C. 151",
+            "D. 157"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 7
+        },
+        {
+          "text": "In case of vertical tube evaporator, with\r\nincrease in liquor level, the overall heat transfer\r\ncoefficient",
+          "options": [
+            "A. increases",
+            "B. decreases",
+            "C.  is not affected",
+            "D. may increase or decrease; depends on the feed"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 22
+        },
+        {
+          "text": "Determine the boiling point rise for the following solutions in water. A 30 wt% solution of citric acid in water boiling at 220°F.",
+          "options": [
+            "A. 3.4 °F",
+            "B.  1.8 °F",
+            "C.  2.2 °F",
+            "D.  4.5 °F"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 17
+        },
+        {
+          "text": "In washing type plate and frame filterpress, the ratio of washing rate to the finalfiltrate rate is",
+          "options": [
+            "A. 4",
+            "B. 1",
+            "C. 1/4",
+            "D. 1/2"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 89
+        },
+        {
+          "text": "Gaseous nitrogen actuates a Carnot  power cycle in which respective volumes  at the four corners of the cycle, starting at the beginning of the isothermal expansion, are V=10.10 L, V2=14.53 L, V3=226.54 L, and V-157.73 L. The cycle receives 21.1 kJ of heat. Calculate the following: Mean effective pressure, MEP",
+          "options": [
+            "A. 65 kPa",
+            "B. 88 kPa",
+            "C. 50 kPa",
+            "D. 42 kPa"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 103
+        },
+        {
+          "text": "In  continuous   filtration  (at a   constant  pressure   drop); filtrate flow rate varies inversely as the",
+          "options": [
+            "A. square root of the velocity",
+            "B. square of the viscosity",
+            "C. filtration time only",
+            "D. washing time only"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 90
+        },
+        {
+          "text": "Maximum size reduction in a ball mill is done by",
+          "options": [
+            "A. attrition",
+            "B. compression",
+            "C. impact",
+            "D. cutting"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 34
+        },
+        {
+          "text": "The equipment used in the extraction ofhighly corrosive radioactive liquids is",
+          "options": [
+            "A. pulse column",
+            "B. mixer settler",
+            "C. spray column",
+            "D. baffle tower"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 42
+        },
+        {
+          "text": "During washing of filter at the end of constant pressure\r\nfiltration, the rate of washing equals the rate of filtration",
+          "options": [
+            "A.  at time zero.",
+            "B. at the end of filtration.",
+            "C. when half the filtrate has been obtained.",
+            "D. at the end of filtration but decreases with time\r\nsubsequently."
+          ],
+          "correct": 1,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 87
+        },
+        {
+          "text": "1800 lbs of dolomite per hour is produced bycrushing and then screening through a 14-meshscreen. The screen analysis is as follows:  Tyler Mesh 4 on,  8 on, 14 on,  28 on,  48 on,  100 on,  100 through. Feed to Screen 14.34,  20.0,  20.0,  28.5,  8.6,  5.7,  2.86.  Undersize Product  0, 0 ,0,  40,  30, 20, 10.  Screen oversize Circulating Load  24, 28, 24, 24  Calculate the total load to the crusher.",
+          "options": [
+            "A.  6300 lb/hr",
+            "B. 5500 lb/hr",
+            "C.  7100 lb/hr",
+            "D. 4200 lb/hr"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L6_Particle_Technology",
+          "_source_index": 10
+        },
+        {
+          "text": "Consider a four-effect standard vertical tube, each effect has 140 m²\r\nof heating surface, is to be used to concentrate, from 4% to 35% percent\r\nsolids, the total boiling point elevation is 10°C. Forward feed is to be\r\nused. Saturated steam is available at 120°C, and the vacuum in the las\r\neffect corresponds to a boiling temperature of 40°C. the overall\r\ncoefficients, in W/m²-K are 2950 in I, 2670 in II, 2070 in IIl and 1360 in IV,\r\nall specific heats may be taken as 4.2 J/g-°C and radiation is negligible.\r\nCalculate the boiling point of solution in effect number 1.",
+          "options": [
+            "A. 107.7°С",
+            "B. 112.3°C",
+            "C.  101.5°С",
+            "D. 116.4°С"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L7_Heat_Mass_Transfer",
+          "_source_index": 31
+        },
+        {
+          "text": "An ideal mixture of A and B is to be distilled continuously. If the relative volatility is constant at 1.75 and\r\nfeed = saturated liquid with 50 mol% A feed rate = 200 lbmol/hr\r\ndistillation composition = 90% A\r\nbottoms composition = 10% A  What is the minimum reflux ratio?",
+          "options": [
+            "A. 1.93",
+            "B.  2.10",
+            "C. 2.50",
+            "D. 1.55"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 102
+        },
+        {
+          "text": "In a batch distillation, the boiling point ofthe distillate product compared to the residueis",
+          "options": [
+            "A. the same",
+            "B. higher",
+            "C. lower",
+            "D. half"
+          ],
+          "correct": 2,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 67
+        },
+        {
+          "text": "An inventor claims to have a cyclic engine whichexchanges heat with reservoirs at 25°C and 250°C,and which produces 0.45 kJ of work for each kJ ofheat extracted from the hot reservoir. Is the claimbelievable?",
+          "options": [
+            "A. Yes",
+            "B. No",
+            "C. -",
+            "D. -"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 75
+        },
+        {
+          "text": "In a counter-current extractor, as the axialmixing increases, the extraction efficiency",
+          "options": [
+            "A. increases",
+            "B. decreases",
+            "C. remains unchanged",
+            "D. depends on the pressure of the system"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 9
+        },
+        {
+          "text": "Determine the molar volume of n-butane at 510 K and 25 bar by each of the following: The ideal-gas equation",
+          "options": [
+            "A. 1696 cm³/mol",
+            "B. 1880 cm³/mol",
+            "C. 1905 cm³/mol",
+            "D. 1758 cm³/mol"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 65
+        },
+        {
+          "text": "In a Rankine cycle, steam at 6.89 MPa, 516°C enters the turbine with an initial velocity of 30.48 m/s and leaves at 20.68 kPa with a velocity of 91.44 m/s. Mass flow rate of the steam is 136078 kg/hr. At 6.89 MPa and 516°C: H = 3451.16 kJ/kg S = 6.86 kJ/kg-K 20.68 kPa: Hy = 2610.21 kJ/kg H = 254.43 kJ/kg Sy = 7.9 kJ/kg-K S₁ = 0.841 kJ/kg-K V = 7.41 m³/kg V = 1.02x10-3 m³/kg Compute the thermal efficiency of thecycle",
+          "options": [
+            "A. 41%",
+            "B. 37%",
+            "C. 22%",
+            "D. 53%"
+          ],
+          "correct": 1,
+          "_source_list": "D2_L3_Thermodynamics",
+          "_source_index": 114
+        },
+        {
+          "text": "When the liquid phase and vapor phase of a binary system obeys Raoults and Daltons law respectively, the relative volatility is the ratio of",
+          "options": [
+            "A. vapor pressure of component A to that of component B",
+            "B. vapor pressure of component A to the total pressure",
+            "C. vapor pressure of component A  to the partial pressure of A",
+            "D. partial pressure of component A to the total pressure"
+          ],
+          "correct": 0,
+          "_source_list": "D2_L2_Separation_Processes",
+          "_source_index": 62
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -154796,5 +155410,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-31T06:41:12"
+  "updated_at": "2026-10-31T06:41:51"
 }
