@@ -61090,6 +61090,624 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1793435058018599",
+      "name": "D3_S19",
+      "created_at": "2026-10-31T08:24:18",
+      "composition": {
+        "D3_L9_CPI": 8,
+        "D3_L12_EngineeringEconomics": 9,
+        "D3_L1_ChE_Laws": 8,
+        "D3_L7_Differential_Calculus": 8,
+        "D3_L10_ProcessSafety": 10,
+        "D3_L8_Integral_Calculus": 2,
+        "D3_L13_EngineeringDataAnalysis": 2,
+        "D3_L15_Engineering_Mechanics": 3
+      },
+      "questions": [
+        {
+          "text": "Which process, developed by Nicholas LeBlanc, is often credited with beginning the modern chemical industry?",
+          "options": [
+            "A. The Haber process",
+            "B. The contact process",
+            "C. Converting sodium chloride into sodium carbonate",
+            "D. The synthesis of aniline dyes"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 1
+        },
+        {
+          "text": "A company purchases a machine for $100,000, which is expected to have a salvage value of $10,000 after producing 50,000 units over its useful life. If the machine produces 10,000 units in the second year, what is the depreciation expense for that year using the Units of Production method?",
+          "options": [
+            "A. $15,000",
+            "B. $18,000",
+            "C. $21,600",
+            "D. $25,200"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 81
+        },
+        {
+          "text": "The Philippine Clean Air Act of 1999 is also known as:",
+          "options": [
+            "A. RA 1655",
+            "B. RA 9003",
+            "C. RA 8749",
+            "D. none of the above"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 88
+        },
+        {
+          "text": "Refers to the process of determining the contributions that subunits can make with allocated resources:",
+          "options": [
+            "A. Operational Planning",
+            "B. Strategic planning",
+            "C. Intermediate Planning",
+            "D. Secondary Planning"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 152
+        },
+        {
+          "text": "Evaluate: lim(x→+∞) √(x²-3)/(x+2)",
+          "options": [
+            "A. 1",
+            "B. 2",
+            "C. 3",
+            "D. 4"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 3
+        },
+        {
+          "text": "An auditor wants to assess whether a safety management system is formally established and compliant with legal requirements. Which technique should be the primary focus?",
+          "options": [
+            "A. Interviews",
+            "B. Document review",
+            "C. Sampling",
+            "D. Workplace inspections"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 74
+        },
+        {
+          "text": "A businessman needs P50,000 for his operations. One financial institution is willing to lend him the money for one year at 12.5% interest per annum (discounted). Another lender is charging 14%, with the principal and interest payable at the end of one year. A third financier is willing to lend him P50,000 payable in 12 equal monthly installments of P4,600. Which offer is best for him?",
+          "options": [
+            "A. Option 1 (12.5% discounted, effective rate ≈14.29%)",
+            "B. Option 2 (14% simple interest, payable at end of year)",
+            "C. Option 3 (12 monthly installments of P4,600, effective rate ≈20.36%)",
+            "D. All three offers are equivalent"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 72
+        },
+        {
+          "text": "A fastfood restaurant has determined that the monthly price-demand function for their hamburgers is p(x) = (60,000 - x)/20,000, where x is the number of hamburgers sold. Find the marginal revenue per hamburger for monthly sales of 20,000 hamburgers.",
+          "options": [
+            "A. 1",
+            "B. 2",
+            "C. 3",
+            "D. 4"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 78
+        },
+        {
+          "text": "Find the radius of curvature of the parabola y² - 4x = 0 at point (4, 4).",
+          "options": [
+            "A. 22.36 units",
+            "B. 25.78 units",
+            "C. 20.33 units",
+            "D. 15.42 units"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 42
+        },
+        {
+          "text": "Evaluate: lim(x→∞) x·e^(-x)",
+          "options": [
+            "A. 0",
+            "B. 1",
+            "C. ∞",
+            "D. -∞"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 1
+        },
+        {
+          "text": "What is the correct order of the risk management process?",
+          "options": [
+            "A. Evaluate, Control, Identify",
+            "B. Identify, Evaluate, Control",
+            "C. Identify, Control, Evaluate",
+            "D. Control, Evaluate, Identify"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 18
+        },
+        {
+          "text": "The term of a patent from the filling date of application is",
+          "options": [
+            "A. 15 years",
+            "B. 20 years",
+            "C. 17 years",
+            "D. 21 years"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 50
+        },
+        {
+          "text": "The essential elements for _______ are fuel, an oxidizer, and an ignition source",
+          "options": [
+            "A. Fire triangle",
+            "B. Flammability limits",
+            "C. explosion",
+            "D. toxicity"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 43
+        },
+        {
+          "text": "Evaluate: lim(x→0) x²·cos(1/x)",
+          "options": [
+            "A. -1",
+            "B. 0",
+            "C. 1",
+            "D. limit does not exist"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 9
+        },
+        {
+          "text": "Which unit operation is not involved in the Solvay process?",
+          "options": [
+            "A. Saturation",
+            "B. Liquefaction",
+            "C. Clarification",
+            "D. Precipitation"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 36
+        },
+        {
+          "text": "What type of committee companies or corporations created for a short-term purpose only?",
+          "options": [
+            "A. Interim committee",
+            "B. Standing committee",
+            "C. Temporary committee",
+            "D. Ad hoc committee"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 128
+        },
+        {
+          "text": "Fatty material used in soap making is",
+          "options": [
+            "A. Fatty acid",
+            "B. Tallow",
+            "C. Fatty alcohols",
+            "D. Detergents"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 125
+        },
+        {
+          "text": "If there are 2 inventors working in a project who can apply for a patent?",
+          "options": [
+            "A. senior inventor",
+            "B. both of them",
+            "C. junior inventor",
+            "D. none of these"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 66
+        },
+        {
+          "text": "Hazard evaluation consist of the elements:",
+          "options": [
+            "A. Safety Inspection",
+            "B. HAZOP",
+            "C. HAZAN",
+            "D. All of the above"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 21
+        },
+        {
+          "text": "A machine worth P250,000 has an estimated life of 15 years with a book value of P30,000 at the end of the period. Using the constant percentage (declining balance) method, determine the rate of depreciation.",
+          "options": [
+            "A. 13.18%",
+            "B. 12.50%",
+            "C. 14.00%",
+            "D. 13.50%"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 60
+        },
+        {
+          "text": "What is the Laplace transform of e^(3t)?",
+          "options": [
+            "A. 1/(s+3)",
+            "B. 1/(s-3)",
+            "C. 1/(s+9)",
+            "D. 1/(s-9)"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 56
+        },
+        {
+          "text": "Which are the factors favored in the reaction kinetics in the NH3 oxidation stage?",
+          "options": [
+            "A. High temperature, low pressure",
+            "B. Low temperature, high pressure",
+            "C. Low temperature, low pressure",
+            "D. High temperature, high pressure"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 52
+        },
+        {
+          "text": "Which of the following is considered a GMP requirement for equipment?",
+          "options": [
+            "A. Equipment must be fast and automated",
+            "B. Equipment must be regularly cleaned, maintained, and calibrated",
+            "C. Equipment can be used without inspection",
+            "D. Equipment must be replaced every month regardless of condition"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 83
+        },
+        {
+          "text": "Which of the following pigment is anti-corrosive?",
+          "options": [
+            "A. Prussian blue",
+            "B. Titanium dioxide",
+            "C. Zinc chrome",
+            "D. Carbon black"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 138
+        },
+        {
+          "text": "The chemical engineer shall report any infraction of any rules of professional conduct to the",
+          "options": [
+            "A. supreme court",
+            "B. PICHE",
+            "C. IBP",
+            "D. none of the above"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 86
+        },
+        {
+          "text": "In a certain school, 25 random students received in-person instruction, and 25 random students received online instruction. The mean test score for the in-person group is 80 with a standard deviation of 5, and for the online group is 75 with a standard deviation of 7. Calculate the t-statistic.",
+          "options": [
+            "A. 1.91",
+            "B. 2.91",
+            "C. 3.91",
+            "D. 4.91"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 69
+        },
+        {
+          "text": "A broadcasting corporation purchased equipment for P53,000 and paid P1,500 for freight and delivery charges to the job site. The equipment has a normal life of 10 years with a trade-in value of P5,000 against the purchase of new equipment at the end of the life. Using sinking fund method (assume annual interest of 6%), determine the annual depreciation.",
+          "options": [
+            "A. P3755.61",
+            "B. P3700.00",
+            "C. P3800.00",
+            "D. P3650.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 56
+        },
+        {
+          "text": "Which of the following does not need to be included in an Emergency Action Plan?",
+          "options": [
+            "A. Evacuation procedures and identification of all exit routes",
+            "B. Methods of reporting emergencies by any employee",
+            "C. Procedures for accounting of all employees after evacuation, or upon a shelter-in-place emergency",
+            "D. Procedures for electrical safety"
+          ],
+          "correct": 3,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 99
+        },
+        {
+          "text": "It is a market condition in which a product is traded freely by buyers and sellers in large numbers without any individual transaction affecting the price.",
+          "options": [
+            "A. Monopoly",
+            "B. Perfect Competition",
+            "C. Oligopoly",
+            "D. Monopsony"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 3
+        },
+        {
+          "text": "Innovation of a machine can be applied for registration under",
+          "options": [
+            "A. invention",
+            "B. invention",
+            "C. utility model",
+            "D. all of these"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 62
+        },
+        {
+          "text": "An operator notices that a pressure safety valve (PSV) on a vessel has recently been tested and returned to service, but its outlet pipe discharges directly above a main walkway. Production is running normally. What should the operator do?",
+          "options": [
+            "A. Only report it if the PSV activates during operation and if an accident occurs",
+            "B. Accept as a design feature since it passed its functional test",
+            "C. Report it as a process safety concern and ensure personnel stay out of the discharge path",
+            "D. Place a warning sign on the walkway and continue regular operations"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 34
+        },
+        {
+          "text": "A truss frame is supported by a pin support at joint A (bottom-left) and a roller support at joint B (bottom-right). Three downward vertical loads of 10 kN, 10 kN, and 15 kN are applied along the top chord of the truss (left to right), and a horizontal load of 5 kN is applied at the top-right joint, pointing to the right. What is the horizontal component of the reaction at A?",
+          "options": [
+            "A. 5kN",
+            "B. 10kN",
+            "C. 12.5kN",
+            "D. 22.5kN"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 8
+        },
+        {
+          "text": "Which by-product acids are used in the production of bromine from seawater?",
+          "options": [
+            "A. HCl and H2SO4",
+            "B. HCl and H2PO3",
+            "C. HCl and HNO3",
+            "D. Only HCl"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 41
+        },
+        {
+          "text": "Products or services that are required to support human life and activities, which will be purchased in somewhat the same quantity even though the price varies considerably.",
+          "options": [
+            "A. Luxuries",
+            "B. Necessities",
+            "C. Commodities",
+            "D. Goods"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 9
+        },
+        {
+          "text": "The IQs of 5 members of a family are 108, 112, 127, 118, and 113. Find the range.",
+          "options": [
+            "A. 20",
+            "B. 19",
+            "C. 18",
+            "D. 17"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L13_EngineeringDataAnalysis",
+          "_source_index": 57
+        },
+        {
+          "text": "What mixture caused the 1921 Oppau explosion wherein fertilizer detonated at a BASF plant?",
+          "options": [
+            "A. Ammonium nitrate and fuel oil (ANFO)",
+            "B. Ammonium sulfate and ammonium nitrate",
+            "C. Potassium nitrate and ammonium chloride",
+            "D. Urea and ammonium phosphate"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 56
+        },
+        {
+          "text": "Solvent used in varnishes is ________",
+          "options": [
+            "A. Water",
+            "B. Oil",
+            "C. Alcohols",
+            "D. Ethers"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 132
+        },
+        {
+          "text": "Which of the following is considered as the Volterra equation of the second kind?",
+          "options": [
+            "A. u(x) = λ∫[a,x] K(x,t)u(t)dt",
+            "B. u(x) = f(x) + λ∫[a,x] K(x,t)u(t)dt",
+            "C. u(x) = λ∫[a,b] K(x,t)u(t)dt",
+            "D. u(x) = f(x) + λ∫[a,b] K(x,t)u(t)dt"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L8_Integral_Calculus",
+          "_source_index": 48
+        },
+        {
+          "text": "Differentiate (x² + 2)^(1/2)",
+          "options": [
+            "A. (x²+2)^(1/2)/2",
+            "B. x/(x²+2)^(1/2)",
+            "C. 2x/(x²+2)^(1/2)",
+            "D. (x²+2)^(3/2)"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 15
+        },
+        {
+          "text": "A solid disk with a mass of 2 kg and radius of 0.5 m spins with an angular velocity of 10 rad/s. Find the rotational kinetic energy.",
+          "options": [
+            "A. 2.5J",
+            "B. 7.5J",
+            "C. 12.5J",
+            "D. 17.5J"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 62
+        },
+        {
+          "text": "Plasticisers are added to paints to",
+          "options": [
+            "A. Make it corrosion resistant",
+            "B. Make glossy surface",
+            "C. Give elasticity & prevent cracking of the film",
+            "D. Increase atmospheric oxidation"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L9_CPI",
+          "_source_index": 133
+        },
+        {
+          "text": "During monitoring, a food safety team records time, temperature, and pH at CCPs. Which HACCP principle does this reflect?",
+          "options": [
+            "A. Hazard Analysis",
+            "B. CCP Identification",
+            "C. Establish Monitoring Procedures",
+            "D. Verification"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 90
+        },
+        {
+          "text": "It protects the inventor from the illegal use of his invention.",
+          "options": [
+            "A. patent",
+            "B. license",
+            "C. permit",
+            "D. insurance"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L1_ChE_Laws",
+          "_source_index": 30
+        },
+        {
+          "text": "Evaluate: lim(x→0+) x·ln(x)",
+          "options": [
+            "A. 0",
+            "B. 1",
+            "C. ∞",
+            "D. -∞"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 7
+        },
+        {
+          "text": "[Situation 1: f(x) = x³/9 - 3x] At what interval will the function be decreasing?",
+          "options": [
+            "A. (-∞, -3]",
+            "B. [-3, 3]",
+            "C. [3, +∞)",
+            "D. both A and C"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L7_Differential_Calculus",
+          "_source_index": 33
+        },
+        {
+          "text": "A plate in the shape of a parallelogram ABCD is acted upon by two couples. A pair of 84 N forces act horizontally along the top and bottom edges of the parallelogram (opposite directions), separated by a vertical (perpendicular) distance of 16 cm. A pair of 48 N forces act along the slanted left and right edges (AD and BC), which make an angle α with the horizontal at vertex A; the horizontal base length is d. Determine the value of α if the resultant couple is 2.88 N-m clockwise and the base length d is 42 cm.",
+          "options": [
+            "A. 50deg",
+            "B. 54deg",
+            "C. 58deg",
+            "D. 62deg"
+          ],
+          "correct": 1,
+          "_source_list": "D3_L15_Engineering_Mechanics",
+          "_source_index": 16
+        },
+        {
+          "text": "A debt of P5,000 with interest of 12% compounded semiannually is to be amortized by equal semiannual payments over the next 3 years, the first due in 6 months. Find the semiannual payment.",
+          "options": [
+            "A. P1016.82",
+            "B. P1000.00",
+            "C. P1030.00",
+            "D. P990.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 73
+        },
+        {
+          "text": "An asset has a 1st cost of P22,000, an estimated life of 30 years. Using the double declining balance method, what is the salvage value (book value at the end of the 30-year life)?",
+          "options": [
+            "A. P2776.42",
+            "B. P2800.00",
+            "C. P2750.00",
+            "D. P2820.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 65
+        },
+        {
+          "text": "During the _________ phase, the various types of existing control measures and their effectiveness are also studied.",
+          "options": [
+            "A. Identification",
+            "B. Control",
+            "C. Evaluation",
+            "D. Hygiene"
+          ],
+          "correct": 2,
+          "_source_list": "D3_L10_ProcessSafety",
+          "_source_index": 20
+        },
+        {
+          "text": "A debt of P10,000 with interest at the rate of 20% compounded semiannually is to be amortized by 5 equal payments at the end of each 6 months, the first payment is to be made after 3 years. Find the semiannual payment.",
+          "options": [
+            "A. P4248.20",
+            "B. P4200.00",
+            "C. P4300.00",
+            "D. P4150.00"
+          ],
+          "correct": 0,
+          "_source_list": "D3_L12_EngineeringEconomics",
+          "_source_index": 74
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -160355,5 +160973,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-10-31T08:23:58"
+  "updated_at": "2026-10-31T08:24:26"
 }
