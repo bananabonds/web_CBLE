@@ -138587,7 +138587,7 @@
       "question": "A container with an air tight piston is at a pressure of 100 psia and at a temperature of 70°F. The piston moves up when 100 BTU of heat is transferred at a constant pressure and the volume changes from 0.5 ft3 to 2.0 ft3. Assuming perfect gas behavior, calculate the following: The final temperature in",
       "category": "Formula / Equation Error",
       "note": "Isobaric ideal gas V1/T1 = V2/T2. Convert the temperatures to absolute temperatures first then reconvert to F",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-18T10:42:20",
       "occurrences": [
         {
@@ -138598,10 +138598,11 @@
           "correct_answer": "A. 1660"
         }
       ],
-      "updated_at": "2026-10-18T10:42:20",
+      "updated_at": "2026-11-01T06:35:24",
       "concept_id": "1792320138179303",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-01T06:35:24"
     },
     {
       "id": "1792223753550823",
@@ -169281,5 +169282,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-01T06:35:08"
+  "updated_at": "2026-11-01T06:35:33"
 }
