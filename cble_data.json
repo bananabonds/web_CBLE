@@ -162743,6 +162743,13 @@
       "name": "Category Ranking",
       "text": "You are helping me build a high-fidelity review for ONE concept from my board exam preparation. Stay strictly inside this concept; do not review the whole subject.\n\n{concept}\n\nTASK\nI only want to categorize the questions into their respective algorithm or subconcept, I want the same algorithm questions to be grouped together, rank it within the category from easiest to hardest. I want this to be shown in an html file, the first section of the html file should include the list of the categories and a text explaining the general algorithm no edge cases yet. The next section is a list of the questions grouped together based on the similarity of how they are solved\n\nRULES\n- Use only standard, verifiable facts for this subject. If something is uncertain, say so.\n- If a bank correct answer above looks wrong, ambiguous or condition-dependent, tell me instead of rationalizing it.",
       "updated_at": "2026-10-31T17:08:50"
+    },
+    {
+      "id": "1793549547707506",
+      "kind": "concept",
+      "name": "Fast Sort and SpeedRun",
+      "text": "You are helping me build a high-fidelity review for ONE concept from my board exam preparation. Stay strictly inside this concept; do not review the whole subject.\n\n{concept}\n\nTASK\nI want you to sort these questions into general algorithms and then teach me those general algorithms so I may solve the questions on my own. I want the algortihm boxes to be a general principle explanation followed by a step by step explanation on how to solve a similar problem using the algorithm. I will be asking questions after and answer me using a WHY-HOW rhetoric.\n\n\nRULES\n- Use only standard, verifiable facts for this subject. If something is uncertain, say so.\n- If a bank correct answer above looks wrong, ambiguous or condition-dependent, tell me instead of rationalizing it.",
+      "updated_at": "2026-11-01T16:12:27"
     }
   ],
   "flash_decks": [],
@@ -169389,5 +169396,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-01T16:06:21"
+  "updated_at": "2026-11-01T16:12:34"
 }
