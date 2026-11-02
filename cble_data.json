@@ -137964,7 +137964,7 @@
       "question": "A bare horizontal pipe of 50 mm outside diameter is placed in a room where the air temperature is 290 K. Saturated steam at 415 K flows through the pipe. Using emissivityof 0.9. Estimate the heat transfer coefficient due to convection from the pipe to the room.",
       "category": "Unfamiliar Topic",
       "note": "For natural convection (not in handbook) h_c (W/m^2 K) = 1.18 * (dT(K)/OD(m))^0.25",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-19T13:05:36",
       "occurrences": [
         {
@@ -137975,10 +137975,11 @@
           "correct_answer": "D. 8.5 W/m2-°C"
         }
       ],
-      "updated_at": "2026-10-19T13:05:36",
+      "updated_at": "2026-11-02T15:04:54",
       "concept_id": "1792319818450685",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-02T15:04:54"
     },
     {
       "id": "179216337474466",
@@ -169465,5 +169466,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-02T15:02:48"
+  "updated_at": "2026-11-02T15:05:02"
 }
