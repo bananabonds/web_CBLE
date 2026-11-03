@@ -156894,7 +156894,7 @@
       "question": "A stone is dropped from a height of 80 m. Find the time it takes to reach the ground.",
       "category": "Formula / Equation Error",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-31T06:06:59",
       "occurrences": [
         {
@@ -156905,10 +156905,11 @@
           "correct_answer": "C. 4.04 s"
         }
       ],
-      "updated_at": "2026-10-31T06:06:59",
+      "updated_at": "2026-11-03T13:01:49",
       "concept_id": "1792321082715344",
       "tag_at": "2026-10-31T06:06:59",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-03T13:01:49"
     },
     {
       "id": "1793426816660122",
@@ -166850,7 +166851,7 @@
       "id": "179293541614267",
       "source_list": "D3_L15_Engineering_Mechanics",
       "reference_no": 2,
-      "resolved": false,
+      "resolved": true,
       "created_at": "2026-10-25T13:36:56",
       "question": "Find the length (magnitude) of the vector (2, 4, 4).",
       "correct_answer": "C. 6.00",
@@ -166859,7 +166860,8 @@
       "exam_source": "D3_S7",
       "category": "Unfamiliar Topic",
       "concept_id": "1792321082715344",
-      "updated_at": "2026-10-25T13:36:56"
+      "updated_at": "2026-11-03T13:02:09",
+      "resolved_at": "2026-11-03T13:02:09"
     },
     {
       "id": "1792935439653332",
@@ -167957,7 +167959,7 @@
       "id": "1793370180929421",
       "source_list": "D3_L15_Engineering_Mechanics",
       "reference_no": 47,
-      "resolved": false,
+      "resolved": true,
       "created_at": "2026-10-30T14:23:00",
       "question": "A train moving at 20 m/s is uniformly decelerated at 2 m/s². Find the total distance traveled before coming to rest.",
       "correct_answer": "C. 100 m",
@@ -167966,7 +167968,8 @@
       "exam_source": "D3_S13",
       "category": "Unfamiliar Topic",
       "concept_id": "1792321082715344",
-      "updated_at": "2026-10-30T14:23:00"
+      "updated_at": "2026-11-03T13:00:03",
+      "resolved_at": "2026-11-03T13:00:03"
     },
     {
       "id": "1793370180931870",
@@ -169501,5 +169504,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-03T12:57:29"
+  "updated_at": "2026-11-03T13:02:47"
 }
