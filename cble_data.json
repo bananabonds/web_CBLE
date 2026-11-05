@@ -159267,7 +159267,7 @@
       "question": "Evaluate: ∫ ln(x) dx",
       "category": "Conceptual Misunderstanding",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-31T06:06:59",
       "occurrences": [
         {
@@ -159278,10 +159278,11 @@
           "correct_answer": "B. x·ln(x) - x + c"
         }
       ],
-      "updated_at": "2026-10-31T06:06:59",
+      "updated_at": "2026-11-05T06:41:07",
       "concept_id": "1792311424189512",
       "tag_at": "2026-10-31T06:06:59",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-05T06:41:07"
     },
     {
       "id": "17934268165562",
@@ -172638,5 +172639,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-05T06:41:03"
+  "updated_at": "2026-11-05T06:41:14"
 }
