@@ -132353,7 +132353,7 @@
       "question": "Below is a unit cell for a hypothetical metal. Figure: a rectangular box-shaped unit cell drawn with x, y, and z axes. The two base edges (along x and y) are each 0.35 nm long, the vertical edge (along z) is 0.45 nm long, and all angles between the axes are marked as 90°. Atoms sit at the eight corners and there is one atom at the center of the cell. What is the crystal system of this unit cell?",
       "category": "Unfamiliar Topic",
       "note": "a=b=c & a=b=c=90 (cubic), a=b<>c & a=b=c=90 (Tetragonal), a<>b<>c & a=b=c=90 (Orthorhombic)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-19T13:05:02",
       "occurrences": [
         {
@@ -132364,10 +132364,11 @@
           "correct_answer": "B. tetragonal"
         }
       ],
-      "updated_at": "2026-10-19T13:05:02",
+      "updated_at": "2026-11-05T09:57:50",
       "concept_id": "1792308004102900",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-05T09:57:50"
     },
     {
       "id": "1790424954725983",
@@ -172670,5 +172671,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-05T09:57:26"
+  "updated_at": "2026-11-05T09:57:57"
 }
