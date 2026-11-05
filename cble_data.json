@@ -131917,7 +131917,7 @@
       "question": "A solution has an absorbance of 1.2 when measured in a 1 cm path length cuvette. What will happen to the absorbance if the path length is increased to 2 cm while keeping the concentration constant?",
       "category": "Careless / Computational",
       "note": "A = e*l*c if l = 2l then A = 2A",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-19T13:02:20",
       "occurrences": [
         {
@@ -131928,10 +131928,11 @@
           "correct_answer": "C. Absorbance will double"
         }
       ],
-      "updated_at": "2026-10-19T13:02:20",
+      "updated_at": "2026-11-05T11:58:37",
       "concept_id": "1792319253523383",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-05T11:58:37"
     },
     {
       "id": "1790410870654341",
@@ -172728,5 +172729,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-05T11:57:53"
+  "updated_at": "2026-11-05T11:58:51"
 }
