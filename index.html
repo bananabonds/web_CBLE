@@ -9935,7 +9935,7 @@ function rtRender() {
   if (RT.i >= RT.queue.length) return rtSummary(body, foot);
   const { it, q } = RT.queue[RT.i], s = RT.st[RT.i], e = it.e, done = s.checked;
   const opts = q.options.map(cleanOcrText), first = RT.i === 0, last = RT.i === RT.queue.length - 1, answered = RT.st.filter(x => x.checked).length;
-  let h = `<div class="rt-box"><div class="rt-qnum">Question ${RT.i + 1} of ${RT.queue.length} &middot; ${answered} answered &middot; Ref #${esc(e.reference_no)} &middot; ${esc(fcCleanName(it.subject))}</div>${rtDots()}<div class="rt-qtext">${esc(cleanOcrText(q.text))}</div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;"><button class="btn" id="rtWebQ" style="flex:none;">\u{1F50E} Search this question</button>${done ? `<button class="btn" id="rtWebA" style="flex:none;">\u{1F50E} Question + correct answer</button>` : ""}</div></div>`;
+  let h = `<div class="rt-box"><div class="rt-qnum">Question ${RT.i + 1} of ${RT.queue.length} &middot; ${answered} answered &middot; Ref #${esc(e.reference_no)} &middot; ${esc(fcCleanName(it.subject))}</div>${rtDots()}<div class="rt-qtext">${esc(cleanOcrText(q.text))}</div></div>`;
   h += `<div class="rt-opts${done ? " locked" : ""}">` + opts.map((o, i) => {
     const cls = "option-row" + (done ? (i === q.correct ? " right" : (i === s.pick ? " wrong" : "")) : (s.pick === i ? " chosen" : ""));
     return `<div class="${cls}" data-opt="${i}"><input type="radio" ${s.pick === i ? "checked" : ""} ${done ? "disabled" : ""}><label>${esc(o)}</label></div>`;
@@ -9947,7 +9947,7 @@ function rtRender() {
     const msg = s.ok ? "\u2713 Correct and confident \u2014 <b>resolved</b>."
       : s.right ? `Correct, but you marked it <b>${esc(s.conf)}</b>. It stays open until you get it right as Confident or Sure I'm Right.`
       : (sure ? `\u2717 Wrong, and you were <b>${esc(s.conf)}</b> \u2014 overconfident. It stays open.` : "\u2717 Wrong. It stays open.");
-    h += `<div class="rt-result ${s.ok ? "ok" : "no"}">${msg}${s.right ? "" : `<div style="margin-top:6px;">Correct answer: <b>${esc(opts[q.correct])}</b></div>`}${(e.note || "").trim() ? `<div class="meta" style="margin-top:6px;white-space:pre-wrap;"><b>Your note:</b> ${esc(e.note)}</div>` : ""}</div>`;
+    h += `<div class="rt-result ${s.ok ? "ok" : "no"}">${msg}${s.right ? "" : `<div style="margin-top:6px;">Correct answer: <b>${esc(opts[q.correct])}</b></div>`}${(e.note || "").trim() ? `<div class="meta" style="margin-top:6px;white-space:pre-wrap;"><b>Your note:</b> ${esc(e.note)}</div>` : ""}<button class="btn" id="rtWeb" style="margin-top:10px;">\u{1F50E} Search this question</button></div>`;
   }
   body.innerHTML = h;
   const ready = s.pick !== null && s.conf;
@@ -9960,14 +9960,15 @@ function rtRender() {
     $("rtCheck").addEventListener("click", rtCheck);
   }
   body.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => rtGo(Number(b.dataset.go))));
-  const webQ = $("rtWebQ"); if (webQ) webQ.addEventListener("click", () => rtWebSearch(cleanOcrText(q.text)));
-  const webA = $("rtWebA"); if (webA) webA.addEventListener("click", () => rtWebSearch(cleanOcrText(q.text) + " " + opts[q.correct]));
+  const web = $("rtWeb"); if (web) web.addEventListener("click", () => rtWebSearch(
+    "Question: " + cleanOcrText(q.text) + "\nMy Answer: " + (s.pick === null ? "(none)" : opts[s.pick]) + "\nAnswer Key: " + opts[q.correct] +
+    "\nChoices: " + opts.map((o, i) => String.fromCharCode(65 + i) + ". " + o).join(" ")));
   $("rtPrev").addEventListener("click", () => rtGo(RT.i - 1));
   $("rtNext").addEventListener("click", () => rtGo(RT.i + 1));
 }
-// Opens a browser web search for the text in a new tab (long questions are trimmed so the query stays valid)
+// Opens a browser web search for the text in a new tab (very long text is trimmed so the URL stays valid)
 function rtWebSearch(text) {
-  const t = String(text || "").replace(/\s+/g, " ").trim().slice(0, 300); if (!t) return;
+  const t = String(text || "").replace(/[ \t]+/g, " ").trim().slice(0, 1500); if (!t) return;
   const w = window.open("https://www.google.com/search?q=" + encodeURIComponent(t), "_blank", "noopener");
   if (!w) toast("Your browser blocked the new tab. Allow pop-ups for this page and try again.");
 }
