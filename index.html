@@ -9935,7 +9935,7 @@ function rtRender() {
   if (RT.i >= RT.queue.length) return rtSummary(body, foot);
   const { it, q } = RT.queue[RT.i], s = RT.st[RT.i], e = it.e, done = s.checked;
   const opts = q.options.map(cleanOcrText), first = RT.i === 0, last = RT.i === RT.queue.length - 1, answered = RT.st.filter(x => x.checked).length;
-  let h = `<div class="rt-box"><div class="rt-qnum">Question ${RT.i + 1} of ${RT.queue.length} &middot; ${answered} answered &middot; Ref #${esc(e.reference_no)} &middot; ${esc(fcCleanName(it.subject))}</div>${rtDots()}<div class="rt-qtext">${esc(cleanOcrText(q.text))}</div></div>`;
+  let h = `<div class="rt-box"><div class="rt-qnum">Question ${RT.i + 1} of ${RT.queue.length} &middot; ${answered} answered &middot; Ref #${esc(e.reference_no)} &middot; ${esc(fcCleanName(it.subject))}</div>${rtDots()}<div class="rt-qtext">${esc(cleanOcrText(q.text))}</div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;"><button class="btn" id="rtWebQ" style="flex:none;">\u{1F50E} Search this question</button>${done ? `<button class="btn" id="rtWebA" style="flex:none;">\u{1F50E} Question + correct answer</button>` : ""}</div></div>`;
   h += `<div class="rt-opts${done ? " locked" : ""}">` + opts.map((o, i) => {
     const cls = "option-row" + (done ? (i === q.correct ? " right" : (i === s.pick ? " wrong" : "")) : (s.pick === i ? " chosen" : ""));
     return `<div class="${cls}" data-opt="${i}"><input type="radio" ${s.pick === i ? "checked" : ""} ${done ? "disabled" : ""}><label>${esc(o)}</label></div>`;
@@ -9960,8 +9960,16 @@ function rtRender() {
     $("rtCheck").addEventListener("click", rtCheck);
   }
   body.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => rtGo(Number(b.dataset.go))));
+  const webQ = $("rtWebQ"); if (webQ) webQ.addEventListener("click", () => rtWebSearch(cleanOcrText(q.text)));
+  const webA = $("rtWebA"); if (webA) webA.addEventListener("click", () => rtWebSearch(cleanOcrText(q.text) + " " + opts[q.correct]));
   $("rtPrev").addEventListener("click", () => rtGo(RT.i - 1));
   $("rtNext").addEventListener("click", () => rtGo(RT.i + 1));
+}
+// Opens a browser web search for the text in a new tab (long questions are trimmed so the query stays valid)
+function rtWebSearch(text) {
+  const t = String(text || "").replace(/\s+/g, " ").trim().slice(0, 300); if (!t) return;
+  const w = window.open("https://www.google.com/search?q=" + encodeURIComponent(t), "_blank", "noopener");
+  if (!w) toast("Your browser blocked the new tab. Allow pop-ups for this page and try again.");
 }
 function rtSummary(body, foot) {
   const rows = RT.queue.map((x, k) => ({ it: x.it, q: x.q, s: RT.st[k] }));
