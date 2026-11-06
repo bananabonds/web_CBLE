@@ -131302,7 +131302,7 @@
       "question": "A 50 mL solution of 1 M HCl is mixed with 50 mL of 1 M NaOH. The initial temperature of both solutions is 25.0°C, and the final temperature after mixing is 31.2°C. Given that the density of the solution is 1 g/mL and specific heat capacity is 4.18 J/g-°C, calculate the heat of mixing.",
       "category": "Formula / Equation Error",
       "note": "So calculate the heat released q = mCpdT then divide it by the mols of water formed (standard for strong acid and bases)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-18T10:47:09",
       "occurrences": [
         {
@@ -131314,9 +131314,10 @@
         }
       ],
       "concept_id": "1792310915966408",
-      "updated_at": "2026-10-18T10:47:09",
+      "updated_at": "2026-11-06T16:59:08",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-06T16:59:08"
     },
     {
       "id": "1790234429467712",
@@ -172867,5 +172868,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-06T16:57:23"
+  "updated_at": "2026-11-06T16:59:16"
 }
