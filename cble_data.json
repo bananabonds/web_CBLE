@@ -131116,7 +131116,7 @@
       "question": "What is the theoretical oxygen demand in liters of air for 50 mg/L solution of acetone, to decompose completely?",
       "category": "Formula / Equation Error",
       "note": "Balance the chemical reaction, get the mols of acetone, find the equivalent O2 mols needed via stoichiometry, then at STP specific volume is 22.414 L/mol find volume then from the oxygen volume find the volume of air via its mol frac.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-18T10:44:27",
       "occurrences": [
         {
@@ -131128,9 +131128,10 @@
         }
       ],
       "concept_id": "1792309576726806",
-      "updated_at": "2026-10-18T10:44:27",
+      "updated_at": "2026-11-06T14:23:45",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-06T14:23:45"
     },
     {
       "id": "1790229107170543",
@@ -172842,5 +172843,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-06T14:22:50"
+  "updated_at": "2026-11-06T14:23:54"
 }
