@@ -131140,7 +131140,7 @@
       "question": "How much water must be added to 50 mL of a 0.4 N solution of Cr₂(SO₄)₃•18H₂O in order to make it 0.05 M? The solution is to be used in the precipitation of chromium as the hydroxide.",
       "category": "Formula / Equation Error",
       "note": "The n for chromium sulfate is 6 not 5, count the valence not the number of dissociating ions. It gives 6- for total sulfate and 6+ for total Cr3+, then use dilution equation.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-18T10:45:07",
       "occurrences": [
         {
@@ -131152,9 +131152,10 @@
         }
       ],
       "concept_id": "1792308372806246",
-      "updated_at": "2026-10-18T10:45:07",
+      "updated_at": "2026-11-06T17:46:34",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-06T17:46:34"
     },
     {
       "id": "1790229174505572",
@@ -172872,5 +172873,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-06T17:46:10"
+  "updated_at": "2026-11-06T17:46:41"
 }
