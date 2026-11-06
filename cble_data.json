@@ -133476,7 +133476,7 @@
       "question": "(Situation: N2O4 gas is 18.46% dissociated to NO2 at 298.15 K and 1 bar in equilibrium.) Calculate u0394Gu00b0 at 25 u02daC.",
       "category": "Formula / Equation Error",
       "note": "The dissociation is the conversion of N2O4 find the total mols in eq. N2O4 + NO2. (1-0.1846) + 2(0.1846) then get their pressures from this Pt. Find the Kp then sub in -RTlnKp",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-18T10:14:01",
       "occurrences": [
         {
@@ -133488,9 +133488,10 @@
         }
       ],
       "concept_id": "1792309844942981",
-      "updated_at": "2026-10-18T10:14:01",
+      "updated_at": "2026-11-06T15:35:53",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-06T15:35:53"
     },
     {
       "id": "1790722115264374",
@@ -172856,5 +172857,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-06T15:31:33"
+  "updated_at": "2026-11-06T15:36:05"
 }
