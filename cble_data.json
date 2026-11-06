@@ -139286,7 +139286,7 @@
       "question": "(Situation: N2O4 gas is 18.46% dissociated to NO2 at 298.15 K and 1 bar in equilibrium.) Calculate KP at the normal boiling point of water, assuming u0394H = 57.2 kJ/mol over that range.",
       "category": "Unfamiliar Topic",
       "note": "Let a be percent dissociation  thus [N2O4]= 1-a/1+a, [NO2]=2a/1+a equating via equilibrium constant Kp = [NO2]^2/[N2O4]. Use vant hoff factor equation ln(Kp2/Kp1)=∆H/R * (1/T1 - 1/T2)\nThen solve for Kp2 algebraically.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-19T12:26:29",
       "occurrences": [
         {
@@ -139297,10 +139297,11 @@
           "correct_answer": "A. 14.4 atm"
         }
       ],
-      "updated_at": "2026-10-19T12:26:29",
+      "updated_at": "2026-11-06T13:19:59",
       "concept_id": "179231762188313",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-06T13:19:59"
     },
     {
       "id": "1792042385164402",
@@ -172829,5 +172830,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-06T13:17:26"
+  "updated_at": "2026-11-06T13:20:07"
 }
