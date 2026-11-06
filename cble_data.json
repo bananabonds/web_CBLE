@@ -132772,7 +132772,7 @@
       "question": "Find the pH at the following points in the titration of 25 mL of 0.3 M HF with 0.3 M NaOH. The K_a value is 6.6x10⁻⁴. What is the pH at the initial point?",
       "category": "Careless / Computational",
       "note": "Ka = X^2 / (molarity of solution) - X, solve for X, solve for pH",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-19T12:58:50",
       "occurrences": [
         {
@@ -132783,10 +132783,11 @@
           "correct_answer": "A. 1.862"
         }
       ],
-      "updated_at": "2026-10-19T12:58:50",
+      "updated_at": "2026-11-06T14:42:20",
       "concept_id": "1792310440445288",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-06T14:42:20"
     },
     {
       "id": "1790512972876811",
@@ -172845,5 +172846,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-06T14:39:16"
+  "updated_at": "2026-11-06T14:42:28"
 }
