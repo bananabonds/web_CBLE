@@ -133586,7 +133586,7 @@
       "question": "(Situation: A 2 kg open calorimeter at 100 u02daC with heat capacity 4 kJ/K has 100 g of ice at -10 u02daC placed inside it, reaching a common final temperature.) Calculate the entropy change of the universe in cal/K.",
       "category": "Formula / Equation Error",
       "note": "Cp ice is 0.5 cal/g heat of fusion is 80 cal/g and Cp water is 1 cal/g. Entropy is dS=dQ/T",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-18T10:15:50",
       "occurrences": [
         {
@@ -133598,9 +133598,10 @@
         }
       ],
       "concept_id": "1792310519933158",
-      "updated_at": "2026-10-18T10:15:50",
+      "updated_at": "2026-11-06T13:54:56",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-06T13:54:56"
     },
     {
       "id": "1790723626901437",
@@ -172835,5 +172836,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-06T13:54:19"
+  "updated_at": "2026-11-06T13:55:06"
 }
