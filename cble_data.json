@@ -145433,7 +145433,7 @@
       "question": "Consider a 1000-L CSTR in which biomass is being produced with glucose as the substrate. The microbial system follows a Monod relationship with u03bcmax = 0.4 /h, Ks = 1.5 g/L, and a biomass yield factor of YX/S = 0.5 g biomass/g substrate. If normal operation is with a sterile feed containing 10 g/L glucose at a rate of 100 L/hr, what is the specific growth rate at steady state?",
       "category": "Unfamiliar Topic",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-23T09:18:08",
       "occurrences": [
         {
@@ -145444,10 +145444,11 @@
           "correct_answer": "A. 0.1 /h"
         }
       ],
-      "updated_at": "2026-10-23T09:18:08",
+      "updated_at": "2026-11-06T12:14:27",
       "concept_id": "1792747015756188",
       "tag_at": "2026-10-23T09:18:08",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-06T12:14:27"
     },
     {
       "id": "1792746798816989",
@@ -146774,7 +146775,7 @@
       "question": "A chemostat has a liquid volume of 2 liters and is being fed at a rate of 4 liters per hour. What is the dilution rate for this reactor?",
       "category": "Unfamiliar Topic",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-23T14:42:40",
       "occurrences": [
         {
@@ -146785,10 +146786,11 @@
           "correct_answer": "A. 2 /hour"
         }
       ],
-      "updated_at": "2026-10-23T14:42:40",
+      "updated_at": "2026-11-06T12:14:38",
       "concept_id": "1792747015756188",
       "tag_at": "2026-10-23T14:42:40",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-06T12:14:38"
     },
     {
       "id": "1792764153822322",
@@ -149845,7 +149847,7 @@
       "question": "(Situation: A 1000-L CSTR produces biomass from glucose following Monod kinetics with u03bcmax = 0.4 /h, Ks = 1.5 g/L, and YX/S = 0.5 g biomass/g substrate; sterile feed of 10 g/L glucose enters at 100 L/hr.) What is the biomass production rate at steady state?",
       "category": "Unfamiliar Topic",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-26T17:31:37",
       "occurrences": [
         {
@@ -149857,9 +149859,10 @@
         }
       ],
       "concept_id": "1792747015756188",
-      "updated_at": "2026-10-26T17:31:37",
+      "updated_at": "2026-11-06T12:14:13",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-06T12:14:13"
     },
     {
       "id": "1793035897857399",
@@ -149915,7 +149918,7 @@
       "question": "(Situation: A 1000-L CSTR produces biomass from glucose following Monod kinetics with u03bcmax = 0.4 /h, Ks = 1.5 g/L, and YX/S = 0.5 g biomass/g substrate; sterile feed of 10 g/L glucose enters at 100 L/hr.) What is the substrate concentration in the CSTR at steady state?",
       "category": "Unfamiliar Topic",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-26T17:31:37",
       "occurrences": [
         {
@@ -149927,9 +149930,10 @@
         }
       ],
       "concept_id": "1792747015756188",
-      "updated_at": "2026-10-26T17:31:37",
+      "updated_at": "2026-11-06T12:14:53",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-06T12:14:53"
     },
     {
       "id": "1793035898047582",
@@ -172820,5 +172824,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-06T12:13:06"
+  "updated_at": "2026-11-06T12:15:03"
 }
