@@ -141357,7 +141357,7 @@
       "question": "Given the PMF of a discrete random variable X: P(X=1)=0.2, P(X=2)=0.3, P(X=3)=0.5, and 0 otherwise. What is the mean (μ) of the random variable X?",
       "category": "Unfamiliar Topic",
       "note": "The mean of the probability mass function is u = summation of (x*P(X=x)). u = (0.2*1) + (0.3*2) + (0.5*3)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-19T13:15:27",
       "occurrences": [
         {
@@ -141368,10 +141368,11 @@
           "correct_answer": "A. 2.3"
         }
       ],
-      "updated_at": "2026-10-19T13:15:27",
+      "updated_at": "2026-11-07T13:59:28",
       "concept_id": "17923214786028",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-07T13:59:28"
     },
     {
       "id": "1792156597940256",
@@ -174286,5 +174287,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-07T13:58:50"
+  "updated_at": "2026-11-07T13:59:36"
 }
