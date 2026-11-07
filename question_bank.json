@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-06T15:47:00",
+  "updated_at": "2026-11-07T04:30:58",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -59070,6 +59070,1008 @@
           "D. Third order"
         ],
         "correct": 1
+      }
+    ],
+    "ARC_GEP_MOCK_BOARDS": [
+      {
+        "text": "Two events A and B have probabilities P(A) = 0.40, P(B) = 0.50, and P(A ∩ B) = 0.20. Determine P(A ∪ B).",
+        "options": [
+          "A. 0.60",
+          "B. 0.70",
+          "C. 0.80",
+          "D. 0.90"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A batch contains 10 smartphones, of which 4 are defective. Two phones are randomly selected without replacement. What is the probability that exactly one is defective?",
+        "options": [
+          "A. 0.4000",
+          "B. 0.4800",
+          "C. 0.5333",
+          "D. 0.6000"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A statistical test gives a p-value of 0.08 at a 5% significance level. What conclusion should be made?",
+        "options": [
+          "A. Reject the null hypothesis",
+          "B. Confirm the null hypothesis",
+          "C. Fail to reject the null hypothesis",
+          "D. Reject the alternative hypothesis"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A quality control engineer randomly selects 3 components from 8 distinct components. If the selection order does not matter, how many possible samples can be formed?",
+        "options": [
+          "A. 24",
+          "B. 48",
+          "C. 56",
+          "D. 112"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A set of observations consists of 2, 4, and 6. Determine the root mean square of the observations.",
+        "options": [
+          "A. 3.74",
+          "B. 4.00",
+          "C. 4.32",
+          "D. 4.67"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A two-tailed t-test is conducted at a 5% significance level with 9 degrees of freedom. What is the positive critical t-value?",
+        "options": [
+          "A. 1.833",
+          "B. 2.262",
+          "C. 2.821",
+          "D. 3.250"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "An engineer performs a full factorial experiment involving three factors, each at two levels. If every experimental combination is performed twice, how many trials are required?",
+        "options": [
+          "A. 12",
+          "B. 16",
+          "C. 18",
+          "D. 24"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A Monte Carlo simulation is performed 1,000 times. The system operates successfully in 20 trials. What is the estimated probability of successful operation?",
+        "options": [
+          "A. 0.002",
+          "B. 0.020",
+          "C. 0.050",
+          "D. 0.005"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A sample of 36 temperature measurements has a mean of 32°C. The population standard deviation is known to be 6°C. Determine the 95% confidence interval for the population mean.",
+        "options": [
+          "A. (29.04, 34.96)°C",
+          "B. (30.04, 33.96)°C",
+          "C. (30.36, 33.64)°C",
+          "D. (31.04, 32.96)°C"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which of the following software applications is commonly used to perform regression analysis through its built-in statistical tools?",
+        "options": [
+          "A. Microsoft Word",
+          "B. Microsoft Excel",
+          "C. Microsoft PowerPoint",
+          "D. Adobe Photoshop"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A regression model produces an R² value of 0.92. Which interpretation is correct?",
+        "options": [
+          "A. The model has a 92% error rate",
+          "B. The predictor has 92% accuracy",
+          "C. The model explains 92% of response variation",
+          "D. The response increases by 92% per unit"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A one-way ANOVA produces a calculated F-value of 4.15, while the critical F-value is 3.24. What is the appropriate decision?",
+        "options": [
+          "A. Reject the null hypothesis",
+          "B. Retain the null hypothesis",
+          "C. Reduce the significance level",
+          "D. Increase the degrees of freedom"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "The sample size used to estimate a population mean is increased from 100 to 400. Assuming unchanged variability and confidence level, what happens to the confidence interval's margin of error?",
+        "options": [
+          "A. It decreases by 25%",
+          "B. It decreases by 50%",
+          "C. It increases by 50%",
+          "D. It remains unchanged"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "The prediction errors of a model are 1, −1, and 2. Determine the root mean square error.",
+        "options": [
+          "A. 1.155",
+          "B. 1.414",
+          "C. 1.291",
+          "D. 1.633"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "For a right-tailed t-test with 12 degrees of freedom and a significance level of 2.5%, determine the critical t-value.",
+        "options": [
+          "A. 1.782",
+          "B. 2.179",
+          "C. 2.681",
+          "D. 3.055"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Evaluate lim(x→0) [sin(5x)/x], where angles are expressed in radians.",
+        "options": [
+          "A. 1",
+          "B. 3",
+          "C. 5",
+          "D. 10"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A triangle has vertices at (1, 1), (5, 1), and (1, 4). Determine its area.",
+        "options": [
+          "A. 4 square units",
+          "B. 6 square units",
+          "C. 8 square units",
+          "D. 12 square units"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Determine the Laplace transform of e⁻³ᵗ",
+        "options": [
+          "A. 1/(s − 3)",
+          "B. 1/(s + 3)",
+          "C. 3/(s − 1)",
+          "D. 3/(s + 1)"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A mechanical system has characteristic roots r = −1 ± 2i. What type of damping does the system exhibit?",
+        "options": [
+          "A. Overdamping",
+          "B. Critical damping",
+          "C. Underdamping",
+          "D. No damping"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The functions y₁ = eˣ and y₂ = e⁻ˣ are solutions of y″ − y = 0. Which is also a solution?",
+        "options": [
+          "A. e(x²) + e⁻ˣ",
+          "B. eˣe⁻ˣ + x",
+          "C. 3eˣ − 2e⁻ˣ",
+          "D. e²ˣ − e⁻²ˣ"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A hot object initially at 100°C is cooled in a room at 20°C. It follows Newton's law of cooling with cooling constant 0.10 min⁻¹. Determine its temperature after 10 minutes.",
+        "options": [
+          "A. 39.4°C",
+          "B. 44.3°C",
+          "C. 49.4°C",
+          "D. 54.3°C"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A well-mixed tank initially contains 5 kg of dissolved salt in 100 L of solution. A salt solution containing 0.20 kg/L enters at 2 L/min, and the mixture leaves at the same rate. Determine the initial salt accumulation rate.",
+        "options": [
+          "A. 0.20 kg/min",
+          "B. 0.25 kg/min",
+          "C. 0.30 kg/min",
+          "D. 0.40 kg/min"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Given x² + xy + y² = 7, determine dy/dx at (1, 2).",
+        "options": [
+          "A. −4/5",
+          "B. −3/4",
+          "C. 3/5",
+          "D. 4/5"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Determine the horizontal asymptote of f(x) = 2x/(x³ + 1).",
+        "options": [
+          "A. y = 0",
+          "B. y = 1",
+          "C. y = 2",
+          "D. y = −1"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which of the following is a Bernoulli differential equation?",
+        "options": [
+          "A. y′ + xy = x²",
+          "B. y′ + y = xy²",
+          "C. y″ + y = 0",
+          "D. y′ = x + y + 1"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A particle moves along a circular path at constant speed. In which direction does its centripetal acceleration act?",
+        "options": [
+          "A. Tangent to the path",
+          "B. Outward from the center",
+          "C. Toward the center",
+          "D. Opposite the velocity"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A 2-kg mass is attached to a spring having a stiffness of 50 N/m. Determine the natural angular frequency of the undamped system.",
+        "options": [
+          "A. 4 rad/s",
+          "B. 6 rad/s",
+          "C. 3 rad/s",
+          "D. 5 rad/s"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "A rectangular plate has a width of 4 m and a height of 2 m. Determine its second moment of area about the horizontal centroidal axis.",
+        "options": [
+          "A. 1.33 m⁴",
+          "B. 2.67 m⁴",
+          "C. 4.00 m⁴",
+          "D. 5.33 m⁴"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A stationary siren emits sound at 500 Hz. An observer approaches the siren at 20 m/s. If the speed of sound is 340 m/s, determine the observed frequency.",
+        "options": [
+          "A. 470.6 Hz",
+          "B. 500.0 Hz",
+          "C. 529.4 Hz",
+          "D. 558.8 Hz"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "An elevator travels 300 m, starting and ending at rest. It accelerates at 2 m/s² until reaching 20 m/s, maintains that speed, and decelerates at 4 m/s². Determine the total travel time.",
+        "options": [
+          "A. 20.0 s",
+          "B. 22.5 s",
+          "C. 25.0 s",
+          "D. 27.5 s"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "An undamped mass-spring system is initially displaced 4 inches downward from equilibrium. If upward displacement is defined as positive, what is its initial condition?",
+        "options": [
+          "A. x(0) = 4 in",
+          "B. x(0) = −4 in",
+          "C. x′(0) = 4 in/s",
+          "D. x′(0) = −4 in/s"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A homogeneous metal rod is completely restrained against axial expansion. If its temperature increases within the elastic range, what stress develops?",
+        "options": [
+          "A. Compressive thermal stress",
+          "B. Tensile thermal stress",
+          "C. Purely hydrostatic stress",
+          "D. Zero longitudinal stress"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "A steel rod is 2 m long and has a coefficient of linear thermal expansion of 12 × 10⁻⁶ °C⁻¹. Determine its increase in length for a temperature rise of 50°C.",
+        "options": [
+          "A. 0.6 mm",
+          "B. 1.2 mm",
+          "C. 1.8 mm",
+          "D. 2.4 mm"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A vehicle travels at 12 m/s around a circular curve having a radius of 3 m. Determine its centripetal acceleration.",
+        "options": [
+          "A. 24 m/s²",
+          "B. 36 m/s²",
+          "C. 48 m/s²",
+          "D. 60 m/s²"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A body is slightly displaced from equilibrium and remains at its new position without returning or moving farther away. What type of equilibrium is exhibited?",
+        "options": [
+          "A. Stable equilibrium",
+          "B. Neutral equilibrium",
+          "C. Unstable equilibrium",
+          "D. Dynamic equilibrium"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A project requires an initial investment of ₱500,000 and generates a uniform net annual cash inflow of ₱100,000. Determine its simple payback period.",
+        "options": [
+          "A. 3 years",
+          "B. 4 years",
+          "C. 5 years",
+          "D. 6 years"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Compared with the simple payback period, the discounted payback period for a project with a conventional initial investment, positive future inflows, and a positive discount rate is generally:",
+        "options": [
+          "A. Shorter or equal",
+          "B. Longer or equal",
+          "C. Exactly the same",
+          "D. Independent of interest"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A facility incurs a perpetual annual maintenance expense of ₱15,000. If the interest rate is 5% per year, determine the capitalized cost of maintenance.",
+        "options": [
+          "A. ₱250,000",
+          "B. ₱275,000",
+          "C. ₱300,000",
+          "D. ₱325,000"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Equipment requires replacement every five years at a cost of ₱10,000. If replacements begin at the end of year 5 and continue indefinitely, determine the present worth at 10% annual interest.",
+        "options": [
+          "A. ₱14,380",
+          "B. ₱15,380",
+          "C. ₱16,380",
+          "D. ₱17,380"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A geometric-gradient series provides ₱1,000 at the end of year 1, with payments increasing by 5% annually for three years. Determine its present worth at 10% annual interest.",
+        "options": [
+          "A. ₱2,505",
+          "B. ₱2,605",
+          "C. ₱2,705",
+          "D. ₱2,805"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A company claims ₱20,000 depreciation under the applicable MACRS schedule. If its marginal income tax rate is 25%, determine the depreciation tax shield.",
+        "options": [
+          "A. ₱4,000",
+          "B. ₱5,000",
+          "C. ₱6,000",
+          "D. ₱7,000"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "For a conventional investment project with an initial outflow followed by positive cash inflows, which change generally decreases its net present value?",
+        "options": [
+          "A. Increasing annual revenue",
+          "B. Decreasing operating costs",
+          "C. Increasing discount rate",
+          "D. Increasing terminal salvage"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A company wishes to accumulate ₱10,000 after two years through equal end-of-year deposits earning 10% annually. Determine the required annual deposit.",
+        "options": [
+          "A. ₱4,545",
+          "B. ₱4,762",
+          "C. ₱5,000",
+          "D. ₱5,238"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "If the nominal interest rate is 10% and the annual inflation rate is 4%, determine the real annual interest rate using the exact relationship.",
+        "options": [
+          "A. 5.00%",
+          "B. 5.77%",
+          "C. 6.00%",
+          "D. 6.25%"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A contractor will incur a ₱15,000 penalty for delayed completion. Hiring additional workers costs ₱8,000 and will prevent the delay without affecting quality or violating other constraints. What is the least-cost decision?",
+        "options": [
+          "A. Hire the additional workers",
+          "B. Accept the delay penalty",
+          "C. Suspend the construction",
+          "D. Cancel the existing contract"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which of the following would generally NOT be classified as a Process Safety Management element under OSHA 29 CFR 1910.119?",
+        "options": [
+          "A. Mechanical integrity",
+          "B. Incident investigation",
+          "C. Market demand forecasting",
+          "D. Management of change"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Before welding near equipment containing flammable materials, which document should ordinarily be issued under a hot-work control system?",
+        "options": [
+          "A. Material balance report",
+          "B. Hot work permit",
+          "C. Production schedule",
+          "D. Quality control certificate"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which process safety technique systematically assesses the probability of human errors during operation and maintenance?",
+        "options": [
+          "A. Human Reliability Analysis",
+          "B. Mechanical Reliability Testing",
+          "C. Operational Efficiency Analysis",
+          "D. Process Capability Assessment"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "A combustion wave propagates supersonically through a reactive mixture and is coupled with a shock wave. This phenomenon is called:",
+        "options": [
+          "A. Detonation",
+          "B. Deflagration",
+          "C. Smoldering",
+          "D. Flashover"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which term describes combustion in which the flame front propagates at a subsonic speed relative to the unburned mixture?",
+        "options": [
+          "A. Detonation",
+          "B. Deflagration",
+          "C. Implosion",
+          "D. Decomposition"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A company records 5 cases involving days away from work during a year with 500,000 total employee work-hours. Determine the OSHA days-away case rate per 100 full-time-equivalent workers.",
+        "options": [
+          "A. 1.0",
+          "B. 2.0",
+          "C. 2.5",
+          "D. 5.0"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A worker suffers an occupational injury on Monday and is medically unable to work on Tuesday, Wednesday, and Thursday. Under OSHA recordkeeping rules, how many calendar days away from work are recorded?",
+        "options": [
+          "A. 2 days",
+          "B. 3 days",
+          "C. 4 days",
+          "D. 5 days"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What does FMEA stand for?",
+        "options": [
+          "A. Failure Management and Equipment Assessment",
+          "B. Failure Mode and Effects Analysis",
+          "C. Fault Mechanism and Event Analysis",
+          "D. Functional Maintenance and Error Assessment"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A failure mode has Severity = 8, Occurrence = 4, and Detection = 5. Determine its Risk Priority Number.",
+        "options": [
+          "A. 120",
+          "B. 140",
+          "C. 160",
+          "D. 180"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "In Layer of Protection Analysis (LOPA), an Independent Protection Layer (IPL) must be:",
+        "options": [
+          "A. Independent of the initiating event and other credited layers",
+          "B. Controlled directly by the same equipment causing the failure",
+          "C. Activated only after the hazardous consequence has occurred",
+          "D. Dependent on the successful operation of every other safeguard"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Chloramines are frequently used in drinking water distribution systems because they:",
+        "options": [
+          "A. Provide a relatively persistent disinfectant residual",
+          "B. Completely eliminate dissolved inorganic contaminants",
+          "C. Remove suspended solids through chemical precipitation",
+          "D. Increase the dissolved oxygen concentration substantially"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "An activated sludge sample has a 30-minute settled sludge volume of 240 mL/L and an MLSS concentration of 3,000 mg/L. Determine the Sludge Volume Index.",
+        "options": [
+          "A. 60 mL/g",
+          "B. 80 mL/g",
+          "C. 100 mL/g",
+          "D. 120 mL/g"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "During COD determination, the blank consumes 20.0 mL of 0.100 N FAS, while a 25.0-mL wastewater sample consumes 12.0 mL. Determine the COD.",
+        "options": [
+          "A. 128 mg/L",
+          "B. 192 mg/L",
+          "C. 256 mg/L",
+          "D. 320 mg/L"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Under DENR Administrative Order 2021-19, what is the General Effluent Standard for ammonia as NH₃-N discharged into a Class C freshwater body?",
+        "options": [
+          "A. 2 mg/L",
+          "B. 3 mg/L",
+          "C. 4 mg/L",
+          "D. 9 mg/L"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which parameter is most directly used to determine the required surface area of an ideal sedimentation basin for discrete particle settling?",
+        "options": [
+          "A. Hydraulic surface overflow rate",
+          "B. Hydraulic retention time alone",
+          "C. Total tank volume alone",
+          "D. Sludge storage capacity alone"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "A member of the Professional Regulatory Board of Chemical Engineering resigns before completing the term. Under RA 9297, the vacancy must be filled for:",
+        "options": [
+          "A. A new full three-year term",
+          "B. The remainder of the unexpired term",
+          "C. A probationary period of one year",
+          "D. A term decided solely by the PRC"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A registered chemical engineer is a member of the integrated and accredited professional organization and wishes to join an international chemical engineering association. Under RA 9297, this is:",
+        "options": [
+          "A. Prohibited because dual membership is not permitted",
+          "B. Allowed because membership in other associations is not barred",
+          "C. Allowed only after surrendering the professional license",
+          "D. Prohibited unless the engineer resigns from the national organization"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which compound can be used as an anhydrous laboratory desiccant?",
+        "options": [
+          "A. Calcium carbonate",
+          "B. Calcium sulfate",
+          "C. Calcium phosphate",
+          "D. Calcium silicate"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which controller produces an output proportional to the instantaneous control error?",
+        "options": [
+          "A. Integral controller",
+          "B. Derivative controller",
+          "C. Proportional controller",
+          "D. On-off controller"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which controller action responds to the rate of change of error and is particularly sensitive to measurement noise?",
+        "options": [
+          "A. Integral action",
+          "B. Derivative action",
+          "C. Proportional action",
+          "D. Reset action"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which control method is specifically designed to improve the control of processes with significant known dead time by incorporating a process model?",
+        "options": [
+          "A. Ratio control",
+          "B. Smith predictor",
+          "C. Split-range control",
+          "D. Derivative filtering"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A mathematical process model incorporates random disturbances described by probability distributions. Which model classification is most appropriate?",
+        "options": [
+          "A. Deterministic model",
+          "B. Static model",
+          "C. Stochastic model",
+          "D. Empirical correlation"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which control strategy measures a disturbance and adjusts the manipulated variable before the disturbance produces a significant deviation in the controlled variable?",
+        "options": [
+          "A. Feedback control",
+          "B. Feedforward control",
+          "C. Integral control",
+          "D. Manual control"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A temperature control system uses an outer temperature controller to establish the setpoint of an inner cooling-water flow controller. Which control configuration is described?",
+        "options": [
+          "A. Cascade control",
+          "B. Ratio control",
+          "C. Split-range control",
+          "D. Override control"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "A linear time-invariant system has an impulse response h(t) = te⁻ᵗ, for t ≥ 0. Determine the unit-step response under zero initial conditions.",
+        "options": [
+          "A. 1 − e⁻ᵗ",
+          "B. 1 − (1 + t)e⁻ᵗ",
+          "C. (1 + t)e⁻ᵗ",
+          "D. te⁻ᵗ"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Let u(t) be the unit-step function and f(t) = 0.5u(t) − 0.5u(t − 1) + (t − 3)u(t − 2). What are f(0.5) and f(3), respectively?",
+        "options": [
+          "A. 0.5 and 0",
+          "B. 0 and 0.5",
+          "C. 0.5 and 1",
+          "D. 1 and 0.5"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which management level is primarily responsible for translating corporate strategic plans into departmental tactical plans?",
+        "options": [
+          "A. Top-level management",
+          "B. Middle-level management",
+          "C. Front-line operators",
+          "D. External consultants"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Why is feedwater hardness kept extremely low in steam boilers, particularly when the water is heated and concentrated?",
+        "options": [
+          "A. To increase steam density",
+          "B. To prevent scale deposits",
+          "C. To lower water viscosity",
+          "D. To improve fuel heating value"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Let f(x) = 4/(x + 3) and g(x) = x² − 3. Which expression represents f(g(x)), for x ≠ 0?",
+        "options": [
+          "A. 4/(x² + 3)",
+          "B. 4/(x² − 3)",
+          "C. 4/x²",
+          "D. (x² − 3)/4"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "In the context of \"Maslow's Hierarchy of Needs,\" an entry-level engineer who is primarily concerned with earning enough money to pay for rent and food is focused on which level?",
+        "options": [
+          "A. Self-actualization Needs",
+          "B. Esteem Needs",
+          "C. Social Needs",
+          "D. Physiological Needs"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "For x > 0, determine an integrating factor for the differential equation xy′ + 4y = x².",
+        "options": [
+          "A. x²",
+          "B. x³",
+          "C. x⁴",
+          "D. x⁵"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Determine the complementary solution of y″ − 5y′ + 6y = 0.",
+        "options": [
+          "A. C₁eˣ + C₂e⁶ˣ",
+          "B. C₁e²ˣ + C₂e³ˣ",
+          "C. C₁e⁻²ˣ + C₂e⁻³ˣ",
+          "D. C₁cos 2x + C₂sin 3x"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Find the inverse Laplace transform of 1/(s + 2)².",
+        "options": [
+          "A. e⁻²ᵗ",
+          "B. 2e⁻²ᵗ",
+          "C. te⁻²ᵗ",
+          "D. t²e⁻²ᵗ"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A professional receives formal recognition for distinguished technical achievements in engineering research. Which document most directly serves as evidence of this recognition?",
+        "options": [
+          "A. Certificate of Recognition",
+          "B. Certificate of Occupancy",
+          "C. Certificate of Inspection",
+          "D. Certificate of Employment"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "A study investigates how one treatment factor affects two jointly measured outcomes, product strength and product flexibility. Which analysis explicitly treats the outcomes jointly?",
+        "options": [
+          "A. Simple linear regression",
+          "B. Univariate t-test",
+          "C. Multivariate analysis of variance",
+          "D. One-sample proportion test"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The Seveso industrial accident of 1976 in Italy is most closely associated with the release of:",
+        "options": [
+          "A. Methyl isocyanate",
+          "B. Dioxin",
+          "C. Sulfur hexafluoride",
+          "D. Vinyl chloride monomer"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A front-wheel contact point is 1.0 m left and 0.5 m below the vehicle center of gravity. The contact force has 7,000 N upward and 3,000 N to the right. Determine the magnitude of its equivalent moment about the center of gravity.",
+        "options": [
+          "A. 4.5 kN·m",
+          "B. 5.5 kN·m",
+          "C. 6.5 kN·m",
+          "D. 8.5 kN·m"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Under the UN dangerous-goods classification system, which class covers radioactive material?",
+        "options": [
+          "A. Class 4",
+          "B. Class 5",
+          "C. Class 6",
+          "D. Class 7"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "In safety studies, Preliminary Hazard Analysis (PHA) is primarily used to:",
+        "options": [
+          "A. Identify significant hazards early in design",
+          "B. Calculate final product selling prices",
+          "C. Determine equipment purchase warranties",
+          "D. Replace all detailed engineering calculations"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "For two groups with equal sample sizes of 8, an ANOVA gives MSE = 16. If the appropriate critical t-value is 2.0, determine Fisher's least significant difference (LSD).",
+        "options": [
+          "A. 2.0",
+          "B. 3.0",
+          "C. 4.0",
+          "D. 5.0"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Under the PRC 2016 CPD credit-unit matrix, how many credit units per lecture hour are listed for a resource speaker under self-directed learning (subject to CPD Council evaluation)?",
+        "options": [
+          "A. 1 CU/hour",
+          "B. 2 CU/hour",
+          "C. 3 CU/hour",
+          "D. 4 CU/hour"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "How many diagonals does a regular dodecagon have?",
+        "options": [
+          "A. 42",
+          "B. 48",
+          "C. 54",
+          "D. 60"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "An engineer must accumulate ₱121,000 after two years by making equal deposits at the end of each year into an account earning 10% annually. Determine the required annual sinking-fund deposit.",
+        "options": [
+          "A. ₱52,619",
+          "B. ₱55,000",
+          "C. ₱57,619",
+          "D. ₱60,500"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "After increasing reactor operating temperature limits, the company updated the control software but forgot to revise operator procedures and training materials. Which Process Safety Management element was most directly deficient?",
+        "options": [
+          "A. Mechanical Integrity",
+          "B. Operating Procedures",
+          "C. Management of Change",
+          "D. Compliance Audit"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which of the following is not included in the practice of chemical engineering?",
+        "options": [
+          "A. estimations",
+          "B. preparation of specifications",
+          "C. chemical analysis",
+          "D. teaching professional chemical engineering subjects"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "An operator was told to control the temperature of the reactor at 60°C. The operator set the set-point of the temperature at 60°C. The scale indicated 0 to 100% of a temperature range of 0 to 200°C. This caused a runaway reaction by over pressuring the vessel, which resulted injury to the operator. The actual set-point temperature was",
+        "options": [
+          "A. 200°C",
+          "B. 100°C",
+          "C. 120°C",
+          "D. 60°C"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The movement from one position to another which has less pay or responsibility attached to it. It is used as a form of punishment or as a temporary measure to keep an employee until he is offered a higher position.",
+        "options": [
+          "A. Separation",
+          "B. Promotion",
+          "C. Demotion",
+          "D. Transfer"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "During a board examination, an examinee was caught using unauthorized notes hidden inside a calculator case. What is the most likely consequence?",
+        "options": [
+          "A. Automatic passing grade deduction only",
+          "B. Retake of one subject only",
+          "C. Administrative and possible criminal liability under examination laws",
+          "D. No penalty if first offense"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A registered chemical engineer signed and sealed a plant design prepared entirely by an unlicensed individual without personally reviewing the computations and specifications. Which ethical principle was violated?",
+        "options": [
+          "A. Confidentiality",
+          "B. Professional competence",
+          "C. Fair competition",
+          "D. Continuing professional education"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Fermentation of molasses to produce ethyl alcohol is done at ___°C.",
+        "options": [
+          "A. 20–30",
+          "B. 100–150",
+          "C. <−5",
+          "D. 250–300"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "An applicant for the board exam was born and raised in the Philippines but has a dual citizenship (Filipino and American). Can this person take the Chemical Engineering board exam?",
+        "options": [
+          "A. No, only natural-born citizens with no other citizenship are allowed.",
+          "B. Yes, provided they are a citizen of the Philippines as required by Section 16 of RA 9297",
+          "C. No, because the law strictly prohibits dual citizens from practicing engineering.",
+          "D. Yes, but they must first renounce their foreign citizenship before the exam date."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What refers to the techniques that encompass risk assignment and the inclusive evaluation of risk, costs and benefits of alternative projects or policies?",
+        "options": [
+          "A. Risk management",
+          "B. Benefit management",
+          "C. Risk-benefit analysis",
+          "D. Uncertainty analysis"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The first president of the Philippine Institute of Chemical Engineers (PIChE) was",
+        "options": [
+          "A. Jose C. Espinosa",
+          "B. Angel S. Arguelles",
+          "C. Felix V. Espino",
+          "D. Ramon Tiomico"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Five 1.5 V cells are connected in series. If the internal resistance of each cell is 0.25 ohm, what external resistance will produce a current of 2 A through the cells?",
+        "options": [
+          "A. 1.75 ohms",
+          "B. 2.5 ohms",
+          "C. 2.25 ohms",
+          "D. 3 ohms"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which planning tool is most appropriate for a project manager who needs to identify the \"Critical Path\" or the longest sequence of tasks that determines the shortest possible project duration?",
+        "options": [
+          "A. SWOT Analysis",
+          "B. Gantt Chart",
+          "C. PERT/CPM",
+          "D. Market Research"
+        ],
+        "correct": 2
       }
     ]
   },
