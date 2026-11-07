@@ -131555,7 +131555,7 @@
       "question": "Determine the particular solution of the differential equation: y'' − 4y' − 12y = 3e^(5t)",
       "category": "Unfamiliar Topic",
       "note": "Assume the solution 3e^5t is Be^5t (where B is a constant). Solve for the derivatives of each term where we let y = Be^5t, y' = 5Be^5t, y'' = 25Be^5t = 3e^5t, solve for B. 25B - 20B -12B = 3.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-19T13:16:26",
       "occurrences": [
         {
@@ -131566,10 +131566,11 @@
           "correct_answer": "D. (-3/7)e^5t"
         }
       ],
-      "updated_at": "2026-10-19T13:16:26",
+      "updated_at": "2026-11-07T11:05:55",
       "concept_id": "1792309187862581",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-07T11:05:55"
     },
     {
       "id": "1790079398290820",
@@ -174274,5 +174275,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-07T11:02:11"
+  "updated_at": "2026-11-07T11:06:04"
 }
