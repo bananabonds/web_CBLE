@@ -9894,19 +9894,36 @@ function rtBankQuestion(it, lists) {
 }
 function rtOpenItems(cid) { return (rvAllItems || []).filter(i => i.conceptId === cid && !i.resolved); }
 function rtCountFor(open) { const l = rtLists(); return (open || []).filter(i => rtBankQuestion(i, l)).length; }
+// Open questions matching the Reviewer's current filter (prefix / subject / concept): the same ones its sections list.
+function rtFilterItems() {
+  const pm = conceptPrefixMap();
+  return (rvAllItems || []).filter(i => i.tax && !i.resolved
+    && (!rvPrefix || rvPrefixMatch(rvItemPfx(i, pm).key))
+    && (!rvSubject || i.subject === rvSubject)
+    && (!rvConcept || i.conceptId === rvConcept));
+}
+function rtFilterLabel() {
+  const parts = [];
+  if (rvConcept) parts.push(conceptName(rvConcept));
+  if (rvSubject) parts.push(fcCleanName(rvSubject));
+  if (rvPrefix) { const o = $("rvPrefixSel") && $("rvPrefixSel").selectedOptions[0]; parts.push(o ? o.textContent.split(" \u00b7 ")[0] : rvPrefix); }
+  return parts.length ? parts.join(" \u00b7 ") : "All open questions";
+}
 function rtRefreshRow() {
   const row = $("rvRetestRow"); if (!row) return;
-  const n = rvConcept ? rtCountFor(rtOpenItems(rvConcept)) : 0;
-  row.innerHTML = n ? `<button class="btn success block" id="rvRetestBtn">\u26A1 Retest this concept now &middot; ${n} open question${n === 1 ? "" : "s"}</button>` : "";
-  const b = $("rvRetestBtn"); if (b) b.onclick = () => rtStart(rvConcept);
+  const open = rtFilterItems(), n = rtCountFor(open), left = open.length - n;
+  const what = rvConcept ? "this concept" : (rvSubject || rvPrefix) ? "this selection" : "everything shown";
+  row.innerHTML = n ? `<button class="btn success block" id="rvRetestBtn">\u26A1 Retest ${what} now &middot; ${n} open question${n === 1 ? "" : "s"}</button>${left ? `<div class="hint" style="margin-top:4px;">${left} more open question${left === 1 ? " is" : "s are"} not retestable (missing or retired in the bank).</div>` : ""}` : "";
+  const b = $("rvRetestBtn"); if (b) b.onclick = rtStartFilter;
 }
-function rtStart(cid) {
-  const c = findConcept(cid); if (!c) return;
+function rtStartItems(items, id, name) {
   const lists = rtLists(true), queue = []; let skipped = 0;
-  for (const it of rtOpenItems(cid)) { const q = rtBankQuestion(it, lists); if (q) queue.push({ it, q }); else skipped++; }
-  if (!queue.length) { toast("Nothing to retest here: no open question in this concept can be found in the bank."); return; }
-  rtBegin(c, shuffle(queue.slice()), skipped);
+  for (const it of items) { const q = rtBankQuestion(it, lists); if (q) queue.push({ it, q }); else skipped++; }
+  if (!queue.length) { toast("Nothing to retest here: no open question in this choice can be found in the bank."); return; }
+  rtBegin({ id: id || "", name }, shuffle(queue.slice()), skipped);
 }
+function rtStart(cid) { const c = findConcept(cid); if (!c) return; rtStartItems(rtOpenItems(cid), c.id, c.name); }
+function rtStartFilter() { rtStartItems(rtFilterItems(), rvConcept || "", rtFilterLabel()); }
 function rtBegin(c, queue, skipped) {
   RT = { cid: c.id, name: c.name, queue, i: 0, st: queue.map(() => ({ pick: null, conf: null, checked: false, right: false, ok: false })), skipped: skipped || 0 };
   openOverlay("retestOverlay"); rtRender();
@@ -9914,6 +9931,12 @@ function rtBegin(c, queue, skipped) {
 function rtClose() {
   closeOverlay("retestOverlay"); RT.queue = []; RT.st = [];
   refreshReviewer(); afterTagChange();
+}
+function rtUnanswered(except) { const r = []; RT.st.forEach((x, k) => { if (!x.checked && k !== except) r.push(k); }); return r; }
+// Next walks forward; from the last question it loops back to anything not answered yet before showing the results.
+function rtNextTarget() {
+  if (RT.i < RT.queue.length - 1) return RT.i + 1;
+  const u = rtUnanswered(RT.i); return u.length ? u[0] : RT.queue.length;
 }
 function rtGo(i) { RT.i = Math.max(0, Math.min(RT.queue.length, i)); rtRender(); $("rtBody").scrollTop = 0; }
 function rtCheck() {
@@ -9949,11 +9972,12 @@ function rtRender() {
       : (sure ? `\u2717 Wrong, and you were <b>${esc(s.conf)}</b> \u2014 overconfident. It stays open.` : "\u2717 Wrong. It stays open.");
     h += `<div class="rt-result ${s.ok ? "ok" : "no"}">${msg}${s.right ? "" : `<div style="margin-top:6px;">Correct answer: <b>${esc(opts[q.correct])}</b></div>`}${(e.note || "").trim() ? `<div class="meta" style="margin-top:6px;white-space:pre-wrap;"><b>Your note:</b> ${esc(e.note)}</div>` : ""}<button class="btn" id="rtWeb" style="margin-top:10px;">\u{1F50E} Search this question</button></div>`;
   }
+  h += `<div style="text-align:center;margin-top:6px;"><button class="btn link" id="rtFinish">Finish round and see results</button></div>`;
   body.innerHTML = h;
   const ready = s.pick !== null && s.conf;
   foot.innerHTML = `<button class="btn" id="rtPrev" ${first ? "disabled" : ""}>\u25C0 Prev</button>` +
     (done ? "" : `<button class="btn primary" id="rtCheck" ${ready ? "" : "disabled"}>${s.pick === null ? "Pick an answer" : (!s.conf ? "Pick confidence" : "Check answer")}</button>`) +
-    `<button class="btn ${done ? "primary" : ""}" id="rtNext">${last ? "Results" : "Next \u25B6"}</button>`;
+    `<button class="btn ${done ? "primary" : ""}" id="rtNext">${last ? (rtUnanswered(RT.i).length ? `Skipped (${rtUnanswered(RT.i).length}) \u25B6` : "Results") : "Next \u25B6"}</button>`;
   if (!done) {
     body.querySelectorAll("[data-opt]").forEach(r => r.addEventListener("click", () => { s.pick = Number(r.dataset.opt); rtRender(); }));
     body.querySelectorAll("[data-conf]").forEach(b => b.addEventListener("click", () => { s.conf = CONFIDENCE_LEVELS[Number(b.dataset.conf)]; rtRender(); }));
@@ -9964,7 +9988,8 @@ function rtRender() {
     "Question: " + cleanOcrText(q.text) + "\nMy Answer: " + (s.pick === null ? "(none)" : opts[s.pick]) + "\nAnswer Key: " + opts[q.correct] +
     "\nChoices: " + opts.map((o, i) => String.fromCharCode(65 + i) + ". " + o).join(" ")));
   $("rtPrev").addEventListener("click", () => rtGo(RT.i - 1));
-  $("rtNext").addEventListener("click", () => rtGo(RT.i + 1));
+  $("rtNext").addEventListener("click", () => rtGo(rtNextTarget()));
+  const fin = $("rtFinish"); if (fin) fin.addEventListener("click", () => rtGo(RT.queue.length));
 }
 // Opens a browser web search for the text in a new tab (very long text is trimmed so the URL stays valid)
 function rtWebSearch(text) {
@@ -9979,9 +10004,11 @@ function rtSummary(body, foot) {
   if (still.length) h += `<div class="rt-box"><h4>Still open</h4>` + still.map(r => `<div class="meta" style="margin:4px 0;">Ref #${esc(r.it.e.reference_no)} &middot; ${esc(fcCleanName(r.it.subject))} &middot; ${!r.s.checked ? "not answered" : r.s.right ? "right but only " + esc(r.s.conf) : "wrong"}</div>`).join("") + `</div>`;
   if (RT.skipped) h += `<div class="hint">${RT.skipped} open question${RT.skipped === 1 ? " was" : "s were"} left out because the bank question is missing or retired.</div>`;
   body.innerHTML = h;
-  foot.innerHTML = `<button class="btn" id="rtBack">\u25C0 Back</button>` + (still.length ? `<button class="btn primary" id="rtAgain">Retest the ${still.length} still open</button>` : "") + `<button class="btn" id="rtDone">Done</button>`;
+  const skippedIdx = RT.st.map((x, k) => x.checked ? -1 : k).filter(k => k >= 0);
+  foot.innerHTML = `<button class="btn" id="rtBack">\u25C0 Back</button>` + (skippedIdx.length ? `<button class="btn" id="rtSkipped">Skipped (${skippedIdx.length})</button>` : "") + (still.length ? `<button class="btn primary" id="rtAgain">Retest ${still.length} open</button>` : "") + `<button class="btn" id="rtDone">Done</button>`;
   $("rtBack").addEventListener("click", () => rtGo(RT.queue.length - 1));
-  const a = $("rtAgain"); if (a) a.addEventListener("click", () => { const c = findConcept(RT.cid); rtBegin(c || { id: RT.cid, name: RT.name }, shuffle(still.map(r => ({ it: r.it, q: r.q }))), RT.skipped); });
+  const sk = $("rtSkipped"); if (sk) sk.addEventListener("click", () => rtGo(skippedIdx[0]));
+  const a = $("rtAgain"); if (a) a.addEventListener("click", () => { rtBegin({ id: RT.cid, name: RT.name }, shuffle(still.map(r => ({ it: r.it, q: r.q }))), RT.skipped); });
   $("rtDone").addEventListener("click", rtClose);
 }
 $("rtClose").addEventListener("click", rtClose);
