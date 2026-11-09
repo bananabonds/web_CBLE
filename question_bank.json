@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-09T17:45:12",
+  "updated_at": "2026-11-09T17:45:53",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -61680,6 +61680,158 @@
           "D. smaller than"
         ],
         "correct": 3
+      }
+    ],
+    "PT_Particle_Technology": [
+      {
+        "text": "Ball mills and tube mills with flint or porcelain balls are used for size reduction of",
+        "options": [
+          "A. asbestos",
+          "B. non-metallic ores",
+          "C. limestone",
+          "D. rubber"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A tower having a diameter of 0.1524 m is being fluidized with water at 20.2°C. The uniform spherical beads in the tower bed have a diameter of 4.42 mm and a density of 1603 kg/m^3. Estimate the minimum fluidizing velocity.",
+        "options": [
+          "A. 0.032 m/s",
+          "B. 0.019 m/s",
+          "C. 0.026 m/s",
+          "D. 0.014 m/s"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Oil droplets having a diameter of 0.020 mm are to be settled from air at an air temperature of 37.8°C (311 K) at 101.3 kPa pressure. The density of the oil is 900 kg/m^3. Calculate the terminal settling velocity of the drops.",
+        "options": [
+          "A. 0.01 m/s",
+          "B. 0.05 m/s",
+          "C. 0.07 m/s",
+          "D. 0.03 m/s"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "A centrifuge bowl is spinning at a constant 2000 rev/min. What radius bowl is needed for a force of 455 g?",
+        "options": [
+          "A. 0.2245 m",
+          "B. 0.1017 m",
+          "C. 0.1345 m",
+          "D. 0.2189 m"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Solid spherical particles having a diameter of 0.090 mm and a solid density of 2002 kg/m^3 are settling in a solution of water at 26.7°C. The volume fraction of the solids in the water is 0.45. Calculate the settling velocity (and the corresponding Reynolds number).",
+        "options": [
+          "A. 0.0099 m/s",
+          "B. 0.0075 m/s",
+          "C. 0.0061 m/s",
+          "D. 0.0080 m/s"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The filtrate flow rate in constant-pressure filtration",
+        "options": [
+          "A. may increase or decrease; depends on the pressure.",
+          "B. remains constant throughout.",
+          "C. continuously decreases.",
+          "D. continuously increases."
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Calculate the sphericity of a disk, given H = r/10 (H is the height of the disk and r is its radius).",
+        "options": [
+          "A. 0.4",
+          "B. 0.5",
+          "C. 0.3",
+          "D. 0.6"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Which of the following is a vacuum filter?",
+        "options": [
+          "A. Rotary disc filter",
+          "B. Tank filter (Nutsch filter)",
+          "C. Filter press",
+          "D. Batch basket centrifuge"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Assume that spheres having diameters of 0.005 cm and a density of 1.2 g/cm^3 are settling in water under free-settling conditions where the particles do not interfere with each other. What would be the free-settling velocity in cm per second?",
+        "options": [
+          "A. 2.05",
+          "B. 0.57",
+          "C. 1.08",
+          "D. 0.027"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "In a test conducted using a laboratory centrifuge, it was found that the optimum recovery of protein from coconut oil was achieved with an rpm of 2500. Industrial-size centrifuges in 2.5, 3.0, 3.5, 4.0, and 5 ft diameter have a warranty if the centrifuge is operated not over 1000 rpm. For optimum commercial operations, the centrifuge size you will recommend is ____. Data: Laboratory centrifuge: Height = 9 in; Diameter = 5 in; rpm = 2000 to 3000.",
+        "options": [
+          "A. 3.5 ft",
+          "B. 4.0 ft",
+          "C. 3.0 ft",
+          "D. 2.5 ft"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "In operating a batch filter, which of the following is the correct method of operation?",
+        "options": [
+          "A. The particles forming the cake should be large.",
+          "B. Keeping the flow rate constant and gradually increasing the pressure.",
+          "C. The slower the flow rate, the more efficient the recovery.",
+          "D. Keeping the pressure constant, the rate of flow increases."
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A material is crushed in a Blake jaw crusher, and the average size of the particle was reduced from 50 mm to 10 mm. The consumption of energy was at the rate of 13 kW/(kg/s). What will be the consumption of energy needed to crush the same material of average size 75 mm to an average size of 25 mm, assuming Rittinger's law applies?",
+        "options": [
+          "A. 6.6",
+          "B. 2.2",
+          "C. 4.4",
+          "D. 8.8"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The Bond work index for a mesh-of-grind of 200 mesh for a rock consisting mainly of quartz is 17.5 kWh/ton. How much power is needed to reduce the material in a wet-grinding ball mill from an 80% size of 1100 micrometers to an 80% passing size of 80 micrometers?",
+        "options": [
+          "A. 15.9 kWh/ton",
+          "B. 12.1 kWh/ton",
+          "C. 14.3 kWh/ton",
+          "D. 13.6 kWh/ton"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "If the total percentage of particles larger than the screen opening in the feed, product, and undersize are 40%, 84%, and 5%, respectively, the effectiveness of the screen is",
+        "options": [
+          "A. 77%",
+          "B. 71%",
+          "C. 82%",
+          "D. 80%"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Flow of filtrate through the cake in a plate-and-frame filter press is best described by the ________ equation.",
+        "options": [
+          "A. Hagen-Poiseuille's",
+          "B. Fanning's",
+          "C. Kozeny-Karman",
+          "D. Kremser"
+        ],
+        "correct": 2
       }
     ]
   },
