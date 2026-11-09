@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-09T17:44:35",
+  "updated_at": "2026-11-09T17:45:12",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -61528,6 +61528,158 @@
           "D. 91°C"
         ],
         "correct": 0
+      }
+    ],
+    "PT_Momentum_Transfer": [
+      {
+        "text": "What is the hydraulic diameter of a 200 mm by 300 mm rectangular duct in which air flows?",
+        "options": [
+          "A. 0.29 m",
+          "B. 0.24 m",
+          "C. 0.06 m",
+          "D. 0.12 m"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the hydraulic mean diameter of the annular space between 40 mm and a 50 mm tube?",
+        "options": [
+          "A. 35 mm",
+          "B. 30 mm",
+          "C. 10 mm",
+          "D. 45 mm"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "For the laminar flow of a fluid in a circular pipe of radius R, the Hagen-Poiseuille equation predicts the volumetric flowrate to be proportional to",
+        "options": [
+          "A. R",
+          "B. R^0",
+          "C. R^2",
+          "D. R^4"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Pipes having diameter 14 inches or more are designated by their",
+        "options": [
+          "A. schedule number",
+          "B. cross-sectional area",
+          "C. outside diameter",
+          "D. inside diameter"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Water (density = 62.4 lb/ft^3, viscosity = 1 cP) is pumped from a large reservoir on the floor at a rate of 80 gpm to the top of a smaller tower. The discharge point is 20 ft above the centerline of the pump. Frictional and other (contraction, expansion, etc.) losses in suction and discharge lines amount to 1.5 ft head of liquid. If the pump develops only 1/4 hp, the water height (ft) in the reservoir must be closest to",
+        "options": [
+          "A. 7.2 ft",
+          "B. 6.3 ft",
+          "C. 9.1 ft",
+          "D. 8.5 ft"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A 150 mm diameter pipe carries 81.3 L/s of water. The pipe branches into two pipes: one is 50 mm in diameter and the other is 75 mm. What is the velocity in the 75 mm pipe if the velocity of the flow in the 50 mm pipe is 10 m/s?",
+        "options": [
+          "A. 13.96 m/s",
+          "B. 12.75 m/s",
+          "C. 19.43 m/s",
+          "D. 15.75 m/s"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "When the flow is laminar",
+        "options": [
+          "A. the pressure drop is inversely proportional to the velocity.",
+          "B. the pressure drop is proportional to the square of the velocity.",
+          "C. the pressure drop is proportional to the first power of the velocity.",
+          "D. the pressure drop is not affected by the velocity."
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Sulfuric acid is pumped at 3 kg/s through a 60 m length of smooth 25 mm pipe. Calculate the drop in pressure. Density of acid = 1840 kg/m^3. Viscosity of acid = 25 mN·s/m^2.",
+        "options": [
+          "A. 770 kPa",
+          "B. 650 kPa",
+          "C. 860 kPa",
+          "D. 510 kPa"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Unrefined oil whose density and kinematic viscosity are 920 kg/m^3 and 0.0002 m^2/s, respectively, is pumped through a 75-m long 4-in ID pipe. The pump requires 3 kW power and its efficiency is 70%. What is the Reynolds number?",
+        "options": [
+          "A. 1248",
+          "B. 1350",
+          "C. 3575",
+          "D. 3031"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "A 6-in standard horizontal pipe delivers water at a velocity of 10 ft/s to a pond from a river. The equivalent length of the pipe is 1000 ft. If the water temperature is 80°F, the flow is",
+        "options": [
+          "A. transition region",
+          "B. plug flow",
+          "C. turbulent flow",
+          "D. laminar flow"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A 6-in standard horizontal pipe delivers water at a velocity of 10 ft/s to a pond from a river. The equivalent length of the pipe is 1000 ft. If the water temperature is 80°F, the theoretical horsepower of the pump is",
+        "options": [
+          "A. 9",
+          "B. 18",
+          "C. 12",
+          "D. 6"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The water output of a purification plant is measured by the use of a standard venturi meter having a throat 12-inches in diameter. The differential head from the upstream section to the throat, measured on a vertical U-tube manometer containing mercury was found to be 3 inches. Calculate the rate of water flow expressed as gal per 24 hour-day. Assume D2/D1 is 0.5.",
+        "options": [
+          "A. 4.3x10^6",
+          "B. 7.3x10^6",
+          "C. 5.6x10^6",
+          "D. 1.9x10^6"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Petroleum oil is flowing isothermally through a horizontal pipe line having an actual inside diameter of 4.03 inches. A properly made pitot tube is inserted at the center line of the pipe, and its leads are filled with oil and attached to a vertical glass U-tube with oil and water. The difference in water levels is found to be 3 ft. Based on the data given below, calculate the rate of flow of oil expressed as cubic feet per minute. Data: Oil has a specific gravity of 0.9 and a viscosity scale, t of 200 Saybolt second.",
+        "options": [
+          "A. 12.3",
+          "B. 20.5",
+          "C. 24.9",
+          "D. 10.4"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Water flowing at 1.5 L/s in a 0.05 m diameter tube is metered by means of a simple orifice of diameter 0.025 m. If coefficient of discharge is 0.62, what will be the reading on a mercury-under-water manometer connected to the meter?",
+        "options": [
+          "A. 86 mm",
+          "B. 77 mm",
+          "C. 60 mm",
+          "D. 92 mm"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Nominal size of the discharge pipe of a pump is usually the nominal size of the inlet pipe.",
+        "options": [
+          "A. larger than",
+          "B. same as",
+          "C. twice",
+          "D. smaller than"
+        ],
+        "correct": 3
       }
     ]
   },
