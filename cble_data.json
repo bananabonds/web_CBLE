@@ -140206,7 +140206,7 @@
       "question": "A sphere of radius 5 mm and density of 1.1 g/cm3 falls at a constant velocity through a liquid of density 1 g/cm3 and viscosity of 1 cP. What is the velocity of the falling sphere in m/s?",
       "category": "Careless / Computational",
       "note": "Stokes law formula uses diameter not radius.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-19T13:01:40",
       "occurrences": [
         {
@@ -140217,10 +140217,11 @@
           "correct_answer": "C. 5.45 m/s"
         }
       ],
-      "updated_at": "2026-10-19T13:01:40",
+      "updated_at": "2026-11-10T14:44:22",
       "concept_id": "1792318516515459",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-10T14:44:22"
     },
     {
       "id": "1790722876231946",
@@ -180872,5 +180873,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-10T14:40:48"
+  "updated_at": "2026-11-10T14:44:33"
 }
