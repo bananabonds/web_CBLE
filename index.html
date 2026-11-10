@@ -1181,9 +1181,11 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <div id="promptEditor-concept" style="margin-top:10px;"></div>
       </div>
       <div class="card" id="rpCard">
-        <h3>Full Reviewer Prompt <span class="count">(by concept)</span></h3>
-        <p class="hint" style="margin-bottom:8px;">Choose the concepts the AI should build a first-principles reviewer for. Each one is sent with its questions, your answers and your notes.</p>
-        <div class="row wrap" style="gap:6px;"><button class="btn" id="rpAll">All</button><button class="btn" id="rpNone">None</button><button class="btn" id="rpOpen">Only concepts with open questions</button></div>
+        <h3>Full Reviewer Prompt <span class="count">(by concept or filter)</span></h3>
+        <p class="hint" style="margin-bottom:8px;">Choose what the AI should build a first-principles reviewer for. Questions are sent grouped by concept, with your answers and your notes.</p>
+        <select id="rpSource" style="margin-bottom:8px;"><option value="concepts">Source: concepts I pick below</option><option value="filter">Source: the questions in the Reviewer's current filter</option></select>
+        <div class="hint" id="rpFilterNote" style="display:none;margin-bottom:8px;"></div>
+        <div class="row wrap" id="rpPickRow" style="gap:6px;"><button class="btn" id="rpAll">All</button><button class="btn" id="rpNone">None</button><button class="btn" id="rpOpen">Only concepts with open questions</button></div>
         <div id="rpList" style="max-height:300px;overflow-y:auto;margin-top:8px;"></div>
           <div class="row wrap" style="gap:12px;margin-top:6px;">
             <label class="row" style="flex:none;font-size:.8rem;"><input type="checkbox" id="rpIncResolved"><span>Include resolved questions</span></label>
@@ -9479,7 +9481,7 @@ function conceptCardsStatus(cid) {
 /* ---- prompt options (saved) ---- */
 const PROMPT_OPT_DEFAULTS = { includeResolved: false, includeCards: true, includeNotes: true, includeCorrect: true };
 function cpPrefs() { return Object.assign({ n: 4 }, PROMPT_OPT_DEFAULTS, loadJson(KEYS.builderPrefs, {}).conceptPrompt || {}); }
-function rpPrefs() { return Object.assign({ selected: null, maxQ: 15 }, PROMPT_OPT_DEFAULTS, loadJson(KEYS.builderPrefs, {}).reviewerPrompt || {}); }
+function rpPrefs() { return Object.assign({ selected: null, maxQ: 15, source: "concepts" }, PROMPT_OPT_DEFAULTS, loadJson(KEYS.builderPrefs, {}).reviewerPrompt || {}); }
 function prefSave(group, k, v) { const p = loadJson(KEYS.builderPrefs, {}); p[group] = Object.assign({}, p[group], { [k]: v }); saveJson(KEYS.builderPrefs, p); }
 function viewSave() { const p = loadJson(KEYS.builderPrefs, {}); p.reviewerView = { prefix: rvPrefix, concept: rvConcept, subject: rvSubject }; saveJson(KEYS.builderPrefs, p); }
 
@@ -9487,13 +9489,14 @@ function viewSave() { const p = loadJson(KEYS.builderPrefs, {}); p.reviewerView 
 function conceptBlockLines(cid, P, o) {
   o = o || {};
   const cn = findConcept(cid), cut = (s, n) => { s = String(s || "").replace(/\s+/g, " ").trim(); return s.length > n ? s.slice(0, n) + "\u2026" : s; };
-  const all = collectTagItems(null).filter(i => i.conceptId === cid);
+  const all = o.items || collectTagItems(null).filter(i => i.conceptId === cid);   // o.items: a ready-made list (the Reviewer filter)
   const shown = all.filter(i => P.includeResolved || !i.resolved);       // resolved questions are left out unless the box is ticked
   const use = o.maxQ ? shown.slice(0, o.maxQ) : shown, left = all.length - shown.length;
   const needs = NEED_ORDER.filter(n => use.some(i => i.tax && i.tax.need === n));
   const subjects = Array.from(new Set(use.map(i => fcCleanName(i.subject)).concat(cn && cn.subject ? [fcCleanName(cn.subject)] : [])));
-  const L = [o.header || `CONCEPT: ${cn ? cn.name : "(unknown)"}`];
-  if (o.header) L.push(`Name: ${cn ? cn.name : ""}`);
+  const nm = o.label || (cn ? cn.name : "");
+  const L = [o.header || `CONCEPT: ${nm || "(unknown)"}`];
+  if (o.header) L.push(`Name: ${nm}`);
   L.push(`SUBJECT: ${subjects.join(", ") || "(not set)"}`);
   if (needs.length) L.push("WHAT MY ERROR TAGS SAY I NEED: " + needs.map(n => `${NEED_INFO[n].label.toLowerCase()} (${ACTION_TAXONOMY.find(t => t.need === n).action})`).join("; "));
   L.push(use.length ? `MY ACTUAL ${P.includeResolved ? "MISTAKES AND SHAKY ANSWERS" : "OPEN MISTAKES AND SHAKY ANSWERS"} ON THIS CONCEPT (${use.length}${shown.length > use.length ? " of " + shown.length : ""}):`
@@ -9506,7 +9509,7 @@ function conceptBlockLines(cid, P, o) {
     if (P.includeCorrect) { const mine = last.your_answer || "", right = last.correct_answer || e.correct_answer || ""; if (mine || right) L.push(`   My answer: ${cut(mine, 160) || "(none)"} | Bank's correct answer: ${cut(right, 160) || "(unknown)"}`); }
     if (P.includeNotes) { if ((e.note || "").trim()) L.push(`   My note: ${cut(e.note, 400)}`); for (const g of legacyGuessNotes(it.subject, e.reference_no).slice(0, 2)) L.push(`   My guess note: ${cut(g.note, 300)}`); }
   });
-  if (P.includeCards) {
+  if (P.includeCards && cid) {
     const have = conceptDigest(cid);
     if (have.length) { L.push("", "CARDS I ALREADY HAVE FOR THIS CONCEPT (do not repeat these; add new angles):"); have.forEach((k, i) => L.push(`${i + 1}. Front: ${cut(k.front || (cn && cn.name), 160)} | Back: ${cut(k.back, 240)}${k.trap ? " | Trap: " + cut(k.trap, 160) : ""}`)); }
   }
@@ -9548,6 +9551,40 @@ function buildReviewerPromptByConcept(cids) {
   const text = expandPromptTemplate("reviewer", { structure: reviewerStructure(Array.from(needs)) }, blocks.join("\n\n"));
   return { text, nConcepts: order.length, nQ, left, cutOff };
 }
+// The same prompt, built from whatever questions the Reviewer's filters (prefix / subject / concept) currently show,
+// grouped by concept. Questions with no concept yet are grouped by subject.
+function buildReviewerPromptFromFilter() {
+  const P = rpPrefs(), pm = conceptPrefixMap(), items = rtFilterItems(P.includeResolved), groups = new Map();
+  for (const it of items) {
+    const known = it.conceptId && findConcept(it.conceptId), key = known ? it.conceptId : "~" + (it.subject || "");
+    if (!groups.has(key)) groups.set(key, { cid: known ? it.conceptId : "", subject: it.subject || "", list: [] });
+    groups.get(key).list.push(it);
+  }
+  const lab = g => g.cid ? ((pm.get(g.cid) || {}).label || "") : fcCleanName(g.subject);
+  const order = Array.from(groups.values()).sort((a, b) => ((a.cid ? 0 : 1) - (b.cid ? 0 : 1)) || lab(a).localeCompare(lab(b)) || (a.cid ? conceptName(a.cid).localeCompare(conceptName(b.cid)) : 0));
+  let nQ = 0, cutOff = 0; const needs = new Set(), blocks = [];
+  order.forEach((g, i) => {
+    const b = conceptBlockLines(g.cid, P, { items: g.list, maxQ: P.maxQ,
+      header: g.cid ? `=== CONCEPT ${i + 1} of ${order.length} ===` : `=== QUESTIONS WITHOUT A CONCEPT ${i + 1} of ${order.length} ===`,
+      label: g.cid ? "" : `No concept yet (${fcCleanName(g.subject) || "no subject"})` });
+    nQ += b.nQ; cutOff += b.cutOff; b.needs.forEach(n => needs.add(n)); blocks.push(b.lines.join("\n"));
+  });
+  const left = P.includeResolved ? 0 : rtFilterItems(true).length - items.length;
+  const scope = `SCOPE: these are the questions currently selected in my reviewer (${rtFilterLabel()}).`;
+  const text = expandPromptTemplate("reviewer", { structure: reviewerStructure(Array.from(needs)) }, scope + "\n\n" + blocks.join("\n\n"));
+  return { text, nConcepts: order.length, nQ, left, cutOff };
+}
+// Builds the prompt from the chosen source: picked concepts, or the Reviewer's current filter. Null when nothing is selected.
+function rpBuild() {
+  if (rpPrefs().source === "filter") return rtFilterItems(rpPrefs().includeResolved).length ? buildReviewerPromptFromFilter() : null;
+  const ids = rpSelectedIds(); return ids.length ? buildReviewerPromptByConcept(ids) : null;
+}
+function rpApplySource() {
+  const f = rpPrefs().source === "filter";
+  $("rpSource").value = f ? "filter" : "concepts";
+  ["rpPickRow", "rpList"].forEach(id => { $(id).style.display = f ? "none" : ""; });
+  $("rpFilterNote").style.display = f ? "" : "none";
+}
 // Accepts the format the prompt asks for, or a JSON array like [{"front":..,"back":..,"trap":..}].
 function parseCardsText(text) {
   const t = String(text || "").trim(), out = [];
@@ -9582,10 +9619,13 @@ function updateConceptPreview() {
 }
 function updateFullPreview() {
   const ta = $("rpPreview"), info = $("rpInfo"); if (!ta) return;
-  const ids = rpSelectedIds();
-  if (!ids.length) { ta.value = ""; info.textContent = "No concepts selected yet."; return; }
-  const r = buildReviewerPromptByConcept(ids); ta.value = r.text;
-  info.textContent = `${r.nConcepts} concept${r.nConcepts === 1 ? "" : "s"} \u00b7 ${r.nQ} question${r.nQ === 1 ? "" : "s"}` + (rpPrefs().includeResolved ? " (resolved included)" : r.left ? ` \u00b7 ${r.left} resolved left out (tick the box to include)` : "") + (r.cutOff ? ` \u00b7 ${r.cutOff} cut by the per-concept limit` : "") + ` \u00b7 ${r.text.length.toLocaleString()} characters` + (r.text.length > 40000 ? " \u2014 very long; pick fewer concepts" : "");
+  rpApplySource();
+  const byFilter = rpPrefs().source === "filter";
+  if (byFilter) { const n = rtFilterItems(rpPrefs().includeResolved).length; $("rpFilterNote").textContent = `Using the questions the Reviewer is showing right now: ${rtFilterLabel()} (${n} question${n === 1 ? "" : "s"}). Change the prefix, subject or concept dropdowns above to change what goes into the prompt.`; }
+  const r = rpBuild();
+  if (!r) { ta.value = ""; info.textContent = byFilter ? "Nothing in the Reviewer's current filter to send yet." : "No concepts selected yet."; return; }
+  ta.value = r.text;
+  info.textContent = (byFilter ? `Filter: ${rtFilterLabel()} \u00b7 ` : "") + `${r.nConcepts} group${r.nConcepts === 1 ? "" : "s"} \u00b7 ${r.nQ} question${r.nQ === 1 ? "" : "s"}` + (rpPrefs().includeResolved ? " (resolved included)" : r.left ? ` \u00b7 ${r.left} resolved left out (tick the box to include)` : "") + (r.cutOff ? ` \u00b7 ${r.cutOff} cut by the per-concept limit` : "") + ` \u00b7 ${r.text.length.toLocaleString()} characters` + (r.text.length > 40000 ? " \u2014 very long; narrow the filter or pick fewer concepts" : "");
 }
 function rvPromptChanged(kind) { if (kind === "concept") updateConceptPreview(); else if (kind === "reviewer") updateFullPreview(); }
 
@@ -10009,9 +10049,9 @@ function rtBankQuestion(it, lists) {
 function rtOpenItems(cid) { return (rvAllItems || []).filter(i => i.conceptId === cid && !i.resolved); }
 function rtCountFor(open) { const l = rtLists(); return (open || []).filter(i => rtBankQuestion(i, l)).length; }
 // Open questions matching the Reviewer's current filter (prefix / subject / concept): the same ones its sections list.
-function rtFilterItems() {
+function rtFilterItems(withResolved) {
   const pm = conceptPrefixMap();
-  return (rvAllItems || []).filter(i => i.tax && !i.resolved
+  return (rvAllItems || []).filter(i => i.tax && (withResolved || !i.resolved)
     && (!rvPrefix || rvPrefixMatch(rvItemPfx(i, pm).key))
     && (!rvSubject || i.subject === rvSubject)
     && (!rvConcept || i.conceptId === rvConcept));
@@ -10207,10 +10247,11 @@ $("rtClose").addEventListener("click", rtClose);
     setSel(Array.from(cur));
   });
   $("rpCopy").addEventListener("click", async () => {
-    const ids = rpSelectedIds(); if (!ids.length) { toast("Pick at least one concept first."); return; }
-    const r = buildReviewerPromptByConcept(ids);
-    toast(await copyTextRobust(r.text) ? `Copied \u2014 ${r.nConcepts} concept${r.nConcepts === 1 ? "" : "s"}, ${r.nQ} question${r.nQ === 1 ? "" : "s"}${rpPrefs().includeResolved ? "" : r.left ? `, ${r.left} resolved left out` : ""}.` : "Couldn't access the clipboard.", 4200);
+    const r = rpBuild(); if (!r) { toast(rpPrefs().source === "filter" ? "The Reviewer's current filter has no questions." : "Pick at least one concept first."); return; }
+    toast(await copyTextRobust(r.text) ? `Copied \u2014 ${r.nConcepts} group${r.nConcepts === 1 ? "" : "s"}, ${r.nQ} question${r.nQ === 1 ? "" : "s"}${rpPrefs().includeResolved ? "" : r.left ? `, ${r.left} resolved left out` : ""}.` : "Couldn't access the clipboard.", 4200);
   });
+  $("rpSource").addEventListener("change", (e) => { prefSave("reviewerPrompt", "source", e.target.value); updateFullPreview(); });
+  rpApplySource();
   mountPromptEditor("concept", $("promptEditor-concept"));
   mountPromptEditor("reviewer", $("promptEditor-reviewer"));
 })();
