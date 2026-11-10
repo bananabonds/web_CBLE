@@ -146500,7 +146500,7 @@
       "question": "Evaluate the integrating factor of the differential equation: y' + (4/x)y = x³y²",
       "category": "Unfamiliar Topic",
       "note": "Identify equation type y' + 4/x * y = x^2 * y^2 , Benoulli equation y' + P(x)y = Q(x)y^n. Linearize divide by y^2, y^-1' - 4/x * y^-1 = -x^3",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-19T13:12:23",
       "occurrences": [
         {
@@ -146511,10 +146511,11 @@
           "correct_answer": "D. 1/x^4"
         }
       ],
-      "updated_at": "2026-10-19T13:12:23",
+      "updated_at": "2026-11-10T13:47:13",
       "concept_id": "1792308635686195",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-10T13:47:13"
     },
     {
       "id": "1792139910081451",
@@ -180866,5 +180867,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-10T13:45:47"
+  "updated_at": "2026-11-10T13:47:21"
 }
