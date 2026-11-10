@@ -779,6 +779,17 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
           <button class="btn block" id="btnSaveSample">Save Sample</button>
         </div>
         <button class="btn success block" id="btnStartFromBuilder" style="margin-top:8px;">Start Exam With This Sample &#9654;</button>
+        <div class="row" style="margin-top:8px;">
+          <button class="btn violet" id="btnGformCopy">&#128203; Google Form script</button>
+          <button class="btn" id="btnGformFile">&#11015; .gs file</button>
+        </div>
+        <details class="pe" style="margin-top:8px;">
+          <summary>Google Form options</summary>
+          <p class="hint" style="margin:6px 0;">Builds a Google Form quiz from the sample generated above, titled with the sample name in the box above. Copy the script (or download the .gs file), open <b>script.google.com</b> &rarr; New project, delete the sample code, paste, press Run on <b>createQuiz</b> and allow access. The form's links appear in the execution log and the form is saved in your Google Drive. Answers are not required, so items can be skipped. Very large samples (about 200+ items) may hit Apps Script's 6-minute limit.</p>
+          <label class="row" style="gap:6px;font-size:.82rem;"><input type="checkbox" id="gfConf"><span>Add a confidence question (Guess to Sure I'm Right) after each item</span></label>
+          <label class="row" style="gap:6px;margin-top:6px;font-size:.82rem;"><input type="checkbox" id="gfSubj"><span>Show subject and Ref # under each question</span></label>
+          <label class="row" style="gap:6px;margin-top:6px;font-size:.82rem;"><input type="checkbox" id="gfName"><span>Ask the taker for their name at the top</span></label>
+        </details>
       </div>
     </section>
 
@@ -795,6 +806,7 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         </select>
         <p class="hint" id="savedFocusHint" style="margin-bottom:8px;"></p>
         <input type="text" id="savedSearchInput" placeholder="Search by name&hellip;" style="margin-bottom:8px;">
+        <label class="row" style="gap:6px;font-size:.82rem;margin-bottom:8px;"><input type="checkbox" id="savedHideTaken"><span>Hide samples I've already taken <span class="hint" id="savedHiddenCount"></span></span></label>
         <select id="savedSortSelect" style="margin-bottom:10px;">
           <option value="alpha_asc">Sort: Name (A&ndash;Z)</option>
           <option value="alpha_desc">Sort: Name (Z&ndash;A)</option>
@@ -810,8 +822,6 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
           <button class="btn success" id="btnStartFromSaved">Start Exam &#9654;</button>
           <button class="btn" id="btnViewComposition">View Composition</button>
           <button class="btn violet" id="btnPdfSaved">&#128438; Printable PDF</button>
-          <button class="btn violet" id="btnGformCopy">&#128203; Google Form script</button>
-          <button class="btn" id="btnGformFile">&#11015; .gs file</button>
           <button class="btn" id="btnRenameSaved">Rename</button>
           <button class="btn danger" id="btnDeleteSaved">Delete Selected</button>
         </div>
@@ -824,13 +834,6 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
             <label class="field-label" style="margin:0;">Answer key <select id="pdfKey" style="width:auto;"><option value="grid">Letters only (compact)</option><option value="text">Letters and answer text</option><option value="none">No key</option></select></label>
           </div>
           <label class="row" style="gap:6px;margin-top:8px;font-size:.82rem;"><input type="checkbox" id="pdfSubjects"><span>Show each question's subject above it</span></label>
-        </details>
-        <details class="pe" style="margin-top:10px;">
-          <summary>Google Form options</summary>
-          <p class="hint" style="margin:6px 0;">Select a sample above, then press <b>Google Form script</b> (copies the code) or <b>.gs file</b> (downloads it). Open <b>script.google.com</b> &rarr; New project, delete the sample code, paste, press Run on <b>createQuiz</b> and allow access. The form's links appear in the log and in your Google Drive. Answers are not required, so you can skip questions. Very large samples (about 200+ items) may hit Apps Script's 6-minute limit; use a smaller sample then.</p>
-          <label class="row" style="gap:6px;font-size:.82rem;"><input type="checkbox" id="gfConf"><span>Add a confidence question (Guess to Sure I'm Right) after each item</span></label>
-          <label class="row" style="gap:6px;margin-top:6px;font-size:.82rem;"><input type="checkbox" id="gfSubj"><span>Show subject and Ref # under each question</span></label>
-          <label class="row" style="gap:6px;margin-top:6px;font-size:.82rem;"><input type="checkbox" id="gfName"><span>Ask for a name at the top</span></label>
         </details>
       </div>
     </section>
@@ -5227,10 +5230,19 @@ function categorizeSample(info, scope) {
   const inN = info.names.filter(n => set.has(normSubj(n))).length;
   return { cat: inN === info.names.length ? "in" : inN > 0 ? "partial" : "out", inN };
 }
+const SAVED_HIDE_TAKEN_KEY = "cble_saved_hide_taken";
+function getSavedHideTaken() { try { return localStorage.getItem(SAVED_HIDE_TAKEN_KEY) !== "0"; } catch (e) { return true; } }
 function refreshSavedSamplesList() {
   savedSets = loadJson(KEYS.samples, []);
   const query = $("savedSearchInput").value.trim().toLowerCase();
   let filtered = query ? savedSets.filter(s => (s.name || "").toLowerCase().includes(query)) : savedSets.slice();
+  // Taken samples are hidden by default so the untaken ones stand out; searching by name still finds them.
+  const hideTaken = getSavedHideTaken() && !query;
+  $("savedHideTaken").checked = getSavedHideTaken();
+  const takenNames = new Set(loadJson(KEYS.history, []).map(h => h.source));
+  let hiddenTaken = 0;
+  if (hideTaken) { const before = filtered.length; filtered = filtered.filter(s => !takenNames.has(s.name)); hiddenTaken = before - filtered.length; }
+  $("savedHiddenCount").textContent = getSavedHideTaken() ? (query ? "(search shows taken ones too)" : hiddenTaken ? `(${hiddenTaken} hidden)` : "") : "";
 
   const sortMode = $("savedSortSelect").value;
   const byName = (a, b) => (a.name || "").localeCompare(b.name || "", undefined, { sensitivity: "base" });
@@ -5267,7 +5279,7 @@ function refreshSavedSamplesList() {
   const box = $("savedContainer");
   box.innerHTML = "";
   if (!savedSets.length) { box.appendChild(el("div", "empty-state", "No saved samples yet -- build one in Sample Builder.")); return; }
-  if (!ordered.length) { box.appendChild(el("div", "empty-state", query ? "No saved samples match that search." : "No saved samples match this exam focus. Change the \"Show\" filter to see the rest.")); return; }
+  if (!ordered.length) { box.appendChild(el("div", "empty-state", hiddenTaken ? `You've taken every saved sample that matches this view (${hiddenTaken} hidden). Untick "Hide samples I've already taken" to see them, or build a new sample.` : query ? "No saved samples match that search." : "No saved samples match this exam focus. Change the \"Show\" filter to see the rest.")); return; }
 
   const history = loadJson(KEYS.history, []);
   const takenCounts = {};
@@ -5309,6 +5321,10 @@ $("savedFocusFilter").addEventListener("change", () => {
   refreshSavedSamplesList();
 });
 $("savedSearchInput").addEventListener("input", refreshSavedSamplesList);
+$("savedHideTaken").addEventListener("change", () => {
+  try { localStorage.setItem(SAVED_HIDE_TAKEN_KEY, $("savedHideTaken").checked ? "1" : "0"); } catch (e) {}
+  refreshSavedSamplesList();
+});
 $("savedSortSelect").addEventListener("change", refreshSavedSamplesList);
 function getSelectedSavedSet() { return savedSets.find(s => s.id === selectedSavedId) || null; }
 
@@ -9003,16 +9019,16 @@ $("btnPdfSaved").addEventListener("click", () => {
    --------------------------------------------------------------------- */
 function getGformPrefs() { return Object.assign({ confidence: true, subjects: false, askName: true }, loadSizePrefs().gform || {}); }
 function setGformPref(k, v) { const p = loadSizePrefs(); p.gform = Object.assign(getGformPrefs(), { [k]: v }); saveJson(KEYS.sizePrefs, p); }
-function buildGformScript(sample) {
+function buildGformScript(title, questions) {
   const pr = getGformPrefs(), exc = getExcludedIndicesByList();
-  const kept = (sample.questions || []).filter(q => !(exc[q._source_list] && exc[q._source_list].has(q._source_index)));
+  const kept = (questions || []).filter(q => !(exc[q._source_list] && exc[q._source_list].has(q._source_index)));
   const items = []; let bad = 0;
   for (const q of refreshQuestionsFromBanks(kept)) {
     if (!Array.isArray(q.options) || q.options.length < 2 || !Number.isInteger(q.correct) || q.options[q.correct] == null) { bad++; continue; }
     const ref = (q._source_index !== undefined && q._source_index !== null) ? q._source_index + 1 : "";
     items.push({ t: cleanOcrText(q.text) || "(question text unavailable)", o: q.options.map(o => cleanOcrText(o) || "(blank)"), c: q.correct, s: pr.subjects ? `${pdfSubjectName(q)}${ref !== "" ? " \u00b7 Ref #" + ref : ""}` : "" });
   }
-  const title = sample.name || "Practice Exam", safeName = String(title).replace(/\*\//g, "* /").replace(/[\r\n]+/g, " ");
+  const safeName = String(title).replace(/\*\//g, "* /").replace(/[\r\n]+/g, " ");
   const cfg = { title, askName: !!pr.askName, confidence: !!pr.confidence, levels: CONFIDENCE_LEVELS.slice() };
   const code = `/**
  * ${safeName}: ${items.length} multiple-choice question${items.length === 1 ? "" : "s"}
@@ -9056,24 +9072,25 @@ function createQuiz() {
   Logger.log('Share with takers: ' + form.getPublishedUrl());
 }
 `;
-  return { code, count: items.length, left: (sample.questions || []).length - items.length, bad };
+  return { code, count: items.length, left: (questions || []).length - items.length, bad };
 }
-function gformFor(sample) {
-  const r = buildGformScript(sample);
-  if (!r.count) { toast("This sample has no questions that can go in a form."); return null; }
-  return r;
+// Uses the sample currently generated in the builder and the name typed in the "Sample name" box as the form's title.
+function gformFor() {
+  if (!generatedQuestions.length) { toast("Generate a sample first."); return null; }
+  const title = $("sampleNameInput").value.trim() || "Custom Sample";
+  const r = buildGformScript(title, generatedQuestions);
+  if (!r.count) { toast("None of these questions can go in a form."); return null; }
+  r.title = title; return r;
 }
 function gformNote(r) { return r.left ? ` (${r.left} flagged or unusable question${r.left === 1 ? "" : "s"} left out)` : ""; }
 $("btnGformCopy").addEventListener("click", async () => {
-  const smp = getSelectedSavedSet(); if (!smp) { toast("Select a saved sample first."); return; }
-  const r = gformFor(smp); if (!r) return;
+  const r = gformFor(); if (!r) return;
   toast((await copyTextRobust(r.code)) ? `Script copied for ${r.count} question${r.count === 1 ? "" : "s"}${gformNote(r)}. Paste it into script.google.com.` : "Couldn't access the clipboard. Use the .gs file button instead.", 4200);
 });
 $("btnGformFile").addEventListener("click", () => {
-  const smp = getSelectedSavedSet(); if (!smp) { toast("Select a saved sample first."); return; }
-  const r = gformFor(smp); if (!r) return;
+  const r = gformFor(); if (!r) return;
   const url = URL.createObjectURL(new Blob([r.code], { type: "text/plain;charset=utf-8" })), a = document.createElement("a");
-  a.href = url; a.download = `${slugifyFilename(smp.name || "exam")}-google-form.gs`;
+  a.href = url; a.download = `${slugifyFilename(r.title)}-google-form.gs`;
   document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 15000);
   toast(`Script downloaded for ${r.count} question${r.count === 1 ? "" : "s"}${gformNote(r)}.`, 3600);
 });
