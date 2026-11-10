@@ -136887,7 +136887,7 @@
       "question": "Which of the following equations is an exact DE?",
       "category": "Unfamiliar Topic",
       "note": "My = Nx means its exact. M is the term multiplied to dx and N is multiplied to dy. We find My by M dy differentiation and Nx by N dx.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-19T13:17:07",
       "occurrences": [
         {
@@ -136898,10 +136898,11 @@
           "correct_answer": "C. 2xy dx + (2 + x²) dy = 0"
         }
       ],
-      "updated_at": "2026-10-19T13:17:07",
+      "updated_at": "2026-11-10T13:58:01",
       "concept_id": "1792322448466809",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-10T13:58:01"
     },
     {
       "id": "1790063574261523",
@@ -180867,5 +180868,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-10T13:57:05"
+  "updated_at": "2026-11-10T13:58:09"
 }
