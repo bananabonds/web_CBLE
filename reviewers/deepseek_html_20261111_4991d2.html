@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trigonometry Review: Four Concepts</title>
+<style>
+:root{--bg:#fbfaf6;--fg:#1f2328;--mut:#5b6470;--ac:#7a3b12;--box:#f1ece0;--ex:#e8f0f4;--dc:#f6e9e4;--bd:#d8d0bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.1rem 4rem}
+h1{font-size:1.8rem;margin:.4rem 0 .2rem}h2{font-size:1.3rem;color:var(--ac);border-bottom:1px solid var(--bd);padding-bottom:.2rem;margin-top:2.6rem}
+h3{font-size:1rem;margin:1.4rem 0 .3rem;font-variant:small-caps;letter-spacing:.04em}
+.sub{color:var(--mut);margin:0 0 1rem}
+.box,.ex,.dc{border-radius:6px;padding:.7rem 1rem;margin:1rem 0;font-size:.97rem}
+.box{background:var(--box)}.ex{background:var(--ex);border-left:4px solid #3d7a99}.dc{background:var(--dc);border-left:4px solid #b5533c}
+.ex b.t,.dc b.t{display:block;font-variant:small-caps;letter-spacing:.05em;margin-bottom:.2rem}
+.f{font-family:"Cambria Math",Georgia,serif;text-align:center;margin:.5rem 0;font-size:1.04rem;overflow-x:auto}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .2em}.fr i{font-style:normal;padding:0 .3em}.fr i:first-child{border-bottom:1px solid currentColor}
+nav{background:var(--box);border-radius:6px;padding:.6rem 1rem;font-size:.93rem}nav a{color:var(--ac);text-decoration:none}
+.w{overflow-x:auto}table{border-collapse:collapse;font-size:.9rem;width:100%}td,th{border:1px solid var(--bd);padding:.3rem .5rem;text-align:left;vertical-align:top}
+.q{margin:.3rem 0 .5rem;font-style:italic}
+details{margin-top:.4rem}summary{cursor:pointer;color:var(--ac);font-weight:bold;font-size:.95rem;padding:.2rem 0}
+details .f{margin:.55rem 0}.cap{text-align:center;font-size:.84rem;color:var(--mut);margin:.4rem 0}
+p{margin:.6rem 0}ul{margin:.4rem 0;padding-left:1.3rem}
+.st{font-size:.85rem;color:var(--mut);font-variant:small-caps;letter-spacing:.05em;margin:.75rem 0 .05rem;text-align:left}
+.lg{border-top:1px dotted var(--bd);margin-top:.75rem;padding-top:.35rem;font-size:.83rem;color:var(--mut)}
+.lg b{font-variant:small-caps;letter-spacing:.05em;display:block;margin-bottom:.15rem}
+.lg span{display:block}
+</style></head><body><main>
+<h1>Trigonometry Review: Four Concepts</h1>
+<p class="sub">One page for the selected D3_L4 set. Four chapters in teaching order: Angle Trigonometry, Triangle, Circle, Trigonometric Leveling. Each worked example shows the question first; tap “Show solution” for the steps, with a variable legend at the end. A consolidated formula table with Perry's locations sits before the flags.</p>
+<nav>1 <a href="#c1">Angle Trigonometry</a> · 2 <a href="#c2">Triangle</a> · 3 <a href="#c3">Circle</a> · 4 <a href="#c4">Trigonometric Leveling</a> · 5 <a href="#c5">Formulas</a> · 6 <a href="#c6">Flags</a></nav>
+
+<h2 id="c1">1. Angle Trigonometry</h2>
+<p>Three families of fact run through this chapter: the geometry of angles (reference angles, coterminal angles, quadrants), the algebra of identities, and the periodicity of the trigonometric functions.</p>
+<h3>Angles in standard position</h3>
+<p>An angle in standard position has its vertex at the origin and its initial side along the positive x-axis. The <b>reference angle</b> is the positive acute angle between the terminal side and the x-axis. It is what lets you compute a trigonometric function at any angle from its value at an acute angle.</p>
+<div class="w"><table>
+<tr><th>Quadrant of the terminal side</th><th>Reference angle</th></tr>
+<tr><td>I</td><td>θ</td></tr>
+<tr><td>II</td><td>180° − θ</td></tr>
+<tr><td>III</td><td>θ − 180°</td></tr>
+<tr><td>IV</td><td>360° − θ</td></tr>
+</table></div>
+<p><b>Coterminal angles</b> differ by a whole number of revolutions: θ ± 360°n, or θ ± 2πn. The smallest negative coterminal angle of a positive angle is found by subtracting 360° once.</p>
+<h3>Periodicity</h3>
+<p>The period of a trigonometric function is the smallest positive T for which f(t + T) = f(t). For the three main functions in a scaled form:</p>
+<div class="f">A sin( Bt + C ):   period = <span class="fr"><i>2π</i><i>B</i></span></div>
+<div class="f">A cos( Bt + C ):   period = <span class="fr"><i>2π</i><i>B</i></span></div>
+<div class="f">A tan( Bt + C ):   period = <span class="fr"><i>π</i><i>B</i></span></div>
+<p>Two things are worth fixing in memory. First, the period of tangent is π, not 2π — the tangent function repeats twice as often as sine and cosine. Second, the constant C <i>shifts</i> the graph but does not change its period; only B does.</p>
+<h3>Identities</h3>
+<p>The double-angle identities are the workhorses of this chapter, and they are used in both directions — expanding a single angle into a double angle, or collapsing a product into a single function:</p>
+<div class="f">sin 2x = 2 sin x cos x</div>
+<div class="f">cos 2x = cos²x − sin²x = 1 − 2 sin²x = 2 cos²x − 1</div>
+<div class="f">tan 2x = <span class="fr"><i>2 tan x</i><i>1 − tan²x</i></span></div>
+<p>The three forms of cos 2x are not three different identities; they are the same identity written three ways using sin²x + cos²x = 1. Choosing the right form is what makes a simplification short.</p>
+<p>Two special relations deserve their own lines. The <b>versine</b> is one of the old haversine-family functions, defined by</p>
+<div class="f">versin θ = 1 − cos θ</div>
+<p>and the <b>conditional tangent identity</b> for a triangle — the sum of the angles equals 180° — is</p>
+<div class="f">A + B + C = 180°   ⇒   tan A + tan B + tan C = tan A · tan B · tan C</div>
+<p>That identity converts a sum of tangents into a product, which is exactly what a question asking for the product wants.</p>
+<h3>Complementary and inverse functions</h3>
+<p>The co-function relation connects a trigonometric function to its complement:</p>
+<div class="f">sin θ = cos( 90° − θ )</div>
+<p>and the inverse functions require a convention. For <b>arcsin</b>, <b>arccos</b> and <b>arctan</b> the principal values are conventionally chosen so the outputs lie in [−90°, 90°] for arcsine and arctangent and [0°, 180°] for arccosine. For <b>arccot</b> two conventions are in circulation: the “principal value” convention with output in (0°, 180°), and the “calculator” convention arccot(x) = arctan(1/x) with output in [−90°, 90°]. The two differ by 180° when x is negative. Read the question's answer options before committing to either.</p>
+
+<div class="ex"><b class="t">Worked 1.1: sin 2x from a difference</b><p class="q">Given sin x − cos x = −1/3, find the numerical value of sin 2x.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — square both sides of the given relation</div>
+<div class="f">( sin x − cos x )² = ( −1/3 )²</div>
+<div class="st">Step 2 — expand the left side using sin²x + cos²x = 1</div>
+<div class="f">sin²x − 2 sin x cos x + cos²x = <span class="fr"><i>1</i><i>9</i></span></div>
+<div class="f">1 − 2 sin x cos x = <span class="fr"><i>1</i><i>9</i></span></div>
+<div class="st">Step 3 — solve for 2 sin x cos x</div>
+<div class="f">2 sin x cos x = 1 − <span class="fr"><i>1</i><i>9</i></span> = <span class="fr"><i>8</i><i>9</i></span></div>
+<div class="st">Step 4 — apply the double-angle identity sin 2x = 2 sin x cos x</div>
+<div class="f"><b>sin 2x = 8/9</b></div>
+<div class="cap">The answer 4/9 comes from forgetting the factor of 2 in sin 2x = 2 sin x cos x, or from taking the square root at the end. Squaring the difference is the trick that unlocks the product; the product <i>is</i> sin 2x.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the angle whose functions appear in the given relation</span>
+<span>sin 2<i>x</i> — the double-angle value being sought</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.2: simplifying a product of functions</b><p class="q">Simplify: 4 cos y sin y (1 − 2 sin²y).</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — regroup the first factor using sin 2y = 2 sin y cos y</div>
+<div class="f">4 cos y sin y = 2 ( 2 sin y cos y ) = 2 sin 2y</div>
+<div class="st">Step 2 — recognize the second factor as the double-angle identity</div>
+<div class="f">1 − 2 sin²y = cos 2y</div>
+<div class="st">Step 3 — substitute both</div>
+<div class="f">4 cos y sin y ( 1 − 2 sin²y ) = ( 2 sin 2y )( cos 2y )</div>
+<div class="st">Step 4 — apply sin 2θ = 2 sin θ cos θ with θ = 2y</div>
+<div class="f">= 2 sin 2y cos 2y = sin 4y</div>
+<div class="f"><b>= sin 4y</b></div>
+<div class="cap">The answer cos 2y recognizes the second factor but forgets to do anything with the first. The full simplification collapses four factors into a single sine of 4y, which is the point of the exercise.</div>
+<div class="lg"><b>Variables</b>
+<span><i>y</i> — the angle of the product being simplified</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.3: the period of a tangent function</b><p class="q">For what value of C will f(t) = tan(Ct + 3) have a period of 2π?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write the general period of a tangent function</div>
+<div class="f">period of A tan( Bt + C ) = <span class="fr"><i>π</i><i>B</i></span></div>
+<div class="st">Step 2 — set the period equal to the required value and solve</div>
+<div class="f"><span class="fr"><i>π</i><i>C</i></span> = 2π</div>
+<div class="f">C = <span class="fr"><i>π</i><i>2π</i></span></div>
+<div class="f"><b>C = 1/2</b></div>
+<div class="cap">The answer 2 comes from using the sine/cosine period 2π/B and solving 2π/C = 2π. Tangent's period is π/B, not 2π/B. The constant 3 inside the parentheses shifts the graph and does not affect the period at all.</div>
+<div class="lg"><b>Variables</b>
+<span><i>C</i> — the coefficient of t inside the tangent</span>
+<span><i>t</i> — the independent variable</span>
+<span>3 — a phase shift, irrelevant to the period</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.4: the period of a cosine function</b><p class="q">What is the period of f(t) = 2cos(πx/3 − 1)?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — read the coefficient of x inside the cosine</div>
+<div class="f">B = <span class="fr"><i>π</i><i>3</i></span></div>
+<div class="st">Step 2 — apply the cosine period formula</div>
+<div class="f">period = <span class="fr"><i>2π</i><i>B</i></span> = <span class="fr"><i>2π</i><i>π/3</i></span></div>
+<div class="st">Step 3 — simplify the fraction</div>
+<div class="f">period = 2π × <span class="fr"><i>3</i><i>π</i></span> = 6</div>
+<div class="f"><b>period = 6</b></div>
+<div class="cap">The amplitude 2 and the constant −1 inside the argument do not affect the period. Only the coefficient of x matters, and the period is 2π divided by that coefficient.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the independent variable</span>
+<span><i>B</i> — the coefficient of x inside the cosine, π/3</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.5: versine of a standard angle</b><p class="q">What is the numerical value of versin 60°?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write the definition of the versine</div>
+<div class="f">versin θ = 1 − cos θ</div>
+<div class="st">Step 2 — substitute θ = 60° and the standard value cos 60° = 1/2</div>
+<div class="f">versin 60° = 1 − <span class="fr"><i>1</i><i>2</i></span></div>
+<div class="st">Step 3 — evaluate</div>
+<div class="f"><b>versin 60° = 1/2</b></div>
+<div class="cap">The answer 3/2 comes from using 1 + cos θ instead of 1 − cos θ. The versine is the “versed sine” — the part of the radius that the sine does not cover — and it is small when the angle is small, reaching 2 at 180°. A value of 3/2 at 60° would be larger than the function's value at the very top of the circle, which is impossible.</div>
+<div class="lg"><b>Variables</b>
+<span><i>θ</i> — the angle, here 60°</span>
+<span>versin θ — the versed sine of θ</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.6: a conditional tangent identity</b><p class="q">If A + B + C = 180° and tan A + tan B + tan C = 3, find the numerical value of tan A · tan B · tan C.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — state the conditional identity for a triangle</div>
+<div class="f">A + B + C = 180°   ⇒   tan A + tan B + tan C = tan A · tan B · tan C</div>
+<div class="st">Step 2 — substitute the given sum</div>
+<div class="f">3 = tan A · tan B · tan C</div>
+<div class="f"><b>tan A · tan B · tan C = 3</b></div>
+<div class="cap">The identity is the entire calculation. Its derivation is worth knowing: from A + B + C = 180°, tan(A + B) = tan(180° − C) = −tan C, and applying the sum formula for tangent to tan(A + B) and clearing fractions gives the product relation.</div>
+<div class="lg"><b>Variables</b>
+<span>A, B, C — the three angles of a triangle, summing to 180°</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.7: a complementary-angle relation</b><p class="q">If sin 3A = cos 6B, then what relation holds between A and B?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — use the co-function identity to express the cosine as a sine</div>
+<div class="f">cos 6B = sin( 90° − 6B )</div>
+<div class="st">Step 2 — substitute and equate the arguments</div>
+<div class="f">sin 3A = sin( 90° − 6B )</div>
+<div class="f">3A = 90° − 6B</div>
+<div class="st">Step 3 — rearrange into the requested form</div>
+<div class="f">3A + 6B = 90°</div>
+<div class="st">Step 4 — divide through by 3</div>
+<div class="f"><b>A + 2B = 30°</b></div>
+<div class="cap">The equality sin u = sin v also allows u = 180° − v, but in this problem the standard interpretation is the direct one, since the question asks for a simple linear relation. The step that makes the problem short is converting the cosine to a sine so the two sides are the same function.</div>
+<div class="lg"><b>Variables</b>
+<span>A, B — the angles whose sine and cosine appear</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.8: reference and coterminal angles</b><p class="q">Find the reference angle and the first negative coterminal angle, respectively, of 135°.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — locate the terminal side: 135° lies in the second quadrant (between 90° and 180°)</div>
+<div class="f">quadrant II</div>
+<div class="st">Step 2 — the reference angle in quadrant II is 180° minus the angle</div>
+<div class="f">reference angle = 180° − 135° = 45°</div>
+<div class="st">Step 3 — the smallest negative coterminal angle is found by subtracting one revolution</div>
+<div class="f">135° − 360° = −225°</div>
+<div class="f"><b>45°, −225°</b></div>
+<div class="cap">The reference angle is always positive and acute; it is the distance from the terminal side to the nearest part of the x-axis. The negative coterminal angle is the same direction on the circle expressed negatively, and the smallest one is obtained by a single 360° subtraction.</div>
+<div class="lg"><b>Variables</b>
+<span>135° — the angle in standard position</span>
+<span>45° — its reference angle</span>
+<span>−225° — its first negative coterminal angle</span>
+</div>
+</details></div>
+
+<h2 id="c2">2. Triangle</h2>
+<p>A triangle has five important centres, four classical congruence relations, and a set of formulas that connect its sides and angles. The questions in this set turn on two of them.</p>
+<h3>The four classical centres</h3>
+<div class="w"><table>
+<tr><th>Centre</th><th>Intersection of</th><th>Key property</th></tr>
+<tr><td>Incenter</td><td>the angle bisectors</td><td>equidistant from all three sides; centre of the inscribed circle</td></tr>
+<tr><td>Circumcenter</td><td>the perpendicular bisectors</td><td>equidistant from all three vertices; centre of the circumscribed circle</td></tr>
+<tr><td>Centroid</td><td>the medians</td><td>divides each median in the ratio 2:1 from the vertex</td></tr>
+<tr><td>Orthocenter</td><td>the altitudes</td><td>the three altitudes are concurrent</td></tr>
+</table></div>
+<p>The two that are most easily confused are the incenter and the circumcenter. The mnemonic is in the words: angle bisectors <i>cut the angles</i> and give a circle <i>inside</i>; perpendicular bisectors <i>cut the sides</i> and give a circle <i>around the outside</i>.</p>
+<h3>Triangle inequality</h3>
+<p>A set of three lengths forms a triangle if and only if each side is smaller than the sum of the other two:</p>
+<div class="f">| a − b | &lt; c &lt; a + b</div>
+<p>The left inequality is the one usually forgotten. Two sides of 18 and 6 allow a third side anywhere strictly between 12 and 24; a third side of 11 is too short to close the triangle, no matter how the first two are arranged.</p>
+<h3>Median and centroid</h3>
+<p>The median to side a has length</p>
+<div class="f">m<sub>a</sub> = <span class="fr"><i>1</i><i>2</i></span> √( 2b² + 2c² − a² )</div>
+<p>and the median to the longest side is what a question means by “bisecting the longest side and drawn from the opposite vertex.” The formula needs a, the side being bisected, on its own with the minus sign, and the other two sides squared and doubled with the plus sign. Swapping the role of a with either of the other two is the standard error.</p>
+<h3>Circumradius, inradius and the distance from the circumcenter to a side</h3>
+<div class="f">R = <span class="fr"><i>a b c</i><i>4 A</i></span>,   r = <span class="fr"><i>A</i><i>s</i></span>,   s = <span class="fr"><i>a + b + c</i><i>2</i></span></div>
+<p>where A is the area of the triangle, computed by Heron's formula if the three sides are known:</p>
+<div class="f">A = √[ s( s − a )( s − b )( s − c ) ]</div>
+<p>The perpendicular distance from the circumcenter to a side is found from the right triangle formed by the circumradius, half the side, and that distance:</p>
+<div class="f">d = √( R² − ( <span class="fr"><i>side</i><i>2</i></span> )² )</div>
+<h3>The ambiguous case</h3>
+<p>Two sides and a non-included angle (SSA) do not always determine a unique triangle. The law of sines gives</p>
+<div class="f">sin C = <span class="fr"><i>c sin B</i><i>b</i></span></div>
+<p>and when the right-hand side lies strictly between 0 and 1 there are <b>two</b> candidate angles for C: the acute one, and its supplement 180° − C. Both give a valid triangle, and both must be checked. The “smallest triangle” is the one with the smaller area, and the area formula</p>
+<div class="f">A = <span class="fr"><i>1</i><i>2</i></span> b c sin A</div>
+<p>(where A is the included angle between sides b and c) then decides which candidate is smaller.</p>
+
+<div class="ex"><b class="t">Worked 2.1: the median to the longest side</b><p class="q">The sides of a triangular lot are 130 m, 180 m and 190 m. The lot is to be divided by a line bisecting the longest side and drawn from the opposite vertex. Find the length of this line.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — identify which side is being bisected; the longest side is 190 m, so a = 190</div>
+<div class="f">a = 190 m,   b = 180 m,   c = 130 m</div>
+<div class="st">Step 2 — write the median formula with a on its own and the other two doubled</div>
+<div class="f">m<sub>a</sub> = <span class="fr"><i>1</i><i>2</i></span> √( 2b² + 2c² − a² )</div>
+<div class="st">Step 3 — substitute the values</div>
+<div class="f">m<sub>a</sub> = <span class="fr"><i>1</i><i>2</i></span> √( 2(180)² + 2(130)² − (190)² )</div>
+<div class="st">Step 4 — square each term</div>
+<div class="f">= <span class="fr"><i>1</i><i>2</i></span> √( 64 800 + 33 800 − 36 100 )</div>
+<div class="st">Step 5 — simplify under the root</div>
+<div class="f">= <span class="fr"><i>1</i><i>2</i></span> √62 500 = <span class="fr"><i>250</i><i>2</i></span></div>
+<div class="f"><b>m<sub>a</sub> = 125 m</b></div>
+<div class="cap">The answer 130 m is the value of one of the other sides, which usually means the median formula was applied with the wrong side on the minus sign. The role of a — the side being bisected — must match the label on the median; if you swap it with b, you compute the median to b instead.</div>
+<div class="lg"><b>Variables</b>
+<span><i>a</i> — the side being bisected, 190 m</span>
+<span><i>b</i>, <i>c</i> — the other two sides, 180 m and 130 m</span>
+<span><i>m<sub>a</sub></i> — the length of the median to side a</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.2: the triangle inequality</b><p class="q">In triangle ABC, AB = 18 m and BC = 6 m. Which of the following values can be equal to side AC: (A) 6 m, (B) 11 m, (C) 24 m, (D) 13 m?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — state the triangle inequality with the two known sides</div>
+<div class="f">| 18 − 6 | &lt; AC &lt; 18 + 6</div>
+<div class="st">Step 2 — simplify</div>
+<div class="f">12 &lt; AC &lt; 24</div>
+<div class="st">Step 3 — test each option against the strict inequalities</div>
+<div class="f">(A) 6 &lt; 12 → not a triangle</div>
+<div class="f">(B) 11 &lt; 12 → not a triangle</div>
+<div class="f">(C) 24 is not strictly less than 24 → degenerate, not a triangle</div>
+<div class="f">(D) 12 &lt; 13 &lt; 24 → valid</div>
+<div class="f"><b>AC = 13 m</b></div>
+<div class="cap">The lower bound is the one usually missed. A third side of 11 m combined with 18 and 6 is too short: two rods of lengths 18 and 6 placed tip to tip and then bent toward each other cannot close a gap of 11 — the short side plus the 6 m side cannot reach the far end of the 18 m side. The equality cases (AC = 12 or AC = 24) produce a degenerate triangle — the three points lie on a straight line — so the inequalities must be strict.</div>
+<div class="lg"><b>Variables</b>
+<span>18 m, 6 m — the two given sides</span>
+<span>AC — the third side being tested</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.3: the incenter</b><p class="q">What do you call the intersection of all the angle bisectors of a triangle?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — recall the four classical centres and the lines that produce each</div>
+<div class="f">angle bisectors → incenter</div>
+<div class="f">perpendicular bisectors → circumcenter</div>
+<div class="f">medians → centroid</div>
+<div class="f">altitudes → orthocenter</div>
+<div class="st">Step 2 — the question names the angle bisectors</div>
+<div class="f"><b>incenter</b></div>
+<div class="cap">The incenter is equidistant from all three sides, so it is the centre of the inscribed circle. The circumcenter is equidistant from all three vertices, so it is the centre of the circumscribed circle. The two words look similar and describe opposite circles; the one whose name contains “in” is the one whose circle is inside.</div>
+<div class="lg"><b>Variables</b>
+<span>angle bisector — the line dividing an angle into two equal parts</span>
+<span>incenter — their point of concurrency</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.4: the distance from the circumcenter to a side</b><p class="q">In triangle ABC, AB = 36 cm, BC = 30 cm and CA = 48 cm. Compute the distance from the intersection of the perpendicular bisectors to side BC.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the intersection of the perpendicular bisectors is the circumcenter; the distance to a side is measured perpendicular from the circumcenter</div>
+<div class="f">target: d = √( R² − ( BC / 2 )² )</div>
+<div class="st">Step 2 — the semi-perimeter and the area by Heron's formula</div>
+<div class="f">s = <span class="fr"><i>36 + 30 + 48</i><i>2</i></span> = 57</div>
+<div class="f">A = √( 57 · 21 · 27 · 9 ) = √290 871</div>
+<div class="f">A ≈ 539.32 cm²</div>
+<div class="st">Step 3 — the circumradius</div>
+<div class="f">R = <span class="fr"><i>36 × 30 × 48</i><i>4 × 539.32</i></span> = <span class="fr"><i>51 840</i><i>2 157.3</i></span> = 24.03 cm</div>
+<div class="st">Step 4 — the perpendicular distance to side BC</div>
+<div class="f">d = √( 24.03² − 15² ) = √( 577.4 − 225 ) = √352.4</div>
+<div class="f"><b>d ≈ 18.77 cm</b></div>
+<div class="cap">The right triangle in Step 4 is formed by the circumcenter, the midpoint of BC, and a vertex: the hypotenuse is R, one leg is half of BC, and the other leg is the required distance. Using the whole side instead of half the side in Step 4 is the standard slip.</div>
+<div class="lg"><b>Variables</b>
+<span><i>R</i> — circumradius, 24.03 cm</span>
+<span><i>A</i> — area of the triangle, 539.32 cm²</span>
+<span><i>s</i> — semi-perimeter, 57 cm</span>
+<span><i>d</i> — distance from circumcenter to side BC</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.5: the smallest triangle in the ambiguous case</b><p class="q">Find the area of the smallest triangle that can be formed from b = 28.6, c = 44.3, and B = 23.3°.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — this is the SSA (ambiguous) case; use the law of sines to find angle C</div>
+<div class="f">sin C = <span class="fr"><i>c sin B</i><i>b</i></span> = <span class="fr"><i>44.3 sin 23.3°</i><i>28.6</i></span></div>
+<div class="st">Step 2 — evaluate the sine of the given angle</div>
+<div class="f">sin 23.3° = 0.3954</div>
+<div class="f">sin C = <span class="fr"><i>44.3 × 0.3954</i><i>28.6</i></span> = <span class="fr"><i>17.52</i><i>28.6</i></span> = 0.6126</div>
+<div class="st">Step 3 — two candidate angles for C</div>
+<div class="f">C<sub>1</sub> = arcsin( 0.6126 ) = 37.77°</div>
+<div class="f">C<sub>2</sub> = 180° − 37.77° = 142.23°</div>
+<div class="st">Step 4 — for each candidate, find the third angle A</div>
+<div class="f">A<sub>1</sub> = 180° − 23.3° − 37.77° = 118.93°</div>
+<div class="f">A<sub>2</sub> = 180° − 23.3° − 142.23° = 14.47°</div>
+<div class="st">Step 5 — area with the two given sides and the included angle A</div>
+<div class="f">Area<sub>1</sub> = <span class="fr"><i>1</i><i>2</i></span> ( 28.6 )( 44.3 ) sin 118.93° = 633.5 × 0.8748 = 554.2</div>
+<div class="f">Area<sub>2</sub> = <span class="fr"><i>1</i><i>2</i></span> ( 28.6 )( 44.3 ) sin 14.47° = 633.5 × 0.2499 = 158.3</div>
+<div class="st">Step 6 — the smallest triangle is the one with the smaller area</div>
+<div class="f"><b>Area ≈ 159 square units</b></div>
+<div class="cap">Both triangles are genuinely valid; the question's word “smallest” is what selects the second. The common error is to stop after finding the acute value of C (37.77°), which gives the <i>larger</i> triangle, and to report 554. The ambiguous-case question is exactly the situation where a solver must list both candidates before choosing.</div>
+<div class="lg"><b>Variables</b>
+<span><i>b</i>, <i>c</i> — the two given sides, 28.6 and 44.3</span>
+<span>B — the non-included angle, 23.3°</span>
+<span>C<sub>1</sub>, C<sub>2</sub> — the two candidate angles at C</span>
+<span>A<sub>1</sub>, A<sub>2</sub> — the corresponding third angles</span>
+</div>
+</details></div>
+
+<h2 id="c3">3. Circle</h2>
+<p>A circle inscribed in a triangle touches all three sides; its radius is the <b>inradius</b> r. Two formulas give it, and the choice between them depends on what is known about the triangle.</p>
+<div class="f">r = <span class="fr"><i>A</i><i>s</i></span>,   s = <span class="fr"><i>a + b + c</i><i>2</i></span></div>
+<p>where A is the area and s is the semi-perimeter. When the three sides are known and the triangle is not right-angled, the area is computed by Heron's formula first:</p>
+<div class="f">A = √[ s( s − a )( s − b )( s − c ) ]</div>
+<p>When the triangle <i>is</i> right-angled, the area is half the product of the two legs, and no Heron calculation is needed:</p>
+<div class="f">A = <span class="fr"><i>1</i><i>2</i></span> ( leg<sub>1</sub> )( leg<sub>2</sub> )</div>
+<p>For a right triangle there is also a one-line formula that bypasses the semi-perimeter entirely:</p>
+<div class="f">r = <span class="fr"><i>a + b − c</i><i>2</i></span>   ( c the hypotenuse )</div>
+<p>The circle <i>circumscribed</i> around the triangle is a different circle, with radius R = abc/(4A). A question that asks for the circle “inscribed in” the triangle wants r, and a question that asks for the circle “circumscribing” the triangle wants R. The numbers are close for a nearly equilateral triangle and wildly different for a long thin one, so the wording matters.</p>
+
+<div class="ex"><b class="t">Worked 3.1: the inscribed circle of a 7–24–25 triangle</b><p class="q">Find the radius of the circle that can be inscribed in a triangle with sides 7 cm, 24 cm and 25 cm.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — recognize the triangle as right-angled: 7² + 24² = 49 + 576 = 625 = 25²</div>
+<div class="f">right triangle with legs 7 and 24, hypotenuse 25</div>
+<div class="st">Step 2 — compute the area from the two legs</div>
+<div class="f">A = <span class="fr"><i>1</i><i>2</i></span> ( 7 )( 24 ) = 84 cm²</div>
+<div class="st">Step 3 — compute the semi-perimeter</div>
+<div class="f">s = <span class="fr"><i>7 + 24 + 25</i><i>2</i></span> = 28 cm</div>
+<div class="st">Step 4 — the inradius</div>
+<div class="f">r = <span class="fr"><i>A</i><i>s</i></span> = <span class="fr"><i>84</i><i>28</i></span></div>
+<div class="f"><b>r = 3 cm</b></div>
+<div class="st">Step 5 — confirm with the right-triangle shortcut</div>
+<div class="f">r = <span class="fr"><i>7 + 24 − 25</i><i>2</i></span> = <span class="fr"><i>6</i><i>2</i></span> = 3 ✓</div>
+<div class="cap">The answer 3.5 cm is half of 7 — a side of the triangle — which usually means the area or the semi-perimeter was misused. The two routes in Steps 4 and 5 are a useful cross-check: if they disagree, one of the two has an arithmetic slip.</div>
+<div class="lg"><b>Variables</b>
+<span><i>A</i> — area of the triangle, 84 cm²</span>
+<span><i>s</i> — semi-perimeter, 28 cm</span>
+<span><i>r</i> — inradius, the radius of the inscribed circle</span>
+</div>
+</details></div>
+
+<h2 id="c4">4. Trigonometric Leveling</h2>
+<p>Trigonometric leveling computes heights from measured angles and horizontal distances. Every problem in this chapter reduces to the same three moves: draw the vertical right triangle, identify the angle given (elevation, depression, or subtended), and write the tangent relation.</p>
+<h3>Angles of elevation and depression</h3>
+<p>The <b>angle of elevation</b> is measured upward from the horizontal; the <b>angle of depression</b> is measured downward from the horizontal. Because the horizontal lines at the observer and at the target are parallel, the angle of depression from A to B equals the angle of elevation from B to A — a fact that lets a downward measurement be converted into an upward one.</p>
+<div class="f">tan θ = <span class="fr"><i>opposite</i><i>adjacent</i></span> = <span class="fr"><i>height</i><i>horizontal distance</i></span></div>
+<h3>Two-angle problems</h3>
+<p>The standard “angle of elevation is α at a point and β nearer” problem is solved by writing the height twice and equating:</p>
+<div class="f">h = x tan β = ( x + d ) tan α</div>
+<p>where x is the distance from the nearer point and d is the distance between the two observation points. Solving for x gives x = d tan α/(tan β − tan α), and h = x tan β. The two equations are the whole method; the algebra is one substitution.</p>
+<h3>Angles subtended by two stacked objects</h3>
+<p>When two stacked objects — a flagpole on a pedestal, for example — subtend <b>equal angles</b> from a point on the ground, the condition is an equality of angle differences:</p>
+<div class="f">arctan( <span class="fr"><i>h<sub>lower</sub></i><i>x</i></span> ) = arctan( <span class="fr"><i>h<sub>upper</sub></i><i>x</i></span> ) − arctan( <span class="fr"><i>h<sub>lower</sub></i><i>x</i></span> )</div>
+<p>Rearranged, that is 2 arctan(h<sub>lower</sub>/x) = arctan(h<sub>upper</sub>/x), which is solved with the double-angle formula for tangent.</p>
+<h3>A leaned pole</h3>
+<p>When the pole is not vertical, the height and the horizontal offset of its top are no longer (L, 0) but (L cos φ, L sin φ), where φ is the lean from the vertical. The tangent relation becomes</p>
+<div class="f">tan θ = <span class="fr"><i>L cos φ</i><i>d + L sin φ</i></span></div>
+<p>with θ the sun's elevation and d the shadow length. The two terms in the denominator are what make the lean problem harder than the vertical one: the shadow is longer by L sin φ, and the height is shorter by (1 − cos φ).</p>
+<h3>Angles of depression between two buildings</h3>
+<p>When an observer high on one building looks down at the top and the foot of another, the two angles of depression both open from the observer's horizontal line. The vertical drop to the top of the lower building is d tan(top angle) and the vertical drop to the ground is d tan(foot angle). The height of the lower building is the difference:</p>
+<div class="f">h<sub>lower</sub> = d ( tan θ<sub>foot</sub> − tan θ<sub>top</sub> )</div>
+<p>and the horizontal distance d is fixed by the observer's own height above ground:</p>
+<div class="f">d = <span class="fr"><i>H<sub>observer</sub></i><i>tan θ<sub>foot</sub></i></span></div>
+<p>Remember to add the observer's eye height to the height of the building he stands on before doing the calculation.</p>
+
+<div class="ex"><b class="t">Worked 4.1: two angles of elevation</b><p class="q">At a certain point, the angle of elevation of the top of a flagpole on level ground is 35°. Seventy-five feet nearer the pole, the angle of elevation is 50°. How high is the pole?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — let h be the height and x the horizontal distance from the nearer point</div>
+<div class="f">h = x tan 50°</div>
+<div class="f">h = ( x + 75 ) tan 35°</div>
+<div class="st">Step 2 — set the two expressions for h equal</div>
+<div class="f">x tan 50° = ( x + 75 ) tan 35°</div>
+<div class="st">Step 3 — substitute the tangent values</div>
+<div class="f">tan 50° = 1.1918,   tan 35° = 0.7002</div>
+<div class="f">1.1918 x = 0.7002 x + 52.51</div>
+<div class="st">Step 4 — solve for x</div>
+<div class="f">0.4916 x = 52.51   ⇒   x = 106.8 ft</div>
+<div class="st">Step 5 — compute the height</div>
+<div class="f">h = 106.8 × 1.1918</div>
+<div class="f"><b>h ≈ 127.3 ft</b></div>
+<div class="cap">Writing the <i>farther</i> distance as x and the <i>nearer</i> as x − 75 is the symmetric error; it gives the same equation with the sign of the 75 reversed and produces a negative x. The near distance is x and the far one is x + 75, because the observer has moved 75 ft toward the pole to reach the near point.</div>
+<div class="lg"><b>Variables</b>
+<span><i>h</i> — height of the pole</span>
+<span><i>x</i> — horizontal distance from the nearer observation point to the base of the pole</span>
+<span>75 ft — distance between the two observation points</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.2: equal angles from a stacked flagpole and pedestal</b><p class="q">A flagpole 3 m high stands on top of a pedestal 2 m high above the ground. At a distance x metres from the base of the pedestal, the flagpole and the pedestal subtend equal angles. Find x.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — name the two heights above the observer's eye level</div>
+<div class="f">top of pedestal: 2 m above ground;   top of flagpole: 5 m above ground</div>
+<div class="st">Step 2 — the angle subtended by the pedestal is arctan(2/x); the angle subtended by the flagpole is arctan(5/x) − arctan(2/x)</div>
+<div class="f">arctan( 2/x ) = arctan( 5/x ) − arctan( 2/x )</div>
+<div class="st">Step 3 — rearrange into the double-angle form</div>
+<div class="f">2 arctan( 2/x ) = arctan( 5/x )</div>
+<div class="st">Step 4 — take the tangent of both sides and apply tan 2θ = 2 tan θ/(1 − tan²θ)</div>
+<div class="f">tan( 2 arctan( 2/x ) ) = tan( arctan( 5/x ) )</div>
+<div class="f"><span class="fr"><i>2( 2/x )</i><i>1 − ( 2/x )²</i></span> = <span class="fr"><i>5</i><i>x</i></span></div>
+<div class="st">Step 5 — cross-multiply and simplify</div>
+<div class="f"><span class="fr"><i>4/x</i><i>1 − 4/x²</i></span> = <span class="fr"><i>5</i><i>x</i></span></div>
+<div class="f">4x = 5x ( 1 − <span class="fr"><i>4</i><i>x²</i></span> ) = 5x − <span class="fr"><i>20</i><i>x</i></span></div>
+<div class="f">4x² = 5x² − 20   ⇒   x² = 20</div>
+<div class="st">Step 6 — take the square root</div>
+<div class="f"><b>x = 2√5 ≈ 4.47 m</b></div>
+<div class="cap">The answer 2√3 comes from a small algebraic slip in Step 5 — dropping the term 4/x² and solving a linear equation instead of a quadratic. The condition “equal angles” is the clue that the double-angle formula is needed; a single-angle tangent relation will not describe it.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — horizontal distance from the base of the pedestal to the observer</span>
+<span>2 m — height of the pedestal</span>
+<span>3 m — height of the flagpole on top of the pedestal</span>
+<span>5 m — combined height of pedestal plus flagpole</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.3: a leaned pole</b><p class="q">A pole casts a shadow 15 m long when the angle of elevation of the sun is 61°. If the pole leans 15° from the vertical directly toward the sun, find the length of the pole.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — resolve the leaned pole into vertical and horizontal components</div>
+<div class="f">vertical height = L cos 15°</div>
+<div class="f">horizontal displacement toward the sun = L sin 15°</div>
+<div class="st">Step 2 — the shadow extends from the base away from the sun; the horizontal distance from the top of the pole to the shadow tip is</div>
+<div class="f">d = 15 + L sin 15°</div>
+<div class="st">Step 3 — the sun's ray passes from the top of the pole to the shadow tip, so</div>
+<div class="f">tan 61° = <span class="fr"><i>L cos 15°</i><i>15 + L sin 15°</i></span></div>
+<div class="st">Step 4 — substitute the numerical values</div>
+<div class="f">1.8040 = <span class="fr"><i>0.9659 L</i><i>15 + 0.2588 L</i></span></div>
+<div class="st">Step 5 — cross-multiply</div>
+<div class="f">1.8040 ( 15 + 0.2588 L ) = 0.9659 L</div>
+<div class="f">27.06 + 0.4669 L = 0.9659 L</div>
+<div class="st">Step 6 — collect the L terms</div>
+<div class="f">27.06 = 0.4990 L</div>
+<div class="st">Step 7 — solve</div>
+<div class="f"><b>L ≈ 54.2 m</b></div>
+<div class="cap">The answer 46.27 m comes from treating the pole as vertical (L = 15 tan 61° = 27.1, then a separate slip to 46) or from leaning it away from the sun instead of toward it. Leaning toward the sun makes the shadow shorter for a given pole length, so the pole must be longer than the vertical-pole value — 54 is larger than 27, as it should be.</div>
+<div class="lg"><b>Variables</b>
+<span><i>L</i> — length of the pole</span>
+<span>15° — lean from the vertical, toward the sun</span>
+<span>61° — angle of elevation of the sun</span>
+<span>15 m — length of the shadow</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.4: two angles of depression</b><p class="q">A man whose eye is 1.5 m above his sole stands on a 48.5 m high building. The angles of depression of the top and foot of a nearby building are 50° and 80° respectively. Find the height of the second building.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the observer's eye height above ground</div>
+<div class="f">H = 48.5 + 1.5 = 50.0 m</div>
+<div class="st">Step 2 — the horizontal distance between the buildings follows from the angle of depression to the foot</div>
+<div class="f">d = <span class="fr"><i>H</i><i>tan 80°</i></span> = <span class="fr"><i>50.0</i><i>5.6713</i></span> = 8.817 m</div>
+<div class="st">Step 3 — the vertical distance from the observer's eye down to the top of the other building</div>
+<div class="f">drop to top = d tan 50° = 8.817 × 1.1918 = 10.509 m</div>
+<div class="st">Step 4 — the height of the second building is the eye height minus that drop</div>
+<div class="f">h = 50.0 − 10.509</div>
+<div class="f"><b>h ≈ 39.5 m</b></div>
+<div class="cap">The answer 30.5 m usually comes from forgetting to add the man's eye height to the building's height, or from using the foot angle as an elevation instead of a depression. Both angles open downward from the observer's horizontal line, so the distances are <i>drops</i>, and the building's height is what is left after subtracting the drop to its top from the total eye height.</div>
+<div class="lg"><b>Variables</b>
+<span>48.5 m — height of the building the man stands on</span>
+<span>1.5 m — height of the eye above his sole</span>
+<span>50° — angle of depression to the top of the other building</span>
+<span>80° — angle of depression to its foot</span>
+<span><i>d</i> — horizontal distance between the buildings</span>
+</div>
+</details></div>
+
+<h2 id="c5">5. Formula summary</h2>
+<p>Perry's column: <i>Perry's Chemical Engineers' Handbook</i>, 9th edition, holds the trigonometric identities and plane-geometry formulas in <b>Section 2 (Mathematics)</b>. I could not verify the subsection or page numbers, so the column states the section and marks the finer location as unverified. Entries marked “not in Perry's” are elementary results that I could not confirm are tabulated as such.</p>
+<div class="w"><table>
+<tr><th>Formula</th><th>Use</th><th>Perry's 9th ed.</th></tr>
+<tr><td><div class="f">ref angle (quad II) = 180° − θ</div></td><td>Reference angle, second quadrant</td><td>Sec. 2, Mathematics — trigonometry; location unverified</td></tr>
+<tr><td><div class="f">coterminal: θ ± 360°n</div></td><td>Coterminal angles in degrees</td><td>Sec. 2, Mathematics — trigonometry; location unverified</td></tr>
+<tr><td><div class="f">period of A sin(Bt + C) = 2π/B</div></td><td>Period of sine and cosine</td><td>Sec. 2, Mathematics — trigonometry; location unverified</td></tr>
+<tr><td><div class="f">period of A tan(Bt + C) = π/B</div></td><td>Period of tangent</td><td>Sec. 2, Mathematics — trigonometry; location unverified</td></tr>
+<tr><td><div class="f">sin 2x = 2 sin x cos x</div></td><td>Double-angle sine</td><td>Sec. 2, Mathematics — identities; location unverified</td></tr>
+<tr><td><div class="f">cos 2x = 1 − 2sin²x = 2cos²x − 1 = cos²x − sin²x</div></td><td>Double-angle cosine, three forms</td><td>Sec. 2, Mathematics — identities; location unverified</td></tr>
+<tr><td><div class="f">tan 2x = 2tan x / (1 − tan²x)</div></td><td>Double-angle tangent</td><td>Sec. 2, Mathematics — identities; location unverified</td></tr>
+<tr><td><div class="f">versin θ = 1 − cos θ</div></td><td>Versed sine</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">A + B + C = 180° ⇒ tan A + tan B + tan C = tan A tan B tan C</div></td><td>Conditional tangent identity for a triangle</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">sin θ = cos(90° − θ)</div></td><td>Co-function identity</td><td>Sec. 2, Mathematics — identities; location unverified</td></tr>
+<tr><td><div class="f">|a − b| &lt; c &lt; a + b</div></td><td>Triangle inequality</td><td>Sec. 2, Mathematics — geometry; location unverified</td></tr>
+<tr><td><div class="f">m<sub>a</sub> = ½√(2b² + 2c² − a²)</div></td><td>Median to side a</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">R = abc/(4A)</div></td><td>Circumradius</td><td>Sec. 2, Mathematics — geometry; location unverified</td></tr>
+<tr><td><div class="f">r = A/s, s = (a+b+c)/2</div></td><td>Inradius from area and semi-perimeter</td><td>Sec. 2, Mathematics — geometry; location unverified</td></tr>
+<tr><td><div class="f">right triangle: r = (a + b − c)/2</div></td><td>Inradius shortcut, right triangle</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">A = √[s(s−a)(s−b)(s−c)]</div></td><td>Heron's formula</td><td>Sec. 2, Mathematics — geometry; location unverified</td></tr>
+<tr><td><div class="f">A = ½ bc sin A</div></td><td>Area from two sides and included angle</td><td>Sec. 2, Mathematics — geometry; location unverified</td></tr>
+<tr><td><div class="f">sin C / c = sin B / b</div></td><td>Law of sines, ambiguous case</td><td>Sec. 2, Mathematics — geometry; location unverified</td></tr>
+<tr><td><div class="f">c² = a² + b² − 2ab cos C</div></td><td>Law of cosines</td><td>Sec. 2, Mathematics — geometry; location unverified</td></tr>
+<tr><td><div class="f">tan θ = height / horizontal distance</div></td><td>Angle of elevation or depression</td><td>Sec. 2, Mathematics — trigonometry; location unverified</td></tr>
+<tr><td><div class="f">two-angle: h = x tan β = (x + d) tan α</div></td><td>Height from two elevation angles</td><td>Not in Perry's; standard technique</td></tr>
+<tr><td><div class="f">leaned pole: tan θ = L cos φ / (d + L sin φ)</div></td><td>Shadow of a leaned pole</td><td>Not in Perry's; standard technique</td></tr>
+</table></div>
+
+<h2 id="c6">6. Answer-bank flags</h2>
+<p>Every keyed answer in the four concepts was recomputed. All keys stand. The notes below give the verification and identify the one place where the key depends on a mathematical convention.</p>
+<div class="w"><table>
+<tr><th>Item</th><th>Concern</th></tr>
+<tr><td><b>Angle Trig</b> — sin 2x from sin x − cos x = −1/3 (key: 8/9)</td><td>Verified: squaring gives 1 − 2 sin x cos x = 1/9, so 2 sin x cos x = 8/9 = sin 2x. The 4/9 distractor drops the factor of 2 in the double-angle identity.</td></tr>
+<tr><td><b>Angle Trig</b> — reference angle definition (key: reference angle)</td><td>Verified. The positive acute angle between the terminal side and the x-axis is the reference angle, not the angle of elevation.</td></tr>
+<tr><td><b>Angle Trig</b> — period of tan(Ct + 3) (key: 1/2)</td><td>Verified: π/C = 2π gives C = 1/2. The 2 distractor uses the sine/cosine period 2π/B.</td></tr>
+<tr><td><b>Angle Trig</b> — simplify 4 cos y sin y (1 − 2sin²y) (key: sin 4y)</td><td>Verified: 2 sin 2y · cos 2y = sin 4y. The cos 2y distractor recognizes the second factor only.</td></tr>
+<tr><td><b>Angle Trig</b> — versin 60° (key: 1/2)</td><td>Verified: 1 − cos 60° = 1 − 0.5 = 0.5. The 3/2 distractor uses 1 + cos θ.</td></tr>
+<tr><td><b>Angle Trig</b> — product of tangents given the sum (key: 3)</td><td>Verified by the conditional identity tan A + tan B + tan C = tan A tan B tan C when A + B + C = 180°. Product = 3.</td></tr>
+<tr><td><b>Angle Trig</b> — sin 3A = cos 6B (key: A + 2B = 30°)</td><td>Verified: cos 6B = sin(90° − 6B), so 3A = 90° − 6B and A + 2B = 30°. The other branch u = 180° − v is not used here because the question asks for the simple linear relation.</td></tr>
+<tr><td><b>Angle Trig</b> — reference and coterminal of 135° (key: 45°, −225°)</td><td>Verified: quadrant II reference angle 45°, and 135° − 360° = −225°.</td></tr>
+<tr><td><b>Angle Trig</b> — arccot(−5.2418) (key: −0.189)</td><td><b>Convention-dependent.</b> The key −0.189 corresponds to the convention arccot(x) = arctan(1/x), which returns values in (−90°, 90°). The “principal value” convention with output in (0°, 180°) would give 2.953 rad. Both conventions are in use; read the options before committing. The magnitude 0.189 rad = 10.8° is correct either way.</td></tr>
+<tr><td><b>Angle Trig</b> — period of 2cos(πx/3 − 1) (key: 6)</td><td>Verified: 2π/(π/3) = 6.</td></tr>
+<tr><td><b>Triangle</b> — median to longest side (key: 125 m)</td><td>Verified: m = ½√(2·180² + 2·130² − 190²) = ½√62 500 = 125 m.</td></tr>
+<tr><td><b>Triangle</b> — incenter (key: incenter)</td><td>Verified. Angle bisectors meet at the incenter; perpendicular bisectors at the circumcenter.</td></tr>
+<tr><td><b>Triangle</b> — triangle inequality (key: 13 m)</td><td>Verified: 12 &lt; AC &lt; 24; only 13 lies strictly inside.</td></tr>
+<tr><td><b>Triangle</b> — distance from circumcenter to BC (key: 18.77 cm)</td><td>Verified: s = 57, area ≈ 539.32, R = 24.03, d = √(24.03² − 15²) ≈ 18.77 cm.</td></tr>
+<tr><td><b>Triangle</b> — smallest triangle in the ambiguous case (key: 159)</td><td>Verified: the two candidate angles at C are 37.77° and 142.23°; the corresponding areas are 554.2 and 158.3. The smaller area is 159.</td></tr>
+<tr><td><b>Circle</b> — inscribed circle in a 7–24–25 triangle (key: 3 cm)</td><td>Verified: right triangle with area 84 and s = 28; r = 84/28 = 3. The 3.5 distractor is half of the 7 side.</td></tr>
+<tr><td><b>Leveling</b> — flagpole on a pedestal (key: 2√5)</td><td>Verified: 2 arctan(2/x) = arctan(5/x) gives tan(2θ) = 5/x, which simplifies to x² = 20.</td></tr>
+<tr><td><b>Leveling</b> — leaned pole (key: 54.23 m)</td><td>Verified: tan 61° = L cos 15°/(15 + L sin 15°) gives L ≈ 54.2 m.</td></tr>
+<tr><td><b>Leveling</b> — two angles of depression (key: 39.5 m)</td><td>Verified: H = 50 m, d = 50/tan 80° = 8.817 m, drop to top = 8.817 tan 50° = 10.509 m, height = 39.5 m.</td></tr>
+<tr><td><b>Leveling</b> — two angles of elevation (key: 127.32 ft)</td><td>Verified: x = 75 tan 35°/(tan 50° − tan 35°) = 106.8 ft, h = 106.8 tan 50° ≈ 127.3 ft.</td></tr>
+<tr><td>Perry's 9th edition locations</td><td>Only the section-level pointer (Section 2, Mathematics) is asserted. Subsection and page numbers are marked unverified because I could not check a physical copy. Verify against the tab before citing.</td></tr>
+</table></div>
+
+<h3>Your tags, applied</h3>
+<ul>
+<li><b>Source:</b> the trigonometry and analytic-geometry chapters of a standard pre-calculus or engineering-mathematics text (Larson, <i>Precalculus</i>; or the mathematics section of any engineering handbook), specifically: angles in standard position, reference angles, and coterminal angles; periodicity of sine, cosine and tangent; the double-angle and co-function identities; the conditional tangent identity for a triangle; triangle centres, the triangle inequality, and the median formula; circumradius, inradius and Heron's formula; the ambiguous SSA case; and angles of elevation and depression with the standard two-angle and leaned-object configurations. Edition and section numbers were not checked. For Perry's, open the 9th edition at Section 2 and confirm the trigonometry and geometry subsections yourself.</li>
+<li><b>Drill (3–5 closed-book reps, units written every time):</b> (a) find the reference angle and first negative coterminal angle for one angle in each quadrant; (b) compute the period of one sine, one cosine and one tangent with different coefficients, writing the formula on its own line each time; (c) one identity simplification that requires both a double-angle expansion and a collapse, writing each substitution explicitly; (d) one median and one inradius calculation, both cross-checked by the alternate route; (e) one two-angle elevation problem and one angle-of-depression problem, with the diagram described in words before the algebra.</li>
+<li><b>Retrieval:</b> I cannot see your cards. Test yourself on: why the period of tangent is π and not 2π; why the constant inside the parentheses does not change the period; why the lower bound of the triangle inequality is the one usually missed; why the incenter is the centre of the inscribed circle and the circumcenter of the circumscribed one; why the SSA case can produce two triangles and how to decide which is smaller; and why a leaned pole is longer than a vertical pole casting the same shadow.</li></ul>
+
+<div class="box"><b>Pre-submit line:</b> Write the reference angle before evaluating any trigonometric function at a non-acute angle; use π/B for tangent and 2π/B for sine and cosine; when a problem gives a difference of two functions, square it — the cross term is usually the thing you want; for a median, confirm which side is being bisected before substituting; for the inradius, compute the area first and divide by the semi-perimeter; for an SSA triangle, list both candidate angles before choosing; and for any elevation or depression problem, sketch the vertical right triangle and identify which distances are heights and which are horizontal before writing a tangent.</div>
+</main></body></html>
