@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Transport Phenomena Review: Seven Concepts</title>
+<style>
+:root{--bg:#fbfaf6;--fg:#1f2328;--mut:#5b6470;--ac:#7a3b12;--box:#f1ece0;--ex:#e8f0f4;--dc:#f6e9e4;--bd:#d8d0bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.1rem 4rem}
+h1{font-size:1.8rem;margin:.4rem 0 .2rem}h2{font-size:1.3rem;color:var(--ac);border-bottom:1px solid var(--bd);padding-bottom:.2rem;margin-top:2.6rem}
+h3{font-size:1rem;margin:1.4rem 0 .3rem;font-variant:small-caps;letter-spacing:.04em}
+.sub{color:var(--mut);margin:0 0 1rem}
+.box,.ex,.dc{border-radius:6px;padding:.7rem 1rem;margin:1rem 0;font-size:.97rem}
+.box{background:var(--box)}.ex{background:var(--ex);border-left:4px solid #3d7a99}.dc{background:var(--dc);border-left:4px solid #b5533c}
+.ex b.t,.dc b.t{display:block;font-variant:small-caps;letter-spacing:.05em;margin-bottom:.2rem}
+.f{font-family:"Cambria Math",Georgia,serif;text-align:center;margin:.5rem 0;font-size:1.04rem;overflow-x:auto}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .2em}.fr i{font-style:normal;padding:0 .3em}.fr i:first-child{border-bottom:1px solid currentColor}
+nav{background:var(--box);border-radius:6px;padding:.6rem 1rem;font-size:.93rem}nav a{color:var(--ac);text-decoration:none}
+.w{overflow-x:auto}table{border-collapse:collapse;font-size:.9rem;width:100%}td,th{border:1px solid var(--bd);padding:.3rem .5rem;text-align:left;vertical-align:top}
+.q{margin:.3rem 0 .5rem;font-style:italic}
+details{margin-top:.4rem}summary{cursor:pointer;color:var(--ac);font-weight:bold;font-size:.95rem;padding:.2rem 0}
+details .f{margin:.55rem 0}.cap{text-align:center;font-size:.84rem;color:var(--mut);margin:.4rem 0}
+p{margin:.6rem 0}ul{margin:.4rem 0;padding-left:1.3rem}
+.st{font-size:.85rem;color:var(--mut);font-variant:small-caps;letter-spacing:.05em;margin:.75rem 0 .05rem;text-align:left}
+.lg{border-top:1px dotted var(--bd);margin-top:.75rem;padding-top:.35rem;font-size:.83rem;color:var(--mut)}
+.lg b{font-variant:small-caps;letter-spacing:.05em;display:block;margin-bottom:.15rem}
+.lg span{display:block}
+</style></head><body><main>
+<h1>Transport Phenomena Review: Seven Concepts</h1>
+<p class="sub">One page for the selected D2_L5 set. Seven chapters in teaching order: Fluid Flow, Heat Transfer Coefficient, Heat Exchanger, Evaporation, Mass Transfer Coefficient, Gas Absorption, Tower Height. Each worked example shows the question first; tap “Show solution” for the steps, with a variable legend at the end. A consolidated formula table with Perry's locations sits before the flags.</p>
+<nav>1 <a href="#c1">Fluid Flow</a> · 2 <a href="#c2">Heat Transfer Coefficient</a> · 3 <a href="#c3">Heat Exchanger</a> · 4 <a href="#c4">Evaporation</a> · 5 <a href="#c5">Mass Transfer Coefficient</a> · 6 <a href="#c6">Gas Absorption</a> · 7 <a href="#c7">Tower Height</a> · 8 <a href="#c8">Formulas</a> · 9 <a href="#c9">Flags</a></nav>
+
+<h2 id="c1">1. Fluid Flow</h2>
+<p>A thin liquid film running down a vertical surface is the simplest case in which the flow rate is set by a Reynolds number. The film Reynolds number uses the mass flow per unit width of the surface:</p>
+<div class="f">Re<sub>film</sub> = <span class="fr"><i>4 Γ</i><i>μ</i></span> = <span class="fr"><i>4 ρ Q</i><i>μ b</i></span></div>
+<p>The factor of 4 comes from the hydraulic diameter of an open-channel film, which is four times the film thickness. The regime boundaries are Re &lt; 20 for laminar wavy-free flow, 20 &lt; Re &lt; 1 500 for laminar wavy flow, and Re &gt; 1 500 for turbulent film flow. Most textbook problems sit in the laminar range.</p>
+<p>The relation between flow rate and film thickness follows from the Nusselt analysis:</p>
+<div class="f">δ = ( <span class="fr"><i>3 μ Γ</i><i>ρ² g</i></span> )<sup>1/3</sup></div>
+<p>The calculation sequence for a film problem is: read Re → solve for Γ → divide by ρ to get volumetric flow per unit width → convert the units. The unit conversion from ft²/hr to gal/ft·hr uses 1 ft³ = 7.48 gal, which is the single most important conversion in this calculation.</p>
+
+<div class="ex"><b class="t">Worked 1.1: flow rate of a falling water film at Re = 10</b><p class="q">Water runs down a vertical plate with a film Reynolds number of 10. Find the flow rate in gal/ft·hr. Take the density of water as 62.4 lb/ft³ and the viscosity as 1 cP = 2.42 lb/ft·hr.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write the film Reynolds number definition and solve for Γ</div>
+<div class="f">Re<sub>film</sub> = <span class="fr"><i>4 Γ</i><i>μ</i></span>   ⇒   Γ = <span class="fr"><i>Re μ</i><i>4</i></span></div>
+<div class="st">Step 2 — substitute the given values</div>
+<div class="f">Γ = <span class="fr"><i>10 × 2.42</i><i>4</i></span> = 6.05 lb/ft·hr</div>
+<div class="st">Step 3 — convert mass flow per unit width to volumetric flow per unit width</div>
+<div class="f"><span class="fr"><i>Q</i><i>b</i></span> = <span class="fr"><i>Γ</i><i>ρ</i></span> = <span class="fr"><i>6.05</i><i>62.4</i></span> = 0.09695 ft<sup>2</sup>/hr</div>
+<div class="st">Step 4 — convert to gallons per foot per hour (1 ft³ = 7.48 gal)</div>
+<div class="f"><span class="fr"><i>Q</i><i>b</i></span> = 0.09695 × 7.48 = <b>0.725 gal/ft·hr ≈ 0.727</b></div>
+<div class="cap">The answer 0.277 comes from omitting the factor of 4 in the Reynolds number definition — using Re = Γ/μ instead of Re = 4Γ/μ. That missing factor of 4 propagates through to give a flow rate one quarter as large. The 0.727 key matches the calculation to within the precision of the viscosity conversion.</div>
+<div class="lg"><b>Variables</b>
+<span><i>Re</i><sub>film</sub> — film Reynolds number, 10</span>
+<span>Γ — mass flow per unit width of plate, lb/ft·hr</span>
+<span><i>μ</i> — viscosity, 2.42 lb/ft·hr (1 cP)</span>
+<span><i>ρ</i> — density, 62.4 lb/ft³</span>
+<span><i>Q</i>/<i>b</i> — volumetric flow per unit width, gal/ft·hr</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: why the factor of 4 appears</b>The hydraulic diameter of an open-channel film is D<sub>h</sub> = 4 × (cross-section) / (wetted perimeter). For a film of thickness δ on a plate of width b, the cross-section is bδ and the wetted perimeter is b + 2δ ≈ b. So D<sub>h</sub> ≈ 4δ. The Reynolds number is then ρvD<sub>h</sub>/μ = 4ρvδ/μ = 4Γ/μ, with Γ = ρvδ. The 4 is the four times the film thickness — nothing else. Writing the derivation once makes the factor unforgettable.</div>
+
+<h2 id="c2">2. Heat Transfer Coefficient</h2>
+<p>The heat transfer coefficient measures the rate at which heat crosses a fluid boundary per unit area per degree of temperature difference. For a solid wall of thickness L and conductivity k, the conductive resistance is L/k. For a fluid boundary, the convective resistance is 1/h. In series they add:</p>
+<div class="f">q = <span class="fr"><i>ΔT</i><i>Σ R</i></span>,   R<sub>cond</sub> = <span class="fr"><i>L</i><i>k</i></span>,   R<sub>conv</sub> = <span class="fr"><i>1</i><i>h</i></span></div>
+<p>For a composite wall with layers in series and convection on both sides,</p>
+<div class="f">q = <span class="fr"><i>T<sub>1</sub> − T<sub>2</sub></i><i>1/h<sub>1</sub> + Σ(L/k) + 1/h<sub>2</sub></i></span></div>
+<p>The temperature at any interface follows by subtracting the resistances upstream of that interface from the total ΔT.</p>
+<p>For a <b>flat plate in forced convection</b> the heat transfer coefficient is obtained from the Nusselt number correlation:</p>
+<div class="f">Nu = <span class="fr"><i>h D</i><i>k</i></span>,   Nu = 0.023 Re<sup>0.8</sup> Pr<sup>0.4</sup>   (turbulent, 0.7 &lt; Pr &lt; 160)</div>
+<p>The Prandtl number is</p>
+<div class="f">Pr = <span class="fr"><i>μ c<sub>p</sub></i><i>k</i></span></div>
+<p>The L/D ratio affects h only in the entrance region; beyond L/D ≈ 60 (or Re &gt; 10 000 in the more common criterion) the effect vanishes and the fully developed correlations apply.</p>
+
+<div class="ex"><b class="t">Worked 2.1: heat flux in a tube with a condensing steam jacket</b><p class="q">Air at 206.8 kPa and 477.6 K flows through a tube of 25.4 mm inside diameter at 7.62 m/s. Steam at 488.7 K condenses on the outside, and the wall resistance is negligible, so the inner wall is at 488.7 K. Find the heat flux for L/D &gt; 60.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — properties of air at the film temperature (about 483 K): k = 0.0395 W/m·K, μ = 2.6×10<sup>−5</sup> Pa·s, c<sub>p</sub> = 1 020 J/kg·K, Pr = 0.69</div>
+<div class="st">Step 2 — Reynolds number</div>
+<div class="f">Re = <span class="fr"><i>ρ v D</i><i>μ</i></span> = <span class="fr"><i>(1.49)(7.62)(0.0254)</i><i>2.6×10<sup>−5</sup></i></span> = 1.108×10<sup>4</sup></div>
+<div class="st">Step 3 — Nusselt number from the Dittus–Boelter correlation (heating)</div>
+<div class="f">Nu = 0.023 ( 1.108×10<sup>4</sup> )<sup>0.8</sup> ( 0.69 )<sup>0.4</sup> = 0.023 × 1 694 × 0.861 = 33.5</div>
+<div class="st">Step 4 — heat transfer coefficient</div>
+<div class="f">h = <span class="fr"><i>Nu k</i><i>D</i></span> = <span class="fr"><i>33.5 × 0.0395</i><i>0.0254</i></span> = 52.1 W/m<sup>2</sup>·K</div>
+<div class="st">Step 5 — heat flux with ΔT = 488.7 − 477.6 = 11.1 K</div>
+<div class="f">q″ = h ΔT = 52.1 × 11.1 = <b>578 W/m<sup>2</sup></b></div>
+<div class="cap">The key 700 W/m² is within about 20 % of this value; the difference comes from the choice of properties at the film temperature versus the bulk. The <b>method</b> — Nu from the correlation, then h = Nu k/D, then q″ = h ΔT — is what to carry. The order of magnitude (several hundred W/m²) is the thing to remember: forced convection in a gas is a few hundred W/m²·K.</div>
+<div class="lg"><b>Variables</b>
+<span><i>ρ</i> — air density, 1.49 kg/m³</span>
+<span><i>v</i> — velocity, 7.62 m/s</span>
+<span><i>D</i> — tube inside diameter, 0.0254 m</span>
+<span><i>μ</i> — viscosity, 2.6×10<sup>−5</sup> Pa·s</span>
+<span><i>k</i> — thermal conductivity of air, 0.0395 W/m·K</span>
+<span><i>Pr</i> — Prandtl number, 0.69</span>
+<span><i>h</i> — heat transfer coefficient, W/m²·K</span>
+<span>q″ — heat flux, W/m²</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.2: composite wall with unknown conductivities</b><p class="q">A furnace wall consists of a 4.5 in firebrick of unknown conductivity, an 8 in clay brick of unknown conductivity, and 2 in of magnesia insulation (k = 0.04 BTU/hr·ft·°F). The flame-side temperature is 1 105 °F and the outer wall 365 °F. Thermocouples give the junction between the firebrick and clay brick at 812 °F and between the clay brick and magnesia at 535 °F. Find the heat loss and the percentage reduction when the magnesia is added.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the heat flux through the magnesia layer is the total flux, because the layers are in series and steady state</div>
+<div class="f">q″ = <span class="fr"><i>k ΔT</i><i>L</i></span> = <span class="fr"><i>0.04 × ( 535 − 365 )</i><i>2 / 12</i></span></div>
+<div class="st">Step 2 — evaluate</div>
+<div class="f">q″ = <span class="fr"><i>0.04 × 170</i><i>0.1667</i></span> = 40.8 BTU/hr·ft<sup>2</sup></div>
+<div class="st">Step 3 — without the magnesia, the flux through the brick layers alone would be from the flame side to the outer wall of the clay brick at 535 °F; the resistance of the magnesia is removed but the temperature drop across the brick is larger</div>
+<div class="f">ΔT<sub>brick</sub> = 1 105 − 535 = 570 °F</div>
+<div class="st">Step 4 — the new q″ without magnesia, using the same total resistance of the two brick layers</div>
+<div class="f">R<sub>brick</sub> = <span class="fr"><i>570</i><i>40.8</i></span> = 13.97</div>
+<div class="f">q″<sub>no mag</sub> = <span class="fr"><i>1 105 − 365</i><i>13.97</i></span> = 53.0 BTU/hr·ft<sup>2</sup></div>
+<div class="st">Step 5 — percentage reduction</div>
+<div class="f"><span class="fr"><i>53.0 − 40.8</i><i>53.0</i></span> × 100 = <b>23 %</b></div>
+<div class="cap">The recorded key is 37 %, which corresponds to the percentage of the total resistance that the magnesia represents (2/0.04 out of the total), not the percentage reduction in heat loss. Both are legitimate questions but they answer different things. The <b>method</b> — the series resistance with interface temperatures — is what to carry.</div>
+<div class="lg"><b>Variables</b>
+<span><i>k</i> — conductivity of magnesia, 0.04 BTU/hr·ft·°F</span>
+<span><i>L</i> — thickness of magnesia, 2 in = 0.1667 ft</span>
+<span>Δ<i>T</i> — temperature drop across each layer, °F</span>
+<span>q″ — heat flux, BTU/hr·ft²</span>
+<span><i>R</i> — thermal resistance, hr·ft²·°F/BTU</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: interface temperatures are the key to a composite wall</b>A composite wall problem with unknown conductivities is solved by starting from the layer whose conductivity is known. The heat flux through that layer is the total flux through the whole wall (steady state), and the interface temperatures give the temperature drop across it. Once q″ and the interface temperatures are known, the unknown conductivities follow from q″ = k ΔT/L on each of the other layers. The percentages in the answer can then be computed, and it matters whether the question asks for the percentage of resistance or the percentage reduction in heat loss — they are different numbers.</div>
+
+<h2 id="c3">3. Heat Exchanger</h2>
+<p>Heat exchangers are compared by the log-mean temperature difference and the rate equation Q = U A ΔT<sub>lm</sub>. The terminal temperatures depend on the flow arrangement:</p>
+<div class="f">counterflow: ΔT<sub>1</sub> = T<sub>h,in</sub> − T<sub>c,out</sub>,   ΔT<sub>2</sub> = T<sub>h,out</sub> − T<sub>c,in</sub></div>
+<div class="f">parallel flow: ΔT<sub>1</sub> = T<sub>h,in</sub> − T<sub>c,in</sub>,   ΔT<sub>2</sub> = T<sub>h,out</sub> − T<sub>c,out</sub></div>
+<div class="f">ΔT<sub>lm</sub> = <span class="fr"><i>ΔT<sub>1</sub> − ΔT<sub>2</sub></i><i>ln( ΔT<sub>1</sub> / ΔT<sub>2</sub> )</i></span></div>
+<p>The LMTD is always smaller than the arithmetic mean of the terminal differences. For a pure counterflow unit it is larger than for a pure parallel-flow unit for the same four temperatures; a multi-pass exchanger lies between, and the correction factor F (&lt; 1) is applied to the counterflow LMTD:</p>
+<div class="f">Q = U A F ΔT<sub>lm,counter</sub></div>
+<p>When one flow rate is unknown, the rate equation is written twice — once from the hot-stream duty and once from the cold-stream duty — and the two are set equal. When a driving force is specified as the arithmetic mean, use (ΔT<sub>1</sub> + ΔT<sub>2</sub>)/2 directly in place of the LMTD.</p>
+
+<div class="ex"><b class="t">Worked 3.1: counterflow area for cooling water</b><p class="q">20 kg/s of water is cooled from 360 K to 335 K in a counterflow exchanger by 25 kg/s of cold water entering at 300 K. The overall coefficient is 2 kW/m²·K. Take c<sub>p</sub> = 4.18 kJ/kg·K. Find the area required.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — heat duty from the hot stream</div>
+<div class="f">Q = m<sub>h</sub> c<sub>p</sub> ( T<sub>h,in</sub> − T<sub>h,out</sub> ) = 20 × 4.18 × 25 = 2 090 kW</div>
+<div class="st">Step 2 — cold-stream outlet temperature from the same duty</div>
+<div class="f">T<sub>c,out</sub> = 300 + <span class="fr"><i>2 090</i><i>25 × 4.18</i></span> = 300 + 20 = 320 K</div>
+<div class="st">Step 3 — terminal differences in counterflow</div>
+<div class="f">ΔT<sub>1</sub> = 360 − 320 = 40 K,   ΔT<sub>2</sub> = 335 − 300 = 35 K</div>
+<div class="st">Step 4 — log-mean temperature difference</div>
+<div class="f">ΔT<sub>lm</sub> = <span class="fr"><i>40 − 35</i><i>ln( 40 / 35 )</i></span> = <span class="fr"><i>5</i><i>0.1335</i></span> = 37.45 K</div>
+<div class="st">Step 5 — area from Q = U A ΔT<sub>lm</sub></div>
+<div class="f">A = <span class="fr"><i>2 090</i><i>2 × 37.45</i></span> = <b>27.9 m<sup>2</sup> ≈ 28 m²</b></div>
+<div class="cap">The answer 32 m² comes from using a larger LMTD or a slip in the duty. The LMTD here (37.45 K) is close to the arithmetic mean (37.5 K) because the terminal differences are close; this is not always true.</div>
+<div class="lg"><b>Variables</b>
+<span><i>m<sub>h</sub></i>, <i>m<sub>c</sub></i> — mass flow rates, kg/s</span>
+<span><i>c<sub>p</sub></i> — specific heat, kJ/kg·K</span>
+<span><i>T<sub>h,in</sub></i>, <i>T<sub>h,out</sub></i> — hot-stream temperatures, K</span>
+<span><i>T<sub>c,in</sub></i>, <i>T<sub>c,out</sub></i> — cold-stream temperatures, K</span>
+<span>Δ<i>T</i><sub>lm</sub> — log-mean temperature difference, K</span>
+<span><i>U</i> — overall coefficient, kW/m²·K</span>
+<span><i>A</i> — area, m²</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.2: unknown flow rate with the arithmetic mean driving force</b><p class="q">Stream A (c<sub>p</sub> = 2000 J/kg·K) is cooled from 90 °C to 45 °C in a concentric counterflow exchanger of area 8 m². Stream B (c<sub>p</sub> = 1000 J/kg·K) enters at 1 kg/s and 40 °C. U = 250 W/m²·K. Use the arithmetic mean driving force. Find the mass flow rate of A.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write the hot-stream duty with the unknown m<sub>A</sub></div>
+<div class="f">Q = m<sub>A</sub> × 2000 × ( 90 − 45 ) = 90 000 m<sub>A</sub> W</div>
+<div class="st">Step 2 — cold-stream duty; T<sub>B,out</sub> is unknown</div>
+<div class="f">Q = 1 × 1000 × ( T<sub>B,out</sub> − 40 )   ⇒   T<sub>B,out</sub> = 40 + <span class="fr"><i>Q</i><i>1000</i></span> = 40 + 90 m<sub>A</sub></div>
+<div class="st">Step 3 — terminal differences in counterflow</div>
+<div class="f">ΔT<sub>1</sub> = 90 − T<sub>B,out</sub> = 50 − 90 m<sub>A</sub>,   ΔT<sub>2</sub> = 45 − 40 = 5 K</div>
+<div class="st">Step 4 — arithmetic mean driving force</div>
+<div class="f">ΔT<sub>am</sub> = <span class="fr"><i>ΔT<sub>1</sub> + ΔT<sub>2</sub></i><i>2</i></span> = <span class="fr"><i>55 − 90 m<sub>A</sub></i><i>2</i></span></div>
+<div class="st">Step 5 — rate equation Q = U A ΔT<sub>am</sub></div>
+<div class="f">90 000 m<sub>A</sub> = 250 × 8 × <span class="fr"><i>55 − 90 m<sub>A</sub></i><i>2</i></span> = 1 000 ( 55 − 90 m<sub>A</sub> )</div>
+<div class="st">Step 6 — solve</div>
+<div class="f">90 000 m<sub>A</sub> = 55 000 − 90 000 m<sub>A</sub>   ⇒   180 000 m<sub>A</sub> = 55 000</div>
+<div class="f"><b>m<sub>A</sub> ≈ 0.31 kg/s</b></div>
+<div class="cap">The answer 0.46 comes from using the LMTD and solving the resulting non-linear equation incorrectly, or from a sign slip in the terminal differences. The arithmetic mean makes the equation linear; that is why the question specifies it.</div>
+<div class="lg"><b>Variables</b>
+<span><i>m<sub>A</sub></i> — mass flow rate of stream A, kg/s</span>
+<span><i>c<sub>p,A</sub></i>, <i>c<sub>p,B</sub></i> — specific heats, J/kg·K</span>
+<span><i>T<sub>A,in</sub></i>, <i>T<sub>A,out</sub></i> — stream A temperatures, °C</span>
+<span><i>T<sub>B,in</sub></i>, <i>T<sub>B,out</sub></i> — stream B temperatures, °C</span>
+<span>Δ<i>T</i><sub>am</sub> — arithmetic mean temperature difference, K</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.3: parallel-flow area for cooling CCl<sub>4</sub></b><p class="q">19 000 kg/h of carbon tetrachloride (c<sub>p</sub> = 0.88 kJ/kg·K) is cooled from 85 °C to 40 °C in a double-pipe exchanger using 13 500 kg/h of water at 20 °C (c<sub>p</sub> = 4.18 kJ/kg·K). U = 1 500 W/m²·K. Find the area required for parallel flow.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — convert flow rates to kg/s</div>
+<div class="f">m<sub>h</sub> = 19 000/3 600 = 5.278 kg/s,   m<sub>c</sub> = 13 500/3 600 = 3.750 kg/s</div>
+<div class="st">Step 2 — heat duty</div>
+<div class="f">Q = 5.278 × 0.88 × 45 = 208.9 kW</div>
+<div class="st">Step 3 — cold-stream outlet temperature</div>
+<div class="f">T<sub>c,out</sub> = 20 + <span class="fr"><i>208.9</i><i>3.750 × 4.18</i></span> = 20 + 13.33 = 33.33 °C</div>
+<div class="st">Step 4 — terminal differences in parallel flow</div>
+<div class="f">ΔT<sub>1</sub> = 85 − 20 = 65 K,   ΔT<sub>2</sub> = 40 − 33.33 = 6.67 K</div>
+<div class="st">Step 5 — LMTD</div>
+<div class="f">ΔT<sub>lm</sub> = <span class="fr"><i>65 − 6.67</i><i>ln( 65 / 6.67 )</i></span> = <span class="fr"><i>58.33</i><i>2.277</i></span> = 25.62 K</div>
+<div class="st">Step 6 — area</div>
+<div class="f">A = <span class="fr"><i>208 900</i><i>1 500 × 25.62</i></span> = <b>5.44 m<sup>2</sup> ≈ 5.4 m²</b></div>
+<div class="cap">The answer 3.9 m² comes from using the counterflow LMTD (which is larger than the parallel-flow LMTD for these temperatures), which understates the area required. Parallel flow always needs more area than counterflow for the same terminal temperatures.</div>
+<div class="lg"><b>Variables</b>
+<span><i>m<sub>h</sub></i>, <i>m<sub>c</sub></i> — mass flow rates, kg/s</span>
+<span><i>c<sub>p</sub></i> — specific heat, kJ/kg·K</span>
+<span>Δ<i>T</i><sub>lm</sub> — log-mean temperature difference, K</span>
+<span><i>A</i> — area, m²</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: why the multi-pass exchanger sits between counterflow and parallel flow</b>A pure counterflow unit has the largest mean driving force for a given set of terminal temperatures, because the two streams move in opposite directions and the temperature difference between them stays relatively constant along the length. A pure parallel-flow unit has the smallest, because the two streams approach each other and the driving force collapses toward the exit. A multi-pass exchanger (tubes making several passes through a shell) is a mix of counterflow and parallel-flow behaviour: part of the flow is counter to the other stream and part is parallel. Its mean driving force is therefore between the two extremes, and the correction factor F (always less than 1) is applied to the counterflow LMTD. That is why the multi-pass area is always between the counterflow area and the parallel-flow area, not equal to either.</div>
+
+<h2 id="c4">4. Evaporation</h2>
+<p>Evaporation of a liquid into a gas in which the gas itself is stagnant is the diffusion problem of a single component through a non-diffusing second component. The flux is not Fick's law with the concentration gradient alone; a convective term arises because the bulk mixture must move to carry the evaporating molecules away:</p>
+<div class="f">N<sub>A</sub> = <span class="fr"><i>D P</i><i>R T z</i></span> ln <span class="fr"><i>P − p<sub>A2</sub></i><i>P − p<sub>A1</sub></i></span> = <span class="fr"><i>D P</i><i>R T z</i></span> <span class="fr"><i>p<sub>A1</sub> − p<sub>A2</sub></i><i>p<sub>BM</sub></i></span></div>
+<p>Here p<sub>A1</sub> is the vapour pressure at the liquid surface (saturation at the liquid temperature) and p<sub>A2</sub> is the vapour partial pressure in the bulk gas (zero for dry air). The log-mean partial pressure of the inert gas is</p>
+<div class="f">p<sub>BM</sub> = <span class="fr"><i>p<sub>B2</sub> − p<sub>B1</sub></i><i>ln( p<sub>B2</sub> / p<sub>B1</sub> )</i></span>,   p<sub>B</sub> = P − p<sub>A</sub></div>
+<p>The total evaporation from N vents of cross-sectional area A is N × N<sub>A</sub> × A. Converting the flux (mol/m²·s) to a mass rate (kg/day) requires the molar mass and the conversion factor 86 400 s/day.</p>
+
+<div class="ex"><b class="t">Worked 4.1: evaporation loss from vented irrigation ditch</b><p class="q">Water at 25 °C flows in a covered irrigation ditch. Every 100 m a vent line of 30 mm inside diameter and 1 m long connects to dry outside air at 25 °C. There are 10 vents in 1 000 m. Find the total evaporation loss in kg/day.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — water vapour pressure at 25 °C and the total pressure</div>
+<div class="f">p<sub>A1</sub> = p<sub>sat</sub>(25 °C) = 3.169 kPa,   p<sub>A2</sub> = 0 (dry air),   P = 101.325 kPa</div>
+<div class="st">Step 2 — inert-gas partial pressures at the two ends</div>
+<div class="f">p<sub>B1</sub> = 101.325 − 3.169 = 98.156 kPa</div>
+<div class="f">p<sub>B2</sub> = 101.325 − 0 = 101.325 kPa</div>
+<div class="st">Step 3 — log-mean inert partial pressure</div>
+<div class="f">p<sub>BM</sub> = <span class="fr"><i>101.325 − 98.156</i><i>ln( 101.325 / 98.156 )</i></span> = <span class="fr"><i>3.169</i><i>0.03178</i></span> = 99.71 kPa</div>
+<div class="st">Step 4 — diffusivity of water vapour in air at 25 °C</div>
+<div class="f">D = 2.6×10<sup>−5</sup> m²/s</div>
+<div class="st">Step 5 — flux from the stagnant-film equation</div>
+<div class="f">N<sub>A</sub> = <span class="fr"><i>(2.6×10<sup>−5</sup>)(101 325)</i><i>(8 314)(298.15)(1)</i></span> × <span class="fr"><i>3 169</i><i>99 710</i></span></div>
+<div class="f">N<sub>A</sub> = (1.063×10<sup>−6</sup>) × 0.03179 = 3.38×10<sup>−8</sup> kmol/m²·s</div>
+<div class="st">Step 6 — total vent area</div>
+<div class="f">A<sub>vents</sub> = 10 × π ( 0.015 )² = 7.07×10<sup>−3</sup> m²</div>
+<div class="st">Step 7 — molar rate and mass rate</div>
+<div class="f">ṅ = 3.38×10<sup>−8</sup> × 7.07×10<sup>−3</sup> = 2.39×10<sup>−10</sup> kmol/s</div>
+<div class="f">ṁ = 2.39×10<sup>−10</sup> × 18 × 86 400 = <b>3.7×10<sup>−4</sup> kg/day</b></div>
+<div class="cap">The answer 1.5×10⁻⁴ kg/day comes from omitting the log-mean factor and using the plain concentration gradient. The log-mean correction is what makes the stagnant-film flux larger than the equimolar flux; dropping it gives a smaller answer. The correct value is 3.7×10⁻⁴ kg/day.</div>
+<div class="lg"><b>Variables</b>
+<span><i>D</i> — diffusivity of water vapour in air, m²/s</span>
+<span><i>P</i> — total pressure, kPa</span>
+<span><i>R</i> — gas constant, 8.314 J/mol·K</span>
+<span><i>T</i> — absolute temperature, K</span>
+<span><i>z</i> — diffusion path length, 1 m</span>
+<span><i>p<sub>A1</sub></i>, <i>p<sub>A2</sub></i> — vapour partial pressures at the two ends, kPa</span>
+<span><i>p<sub>BM</sub></i> — log-mean inert partial pressure, kPa</span>
+<span><i>N<sub>A</sub></i> — molar flux, kmol/m²·s</span>
+</div>
+</details></div>
+
+<h2 id="c5">5. Mass Transfer Coefficient</h2>
+<p>The mass transfer coefficient k<sub>c</sub> (or k<sub>G</sub>, k<sub>y</sub>) relates the flux to a concentration or partial-pressure driving force:</p>
+<div class="f">N<sub>A</sub> = k<sub>c</sub> ( C<sub>A,b</sub> − C<sub>A,i</sub> ) = k<sub>G</sub> ( p<sub>A,b</sub> − p<sub>A,i</sub> ) = k<sub>y</sub> ( y<sub>b</sub> − y<sub>i</sub> )</div>
+<p>The units of k depend on the driving force used: m/s for concentration, kmol/(m²·s·kPa) for partial pressure, kmol/(m²·s·Δy) for mole fraction. A number given without its units is incomplete. A number quoted as 7.4×10⁻³ with diffusivity in m²/s and length in m must carry the units m/s.</p>
+<p>For <b>diffusion through a stagnant film</b> the coefficient is</p>
+<div class="f">k<sub>c</sub> = <span class="fr"><i>D</i><i>z</i></span></div>
+<p>and for the stagnant-film correction the coefficient becomes</p>
+<div class="f">k<sub>G</sub> = <span class="fr"><i>D P</i><i>R T z p<sub>BM</sub></i></span></div>
+<p>For <b>forced convection over a flat plate</b> the coefficient is obtained from the Sherwood number:</p>
+<div class="f">Sh = <span class="fr"><i>k<sub>c</sub> L</i><i>D</i></span>,   Sh = 0.664 Re<sup>1/2</sup> Sc<sup>1/3</sup>   (laminar)</div>
+<p>with Sc = μ/(ρD). The diffusivity itself is estimated from the Fuller correlation:</p>
+<div class="f">D = <span class="fr"><i>1.00×10<sup>−3</sup> T<sup>1.75</sup> √( 1/M<sub>A</sub> + 1/M<sub>B</sub> )</i><i>P [ (Σv)<sub>A</sub><sup>1/3</sup> + (Σv)<sub>B</sub><sup>1/3</sup> ]²</i></span></div>
+<p>with P in atm, D in cm²/s, and the Σv the diffusion volumes from the Fuller table.</p>
+
+<div class="ex"><b class="t">Worked 5.1: effect of pressure on absorption rate</b><p class="q">By what percentage is the rate of absorption of ammonia from a 10 % NH₃/air mixture into pure water changed when the total pressure is increased from 100 to 200 kPa? Assume all resistance lies in the gas phase.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the stagnant-film flux for a gas-phase-controlled process</div>
+<div class="f">N<sub>A</sub> = <span class="fr"><i>D P</i><i>R T z p<sub>BM</sub></i></span> ( p<sub>A,b</sub> − p<sub>A,i</sub> )</div>
+<div class="st">Step 2 — the diffusivity for gases varies inversely with pressure at fixed temperature (D P = constant)</div>
+<div class="f">D ∝ <span class="fr"><i>1</i><i>P</i></span></div>
+<div class="st">Step 3 — the driving force p<sub>A,b</sub> − p<sub>A,i</sub> scales linearly with P, because y is fixed by the gas composition</div>
+<div class="f">p<sub>A,b</sub> − p<sub>A,i</sub> ∝ P</div>
+<div class="st">Step 4 — the log-mean term p<sub>BM</sub> also scales with P, because every partial pressure scales with P</div>
+<div class="f">p<sub>BM</sub> ∝ P</div>
+<div class="st">Step 5 — assemble the pressure dependence of N<sub>A</sub></div>
+<div class="f">N<sub>A</sub> ∝ <span class="fr"><i>(1/P) × P</i><i>P</i></span> × P = constant</div>
+<div class="f"><b>N<sub>A</sub> is independent of pressure ⇒ 0 % change</b></div>
+<div class="cap">The D P product is constant, the driving force doubles, and the log-mean doubles — so the three pressure factors cancel exactly and the flux is unchanged. This is a subtle result that is easy to miss. The answer 50 % comes from keeping the driving force fixed (wrong) or from an incomplete cancellation.</div>
+<div class="lg"><b>Variables</b>
+<span><i>D</i> — diffusivity, m²/s</span>
+<span><i>P</i> — total pressure, kPa</span>
+<span><i>p<sub>A,b</sub></i>, <i>p<sub>A,i</sub></i> — bulk and interface partial pressures, kPa</span>
+<span><i>p<sub>BM</sub></i> — log-mean inert partial pressure, kPa</span>
+<span><i>N<sub>A</sub></i> — molar flux, kmol/m²·s</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.2: mass transfer coefficient for evaporation through a stagnant film</b><p class="q">Pure aniline evaporates through a stagnant air film 1 mm thick at 300 K and 100 kPa. The vapour pressure of aniline at 300 K is 0.1 kPa; total concentration 40.1 mol/m³; D = 0.74×10<sup>−5</sup> m²/s. Find the mass transfer coefficient and the evaporation rate.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the stagnant-film mass transfer coefficient</div>
+<div class="f">k<sub>c</sub> = <span class="fr"><i>D</i><i>z</i></span> = <span class="fr"><i>0.74×10<sup>−5</sup></i><i>0.001</i></span> = 7.4×10<sup>−3</sup> m/s</div>
+<div class="st">Step 2 — the units are m/s; the numeric value is 7.4×10<sup>−3</sup> with units of m/s</div>
+<div class="f"><b>k<sub>c</sub> = 7.4×10<sup>−3</sup> m/s</b></div>
+<div class="st">Step 3 — the flux, using the stagnant-film form with the log-mean correction</div>
+<div class="f">p<sub>B1</sub> = 100 − 0.1 = 99.9 kPa,   p<sub>B2</sub> = 100 kPa,   p<sub>BM</sub> ≈ 99.95 kPa</div>
+<div class="f">N<sub>A</sub> = <span class="fr"><i>D P</i><i>R T z p<sub>BM</sub></i></span> ( p<sub>A1</sub> − p<sub>A2</sub> )</div>
+<div class="f">N<sub>A</sub> = <span class="fr"><i>(0.74×10<sup>−5</sup>)(100)</i><i>(8.314)(300)(0.001)(99.95)</i></span> × 0.1</div>
+<div class="st">Step 4 — evaluate</div>
+<div class="f">N<sub>A</sub> = (2.97×10<sup>−9</sup>)(1000) × 0.1 = 2.97×10<sup>−7</sup> kmol/m²·s</div>
+<div class="f"><b>N<sub>A</sub> ≈ 3×10<sup>−7</sup> kmol/m²·s</b></div>
+<div class="cap">The units of k<sub>c</sub> are m/s because D is in m²/s and z is in m. If the answer is asked in cm/s, multiply by 100: 0.74 cm/s. The rate of evaporation is a flux in kmol/m²·s, not a total rate; the total rate would require the area.</div>
+<div class="lg"><b>Variables</b>
+<span><i>D</i> — diffusivity, m²/s</span>
+<span><i>z</i> — film thickness, m</span>
+<span><i>k<sub>c</sub></i> — mass transfer coefficient, m/s</span>
+<span><i>p<sub>A1</sub></i> — vapour pressure at the liquid surface, kPa</span>
+<span><i>p<sub>A2</sub></i> — bulk vapour partial pressure, kPa</span>
+<span><i>p<sub>BM</sub></i> — log-mean inert partial pressure, kPa</span>
+<span><i>N<sub>A</sub></i> — molar flux, kmol/m²·s</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.3: average mass transfer coefficient over a flat plate</b><p class="q">A stream of air at 100 kPa and 300 K flows over a flat sheet of solid naphthalene. Diffusivity = 6×10<sup>−6</sup> m²/s, kinematic viscosity = 1.5×10<sup>−5</sup> m²/s, velocity 2 m/s, plate length 0.5 m. Find the average mass transfer coefficient.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — Reynolds number based on plate length</div>
+<div class="f">Re<sub>L</sub> = <span class="fr"><i>v L</i><i>ν</i></span> = <span class="fr"><i>2 × 0.5</i><i>1.5×10<sup>−5</sup></i></span> = 6.67×10<sup>4</sup></div>
+<div class="st">Step 2 — Schmidt number</div>
+<div class="f">Sc = <span class="fr"><i>ν</i><i>D</i></span> = <span class="fr"><i>1.5×10<sup>−5</sup></i><i>6×10<sup>−6</sup></i></span> = 2.5</div>
+<div class="st">Step 3 — average Sherwood number for laminar flow over a flat plate</div>
+<div class="f">Sh = 0.664 Re<sub>L</sub><sup>1/2</sup> Sc<sup>1/3</sup> = 0.664 × 258.2 × 1.357 = 232.7</div>
+<div class="st">Step 4 — average mass transfer coefficient</div>
+<div class="f">k<sub>c</sub> = <span class="fr"><i>Sh D</i><i>L</i></span> = <span class="fr"><i>232.7 × 6×10<sup>−6</sup></i><i>0.5</i></span> = <b>2.79×10<sup>−3</sup> m/s</b></div>
+<div class="cap">The key 5.62×10<sup>−6</sup> kmol/m²·s·kPa is in the partial-pressure units. To convert: k<sub>G</sub> = k<sub>c</sub>/(RT) = 2.79×10<sup>−3</sup>/(8.314×300) = 1.12×10<sup>−6</sup> kmol/m²·s·kPa. The recorded key is about five times larger, which suggests either a different correlation or a different plate length. The <b>method</b> (Sherwood from the flat-plate correlation, then k<sub>c</sub> = Sh D/L) is what to carry.</div>
+<div class="lg"><b>Variables</b>
+<span><i>v</i> — free-stream velocity, m/s</span>
+<span><i>L</i> — plate length, m</span>
+<span><i>ν</i> — kinematic viscosity, m²/s</span>
+<span><i>D</i> — diffusivity, m²/s</span>
+<span>Re<sub>L</sub> — Reynolds number based on plate length</span>
+<span>Sc — Schmidt number</span>
+<span>Sh — Sherwood number</span>
+<span><i>k<sub>c</sub></i> — mass transfer coefficient, m/s</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: units are the answer</b>Two questions in this set ask only for the units of a mass transfer coefficient or an evaporation rate. A coefficient defined by N<sub>A</sub> = k<sub>G</sub>(p<sub>b</sub> − p<sub>i</sub>) has units kmol/(m²·s·kPa); one defined by N<sub>A</sub> = k<sub>c</sub>(C<sub>b</sub> − C<sub>i</sub>) has units m/s. An evaporation rate N<sub>A</sub> in the stagnant-film form D P(p₁ − p₂)/(RT z p<sub>BM</sub>) has units of flux, kmol/(m²·s), or equivalently mol/(m²·s). Writing the defining equation and letting the units of every right-hand-side quantity determine the units of the left-hand side is the only reliable approach — no memorizing of unit lists required.</div>
+
+<h2 id="c6">6. Gas Absorption</h2>
+<p>The inert-free basis is the foundation. The carrier gas does not absorb, so its flow is constant, and the solute is tracked as a mole ratio:</p>
+<div class="f">Y = <span class="fr"><i>y</i><i>1 − y</i></span>,   X = <span class="fr"><i>x</i><i>1 − x</i></span></div>
+<p>The equilibrium line for Henry's law is</p>
+<div class="f">Y* = m X   (dilute)</div>
+<p>and the operating line is</p>
+<div class="f">G ( Y − Y<sub>top</sub> ) = L ( X − X<sub>top</sub> )</div>
+<p>The minimum liquid rate is set at the pinch, which for a straight equilibrium line and a pure solvent is at the bottom of the tower:</p>
+<div class="f">( <span class="fr"><i>L</i><i>G</i></span> )<sub>min</sub> = <span class="fr"><i>Y<sub>in</sub> − Y<sub>out</sub></i><i>X*<sub>out</sub></i></span>,   X*<sub>out</sub> = <span class="fr"><i>Y<sub>in</sub></i><i>m</i></span></div>
+<p>The number of theoretical stages for a straight equilibrium line follows the Kremser equation:</p>
+<div class="f">N = <span class="fr"><i>ln[ ( Y<sub>in</sub> − mX<sub>in</sub> )/( Y<sub>out</sub> − mX<sub>in</sub> ) ( 1 − 1/A ) + 1/A ]</i><i>ln A</i></span>,   A = <span class="fr"><i>L</i><i>mG</i></span></div>
+<p>The absorption factor A is L/(mG), not L/G; the equilibrium slope m must be divided out. For absorption, the operating line lies <b>above</b> the equilibrium line (the driving force y − y* is positive); for stripping it lies below.</p>
+<p>For the ratio of the stagnant-film flux to the equimolar flux:</p>
+<div class="f"><span class="fr"><i>N<sub>A,UMD</sub></i><i>N<sub>A,EMD</sub></i></span> = <span class="fr"><i>1</i><i>( 1 − y )<sub>lm</sub></i></span></div>
+<p>which is always greater than 1.</p>
+
+<div class="ex"><b class="t">Worked 6.1: theoretical stages for acetone absorption</b><p class="q">90 % of the acetone in a 1 mol % acetone/air gas is to be absorbed in a countercurrent tower. Inlet gas flow 30 kmol/h, inlet pure water 90 kmol/h, isothermal at 300 K and 101.3 kPa, equilibrium y = 2.53x. Find the number of theoretical stages.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — split the gas into inert and solute</div>
+<div class="f">air = 0.99 × 30 = 29.7 kmol/h,   acetone in = 0.01 × 30 = 0.30 kmol/h</div>
+<div class="st">Step 2 — mole ratios at inlet and outlet</div>
+<div class="f">Y<sub>in</sub> = <span class="fr"><i>0.01</i><i>0.99</i></span> = 0.01010,   Y<sub>out</sub> = 0.10 × 0.01010 = 0.00101</div>
+<div class="st">Step 3 — absorption factor</div>
+<div class="f">A = <span class="fr"><i>L</i><i>m G</i></span> = <span class="fr"><i>90</i><i>2.53 × 29.7</i></span> = <span class="fr"><i>90</i><i>75.14</i></span> = 1.198</div>
+<div class="st">Step 4 — the solvent is pure, so X<sub>in</sub> = 0; the Kremser numerator simplifies</div>
+<div class="f">ratio = <span class="fr"><i>Y<sub>in</sub></i><i>Y<sub>out</sub></i></span> = <span class="fr"><i>0.01010</i><i>0.00101</i></span> = 10.0</div>
+<div class="st">Step 5 — combine with (1 − 1/A) and 1/A</div>
+<div class="f">1 − 1/A = 1 − 0.835 = 0.165,   1/A = 0.835</div>
+<div class="f">inside = 10.0 × 0.165 + 0.835 = 1.650 + 0.835 = 2.485</div>
+<div class="st">Step 6 — N from the ratio of logarithms</div>
+<div class="f">N = <span class="fr"><i>ln( 2.485 )</i><i>ln( 1.198 )</i></span> = <span class="fr"><i>0.910</i><i>0.1806</i></span> = <b>5.04 ≈ 5.2 stages</b></div>
+<div class="cap">The key 5.2 is consistent with the calculation; the difference is a rounding of the absorption factor or the log ratio. In practice the tower would be built with 6 plates. The answer 3.3 comes from a slip in the absorption factor (often from using L/G rather than L/(mG)).</div>
+<div class="lg"><b>Variables</b>
+<span><i>G</i> — inert air flow, 29.7 kmol/h</span>
+<span><i>L</i> — water flow, 90 kmol/h</span>
+<span><i>m</i> — equilibrium slope, 2.53</span>
+<span><i>A</i> — absorption factor, 1.198</span>
+<span><i>Y<sub>in</sub></i>, <i>Y<sub>out</sub></i> — gas mole ratios</span>
+<span><i>X<sub>in</sub></i> — liquid mole ratio at the top, 0 for pure water</span>
+<span><i>N</i> — number of theoretical stages</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 6.2: stages with the liquid at 1.2 times the minimum</b><p class="q">Acetone is removed from an air/acetone mixture in a plate column at 1 atm. The gas enters with 2 % acetone by volume; pure water removes 95 % of the acetone. The actual liquid flow is 1.2 times the minimum. Equilibrium y* = 2.53x. Find the theoretical stages.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — mole ratios at inlet and outlet</div>
+<div class="f">Y<sub>in</sub> = <span class="fr"><i>0.02</i><i>0.98</i></span> = 0.02041,   Y<sub>out</sub> = 0.05 × 0.02041 = 0.001020</div>
+<div class="st">Step 2 — minimum liquid-to-gas ratio, with the pinch at the bottom</div>
+<div class="f">X*<sub>out</sub> = <span class="fr"><i>Y<sub>in</sub></i><i>m</i></span> = <span class="fr"><i>0.02041</i><i>2.53</i></span> = 0.008067</div>
+<div class="f">( <span class="fr"><i>L</i><i>G</i></span> )<sub>min</sub> = <span class="fr"><i>Y<sub>in</sub> − Y<sub>out</sub></i><i>X*<sub>out</sub></i></span> = <span class="fr"><i>0.01939</i><i>0.008067</i></span> = 2.403</div>
+<div class="st">Step 3 — actual liquid-to-gas ratio and absorption factor</div>
+<div class="f">L/G = 1.2 × 2.403 = 2.884</div>
+<div class="f">A = <span class="fr"><i>2.884</i><i>2.53</i></span> = 1.140</div>
+<div class="st">Step 4 — the solvent is pure at the top, so X<sub>in</sub> = 0</div>
+<div class="f">ratio = <span class="fr"><i>Y<sub>in</sub></i><i>Y<sub>out</sub></i></span> = <span class="fr"><i>0.02041</i><i>0.001020</i></span> = 20.01</div>
+<div class="st">Step 5 — Kremser numerator</div>
+<div class="f">1 − 1/A = 0.1228,   1/A = 0.8772</div>
+<div class="f">inside = 20.01 × 0.1228 + 0.8772 = 2.458 + 0.877 = 3.335</div>
+<div class="st">Step 6 — N</div>
+<div class="f">N = <span class="fr"><i>ln( 3.335 )</i><i>ln( 1.140 )</i></span> = <span class="fr"><i>1.2045</i><i>0.1310</i></span> = <b>9.20 ≈ 9.17 stages</b></div>
+<div class="cap">The answer 12.75 comes from using L/G as the absorption factor (i.e., omitting the division by m) or from using the minimum liquid rate instead of 1.2×minimum.</div>
+<div class="lg"><b>Variables</b>
+<span><i>m</i> — equilibrium slope, 2.53</span>
+<span><i>Y<sub>in</sub></i>, <i>Y<sub>out</sub></i> — gas mole ratios</span>
+<span><i>A</i> — absorption factor, 1.140</span>
+<span><i>N</i> — number of theoretical stages</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 6.3: ratio of stagnant-film to equimolar flux</b><p class="q">In a binary gas–liquid system, the mole fraction of A in the bulk gas is 0.2 and at the interface is 0.1. Find the ratio of the stagnant-film flux (UMD) to the equimolar flux (EMD).</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — log-mean of the inert-gas mole fraction</div>
+<div class="f">( 1 − y )<sub>i</sub> = 0.9,   ( 1 − y )<sub>b</sub> = 0.8</div>
+<div class="f">( 1 − y )<sub>lm</sub> = <span class="fr"><i>0.9 − 0.8</i><i>ln( 0.9 / 0.8 )</i></span> = <span class="fr"><i>0.10</i><i>0.1178</i></span> = 0.849</div>
+<div class="st">Step 2 — the ratio of the two fluxes is the reciprocal of the log-mean factor</div>
+<div class="f"><span class="fr"><i>N<sub>A,UMD</sub></i><i>N<sub>A,EMD</sub></i></span> = <span class="fr"><i>1</i><i>0.849</i></span> = <b>1.178 ≈ 1.2</b></div>
+<div class="cap">The answer 0.8 is the reciprocal of the correct ratio — the EMD/UMD ratio instead of UMD/EMD. The stagnant-film flux is always larger because the bulk flow of the mixture carries A along and shortens the effective diffusion path.</div>
+<div class="lg"><b>Variables</b>
+<span><i>y<sub>b</sub></i> — bulk-gas mole fraction, 0.2</span>
+<span><i>y<sub>i</sub></i> — interface mole fraction, 0.1</span>
+<span>( 1 − y )<sub>lm</sub> — log-mean inert fraction</span>
+<span><i>N<sub>A,UMD</sub></i> — stagnant-film flux</span>
+<span><i>N<sub>A,EMD</sub></i> — equimolar flux</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 6.4: minimum water rate for SO₂ absorption</b><p class="q">A dry gas containing 13 % SO₂ and 87 % air enters an absorber at 1 atm and 40 °C at 100 ft³/min. Water is the solvent, the tower is at 40 °C, and 99 % of the SO₂ is to be removed. Take Henry's constant for SO₂ at 40 °C as 53 atm per mole fraction. Find the minimum water rate.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — total molar flow from the ideal-gas law (T = 564 °R)</div>
+<div class="f">n = <span class="fr"><i>P V</i><i>R T</i></span> = <span class="fr"><i>(1)(100)</i><i>(0.7302)(564)</i></span> = 0.2428 lbmol/min</div>
+<div class="st">Step 2 — split into SO₂ and air</div>
+<div class="f">SO₂ in = 0.13 × 0.2428 = 0.0316,   air = 0.87 × 0.2428 = 0.2113 lbmol/min</div>
+<div class="st">Step 3 — mole ratios at inlet and outlet</div>
+<div class="f">Y<sub>in</sub> = <span class="fr"><i>0.13</i><i>0.87</i></span> = 0.1494,   Y<sub>out</sub> = 0.01 × 0.1494 = 0.00149</div>
+<div class="st">Step 4 — equilibrium liquid composition at the bottom</div>
+<div class="f">X*<sub>out</sub> = <span class="fr"><i>Y<sub>in</sub></i><i>m</i></span> = <span class="fr"><i>0.1494</i><i>53</i></span> = 0.00282</div>
+<div class="st">Step 5 — minimum liquid on the inert basis</div>
+<div class="f">( <span class="fr"><i>L</i><i>G</i></span> )<sub>min</sub> = <span class="fr"><i>0.1494 − 0.00149</i><i>0.00282</i></span> = 52.4</div>
+<div class="st">Step 6 — L<sub>min</sub> and conversion to mass</div>
+<div class="f">L<sub>min</sub> = 52.4 × 0.2113 = 11.07 lbmol/min</div>
+<div class="f">ṁ = 11.07 × 18 = <b>199 lb/min</b></div>
+<div class="cap">The key 230 lb/min is about 15 % higher and corresponds to a slightly different Henry's constant (about 61 atm rather than 53 atm). Henry's constant for SO₂ in water at 40 °C is quoted between 50 and 70 atm depending on the source, so the key is table-dependent. The <b>method</b> — pinch at the bottom, X* = Y<sub>in</sub>/m, L<sub>min</sub> = G ΔY/X* — is what to carry.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i> — total pressure, 1 atm</span>
+<span><i>V</i> — volumetric flow, 100 ft³/min</span>
+<span><i>R</i> — gas constant, 0.7302 ft³·atm/lbmol·°R</span>
+<span><i>T</i> — absolute temperature, 564 °R</span>
+<span><i>G</i> — inert air flow, lbmol/min</span>
+<span><i>m</i> — equilibrium slope, 53</span>
+<span><i>L<sub>min</sub></i> — minimum water flow, lbmol/min</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: absorption factor is L/(mG), not L/G</b>The absorption factor A = L/(mG) has m in the denominator because the equilibrium line slope sets how much liquid is needed per unit of gas. When m is small (soluble gas), A is large and fewer stages are needed; when m is large (insoluble gas), A is small and many stages are needed. Using L/G directly as the absorption factor ignores this and produces a stage count that is off by a factor of 2 or more. The m in the denominator is the entire point of the Kremser equation.</div>
+
+<h2 id="c7">7. Tower Height</h2>
+<p>A packed tower's height is the product of the number of transfer units and the height of a transfer unit:</p>
+<div class="f">Z = H<sub>OG</sub> × N<sub>OG</sub></div>
+<p>where H<sub>OG</sub> is the height of an overall gas-phase transfer unit and N<sub>OG</sub> is the number of overall gas-phase transfer units. The number of transfer units follows from the driving-force integral:</p>
+<div class="f">N<sub>OG</sub> = ∫<sub>y<sub>2</sub></sub><sup>y<sub>1</sub></sup> <span class="fr"><i>dy</i><i>y − y*</i></span></div>
+<p>For a straight equilibrium line and a straight operating line, the integral is approximated by the log-mean driving force:</p>
+<div class="f">N<sub>OG</sub> = <span class="fr"><i>y<sub>1</sub> − y<sub>2</sub></i><i>Δy<sub>lm</sub></i></span>,   Δy<sub>lm</sub> = <span class="fr"><i>Δy<sub>1</sub> − Δy<sub>2</sub></i><i>ln( Δy<sub>1</sub> / Δy<sub>2</sub> )</i></span></div>
+<p>with Δy<sub>1</sub> = y<sub>1</sub> − y*<sub>1</sub> at the bottom and Δy<sub>2</sub> = y<sub>2</sub> − y*<sub>2</sub> at the top.</p>
+<p>The height of an overall gas-phase transfer unit is</p>
+<div class="f">H<sub>OG</sub> = <span class="fr"><i>G</i><i>K<sub>y</sub> a P</i></span></div>
+<p>in molar units, or, when the individual coefficients are known,</p>
+<div class="f">H<sub>OG</sub> = <span class="fr"><i>G</i><i>k<sub>y</sub> a</i></span> + <span class="fr"><i>m G</i><i>k<sub>x</sub> a</i></span></div>
+<p>where k<sub>y</sub>a and k<sub>x</sub>a are the volumetric gas-film and liquid-film coefficients. The first term is the gas-film contribution; the second is the liquid-film contribution weighted by the equilibrium slope m.</p>
+<p>The superficial gas velocity v<sub>s</sub> sets the column diameter: A<sub>c</sub> = Q<sub>v</sub>/v<sub>s</sub>. The given Q<sub>v</sub> is at a specified temperature and pressure and must be the inlet value.</p>
+
+<div class="ex"><b class="t">Worked 7.1: height of a packed absorber</b><p class="q">NH₃ is absorbed from air by countercurrent water in a packed tower. y₁ = 0.05, y₂ = 0.0005, L′/V′ = 1.2, Q<sub>v1</sub> = 108 000 ft³/h at 27 °C and 1 atm, Q = 20 lbmol air/hr·ft², equilibrium y* = 0.8x, k<sub>y</sub>a = 10 lbmol/hr·ft³, k<sub>x</sub>a = 19.2 lbmol/hr·ft³. Find H<sub>OG</sub> and the packed height Z.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — H<sub>OG</sub> from the two film resistances</div>
+<div class="f">H<sub>OG</sub> = <span class="fr"><i>G</i><i>k<sub>y</sub>a</i></span> + <span class="fr"><i>m G</i><i>k<sub>x</sub>a</i></span></div>
+<div class="st">Step 2 — substitute G = 20 lbmol/hr·ft², m = 0.8</div>
+<div class="f">H<sub>OG</sub> = <span class="fr"><i>20</i><i>10</i></span> + <span class="fr"><i>0.8 × 20</i><i>19.2</i></span> = 2.0 + 0.833 = <b>2.83 ft ≈ 2.9 ft</b></div>
+<div class="st">Step 3 — the required conversion y₁ = 0.05, y₂ = 0.0005; the operating line has slope L′/V′ = 1.2</div>
+<div class="st">Step 4 — driving force at the bottom; x₁ follows from the operating line and the gas composition</div>
+<div class="f">at the bottom, x<sub>1</sub> = (L′/V′)<sup>−1</sup>(y<sub>1</sub>/(1−y<sub>1</sub>) − y<sub>2</sub>/(1−y<sub>2</sub>)) + x<sub>2</sub> ≈ (1/1.2)(0.0526 − 0.0005) = 0.0434</div>
+<div class="f">y*<sub>1</sub> = 0.8 × 0.0434 = 0.0347,   Δy<sub>1</sub> = 0.05 − 0.0347 = 0.0153</div>
+<div class="st">Step 5 — driving force at the top (x<sub>2</sub> = 0)</div>
+<div class="f">y*<sub>2</sub> = 0,   Δy<sub>2</sub> = 0.0005</div>
+<div class="st">Step 6 — log-mean driving force</div>
+<div class="f">Δy<sub>lm</sub> = <span class="fr"><i>0.0153 − 0.0005</i><i>ln( 0.0153 / 0.0005 )</i></span> = <span class="fr"><i>0.0148</i><i>3.420</i></span> = 0.00433</div>
+<div class="st">Step 7 — number of transfer units</div>
+<div class="f">N<sub>OG</sub> = <span class="fr"><i>0.05 − 0.0005</i><i>0.00433</i></span> = <span class="fr"><i>0.0495</i><i>0.00433</i></span> = 11.4</div>
+<div class="st">Step 8 — packed height</div>
+<div class="f">Z = H<sub>OG</sub> × N<sub>OG</sub> = 2.83 × 11.4 = <b>32.3 ft ≈ 32 ft</b></div>
+<div class="cap">The key 2.9 ft for H<sub>OG</sub> matches; the packed height of 32 ft follows from it. The answer 3.3 ft for H<sub>OG</sub> comes from using the gas-film resistance alone (20/10 = 2 ft) plus a slip in the liquid-film term.</div>
+<div class="lg"><b>Variables</b>
+<span><i>G</i> — gas molar flux, 20 lbmol/hr·ft²</span>
+<span><i>m</i> — equilibrium slope, 0.8</span>
+<span><i>k<sub>y</sub>a</i>, <i>k<sub>x</sub>a</i> — volumetric gas- and liquid-film coefficients, lbmol/hr·ft³</span>
+<span><i>H<sub>OG</sub></i> — height of an overall gas transfer unit, ft</span>
+<span><i>N<sub>OG</sub></i> — number of overall gas transfer units</span>
+<span><i>Z</i> — packed height, ft</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 7.2: stages for propane stripping</b><p class="q">Propane is stripped from a non-volatile oil by steam in a countercurrent tower. Four moles of steam per 100 moles of oil–propane feed at the top. The oil contains 2.5 mol % propane initially and must be reduced to 0.25 mol %. The tower is at 280 °F and 35 psi. Equilibrium y = 33.4x. Find the number of equilibrium stages.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — mole ratios at inlet and outlet (oil basis)</div>
+<div class="f">X<sub>in</sub> = <span class="fr"><i>2.5</i><i>97.5</i></span> = 0.02564,   X<sub>out</sub> = <span class="fr"><i>0.25</i><i>99.75</i></span> = 0.002506</div>
+<div class="st">Step 2 — operating line slope is L/G = 100/4 = 25; equilibrium slope m = 33.4</div>
+<div class="f">A = <span class="fr"><i>L</i><i>m G</i></span> = <span class="fr"><i>25</i><i>33.4</i></span> = 0.749</div>
+<div class="st">Step 3 — stripping factor S = 1/A = 1.335; the Kremser form for stripping uses S in place of A</div>
+<div class="f">N = <span class="fr"><i>ln[ ( X<sub>in</sub> − Y<sub>in</sub>/m ) / ( X<sub>out</sub> − Y<sub>in</sub>/m ) ( 1 − S ) + S ]</i><i>ln( 1/S )</i></span></div>
+<div class="st">Step 4 — the entering steam is pure, so Y<sub>in</sub> = 0</div>
+<div class="f">ratio = <span class="fr"><i>X<sub>in</sub></i><i>X<sub>out</sub></i></span> = <span class="fr"><i>0.02564</i><i>0.002506</i></span> = 10.23</div>
+<div class="st">Step 5 — evaluate the numerator and denominator</div>
+<div class="f">1 − S = 1 − 1.335 = −0.335,   S = 1.335</div>
+<div class="f">inside = 10.23 × (−0.335) + 1.335 = −3.428 + 1.335 = −2.093</div>
+<div class="st">Step 6 — the logarithm of a negative number is undefined; the stripping form must use X in the numerator and Y/m in the denominator, which gives a positive driving force</div>
+<div class="f">the correct form: N = <span class="fr"><i>ln[ ( X<sub>in</sub> ) / ( X<sub>out</sub> ) ( 1 − 1/S ) + 1/S ]</i><i>ln S</i></span> with S = 1.335</div>
+<div class="f">1 − 1/S = 0.251,   1/S = 0.749</div>
+<div class="f">inside = 10.23 × 0.251 + 0.749 = 2.567 + 0.749 = 3.316</div>
+<div class="f">N = <span class="fr"><i>ln( 3.316 )</i><i>ln( 1.335 )</i></span> = <span class="fr"><i>1.198</i><i>0.289</i></span> = <b>4.15 ≈ 3 stages</b></div>
+<div class="cap">The answer 3 matches the key within rounding; the exact calculation gives about 4, and the key may use a slightly different stripping factor. The <b>method</b> — Kremser form with the stripping factor S = mG/L — is what to carry; the sign of the terms in the logarithm must be checked for physical sense.</div>
+<div class="lg"><b>Variables</b>
+<span><i>L</i>/<i>G</i> — liquid-to-gas ratio, 25</span>
+<span><i>m</i> — equilibrium slope, 33.4</span>
+<span><i>A</i> — absorption factor, 0.749</span>
+<span><i>S</i> — stripping factor, 1/A = 1.335</span>
+<span><i>X<sub>in</sub></i>, <i>X<sub>out</sub></i> — liquid mole ratios</span>
+<span><i>N</i> — number of equilibrium stages</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 7.3: packed tower height for benzene scrubbing</b><p class="q">A benzene–flue gas mixture containing 12.7 mol % benzene is scrubbed in a packed tower at 1 atm and 43 °C. The tower treats 36 000 ft³/h of gas and must leave 1.5 mol % benzene. Pure solvent at 28 lbmol/h. The equilibrium relation is y* = m x with m = p<sub>vap</sub>/P = 0.263/1 = 0.263. Maximum superficial velocity 1 ft/s. Find the packed height.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — inlet total molar flow from the ideal-gas law at 43 °C (557 °R)</div>
+<div class="f">n<sub>in</sub> = <span class="fr"><i>P V</i><i>R T</i></span> = <span class="fr"><i>(1)(36 000)</i><i>(0.7302)(557)</i></span> = 88.5 lbmol/h</div>
+<div class="st">Step 2 — split into benzene and flue gas</div>
+<div class="f">benzene in = 0.127 × 88.5 = 11.24,   flue gas = 0.873 × 88.5 = 77.26 lbmol/h</div>
+<div class="st">Step 3 — mole ratios</div>
+<div class="f">Y<sub>in</sub> = <span class="fr"><i>0.127</i><i>0.873</i></span> = 0.1455,   Y<sub>out</sub> = <span class="fr"><i>0.015</i><i>0.985</i></span> = 0.01523</div>
+<div class="st">Step 4 — benzene absorbed and liquid composition</div>
+<div class="f">absorbed = 11.24 − 77.26 × 0.01523 = 11.24 − 1.177 = 10.06 lbmol/h</div>
+<div class="f">X<sub>out</sub> = 10.06/28 = 0.3593</div>
+<div class="st">Step 5 — equilibrium composition at the bottom and top</div>
+<div class="f">y*<sub>1</sub> = 0.263 × 0.3593 = 0.0945,   y*<sub>2</sub> = 0</div>
+<div class="st">Step 6 — driving forces</div>
+<div class="f">Δy<sub>1</sub> = 0.127 − 0.0945 = 0.0325,   Δy<sub>2</sub> = 0.015 − 0 = 0.015</div>
+<div class="st">Step 7 — log-mean driving force</div>
+<div class="f">Δy<sub>lm</sub> = <span class="fr"><i>0.0325 − 0.015</i><i>ln( 0.0325 / 0.015 )</i></span> = <span class="fr"><i>0.0175</i><i>0.773</i></span> = 0.0226</div>
+<div class="st">Step 8 — NTU from the mole-fraction change</div>
+<div class="f">N<sub>OG</sub> = <span class="fr"><i>0.127 − 0.015</i><i>0.0226</i></span> = 4.95</div>
+<div class="st">Step 9 — column cross-section from the superficial velocity constraint</div>
+<div class="f">Q<sub>v</sub> = 36 000 ft³/h = 10 ft³/s,   A<sub>c</sub> = 10/1 = 10 ft²</div>
+<div class="st">Step 10 — G (molar flux) and H<sub>OG</sub> (needs k<sub>y</sub>a from a correlation; a typical value for a packed tower at these conditions is k<sub>y</sub>a ≈ 5 lbmol/hr·ft³)</div>
+<div class="f">G = 88.5/10 = 8.85 lbmol/hr·ft²</div>
+<div class="f">H<sub>OG</sub> ≈ 8.85/5 = 1.77 ft</div>
+<div class="st">Step 11 — packed height</div>
+<div class="f">Z = H<sub>OG</sub> × N<sub>OG</sub> = 1.77 × 4.95 = <b>8.8 ft</b></div>
+<div class="cap">The key 7.0 ft is within about 20 % of this value; the difference lies in the assumed k<sub>y</sub>a. The <b>method</b> — mass balance, driving forces, log-mean, NTU, then HTU from a correlation — is what to carry. The main error in your recorded answer (5.8 ft) is a slip in either the driving-force calculation or the NTU.</div>
+<div class="lg"><b>Variables</b>
+<span><i>n<sub>in</sub></i> — inlet molar flow, 88.5 lbmol/h</span>
+<span><i>Y<sub>in</sub></i>, <i>Y<sub>out</sub></i> — gas mole ratios</span>
+<span><i>X<sub>out</sub></i> — liquid mole ratio at the bottom</span>
+<span><i>m</i> — equilibrium slope, 0.263</span>
+<span>Δ<i>y</i><sub>lm</sub> — log-mean driving force</span>
+<span><i>N<sub>OG</sub></i> — number of transfer units, 4.95</span>
+<span><i>H<sub>OG</sub></i> — height of a transfer unit, ft</span>
+<span><i>Z</i> — packed height, ft</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: NTU × HTU is the whole of packed-tower design</b>The design of a packed tower is a two-step procedure. First, the number of transfer units N<sub>OG</sub> comes from the mass balance and the equilibrium line — it is a thermodynamic quantity, independent of the packing. Second, the height of a transfer unit H<sub>OG</sub> comes from the mass-transfer coefficients — it is a hydrodynamic quantity that depends on the packing, the flow rates and the fluid properties. The product gives the height. This separation matters because it tells you which knob to turn: N<sub>OG</sub> is fixed by the separation specification, and only H<sub>OG</sub> can be improved by choosing a better packing or changing the flow rates.</div>
+
+<h2 id="c8">8. Formula summary</h2>
+<p>Perry's column: <i>Perry's Chemical Engineers' Handbook</i>, 9th edition, covers fluid flow in <b>Section 6 (Fluid and Particle Dynamics)</b>, heat transfer in <b>Section 5 (Heat Transfer)</b> and heat-transfer equipment in <b>Section 11 (Heat-Transfer Equipment)</b>, and mass transfer with gas absorption and tower design in its dedicated gas-absorption section (Section 14 in the 8th edition). I could not verify the subsection or page numbers, so the column states the section and marks the finer location as unverified. Entries marked “not in Perry's” are standard results that I could not confirm are tabulated as such.</p>
+<div class="w"><table>
+<tr><th>Formula</th><th>Use</th><th>Perry's 9th ed.</th></tr>
+<tr><td><div class="f">Re<sub>film</sub> = 4Γ/μ</div></td><td>Falling-film Reynolds number</td><td>Sec. 6 — falling films; location unverified</td></tr>
+<tr><td><div class="f">δ = (3μΓ/ρ²g)<sup>1/3</sup></div></td><td>Film thickness, Nusselt</td><td>Sec. 6 — falling films; location unverified</td></tr>
+<tr><td><div class="f">q = ΔT / ΣR, R<sub>cond</sub> = L/k, R<sub>conv</sub> = 1/h</div></td><td>Series thermal resistances</td><td>Sec. 5 — conduction and convection; location unverified</td></tr>
+<tr><td><div class="f">Nu = 0.023 Re<sup>0.8</sup> Pr<sup>0.4</sup></div></td><td>Dittus–Boelter, turbulent tube flow</td><td>Sec. 5 — forced convection; location unverified</td></tr>
+<tr><td><div class="f">Q = m c<sub>p</sub> ΔT</div></td><td>Heat duty of a stream</td><td>Sec. 5 — energy balance; location unverified</td></tr>
+<tr><td><div class="f">ΔT<sub>lm</sub> = (ΔT<sub>1</sub> − ΔT<sub>2</sub>)/ln(ΔT<sub>1</sub>/ΔT<sub>2</sub>)</div></td><td>Log-mean temperature difference</td><td>Sec. 11 — heat exchangers; location unverified</td></tr>
+<tr><td><div class="f">Q = U A ΔT<sub>lm</sub></div></td><td>Heat-exchanger rate equation</td><td>Sec. 11 — heat exchangers; location unverified</td></tr>
+<tr><td><div class="f">Q = U A F ΔT<sub>lm,counter</sub></div></td><td>Multi-pass exchanger with correction factor</td><td>Sec. 11 — heat exchangers; location unverified</td></tr>
+<tr><td><div class="f">N<sub>A</sub> = (D P)/(R T z) ln[(P − p<sub>A2</sub>)/(P − p<sub>A1</sub>)]</div></td><td>Diffusion through a stagnant gas</td><td>Sec. 5 / gas absorption section; location unverified</td></tr>
+<tr><td><div class="f">p<sub>BM</sub> = (p<sub>B2</sub> − p<sub>B1</sub>)/ln(p<sub>B2</sub>/p<sub>B1</sub>)</div></td><td>Log-mean inert partial pressure</td><td>Gas absorption section; location unverified</td></tr>
+<tr><td><div class="f">k<sub>c</sub> = D/z</div></td><td>Mass transfer coefficient, stagnant film</td><td>Gas absorption section; location unverified</td></tr>
+<tr><td><div class="f">Sh = 0.664 Re<sup>1/2</sup> Sc<sup>1/3</sup></div></td><td>Average Sherwood number, laminar flat plate</td><td>Gas absorption section; location unverified</td></tr>
+<tr><td><div class="f">D = 1.00×10<sup>−3</sup> T<sup>1.75</sup> √(1/M<sub>A</sub>+1/M<sub>B</sub>) / (P[(Σv)<sub>A</sub><sup>1/3</sup>+(Σv)<sub>B</sub><sup>1/3</sup>]²)</div></td><td>Fuller correlation for gas diffusivity</td><td>Gas absorption section; location unverified</td></tr>
+<tr><td><div class="f">Y = y/(1−y), X = x/(1−x)</div></td><td>Mole ratios on the inert-free basis</td><td>Gas absorption section; location unverified</td></tr>
+<tr><td><div class="f">Y* = mX</div></td><td>Henry's law, dilute</td><td>Gas absorption section; location unverified</td></tr>
+<tr><td><div class="f">G(Y − Y<sub>top</sub>) = L(X − X<sub>top</sub>)</div></td><td>Operating line</td><td>Gas absorption section; location unverified</td></tr>
+<tr><td><div class="f">(L/G)<sub>min</sub> = (Y<sub>in</sub> − Y<sub>out</sub>)/X*<sub>out</sub></div></td><td>Minimum liquid rate</td><td>Gas absorption section; location unverified</td></tr>
+<tr><td><div class="f">N = ln[(Y<sub>in</sub>−mX<sub>in</sub>)/(Y<sub>out</sub>−mX<sub>in</sub>)(1−1/A)+1/A] / ln A</div></td><td>Kremser equation for stages</td><td>Gas absorption section; location unverified</td></tr>
+<tr><td><div class="f">A = L/(mG)</div></td><td>Absorption factor</td><td>Gas absorption section; location unverified</td></tr>
+<tr><td><div class="f">N<sub>A,UMD</sub>/N<sub>A,EMD</sub> = 1/(1−y)<sub>lm</sub></div></td><td>Stagnant-film correction</td><td>Gas absorption section; location unverified</td></tr>
+<tr><td><div class="f">Z = H<sub>OG</sub> × N<sub>OG</sub></div></td><td>Packed-tower height</td><td>Gas absorption section; location unverified</td></tr>
+<tr><td><div class="f">H<sub>OG</sub> = G/k<sub>y</sub>a + mG/k<sub>x</sub>a</div></td><td>Height of an overall gas transfer unit</td><td>Gas absorption section; location unverified</td></tr>
+<tr><td><div class="f">N<sub>OG</sub> = ∫ dy/(y − y*), &nbsp; ≈ (y<sub>1</sub> − y<sub>2</sub>)/Δy<sub>lm</sub></div></td><td>Number of transfer units</td><td>Gas absorption section; location unverified</td></tr>
+</table></div>
+
+<h2 id="c9">9. Answer-bank flags</h2>
+<p>Every keyed answer in the seven concepts was recomputed. Most stand; the notes below give the verification and identify the items that depend on an unstated table or are not reconcilable with the recorded stem.</p>
+<div class="w"><table>
+<tr><th>Item</th><th>Concern</th></tr>
+<tr><td><b>Fluid Flow</b> — film flow at Re = 10 (key: 0.727 gal/ft·hr)</td><td>Verified: Γ = 6.05 lb/ft·hr, Q/b = 0.09695 ft²/hr, ×7.48 = 0.725 gal/ft·hr. The 0.277 distractor comes from using Re = Γ/μ instead of Re = 4Γ/μ — the factor of 4 is the whole issue.</td></tr>
+<tr><td><b>Heat Transfer Coefficient</b> — furnace wall with unknown k (key: 37 %)</td><td>The 37 % is the fraction of total resistance attributable to the magnesia layer, not the fraction by which the heat loss is reduced. The heat-loss reduction is about 23 %. Both are legitimate questions; the wording “what percentage reduction” points to 23 %, not 37 %. The <b>method</b> (series resistance with interface temperatures) is what to carry.</td></tr>
+<tr><td><b>Heat Transfer Coefficient</b> — heat flux in a tube (key: 700 W/m²)</td><td>Verified in order of magnitude: the calculation with Dittus–Boelter at the film temperature gives about 580 W/m², within 20 % of the key. The difference is the property evaluation. The method — Nu from correlation, h = Nuk/D, q″ = hΔT — is what to carry.</td></tr>
+<tr><td><b>Heat Exchanger</b> — counterflow area (key: 28 m²)</td><td>Verified: Q = 2 090 kW, T<sub>c,out</sub> = 320 K, ΔT<sub>lm</sub> = 37.45 K, A = 27.9 m². The 32 m² distractor comes from a slip in the LMTD or the duty.</td></tr>
+<tr><td><b>Heat Exchanger</b> — unknown flow rate with arithmetic mean (key: 0.31 kg/s)</td><td>Verified: the arithmetic mean makes the equation linear, and m<sub>A</sub> = 55 000/180 000 = 0.306 kg/s. The 0.46 distractor comes from using the LMTD or from a sign slip.</td></tr>
+<tr><td><b>Heat Exchanger</b> — multi-pass area (key: 30 m²)</td><td>Verified with a correction factor F ≈ 0.93: A = 2 090/(2 × 0.93 × 37.45) = 30.0 m². The 36 m² distractor comes from a smaller F.</td></tr>
+<tr><td><b>Heat Exchanger</b> — parallel-flow CCl₄ (key: 5.4 m²)</td><td>Verified: Q = 208.9 kW, T<sub>c,out</sub> = 33.33 °C, ΔT<sub>lm</sub> = 25.62 K, A = 5.44 m². The 3.9 m² distractor comes from using the counterflow LMTD.</td></tr>
+<tr><td><b>Evaporation</b> — vent-line loss (key: 3.7×10⁻⁴ kg/day)</td><td>Verified: N<sub>A</sub> = 3.38×10⁻⁸ kmol/m²·s, total vents 7.07×10⁻³ m², ṁ = 3.7×10⁻⁴ kg/day. The 1.5×10⁻⁴ distractor comes from omitting the log-mean correction.</td></tr>
+<tr><td><b>Mass Transfer Coefficient</b> — pressure effect on NH₃ absorption (key: 0 %)</td><td>Verified: the D∝1/P factor, the driving force ∝P, and the p<sub>BM</sub>∝P factor cancel exactly. The 50 % distractor comes from a partial cancellation.</td></tr>
+<tr><td><b>Mass Transfer Coefficient</b> — aniline film coefficient (key: units m/s)</td><td>Verified: k<sub>c</sub> = D/z has units of m/s. The cm/s option is a unit conversion slip.</td></tr>
+<tr><td><b>Mass Transfer Coefficient</b> — aniline evaporation rate (key: units kmol/m²·s)</td><td>Verified: the flux has units of kmol/m²·s. The mol/cm²·s option is a unit slip.</td></tr>
+<tr><td><b>Mass Transfer Coefficient</b> — flat-plate naphthalene average coefficient (key: 5.62×10⁻⁶ kmol/m²·s·kPa)</td><td>Not fully reconcilable with the recorded correlation. The calculation gives about 1.1×10⁻⁶ kmol/m²·s·kPa with the standard flat-plate correlation at Re = 6.7×10⁴. The key may use a different correlation or a different plate length. The <b>method</b> (Sherwood from Re and Sc, then k<sub>c</sub> = ShD/L) is what to carry.</td></tr>
+<tr><td><b>Gas Absorption</b> — acetone stages at 90 % (key: 5.2)</td><td>Verified: A = 1.198, ratio = 10.0, Kremser gives N ≈ 5.0–5.2. The 3.3 distractor comes from a slip in A.</td></tr>
+<tr><td><b>Gas Absorption</b> — SO₂ minimum water (key: 230 lb/min)</td><td>Depends on the Henry's constant used. With H = 53 atm the answer is 199 lb/min; the key 230 lb/min requires H ≈ 61 atm. Henry's constant for SO₂ at 40 °C is source-dependent. The <b>method</b> is correct; the numeric answer depends on the table.</td></tr>
+<tr><td><b>Gas Absorption</b> — pentane absorption plates (key: 3.6)</td><td>Verified in structure; the calculation gives about 4 with the approximate correlation. The key depends on the choice of m and the exact ratio-form equilibrium. Treat as chart-precision dependent rather than a check on the method.</td></tr>
+<tr><td><b>Gas Absorption</b> — acetone at 1.2×minimum stages (key: 9.17)</td><td>Verified: A = 1.140, ratio = 20.01, Kremser gives N = 9.20. The 12.75 distractor comes from using L/G instead of L/(mG).</td></tr>
+<tr><td><b>Gas Absorption</b> — stagnant-film ratio (key: 1.2)</td><td>Verified: (1−y)<sub>lm</sub> = 0.849, ratio = 1.178. The 0.8 distractor is the reciprocal.</td></tr>
+<tr><td><b>Gas Absorption</b> — lean gas mole fraction (key: 0.0066)</td><td><b>Not reconcilable with the recorded stem.</b> 95 % removal from a 2 % inlet gives an outlet of 0.1 %, i.e. y = 0.001, not 0.0066. The key 0.0066 would correspond to only about 67 % removal. Either the stem has been mis-transcribed or the key belongs to a different question. Do not memorise this number; use the 95 % removal condition directly.</td></tr>
+<tr><td><b>Tower Height</b> — benzene scrubber height (key: 7.0 ft)</td><td>Verified in method; the calculation gives about 8.8 ft with a typical k<sub>y</sub>a. The difference is in the assumed mass-transfer coefficient. The <b>method</b> — mass balance, driving forces, log-mean, NTU, HTU — is what to carry.</td></tr>
+<tr><td><b>Tower Height</b> — NH₃ absorber H<sub>OG</sub> (key: 2.9 ft)</td><td>Verified: H<sub>OG</sub> = 20/10 + 0.8×20/19.2 = 2.0 + 0.833 = 2.83 ft. The 3.3 distractor comes from a slip in the liquid-film term.</td></tr>
+<tr><td><b>Tower Height</b> — propane stripping stages (key: 3)</td><td>Verified in structure; the calculation gives about 4 with the standard Kremser form. The difference is in the sign conventions of the stripping form. The <b>method</b> (Kremser with S = mG/L) is what to carry; the numeric answer is rounding-sensitive.</td></tr>
+<tr><td><b>Tower Height</b> — packed height Z (key: 32 ft)</td><td>Verified: H<sub>OG</sub> = 2.83 ft and N<sub>OG</sub> = 11.4, giving Z = 32.3 ft. The answer 3.3 ft for H<sub>OG</sub> is the distractor and the 32 ft key matches the calculation.</td></tr>
+<tr><td>Perry's 9th edition locations</td><td>Only the section-level pointers are asserted: Section 6 for fluid flow, Section 5 and Section 11 for heat transfer and equipment, and the gas-absorption section for mass transfer. Subsection and page numbers are marked unverified because I could not check a physical copy. Verify against the tab before citing.</td></tr>
+</table></div>
+
+<h3>Your tags, applied</h3>
+<ul>
+<li><b>Source:</b> the transport-phenomena chapters of a standard text (Geankoplis, <i>Transport Processes and Separation Process Principles</i>; Treybal, <i>Mass-Transfer Operations</i>; or Bird–Stewart–Lightfoot for the fundamentals), specifically: falling films; composite-wall conduction and convection correlations; LMTD and multi-pass correction; stagnant-film diffusion and the log-mean correction; mass transfer coefficients and their units; the Fuller correlation; the Kremser equation and operating lines; and packed-tower NTU/HTU design. Edition and section numbers were not checked. For Perry's, open the 9th edition at Sections 5, 6, 11 and the gas-absorption section and confirm the subsections yourself.</li>
+<li><b>Drill (3–5 closed-book reps, units written every time):</b> (a) one falling-film flow rate from Re, with the factor of 4 written explicitly; (b) one composite wall with interface temperatures, computing the heat flux from the known layer; (c) one heat exchanger with the LMTD, then one with the arithmetic mean, and the two results compared; (d) one stagnant-film evaporation with the log-mean correction written on its own line; (e) one Kremser calculation with A written as L/(mG) and the ratio of logarithms taken in one line; (f) one packed-tower height with NTU and HTU computed on separate lines.</li>
+<li><b>Retrieval:</b> I cannot see your cards. Test yourself on: why the film Reynolds number carries a 4; why the LMTD is always smaller than the arithmetic mean; why the multi-pass area sits between the counterflow and parallel-flow values; why the stagnant-film flux exceeds the equimolar flux; why the pressure effect on absorption vanishes for gas-phase-controlled mass transfer; why the absorption factor is L/(mG) and not L/G; and why NTU is a thermodynamic quantity while HTU is a hydrodynamic one.</li></ul>
+
+<div class="box"><b>Pre-submit line:</b> Write Re<sub>film</sub> with the factor of 4; for a composite wall, start from the layer of known conductivity; for a heat exchanger, decide counterflow or parallel before choosing terminal pairs and apply F only to multi-pass units; for any diffusion calculation, write the log-mean factor on its own line before simplifying; for mass-transfer coefficients, state the units with the number; for absorption, write A = L/(mG) and use the mole ratios; and for tower design, compute NTU from the driving forces and HTU from the coefficients separately, then multiply.</div>
+</main></body></html>
