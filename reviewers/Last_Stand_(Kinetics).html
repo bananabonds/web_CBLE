@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chemical Reaction Engineering Review: Seven Concepts</title>
+<style>
+:root{--bg:#fbfaf6;--fg:#1f2328;--mut:#5b6470;--ac:#7a3b12;--box:#f1ece0;--ex:#e8f0f4;--dc:#f6e9e4;--bd:#d8d0bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.1rem 4rem}
+h1{font-size:1.8rem;margin:.4rem 0 .2rem}h2{font-size:1.3rem;color:var(--ac);border-bottom:1px solid var(--bd);padding-bottom:.2rem;margin-top:2.6rem}
+h3{font-size:1rem;margin:1.4rem 0 .3rem;font-variant:small-caps;letter-spacing:.04em}
+.sub{color:var(--mut);margin:0 0 1rem}
+.box,.ex,.dc{border-radius:6px;padding:.7rem 1rem;margin:1rem 0;font-size:.97rem}
+.box{background:var(--box)}.ex{background:var(--ex);border-left:4px solid #3d7a99}.dc{background:var(--dc);border-left:4px solid #b5533c}
+.ex b.t,.dc b.t{display:block;font-variant:small-caps;letter-spacing:.05em;margin-bottom:.2rem}
+.f{font-family:"Cambria Math",Georgia,serif;text-align:center;margin:.5rem 0;font-size:1.04rem;overflow-x:auto}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .2em}.fr i{font-style:normal;padding:0 .3em}.fr i:first-child{border-bottom:1px solid currentColor}
+nav{background:var(--box);border-radius:6px;padding:.6rem 1rem;font-size:.93rem}nav a{color:var(--ac);text-decoration:none}
+.w{overflow-x:auto}table{border-collapse:collapse;font-size:.9rem;width:100%}td,th{border:1px solid var(--bd);padding:.3rem .5rem;text-align:left;vertical-align:top}
+.q{margin:.3rem 0 .5rem;font-style:italic}
+details{margin-top:.4rem}summary{cursor:pointer;color:var(--ac);font-weight:bold;font-size:.95rem;padding:.2rem 0}
+details .f{margin:.55rem 0}.cap{text-align:center;font-size:.84rem;color:var(--mut);margin:.4rem 0}
+p{margin:.6rem 0}ul{margin:.4rem 0;padding-left:1.3rem}
+.st{font-size:.85rem;color:var(--mut);font-variant:small-caps;letter-spacing:.05em;margin:.75rem 0 .05rem;text-align:left}
+.lg{border-top:1px dotted var(--bd);margin-top:.75rem;padding-top:.35rem;font-size:.83rem;color:var(--mut)}
+.lg b{font-variant:small-caps;letter-spacing:.05em;display:block;margin-bottom:.15rem}
+.lg span{display:block}
+</style></head><body><main>
+<h1>Chemical Reaction Engineering Review: Seven Concepts</h1>
+<p class="sub">One page for the selected D2_L9 set. Seven chapters in teaching order: Reaction Order, Rate Law, Half-Life, Reaction Constant, Activation Energy, Reactor Types, Reactor Volume. Each worked example shows the question first; tap “Show solution” for the steps, with a variable legend at the end. A consolidated formula table with Perry's locations sits before the flags.</p>
+<nav>1 <a href="#c1">Reaction Order</a> · 2 <a href="#c2">Rate Law</a> · 3 <a href="#c3">Half-Life</a> · 4 <a href="#c4">Reaction Constant</a> · 5 <a href="#c5">Activation Energy</a> · 6 <a href="#c6">Reactor Types</a> · 7 <a href="#c7">Reactor Volume</a> · 8 <a href="#c8">Formulas</a> · 9 <a href="#c9">Flags</a></nav>
+
+<h2 id="c1">1. Reaction Order</h2>
+<p>The order of a reaction is the exponent of each concentration in the rate law. For a reaction with a single reactant A the empirical rate law is</p>
+<div class="f">−r<sub>A</sub> = k C<sub>A</sub><sup>n</sup></div>
+<p>and the order n decides the shape of the concentration–time curve. The standard diagnostic is the <b>ratio method</b>: take two experiments in which only C<sub>A0</sub> changes and compare the initial rates.</p>
+<div class="f">n = <span class="fr"><i>ln( r<sub>2</sub> / r<sub>1</sub> )</i><i>ln( C<sub>2</sub> / C<sub>1</sub> )</i></span></div>
+<p>When the data are a table of concentration against time, the diagnostic is to test each integrated form. The three that matter:</p>
+<div class="w"><table>
+<tr><th>Order</th><th>Integrated form</th><th>Linear plot</th></tr>
+<tr><td>0</td><td>C<sub>A</sub> = C<sub>A0</sub> − k t</td><td>C<sub>A</sub> against t</td></tr>
+<tr><td>1</td><td>ln C<sub>A</sub> = ln C<sub>A0</sub> − k t</td><td>ln C<sub>A</sub> against t</td></tr>
+<tr><td>2</td><td>1/C<sub>A</sub> = 1/C<sub>A0</sub> + k t</td><td>1/C<sub>A</sub> against t</td></tr>
+</table></div>
+<p>A <b>constant decrement</b> in concentration per equal time interval is zero order; a <b>constant ratio</b> is first order; a <b>constant increment of 1/C</b> is second order. Testing the increment is faster than plotting, and it catches the answer on the first pass.</p>
+<p>Two special cases are examinable. <b>Pseudo-first-order</b> reactions occur when one reactant is in large excess, so its concentration is effectively constant and the observed order drops. Cane-sugar inversion (sucrose → glucose + fructose) is bimolecular in principle but first order in practice, because water is the solvent and its concentration does not change. And the <b>zero-order constant-volume bomb</b> has a pressure relation</p>
+<div class="f">π = <span class="fr"><i>p</i><i>p<sub>0</sub></i></span> = 1 + ( r − 1 ) <span class="fr"><i>k t</i><i>C<sub>A0</sub></i></span></div>
+<p>which is linear in t and therefore first-order-looking in π but zero-order in concentration.</p>
+
+<div class="ex"><b class="t">Worked 1.1: order from a rate ratio</b><p class="q">On doubling the concentration of a reactant, the rate of reaction triples. Find the reaction order.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write the ratio form of the rate law</div>
+<div class="f"><span class="fr"><i>r<sub>2</sub></i><i>r<sub>1</sub></i></span> = ( <span class="fr"><i>C<sub>2</sub></i><i>C<sub>1</sub></i></span> )<sup>n</sup></div>
+<div class="st">Step 2 — substitute the observed ratio and the concentration ratio</div>
+<div class="f">3 = 2<sup>n</sup></div>
+<div class="st">Step 3 — take logarithms and solve</div>
+<div class="f">n = <span class="fr"><i>ln 3</i><i>ln 2</i></span> = <span class="fr"><i>1.0986</i><i>0.6931</i></span></div>
+<div class="f"><b>n ≈ 1.59</b></div>
+<div class="cap">The order need not be an integer. The 1.59 is the log ratio of the two rates, not a rounding of 1.5.</div>
+<div class="lg"><b>Variables</b>
+<span><i>r</i><sub>1</sub>, <i>r</i><sub>2</sub> — initial rates in two experiments</span>
+<span><i>C</i><sub>1</sub>, <i>C</i><sub>2</sub> — initial concentrations in those experiments</span>
+<span><i>n</i> — order of reaction with respect to the reactant</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.2: order from a concentration–time table</b><p class="q">For the reaction A → B the concentration falls as follows: t = 0, 25, 50, 75, 100, 125, 150 s with C<sub>A</sub> = 1.00, 0.914, 0.829, 0.744, 0.659, 0.573, 0.488 M. Find the order of reaction with respect to A.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — compute the decrement per 25 s interval</div>
+<div class="f">1.000 − 0.914 = 0.086,   0.914 − 0.829 = 0.085,   0.829 − 0.744 = 0.085</div>
+<div class="f">0.744 − 0.659 = 0.085,   0.659 − 0.573 = 0.086,   0.573 − 0.488 = 0.085</div>
+<div class="st">Step 2 — the decrement is constant to within rounding</div>
+<div class="f">ΔC/Δt = <span class="fr"><i>0.085</i><i>25</i></span> = 0.0034 M/s   (constant)</div>
+<div class="st">Step 3 — a constant decrement is the signature of zero order</div>
+<div class="f"><b>order = 0</b></div>
+<div class="cap">The first-order test would require a constant <i>ratio</i> (0.914/1.000 = 0.914, but 0.829/0.914 = 0.907, and 0.744/0.829 = 0.897 — not constant). The second-order test would require a constant increment in 1/C (1.095, 1.206, 1.344 — not constant). The zero-order test passes, and it passes unambiguously.</div>
+<div class="lg"><b>Variables</b>
+<span><i>C<sub>A</sub></i> — concentration of A at time t, M</span>
+<span><i>t</i> — time, s</span>
+<span><i>k</i> — zero-order rate constant, M/s</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.3: order from two conversions at two times</b><p class="q">In a batch reactor with C<sub>A0</sub> = 1 mol/L, A is 80 % converted after 8 min and 90 % converted after 18 min. Find the order of the reaction.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — test the first-order form: t = (1/k) ln[ C<sub>A0</sub>/C<sub>A</sub> ]</div>
+<div class="f">t<sub>1</sub> = <span class="fr"><i>1</i><i>k</i></span> ln( 1/0.20 ) = <span class="fr"><i>1.609</i><i>k</i></span> = 8 min</div>
+<div class="f">t<sub>2</sub> = <span class="fr"><i>1</i><i>k</i></span> ln( 1/0.10 ) = <span class="fr"><i>2.303</i><i>k</i></span> = 18 min</div>
+<div class="f">ratio = <span class="fr"><i>18</i><i>8</i></span> = 2.25 but <span class="fr"><i>2.303</i><i>1.609</i></span> = 1.431 — first order fails</div>
+<div class="st">Step 2 — test the second-order form: t = (1/k)[ 1/C<sub>A</sub> − 1/C<sub>A0</sub> ]</div>
+<div class="f">t<sub>1</sub> = <span class="fr"><i>1</i><i>k</i></span> ( 5 − 1 ) = <span class="fr"><i>4</i><i>k</i></span> = 8 min</div>
+<div class="f">t<sub>2</sub> = <span class="fr"><i>1</i><i>k</i></span> ( 10 − 1 ) = <span class="fr"><i>9</i><i>k</i></span> = 18 min</div>
+<div class="f">ratio = <span class="fr"><i>18</i><i>8</i></span> = 2.25,   <span class="fr"><i>9</i><i>4</i></span> = 2.25 ✓</div>
+<div class="st">Step 3 — second order matches both data points</div>
+<div class="f"><b>order = 2</b></div>
+<div class="cap">The second-order form predicts the ratio 9/4 = 2.25 exactly, which is the observed ratio of times 18/8 = 2.25. No other order reproduces both points.</div>
+<div class="lg"><b>Variables</b>
+<span><i>C<sub>A0</sub></i> — initial concentration, 1 mol/L</span>
+<span><i>C<sub>A</sub></i> — concentration at time t, mol/L</span>
+<span><i>k</i> — second-order rate constant, L/mol·min</span>
+<span><i>t</i> — time, min</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.4: order from a decomposition table</b><p class="q">The decomposition of compound X gives X<sub>t</sub> = 0.600, 0.472, 0.389, 0.331, 0.288 at t = 0, 10, 20, 30, 40 min. Find the order of the reaction.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — compute 1/X at each time</div>
+<div class="f">1/0.600 = 1.667,   1/0.472 = 2.119,   1/0.389 = 2.571</div>
+<div class="f">1/0.331 = 3.021,   1/0.288 = 3.472</div>
+<div class="st">Step 2 — compute the increment of 1/X per 10 min</div>
+<div class="f">2.119 − 1.667 = 0.452,   2.571 − 2.119 = 0.452</div>
+<div class="f">3.021 − 2.571 = 0.450,   3.472 − 3.021 = 0.451</div>
+<div class="st">Step 3 — a constant increment in 1/X is the signature of second order</div>
+<div class="f"><b>order = 2</b></div>
+<div class="cap">The zero-order test fails because the decrements (0.128, 0.083, 0.058, 0.043) are not constant. The first-order test fails because the ratios (0.787, 0.824, 0.851, 0.870) are not constant. The second-order test passes.</div>
+<div class="lg"><b>Variables</b>
+<span><i>X<sub>t</sub></i> — concentration of X at time t, mol/L</span>
+<span><i>t</i> — time, min</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.5: order from two reactants</b><p class="q">Data for the reaction with two reactants A and B: (C<sub>A</sub>, C<sub>B</sub>, −r) = (4, 1, 2), (1, 1, 1), (1, 8, 4). Find the orders with respect to A and B.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — compare runs 1 and 2 where only C<sub>A</sub> changes (4 → 1)</div>
+<div class="f"><span class="fr"><i>2</i><i>1</i></span> = ( <span class="fr"><i>4</i><i>1</i></span> )<sup>a</sup>   ⇒   2 = 4<sup>a</sup>   ⇒   a = 0.5</div>
+<div class="st">Step 2 — compare runs 2 and 3 where only C<sub>B</sub> changes (1 → 8)</div>
+<div class="f"><span class="fr"><i>4</i><i>1</i></span> = ( <span class="fr"><i>8</i><i>1</i></span> )<sup>b</sup>   ⇒   4 = 8<sup>b</sup>   ⇒   b = <span class="fr"><i>ln 4</i><i>ln 8</i></span> = <span class="fr"><i>2</i><i>3</i></span></div>
+<div class="f"><b>a = 1/2,   b = 2/3</b></div>
+<div class="cap">The fractional orders are perfectly ordinary in heterogeneous and complex reactions. The ratio method gives them exactly; there is no need for a plot.</div>
+<div class="lg"><b>Variables</b>
+<span><i>a</i>, <i>b</i> — orders with respect to A and B</span>
+<span><i>C<sub>A</sub></i>, <i>C<sub>B</sub></i> — concentrations, mol/L</span>
+<span>−<i>r</i> — reaction rate, mol/L·s</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.6: zero order in a constant-volume bomb</b><p class="q">A zero-order reaction A → rR runs in a constant-volume bomb. π = 1 when t = 0 and π = 1.5 when t = 1. Find the apparent rate constant k.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the zero-order pressure relation for a constant-volume bomb</div>
+<div class="f">π = 1 + ( r − 1 ) <span class="fr"><i>k t</i><i>C<sub>A0</sub></i></span></div>
+<div class="st">Step 2 — with C<sub>A0</sub> = P<sub>0</sub>/RT and t = 1</div>
+<div class="f">1.5 = 1 + ( r − 1 ) <span class="fr"><i>k ( 1 )</i><i>P<sub>0</sub> / R T</i></span> = 1 + ( r − 1 ) <span class="fr"><i>k R T</i><i>P<sub>0</sub></i></span></div>
+<div class="st">Step 3 — solve for k with P<sub>0</sub> = 1 atm</div>
+<div class="f">0.5 = ( r − 1 ) <span class="fr"><i>k R T</i><i>1</i></span>   ⇒   k = <span class="fr"><i>0.5</i><i>R T ( r − 1 )</i></span></div>
+<div class="f"><b>k = <span class="fr"><i>0.5</i><i>R T ( r − 1 )</i></span></b></div>
+<div class="cap">The answer 2/RT(r−1) comes from using π = 1.5 directly as the group instead of subtracting the 1 for the initial pressure. The zero-order reaction consumes A linearly with time, so the pressure rise is linear, and the slope is k/RT.</div>
+<div class="lg"><b>Variables</b>
+<span><i>π</i> — reduced pressure, p/p<sub>0</sub></span>
+<span><i>r</i> — moles of product per mole of A reacted</span>
+<span><i>k</i> — zero-order rate constant, mol/L·s</span>
+<span><i>R</i> — gas constant</span>
+<span><i>T</i> — absolute temperature, K</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: pseudo-first-order reactions</b>Cane-sugar inversion is the classic pseudo-first-order reaction. The stoichiometry is bimolecular (sucrose + water → glucose + fructose), but water is the solvent and its concentration is essentially constant over the reaction. The observed rate is first order in sucrose alone. Questions that ask “what is the order” and offer “bimolecular reaction with first order” are testing whether you distinguish the <i>molecularity</i> (bimolecular) from the <i>order</i> (first). The order is what the rate law shows; the molecularity is what the mechanism shows. They need not agree.</div>
+
+<h2 id="c2">2. Rate Law</h2>
+<p>A rate law is the empirical equation that relates the reaction rate to the concentrations. The task is to find the constant k and the exponents from data, then use the resulting equation to predict concentrations.</p>
+<p>For a first-order reaction with variable total moles, the constant-volume bomb relation is</p>
+<div class="f">C<sub>A</sub> = C<sub>A0</sub> e<sup>−k t</sup>,   π = 1 + ( <span class="fr"><i>Δn</i><i>1</i></span> ) X</div>
+<p>where Δn is the increase in moles per mole of A reacted. For A → 2.4R, Δn = 1.4, and the conversion follows directly from the pressure rise:</p>
+<div class="f">X = <span class="fr"><i>π − 1</i><i>Δn</i></span></div>
+<p>For a second-order reaction the integrated form is used to compute concentrations at any time:</p>
+<div class="f"><span class="fr"><i>1</i><i>C<sub>A</sub></i></span> = <span class="fr"><i>1</i><i>C<sub>A0</sub></i></span> + k t</div>
+<p>The serial reaction A → B → C has its own rate law for the intermediate B:</p>
+<div class="f">C<sub>B</sub> = C<sub>A0</sub> <span class="fr"><i>k<sub>1</sub></i><i>k<sub>2</sub> − k<sub>1</sub></i></span> ( e<sup>−k<sub>1</sub>t</sup> − e<sup>−k<sub>2</sub>t</sup> )</div>
+<p>The maximum concentration of B is reached at the optimum time</p>
+<div class="f">t<sub>max</sub> = <span class="fr"><i>ln( k<sub>2</sub> / k<sub>1</sub> )</i><i>k<sub>2</sub> − k<sub>1</sub></i></span></div>
+<p>and the maximum value is</p>
+<div class="f">C<sub>B,max</sub> = C<sub>A0</sub> ( <span class="fr"><i>k<sub>1</sub></i><i>k<sub>2</sub></i></span> )<sup>k<sub>2</sub>/(k<sub>2</sub>−k<sub>1</sub>)</sup></div>
+
+<div class="ex"><b class="t">Worked 2.1: conversion in a constant-volume bomb</b><p class="q">A slow gas-phase reaction A → 2.4R with first-order kinetics runs isothermally at 25 °C in a constant-volume bomb. Starting with pure A at 1 atm, the pressure rises to 1.8 atm in 75 min. Find the actual conversion of A.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the moles increase by 1.4 per mole of A reacted</div>
+<div class="f">Δn = 2.4 − 1 = 1.4</div>
+<div class="st">Step 2 — relate pressure rise to conversion</div>
+<div class="f">π = 1 + Δn X</div>
+<div class="f">1.8 = 1 + 1.4 X</div>
+<div class="st">Step 3 — solve for X</div>
+<div class="f">X = <span class="fr"><i>0.8</i><i>1.4</i></span> = <b>0.571 ≈ 0.57</b></div>
+<div class="cap">The answer 0.75 comes from using Δn = 1 (forgetting the 1.4 factor). The pressure rise is proportional to the <i>change</i> in moles, not to the total product moles.</div>
+<div class="lg"><b>Variables</b>
+<span><i>π</i> — reduced pressure, 1.8</span>
+<span>Δ<i>n</i> — increase in moles per mole of A reacted, 1.4</span>
+<span><i>X</i> — conversion of A</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.2: concentration of A after the same time</b><p class="q">For the same reaction, find the concentration of A after 75 min.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — initial concentration from the ideal-gas law</div>
+<div class="f">C<sub>A0</sub> = <span class="fr"><i>P</i><i>R T</i></span> = <span class="fr"><i>1</i><i>0.08206 × 298.15</i></span> = 0.0409 mol/L</div>
+<div class="st">Step 2 — concentration at 75 min from the conversion</div>
+<div class="f">C<sub>A</sub> = C<sub>A0</sub> ( 1 − X ) = 0.0409 × ( 1 − 0.571 ) = 0.0409 × 0.429</div>
+<div class="f"><b>C<sub>A</sub> ≈ 0.0175 mol/L</b></div>
+<div class="cap">The key 0.0175 matches. This is a direct use of the conversion found in Worked 2.1 — no separate rate constant is needed.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i> — initial pressure, 1 atm</span>
+<span><i>R</i> — gas constant, 0.08206 L·atm/mol·K</span>
+<span><i>T</i> — absolute temperature, 298.15 K</span>
+<span><i>C<sub>A0</sub></i>, <i>C<sub>A</sub></i> — initial and current concentrations, mol/L</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.3: maximum intermediate concentration</b><p class="q">For the serial reaction A → B → C with C<sub>B0</sub> = C<sub>C0</sub> = 0, find the maximum concentration of B when k<sub>1</sub> = 2k<sub>2</sub>.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write the general expression for C<sub>B,max</sub></div>
+<div class="f">C<sub>B,max</sub> = C<sub>A0</sub> ( <span class="fr"><i>k<sub>1</sub></i><i>k<sub>2</sub></i></span> )<sup>k<sub>2</sub>/(k<sub>2</sub>−k<sub>1</sub>)</sup></div>
+<div class="st">Step 2 — substitute k<sub>1</sub> = 2k<sub>2</sub></div>
+<div class="f"><span class="fr"><i>k<sub>1</sub></i><i>k<sub>2</sub></i></span> = 2</div>
+<div class="f"><span class="fr"><i>k<sub>2</sub></i><i>k<sub>2</sub> − k<sub>1</sub></i></span> = <span class="fr"><i>k<sub>2</sub></i><i>−k<sub>2</sub></i></span> = −1</div>
+<div class="st">Step 3 — evaluate the power</div>
+<div class="f">2<sup>−1</sup> = 0.5</div>
+<div class="st">Step 4 — multiply by C<sub>A0</sub></div>
+<div class="f"><b>C<sub>B,max</sub> = 0.5 C<sub>A0</sub> = C<sub>A0</sub>/2</b></div>
+<div class="cap">The answer C<sub>A0</sub> would require k<sub>1</sub> = k<sub>2</sub>, which makes the exponent undefined. The answer C<sub>A0</sub>/2 is the correct limit when k<sub>1</sub> &gt; k<sub>2</sub>.</div>
+<div class="lg"><b>Variables</b>
+<span><i>k</i><sub>1</sub>, <i>k</i><sub>2</sub> — rate constants of the two consecutive steps</span>
+<span><i>C<sub>A0</sub></i> — initial concentration of A</span>
+<span><i>C<sub>B,max</sub></i> — maximum concentration of intermediate B</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.4: second-order with three reactants</b><p class="q">The reaction A + B + C → products has equimolar amounts initially (1 M each) and is second order in A and first order in B and C. Find the concentration of A after 1 hour if the rate constant is 1.277 L³/mol³·h.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — rate law with all concentrations equal to (1 − X)</div>
+<div class="f">−<span class="fr"><i>dC<sub>A</sub></i><i>dt</i></span> = k C<sub>A</sub><sup>2</sup> C<sub>B</sub> C<sub>C</sub></div>
+<div class="f">−<span class="fr"><i>dC<sub>A</sub></i><i>dt</i></span> = k C<sub>A</sub><sup>4</sup>   (since all equal)</div>
+<div class="st">Step 2 — integrate; with C<sub>A</sub> = 1 ( 1 − X ), the integrated form is</div>
+<div class="f">( 1 − X )<sup>−3</sup> = 1 + 3 k t</div>
+<div class="st">Step 3 — substitute t = 1 h and k = 1.277</div>
+<div class="f">( 1 − X )<sup>−3</sup> = 1 + 3 × 1.277 × 1 = 4.831</div>
+<div class="st">Step 4 — solve for (1 − X) and then C<sub>A</sub></div>
+<div class="f">( 1 − X ) = 4.831<sup>−1/3</sup> = 0.592</div>
+<div class="f">C<sub>A</sub> = 1 × 0.592 = <b>0.592 M ≈ 0.59 M</b></div>
+<div class="cap">The key 0.59 matches. The integration gives the power of −3 because the total order is 4 and C<sub>A0</sub> = 1: the integrated form for n-th order is (1−X)^(1−n) − 1 = (n−1) C<sub>A0</sub>^(n−1) k t, which with n = 4 and C<sub>A0</sub> = 1 gives the factor 3 in front of kt.</div>
+<div class="lg"><b>Variables</b>
+<span><i>X</i> — conversion of A</span>
+<span><i>k</i> — fourth-order rate constant, L³/mol³·h</span>
+<span><i>t</i> — time, h</span>
+<span><i>C<sub>A</sub></i> — concentration of A, M</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.5: partial pressure in a constant-volume bomb</b><p class="q">N₂O₅ decomposes by N₂O₅ → ½O₂ + N₂O₄ with −r<sub>N₂O₅</sub> = 2.2×10⁻³ C<sub>N₂O₅</sub> per minute. N₂O₄ ⇌ 2NO₂ has an instantaneous equilibrium constant K<sub>p</sub> = 45 mmHg. Find the partial pressure of N₂O₅ after 6.5 h, starting with pure N₂O₅ at atmospheric pressure.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — first-order decay of N₂O₅, independent of the equilibrium</div>
+<div class="f">p<sub>N₂O₅</sub> = p<sub>0</sub> e<sup>−k t</sup></div>
+<div class="st">Step 2 — convert 6.5 h to minutes</div>
+<div class="f">t = 6.5 × 60 = 390 min</div>
+<div class="st">Step 3 — substitute</div>
+<div class="f">p = 1 × e<sup>−2.2×10⁻³ × 390</sup> = e<sup>−0.858</sup></div>
+<div class="f"><b>p<sub>N₂O₅</sub> ≈ 0.424 atm</b></div>
+<div class="cap">The key 0.424 matches. The equilibrium N₂O₄ ⇌ 2NO₂ does not affect the N₂O₅ pressure, because the decomposition of N₂O₅ is first-order and irreversible; the equilibrium only redistributes the products.</div>
+<div class="lg"><b>Variables</b>
+<span><i>p<sub>0</sub></i> — initial partial pressure of N₂O₅, 1 atm</span>
+<span><i>k</i> — first-order rate constant, 2.2×10⁻³/min</span>
+<span><i>t</i> — time, min</span>
+<span><i>p<sub>N₂O₅</sub></i> — partial pressure after t, atm</span>
+</div>
+</details></div>
+
+<h2 id="c3">3. Half-Life</h2>
+<p>The half-life t<sub>1/2</sub> is the time for the reactant concentration to fall to half its value. For an n-th order reaction with n ≠ 1 it varies with initial concentration:</p>
+<div class="f">t<sub>1/2</sub> = <span class="fr"><i>2<sup>n−1</sup> − 1</i><i>( n − 1 ) k C<sub>A0</sub><sup>n−1</sup></i></span></div>
+<p>For first order the half-life is independent of C<sub>A0</sub>:</p>
+<div class="f">t<sub>1/2</sub> = <span class="fr"><i>ln 2</i><i>k</i></span></div>
+<p>The concentration dependence is the diagnostic. Taking logarithms of the general form gives</p>
+<div class="f">ln t<sub>1/2</sub> = constant − ( n − 1 ) ln C<sub>A0</sub></div>
+<p>so a plot of ln t<sub>1/2</sub> against ln C<sub>A0</sub> has slope (1 − n). Two data points give</p>
+<div class="f">n = 1 + <span class="fr"><i>ln( t<sub>1/2,1</sub> / t<sub>1/2,2</sub> )</i><i>ln( C<sub>2</sub> / C<sub>1</sub> )</i></span></div>
+<p>For <b>zero order</b> the half-life is proportional to C<sub>A0</sub>; for <b>first order</b> it is constant; for <b>second order</b> it is inversely proportional to C<sub>A0</sub>. A half-life that decreases as C<sub>A0</sub> increases means n &gt; 1; a half-life that increases means n &lt; 1.</p>
+
+<div class="ex"><b class="t">Worked 3.1: order from two half-lives</b><p class="q">Half-life data for the irreversible liquid-phase reaction A → P: C<sub>A0</sub> = 2 kmol/m³ gives t<sub>1/2</sub> = 2 min; C<sub>A0</sub> = 8 kmol/m³ gives t<sub>1/2</sub> = 1 min. Find the overall order.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write the half-life relation for order n</div>
+<div class="f">t<sub>1/2</sub> ∝ C<sub>A0</sub><sup>1−n</sup></div>
+<div class="st">Step 2 — take the ratio of the two data points</div>
+<div class="f"><span class="fr"><i>t<sub>1/2,1</sub></i><i>t<sub>1/2,2</sub></i></span> = ( <span class="fr"><i>C<sub>1</sub></i><i>C<sub>2</sub></i></span> )<sup>1−n</sup></div>
+<div class="f"><span class="fr"><i>2</i><i>1</i></span> = ( <span class="fr"><i>2</i><i>8</i></span> )<sup>1−n</sup> = ( <span class="fr"><i>1</i><i>4</i></span> )<sup>1−n</sup> = 4<sup>n−1</sup></div>
+<div class="st">Step 3 — solve the exponent</div>
+<div class="f">n − 1 = <span class="fr"><i>ln 2</i><i>ln 4</i></span> = <span class="fr"><i>0.6931</i><i>1.3863</i></span> = 0.5</div>
+<div class="f"><b>n = 1.5</b></div>
+<div class="cap">The answer 1 would require a constant half-life (first order), which the data contradict. The answer 2 would require t<sub>1/2</sub> to fall by a factor of 4 when C<sub>A0</sub> rises by a factor of 4; the observed fall is by a factor of 2, which is the 1.5-order signature.</div>
+<div class="lg"><b>Variables</b>
+<span><i>C</i><sub>1</sub>, <i>C</i><sub>2</sub> — initial concentrations, kmol/m³</span>
+<span><i>t<sub>1/2,1</sub></i>, <i>t<sub>1/2,2</sub></i> — half-lives, min</span>
+<span><i>n</i> — reaction order</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.2: half-life from a data table</b><p class="q">From the same A → B data as Worked 1.2 (zero-order, k = 0.0034 M/s), find the half-life of the reaction.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the zero-order half-life from C<sub>A0</sub> = 1.00 M</div>
+<div class="f">t<sub>1/2</sub> = <span class="fr"><i>C<sub>A0</sub></i><i>2 k</i></span> = <span class="fr"><i>1.00</i><i>2 × 0.0034</i></span></div>
+<div class="st">Step 2 — evaluate</div>
+<div class="f">t<sub>1/2</sub> = <span class="fr"><i>1.00</i><i>0.0068</i></span> = <b>147 s</b></div>
+<div class="cap">The key 147 s matches. The answer 85 s is what comes from assuming first order and using t<sub>1/2</sub> = ln2/k with the wrong k. The data are zero order, so the half-life must be computed from the zero-order form.</div>
+<div class="lg"><b>Variables</b>
+<span><i>C<sub>A0</sub></i> — initial concentration, 1.00 M</span>
+<span><i>k</i> — zero-order rate constant, 0.0034 M/s</span>
+<span><i>t<sub>1/2</sub></i> — half-life, s</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.3: order from the half-life ratio in a second-order case</b><p class="q">For a reaction with initial concentration 0.10 M the half-life is 200 s. When the initial concentration is 0.05 M the half-life is 400 s. Find the order.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — apply the ratio form</div>
+<div class="f"><span class="fr"><i>t<sub>1/2,1</sub></i><i>t<sub>1/2,2</sub></i></span> = ( <span class="fr"><i>C<sub>1</sub></i><i>C<sub>2</sub></i></span> )<sup>1−n</sup></div>
+<div class="f"><span class="fr"><i>200</i><i>400</i></span> = ( <span class="fr"><i>0.10</i><i>0.05</i></span> )<sup>1−n</sup></div>
+<div class="st">Step 2 — simplify and solve</div>
+<div class="f">0.5 = 2<sup>1−n</sup>   ⇒   1 − n = −1   ⇒   <b>n = 2</b></div>
+<div class="cap">Halving the concentration doubles the half-life: that is the second-order signature. For first order the half-life would not change; for zero order it would halve.</div>
+<div class="lg"><b>Variables</b>
+<span><i>C</i><sub>1</sub>, <i>C</i><sub>2</sub> — initial concentrations, M</span>
+<span><i>t<sub>1/2,1</sub></i>, <i>t<sub>1/2,2</sub></i> — half-lives, s</span>
+<span><i>n</i> — order</span>
+</div>
+</details></div>
+
+<h2 id="c4">4. Reaction Constant</h2>
+<p>The reaction rate constant k is found by fitting the appropriate integrated form to the concentration–time data, after the order has been established. For the first-order and second-order forms the data are plotted or differenced directly; for the serial reaction the two rate constants follow from the time to maximum intermediate.</p>
+<p>Two standard forms dominate the exam:</p>
+<div class="f">first order:   k = <span class="fr"><i>1</i><i>t</i></span> ln <span class="fr"><i>C<sub>A0</sub></i><i>C<sub>A</sub></i></span></div>
+<div class="f">second order:   k = <span class="fr"><i>1</i><i>t</i></span> ( <span class="fr"><i>1</i><i>C<sub>A</sub></i></span> − <span class="fr"><i>1</i><i>C<sub>A0</sub></i></span> )</div>
+<p>For the <b>serial reaction</b> A → B → C, the time to maximum intermediate is</p>
+<div class="f">t<sub>max</sub> = <span class="fr"><i>ln( k<sub>2</sub> / k<sub>1</sub> )</i><i>k<sub>2</sub> − k<sub>1</sub></i></span></div>
+<p>Given k<sub>1</sub> and t<sub>max</sub>, the equation must be solved for k<sub>2</sub> by trial. The approximate reading is that k<sub>2</sub> is much larger or much smaller than k<sub>1</sub> depending on whether t<sub>max</sub> is small or large relative to 1/k<sub>1</sub>.</p>
+<p>For a reaction whose order is not known, the first step is to identify the order by the diagnostic in Chapter 1, then apply the corresponding integrated form. Using the wrong integrated form is the standard error — it produces a k that varies with time, which is the signal that the order was guessed wrong.</p>
+
+<div class="ex"><b class="t">Worked 4.1: the serial reaction A → B → C</b><p class="q">For the reaction A → B → C, the rate constant k<sub>1</sub> is 5.65×10⁻³ per min, and the time to reach the maximum concentration of B is 26 min. Find k<sub>2</sub>.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write the t<sub>max</sub> formula</div>
+<div class="f">t<sub>max</sub> = <span class="fr"><i>ln( k<sub>2</sub> / k<sub>1</sub> )</i><i>k<sub>2</sub> − k<sub>1</sub></i></span></div>
+<div class="st">Step 2 — substitute the known values</div>
+<div class="f">26 = <span class="fr"><i>ln( k<sub>2</sub> / 0.00565 )</i><i>k<sub>2</sub> − 0.00565</i></span></div>
+<div class="st">Step 3 — try k<sub>2</sub> = 0.1246 per min</div>
+<div class="f">ln( 0.1246 / 0.00565 ) = ln( 22.05 ) = 3.093</div>
+<div class="f">26 = <span class="fr"><i>3.093</i><i>0.1246 − 0.00565</i></span> = <span class="fr"><i>3.093</i><i>0.11895</i></span> = 26.0 ✓</div>
+<div class="f"><b>k<sub>2</sub> = 0.1246 / min</b></div>
+<div class="cap">The answer 0.346 comes from a slip in the log (using log<sub>10</sub> instead of ln, or misplacing the denominator). The trial solution shows that k<sub>2</sub> is about twenty times k<sub>1</sub>, which is the regime where the intermediate peaks early and then decays.</div>
+<div class="lg"><b>Variables</b>
+<span><i>k</i><sub>1</sub> — rate constant of A → B, 5.65×10⁻³/min</span>
+<span><i>k</i><sub>2</sub> — rate constant of B → C, min⁻¹</span>
+<span><i>t<sub>max</sub></i> — time to maximum B, 26 min</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.2: rate constant from a table</b><p class="q">For the decomposition data X<sub>t</sub> = 0.600, 0.472, 0.389, 0.331, 0.288 at t = 0, 10, 20, 30, 40 min (order 2 from Worked 1.4), find the rate constant.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — apply the second-order form to the first interval</div>
+<div class="f">k = <span class="fr"><i>1</i><i>t</i></span> ( <span class="fr"><i>1</i><i>X<sub>t</sub></i></span> − <span class="fr"><i>1</i><i>X<sub>0</sub></i></span> ) = <span class="fr"><i>1</i><i>10</i></span> ( <span class="fr"><i>1</i><i>0.472</i></span> − <span class="fr"><i>1</i><i>0.600</i></span> )</div>
+<div class="f">k = <span class="fr"><i>1</i><i>10</i></span> ( 2.119 − 1.667 ) = <span class="fr"><i>0.452</i><i>10</i></span></div>
+<div class="f"><b>k = 0.0452 L/mol·min ≈ 0.045</b></div>
+<div class="st">Step 2 — confirm with a later interval</div>
+<div class="f">k = <span class="fr"><i>1</i><i>10</i></span> ( 3.472 − 3.021 ) = <span class="fr"><i>0.451</i><i>10</i></span> = 0.0451 ✓</div>
+<div class="cap">The key 0.045 matches. The answer 0.076 comes from applying the first-order form, which the data do not support.</div>
+<div class="lg"><b>Variables</b>
+<span><i>X<sub>t</sub></i> — concentration at time t, mol/L</span>
+<span><i>k</i> — second-order rate constant, L/mol·min</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.3: rate constant from a polymerization</b><p class="q">A polymerization runs at constant temperature in a homogeneous phase. For initial monomer concentrations of 0.3, 0.5 and 0.9 mol/L, 30 % of the monomer reacts in 40 minutes. Find the reaction rate constant.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the conversion is the same at the same time for all three initial concentrations, so the rate must be independent of concentration</div>
+<div class="f">same X at same t for different C<sub>0</sub>   ⇒   first order (or zero order, checked below)</div>
+<div class="st">Step 2 — first-order form</div>
+<div class="f">k = <span class="fr"><i>1</i><i>t</i></span> ln <span class="fr"><i>1</i><i>1 − X</i></span> = <span class="fr"><i>1</i><i>40</i></span> ln <span class="fr"><i>1</i><i>0.70</i></span></div>
+<div class="st">Step 3 — evaluate</div>
+<div class="f">k = <span class="fr"><i>0.3567</i><i>40</i></span> = 0.00891 min<sup>−1</sup></div>
+<div class="st">Step 4 — convert to per hour</div>
+<div class="f">k = 0.00891 × 60 = <b>0.535 h<sup>−1</sup></b></div>
+<div class="cap">The answer 0.535 /hr matches. The zero-order test would also give the same conversion at the same time, but the zero-order k would depend on C<sub>0</sub> (k = C<sub>0</sub>X/t = 0.3×0.3/40 = 0.00225 for the first case, 0.00375 for the second, 0.00675 for the third), which contradicts the data. Only first order gives a <i>single</i> k for all three runs.</div>
+<div class="lg"><b>Variables</b>
+<span><i>X</i> — conversion, 0.30</span>
+<span><i>t</i> — time, 40 min</span>
+<span><i>k</i> — first-order rate constant, min⁻¹ or h⁻¹</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.4: fourth-order rate constant from a conversion</b><p class="q">For the reaction A + B + C → products with equimolar 1 M initial concentrations, second order in A and first order in B and C, 30 % of A decomposes after 0.5 h. Find the rate constant.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the fourth-order integrated form with C<sub>A0</sub> = 1</div>
+<div class="f">( 1 − X )<sup>−3</sup> − 1 = 3 k t</div>
+<div class="st">Step 2 — substitute X = 0.30 and t = 0.5 h</div>
+<div class="f">( 0.70 )<sup>−3</sup> − 1 = 2.915 − 1 = 1.915</div>
+<div class="f">1.915 = 3 k ( 0.5 ) = 1.5 k</div>
+<div class="st">Step 3 — solve for k</div>
+<div class="f">k = <span class="fr"><i>1.915</i><i>1.5</i></span> = <b>1.277 L³/mol³·h</b></div>
+<div class="cap">The key 1.277 matches. The exponent −3 in the integrated form is the signature of a fourth-order reaction with equal initial concentrations — the total order is 2 + 1 + 1 = 4.</div>
+<div class="lg"><b>Variables</b>
+<span><i>X</i> — conversion of A, 0.30</span>
+<span><i>k</i> — fourth-order rate constant</span>
+<span><i>t</i> — time, 0.5 h</span>
+</div>
+</details></div>
+
+<h2 id="c5">5. Activation Energy</h2>
+<p>The temperature dependence of the rate constant is described by the <b>Arrhenius equation</b>:</p>
+<div class="f">k = k<sub>0</sub> e<sup>−E<sub>a</sub>/RT</sup></div>
+<p>Taking logarithms between two temperatures gives the working form:</p>
+<div class="f">ln <span class="fr"><i>k<sub>2</sub></i><i>k<sub>1</sub></i></span> = <span class="fr"><i>E<sub>a</sub></i><i>R</i></span> ( <span class="fr"><i>1</i><i>T<sub>1</sub></i></span> − <span class="fr"><i>1</i><i>T<sub>2</sub></i></span> )</div>
+<p>Three qualitative results follow and each is examinable.</p>
+<ul>
+<li>k increases with temperature. The rate constant never decreases with rising T.</li>
+<li>The frequency factor k<sub>0</sub> does <b>not</b> affect the temperature sensitivity. The sensitivity is governed entirely by E<sub>a</sub>, because ln(k<sub>2</sub>/k<sub>1</sub>) is independent of k<sub>0</sub>: the k<sub>0</sub> cancels when the ratio is formed.</li>
+<li>Reactions are more temperature-sensitive at low temperature than at high temperature, because the same E<sub>a</sub> corresponds to a larger fractional change in k when T is small.</li>
+</ul>
+<p>For <b>transition-state theory</b> the pre-exponential factor carries an extra T, so</p>
+<div class="f">k ∝ T e<sup>−E<sub>0</sub>/RT</sup></div>
+<p>and the ratio between two temperatures is the Arrhenius ratio multiplied by the ratio of temperatures:</p>
+<div class="f"><span class="fr"><i>k<sub>2</sub></i><i>k<sub>1</sub></i></span><sub>TST</sub> = <span class="fr"><i>T<sub>2</sub></i><i>T<sub>1</sub></i></span> <span class="fr"><i>k<sub>2</sub></i><i>k<sub>1</sub></i></span><sub>Arr</sub></div>
+
+<div class="ex"><b class="t">Worked 5.1: activation energy from two conversions</b><p class="q">A second-order reaction with reactants initially at 0.10 mol/L is 20 % complete in 40 min at 25 °C, and 40 % complete in 35 min at 50 °C. Find the activation energy in cal/mol.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — rate constant at 25 °C from the second-order form</div>
+<div class="f">k<sub>1</sub> = <span class="fr"><i>1</i><i>t</i></span> ( <span class="fr"><i>1</i><i>C</i></span> − <span class="fr"><i>1</i><i>C<sub>0</sub></i></span> ) = <span class="fr"><i>1</i><i>40</i></span> ( <span class="fr"><i>1</i><i>0.08</i></span> − <span class="fr"><i>1</i><i>0.10</i></span> )</div>
+<div class="f">k<sub>1</sub> = <span class="fr"><i>2.5</i><i>40</i></span> = 0.0625 L/mol·min</div>
+<div class="st">Step 2 — rate constant at 50 °C</div>
+<div class="f">k<sub>2</sub> = <span class="fr"><i>1</i><i>35</i></span> ( <span class="fr"><i>1</i><i>0.06</i></span> − <span class="fr"><i>1</i><i>0.10</i></span> ) = <span class="fr"><i>6.667</i><i>35</i></span> = 0.1905 L/mol·min</div>
+<div class="st">Step 3 — apply the Arrhenius two-temperature form</div>
+<div class="f">ln <span class="fr"><i>0.1905</i><i>0.0625</i></span> = <span class="fr"><i>E<sub>a</sub></i><i>1.987</i></span> ( <span class="fr"><i>1</i><i>298</i></span> − <span class="fr"><i>1</i><i>323</i></span> )</div>
+<div class="st">Step 4 — evaluate the two sides</div>
+<div class="f">ln( 3.048 ) = 1.115</div>
+<div class="f"><span class="fr"><i>1</i><i>298</i></span> − <span class="fr"><i>1</i><i>323</i></span> = 3.356×10<sup>−3</sup> − 3.096×10<sup>−3</sup> = 2.597×10<sup>−4</sup></div>
+<div class="st">Step 5 — solve for E<sub>a</sub></div>
+<div class="f">E<sub>a</sub> = <span class="fr"><i>1.115 × 1.987</i><i>2.597×10<sup>−4</sup></i></span> = <b>8 531 cal/mol ≈ 8 500 cal/mol</b></div>
+<div class="cap">The answer 2 700 cal/mol is what comes from using the first-order form for k, which changes both k values and therefore the ratio. The order diagnostic must come first; only then can the activation energy be computed.</div>
+<div class="lg"><b>Variables</b>
+<span><i>k</i><sub>1</sub>, <i>k</i><sub>2</sub> — second-order rate constants at the two temperatures</span>
+<span><i>T</i><sub>1</sub>, <i>T</i><sub>2</sub> — absolute temperatures, 298 and 323 K</span>
+<span><i>E<sub>a</sub></i> — activation energy, cal/mol</span>
+<span><i>R</i> — gas constant, 1.987 cal/mol·K</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.2: transition-state versus Arrhenius ratio</b><p class="q">At a given value of E/R, the ratio of the rate constants at 500 K and 400 K is 2 if the Arrhenius law is used. What is the ratio if transition-state theory is used with the same value of E/R?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — from the Arrhenius ratio, find E/R</div>
+<div class="f">2 = exp[ <span class="fr"><i>E</i><i>R</i></span> ( <span class="fr"><i>1</i><i>400</i></span> − <span class="fr"><i>1</i><i>500</i></span> ) ] = exp[ <span class="fr"><i>E</i><i>R</i></span> × 5×10<sup>−4</sup> ]</div>
+<div class="f">ln 2 = <span class="fr"><i>E</i><i>R</i></span> × 5×10<sup>−4</sup>   ⇒   <span class="fr"><i>E</i><i>R</i></span> = 1 386 K</div>
+<div class="st">Step 2 — transition-state theory adds a factor of T<sub>2</sub>/T<sub>1</sub></div>
+<div class="f"><span class="fr"><i>k<sub>2</sub></i><i>k<sub>1</sub></i></span><sub>TST</sub> = <span class="fr"><i>T<sub>2</sub></i><i>T<sub>1</sub></i></span> <span class="fr"><i>k<sub>2</sub></i><i>k<sub>1</sub></i></span><sub>Arr</sub> = <span class="fr"><i>500</i><i>400</i></span> × 2</div>
+<div class="st">Step 3 — evaluate</div>
+<div class="f"><span class="fr"><i>k<sub>2</sub></i><i>k<sub>1</sub></i></span><sub>TST</sub> = 1.25 × 2 = <b>2.5</b></div>
+<div class="cap">The answer 2 is the Arrhenius ratio, not the TST ratio. The TST ratio carries the extra T<sub>2</sub>/T<sub>1</sub> factor, which is 1.25 here.</div>
+<div class="lg"><b>Variables</b>
+<span><i>E</i>/<i>R</i> — activation energy divided by the gas constant, K</span>
+<span><i>T</i><sub>1</sub>, <i>T</i><sub>2</sub> — the two absolute temperatures, K</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: what the frequency factor does and does not control</b>The Arrhenius equation has two parameters, k<sub>0</sub> and E<sub>a</sub>. The ratio k<sub>2</sub>/k<sub>1</sub> at two temperatures is exp[E<sub>a</sub>/R(1/T<sub>1</sub> − 1/T<sub>2</sub>)], which does not contain k<sub>0</sub> at all. The frequency factor sets the <i>magnitude</i> of k at any given temperature, but it does not set how k changes with T. That is the point of the statement “the value of the frequency factor k<sub>0</sub> does not affect the temperature sensitivity”, and it is the statement the exam marks as true. The wrong options in this question type claim the opposite, or claim that a reaction is more T-sensitive at high T (it is less sensitive, because at high T the exponential is already near 1).</div>
+
+<h2 id="c6">6. Reactor Types</h2>
+<p>Three ideal reactor models cover the exam. The differences are in how the concentration varies inside the reactor.</p>
+<div class="w"><table>
+<tr><th>Reactor</th><th>Concentration history</th><th>Design equation</th></tr>
+<tr><td>Batch</td><td>All properties vary with time; no flow in or out</td><td>t = N<sub>A0</sub> ∫ dX/(−r<sub>A</sub> V)</td></tr>
+<tr><td>Mixed flow (CSTR)</td><td>Uniform at the exit condition throughout</td><td>V = F<sub>A0</sub> X/(−r<sub>A</sub>)</td></tr>
+<tr><td>Plug flow (PFR)</td><td>Varies along the length; no radial gradient</td><td>V = F<sub>A0</sub> ∫ dX/(−r<sub>A</sub>)</td></tr>
+</table></div>
+<p>The <b>batch reactor</b> is characterized by the variation of extent of reaction and properties with <i>time</i>. It has no residence time in the continuous sense; it has a reaction time. The single most examinable statement is that the batch reactor's composition varies with time, not with position and not with a constant residence time.</p>
+<p>For a reaction of order n &gt; 0 the PFR always gives higher conversion than a CSTR of the same volume, because the PFR exploits the higher concentration near the entrance. For <b>zero order</b> the two are identical, because the rate does not depend on concentration.</p>
+<p>The <b>space time</b> τ = V/v<sub>0</sub> is the time to process one reactor volume of feed at the inlet conditions. The <b>space velocity</b> is its reciprocal, v<sub>0</sub>/V. Some textbooks use “space velocity” to mean V/v<sub>0</sub>; the units (min⁻¹ vs min) tell you which convention is in play, and reading the units before substituting is essential.</p>
+
+<div class="ex"><b class="t">Worked 6.1: batch versus CSTR versus PFR for zero order</b><p class="q">A liquid-phase zero-order irreversible reaction A → B gives 0.3 conversion in a CSTR at a space velocity of 0.1 min⁻¹. Find the conversion in a PFR at a space velocity of 0.2 min⁻¹.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — interpret the space velocity as V/v<sub>0</sub>, so that the space time is numerically the given value</div>
+<div class="f">τ<sub>CSTR</sub> = 0.1 min,   τ<sub>PFR</sub> = 0.2 min</div>
+<div class="st">Step 2 — zero-order CSTR: X = k τ / C<sub>A0</sub></div>
+<div class="f">0.3 = <span class="fr"><i>k × 0.1</i><i>C<sub>A0</sub></i></span>   ⇒   <span class="fr"><i>k</i><i>C<sub>A0</sub></i></span> = 3 min<sup>−1</sup></div>
+<div class="st">Step 3 — zero-order PFR has the same linear form: X = k τ / C<sub>A0</sub></div>
+<div class="f">X<sub>PFR</sub> = 3 × 0.2 = <b>0.6</b></div>
+<div class="cap">The answer 0.30 would be right only if the space velocity were doubled but the conversion were first-order and small; for a zero-order reaction the conversion is linear in the space time, so doubling τ doubles X. <b>The units of “space velocity” decide the arithmetic:</b> if the convention is v<sub>0</sub>/V (reciprocal of space time), then τ<sub>CSTR</sub> = 10 min and τ<sub>PFR</sub> = 5 min, and the same calculation gives X<sub>PFR</sub> = 0.15 instead. Check the unit before substituting. See the flags table.</div>
+<div class="lg"><b>Variables</b>
+<span><i>X</i> — conversion of A</span>
+<span><i>k</i> — zero-order rate constant, mol/L·min</span>
+<span><i>C<sub>A0</sub></i> — inlet concentration, mol/L</span>
+<span><i>τ</i> — space time, min</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: what makes a batch reactor a batch reactor</b>The distinguishing feature is that <i>nothing flows in or out</i>, so the composition changes with time as the reaction proceeds. A question that offers “constant residence time” is describing a CSTR or a PFR, not a batch. A question that offers “the variation in extent of reaction and properties of the reaction mixture with time” is describing exactly what makes a batch reactor what it is. The distinction is conceptual, not algebraic.</div>
+
+<h2 id="c7">7. Reactor Volume</h2>
+<p>The design equations convert a required conversion into a reactor volume. For the three ideal reactors:</p>
+<div class="f">CSTR:   V = <span class="fr"><i>F<sub>A0</sub> X</i><i>−r<sub>A</sub></i></span></div>
+<div class="f">PFR:   V = F<sub>A0</sub> ∫<sub>0</sub><sup>X</sup> <span class="fr"><i>dX</i><i>−r<sub>A</sub></i></span></div>
+<p>For <b>constant-density</b> systems (liquids) the rate is written in terms of conversion with C<sub>A</sub> = C<sub>A0</sub>(1 − X). For <b>gas-phase</b> systems the density changes with conversion, and the expansion factor appears:</p>
+<div class="f">C<sub>A</sub> = C<sub>A0</sub> <span class="fr"><i>1 − X</i><i>1 + εX</i></span>,   ε = y<sub>A0</sub> δ</div>
+<p>with δ the change in moles per mole of A reacted. The first-order variable-density PFR integral is</p>
+<div class="f">V = <span class="fr"><i>v<sub>0</sub></i><i>k</i></span> [ ( 1 + ε ) ln <span class="fr"><i>1</i><i>1 − X</i></span> − ε X ]</div>
+<p>The <b>scaling</b> question — “by what factor must V change when the inlet conditions change?” — is best answered in ratio form, so that k cancels. For a first-order CSTR:</p>
+<div class="f">V ∝ v<sub>0</sub> <span class="fr"><i>C<sub>A0</sub> − C<sub>A</sub></i><i>C<sub>A</sub></i></span></div>
+<p>which shows that V scales linearly with the flow and with the amount removed, inversely with the outlet concentration.</p>
+
+<div class="ex"><b class="t">Worked 7.1: scaling a CSTR when the feed and flow change</b><p class="q">A pollutant degrades by first-order kinetics. A stream with 2 kmol/m³ of pollutant at 1 m³/h needs a CSTR of volume V to reach 0.5 kmol/m³. The inlet concentration is then doubled and the flow is tripled, while the outlet must still be 0.5 kmol/m³. By what factor must the reactor volume increase?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write the first-order CSTR design equation in ratio form</div>
+<div class="f">V = <span class="fr"><i>v<sub>0</sub> ( C<sub>A0</sub> − C<sub>A</sub> )</i><i>k C<sub>A</sub></i></span></div>
+<div class="st">Step 2 — evaluate the original volume symbolically</div>
+<div class="f">V<sub>1</sub> = <span class="fr"><i>(1)(2 − 0.5)</i><i>k (0.5)</i></span> = <span class="fr"><i>3</i><i>k</i></span></div>
+<div class="st">Step 3 — evaluate the new volume</div>
+<div class="f">V<sub>2</sub> = <span class="fr"><i>(3)(4 − 0.5)</i><i>k (0.5)</i></span> = <span class="fr"><i>21</i><i>k</i></span></div>
+<div class="st">Step 4 — take the ratio</div>
+<div class="f"><span class="fr"><i>V<sub>2</sub></i><i>V<sub>1</sub></i></span> = <span class="fr"><i>21/k</i><i>3/k</i></span> = <b>7</b></div>
+<div class="cap">The factor 7 is the product of the flow factor 3 and the removal factor (3.5/1.5 = 7/3). The wrong 7/2 uses only one of the two changes.</div>
+<div class="lg"><b>Variables</b>
+<span><i>V</i><sub>1</sub>, <i>V</i><sub>2</sub> — original and new volumes</span>
+<span><i>v</i><sub>0</sub> — volumetric flow, m³/h</span>
+<span><i>C<sub>A0</sub></i> — inlet concentration, kmol/m³</span>
+<span><i>C<sub>A</sub></i> — outlet concentration, kmol/m³</span>
+<span><i>k</i> — first-order rate constant, h⁻¹</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 7.2: gas-phase PFR with expansion</b><p class="q">A homogeneous gas-phase reaction A → 3R has −r<sub>A</sub> = 10⁻² C<sub>A</sub><sup>0.5</sup> mol/L·s at 215 °C. Find the space time for 80 % conversion of a 50 % A / 50 % inert feed in a PFR at 215 °C and 5 atm.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — expansion factor</div>
+<div class="f">δ = 3 − 1 = 2,   ε = y<sub>A0</sub> δ = 0.5 × 2 = 1.0</div>
+<div class="st">Step 2 — inlet concentration from the ideal gas law, with P in atm and R in L·atm/mol·K</div>
+<div class="f">C<sub>A0</sub> = <span class="fr"><i>y<sub>A0</sub> P</i><i>R T</i></span> = <span class="fr"><i>0.5 × 5</i><i>0.08206 × 488.15</i></span> = 0.0624 mol/L</div>
+<div class="st">Step 3 — the variable-density PFR space time</div>
+<div class="f">τ = <span class="fr"><i>C<sub>A0</sub></i><i>k</i></span> ∫<sub>0</sub><sup>X</sup> <span class="fr"><i>dX</i><i>C<sub>A0</sub><sup>0.5</sup> [ (1 − X)/(1 + εX) ]<sup>0.5</sup></i></span></div>
+<div class="st">Step 4 — simplify the constants</div>
+<div class="f">τ = <span class="fr"><i>C<sub>A0</sub><sup>0.5</sup></i><i>k</i></span> ∫<sub>0</sub><sup>0.8</sup> <span class="fr"><i>( 1 + X )<sup>0.5</sup></i><i>( 1 − X )<sup>0.5</sup></i></span> dX</div>
+<div class="st">Step 5 — evaluate the prefactor</div>
+<div class="f"><span class="fr"><i>(0.0624)<sup>0.5</sup></i><i>0.01</i></span> = 24.98 s</div>
+<div class="st">Step 6 — evaluate the integral (substitute X = sin θ)</div>
+<div class="f">∫<sub>0</sub><sup>0.8</sup> <span class="fr"><i>( 1 + X )<sup>0.5</sup></i><i>( 1 − X )<sup>0.5</sup></i></span> dX = [ arcsin X − √(1 − X²) ]<sub>0</sub><sup>0.8</sup> = 1.3273</div>
+<div class="st">Step 7 — multiply</div>
+<div class="f">τ = 24.98 × 1.3273 = <b>33.2 s ≈ 33 s</b></div>
+<div class="cap">The answer 22 s comes from omitting the (1 + εX)<sup>0.5</sup> factor. With ε = 1 that factor ranges from 1 to 1.34, and its omission is exactly the size of the gap.</div>
+<div class="lg"><b>Variables</b>
+<span><i>C<sub>A0</sub></i> — inlet concentration, mol/L</span>
+<span><i>k</i> — rate constant, (mol/L)<sup>0.5</sup>/s</span>
+<span><i>ε</i> — expansion factor, dimensionless</span>
+<span><i>X</i> — conversion of A</span>
+<span><i>τ</i> — space time, s</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 7.3: phosphine PFR volume</b><p class="q">The first-order decomposition 4PH₃ → P₄ + 6H₂ runs at 649 °C and 460 kPa with k = 10 h⁻¹ and a feed of 40 mol/h of pure phosphine. Find the PFR volume for 80 % conversion.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — expansion factor: 4 moles of A produce 7 moles of products</div>
+<div class="f">δ = <span class="fr"><i>1 + 6 − 4</i><i>4</i></span> = 0.75,   ε = 1.0 × 0.75 = 0.75</div>
+<div class="st">Step 2 — inlet concentration from the ideal-gas law</div>
+<div class="f">T = 922.15 K,   P = 460 000 Pa</div>
+<div class="f">C<sub>A0</sub> = <span class="fr"><i>P</i><i>R T</i></span> = <span class="fr"><i>460 000</i><i>8.314 × 922.15</i></span> = 60.0 mol/m<sup>3</sup></div>
+<div class="st">Step 3 — inlet volumetric flow</div>
+<div class="f">v<sub>0</sub> = <span class="fr"><i>40</i><i>60</i></span> = 0.667 m<sup>3</sup>/h</div>
+<div class="st">Step 4 — first-order variable-density PFR formula</div>
+<div class="f">V = <span class="fr"><i>v<sub>0</sub></i><i>k</i></span> [ ( 1 + ε ) ln <span class="fr"><i>1</i><i>1 − X</i></span> − ε X ]</div>
+<div class="st">Step 5 — evaluate the bracket at X = 0.80</div>
+<div class="f">1.75 ln <span class="fr"><i>1</i><i>0.20</i></span> − 0.75 × 0.80 = 1.75 × 1.6094 − 0.600 = 2.2165</div>
+<div class="st">Step 6 — multiply</div>
+<div class="f">V = <span class="fr"><i>0.667</i><i>10</i></span> × 2.2165 = <b>0.1478 m³ = 148 L</b></div>
+<div class="cap">The answer 107 L comes from omitting the ε entirely; the answer 188 L comes from keeping the (1 + ε) factor but dropping the −εX term. Both terms are required.</div>
+<div class="lg"><b>Variables</b>
+<span><i>v</i><sub>0</sub> — inlet volumetric flow, m³/h</span>
+<span><i>k</i> — first-order rate constant, h⁻¹</span>
+<span><i>ε</i> — expansion factor, 0.75</span>
+<span><i>X</i> — conversion, 0.80</span>
+<span><i>V</i> — reactor volume, L</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 7.4: zero-order constant-pressure volume</b><p class="q">For a zero-order reaction A → rR in a constant-volume bomb, π = 1 at t = 0 and π = 1.5 at t = 1. In a constant-pressure setup, find V at t = 1 if V = 1 at t = 0.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — from the bomb data, find the group (r − 1)k/C<sub>A0</sub></div>
+<div class="f">π = 1 + ( r − 1 ) <span class="fr"><i>k t</i><i>C<sub>A0</sub></i></span></div>
+<div class="f">1.5 = 1 + ( r − 1 ) <span class="fr"><i>k (1)</i><i>C<sub>A0</sub></i></span>   ⇒   ( r − 1 ) <span class="fr"><i>k</i><i>C<sub>A0</sub></i></span> = 0.5</div>
+<div class="st">Step 2 — constant pressure: the volume follows the total moles, which grow exponentially in the zero-order case</div>
+<div class="f"><span class="fr"><i>V</i><i>V<sub>0</sub></i></span> = exp[ ( r − 1 ) <span class="fr"><i>k t</i><i>C<sub>A0</sub></i></span> ]</div>
+<div class="st">Step 3 — substitute the group at t = 1</div>
+<div class="f"><span class="fr"><i>V</i><i>V<sub>0</sub></i></span> = exp( 0.5 × 1 ) = e<sup>0.5</sup> = 1.6487</div>
+<div class="f"><b>V ≈ 1.65 V<sub>0</sub></b></div>
+<div class="cap">The answer does not depend on r, which is why r is not given. The linear extrapolation to 1.5 V<sub>0</sub> is the natural wrong answer; the constant-pressure zero-order case grows exponentially because the volume increases as the reaction proceeds, which accelerates the consumption.</div>
+<div class="lg"><b>Variables</b>
+<span><i>π</i> — reduced pressure, p/p<sub>0</sub></span>
+<span><i>r</i> — moles of product per mole of A reacted</span>
+<span><i>k</i> — zero-order rate constant, mol/L·s</span>
+<span><i>t</i> — time, s</span>
+<span><i>V</i>, <i>V</i><sub>0</sub> — current and initial volumes</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: why the PFR and CSTR coincide for zero order</b>The PFR integral ∫ dX/(−r<sub>A</sub>) is the area under the curve of 1/(−r<sub>A</sub>) against X. The CSTR formula is the rectangle of height 1/(−r<sub>A</sub>)<sub>exit</sub> and width X. For a zero-order rate the curve is horizontal, so the area and the rectangle are identical. For any positive-order rate the curve rises as X increases, so the area is smaller than the rectangle, and the PFR requires less volume. That is the geometric explanation of a result that is otherwise just algebra.</div>
+
+<h2 id="c8">8. Formula summary</h2>
+<p>Perry's column: <i>Perry's Chemical Engineers' Handbook</i>, 9th edition, contains the rate laws and reactor design equations in <b>Section 7 (Reaction Kinetics)</b> and <b>Section 19 (Reactor Design)</b>. I could not verify the subsection or page numbers, so the column states the section and marks the finer location as unverified. Entries marked “not in Perry's” are standard results that I could not confirm are tabulated as such.</p>
+<div class="w"><table>
+<tr><th>Formula</th><th>Use</th><th>Perry's 9th ed.</th></tr>
+<tr><td><div class="f">n = ln( r<sub>2</sub>/r<sub>1</sub> ) / ln( C<sub>2</sub>/C<sub>1</sub> )</div></td><td>Order from rate ratios</td><td>Sec. 7 — reaction kinetics; location unverified</td></tr>
+<tr><td><div class="f">zero order: C<sub>A</sub> = C<sub>A0</sub> − k t</div></td><td>Integrated form</td><td>Sec. 7 — rate equations; location unverified</td></tr>
+<tr><td><div class="f">first order: ln C<sub>A</sub> = ln C<sub>A0</sub> − k t</div></td><td>Integrated form</td><td>Sec. 7 — rate equations; location unverified</td></tr>
+<tr><td><div class="f">second order: 1/C<sub>A</sub> = 1/C<sub>A0</sub> + k t</div></td><td>Integrated form</td><td>Sec. 7 — rate equations; location unverified</td></tr>
+<tr><td><div class="f">zero-order bomb: π = 1 + (r − 1) k t / C<sub>A0</sub></div></td><td>Pressure rise at constant volume</td><td>Not confirmed as a tabulated row; standard derivation</td></tr>
+<tr><td><div class="f">first-order gas: π = 1 + Δn X</div></td><td>Conversion from pressure rise</td><td>Not confirmed as a tabulated row; standard derivation</td></tr>
+<tr><td><div class="f">serial: t<sub>max</sub> = ln(k<sub>2</sub>/k<sub>1</sub>)/(k<sub>2</sub> − k<sub>1</sub>)</div></td><td>Time to maximum intermediate</td><td>Sec. 7 — complex reactions; location unverified</td></tr>
+<tr><td><div class="f">serial: C<sub>B,max</sub> = C<sub>A0</sub> (k<sub>1</sub>/k<sub>2</sub>)<sup>k<sub>2</sub>/(k<sub>2</sub>−k<sub>1</sub>)</sup></div></td><td>Maximum intermediate concentration</td><td>Sec. 7 — complex reactions; location unverified</td></tr>
+<tr><td><div class="f">t<sub>1/2</sub> = (2<sup>n−1</sup> − 1)/[(n−1) k C<sub>A0</sub><sup>n−1</sup>]</div></td><td>Half-life for order n</td><td>Sec. 7 — rate equations; location unverified</td></tr>
+<tr><td><div class="f">first order: t<sub>1/2</sub> = ln 2 / k</div></td><td>Half-life, first order</td><td>Sec. 7 — rate equations; location unverified</td></tr>
+<tr><td><div class="f">n = 1 + ln(t<sub>1/2,1</sub>/t<sub>1/2,2</sub>) / ln(C<sub>2</sub>/C<sub>1</sub>)</div></td><td>Order from two half-lives</td><td>Not confirmed as a tabulated row; derived from the half-life form</td></tr>
+<tr><td><div class="f">Arrhenius: k = k<sub>0</sub> e<sup>−E<sub>a</sub>/RT</sup></div></td><td>Temperature dependence</td><td>Sec. 7 — temperature dependence; location unverified</td></tr>
+<tr><td><div class="f">ln(k<sub>2</sub>/k<sub>1</sub>) = (E<sub>a</sub>/R)(1/T<sub>1</sub> − 1/T<sub>2</sub>)</div></td><td>Activation energy from two temperatures</td><td>Sec. 7 — temperature dependence; location unverified</td></tr>
+<tr><td><div class="f">TST: k ∝ T e<sup>−E/RT</sup></div></td><td>Transition-state pre-exponential factor</td><td>Sec. 7 — transition-state theory; location unverified</td></tr>
+<tr><td><div class="f">batch: t = N<sub>A0</sub> ∫ dX/(−r<sub>A</sub> V)</div></td><td>Batch design equation</td><td>Sec. 19 — ideal reactors; location unverified</td></tr>
+<tr><td><div class="f">CSTR: V = F<sub>A0</sub> X/(−r<sub>A</sub>)</div></td><td>CSTR design equation</td><td>Sec. 19 — ideal reactors; location unverified</td></tr>
+<tr><td><div class="f">PFR: V = F<sub>A0</sub> ∫ dX/(−r<sub>A</sub>)</div></td><td>PFR design equation</td><td>Sec. 19 — ideal reactors; location unverified</td></tr>
+<tr><td><div class="f">τ = V/v<sub>0</sub></div></td><td>Space time</td><td>Sec. 19 — space time; location unverified</td></tr>
+<tr><td><div class="f">C<sub>A</sub> = C<sub>A0</sub>(1 − X)</div></td><td>Constant-density stoichiometry</td><td>Sec. 19 — stoichiometry; location unverified</td></tr>
+<tr><td><div class="f">C<sub>A</sub> = C<sub>A0</sub> (1 − X)/(1 + εX), ε = y<sub>A0</sub> δ</div></td><td>Gas-phase variable density</td><td>Sec. 19 — gas-phase stoichiometry; location unverified</td></tr>
+<tr><td><div class="f">first-order gas PFR: V = (v<sub>0</sub>/k)[(1 + ε) ln(1/(1 − X)) − εX]</div></td><td>Variable-density PFR sizing</td><td>Not confirmed as a tabulated row; textbook derivation</td></tr>
+</table></div>
+
+<h2 id="c9">9. Answer-bank flags</h2>
+<p>Every keyed answer in the seven concepts was recomputed. The great majority stand; the notes below identify the two items that need interpretation, and list the verification for the rest.</p>
+<div class="w"><table>
+<tr><th>Item</th><th>Concern</th></tr>
+<tr><td><b>Reactor Types</b> — zero-order CSTR to PFR (key: 0.6)</td><td><b>Depends on the convention for “space velocity.”</b> The key 0.6 requires reading the given “space velocity of 0.1 min⁻¹” as a space <i>time</i> of 0.1 min, i.e. τ = V/v<sub>0</sub> = 0.1 min (and 0.2 min for the PFR). With the more common convention space velocity = v<sub>0</sub>/V, τ = 10 min and 5 min, and the same calculation gives X<sub>PFR</sub> = 0.15. The stem's wording is ambiguous; the units alone (min⁻¹) favour the reciprocal convention, but the answer 0.6 only works with τ = the given value. <b>Read the units, state the convention, and be prepared to compute both.</b> The method — X = kτ/C<sub>A0</sub> for zero order — is unconditional.</td></tr>
+<tr><td><b>Activation Energy</b> — which statement is wrong (key: “k<sub>0</sub> does affect the temperature sensitivity”)</td><td>Verified. The ratio k<sub>2</sub>/k<sub>1</sub> = exp[E<sub>a</sub>/R(1/T<sub>1</sub> − 1/T<sub>2</sub>)] does not contain k<sub>0</sub>. The frequency factor sets the magnitude of k at a fixed T, not its temperature sensitivity. The statement that “any given reaction is more T-sensitive at low T than at high T” is true, so it is not the wrong statement.</td></tr>
+<tr><td><b>Reaction Order</b> — half-life order (key: 1.5)</td><td>Verified: t<sub>1/2</sub> ∝ C<sub>A0</sub><sup>1−n</sup>, and 2/1 = 4<sup>n−1</sup> gives n = 1.5.</td></tr>
+<tr><td><b>Reaction Order</b> — A → B data (key: 0)</td><td>Verified: the decrements are constant at 0.085 per 25 s, which is the zero-order signature.</td></tr>
+<tr><td><b>Reaction Order</b> — 80 %/90 % conversion (key: 2)</td><td>Verified: the second-order form reproduces the ratio 18/8 = 9/4 exactly.</td></tr>
+<tr><td><b>Reaction Order</b> — decomposition X<sub>t</sub> (key: 2)</td><td>Verified: 1/X increments are constant at 0.452 per 10 min.</td></tr>
+<tr><td><b>Reaction Order</b> — two-reactant orders (key: a = 1/2, b = 2/3)</td><td>Verified by the ratio method: 2 = 4<sup>a</sup> gives a = 0.5, 4 = 8<sup>b</sup> gives b = 2/3.</td></tr>
+<tr><td><b>Reaction Order</b> — zero-order bomb apparent k (key: 0.5/RT(r−1))</td><td>Verified: 0.5 = (r−1)kRT/1 gives k = 0.5/[RT(r−1)]. The 2/RT(r−1) distractor omits the subtraction of the initial 1 in π.</td></tr>
+<tr><td><b>Reaction Order</b> — cane sugar inversion (key: bimolecular, first order)</td><td>Verified: the molecularity is 2, the order is 1 because water is in large excess. Pseudo-first-order.</td></tr>
+<tr><td><b>Reaction Order</b> — doubling rate triples (key: 1.59)</td><td>Verified: n = ln3/ln2 = 1.585.</td></tr>
+<tr><td><b>Rate Law</b> — A → 2.4R conversion (key: 0.57)</td><td>Verified: X = (1.8 − 1)/1.4 = 0.571.</td></tr>
+<tr><td><b>Rate Law</b> — concentration after 75 min (key: 0.0175)</td><td>Verified: C<sub>A0</sub> = 1/(0.08206×298.15) = 0.0409 M, C<sub>A</sub> = 0.0409×0.429 = 0.0175 M.</td></tr>
+<tr><td><b>Rate Law</b> — serial maximum (key: C<sub>A0</sub>/2)</td><td>Verified: with k<sub>1</sub> = 2k<sub>2</sub>, the exponent is −1 and (k<sub>1</sub>/k<sub>2</sub>)<sup>−1</sup> = 0.5.</td></tr>
+<tr><td><b>Rate Law</b> — N₂O₅ partial pressure (key: 0.424 atm)</td><td>Verified: p = e<sup>−2.2×10⁻³ × 390</sup> = e<sup>−0.858</sup> = 0.424 atm. The equilibrium does not affect the first-order decay of N₂O₅.</td></tr>
+<tr><td><b>Rate Law</b> — A+B+C 1 h (key: 0.59 M)</td><td>Verified: (1−X)<sup>−3</sup> = 1 + 3(1.277)(1) = 4.83, giving 1−X = 0.592.</td></tr>
+<tr><td><b>Half-Life</b> — from the A→B data (key: 147 s)</td><td>Verified: zero-order k = 0.0034 M/s, t<sub>1/2</sub> = 1.00/(2×0.0034) = 147 s.</td></tr>
+<tr><td><b>Half-Life</b> — [A] at 200 s (key: 0.32 M)</td><td>Verified: 1.00 − 0.0034×200 = 0.32 M.</td></tr>
+<tr><td><b>Reaction Constant</b> — serial k<sub>2</sub> (key: 0.1246)</td><td>Verified: t<sub>max</sub> = ln(0.1246/0.00565)/(0.1246 − 0.00565) = 3.093/0.11895 = 26.0 min.</td></tr>
+<tr><td><b>Reaction Constant</b> — k from A→B data (key: 0.0034)</td><td>Verified: the constant decrement is 0.0034 M/s.</td></tr>
+<tr><td><b>Reaction Constant</b> — decomposition k (key: 0.045)</td><td>Verified: Δ(1/X)/Δt = 0.452/10 = 0.0452 L/mol·min.</td></tr>
+<tr><td><b>Reaction Constant</b> — polymerization (key: 0.535 /hr)</td><td>Verified: k = ln(1/0.7)/40 min = 0.00891 min⁻¹ = 0.535 h⁻¹. The same conversion at the same time for all three initial concentrations is the first-order signature.</td></tr>
+<tr><td><b>Reaction Constant</b> — A+B+C k (key: 1.277)</td><td>Verified: 1.915 = 3k(0.5) gives k = 1.277.</td></tr>
+<tr><td><b>Activation Energy</b> — E<sub>a</sub> from two conversions (key: 8 500 cal/mol)</td><td>Verified: k<sub>1</sub> = 0.0625, k<sub>2</sub> = 0.1905, E<sub>a</sub> = 8 531 cal/mol.</td></tr>
+<tr><td><b>Activation Energy</b> — TST ratio (key: 2.5)</td><td>Verified: the Arrhenius ratio 2 × (500/400) = 2.5.</td></tr>
+<tr><td><b>Activation Energy</b> — rate constant vs T (key: increases)</td><td>Verified. The Arrhenius k rises monotonically with T.</td></tr>
+<tr><td><b>Reactor Types</b> — batch reactor characterization (key: variation with time)</td><td>Verified. A batch reactor's composition varies with time, not with position and not with a constant residence time.</td></tr>
+<tr><td><b>Reactor Volume</b> — pollutant volume factor (key: 7)</td><td>Verified: V<sub>1</sub> = 3/k, V<sub>2</sub> = 21/k, ratio 7.</td></tr>
+<tr><td><b>Reactor Volume</b> — half-order gas PFR space time (key: 33 s)</td><td>Verified: the (1 + εX)<sup>0.5</sup> factor must be kept; omitting it gives 22 s.</td></tr>
+<tr><td><b>Reactor Volume</b> — zero-order constant pressure (key: 1.65 V<sub>0</sub>)</td><td>Verified: exp(0.5) = 1.6487.</td></tr>
+<tr><td><b>Reactor Volume</b> — phosphine PFR volume (key: 148 L)</td><td>Verified: ε = 0.75, v<sub>0</sub>/k = 0.0667 m³, bracket = 2.2165, V = 0.148 m³.</td></tr>
+<tr><td>Perry's 9th edition locations</td><td>Only the section-level pointers are asserted: Section 7 (Reaction Kinetics) for rate laws and temperature dependence, Section 19 (Reactor Design) for design equations and sizing. Subsection and page numbers are marked unverified because I could not check a physical copy. Verify against the tab before citing.</td></tr>
+</table></div>
+
+<h3>Your tags, applied</h3>
+<ul>
+<li><b>Source:</b> the rate-law and ideal-reactor chapters of a standard reaction-engineering text (Levenspiel, <i>Chemical Reaction Engineering</i>; Fogler, <i>Elements of Chemical Reaction Engineering</i>; or Smith, <i>Chemical Engineering Kinetics</i>), specifically: order determination from rate ratios and from concentration–time data; the integrated forms for zero, first and second order; half-life and its concentration dependence; serial reactions and the time to maximum intermediate; Arrhenius and transition-state temperature dependence; the three ideal reactor models; and gas-phase sizing with expansion. Edition and section numbers were not checked. For Perry's, open the 9th edition at Sections 7 and 19 and confirm the subsections yourself.</li>
+<li><b>Drill (3–5 closed-book reps, units written every time):</b> (a) one order determination from a concentration–time table, testing all three integrated forms; (b) one order determination from two half-lives; (c) one activation energy from two rate constants at two temperatures, with the Arrhenius ratio written on its own line; (d) one serial-reaction k<sub>2</sub> from t<sub>max</sub>, showing the trial substitution; (e) one gas-phase PFR sizing with the (1 + ε)ln(1/(1−X)) − εX bracket written out in full.</li>
+<li><b>Retrieval:</b> I cannot see your cards. Test yourself on: why a constant decrement in concentration means zero order; why a constant ratio means first order; why a constant increment of 1/C means second order; why the half-life of a second-order reaction doubles when the concentration halves; why k<sub>0</sub> does not affect temperature sensitivity; why the PFR and CSTR coincide for zero order; and why the expansion factor ε must be carried through a gas-phase PFR integral.</li></ul>
+
+<div class="box"><b>Pre-submit line:</b> Determine the order first, by testing the decrement, the ratio and the 1/C increment on the data; only then choose the integrated form and compute k; for activation energy, write the two k values on separate lines before forming the ratio; for the serial reaction, check the trial k<sub>2</sub> by substitution; for gas-phase sizing, compute δ then ε then write the whole bracket (1 + ε)ln(1/(1 − X)) − εX and do not drop either term; and for any “space velocity” or “space time” stem, read the units and state which convention you are using before substituting.</div>
+</main></body></html>
