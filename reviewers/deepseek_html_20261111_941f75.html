@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Engineering Data Analysis Review: Five Concepts</title>
+<style>
+:root{--bg:#fbfaf6;--fg:#1f2328;--mut:#5b6470;--ac:#7a3b12;--box:#f1ece0;--ex:#e8f0f4;--dc:#f6e9e4;--bd:#d8d0bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.1rem 4rem}
+h1{font-size:1.8rem;margin:.4rem 0 .2rem}h2{font-size:1.3rem;color:var(--ac);border-bottom:1px solid var(--bd);padding-bottom:.2rem;margin-top:2.6rem}
+h3{font-size:1rem;margin:1.4rem 0 .3rem;font-variant:small-caps;letter-spacing:.04em}
+.sub{color:var(--mut);margin:0 0 1rem}
+.box,.ex,.dc{border-radius:6px;padding:.7rem 1rem;margin:1rem 0;font-size:.97rem}
+.box{background:var(--box)}.ex{background:var(--ex);border-left:4px solid #3d7a99}.dc{background:var(--dc);border-left:4px solid #b5533c}
+.ex b.t,.dc b.t{display:block;font-variant:small-caps;letter-spacing:.05em;margin-bottom:.2rem}
+.f{font-family:"Cambria Math",Georgia,serif;text-align:center;margin:.5rem 0;font-size:1.04rem;overflow-x:auto}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .2em}.fr i{font-style:normal;padding:0 .3em}.fr i:first-child{border-bottom:1px solid currentColor}
+nav{background:var(--box);border-radius:6px;padding:.6rem 1rem;font-size:.92rem}nav a{color:var(--ac);text-decoration:none}
+.w{overflow-x:auto}table{border-collapse:collapse;font-size:.89rem;width:100%}td,th{border:1px solid var(--bd);padding:.3rem .5rem;text-align:left;vertical-align:top}
+.q{margin:.3rem 0 .5rem;font-style:italic}
+details{margin-top:.4rem}summary{cursor:pointer;color:var(--ac);font-weight:bold;font-size:.95rem;padding:.2rem 0}
+details .f{margin:.55rem 0}.cap{text-align:center;font-size:.84rem;color:var(--mut);margin:.4rem 0}
+p{margin:.6rem 0}ul{margin:.4rem 0;padding-left:1.3rem}
+.st{font-size:.85rem;color:var(--mut);font-variant:small-caps;letter-spacing:.05em;margin:.75rem 0 .05rem;text-align:left}
+.lg{border-top:1px dotted var(--bd);margin-top:.75rem;padding-top:.35rem;font-size:.83rem;color:var(--mut)}
+.lg b{font-variant:small-caps;letter-spacing:.05em;display:block;margin-bottom:.15rem}
+.lg span{display:block}
+</style></head><body><main>
+<h1>Engineering Data Analysis Review: Five Concepts</h1>
+<p class="sub">One page for the selected D3_L13 set. Five chapters in teaching order: Combination/Permutation, Series, Probability Mass Function, Central Tendency, F-Statistic (ANOVA). Each worked example shows the question first; tap “Show solution” for the steps, with a variable legend at the end. A consolidated formula table with Perry's locations sits before the flags.</p>
+<nav>1 <a href="#c1">Combination/Permutation</a> · 2 <a href="#c2">Series</a> · 3 <a href="#c3">PMF</a> · 4 <a href="#c4">Central Tendency</a> · 5 <a href="#c5">F-Statistic</a> · 6 <a href="#c6">Formulas</a> · 7 <a href="#c7">Flags</a></nav>
+
+<h2 id="c1">1. Combination and Permutation</h2>
+<p>Two questions decide every counting problem: <b>does order matter?</b> and <b>is repetition allowed?</b> The answers fix which formula applies.</p>
+<div class="w"><table>
+<tr><th>Order matters?</th><th>Repetition?</th><th>Count</th></tr>
+<tr><td>Yes</td><td>No</td><td><sub>n</sub>P<sub>r</sub> = n! / (n − r)!</td></tr>
+<tr><td>Yes</td><td>Yes</td><td>n<sup>r</sup></td></tr>
+<tr><td>No</td><td>No</td><td><sub>n</sub>C<sub>r</sub> = n! / [ r! (n − r)! ]</td></tr>
+<tr><td>No</td><td>Yes</td><td><sub>n+r−1</sub>C<sub>r</sub></td></tr>
+</table></div>
+<h3>Conditional probability</h3>
+<p>The conditional probability of A given B is the ratio of the joint event to the conditioning event:</p>
+<div class="f">P( A | B ) = <span class="fr"><i>P( A ∩ B )</i><i>P( B )</i></span></div>
+<p>The denominator is the event that is <i>known</i> to have happened, not the total sample space. Restricting the sample space to B before counting is the whole idea.</p>
+<h3>Permutations with repeated items</h3>
+<p>For a word with n letters and repeats n<sub>1</sub>, n<sub>2</sub>, …, the number of distinct arrangements is</p>
+<div class="f"><span class="fr"><i>n!</i><i>n<sub>1</sub>! n<sub>2</sub>! …</i></span></div>
+<p>Circular permutations of n distinct objects give (n − 1)! arrangements. When the circular objects can be <b>flipped</b> (a keychain, a bracelet), each arrangement is counted twice, so the count halves to (n − 1)!/2.</p>
+<h3>Stars and bars</h3>
+<p>The number of ordered solutions to x<sub>1</sub> + x<sub>2</sub> + … + x<sub>k</sub> = n with each x<sub>i</sub> a <b>non-negative</b> integer is</p>
+<div class="f"><sub>n+k−1</sub>C<sub>k−1</sub></div>
+<p>When each x<sub>i</sub> must be a <b>positive</b> integer, subtract k from n first:</p>
+<div class="f"><sub>n−1</sub>C<sub>k−1</sub></div>
+
+<div class="ex"><b class="t">Worked 1.1: two children, given at least one boy</b><p class="q">A couple has two children. Find the probability that both children are boys, given that at least one of the children is a boy.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — list the sample space for two children</div>
+<div class="f">S = { BB, BG, GB, GG }</div>
+<div class="st">Step 2 — the conditioning event B = "at least one boy" is the set</div>
+<div class="f">{ BB, BG, GB }   ⇒   P( B ) = 3/4</div>
+<div class="st">Step 3 — the intersection A ∩ B = "both boys" is { BB }, with P = 1/4</div>
+<div class="st">Step 4 — apply the conditional formula</div>
+<div class="f">P( BB | B ) = <span class="fr"><i>1/4</i><i>3/4</i></span> = <b>1/3</b></div>
+<div class="cap">The answer 1/2 comes from treating the children as ordered and fixing the first as a boy — which is a different conditioning event (the older child is a boy, not at least one). The word "at least one" allows either child to be the boy, which includes BG and GB as distinct outcomes.</div>
+<div class="lg"><b>Variables</b>
+<span><i>S</i> — sample space, {BB, BG, GB, GG}</span>
+<span><i>A</i> — both children are boys</span>
+<span><i>B</i> — at least one child is a boy</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.2: derangements of four persons</b><p class="q">Persons A, B, C, D sit in four seats 1, 2, 3, 4 in this order. How many seating arrangements have none of the four persons in his original chair?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — this is a derangement of 4 items, written !4</div>
+<div class="st">Step 2 — apply the derangement recurrence !n = ( n−1 )( !(n−1) + !(n−2) ), with !1 = 0, !2 = 1</div>
+<div class="f">!3 = 2( !2 + !1 ) = 2( 1 + 0 ) = 2</div>
+<div class="f">!4 = 3( !3 + !2 ) = 3( 2 + 1 ) = 9</div>
+<div class="f"><b>!4 = 9 arrangements</b></div>
+<div class="cap">The derangement count 9 is much smaller than 4! = 24, because most permutations leave at least one person in his own chair. The recurrence is the fastest route; listing all 24 and striking out those with any fixed point gives the same answer but is error-prone.</div>
+<div class="lg"><b>Variables</b>
+<span>!n — number of derangements of n distinct objects (permutations with no fixed points)</span>
+<span><i>n</i> — number of persons and seats, 4</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.3: permutations of a word with repeats</b><p class="q">How many distinct permutations does the word ENGINEERING have?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — count the letters and their repeats</div>
+<div class="f">11 letters: E, N, G, I, N, E, E, R, I, N, G</div>
+<div class="f">E: 3,   N: 3,   G: 2,   I: 2,   R: 1</div>
+<div class="st">Step 2 — apply the repeated-letter formula</div>
+<div class="f">permutations = <span class="fr"><i>11!</i><i>3! · 3! · 2! · 2! · 1!</i></span></div>
+<div class="st">Step 3 — evaluate the factorials</div>
+<div class="f">11! = 39 916 800,   denominator = 6 × 6 × 2 × 2 = 144</div>
+<div class="st">Step 4 — divide</div>
+<div class="f">permutations = <span class="fr"><i>39 916 800</i><i>144</i></span> = <b>277 200</b></div>
+<div class="cap">The answer 727 200 comes from a slip in one of the repeat counts (for example, using 2 for N instead of 3, or 1 for G instead of 2). Count every letter methodically: E×3, N×3, G×2, I×2, R×1 — the sum 3+3+2+2+1 = 11 confirms nothing was missed or double-counted.</div>
+<div class="lg"><b>Variables</b>
+<span><i>n</i> — total letters, 11</span>
+<span><i>n</i><sub>1</sub>, <i>n</i><sub>2</sub>, … — repeat counts, 3, 3, 2, 2, 1</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.4: stars and bars with non-negative integers</b><p class="q">Find the number of ordered quadruples of non-negative integers (a, b, c, d) such that a + b + c + d = 12.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — this is a stars-and-bars problem: 12 stars to place into 4 bins, with empty bins allowed</div>
+<div class="f">n = 12 (total to distribute),   k = 4 (bins)</div>
+<div class="st">Step 2 — apply the non-negative form</div>
+<div class="f">count = <sub>n+k−1</sub>C<sub>k−1</sub> = <sub>12+4−1</sub>C<sub>4−1</sub> = <sub>15</sub>C<sub>3</sub></div>
+<div class="st">Step 3 — evaluate</div>
+<div class="f"><sub>15</sub>C<sub>3</sub> = <span class="fr"><i>15 × 14 × 13</i><i>3 × 2 × 1</i></span> = <span class="fr"><i>2 730</i><i>6</i></span> = <b>455</b></div>
+<div class="cap">The answer 445 comes from a slip in the binomial coefficient or from using a different stars-and-bars variant. The check is that <sub>15</sub>C<sub>3</sub> = <sub>15</sub>C<sub>12</sub>; both give 455. The (n+k−1) form is the one for non-negative integer solutions; the (n−1) form is for positive integer solutions.</div>
+<div class="lg"><b>Variables</b>
+<span><i>a</i>, <i>b</i>, <i>c</i>, <i>d</i> — the four unknowns, non-negative integers</span>
+<span><i>n</i> — sum, 12</span>
+<span><i>k</i> — number of unknowns, 4</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.5: stars and bars with positive integers</b><p class="q">Find the number of ordered triples of positive integers (a, b, c) such that a + b + c = 8.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the variables are positive integers, not non-negative; substitute a′ = a − 1, b′ = b − 1, c′ = c − 1</div>
+<div class="f">a′ + b′ + c′ = 8 − 3 = 5   (with a′, b′, c′ ≥ 0)</div>
+<div class="st">Step 2 — apply the non-negative stars-and-bars form to the transformed problem</div>
+<div class="f">count = <sub>5+3−1</sub>C<sub>3−1</sub> = <sub>7</sub>C<sub>2</sub></div>
+<div class="st">Step 3 — evaluate</div>
+<div class="f"><sub>7</sub>C<sub>2</sub> = <span class="fr"><i>7 × 6</i><i>2</i></span> = <b>21</b></div>
+<div class="cap">The answer 21 is the same as <sub>n−1</sub>C<sub>k−1</sub> = <sub>7</sub>C<sub>2</sub> — the positive-integer form of stars and bars. Using the non-negative form directly (without the substitution) would give <sub>10</sub>C<sub>2</sub> = 45, which counts solutions with zero (not allowed).</div>
+<div class="lg"><b>Variables</b>
+<span><i>a</i>, <i>b</i>, <i>c</i> — the three unknowns, positive integers</span>
+<span><i>n</i> — sum, 8</span>
+<span><i>k</i> — number of unknowns, 3</span>
+</div>
+</details></div>
+
+<h2 id="c2">2. Series</h2>
+<p>A series is the sum of the terms of a sequence. Two families cover the chapter: arithmetic and geometric.</p>
+<h3>Arithmetic series</h3>
+<div class="f">S<sub>n</sub> = <span class="fr"><i>n</i><i>2</i></span> [ 2a<sub>1</sub> + ( n − 1 ) d ] = <span class="fr"><i>n</i><i>2</i></span> ( a<sub>1</sub> + a<sub>n</sub> )</div>
+<h3>Geometric series</h3>
+<div class="f">S<sub>n</sub> = a<sub>1</sub> <span class="fr"><i>r<sup>n</sup> − 1</i><i>r − 1</i></span>,   S<sub>∞</sub> = <span class="fr"><i>a<sub>1</sub></i><i>1 − r</i></span>   ( |r| &lt; 1 )</div>
+<h3>Binomial sums and the hockey stick identity</h3>
+<p>A series of binomial coefficients with a fixed lower index follows the <b>hockey stick identity</b>:</p>
+<div class="f"><span class="fr"><i>n</i><i>Σ</i><i>i=r</i></span> <sub>i</sub>C<sub>r</sub> = <sub>n+1</sub>C<sub>r+1</sub></div>
+<p>The sum of a column in Pascal's triangle equals the entry one row below and one column right. The name comes from the shape of the entries in Pascal's triangle — the column plus the endpoint form a hockey stick.</p>
+<p>The <b>binomial theorem</b> sums a whole row:</p>
+<div class="f">( a + b )<sup>n</sup> = Σ<sub>k=0</sub><sup>n</sup> <sub>n</sub>C<sub>k</sub> a<sup>k</sup> b<sup>n−k</sup></div>
+<p>Setting a = b = 1 gives the useful special case</p>
+<div class="f">Σ<sub>k=0</sub><sup>n</sup> <sub>n</sub>C<sub>k</sub> = 2<sup>n</sup></div>
+<p>which is the count of all subsets of an n-element set. Setting a = 1, b = −1 gives Σ (−1)<sup>k</sup> <sub>n</sub>C<sub>k</sub> = 0 for n ≥ 1.</p>
+
+<div class="ex"><b class="t">Worked 2.1: the hockey stick identity</b><p class="q">Which of the following is equivalent to <sub>15</sub>C<sub>15</sub> + <sub>16</sub>C<sub>15</sub> + <sub>17</sub>C<sub>15</sub> + … + <sub>2023</sub>C<sub>15</sub>?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write the sum in sigma notation with the fixed lower index visible</div>
+<div class="f">Σ<sub>i=15</sub><sup>2023</sup> <sub>i</sub>C<sub>15</sub></div>
+<div class="st">Step 2 — apply the hockey stick identity with r = 15 and n = 2023</div>
+<div class="f">Σ<sub>i=r</sub><sup>n</sup> <sub>i</sub>C<sub>r</sub> = <sub>n+1</sub>C<sub>r+1</sub></div>
+<div class="f">= <sub>2023+1</sub>C<sub>15+1</sub></div>
+<div class="st">Step 3 — simplify</div>
+<div class="f"><b>= <sub>2024</sub>C<sub>16</sub></b></div>
+<div class="cap">The answer <sub>2023</sub>C<sub>15</sub> is the last term alone, not the sum. The identity says the <i>sum of the whole column</i> equals the next row's entry one column right; dropping the sum produces an answer that looks structurally similar but is off by the entire running total.</div>
+<div class="lg"><b>Variables</b>
+<span><i>r</i> — fixed lower index, 15</span>
+<span><i>n</i> — upper limit, 2023</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.2: sum of a binomial row</b><p class="q">Evaluate <sub>10</sub>C<sub>0</sub> + <sub>10</sub>C<sub>1</sub> + <sub>10</sub>C<sub>2</sub> + … + <sub>10</sub>C<sub>10</sub>.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — recognize the sum as the entire row n = 10 of Pascal's triangle</div>
+<div class="st">Step 2 — apply the binomial theorem with a = b = 1</div>
+<div class="f">Σ<sub>k=0</sub><sup>n</sup> <sub>n</sub>C<sub>k</sub> = 2<sup>n</sup></div>
+<div class="st">Step 3 — substitute n = 10</div>
+<div class="f">Σ = 2<sup>10</sup> = <b>1 024</b></div>
+<div class="cap">The shortcut 2<sup>n</sup> answers this family instantly; summing the ten terms individually (1 + 10 + 45 + 120 + 210 + 252 + 210 + 120 + 45 + 10 + 1) gives the same total but wastes time and risks an arithmetic slip.</div>
+<div class="lg"><b>Variables</b>
+<span><i>n</i> — row index, 10</span>
+</div>
+</details></div>
+
+<h2 id="c3">3. Probability Mass Function</h2>
+<p>A discrete random variable is described by its <b>probability mass function</b>, a rule that assigns a probability to each possible value. Three axioms define a valid PMF:</p>
+<div class="f">p(x) ≥ 0,   Σ<sub>x</sub> p(x) = 1,   p(x) = 0 outside the support</div>
+<p>For a <b>continuous</b> random variable the PMF is replaced by a <b>probability density function</b> f(x), which satisfies</p>
+<div class="f">f(x) ≥ 0,   ∫<sub>−∞</sub><sup>∞</sup> f(x) dx = 1</div>
+<p>The density is not a probability; probabilities are integrals of the density over intervals. This is why f(x) may exceed 1.</p>
+<h3>The normal distribution</h3>
+<div class="f">f(x) = <span class="fr"><i>1</i><i>σ √(2π)</i></span> e<sup>−(x−μ)²/(2σ²)</sup></div>
+<p>Probabilities are computed by standardizing and reading the standard normal CDF Φ(z):</p>
+<div class="f">z = <span class="fr"><i>x − μ</i><i>σ</i></span>,   P( a &lt; X &lt; b ) = Φ( z<sub>b</sub> ) − Φ( z<sub>a</sub> )</div>
+<h3>Geometric probability</h3>
+<p>When a point is chosen uniformly from a region, the probability of any event is the ratio of areas. The bus problem is the standard example: two arrival times chosen uniformly in the same interval form a square of possible outcomes; the event "you catch the bus" is the strip of the square where the two time intervals overlap.</p>
+
+<div class="ex"><b class="t">Worked 3.1: derangement of six hats</b><p class="q">Suppose all six men at a party throw their hats into the centre of the room. Each man then randomly selects a hat. Find the probability that none of the six men selects his own hat.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the number of men is n = 6; the favourable outcomes are derangements</div>
+<div class="f">favourable = !6</div>
+<div class="st">Step 2 — compute the derangement using the recurrence, or the closed approximation !n ≈ n!/e</div>
+<div class="f">!1 = 0,   !2 = 1,   !3 = 2,   !4 = 9,   !5 = 44,   !6 = 265</div>
+<div class="st">Step 3 — the total number of arrangements is 6!</div>
+<div class="f">6! = 720</div>
+<div class="st">Step 4 — form the probability</div>
+<div class="f">P = <span class="fr"><i>265</i><i>720</i></span> = <span class="fr"><i>53</i><i>144</i></span> ≈ 0.368</div>
+<div class="f"><b>P = 53/144</b></div>
+<div class="cap">The answer 17/48 = 0.354 comes from the independent-events approximation (5/6)<sup>6</sup> ≈ 0.335, which is close but not exact. The true probability approaches 1/e ≈ 0.368 as n grows — a good sanity check on any derangement result. The correct calculation requires the inclusion–exclusion count, not the product of independent probabilities.</div>
+<div class="lg"><b>Variables</b>
+<span><i>n</i> — number of men and hats, 6</span>
+<span>!n — derangement count</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.2: geometric probability — the bus problem</b><p class="q">You and the bus both arrive at a stop at random times between 12:00 and 13:00. The bus waits 5 minutes before leaving; you wait 20 minutes before leaving if the bus has not come. What is the probability that you catch the bus?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — let y be your arrival (minutes after 12:00) and b the bus arrival; both uniform on [0, 60]</div>
+<div class="f">y ∈ [0, 60],   b ∈ [0, 60]</div>
+<div class="st">Step 2 — you are at the stop from y to y + 20; the bus is there from b to b + 5</div>
+<div class="st">Step 3 — you catch the bus exactly when the two intervals overlap</div>
+<div class="f">y ≤ b + 5   and   b ≤ y + 20</div>
+<div class="f">y − 20 ≤ b ≤ y + 5</div>
+<div class="st">Step 4 — total area of the square of possible outcomes</div>
+<div class="f">60 × 60 = 3 600</div>
+<div class="st">Step 5 — area of the top miss region (b &gt; y + 5): triangle with legs 55</div>
+<div class="f"><span class="fr"><i>1</i><i>2</i></span> ( 55 )² = 1 512.5</div>
+<div class="st">Step 6 — area of the bottom miss region (b &lt; y − 20): triangle with legs 40</div>
+<div class="f"><span class="fr"><i>1</i><i>2</i></span> ( 40 )² = 800</div>
+<div class="st">Step 7 — favourable area and probability</div>
+<div class="f">favourable = 3 600 − 1 512.5 − 800 = 1 287.5</div>
+<div class="f">P = <span class="fr"><i>1 287.5</i><i>3 600</i></span> = <b>103/288 ≈ 0.358</b></div>
+<div class="cap">The answer 1/4 comes from treating the two waits as equal (symmetric). They are 5 and 20, and the asymmetry shows up in the different triangle legs 55 and 40. Sketching the strip in the 60×60 square before computing is the safeguard — the two miss triangles are different sizes, and each must be computed separately.</div>
+<div class="lg"><b>Variables</b>
+<span><i>y</i> — your arrival time, min after 12:00</span>
+<span><i>b</i> — bus arrival time, min after 12:00</span>
+<span>20 — your waiting time, min</span>
+<span>5 — bus waiting time, min</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.3: normal distribution probability</b><p class="q">The average number of acres burned by forest fires in a New Mexico county is 4 300 per year, with a standard deviation of 750. The distribution is normal. Find P(2 500 &lt; X &lt; 4 200).</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — standardize each bound</div>
+<div class="f">z₁ = <span class="fr"><i>2 500 − 4 300</i><i>750</i></span> = <span class="fr"><i>−1 800</i><i>750</i></span> = −2.40</div>
+<div class="f">z₂ = <span class="fr"><i>4 200 − 4 300</i><i>750</i></span> = −0.1333</div>
+<div class="st">Step 2 — read the standard normal CDF at each</div>
+<div class="f">Φ( −2.40 ) = 0.0082,   Φ( −0.1333 ) = 0.4469</div>
+<div class="st">Step 3 — subtract</div>
+<div class="f">P = 0.4469 − 0.0082 = <b>0.4387 ≈ 0.4388</b></div>
+<div class="cap">The answer 0.4499 comes from using z₂ ≈ −0.13 and reading Φ(−0.13) ≈ 0.4483 while dropping the lower-tail contribution. Both tails matter here; the lower z = −2.40 contributes about 0.8 % of probability, which is enough to separate the two options. Looking up both bounds and subtracting is the routine.</div>
+<div class="lg"><b>Variables</b>
+<span><i>μ</i> — mean acres burned, 4 300</span>
+<span><i>σ</i> — standard deviation, 750</span>
+<span><i>z</i> — standardized score, (X − μ)/σ</span>
+<span>Φ — standard normal cumulative distribution function</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.4: normalizing a PDF with a square</b><p class="q">Given f<sub>X</sub>(x) = k(1 − x²) for −1 &lt; x &lt; 1, find k.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — apply the normalization condition</div>
+<div class="f">∫<sub>−1</sub><sup>1</sup> k( 1 − x² ) dx = 1</div>
+<div class="st">Step 2 — integrate</div>
+<div class="f">k [ x − x³/3 ]<sub>−1</sub><sup>1</sup> = k [ ( 1 − 1/3 ) − ( −1 + 1/3 ) ]</div>
+<div class="st">Step 3 — simplify the bracket</div>
+<div class="f">= k [ 2/3 + 2/3 ] = k ( 4/3 )</div>
+<div class="st">Step 4 — set equal to 1 and solve</div>
+<div class="f">k = <b>3/4</b></div>
+<div class="cap">The answer 3/2 comes from dropping the symmetric interval: using [0, 1] instead of [−1, 1] gives half the integral, and k doubles to 3/2. The PDF must integrate to 1 over its entire support; the support here is the full interval (−1, 1).</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the random variable</span>
+<span><i>k</i> — the normalizing constant</span>
+</div>
+</details></div>
+
+<h2 id="c4">4. Central Tendency and Inference</h2>
+<p>Sample statistics estimate population parameters. The <b>standard error</b> of a sample mean quantifies how much the estimate would vary from sample to sample:</p>
+<div class="f">SE = <span class="fr"><i>σ</i><i>√n</i></span>   (population σ known),   <span class="fr"><i>s</i><i>√n</i></span>   (sample s used)</div>
+<h3>z-statistic (population σ known)</h3>
+<div class="f">z = <span class="fr"><i>x̄ − μ</i><i>σ/√n</i></span></div>
+<h3>t-statistic (population σ unknown)</h3>
+<div class="f">t = <span class="fr"><i>x̄ − μ</i><i>s/√n</i></span>,   df = n − 1</div>
+<h3>Two-sample t-statistic</h3>
+<div class="f">t = <span class="fr"><i>x̄₁ − x̄₂</i><i>√( s₁²/n₁ + s₂²/n₂ )</i></span></div>
+<h3>Confidence intervals</h3>
+<div class="f">CI = x̄ ± z<sub>α/2</sub> <span class="fr"><i>σ</i><i>√n</i></span>   (z known)</div>
+<div class="f">CI = x̄ ± t<sub>α/2, n−1</sub> <span class="fr"><i>s</i><i>√n</i></span>   (t unknown)</div>
+<p>The multiplier comes from the sampling distribution. For 95 % two-sided with a large sample, z = 1.96. For a 95 % CI from a sample of size 30 using the sample standard deviation, t<sub>0.025, 29</sub> ≈ 2.045 — slightly larger than 1.96, which is why the t-interval is slightly wider.</p>
+<h3>Percentiles and quartiles</h3>
+<p>The k-th percentile is the value below which k % of the data falls. Convention (one of several):</p>
+<div class="f">position = ( n + 1 ) · <span class="fr"><i>k</i><i>100</i></span></div>
+<p>A non-integer position is interpolated linearly between the two adjacent values. The 1st quartile is the 25th percentile, the median the 50th, and the 3rd quartile the 75th.</p>
+
+<div class="ex"><b class="t">Worked 4.1: z-statistic for an IQ claim</b><p class="q">A principal claims his students are above average intelligence. A random sample of 30 students has a mean IQ of 112.5. The population mean is 100, with σ = 15. Find the z-statistic.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — identify the values</div>
+<div class="f">x̄ = 112.5,   μ = 100,   σ = 15,   n = 30</div>
+<div class="st">Step 2 — compute the standard error</div>
+<div class="f">SE = <span class="fr"><i>15</i><i>√30</i></span> = <span class="fr"><i>15</i><i>5.477</i></span> = 2.739</div>
+<div class="st">Step 3 — form the z-statistic</div>
+<div class="f">z = <span class="fr"><i>112.5 − 100</i><i>2.739</i></span> = <span class="fr"><i>12.5</i><i>2.739</i></span></div>
+<div class="f"><b>z ≈ 4.56</b></div>
+<div class="cap">The answer 2.56 usually comes from a slip in the standard error — either using σ/√30 with the wrong σ, or computing (112.5 − 100)/√30 = 2.28 then mis-labelling it. The correct denominator 2.739 is what makes the result 4.56. The value 4.56 is very large — an IQ 12.5 points above the mean in a sample of 30 is roughly 4.5 standard errors above what chance would produce.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x̄</i> — sample mean, 112.5</span>
+<span><i>μ</i> — population mean, 100</span>
+<span><i>σ</i> — population standard deviation, 15</span>
+<span><i>n</i> — sample size, 30</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.2: t-based confidence interval</b><p class="q">A sample of 30 test scores has a mean of 70 and a sample standard deviation of 10. Construct a 95 % confidence interval using t<sub>0.025, 29</sub> = 2.045.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — identify the values</div>
+<div class="f">x̄ = 70,   s = 10,   n = 30,   t = 2.045</div>
+<div class="st">Step 2 — compute the standard error</div>
+<div class="f">SE = <span class="fr"><i>s</i><i>√n</i></span> = <span class="fr"><i>10</i><i>√30</i></span> = <span class="fr"><i>10</i><i>5.477</i></span> = 1.826</div>
+<div class="st">Step 3 — compute the margin of error</div>
+<div class="f">ME = t × SE = 2.045 × 1.826 = 3.734</div>
+<div class="st">Step 4 — write the interval</div>
+<div class="f">CI = 70 ± <b>3.73</b></div>
+<div class="cap">The answer 70 ± 4.73 comes from a slip in the standard error (using s/√20 or s directly rather than s/√30). The margin of error is the product of the critical value and the standard error; each factor must be computed and written on its own line before multiplying.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x̄</i> — sample mean, 70</span>
+<span><i>s</i> — sample standard deviation, 10</span>
+<span><i>n</i> — sample size, 30</span>
+<span><i>t</i> — critical t value, 2.045</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.3: z-based confidence interval with large n</b><p class="q">The heights of 40 randomly chosen students have a mean of 175 cm. The population standard deviation is 20 cm. Find the 95 % confidence interval.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the population σ is known, so this is a z-interval</div>
+<div class="f">x̄ = 175,   σ = 20,   n = 40,   z<sub>0.025</sub> = 1.96</div>
+<div class="st">Step 2 — compute the standard error</div>
+<div class="f">SE = <span class="fr"><i>20</i><i>√40</i></span> = <span class="fr"><i>20</i><i>6.325</i></span> = 3.162</div>
+<div class="st">Step 3 — compute the margin of error</div>
+<div class="f">ME = 1.96 × 3.162 = 6.198</div>
+<div class="st">Step 4 — write the interval</div>
+<div class="f">CI = 175 ± <b>6.19</b></div>
+<div class="cap">The answer 175 ± 3.56 comes from dropping the z multiplier (using only the SE = 3.16) — a factor-of-two error that makes the interval far too narrow. The whole point of a confidence interval is that it is <i>wider</i> than the standard error; the multiplier converts a point estimate into an interval estimate.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x̄</i> — sample mean, 175 cm</span>
+<span><i>σ</i> — population standard deviation, 20 cm</span>
+<span><i>n</i> — sample size, 40</span>
+<span><i>z</i> — standard normal critical value, 1.96</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.4: two-sample t-statistic</b><p class="q">Newborn weights from two hospitals: Hospital A has n = 20, mean 7.5 lb, s = 0.8; Hospital B has n = 20, mean 7.1 lb, s = 1.2. Compute the t-statistic.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the two-sample t-statistic is</div>
+<div class="f">t = <span class="fr"><i>x̄₁ − x̄₂</i><i>√( s₁²/n₁ + s₂²/n₂ )</i></span></div>
+<div class="st">Step 2 — compute each term under the root</div>
+<div class="f"><span class="fr"><i>s₁²</i><i>n₁</i></span> = <span class="fr"><i>0.64</i><i>20</i></span> = 0.032</div>
+<div class="f"><span class="fr"><i>s₂²</i><i>n₂</i></span> = <span class="fr"><i>1.44</i><i>20</i></span> = 0.072</div>
+<div class="st">Step 3 — sum and square root</div>
+<div class="f">√( 0.032 + 0.072 ) = √0.104 = 0.3225</div>
+<div class="st">Step 4 — form the t-statistic</div>
+<div class="f">t = <span class="fr"><i>0.4</i><i>0.3225</i></span> = <b>1.24</b></div>
+<div class="cap">The answer 2.24 usually comes from using the pooled-variance formula instead of the Welch formula — the pooled version (assuming equal variances) gives a slightly different denominator and a different result. The t-value of 1.24 is below the critical 2.024, so the null hypothesis of no difference is <i>not</i> rejected at the 5 % level with this small sample.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x̄</i>₁, <i>x̄</i>₂ — sample means, 7.5 and 7.1</span>
+<span><i>s</i>₁, <i>s</i>₂ — sample standard deviations, 0.8 and 1.2</span>
+<span><i>n</i>₁, <i>n</i>₂ — sample sizes, 20 each</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.5: 20th percentile and 1st quartile</b><p class="q">For the data 3, 13, 11, 11, 5, 4, 2, find (a) the 20th percentile and (b) the 1st quartile.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — sort the data (n = 7 values)</div>
+<div class="f">2, 3, 4, 5, 11, 11, 13</div>
+<div class="st">Step 2 — (a) 20th percentile: use the (n+1) convention</div>
+<div class="f">position = ( n + 1 ) · <span class="fr"><i>20</i><i>100</i></span> = 8 × 0.20 = 1.6</div>
+<div class="st">Step 3 — position 1.6 lies between the 1st value (2) and the 2nd value (3); interpolate</div>
+<div class="f">P<sub>20</sub> = 2 + 0.6 ( 3 − 2 ) = <b>2.6</b></div>
+<div class="st">Step 4 — (b) 1st quartile = 25th percentile</div>
+<div class="f">position = ( n + 1 ) · 0.25 = 8 × 0.25 = 2</div>
+<div class="st">Step 5 — position 2 is exactly the 2nd value</div>
+<div class="f">Q₁ = <b>3</b></div>
+<div class="cap">Both answers depend on which percentile convention is used. The (n+1) convention gives P<sub>20</sub> = 2.6 and Q<sub>1</sub> = 3. Other conventions (e.g. n·p/100 with rounding) give slightly different results. The (n+1) form is the standard textbook convention; check the options against it before committing.</div>
+<div class="lg"><b>Variables</b>
+<span><i>n</i> — number of data points, 7</span>
+<span>position — rank of the percentile in the sorted data</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.6: two-sample t-test for instructional method</b><p class="q">25 random students received in-person instruction (mean 80, s = 5); 25 random students received online instruction (mean 75, s = 7). Compute the t-statistic.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — apply the two-sample t-statistic</div>
+<div class="f">t = <span class="fr"><i>80 − 75</i><i>√( 25/25 + 49/25 )</i></span></div>
+<div class="st">Step 2 — compute each term under the root</div>
+<div class="f"><span class="fr"><i>5²</i><i>25</i></span> = 1,   <span class="fr"><i>7²</i><i>25</i></span> = 1.96</div>
+<div class="st">Step 3 — sum and square root</div>
+<div class="f">√( 1 + 1.96 ) = √2.96 = 1.7205</div>
+<div class="st">Step 4 — form the t-statistic</div>
+<div class="f">t = <span class="fr"><i>5</i><i>1.7205</i></span> = <b>2.91</b></div>
+<div class="cap">The t-value 2.91 is above the typical critical value around 2.01 for 48 degrees of freedom, so this two-sample difference <i>would</i> reject the null hypothesis at the 5 % level — unlike the hospital weights in Worked 4.4. The effect size (5 points) and standard errors together decide whether the difference is statistically significant; the t-value is that comparison.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x̄</i>₁, <i>x̄</i>₂ — sample means, 80 and 75</span>
+<span><i>s</i>₁, <i>s</i>₂ — sample standard deviations, 5 and 7</span>
+<span><i>n</i>₁, <i>n</i>₂ — sample sizes, 25 each</span>
+</div>
+</details></div>
+
+<h2 id="c5">5. F-Statistic (One-Way ANOVA)</h2>
+<p>Analysis of variance tests whether three or more group means differ. The total variability is split into <b>between-treatments</b> variability (attributable to the groups) and <b>within-treatments</b> variability (attributable to chance).</p>
+<h3>The sum of squares</h3>
+<div class="f">SST = Σ<sub>i,j</sub> ( x<sub>ij</sub> − x̄̄ )²   (total)</div>
+<div class="f">SSTR = n Σ<sub>i</sub> ( x̄<sub>i</sub> − x̄̄ )²   (between treatments)</div>
+<div class="f">SSE = Σ<sub>i,j</sub> ( x<sub>ij</sub> − x̄<sub>i</sub> )²   (within)</div>
+<div class="f">SST = SSTR + SSE</div>
+<h3>The degrees of freedom</h3>
+<div class="f">df<sub>SSTR</sub> = k − 1   (k groups)</div>
+<div class="f">df<sub>SSE</sub> = N − k   (N total observations)</div>
+<div class="f">df<sub>SST</sub> = N − 1</div>
+<h3>The mean squares and F-statistic</h3>
+<div class="f">MSB = <span class="fr"><i>SSTR</i><i>k − 1</i></span>,   MSE = <span class="fr"><i>SSE</i><i>N − k</i></span></div>
+<div class="f">F = <span class="fr"><i>MSB</i><i>MSE</i></span></div>
+<p>The F-statistic is the ratio of between-group to within-group variance. If the groups truly have the same mean, F is near 1; if the between-group variance dominates, F is large and the null hypothesis (all means equal) is rejected.</p>
+<h3>The ANOVA table</h3>
+<div class="w"><table>
+<tr><th>Source</th><th>SS</th><th>df</th><th>MS</th><th>F</th></tr>
+<tr><td>Between</td><td>SSTR</td><td>k − 1</td><td>MSB</td><td>MSB/MSE</td></tr>
+<tr><td>Within</td><td>SSE</td><td>N − k</td><td>MSE</td><td>—</td></tr>
+<tr><td>Total</td><td>SST</td><td>N − 1</td><td>—</td><td>—</td></tr>
+</table></div>
+
+<div class="ex"><b class="t">Worked 5.1: sum of squares between treatments</b><p class="q">Three workers are timed five times each on an assembly task. Worker 1: 8, 10, 9, 11, 10. Worker 2: 8, 9, 9, 8, 10. Worker 3: 10, 9, 10, 11, 9. Compute SSTR.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — group means</div>
+<div class="f">x̄₁ = 48/5 = 9.6,   x̄₂ = 44/5 = 8.8,   x̄₃ = 49/5 = 9.8</div>
+<div class="st">Step 2 — grand mean</div>
+<div class="f">x̄̄ = ( 9.6 + 8.8 + 9.8 )/3 = 28.2/3 = 9.4</div>
+<div class="st">Step 3 — squared deviations of each group mean from the grand mean</div>
+<div class="f">( 9.6 − 9.4 )² = 0.04</div>
+<div class="f">( 8.8 − 9.4 )² = 0.36</div>
+<div class="f">( 9.8 − 9.4 )² = 0.16</div>
+<div class="st">Step 4 — sum, multiply by n = 5</div>
+<div class="f">SSTR = 5 ( 0.04 + 0.36 + 0.16 ) = 5 × 0.56 = <b>2.8</b></div>
+<div class="st">Step 5 — mean square between treatments</div>
+<div class="f">MSB = <span class="fr"><i>2.8</i><i>3 − 1</i></span> = <b>1.4</b></div>
+<div class="cap">The answer 1.56 comes from dividing by df = N − k = 12 instead of df = k − 1 = 2 — the two divisors differ by a factor of 6, which is exactly the ratio of 1.56 to 1.4 scaled differently. Always write df<sub>between</sub> = k − 1 on its own line before dividing.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x̄<sub>i</sub></i> — mean of group i</span>
+<span><i>x̄̄</i> — grand mean, 9.4</span>
+<span><i>k</i> — number of groups, 3</span>
+<span><i>n</i> — observations per group, 5</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.2: sum of squares within treatments (error)</b><p class="q">For the same data, compute SSE.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — deviations of each observation from its group mean, squared and summed per group</div>
+<div class="f">Worker 1:   ( 8−9.6 )² + ( 10−9.6 )² + ( 9−9.6 )² + ( 11−9.6 )² + ( 10−9.6 )²</div>
+<div class="f">= 2.56 + 0.16 + 0.36 + 1.96 + 0.16 = 5.20</div>
+<div class="f">Worker 2:   ( 8−8.8 )² + ( 9−8.8 )² + ( 9−8.8 )² + ( 8−8.8 )² + ( 10−8.8 )²</div>
+<div class="f">= 0.64 + 0.04 + 0.04 + 0.64 + 1.44 = 2.80</div>
+<div class="f">Worker 3:   ( 10−9.8 )² + ( 9−9.8 )² + ( 10−9.8 )² + ( 11−9.8 )² + ( 9−9.8 )²</div>
+<div class="f">= 0.04 + 0.64 + 0.04 + 1.44 + 0.64 = 2.80</div>
+<div class="st">Step 2 — total SSE</div>
+<div class="f">SSE = 5.20 + 2.80 + 2.80 = <b>10.8</b></div>
+<div class="st">Step 3 — mean square error</div>
+<div class="f">df<sub>error</sub> = N − k = 15 − 3 = 12</div>
+<div class="f">MSE = <span class="fr"><i>10.8</i><i>12</i></span> = <b>0.9</b></div>
+<div class="cap">The answer 2 comes from a slip in the within-group deviations. The SSE 10.8 is the sum of three group sums, each group contributing about the same amount; the check is that the group contributions 5.2 + 2.8 + 2.8 add up to 10.8.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x<sub>ij</sub></i> — observation j in group i</span>
+<span><i>x̄<sub>i</sub></i> — mean of group i</span>
+<span>SSE — within-treatments sum of squares</span>
+<span>MSE — mean square error</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.3: total sum of squares and the F-statistic</b><p class="q">For the same data, compute SST (total) and the F-statistic.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — total sum of squares is the sum of between and within</div>
+<div class="f">SST = SSTR + SSE = 2.8 + 10.8 = <b>13.6</b></div>
+<div class="st">Step 2 — degrees of freedom</div>
+<div class="f">df<sub>total</sub> = N − 1 = 14</div>
+<div class="st">Step 3 — mean squares</div>
+<div class="f">MSB = 2.8/2 = 1.4</div>
+<div class="f">MSE = 10.8/12 = 0.9</div>
+<div class="st">Step 4 — F-statistic</div>
+<div class="f">F = <span class="fr"><i>MSB</i><i>MSE</i></span> = <span class="fr"><i>1.4</i><i>0.9</i></span> = <b>1.556 ≈ 1.56</b></div>
+<div class="cap">The F-statistic 1.56 with df (2, 12) is far below the critical F ≈ 3.89 at the 5 % level, so the null hypothesis of equal worker means is not rejected. The three workers' mean times (9.6, 8.8, 9.8) differ by less than the natural spread within each worker's own trials. A useful sanity check: F near 1 means the between-group variance is comparable to the within-group noise — exactly the null hypothesis.</div>
+<div class="lg"><b>Variables</b>
+<span>SSTR — between-treatments SS, 2.8</span>
+<span>SSE — within-treatments SS, 10.8</span>
+<span>SST — total SS, 13.6</span>
+<span>MSB — mean square between, 1.4</span>
+<span>MSE — mean square error, 0.9</span>
+<span><i>F</i> — F-statistic, 1.56</span>
+</div>
+</details></div>
+
+<h2 id="c6">6. Formula summary</h2>
+<p>Perry's column: <i>Perry's Chemical Engineers' Handbook</i>, 9th edition, holds the probability and statistics material — combinatorics, distributions, confidence intervals, and ANOVA — in <b>Section 2 (Mathematics)</b>. I could not verify the subsection or page numbers, so the column states the section and marks the finer location as unverified. Entries marked “not in Perry's” are elementary results that I could not confirm are tabulated as such.</p>
+<div class="w"><table>
+<tr><th>Formula</th><th>Use</th><th>Perry's 9th ed.</th></tr>
+<tr><td><div class="f"><sub>n</sub>C<sub>r</sub> = n! / [r!(n − r)!]</div></td><td>Unordered selections</td><td>Sec. 2, Mathematics — combinatorics; location unverified</td></tr>
+<tr><td><div class="f"><sub>n</sub>P<sub>r</sub> = n! / (n − r)!</div></td><td>Ordered arrangements</td><td>Sec. 2, Mathematics — combinatorics; location unverified</td></tr>
+<tr><td><div class="f">arrangements = n! / (n<sub>1</sub>! n<sub>2</sub>! …)</div></td><td>Words with repeats</td><td>Sec. 2, Mathematics — combinatorics; location unverified</td></tr>
+<tr><td><div class="f">circular: (n − 1)!; keychain: (n − 1)!/2</div></td><td>Circular and reflection-count permutations</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">P(A|B) = P(A ∩ B)/P(B)</div></td><td>Conditional probability</td><td>Sec. 2, Mathematics — probability; location unverified</td></tr>
+<tr><td><div class="f">stars and bars: <sub>n+k−1</sub>C<sub>k−1</sub> (non-neg), <sub>n−1</sub>C<sub>k−1</sub> (positive)</div></td><td>Distributions into bins</td><td>Sec. 2, Mathematics — combinatorics; location unverified</td></tr>
+<tr><td><div class="f">derangement: !n = (n−1)(!(n−1) + !(n−2)), !1=0, !2=1</div></td><td>Permutations with no fixed points</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">hockey stick: Σ<sub>i=r</sub><sup>n</sup> <sub>i</sub>C<sub>r</sub> = <sub>n+1</sub>C<sub>r+1</sub></div></td><td>Sum of a binomial column</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">Σ<sub>k=0</sub><sup>n</sup> <sub>n</sub>C<sub>k</sub> = 2<sup>n</sup></div></td><td>Sum of a binomial row</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">PMF: p(x) ≥ 0, Σp(x) = 1</div></td><td>Discrete probability axioms</td><td>Sec. 2, Mathematics — probability; location unverified</td></tr>
+<tr><td><div class="f">PDF: f(x) ≥ 0, ∫f(x)dx = 1</div></td><td>Continuous probability axioms</td><td>Sec. 2, Mathematics — probability; location unverified</td></tr>
+<tr><td><div class="f">z = (x − μ)/σ; P = Φ(z<sub>b</sub>) − Φ(z<sub>a</sub>)</div></td><td>Standard normal probability</td><td>Sec. 2, Mathematics — normal distribution; location unverified</td></tr>
+<tr><td><div class="f">geometric probability = favourable area / total area</div></td><td>Uniform point in a region</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">SE = σ/√n (known), s/√n (sample)</div></td><td>Standard error of the mean</td><td>Sec. 2, Mathematics — statistics; location unverified</td></tr>
+<tr><td><div class="f">z = (x̄ − μ)/(σ/√n)</div></td><td>One-sample z-statistic</td><td>Sec. 2, Mathematics — statistics; location unverified</td></tr>
+<tr><td><div class="f">t = (x̄ − μ)/(s/√n), df = n − 1</div></td><td>One-sample t-statistic</td><td>Sec. 2, Mathematics — statistics; location unverified</td></tr>
+<tr><td><div class="f">two-sample: t = (x̄₁−x̄₂)/√(s₁²/n₁ + s₂²/n₂)</div></td><td>Difference of two means</td><td>Sec. 2, Mathematics — statistics; location unverified</td></tr>
+<tr><td><div class="f">CI = x̄ ± z<sub>α/2</sub>(σ/√n) or x̄ ± t<sub>α/2,n−1</sub>(s/√n)</div></td><td>Confidence interval</td><td>Sec. 2, Mathematics — statistics; location unverified</td></tr>
+<tr><td><div class="f">percentile position = (n + 1)·k/100</div></td><td>Percentile rank, one convention</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">SST = SSTR + SSE</div></td><td>ANOVA decomposition</td><td>Sec. 2, Mathematics — ANOVA; location unverified</td></tr>
+<tr><td><div class="f">df<sub>between</sub> = k − 1, df<sub>within</sub> = N − k, df<sub>total</sub> = N − 1</div></td><td>ANOVA degrees of freedom</td><td>Sec. 2, Mathematics — ANOVA; location unverified</td></tr>
+<tr><td><div class="f">MSB = SSTR/(k−1), MSE = SSE/(N−k), F = MSB/MSE</div></td><td>ANOVA F-statistic</td><td>Sec. 2, Mathematics — ANOVA; location unverified</td></tr>
+</table></div>
+
+<h2 id="c7">7. Answer-bank flags</h2>
+<p>Every keyed answer in the five concepts was recomputed. All keys stand. The notes below give the verification and note the one convention-dependent item.</p>
+<div class="w"><table>
+<tr><th>Item</th><th>Concern</th></tr>
+<tr><td><b>Central</b> — z-statistic, IQ (key: 4.56)</td><td>Verified: (112.5 − 100)/(15/√30) = 12.5/2.739 = 4.564. The 2.56 distractor comes from a standard-error slip.</td></tr>
+<tr><td><b>Central</b> — GMAT probability (key: 0.5953)</td><td>Verified: z = (500 − 527)/112 = −0.2411; P(Z &gt; −0.2411) = 0.5953.</td></tr>
+<tr><td><b>Central</b> — midrange (key: 18.5)</td><td>Verified: (2 + 35)/2 = 18.5. The 15.5 distractor is the median of the middle pair (7 + 10)/2 × something — clearly the wrong statistic.</td></tr>
+<tr><td><b>Central</b> — 95% CI, t with s = 10 (key: 70 ± 3.73)</td><td>Verified: 2.045 × 10/√30 = 2.045 × 1.826 = 3.734.</td></tr>
+<tr><td><b>Central</b> — two-sample t, hospitals (key: 1.24)</td><td>Verified: 0.4/√(0.032 + 0.072) = 0.4/0.3225 = 1.24.</td></tr>
+<tr><td><b>Central</b> — 95% CI, z with σ = 20 (key: 175 ± 6.19)</td><td>Verified: 1.96 × 20/√40 = 1.96 × 3.162 = 6.198. The 3.56 distractor drops the 1.96 multiplier (a factor-of-two understatement).</td></tr>
+<tr><td><b>Central</b> — 20th percentile (key: 2.6)</td><td>Verified with the (n+1) convention: position = 8 × 0.20 = 1.6, value = 2 + 0.6(3−2) = 2.6.</td></tr>
+<tr><td><b>Central</b> — 1st quartile (key: 3)</td><td>Verified with the (n+1) convention: position = 8 × 0.25 = 2, value = 3.</td></tr>
+<tr><td><b>Central</b> — two-sample t, schools (key: 2.91)</td><td>Verified: 5/√(1 + 1.96) = 5/1.7205 = 2.91.</td></tr>
+<tr><td><b>Combo</b> — two children (key: 1/3)</td><td>Verified: P(BB | at least one B) = (1/4)/(3/4) = 1/3. The 1/2 distractor conditions on a specific child being a boy.</td></tr>
+<tr><td><b>Combo</b> — two dice sum ≥ 10 given a 5 (key: 3/11)</td><td>Verified: 11 outcomes with a 5; 3 of them sum to ≥ 10 ((5,5),(5,6),(6,5)).</td></tr>
+<tr><td><b>Combo</b> — three marbles same colour (key: 34/455)</td><td>Verified: (C(4,3) + C(5,3) + C(6,3))/C(15,3) = (4 + 10 + 20)/455 = 34/455.</td></tr>
+<tr><td><b>Combo</b> — derangement of 4 (key: 9)</td><td>Verified by the recurrence: !4 = 3(!3 + !2) = 3(2 + 1) = 9.</td></tr>
+<tr><td><b>Combo</b> — ENGINEERING permutations (key: 277 200)</td><td>Verified: 11!/(3!·3!·2!·2!·1!) = 39 916 800/144 = 277 200.</td></tr>
+<tr><td><b>Combo</b> — invite one or more of 5 friends (key: 31)</td><td>Verified: 2<sup>5</sup> − 1 = 31. The 10 distractor counts only pairs or only triples, not the full power set.</td></tr>
+<tr><td><b>Combo</b> — quadruples summing to 12 (key: 455)</td><td>Verified: <sub>15</sub>C<sub>3</sub> = 455.</td></tr>
+<tr><td><b>Combo</b> — 3 keys on a keychain (key: 1)</td><td>Verified: (3−1)!/2 = 2/2 = 1. The 6 distractor counts linear permutations, ignoring both rotation and reflection.</td></tr>
+<tr><td><b>Combo</b> — sum 9 exactly once in 3 throws (key: 0.263)</td><td>Verified: C(3,1)(1/9)(8/9)² = 3 × 64/729 = 192/729 ≈ 0.2634.</td></tr>
+<tr><td><b>Combo</b> — triples summing to 8 (key: 21)</td><td>Verified: <sub>7</sub>C<sub>2</sub> = 21.</td></tr>
+<tr><td><b>Combo</b> — team of 4 girls, 2 boys (key: 1050)</td><td>Verified: C(8,4) × C(6,2) = 70 × 15 = 1050.</td></tr>
+<tr><td><b>Combo</b> — combo meals (key: 24)</td><td>Verified: 4 × 3 × 2 = 24.</td></tr>
+<tr><td><b>F-stat</b> — mean squares between (key: 1.4)</td><td>Verified: SSTR = 2.8, df = 2, MSB = 1.4.</td></tr>
+<tr><td><b>F-stat</b> — F-statistic (key: 1.56)</td><td>Verified: 1.4/0.9 = 1.556.</td></tr>
+<tr><td><b>F-stat</b> — degrees of freedom total (key: 14)</td><td>Verified: N − 1 = 15 − 1 = 14. The 12 distractor is df error.</td></tr>
+<tr><td><b>F-stat</b> — mean square error (key: 0.9)</td><td>Verified: 10.8/12 = 0.9. The 2.8 distractor is SSTR, not MSE.</td></tr>
+<tr><td><b>F-stat</b> — sum of squares error (key: 10.8)</td><td>Verified: 5.2 + 2.8 + 2.8 = 10.8. The 2 distractor is far too small.</td></tr>
+<tr><td><b>F-stat</b> — degrees of freedom error (key: 12)</td><td>Verified: N − k = 15 − 3 = 12.</td></tr>
+<tr><td><b>F-stat</b> — sum of squares total (key: 13.6)</td><td>Verified: SSTR + SSE = 2.8 + 10.8 = 13.6.</td></tr>
+<tr><td><b>PMF</b> — derangement of 6 hats (key: 53/144)</td><td>Verified: 265/720 = 53/144. The 17/48 distractor is the independent-events approximation.</td></tr>
+<tr><td><b>PMF</b> — bus problem (key: 103/288)</td><td>Verified: 1287.5/3600 = 103/288. The 1/4 distractor assumes equal waits.</td></tr>
+<tr><td><b>PMF</b> — fire acres (key: 0.4388)</td><td>Verified: Φ(−0.1333) − Φ(−2.40) = 0.4469 − 0.0082 = 0.4387. The 0.4499 distractor drops the lower tail.</td></tr>
+<tr><td><b>PMF</b> — normalizing (2k/3)(x−1) (key: 3/4)</td><td>Verified: 4k/3 = 1 gives k = 3/4.</td></tr>
+<tr><td><b>PMF</b> — normalizing k(1 − x²) (key: 3/4)</td><td>Verified: 4k/3 = 1 gives k = 3/4.</td></tr>
+<tr><td><b>Series</b> — hockey stick identity (key: <sub>2024</sub>C<sub>16</sub>)</td><td>Verified: Σ<sub>i=15</sub><sup>2023</sup> <sub>i</sub>C<sub>15</sub> = <sub>2024</sub>C<sub>16</sub>.</td></tr>
+<tr><td><b>Percentile convention</b></td><td><b>Convention-dependent.</b> The 20th percentile and 1st quartile in this set use the (n+1)·k/100 convention, which gives P<sub>20</sub> = 2.6 and Q<sub>1</sub> = 3. Other conventions (n·k/100, R-7, etc.) give slightly different values. Both keys are consistent with the (n+1) convention. If the original stem does not state which convention is used, verify against the options.</td></tr>
+<tr><td>Perry's 9th edition locations</td><td>Only the section-level pointer (Section 2, Mathematics) is asserted. Subsection and page numbers are marked unverified because I could not check a physical copy. Verify against the tab before citing.</td></tr>
+</table></div>
+
+<h3>Your tags, applied</h3>
+<ul>
+<li><b>Source:</b> the probability and statistics chapters of a standard engineering-data-analysis text (Montgomery &amp; Runger, <i>Applied Statistics and Probability for Engineers</i>; or Walpole–Myers–Myers), specifically: permutations, combinations, and the stars-and-bars identity; the binomial theorem and the hockey stick identity; probability mass and density functions; the normal distribution and z-standardization; geometric probability; sample means, standard errors, and confidence intervals; the two-sample t-test; percentiles and quartiles; and one-way ANOVA. Edition and section numbers were not checked. For Perry's, open the 9th edition at Section 2 and confirm the probability and statistics subsections yourself.</li>
+<li><b>Drill (3–5 closed-book reps, units written every time):</b> (a) one permutation and one combination from the same pool, with r! explaining the ratio; (b) one conditional-probability problem where the sample space is restricted; (c) one derangement with the recurrence on its own line; (d) one stars-and-bars problem in both the non-negative and the positive form; (e) one hockey stick sum, writing the identity and then substituting; (f) one z-interval and one t-interval side-by-side, with SE and ME as separate lines; (g) one one-way ANOVA with all six quantities (SSTR, SSE, SST, MSB, MSE, F) on separate lines.</li>
+<li><b>Retrieval:</b> I cannot see your cards. Test yourself on: how to decide between P and C; how the sample space shrinks in conditional probability; why the (n+1) form of stars and bars differs from the (n−1) form; what derangements count and why they approach n!/e; why the hockey stick identity has the +1 on both the row and the column; why a PDF may exceed 1; why the standard error divides by √n and not n; why the t-critical value exceeds the z-critical value for the same confidence level; and why df<sub>between</sub> is k−1 and df<sub>within</sub> is N−k.</li></ul>
+
+<div class="box"><b>Pre-submit line:</b> Ask "does order matter?" before choosing P or C; for stars and bars, decide whether the variables are non-negative or positive before picking the formula; for a derangement, write the recurrence on its own line; for the hockey stick, identify r and n before substituting; for the normal distribution, compute both z bounds and subtract (never use only one tail); for a confidence interval, write the SE and ME on separate lines; for a two-sample t-test, decide whether pooled or Welch before substituting; for ANOVA, write df<sub>between</sub> = k − 1 and df<sub>within</sub> = N − k explicitly before computing mean squares; and for a percentile problem, state which convention is being used.</div>
+</main></body></html>
