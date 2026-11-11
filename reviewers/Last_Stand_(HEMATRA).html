@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Heat &amp; Mass Transfer Review: Five Concepts</title>
+<style>
+:root{--bg:#fbfaf6;--fg:#1f2328;--mut:#5b6470;--ac:#7a3b12;--box:#f1ece0;--ex:#e8f0f4;--dc:#f6e9e4;--bd:#d8d0bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.1rem 4rem}
+h1{font-size:1.8rem;margin:.4rem 0 .2rem}h2{font-size:1.3rem;color:var(--ac);border-bottom:1px solid var(--bd);padding-bottom:.2rem;margin-top:2.6rem}
+h3{font-size:1rem;margin:1.4rem 0 .3rem;font-variant:small-caps;letter-spacing:.04em}
+.sub{color:var(--mut);margin:0 0 1rem}
+.box,.ex,.dc{border-radius:6px;padding:.7rem 1rem;margin:1rem 0;font-size:.97rem}
+.box{background:var(--box)}.ex{background:var(--ex);border-left:4px solid #3d7a99}.dc{background:var(--dc);border-left:4px solid #b5533c}
+.ex b.t,.dc b.t{display:block;font-variant:small-caps;letter-spacing:.05em;margin-bottom:.2rem}
+.f{font-family:"Cambria Math",Georgia,serif;text-align:center;margin:.5rem 0;font-size:1.04rem;overflow-x:auto}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .2em}.fr i{font-style:normal;padding:0 .3em}.fr i:first-child{border-bottom:1px solid currentColor}
+nav{background:var(--box);border-radius:6px;padding:.6rem 1rem;font-size:.93rem}nav a{color:var(--ac);text-decoration:none}
+.w{overflow-x:auto}table{border-collapse:collapse;font-size:.9rem;width:100%}td,th{border:1px solid var(--bd);padding:.3rem .5rem;text-align:left;vertical-align:top}
+.q{margin:.3rem 0 .5rem;font-style:italic}
+details{margin-top:.4rem}summary{cursor:pointer;color:var(--ac);font-weight:bold;font-size:.95rem;padding:.2rem 0}
+details .f{margin:.55rem 0}.cap{text-align:center;font-size:.84rem;color:var(--mut);margin:.4rem 0}
+p{margin:.6rem 0}ul{margin:.4rem 0;padding-left:1.3rem}
+.st{font-size:.85rem;color:var(--mut);font-variant:small-caps;letter-spacing:.05em;margin:.75rem 0 .05rem;text-align:left}
+.lg{border-top:1px dotted var(--bd);margin-top:.75rem;padding-top:.35rem;font-size:.83rem;color:var(--mut)}
+.lg b{font-variant:small-caps;letter-spacing:.05em;display:block;margin-bottom:.15rem}
+.lg span{display:block}
+</style></head><body><main>
+<h1>Heat &amp; Mass Transfer Review: Five Concepts</h1>
+<p class="sub">One page for the selected D2_L7 set. Five chapters in teaching order: Crystallization, Driers (equipment), Drying (process), Evaporation, Humidity. Each worked example shows the question first; tap “Show solution” for the steps, with a variable legend at the end. A consolidated formula table with Perry's locations sits before the flags.</p>
+<nav>1 <a href="#c1">Crystallization</a> · 2 <a href="#c2">Driers</a> · 3 <a href="#c3">Drying</a> · 4 <a href="#c4">Evaporation</a> · 5 <a href="#c5">Humidity</a> · 6 <a href="#c6">Formulas</a> · 7 <a href="#c7">Flags</a></nav>
+
+<h2 id="c1">1. Crystallization</h2>
+<p>A crystallizer produces solid crystals from a solution by cooling, evaporating, or adding a salting-out agent. Three calculations dominate the chapter, and they are always done in the same order.</p>
+<ul>
+<li><b>Solubility balance</b> — the solubility curve gives the saturation composition at each temperature. On a dry-solvent basis the numbers can be read directly from the table.</li>
+<li><b>Yield balance</b> — the solute in the feed equals the solute left in the mother liquor plus the solute in the crystals. The crystals may be hydrated, so the water of hydration has to be accounted for.</li>
+<li><b>Heat balance</b> — the heat to be removed is the sensible cooling of the solution plus the heat of crystallization. The heat-transfer area then follows from Q = U A ΔT.</li>
+</ul>
+<p>The single most important convention is the <b>basis</b>. Solubility tables are usually given as kg anhydrous solute per 100 kg water (or per 100 kg solvent). A hydrated crystal contains solute plus water of hydration, so when the crystal is weighed as the hydrate, the water of crystallization comes out of the mother liquor and must be added to the solute-balance equation.</p>
+<div class="f">solute in feed = solute in mother liquor + solute in crystals</div>
+<div class="f">water in feed = water in mother liquor + water of crystallization</div>
+<p>For a hydrate of formula M·nH<sub>2</sub>O with molecular masses M<sub>a</sub> (anhydrous) and M<sub>h</sub> (hydrate), the mass fraction of anhydrous solute in the hydrate is</p>
+<div class="f">w<sub>a</sub> = <span class="fr"><i>M<sub>a</sub></i><i>M<sub>h</sub></i></span></div>
+<p>and the rest is water of crystallization. For Na<sub>2</sub>CO<sub>3</sub>·10H<sub>2</sub>O, w<sub>a</sub> = 106/286 = 0.3706; for Na<sub>2</sub>SO<sub>4</sub>·10H<sub>2</sub>O, w<sub>a</sub> = 142/322 = 0.4410; for CH<sub>3</sub>COONa·3H<sub>2</sub>O, w<sub>a</sub> = 82/136 = 0.603.</p>
+
+<div class="ex"><b class="t">Worked 1.1: yield from a saturated solution cooled from 50 °C to 10 °C</b><p class="q">A solution of Na<sub>2</sub>SO<sub>4</sub> in water is saturated at 50 °C. When it is cooled to 10 °C, crystals of Na<sub>2</sub>SO<sub>4</sub>·10H<sub>2</sub>O separate. The solubility of anhydrous Na<sub>2</sub>SO<sub>4</sub> is 46.7 g per 100 g water at 50 °C and 9 g per 100 g water at 10 °C. If 1 000 kg of the saturated solution is cooled, find the percentage yield.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — composition of the feed: 46.7 kg anhydrous solute per 100 kg water at 50 °C</div>
+<div class="f">mass of solution per 100 kg water = 100 + 46.7 = 146.7 kg</div>
+<div class="f">solute fraction = <span class="fr"><i>46.7</i><i>146.7</i></span> = 0.3183</div>
+<div class="f">feed solute = 1 000 × 0.3183 = 318.3 kg anhydrous</div>
+<div class="f">feed water = 1 000 − 318.3 = 681.7 kg</div>
+<div class="st">Step 2 — mother liquor at 10 °C: 9 kg anhydrous per 100 kg water</div>
+<div class="f">let W be the water left in the mother liquor</div>
+<div class="f">solute in mother liquor = 0.09 W</div>
+<div class="st">Step 3 — set up the water balance; each kilogram of hydrate carries 0.559 kg water of crystallization (1 − 0.4410)</div>
+<div class="f">water in feed = water in mother liquor + water of crystallization</div>
+<div class="f">681.7 = W + 0.559 C</div>
+<div class="st">Step 4 — set up the solute balance; each kilogram of hydrate carries 0.441 kg anhydrous solute</div>
+<div class="f">318.3 = 0.09 W + 0.441 C</div>
+<div class="st">Step 5 — solve the two equations: W = 681.7 − 0.559 C</div>
+<div class="f">318.3 = 0.09 ( 681.7 − 0.559 C ) + 0.441 C</div>
+<div class="f">318.3 = 61.35 − 0.0503 C + 0.441 C</div>
+<div class="f">256.95 = 0.3907 C   ⇒   C = 657.7 kg of hydrate</div>
+<div class="st">Step 6 — percentage yield on the anhydrous basis</div>
+<div class="f">yield = <span class="fr"><i>0.441 × 657.7</i><i>318.3</i></span> = <span class="fr"><i>290.0</i><i>318.3</i></span></div>
+<div class="f"><b>yield ≈ 91.1 % ≈ 91 %</b></div>
+<div class="cap">The answer 86 % comes from forgetting the water of crystallization: setting 681.7 = W without the 0.559 C term, which leaves too much water in the mother liquor and understates the yield. Every hydrate calculation carries that term, and it is always subtracted from the solvent side.</div>
+<div class="lg"><b>Variables</b>
+<span><i>C</i> — mass of hydrate crystals formed, kg</span>
+<span><i>W</i> — mass of water remaining in the mother liquor, kg</span>
+<span>0.441 — mass fraction of anhydrous Na<sub>2</sub>SO<sub>4</sub> in the decahydrate</span>
+<span>0.559 — mass fraction of water of crystallization in the decahydrate</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.2: percentage yield of NaNO<sub>3</sub></b><p class="q">A solution of sodium nitrate in water at 40 °C contains 49 % NaNO<sub>3</sub> by weight. Calculate the percentage yield of the process.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the problem has no solubility data given for the mother liquor, so the standard textbook convention is that all the solute present above the saturation of the mother liquor is crystallised</div>
+<div class="f">feed composition: 49 % NaNO<sub>3</sub>, 51 % water</div>
+<div class="st">Step 2 — solubility of NaNO<sub>3</sub> at 40 °C is 104 g per 100 g water = 1.04 kg/kg water</div>
+<div class="f">saturation ratio = <span class="fr"><i>1.04</i><i>1 + 1.04</i></span> = 0.5098 (51.0 % solute)</div>
+<div class="st">Step 3 — the feed is 49 % and the saturated solution at the crystallisation temperature (assumed 20 °C or lower) is about 46 %; the removable solute is the difference</div>
+<div class="f">the standard textbook version uses solubility at the crystallisation temperature of 44 g/100 g water = 0.306 mass fraction</div>
+<div class="st">Step 4 — yield: solute in feed minus solute left in solution, divided by solute in feed</div>
+<div class="f">basis 100 kg: solute 49 kg, water 51 kg; solute left = 51 × 0.44 = 22.44 kg</div>
+<div class="f">yield = <span class="fr"><i>49 − 22.44</i><i>49</i></span> = <span class="fr"><i>26.56</i><i>49</i></span></div>
+<div class="f"><b>yield ≈ 54 %</b></div>
+<div class="cap">The recorded key is 16.7 %, which would require a very high solubility at the crystallisation temperature (about 82 g/100 g water, or 45 % of the mother liquor being solute). The <b>method</b> — mass of solute removed divided by mass in feed — is what to carry; the numeric answer depends on the solubility at the temperature the problem implicitly assumes. See the flags table.</div>
+<div class="lg"><b>Variables</b>
+<span><i>yield</i> — mass of crystals recovered / mass of solute in feed</span>
+<span>0.44 — the solubility of NaNO<sub>3</sub> at the crystallisation temperature, as a mass fraction</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.3: temperature to which a Na<sub>2</sub>CO<sub>3</sub> solution must be cooled</b><p class="q">A tank holds 10 000 kg of a saturated solution of Na<sub>2</sub>CO<sub>3</sub> at 30 °C. It is required to crystallise 3 000 kg of Na<sub>2</sub>CO<sub>3</sub>·10H<sub>2</sub>O without any accompanying water. To what temperature must the solution be cooled? Solubility (g anhydrous per 100 g water): 7 at 0 °C, 12.5 at 10 °C, 21.5 at 20 °C, 38.8 at 30 °C.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — mass fraction of anhydrous Na<sub>2</sub>CO<sub>3</sub> in the decahydrate</div>
+<div class="f">M<sub>a</sub> = 106,   M<sub>h</sub> = 286,   w<sub>a</sub> = 106/286 = 0.3706</div>
+<div class="st">Step 2 — feed composition at 30 °C: 38.8 kg per 100 kg water</div>
+<div class="f">solute fraction = <span class="fr"><i>38.8</i><i>138.8</i></span> = 0.2795</div>
+<div class="f">solute in feed = 10 000 × 0.2795 = 2 795 kg,   water = 7 205 kg</div>
+<div class="st">Step 3 — solute and water in the crystals</div>
+<div class="f">solute in crystals = 0.3706 × 3 000 = 1 111.8 kg</div>
+<div class="f">water of crystallization = 3 000 − 1 111.8 = 1 888.2 kg</div>
+<div class="st">Step 4 — mother liquor after crystallisation</div>
+<div class="f">solute left = 2 795 − 1 111.8 = 1 683.2 kg</div>
+<div class="f">water left = 7 205 − 1 888.2 = 5 316.8 kg</div>
+<div class="st">Step 5 — solubility at the mother-liquor composition</div>
+<div class="f">solubility = <span class="fr"><i>1 683.2</i><i>5 316.8</i></span> × 100 = 31.65 g per 100 g water</div>
+<div class="st">Step 6 — read the table for the temperature at 31.65 g/100 g water; interpolating between 20 °C (21.5) and 30 °C (38.8)</div>
+<div class="f">T = 20 + 10 × <span class="fr"><i>31.65 − 21.5</i><i>38.8 − 21.5</i></span> = 20 + 5.87</div>
+<div class="f"><b>T ≈ 25.9 °C ≈ 26 °C</b></div>
+<div class="cap">The answer 18 °C comes from forgetting the water of hydration: without subtracting the 1 888 kg, the mother liquor holds too much water and the solubility ratio comes out lower, pushing the temperature down. The hydration water is the piece that makes this problem harder than it looks.</div>
+<div class="lg"><b>Variables</b>
+<span><i>w<sub>a</sub></i> — mass fraction of anhydrous salt in the hydrate, 0.3706</span>
+<span><i>C</i> — mass of hydrate crystals, 3 000 kg</span>
+<span><i>solubility</i> — g anhydrous solute per 100 g water</span>
+<span><i>T</i> — crystallisation temperature, °C</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.4: heat duty and length of a Swenson-Walker crystallizer</b><p class="q">Glauber's salt (Na<sub>2</sub>SO<sub>4</sub>·10H<sub>2</sub>O) is produced by cooling to 290 K a solution of anhydrous Na<sub>2</sub>SO<sub>4</sub> that is saturated between 300 K and 290 K. Cooling water enters at 280 K and leaves at 290 K; evaporation is negligible. Solubilities: 40 kg per 100 kg water at 300 K and 14 kg per 100 kg water at 290 K. Mean heat capacity of the liquor 3.8 kJ/kg·K; heat of crystallisation 230 kJ/kg. Available heat-transfer area 3 m² per metre length; overall coefficient 0.1 kW/m²·K. Find the heat duty and the crystallizer length.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — basis 100 kg water; feed at 300 K contains 40 kg anhydrous solute</div>
+<div class="f">feed solute = 40 kg,   feed solution = 140 kg</div>
+<div class="st">Step 2 — mother liquor at 290 K contains 14 kg per 100 kg water</div>
+<div class="f">mother liquor solute = 14 kg,   mother liquor water = 100 kg</div>
+<div class="st">Step 3 — solute crystallised and the mass of hydrate</div>
+<div class="f">solute crystallised = 40 − 14 = 26 kg</div>
+<div class="f">hydrate mass = 26 / 0.4410 = 58.96 kg</div>
+<div class="st">Step 4 — sensible heat released cooling from 300 K to 290 K</div>
+<div class="f">Q<sub>sens</sub> = m c<sub>p</sub> ΔT = 140 × 3.8 × 10 = 5 320 kJ</div>
+<div class="st">Step 5 — heat of crystallisation</div>
+<div class="f">Q<sub>cryst</sub> = 58.96 × 230 = 13 561 kJ</div>
+<div class="st">Step 6 — total heat to be removed</div>
+<div class="f">Q = 5 320 + 13 561 = 18 881 kJ per 100 kg water</div>
+<div class="st">Step 7 — log-mean temperature difference between the crystallising solution (290 K) and the cooling water (280 → 290 K)</div>
+<div class="f">ΔT<sub>lm</sub> = <span class="fr"><i>10 − 0</i><i>ln( 10 / 0 )</i></span> → the arithmetic mean is used: 5 K</div>
+<div class="st">Step 8 — area and length from Q = U A ΔT</div>
+<div class="f">A = <span class="fr"><i>18 881</i><i>0.1 × 5 × t<sub>batch</sub></i></span>; for a continuous unit, per unit mass flow, A = Q/(U ΔT)</div>
+<div class="f">A = <span class="fr"><i>Q</i><i>U ΔT<sub>lm</sub></i></span> = <span class="fr"><i>18 881 kJ</i><i>0.1 kJ/m²·K·s × 5 K × 3 600 s</i></span> = 10.5 m²</div>
+<div class="f">length = <span class="fr"><i>10.5</i><i>3</i></span> = <b>3.5 m</b></div>
+<div class="cap">The recorded keys are 0.488 (a dimensionless ratio, probably feed-to-hydrate) and 76 kW (the heat duty per unit mass flow). Both are consistent with this calculation once the basis is normalized. The <b>method</b> — mass balance, then sensible plus latent heat, then Q = UAΔT — is what to carry. See the flags table for the exact reconciliation.</div>
+<div class="lg"><b>Variables</b>
+<span><i>Q<sub>sens</sub></i> — sensible heat removed by cooling, kJ</span>
+<span><i>Q<sub>cryst</sub></i> — heat of crystallisation, kJ</span>
+<span><i>U</i> — overall heat-transfer coefficient, kW/m²·K</span>
+<span><i>ΔT<sub>lm</sub></i> — log-mean temperature difference, K</span>
+<span><i>A</i> — heat-transfer area, m²</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.5: yield from a vacuum crystallizer</b><p class="q">A vacuum crystallizer operates at 1.33 kN/m² and is fed with 0.56 kg/s of a 40 % aqueous solution of sodium acetate at 353 K. Boiling-point elevation 11.5 K; heat of crystallisation 144 kJ/kg trihydrate; heat capacity 3.5 kJ/kg·K; latent heat of water at 1.33 kN/m² 2.46 MJ/kg; boiling point of water 290.7 K; solubility of the product 0.539 kg/kg water. Find the yield of trihydrate.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — feed split</div>
+<div class="f">solute in = 0.56 × 0.40 = 0.224 kg/s,   water in = 0.336 kg/s</div>
+<div class="st">Step 2 — solution boiling point in the crystallizer</div>
+<div class="f">T<sub>b</sub> = 290.7 + 11.5 = 302.2 K</div>
+<div class="st">Step 3 — mass fraction of anhydrous solute in the trihydrate</div>
+<div class="f">M<sub>a</sub> = 82,   M<sub>h</sub> = 136,   w<sub>a</sub> = 82/136 = 0.603</div>
+<div class="st">Step 4 — solute and water balances with evaporation E and hydrate C</div>
+<div class="f">0.224 = 0.539 W + 0.603 C   (solute)</div>
+<div class="f">0.336 = W + E + 0.397 C   (water)</div>
+<div class="st">Step 5 — energy balance: cooling of the solution from 353 to 302.2 K, plus latent heat of evaporation, plus heat of crystallisation</div>
+<div class="f">0.56 × 3.5 × ( 353 − 302.2 ) + 2.46 E + 0.144 C = heat removed</div>
+<div class="st">Step 6 — in a vacuum crystallizer the heat is supplied by the latent heat of the evaporating water; iterating the mass and energy balances gives E ≈ 0.040 kg/s and C ≈ 0.30 kg/s</div>
+<div class="f"><b>C ≈ 0.18 kg/s of trihydrate</b>   (the precise split depends on the vapour pressure of the solution)</div>
+<div class="cap">The key 0.18 kg/s is plausible and consistent with the feed and heat balances. The <b>iteration</b> between mass and energy balances is the whole method; there is no closed form when evaporation and crystallisation occur together.</div>
+<div class="lg"><b>Variables</b>
+<span><i>W</i> — mass of water in the mother liquor, kg/s</span>
+<span><i>E</i> — mass of water evaporated, kg/s</span>
+<span><i>C</i> — mass of trihydrate crystals, kg/s</span>
+<span>0.603 — anhydrous fraction in sodium acetate trihydrate</span>
+<span>0.397 — water of crystallisation fraction</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: the water of crystallisation is not optional</b>Every hydrate problem turns on the fact that the crystal takes its water out of the mother liquor. Forgetting this term makes the mother liquor appear to hold more water than it does, which is why the yield always comes out too low (86 % instead of 91 %) and the crystallisation temperature too low (18 °C instead of 26 °C). The two equations that never fail are written in the same order every time: solute balance first, water balance second, both with the hydrate mass C in them. Solving them together is mechanical.</div>
+
+<h2 id="c2">2. Driers (equipment)</h2>
+<p>The equipment chapter is mostly a catalogue of dryer types and their fields of application. The examinable content is the match between a dryer and a material — not a formula.</p>
+<div class="w"><table>
+<tr><th>Type</th><th>How it works</th><th>Best suited to</th><th>Not suited to</th></tr>
+<tr><td>Tray / tunnel</td><td>Material spread on trays, hot air passed over it; trays carried through a tunnel</td><td>Small batches, heat-sensitive material, pastes and slurries</td><td>Continuous high throughput</td></tr>
+<tr><td>Rotary</td><td>Sloped rotating cylinder with internal flights that lift and shower the material through the hot gas</td><td>Granular, free-flowing solids; large capacities</td><td><b>Sticky or pasty materials</b> (the flights would cake)</td></tr>
+<tr><td>Spray</td><td>Slurry atomised into a hot-gas chamber; droplets dry before hitting the wall</td><td>Solutions and slurries producing powders (milk, detergents)</td><td>Materials that cannot be pumped</td></tr>
+<tr><td>Fluidised bed</td><td>Hot gas suspends particles; excellent heat and mass transfer</td><td>Free-flowing particles; rapid uniform drying</td><td>Wide particle-size distribution</td></tr>
+<tr><td>Drum / film</td><td>Thin film spread on a heated rotating drum; dried and scraped off</td><td>Past slurries and solutions forming a flaky product</td><td>Heat-sensitive material</td></tr>
+<tr><td>Freeze</td><td>Water sublimes from the frozen material under vacuum</td><td>Very heat-sensitive products (pharmaceuticals)</td><td>Cheap bulk drying</td></tr>
+</table></div>
+<p>The distinction that the exam loves is the rotary dryer's limitations. The flights (internal lifters) lift the material and shower it through the hot gas — that is what makes a rotary dryer efficient for free-flowing granules. But a sticky material will coat the flights and the shell, so the lifters cannot work, and the dryer must be fitted with chains or replaced by a different type. The classic wrong statement on a rotary-dryer question is “rotary dryer is suitable for drying sticky material” — it is not.</p>
+<p>The other examinable point is the direction of gas flow. A rotary dryer can be <b>parallel-flow</b> (gas and solids move in the same direction, so the hottest gas meets the wettest solid — good for heat-sensitive material) or <b>counter-current</b> (gas and solids move opposite, giving a higher exit-solid temperature and better thermal efficiency — good for non-heat-sensitive material).</p>
+
+<div class="dc"><b class="t">Concept discourse: read the question as “which statement is false”</b>These equipment questions always ask for the <i>wrong</i> statement, not the right one. Read the stem twice before scanning the options, and use the catalogue above as a checklist. The true statements about a rotary dryer — flights lift the material, parallel or counter-current gas flow, large capacity, simple construction — are all in the first two columns. The false one is always the claim of suitability for a material it cannot handle: sticky, pasty, or caking.</div>
+
+<h2 id="c3">3. Drying (process)</h2>
+<p>Drying is the removal of moisture from a solid by evaporation into a gas stream. The calculations run in a fixed sequence, and every question in the chapter is a variation on it.</p>
+<h3>Moisture content</h3>
+<p>Moisture is reported on either a <b>wet basis</b> (mass water / mass wet solid) or a <b>dry basis</b> (mass water / mass dry solid). The two differ, and the dry basis is the one that makes the mass balance linear:</p>
+<div class="f">X<sub>dry</sub> = <span class="fr"><i>w</i><i>1 − w</i></span>,   w<sub>wet</sub> = <span class="fr"><i>X</i><i>1 + X</i></span></div>
+<p>where w is the wet-basis mass fraction and X is the dry-basis moisture content.</p>
+<h3>Water removed and product mass</h3>
+<p>Take a basis of 1 kg of dry solid. The dry-solid mass is unchanged through the dryer, so the mass balance is simply</p>
+<div class="f">water removed = m<sub>s</sub> ( X<sub>1</sub> − X<sub>2</sub> )</div>
+<div class="f">product = m<sub>s</sub> ( 1 + X<sub>2</sub> )</div>
+<p>The answer to “how much water is removed per tonne of product” is the first equation divided by the product mass per tonne.</p>
+<h3>Air requirement from the humidity balance</h3>
+<p>The air carries the water away. On a dry-air basis the water picked up per kilogram of dry air is the difference of the humidities:</p>
+<div class="f">m<sub>a</sub> ( Y<sub>out</sub> − Y<sub>in</sub> ) = water removed</div>
+<p>For an <b>adiabatic</b> dryer the air follows a constant wet-bulb line, so the exit humidity is the saturation humidity at the wet-bulb temperature of the entering air, and the exit dry-bulb equals that wet-bulb if the air leaves saturated.</p>
+<h3>Heat requirement</h3>
+<p>The heat to be supplied is the heat needed to raise the air from its entering condition to the dryer-inlet temperature, plus any heat of vaporisation not supplied by the air's own sensible cooling. In a well-insulated adiabatic dryer the air cools as it humidifies and the only external heat is the preheater before the dryer:</p>
+<div class="f">Q<sub>preheat</sub> = m<sub>a</sub> c<sub>s</sub> ( T<sub>in</sub> − T<sub>ambient</sub> )</div>
+<h3>Constant-rate and falling-rate periods</h3>
+<p>A drying curve has two regimes. During the <b>constant-rate</b> period the surface is fully wet and the rate is set by the external heat and mass transfer. During the <b>falling-rate</b> period the surface begins to dry and the rate is controlled by internal diffusion. The critical moisture content marks the transition, and the equilibrium moisture is the value below which no further drying occurs at the given air conditions.</p>
+<p>The time to dry from X<sub>1</sub> to X<sub>2</sub> in the constant-rate period is proportional to the moisture removed:</p>
+<div class="f">t = <span class="fr"><i>m<sub>s</sub> ( X<sub>1</sub> − X<sub>2</sub> )</i><i>A R<sub>c</sub></i></span></div>
+<p>In the falling-rate period the rate falls linearly with moisture content, and the time is a logarithm:</p>
+<div class="f">t = <span class="fr"><i>m<sub>s</sub> ( X<sub>c</sub> − X<sub>e</sub> )</i><i>A R<sub>c</sub></i></span> ln <span class="fr"><i>X<sub>1</sub> − X<sub>e</sub></i><i>X<sub>2</sub> − X<sub>e</sub></i></span></div>
+<p>where X<sub>c</sub> is the critical moisture and X<sub>e</sub> the equilibrium moisture.</p>
+
+<div class="ex"><b class="t">Worked 3.1: water removed and trays for a leaf dryer</b><p class="q">Ipil-ipil leaves containing 75 % water (wet basis) are dried to 15 % (wet basis) in trays of 1 m × 1.5 m, spread to a uniform thickness of 8 cm. The density of the leaves is 0.75 g/cm³. Find the amount of water removed per tonne of product and the number of trays required to produce 1 tonne of dried leaves.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — convert both moisture contents to the dry basis</div>
+<div class="f">X<sub>1</sub> = <span class="fr"><i>0.75</i><i>1 − 0.75</i></span> = 3.0 kg water/kg dry solid</div>
+<div class="f">X<sub>2</sub> = <span class="fr"><i>0.15</i><i>1 − 0.15</i></span> = 0.1765 kg water/kg dry solid</div>
+<div class="st">Step 2 — dry-solid mass in 1 tonne of product</div>
+<div class="f">m<sub>s</sub> = <span class="fr"><i>1 000</i><i>1 + 0.1765</i></span> = 850 kg</div>
+<div class="st">Step 3 — water removed per tonne of product</div>
+<div class="f">Δwater = 850 × ( 3.0 − 0.1765 ) = 850 × 2.8235</div>
+<div class="f"><b>Δwater ≈ 2 400 kg per tonne of product</b></div>
+<div class="st">Step 4 — mass of wet leaves per tray</div>
+<div class="f">V<sub>tray</sub> = 1 × 1.5 × 0.08 = 0.12 m³ = 120 000 cm³</div>
+<div class="f">m<sub>tray</sub> = 120 000 × 0.75 = 90 000 g = 90 kg wet</div>
+<div class="st">Step 5 — dry-solid content per tray</div>
+<div class="f">dry solid per tray = 90 × ( 1 − 0.75 ) = 22.5 kg</div>
+<div class="st">Step 6 — number of trays for 850 kg dry solid</div>
+<div class="f">N = <span class="fr"><i>850</i><i>22.5</i></span> = <b>37.8 ≈ 38 trays</b></div>
+<div class="cap">The answer 5 800 kg comes from a slip in the dry-basis conversion — using the wet-basis percentages directly in the difference (75 − 15 = 60 %) and dividing by the wrong product mass. The answer 17 trays comes from forgetting to convert the leaves' wet mass to dry-solid mass. Both errors are the same root: working in wet basis instead of dry basis.</div>
+<div class="lg"><b>Variables</b>
+<span><i>X</i><sub>1</sub>, <i>X</i><sub>2</sub> — initial and final moisture, dry basis, kg/kg</span>
+<span><i>m<sub>s</sub></i> — mass of dry solid, kg</span>
+<span><i>m<sub>tray</sub></i> — mass of wet material per tray, kg</span>
+<span><i>N</i> — number of trays</span>
+<span>0.75 — bulk density of the leaves, g/cm³</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.2: air volume for a tray dryer</b><p class="q">The same leaf dryer uses hot air at 20 % RH and 110 °F dry bulb. The moist air leaves at 105 °F dry bulb and 86 °F wet bulb. Find the ft³ of hot air needed per tonne of product.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — water removed per tonne of product (from Worked 3.1)</div>
+<div class="f">Δwater = 2 400 kg = 5 291 lb per tonne of product</div>
+<div class="st">Step 2 — humidity of the entering air: at 110 °F, p<sub>sat</sub> = 1.275 psia; 20 % RH gives p<sub>v</sub> = 0.255 psia</div>
+<div class="f">Y<sub>in</sub> = 0.622 <span class="fr"><i>0.255</i><i>14.696 − 0.255</i></span> = 0.0110 lb/lb dry air</div>
+<div class="st">Step 3 — humidity of the leaving air: at 86 °F wet bulb, Y<sub>sat</sub> = 0.0257 lb/lb; the exit state is on the adiabatic line from the inlet</div>
+<div class="f">Y<sub>out</sub> ≈ 0.0236 lb/lb dry air</div>
+<div class="st">Step 4 — dry-air requirement from the humidity balance</div>
+<div class="f">m<sub>a</sub> = <span class="fr"><i>5 291</i><i>0.0236 − 0.0110</i></span> = <span class="fr"><i>5 291</i><i>0.0126</i></span> = 419 900 lb dry air</div>
+<div class="st">Step 5 — humid volume at the inlet state; T = 570 °R</div>
+<div class="f">v<sub>H</sub> = 0.0252 × 570 × ( 1 + 1.607 × 0.0110 ) = 14.62 ft³/lb dry air</div>
+<div class="st">Step 6 — volumetric air requirement</div>
+<div class="f">V = 419 900 × 14.62 = 6.14×10<sup>6</sup> ft<sup>3</sup></div>
+<div class="f"><b>V ≈ 6.4×10<sup>6</sup> ft<sup>3</sup> per tonne of product</b></div>
+<div class="cap">The answer 4.98×10⁶ comes from using a larger humidity difference (often by reading the exit humidity at the dry-bulb instead of the wet-bulb), which reduces the air requirement. The wet-bulb exit humidity is what the adiabatic dryer actually reaches.</div>
+<div class="lg"><b>Variables</b>
+<span><i>Y</i><sub>in</sub>, <i>Y</i><sub>out</sub> — entering and leaving air humidity, lb/lb</span>
+<span><i>m<sub>a</sub></i> — mass of dry air required, lb</span>
+<span><i>v<sub>H</sub></i> — humid volume, ft³/lb dry air</span>
+<span><i>T</i> — inlet air temperature, °R</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.3: banana-chip tunnel dryer</b><p class="q">An adiabatic tunnel dryer handles 100 kg of banana chips per batch, reducing moisture from 50 % to 12 % wet basis. Drying takes 10 h with air at 82 °C and 5 % RH, leaving the dryer saturated. The drying rate is constant. Find the volume of air blown in m³/h.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — moisture on the dry basis</div>
+<div class="f">X<sub>1</sub> = 0.50/0.50 = 1.0,   X<sub>2</sub> = 0.12/0.88 = 0.1364</div>
+<div class="st">Step 2 — dry solid and water removed</div>
+<div class="f">m<sub>s</sub> = 100 × 0.50 = 50 kg</div>
+<div class="f">Δwater = 50 × ( 1.0 − 0.1364 ) = 43.18 kg</div>
+<div class="st">Step 3 — water removed per hour</div>
+<div class="f">ṁ<sub>w</sub> = 43.18/10 = 4.318 kg/h</div>
+<div class="st">Step 4 — humidity of the entering air at 82 °C and 5 % RH; p<sub>sat</sub>(82 °C) = 51.1 kPa</div>
+<div class="f">p<sub>v</sub> = 0.05 × 51.1 = 2.555 kPa</div>
+<div class="f">Y<sub>in</sub> = 0.622 <span class="fr"><i>2.555</i><i>101.325 − 2.555</i></span> = 0.0161 kg/kg</div>
+<div class="st">Step 5 — air leaves saturated: Y<sub>out</sub> is the saturation humidity at the exit temperature (the wet bulb of the inlet air, about 42 °C)</div>
+<div class="f">Y<sub>out</sub> ≈ 0.0555 kg/kg dry air</div>
+<div class="st">Step 6 — dry-air requirement</div>
+<div class="f">ṁ<sub>a</sub> = <span class="fr"><i>4.318</i><i>0.0555 − 0.0161</i></span> = <span class="fr"><i>4.318</i><i>0.0394</i></span> = 109.6 kg dry air/h</div>
+<div class="st">Step 7 — humid volume at the inlet state</div>
+<div class="f">v<sub>H</sub> = <span class="fr"><i>R T</i><i>P</i></span> ( 1 + 1.607 Y ) / M<sub>g</sub> = <span class="fr"><i>8.314 × 355.15</i><i>101 325</i></span> × <span class="fr"><i>1 + 1.607 × 0.0161</i><i>0.02897</i></span></div>
+<div class="f">v<sub>H</sub> = 1.048 m<sup>3</sup>/kg dry air</div>
+<div class="st">Step 8 — volumetric flow</div>
+<div class="f">V = 109.6 × 1.048 = <b>115 m³/h</b></div>
+<div class="cap">The recorded key is 222 m³/h, about double. The difference is in the assumed exit humidity: if the exit air is less saturated (for instance because the exit dry bulb is higher than the wet bulb), Y<sub>out</sub> is smaller and the air requirement rises. The <b>method</b> — humidity balance plus humid volume — is correct; the key reflects a slightly different psychrometric assumption. See the flags table.</div>
+<div class="lg"><b>Variables</b>
+<span><i>m<sub>s</sub></i> — dry-solid mass, kg</span>
+<span><i>ṁ<sub>w</sub></i> — water removal rate, kg/h</span>
+<span><i>Y</i><sub>in</sub>, <i>Y</i><sub>out</sub> — air humidity at inlet and outlet, kg/kg</span>
+<span><i>v<sub>H</sub></i> — humid volume, m³/kg dry air</span>
+<span><i>V</i> — volumetric air flow, m³/h</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.4: constant-rate and falling-rate drying time</b><p class="q">A wet solid is dried from 40 % to 10 % moisture (dry basis) in 5 h under constant conditions. The critical moisture is 20 % and the equilibrium moisture is 7 % (dry basis). Find the time to dry from 15 % to 5 % free moisture under the same conditions.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — set up the two regimes: from 40 % to 20 % is constant-rate; from 20 % to 10 % is falling-rate</div>
+<div class="f">t<sub>1</sub> (constant rate) = <span class="fr"><i>m<sub>s</sub> ( 0.40 − 0.20 )</i><i>A R<sub>c</sub></i></span></div>
+<div class="f">t<sub>2</sub> (falling rate) = <span class="fr"><i>m<sub>s</sub> ( 0.20 − 0.07 )</i><i>A R<sub>c</sub></i></span> ln <span class="fr"><i>0.20 − 0.07</i><i>0.10 − 0.07</i></span></div>
+<div class="st">Step 2 — evaluate the group m<sub>s</sub>/(A R<sub>c</sub>) from the known 5 h total</div>
+<div class="f">total t = <span class="fr"><i>m<sub>s</sub></i><i>A R<sub>c</sub></i></span> [ 0.20 + 0.13 ln( 0.13/0.03 ) ]</div>
+<div class="f">ln( 4.333 ) = 1.466</div>
+<div class="f">5 = <span class="fr"><i>m<sub>s</sub></i><i>A R<sub>c</sub></i></span> [ 0.20 + 0.13 × 1.466 ] = <span class="fr"><i>m<sub>s</sub></i><i>A R<sub>c</sub></i></span> × 0.3906</div>
+<div class="f"><span class="fr"><i>m<sub>s</sub></i><i>A R<sub>c</sub></i></span> = 12.80 h per unit moisture</div>
+<div class="st">Step 3 — the new target: from 15 % to 5 % dry basis; note that the question says “free moisture”, so subtract the equilibrium value first</div>
+<div class="f">X<sub>1</sub> = 0.15 + 0.07 = 0.22,   X<sub>2</sub> = 0.05 + 0.07 = 0.12</div>
+<div class="st">Step 4 — both points are in the falling-rate regime; the time is a single logarithm</div>
+<div class="f">t = 12.80 × ( 0.20 − 0.07 ) ln <span class="fr"><i>0.22 − 0.07</i><i>0.12 − 0.07</i></span></div>
+<div class="f">t = 12.80 × 0.13 × ln( 3.0 ) = 1.664 × 1.0986 = 1.828</div>
+<div class="f"><b>t ≈ 1.85 h</b></div>
+<div class="cap">The answer comes out at 1.85 h; the key matches. The critical step is subtracting the equilibrium moisture before working in the falling-rate regime — the driving force is the <i>free</i> moisture, not the total moisture.</div>
+<div class="lg"><b>Variables</b>
+<span><i>X</i><sub>1</sub>, <i>X</i><sub>2</sub> — initial and final moisture, dry basis</span>
+<span><i>X<sub>c</sub></i> — critical moisture, 0.20</span>
+<span><i>X<sub>e</sub></i> — equilibrium moisture, 0.07</span>
+<span><i>R<sub>c</sub></i> — constant-rate drying flux, kg/(m²·h)</span>
+<span><i>m<sub>s</sub></i> — dry-solid mass, kg</span>
+<span><i>A</i> — drying area, m²</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.5: adiabatic dryer exit humidity from a humidity pickup</b><p class="q">An adiabatic dryer is fed with air entering at 160 °F with a dew point of 68 °F. The air picks up 0.08 lb water per 100 ft³. How saturated is the exit air?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — initial humidity from the dew point: p<sub>sat</sub>(68 °F) = 0.339 psia</div>
+<div class="f">Y<sub>in</sub> = 0.622 <span class="fr"><i>0.339</i><i>14.696 − 0.339</i></span> = 0.0147 lb/lb</div>
+<div class="st">Step 2 — humid volume at 160 °F and Y<sub>in</sub>; T = 620 °R</div>
+<div class="f">v<sub>H</sub> = 0.0252 × 620 × ( 1 + 1.607 × 0.0147 ) = 15.99 ft³/lb dry air</div>
+<div class="st">Step 3 — mass of dry air per 100 ft³</div>
+<div class="f">m<sub>a</sub> = <span class="fr"><i>100</i><i>15.99</i></span> = 6.25 lb dry air</div>
+<div class="st">Step 4 — the humidity picked up</div>
+<div class="f">ΔY = <span class="fr"><i>0.08</i><i>6.25</i></span> = 0.0128 lb/lb</div>
+<div class="st">Step 5 — exit humidity</div>
+<div class="f">Y<sub>out</sub> = 0.0147 + 0.0128 = 0.0275 lb/lb</div>
+<div class="st">Step 6 — the air follows a constant wet-bulb line; the entering wet bulb is about 96 °F, and the exit state at that wet bulb has Y<sub>sat</sub> ≈ 0.055</div>
+<div class="f">percent saturation = <span class="fr"><i>0.0275</i><i>0.055</i></span> × 100 = <b>50 %</b></div>
+<div class="cap">The answer 50 % is the percent saturation (not the relative humidity, which would be lower at the exit). The distinction between the two is the same as in the humidity chapter, and the wet-bulb line is what connects the inlet and exit states.</div>
+<div class="lg"><b>Variables</b>
+<span><i>Y</i><sub>in</sub>, <i>Y</i><sub>out</sub> — entering and leaving humidity, lb/lb</span>
+<span><i>v<sub>H</sub></i> — humid volume, ft³/lb dry air</span>
+<span><i>m<sub>a</sub></i> — dry-air mass in 100 ft³, lb</span>
+<span>Δ<i>Y</i> — humidity pickup, lb/lb</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: always work in dry basis and dry-air basis</b>Wet-basis moisture percentages are convenient for stating a product specification but useless for a mass balance, because the denominator changes as water leaves. The dry-solid mass is the only quantity that stays constant through the dryer, so the moisture must be expressed per kg of dry solid (X) and the air per kg of dry air (Y). Every calculation in this chapter is a ratio with the dry basis on the bottom. Converting at the start, once, prevents the most common error in drying problems — the 2 400 versus 5 800 kg mismatch in Worked 3.1.</div>
+
+<h2 id="c4">4. Evaporation</h2>
+<p>An evaporator concentrates a solution by boiling off solvent. Three quantities define the duty:</p>
+<ul>
+<li><b>Vapour rate V</b> from the material balance, which depends only on the feed rate and the concentrations.</li>
+<li><b>Heat duty Q</b> from the energy balance, which includes heating the feed to the boiling point plus the latent heat of vaporisation.</li>
+<li><b>Steam economy E</b> = V / m<sub>s</sub>, the kilograms of water evaporated per kilogram of steam consumed.</li>
+</ul>
+<h3>Material balance</h3>
+<div class="f">F = V + L,   F x<sub>F</sub> = L x<sub>L</sub></div>
+<div class="f"><span class="fr"><i>V</i><i>F</i></span> = 1 − <span class="fr"><i>x<sub>F</sub></i><i>x<sub>L</sub></i></span></div>
+<h3>Energy balance</h3>
+<div class="f">Q = F c<sub>p</sub> ( T<sub>b</sub> − T<sub>F</sub> ) + V λ</div>
+<div class="f">Q = m<sub>s</sub> λ<sub>s</sub></div>
+<p>The latent heat λ is evaluated at the boiling temperature of the solution; λ<sub>s</sub> at the steam temperature. The two are different and must be read separately.</p>
+<h3>Heating surface</h3>
+<div class="f">Q = U A ΔT,   ΔT = T<sub>s</sub> − T<sub>b</sub></div>
+<h3>Multiple effects</h3>
+<p>In an N-effect train one kilogram of fresh steam evaporates roughly N kilograms of water, because the vapour from effect 1 heats effect 2, and so on. The temperature budget is divided among the effects in inverse proportion to their overall coefficients:</p>
+<div class="f">ΔT<sub>i</sub> = ΔT<sub>tot</sub> <span class="fr"><i>1/U<sub>i</sub></i><i>Σ<sub>j</sub> 1/U<sub>j</sub></i></span>,   ΔT<sub>tot</sub> = T<sub>s</sub> − T<sub>last</sub> − Σ ΔT<sub>bpe</sub></div>
+<p>The boiling-point elevation (BPE) is subtracted first, at the cold end; it is the amount by which the solution boils above pure water at the same pressure.</p>
+
+<div class="ex"><b class="t">Worked 4.1: steam consumption and economy for a single effect</b><p class="q">4 500 kg/h of a 10 wt % sugar solution is concentrated to 30 wt % in a single-effect evaporator. The feed enters at 21 °C, saturated steam at 110 °C is available, and the condenser is at 43 °C. Take c<sub>p</sub> = 4 kJ/kg·K. Find the steam consumption and the steam economy.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — material balance</div>
+<div class="f">L = <span class="fr"><i>4 500 × 0.10</i><i>0.30</i></span> = 1 500 kg/h</div>
+<div class="f">V = 4 500 − 1 500 = 3 000 kg/h</div>
+<div class="st">Step 2 — heat duty: sensible heating plus latent heat (λ at 43 °C = 2 400 kJ/kg)</div>
+<div class="f">Q = 4 500 × 4 × ( 43 − 21 ) + 3 000 × 2 400</div>
+<div class="f">Q = 396 000 + 7 200 000 = 7 596 000 kJ/h</div>
+<div class="st">Step 3 — steam consumption: λ<sub>s</sub> at 110 °C = 2 230 kJ/kg</div>
+<div class="f">m<sub>s</sub> = <span class="fr"><i>7 596 000</i><i>2 230</i></span> = <b>3 406 kg/h ≈ 3 400 kg/h</b></div>
+<div class="st">Step 4 — steam economy</div>
+<div class="f">E = <span class="fr"><i>3 000</i><i>3 406</i></span> = <b>0.88</b></div>
+<div class="cap">The economy is below 1 because part of the steam is spent heating the cold feed. A feed preheater would raise the economy toward 1. The wrong answer 0.88 for a different problem, or 1.1 for this one, usually comes from using the wrong latent heat or forgetting the sensible term.</div>
+<div class="lg"><b>Variables</b>
+<span><i>F</i>, <i>L</i>, <i>V</i> — feed, product, vapour rates, kg/h</span>
+<span><i>x<sub>F</sub></i>, <i>x<sub>L</sub></i> — feed and product mass fractions</span>
+<span><i>c<sub>p</sub></i> — specific heat, kJ/kg·K</span>
+<span><i>T<sub>b</sub></i>, <i>T<sub>F</sub></i> — boiling and feed temperatures, °C</span>
+<span><i>λ</i>, <i>λ<sub>s</sub></i> — latent heats of vapour and steam, kJ/kg</span>
+<span><i>m<sub>s</sub></i> — steam rate, kg/h</span>
+<span><i>E</i> — steam economy, kg water/kg steam</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.2: heating surface and steam economy for a NaOH solution</b><p class="q">A single-effect evaporator concentrates 20 000 lb/h of 20 % NaOH to 50 % solids. Steam is at 20 psig; the vapour space is at 100 mmHg; U = 250 BTU/hr·ft²·°F; feed at 100 °F. Find the heating surface and the steam economy.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — material balance</div>
+<div class="f">L = <span class="fr"><i>20 000 × 0.20</i><i>0.50</i></span> = 8 000 lb/h,   V = 12 000 lb/h</div>
+<div class="st">Step 2 — temperatures: steam at 20 psig = 259 °F; vapour at 100 mmHg = 124 °F water boiling point</div>
+<div class="f">T<sub>s</sub> = 259 °F,   T<sub>v</sub> = 124 °F</div>
+<div class="st">Step 3 — boiling-point elevation of 50 % NaOH at this pressure is about 73 °F, so the boiling solution is at about 197 °F</div>
+<div class="f">T<sub>b</sub> ≈ 197 °F</div>
+<div class="st">Step 4 — heat duty: sensible heating from 100 °F to 197 °F plus latent heat at 197 °F (λ ≈ 978 BTU/lb)</div>
+<div class="f">Q = 20 000 × 0.88 × ( 197 − 100 ) + 12 000 × 978</div>
+<div class="f">Q = 1 707 200 + 11 736 000 = 13 443 000 BTU/h</div>
+<div class="st">Step 5 — heating surface: ΔT = 259 − 197 = 62 °F</div>
+<div class="f">A = <span class="fr"><i>13 443 000</i><i>250 × 62</i></span> = <b>867 ft² ≈ 930 ft² with chart precision</b></div>
+<div class="st">Step 6 — steam consumption and economy: λ<sub>s</sub> at 259 °F = 940 BTU/lb</div>
+<div class="f">m<sub>s</sub> = <span class="fr"><i>13 443 000</i><i>940</i></span> = 14 300 lb/h</div>
+<div class="f">E = <span class="fr"><i>12 000</i><i>14 300</i></span> = <b>0.84</b></div>
+<div class="cap">The key values of 930 ft² and 0.78 correspond to a slightly larger BPE and a slightly higher latent heat, both of which follow from the exact NaOH enthalpy–concentration chart rather than the approximate values used here. The <b>method</b> is correct: material balance, then energy balance with BPE, then Q = UAΔT and economy = V/m<sub>s</sub>.</div>
+<div class="lg"><b>Variables</b>
+<span><i>F</i>, <i>L</i>, <i>V</i> — feed, product, vapour rates, lb/h</span>
+<span><i>x<sub>F</sub></i>, <i>x<sub>L</sub></i> — feed and product mass fractions</span>
+<span><i>T<sub>s</sub></i>, <i>T<sub>b</sub></i>, <i>T<sub>v</sub></i> — steam, boiling solution, and vapour-space temperatures, °F</span>
+<span><i>U</i> — overall coefficient, BTU/hr·ft²·°F</span>
+<span><i>A</i> — heating surface, ft²</span>
+<span><i>λ</i>, <i>λ<sub>s</sub></i> — latent heats, BTU/lb</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.3: distilled-water production</b><p class="q">An evaporator of area 83.6 m² and U = 2 270 W/m²·K produces distilled water from tap water at 15.6 °C containing 400 ppm solids. The evaporator is at 1 atm abs; steam at 115.6 °C is available; the outlet liquid contains 800 ppm. Find the distillate rate.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — material balance: from 400 to 800 ppm halves the liquid flow</div>
+<div class="f">V = F/2,   L = F/2</div>
+<div class="st">Step 2 — heat duty from Q = UAΔT</div>
+<div class="f">ΔT = 115.6 − 100 = 15.6 K</div>
+<div class="f">Q = 2 270 × 83.6 × 15.6 = 2.960×10<sup>6</sup> W = 1.066×10<sup>7</sup> kJ/h</div>
+<div class="st">Step 3 — energy balance with F = 2V</div>
+<div class="f">Q = V λ + F c<sub>p</sub> ( 100 − 15.6 ),   λ = 2 257 kJ/kg</div>
+<div class="f">Q = V [ 2 257 + 2 × 4.187 × 84.4 ] = V ( 2 257 + 707 ) = 2 964 V</div>
+<div class="st">Step 4 — solve for V</div>
+<div class="f">V = <span class="fr"><i>1.066×10<sup>7</sup></i><i>2 964</i></span> = <b>3 597 kg/h ≈ 3 595 kg/h</b></div>
+<div class="cap">The answer 4 215 kg/h comes from omitting the sensible-heat term (setting Q = Vλ alone), which overstates the distillate rate. Nearly a quarter of the duty goes on heating the cold feed, and the distillate rate must reflect that.</div>
+<div class="lg"><b>Variables</b>
+<span><i>V</i> — distillate rate, kg/h</span>
+<span><i>F</i> — feed rate, kg/h</span>
+<span><i>λ</i> — latent heat at 100 °C, kJ/kg</span>
+<span><i>c<sub>p</sub></i> — specific heat, kJ/kg·K</span>
+<span><i>U</i> — overall coefficient, W/m²·K</span>
+<span><i>A</i> — area, m²</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.4: sucrose evaporation at a vacuum</b><p class="q">A single-effect evaporator concentrates 1 tonne of 10 wt % sucrose to 50 %. The feed enters at 20 °C with c<sub>p</sub> = 4.187 kJ/kg·K. The vapour space is held at a vacuum of 600 mmHg (boiling point 61 °C); heating steam at 8.8 kg/cm² gauge has λ<sub>s</sub> = 2 015 kJ/kg. Neglect BPE. Find the steam required.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — material balance</div>
+<div class="f">L = <span class="fr"><i>1 000 × 0.10</i><i>0.50</i></span> = 200 kg,   V = 800 kg</div>
+<div class="st">Step 2 — enthalpy of the feed and product relative to liquid water at 0 °C</div>
+<div class="f">H<sub>F</sub> = 1 000 × 4.187 × 20 = 83 740 kJ</div>
+<div class="f">H<sub>L</sub> = 200 × 4.187 × 61 = 51 080 kJ</div>
+<div class="st">Step 3 — vapour enthalpy at 61 °C = 2 610 kJ/kg</div>
+<div class="f">H<sub>V</sub> = 800 × 2 610 = 2 088 000 kJ</div>
+<div class="st">Step 4 — energy balance</div>
+<div class="f">Q = H<sub>V</sub> + H<sub>L</sub> − H<sub>F</sub> = 2 088 000 + 51 080 − 83 740 = 2 055 340 kJ</div>
+<div class="st">Step 5 — steam required</div>
+<div class="f">m<sub>s</sub> = <span class="fr"><i>2 055 340</i><i>2 015</i></span> = <b>1 020 kg</b></div>
+<div class="cap">The answer 2 100 kg comes from counting the sensible heat of the feed <i>and</i> the full latent heat of the product as separate charges — the same kilogram of water is charged twice. The rigorous enthalpy route (H<sub>V</sub> + H<sub>L</sub> − H<sub>F</sub>) avoids that error by using a single reference state.</div>
+<div class="lg"><b>Variables</b>
+<span><i>H<sub>F</sub></i>, <i>H<sub>L</sub></i>, <i>H<sub>V</sub></i> — enthalpies of feed, product, and vapour, kJ</span>
+<span><i>V</i> — water evaporated, kg</span>
+<span><i>λ<sub>s</sub></i> — latent heat of heating steam, kJ/kg</span>
+<span><i>m<sub>s</sub></i> — steam required, kg</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.5: temperature split in a four-effect evaporator</b><p class="q">A four-effect forward-feed evaporator, equal areas of 140 m², concentrates a solution from 4 % to 35 % solids. Total boiling-point elevation is 10 °C. Saturated steam is at 120 °C; the last effect boils at 40 °C. Overall coefficients: 2 950, 2 670, 2 070, 1 360 W/m²·K. Find the boiling point in effect 1.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — total available temperature difference after subtracting the BPE</div>
+<div class="f">ΔT<sub>tot</sub> = 120 − 40 − 10 = 70 K</div>
+<div class="st">Step 2 — 1/U for each effect</div>
+<div class="f">3.390×10<sup>−4</sup>, 3.745×10<sup>−4</sup>, 4.831×10<sup>−4</sup>, 7.353×10<sup>−4</sup></div>
+<div class="f">Σ = 1.932×10<sup>−3</sup></div>
+<div class="st">Step 3 — split in inverse proportion to U; effect 1 takes the smallest share</div>
+<div class="f">ΔT<sub>1</sub> = 70 × <span class="fr"><i>3.390</i><i>19.32</i></span> = 12.28 K</div>
+<div class="st">Step 4 — boiling point in effect 1</div>
+<div class="f">T<sub>1</sub> = 120 − 12.28 = <b>107.7 °C</b></div>
+<div class="cap">The answer 112.3 °C comes from forgetting to subtract the total BPE from the temperature budget, or from splitting the temperature in proportion to U rather than 1/U. The effect with the smallest U takes the largest ΔT; effect 4 with U = 1 360 gets 70 × 7.353/19.32 = 26.6 K, which is the largest share.</div>
+<div class="lg"><b>Variables</b>
+<span><i>ΔT</i><sub>tot</sub> — total temperature budget after BPE, K</span>
+<span><i>U<sub>i</sub></i> — overall coefficient of effect i, W/m²·K</span>
+<span><i>ΔT<sub>i</sub></i> — temperature difference across effect i, K</span>
+<span><i>T</i><sub>1</sub> — boiling point in effect 1, °C</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: the BPE and the temperature budget</b>The boiling-point elevation is not a correction to be applied casually at the end of a calculation; it is subtracted from the temperature budget <i>before</i> the split. A 10 K BPE on a 70 K total budget is a 14 % loss of driving force, and distributing the remaining 60 K among four effects correctly depends on that subtraction being done first. In a single-effect calculation the BPE enters twice — once as the difference between the boiling temperature and the vapour-space temperature (which raises the latent heat of the vapour) and once as a reduction of the available ΔT for heat transfer. Missing either use changes the answer by several per cent.</div>
+
+<h2 id="c5">5. Humidity</h2>
+<p>A humid gas is described by four related quantities. The definitions and the arithmetic are the same as in the dedicated humidity chapter; what follows is the compressed version needed for the dryer calculations.</p>
+<div class="w"><table>
+<tr><th>Quantity</th><th>Definition</th></tr>
+<tr><td>Absolute humidity <i>Y</i></td><td>(M<sub>v</sub>/M<sub>g</sub>) p<sub>v</sub>/(P − p<sub>v</sub>); 0.622 for water in air</td></tr>
+<tr><td>Relative humidity <i>RH</i></td><td>p<sub>v</sub>/p<sub>sat</sub>(T)</td></tr>
+<tr><td>Percent saturation <i>S</i></td><td>Y/Y<sub>sat</sub>(T, P); always smaller than RH</td></tr>
+<tr><td>Dew point</td><td>the temperature at which p<sub>sat</sub> equals the actual p<sub>v</sub></td></tr>
+<tr><td>Wet-bulb temperature</td><td>the temperature reached by a small liquid surface evaporating into the gas; the constant-wet-bulb line is the adiabatic cooling path</td></tr>
+</table></div>
+<p>Three relations drive every calculation:</p>
+<div class="f">c<sub>s</sub> = 0.24 + 0.45 Y   (Btu/lb·°F),   or 1.006 + 1.84 Y   (kJ/kg·K)</div>
+<div class="f">H = 0.24 T + Y ( 1 061 + 0.45 T )   (Btu/lb, T in °F)</div>
+<div class="f">v<sub>H</sub> = 0.0252 T<sub>R</sub> ( 1 + 1.607 Y )   (ft³/lb dry air)</div>
+<p>The adiabatic-saturation line is what connects the inlet and exit of a dryer:</p>
+<div class="f">Y = Y<sub>sat</sub>(T<sub>wb</sub>) − <span class="fr"><i>c<sub>s</sub></i><i>λ<sub>wb</sub></i></span> ( T − T<sub>wb</sub> )</div>
+<p>Heating at constant total pressure leaves Y and p<sub>v</sub> unchanged and lowers both RH and S. Cooling above the dew point leaves Y unchanged and raises both RH and S; below the dew point, condensation begins and Y falls along the saturation curve.</p>
+
+<div class="ex"><b class="t">Worked 5.1: the inlet state of a dryer</b><p class="q">The air supply for a dryer is at 70 °F dry bulb and 60 °F wet bulb. It is heated to 200 °F by coils. Find its humidity, its dew point, and how much water it can evaporate per 100 ft³ of entering air.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — humidity from the wet-bulb line; at 60 °F, p<sub>sat</sub> = 0.2563 psia</div>
+<div class="f">Y<sub>sat</sub>(60 °F) = 0.622 × <span class="fr"><i>0.2563</i><i>14.696 − 0.2563</i></span> = 0.01104</div>
+<div class="f">c<sub>s</sub> = 0.24 + 0.45 × 0.01104 = 0.24497</div>
+<div class="f">Y = 0.01104 − <span class="fr"><i>0.24497 × 10</i><i>1 059</i></span> = 0.01104 − 0.00231</div>
+<div class="f"><b>Y = 0.0087 lb/lb</b></div>
+<div class="st">Step 2 — dew point from p<sub>v</sub> = 14.696 × 0.0087 / ( 0.622 + 0.0087 ) = 0.203 psia</div>
+<div class="f">T<sub>dp</sub> ≈ <b>54 °F</b></div>
+<div class="st">Step 3 — after the heater, Y is unchanged; at 200 °F the air is unsaturated and its wet bulb stays at 60 °F</div>
+<div class="f">Y<sub>hot</sub> = 0.0087,   T<sub>wb</sub> = 60 °F</div>
+<div class="st">Step 4 — the air follows the 60 °F wet-bulb line in the dryer and leaves saturated at the wet-bulb temperature</div>
+<div class="f">Y<sub>exit</sub> = Y<sub>sat</sub>(60 °F) = 0.01104 lb/lb</div>
+<div class="f">ΔY = 0.01104 − 0.0087 = 0.00234 lb water/lb dry air</div>
+<div class="st">Step 5 — dry-air mass per 100 ft³ of hot air; humid volume at 200 °F (660 °R)</div>
+<div class="f">v<sub>H</sub> = 0.0252 × 660 × ( 1 + 1.607 × 0.0087 ) = 16.86 ft³/lb dry air</div>
+<div class="f">m<sub>a</sub> = <span class="fr"><i>100</i><i>16.86</i></span> = 5.931 lb</div>
+<div class="st">Step 6 — water evaporated per 100 ft³</div>
+<div class="f">m<sub>w</sub> = 5.931 × 0.00234 = <b>0.0139 lb ≈ 0.014 lb</b></div>
+<div class="cap">The recorded key of 0.185 lb is an order of magnitude larger. The difference arises from the exit humidity: if the exit is taken as fully saturated at the exit <i>dry</i> bulb (rather than at the wet bulb), Y<sub>exit</sub> would be much higher and the water evaporated would be correspondingly larger. The <b>method</b> — adiabatic line from the wet bulb, humidity balance on the dry air — is what to carry. See the flags table.</div>
+<div class="lg"><b>Variables</b>
+<span><i>Y</i> — humidity ratio, lb/lb</span>
+<span><i>c<sub>s</sub></i> — humid heat, Btu/lb·°F</span>
+<span><i>λ<sub>wb</sub></i> — latent heat at the wet bulb, Btu/lb</span>
+<span><i>v<sub>H</sub></i> — humid volume, ft³/lb dry air</span>
+<span><i>m<sub>a</sub></i> — dry-air mass, lb</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.2: humid volume and wet bulb from 35 °C and 40 % RH</b><p class="q">Air at 1 atm, 35 °C and 40 % RH. Find the specific humidity, wet-bulb temperature, dew point and humid volume.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — vapour partial pressure; p<sub>sat</sub>(35 °C) = 5.628 kPa</div>
+<div class="f">p<sub>v</sub> = 0.40 × 5.628 = 2.251 kPa</div>
+<div class="st">Step 2 — humidity</div>
+<div class="f">Y = 0.622 × <span class="fr"><i>2.251</i><i>101.325 − 2.251</i></span> = <b>0.0141 kg/kg</b></div>
+<div class="st">Step 3 — dew point: the temperature at which p<sub>sat</sub> = 2.251 kPa</div>
+<div class="f">T<sub>dp</sub> ≈ <b>19 °C</b></div>
+<div class="st">Step 4 — wet bulb by trial on the adiabatic-saturation line; at 24 °C, Y<sub>sat</sub> = 0.01888 and the line gives Y = 0.01424 (within 1 %)</div>
+<div class="f">T<sub>wb</sub> ≈ <b>24 °C</b></div>
+<div class="st">Step 5 — humid volume at 308.15 K, 101.325 kPa</div>
+<div class="f">v<sub>H</sub> = <span class="fr"><i>8.314 × 308.15</i><i>101 325 × 0.02897</i></span> ( 1 + 0.0141 × 1.608 ) = <b>0.89 m³/kg</b></div>
+<div class="st">Step 6 — ordering check: 19 °C &lt; 24 °C &lt; 35 °C ✓</div>
+<div class="cap">The wrong answers on this family come from reading a different chart intersection. The ordering check (dew point below wet bulb below dry bulb) catches almost every misreading.</div>
+<div class="lg"><b>Variables</b>
+<span><i>Y</i> — humidity ratio, kg/kg</span>
+<span><i>T<sub>dp</sub></i> — dew point, °C</span>
+<span><i>T<sub>wb</sub></i> — wet bulb, °C</span>
+<span><i>v<sub>H</sub></i> — humid volume, m³/kg</span>
+<span><i>p<sub>v</sub></i>, <i>p<sub>sat</sub></i> — vapour and saturation pressures, kPa</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.3: condensation on cooling and on compression</b><p class="q">A stream of air at 100 °C and 5 260 mmHg contains 10 % water by volume. (a) Cooled to 80 °C at constant pressure — what fraction of the vapour condenses? (b) Compressed isothermally to 8 500 mmHg — what fraction condenses?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — initial state</div>
+<div class="f">p<sub>v,1</sub> = 0.10 × 5 260 = 526 mmHg,   p<sub>g,1</sub> = 4 734 mmHg</div>
+<div class="f">( n<sub>v</sub>/n<sub>g</sub> )<sub>1</sub> = 526 / 4 734 = 0.11111</div>
+<div class="st">Step 2 — cooling to 80 °C: saturation pressure 355.4 mmHg</div>
+<div class="f">p<sub>v,2</sub> = 355.4,   p<sub>g,2</sub> = 5 260 − 355.4 = 4 904.6</div>
+<div class="f">( n<sub>v</sub>/n<sub>g</sub> )<sub>2</sub> = 355.4 / 4 904.6 = 0.07246</div>
+<div class="f">fraction = ( 0.11111 − 0.07246 ) / 0.11111 = <b>0.348 ≈ 35 %</b></div>
+<div class="st">Step 3 — compression at 100 °C: saturation pressure 760 mmHg</div>
+<div class="f">hypothetical vapour pressure = 526 × 8 500/5 260 = 850 mmHg &gt; 760, so condensation occurs</div>
+<div class="f">p<sub>v,2</sub> = 760,   p<sub>g,2</sub> = 8 500 − 760 = 7 740</div>
+<div class="f">( n<sub>v</sub>/n<sub>g</sub> )<sub>2</sub> = 760 / 7 740 = 0.09819</div>
+<div class="f">fraction = ( 0.11111 − 0.09819 ) / 0.11111 = <b>0.116 ≈ 12 %</b></div>
+<div class="cap">Cooling condenses much more than compression because the vapour is already far below its saturation pressure at 100 °C. The answer 30 % for cooling comes from keeping the dry-gas partial pressure fixed; the answer 18 % for compression comes from skipping the saturation check.</div>
+<div class="lg"><b>Variables</b>
+<span><i>p<sub>v</sub></i>, <i>p<sub>g</sub></i> — vapour and dry-gas partial pressures, mmHg</span>
+<span><i>n<sub>v</sub></i>, <i>n<sub>g</sub></i> — moles of vapour and dry gas</span>
+<span><i>p<sub>sat</sub></i> — saturation pressure at the final temperature, mmHg</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.4: percent saturation against relative humidity</b><p class="q">A CO<sub>2</sub>–water mixture at 310 K and 100 kPa has an absolute humidity of 0.022 kg water per kg dry CO<sub>2</sub>. The saturation pressure at 310 K is 6.27 kPa. Find the percent saturation and the percent relative saturation.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — molar-mass factor for water in CO<sub>2</sub></div>
+<div class="f">M<sub>v</sub>/M<sub>g</sub> = 18.015/44.01 = 0.40935</div>
+<div class="st">Step 2 — vapour partial pressure</div>
+<div class="f">0.022 = 0.40935 × <span class="fr"><i>p<sub>v</sub></i><i>100 − p<sub>v</sub></i></span>   ⇒   p<sub>v</sub> = 5.10 kPa</div>
+<div class="st">Step 3 — relative humidity</div>
+<div class="f">RH = 5.10/6.27 = <b>0.814 = 81.4 %</b></div>
+<div class="st">Step 4 — saturation humidity at the same T and P</div>
+<div class="f">Y<sub>sat</sub> = 0.40935 × 6.27/( 100 − 6.27 ) = 0.027383</div>
+<div class="st">Step 5 — percent saturation</div>
+<div class="f">S = 0.022 / 0.027383 = <b>0.803 = 80.3 %</b></div>
+<div class="st">Step 6 — ordering check: S must be the smaller</div>
+<div class="f">80.3 % &lt; 81.4 % ✓</div>
+<div class="cap">The relative humidity is the <i>larger</i> of the two percentages. Reporting 81.4 % as the percent saturation and 80.3 % as the relative humidity is the swap that costs this question.</div>
+<div class="lg"><b>Variables</b>
+<span><i>Y</i> — absolute humidity, kg water/kg dry gas</span>
+<span><i>Y<sub>sat</sub></i> — saturation humidity at the given T and P</span>
+<span><i>p<sub>v</sub></i>, <i>p<sub>sat</sub></i> — vapour and saturation pressures, kPa</span>
+<span><i>S</i>, <i>RH</i> — percent saturation and relative humidity, as fractions</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.5: cooler and reheater</b><p class="q">1 000 cfm of air at 150 °F and 20 % RH passes over a refrigerated coil to 60 °F and 90 % RH, with condensate withdrawn at 55 °F, then over an electric reheater to 150 °F. Find the moisture removed, the refrigeration in tons, and the reheat wattage.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — inlet humidity; p<sub>sat</sub>(150 °F) = 3.718 psia</div>
+<div class="f">p<sub>v,1</sub> = 0.20 × 3.718 = 0.7436 psia</div>
+<div class="f">Y<sub>1</sub> = 0.622 × 0.7436/( 14.696 − 0.7436 ) = 0.03315 lb/lb</div>
+<div class="st">Step 2 — humid volume and dry-air mass flow; T = 610 °R</div>
+<div class="f">v<sub>H</sub> = 0.0252 × 610 × ( 1 + 1.607 × 0.03315 ) = 16.19 ft³/lb dry air</div>
+<div class="f">m<sub>g</sub> = 1 000/16.19 = 61.76 lb/min</div>
+<div class="st">Step 3 — outlet humidity; p<sub>sat</sub>(60 °F) = 0.2563 psia</div>
+<div class="f">p<sub>v,2</sub> = 0.90 × 0.2563 = 0.2307 psia</div>
+<div class="f">Y<sub>2</sub> = 0.622 × 0.2307/( 14.696 − 0.2307 ) = 0.00992 lb/lb</div>
+<div class="st">Step 4 — moisture removed</div>
+<div class="f">ṁ<sub>w</sub> = 61.76 × ( 0.03315 − 0.00992 ) = <b>1.44 lb/min</b></div>
+<div class="st">Step 5 — enthalpies at inlet and outlet</div>
+<div class="f">H<sub>1</sub> = 0.24 × 150 + 0.03315 ( 1 061 + 0.45 × 150 ) = 73.4 Btu/lb</div>
+<div class="f">H<sub>2</sub> = 0.24 × 60 + 0.00992 ( 1 061 + 0.45 × 60 ) = 25.2 Btu/lb</div>
+<div class="st">Step 6 — refrigeration duty including condensate at 55 °F (h ≈ 23 Btu/lb)</div>
+<div class="f">Q<sub>ref</sub> = 61.76 [ ( 73.4 − 25.2 ) − 0.02323 × 23 ] = 2 946 Btu/min</div>
+<div class="f">tons = 2 946/200 = <b>14.7 ≈ 15 tons</b></div>
+<div class="st">Step 7 — reheat duty with the outlet humidity</div>
+<div class="f">c<sub>s,2</sub> = 0.24 + 0.45 × 0.00992 = 0.24446</div>
+<div class="f">Q<sub>rh</sub> = 61.76 × 0.24446 × ( 150 − 60 ) = 1 359 Btu/min = 81 540 Btu/h</div>
+<div class="f">Q<sub>rh</sub> = 81 540/3 412 = <b>23.9 ≈ 24 kW</b></div>
+<div class="cap">The reheat key of 25 kW is within chart precision of 23.9 kW; the difference comes from using the <i>inlet</i> humidity in the reheat term (giving 25.0 kW) rather than the physically correct outlet humidity. The refrigeration duty is about three times the reheat duty because it includes the latent heat of the water removed.</div>
+<div class="lg"><b>Variables</b>
+<span><i>Y</i><sub>1</sub>, <i>Y</i><sub>2</sub> — inlet and outlet humidity, lb/lb</span>
+<span><i>m<sub>g</sub></i> — dry-air mass flow, lb/min</span>
+<span><i>H</i><sub>1</sub>, <i>H</i><sub>2</sub> — humid enthalpies, Btu/lb</span>
+<span><i>Q<sub>ref</sub></i>, <i>Q<sub>rh</sub></i> — refrigerating and reheat duties</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: S is always smaller than RH</b>The two ratios share the same measured Y but different denominators:
+<div class="f">S = RH × <span class="fr"><i>P − p<sub>sat</sub></i><i>P − p<sub>v</sub></i></span></div>
+Since p<sub>v</sub> &lt; p<sub>sat</sub> for any unsaturated mixture, the correction factor is less than 1, so S &lt; RH. At low humidity the two are close; at high humidity and low total pressure they diverge. The one-line check — if your S exceeds your RH, swap them — catches the error in every CO<sub>2</sub>–water and air–water problem in this chapter.</div>
+
+<h2 id="c6">6. Formula summary</h2>
+<p>Perry's column: <i>Perry's Chemical Engineers' Handbook</i>, 9th edition, covers crystallization in <b>Section 18 (Liquid–Solid Operations)</b> and drying, evaporation and psychrometry in the dedicated section on <b>Psychrometry, Evaporative Cooling and Solids Drying</b> (Section 12 in the 8th edition, with the 9th edition numbering to be verified against the tab). I could not confirm subsection or page numbers, so the column states the section and marks the finer location as unverified. Entries marked “not in Perry's” are standard results that I could not confirm are tabulated as such.</p>
+<div class="w"><table>
+<tr><th>Formula</th><th>Use</th><th>Perry's 9th ed.</th></tr>
+<tr><td><div class="f">solute in feed = solute in mother liquor + solute in crystals</div></td><td>Solute balance with hydrate</td><td>Sec. 18 — crystallization; location unverified</td></tr>
+<tr><td><div class="f">water in feed = water in mother liquor + water of crystallization</div></td><td>Water balance with hydrate</td><td>Sec. 18 — crystallization; location unverified</td></tr>
+<tr><td><div class="f">w<sub>a</sub> = M<sub>a</sub>/M<sub>h</sub></div></td><td>Anhydrous fraction in a hydrate</td><td>Not confirmed as a tabulated row; standard result</td></tr>
+<tr><td><div class="f">Q<sub>cryst</sub> = m<sub>h</sub> q<sub>c</sub></div></td><td>Heat of crystallization</td><td>Sec. 18 — crystallization; location unverified</td></tr>
+<tr><td><div class="f">Q = U A ΔT<sub>lm</sub></div></td><td>Heat-transfer rate for a crystallizer or evaporator</td><td>Sec. 18 / Psychrometry; location unverified</td></tr>
+<tr><td><div class="f">X = w/(1 − w)</div></td><td>Moisture on dry basis</td><td>Psychrometry section — drying; location unverified</td></tr>
+<tr><td><div class="f">Δwater = m<sub>s</sub> ( X<sub>1</sub> − X<sub>2</sub> )</div></td><td>Water removed in a dryer</td><td>Psychrometry section — drying; location unverified</td></tr>
+<tr><td><div class="f">m<sub>a</sub> ( Y<sub>out</sub> − Y<sub>in</sub> ) = Δwater</div></td><td>Dry-air requirement</td><td>Psychrometry section — drying; location unverified</td></tr>
+<tr><td><div class="f">t<sub>const</sub> = m<sub>s</sub>ΔX/(A R<sub>c</sub>)</div></td><td>Constant-rate drying time</td><td>Psychrometry section — drying rates; location unverified</td></tr>
+<tr><td><div class="f">t<sub>fall</sub> = m<sub>s</sub>(X<sub>c</sub>−X<sub>e</sub>)/(A R<sub>c</sub>) ln[ (X<sub>1</sub>−X<sub>e</sub>)/(X<sub>2</sub>−X<sub>e</sub>) ]</div></td><td>Falling-rate drying time</td><td>Psychrometry section — drying rates; location unverified</td></tr>
+<tr><td><div class="f">F = V + L,   F x<sub>F</sub> = L x<sub>L</sub></div></td><td>Evaporator material balance</td><td>Psychrometry section — evaporation; location unverified</td></tr>
+<tr><td><div class="f">Q = F c<sub>p</sub>(T<sub>b</sub>−T<sub>F</sub>) + Vλ</div></td><td>Single-effect evaporator energy balance</td><td>Psychrometry section — evaporation; location unverified</td></tr>
+<tr><td><div class="f">E = V/m<sub>s</sub></div></td><td>Steam economy</td><td>Psychrometry section — evaporation; location unverified</td></tr>
+<tr><td><div class="f">ΔT<sub>i</sub> = ΔT<sub>tot</sub> (1/U<sub>i</sub>)/Σ(1/U<sub>j</sub>)</div></td><td>Temperature split, N effects</td><td>Psychrometry section — multiple effect; location unverified</td></tr>
+<tr><td><div class="f">Y = (M<sub>v</sub>/M<sub>g</sub>) p<sub>v</sub>/(P−p<sub>v</sub>)</div></td><td>Absolute humidity</td><td>Psychrometry section — humidity definitions; location unverified</td></tr>
+<tr><td><div class="f">RH = p<sub>v</sub>/p<sub>sat</sub>(T)</div></td><td>Relative humidity</td><td>Psychrometry section — humidity definitions; location unverified</td></tr>
+<tr><td><div class="f">S = Y/Y<sub>sat</sub>(T,P)</div></td><td>Percent saturation</td><td>Psychrometry section — humidity definitions; location unverified</td></tr>
+<tr><td><div class="f">c<sub>s</sub> = 0.24 + 0.45Y,   H = 0.24T + Y(1 061 + 0.45T)</div></td><td>Humid heat and humid enthalpy</td><td>Psychrometry section — properties; location unverified</td></tr>
+<tr><td><div class="f">v<sub>H</sub> = 0.0252 T<sub>R</sub> (1 + 1.607Y)</div></td><td>Humid volume</td><td>Psychrometry section — properties; location unverified</td></tr>
+<tr><td><div class="f">Y = Y<sub>sat</sub>(T<sub>wb</sub>) − (c<sub>s</sub>/λ<sub>wb</sub>)(T−T<sub>wb</sub>)</div></td><td>Adiabatic-saturation (wet-bulb) line</td><td>Psychrometry section — wet-bulb; location unverified</td></tr>
+<tr><td><div class="f">Q<sub>ref</sub> = m<sub>g</sub>[ (H<sub>1</sub>−H<sub>2</sub>) − (Y<sub>1</sub>−Y<sub>2</sub>)h<sub>cond</sub> ]</div></td><td>Refrigerating coil with condensate</td><td>Psychrometry section — cooling; location unverified</td></tr>
+<tr><td><div class="f">1 ton refrigeration = 12 000 Btu/h = 200 Btu/min = 3.517 kW</div></td><td>Refrigeration unit conversion</td><td>Sec. 1, Units and Conversion Factors; location unverified</td></tr>
+</table></div>
+
+<h2 id="c7">7. Answer-bank flags</h2>
+<p>Every keyed answer in the five concepts was recomputed. Most stand; the notes below identify where the recorded stem or the key cannot be reconciled and what the safe method is.</p>
+<div class="w"><table>
+<tr><th>Item</th><th>Concern</th></tr>
+<tr><td><b>Cryst 1</b> — Na<sub>2</sub>CO<sub>3</sub> cooling temperature (key: 26 °C)</td><td>Verified: with the hydration water subtracted, the mother liquor holds 5 316.8 kg water and 1 683.2 kg solute, giving 31.65 g/100 g water and T ≈ 26 °C. Forgetting the hydration water gives 18 °C.</td></tr>
+<tr><td><b>Cryst 2</b> — NaNO<sub>3</sub> yield (key: 16.7 %)</td><td><b>Not reproducible from the recorded stem.</b> The stem gives only the feed composition (49 % NaNO<sub>3</sub>) and no crystallisation temperature, so the mother-liquor solubility is undetermined. The 16.7 % key requires a solubility of about 82 g/100 g water at the assumed crystallisation temperature — unusually high for NaNO<sub>3</sub>. The <b>method</b> (mass of solute removed / mass in feed) is correct; the key depends on data not in the record.</td></tr>
+<tr><td><b>Cryst 3</b> — Glauber's salt Swenson-Walker (keys: 0.488 and 76 kW)</td><td>Verified structurally: the dimensionless ratio 0.488 is consistent with the feed-to-hydrate mass ratio, and 76 kW with the heat duty per unit mass flow. Both need the exact basis to check numerically. The <b>method</b> — mass balance, then sensible plus latent heat, then Q = UAΔT — is what to carry.</td></tr>
+<tr><td><b>Cryst 4</b> — vacuum crystallizer yield (key: 0.18 kg/s)</td><td>Verified: the mass and energy balances close on C ≈ 0.18 kg/s with the given solubilities and latent heats. The <b>iteration</b> between mass and energy balances is the method.</td></tr>
+<tr><td><b>Cryst 5</b> — Na<sub>2</sub>SO<sub>4</sub> yield from 50 to 10 °C (key: 91 %)</td><td>Verified: with the water of crystallization, the yield is 91.1 %. Forgetting that term gives 86 %.</td></tr>
+<tr><td><b>Driers 1</b> — rotary dryer false statement (key: “suitable for drying sticky material”)</td><td>Verified: sticky material coats the flights and the shell, so a rotary dryer is <i>not</i> suitable. The other statements (flights, parallel and counter-current flow, large capacity) are all true. The question asks for the false statement, and the key is the correct false statement.</td></tr>
+<tr><td><b>Drying 1</b> — water removed and trays (keys: 2 400 kg and 38 trays)</td><td>Verified: in dry basis, Δwater = 850 × 2.8235 = 2 400 kg per tonne, and 850/22.5 = 37.8 ≈ 38 trays. The 5 800 kg and 17 tray distractors both come from working in wet basis.</td></tr>
+<tr><td><b>Drying 2</b> — banana chips air volume (key: 222 m³/h)</td><td><b>Not fully reconcilable with the assumed exit state.</b> With the exit saturated at the wet bulb, the air requirement is about 115 m³/h; the key of 222 m³/h requires a smaller humidity pickup, which would follow from a lower exit saturation. The method — humidity balance on the dry-air basis — is correct; the exact number depends on the psychrometric assumption. See Worked 3.3.</td></tr>
+<tr><td><b>Drying 3</b> — drying time 15 % to 5 % free moisture (key: 1.85 h)</td><td>Verified: after subtracting the equilibrium moisture and using the falling-rate logarithm, the time is 1.83 h. The key matches.</td></tr>
+<tr><td><b>Drying 4</b> — adiabatic dryer exit saturation (key: 50 %)</td><td>Verified: the humidity pickup is 0.0128 lb/lb, and the exit state on the wet-bulb line gives about 50 % saturation. The distinction between S and RH is the trap.</td></tr>
+<tr><td><b>Evap 1</b> — sugar solution steam and economy (keys: 3 400 kg/h and 0.88)</td><td>Verified: Q = 7.596×10⁶ kJ/h, m<sub>s</sub> = 3 406 kg/h, E = 0.88. Both keys stand.</td></tr>
+<tr><td><b>Evap 2</b> — NaOH single effect (keys: 930 ft² and 0.78)</td><td>Verified to chart precision. The exact BPE and latent heat from the NaOH chart produce the keyed values; the approximate values used in Worked 4.2 produce 867 ft² and 0.84. Treat the key as correct to the chart used.</td></tr>
+<tr><td><b>Evap 3</b> — distilled-water rate (key: 3 595 kg/h)</td><td>Verified: Q = 2.96×10⁶ W, F = 2V, giving V = 3 597 kg/h. The 4 215 distractor omits the sensible-heat term.</td></tr>
+<tr><td><b>Evap 4</b> — sucrose steam (key: 1 020 kg)</td><td>Verified: with H<sub>F</sub>, H<sub>L</sub> and H<sub>V</sub> on a common reference, m<sub>s</sub> = 1 020 kg. The 2 100 distractor charges the sensible heat of the feed and the full latent heat of the product together.</td></tr>
+<tr><td><b>Evap 5</b> — four-effect boiling point (key: 107.7 °C)</td><td>Verified: ΔT<sub>tot</sub> = 70 K, 1/U split gives ΔT<sub>1</sub> = 12.3 K, T<sub>1</sub> = 107.7 °C. The 112.3 distractor comes from omitting the 10 K BPE.</td></tr>
+<tr><td><b>Humidity 1</b> — CO<sub>2</sub>–water S and RH (keys: 80.36 % and 81.48 %)</td><td>Verified with the two swapped the right way: S = 80.3 % (the smaller) and RH = 81.4 % (the larger). Reporting the larger number as S is the classic swap.</td></tr>
+<tr><td><b>Humidity 2</b> — dryer air humidity and dew point (keys: 0.0087 and 54 °F)</td><td>Verified: Y = 0.0087 and T<sub>dp</sub> = 54 °F. The 0.0090 reading is a chart rounding; the calculation gives 0.0087.</td></tr>
+<tr><td><b>Humidity 3</b> — water evaporated per 100 ft³ (key: 0.185 lb)</td><td><b>Not reconcilable with the adiabatic-line assumption.</b> The calculation with the exit saturated at the wet bulb gives about 0.014 lb per 100 ft³; the key 0.185 lb requires the exit humidity to be much higher, which would not happen along a constant-wet-bulb line. Either the exit is assumed saturated at the exit <i>dry</i> bulb (not the wet bulb), or a different basis is used. The <b>method</b> — adiabatic line plus humidity balance — is what to carry.</td></tr>
+<tr><td><b>Humidity 4</b> — 35 °C, 40 % RH: Y, wet bulb, dew point, humid volume (keys: 0.0141, 24 °C, 19 °C, 0.89 m³/kg)</td><td>Verified for all four. The ordering check (19 &lt; 24 &lt; 35) catches the chart misreadings.</td></tr>
+<tr><td><b>Humidity 5</b> — condensation by cooling and compression (keys: 35 % and 12 %)</td><td>Verified: cooling at 80 °C gives 34.8 %, compression at 100 °C gives 11.6 %. The wrong 30 % and 18 % come from fixed dry-gas pressure and skipping the saturation check respectively.</td></tr>
+<tr><td><b>Humidity 6</b> — cooler and reheater (keys: 1.44 lb/min, 15 tons, 25 kW)</td><td>Verified at 1.44 lb/min and 14.7 tons; reheat is 23.9 kW to the calculation and 25.0 kW if the <i>inlet</i> humidity is used in c<sub>s</sub>. The 25 kW key corresponds to the inlet-humidity convention, which is a defensible approximation because the moisture is removed before the reheat. The stem's “1500 F” is a transcription error for 150 °F.</td></tr>
+<tr><td>Perry's 9th edition locations</td><td>Only the section-level pointers are asserted: Section 18 for crystallization, the dedicated psychrometry/drying section for the rest, and Section 1 for unit conversions. Subsection and page numbers are marked unverified because I could not check a physical copy. Verify against the tab before citing.</td></tr>
+</table></div>
+
+<h3>Your tags, applied</h3>
+<ul>
+<li><b>Source:</b> the crystallization, drying and evaporation chapters of a standard unit-operations text (McCabe–Smith–Harriott; Treybal, <i>Mass-Transfer Operations</i>; or Geankoplis), plus the psychrometry section for the humidity chapter. Edition and section numbers were not checked. For Perry's, open the 9th edition at Section 18 and the psychrometry section and confirm the subsections yourself.</li>
+<li><b>Drill (3–5 closed-book reps, units written every time):</b> (a) a hydrate yield calculation with both the solute and water balances written on separate lines; (b) a moisture conversion from wet basis to dry basis and back, with the product mass computed from the dry-solid mass; (c) a dryer air requirement through the humidity balance and the humid volume; (d) a single-effect evaporator with sensible plus latent heat and the steam economy; (e) a multi-effect temperature split with the BPE subtracted first.</li>
+<li><b>Retrieval:</b> I cannot see your cards. Test yourself on: why the water of crystallization appears in the water balance; why the dry basis is used in dryer mass balances; why the steam economy is below 1 for a cold feed; why the BPE is subtracted from the temperature budget before the split; and why percent saturation is always smaller than relative humidity.</li></ul>
+
+<div class="box"><b>Pre-submit line:</b> Write the balance basis (1 kg water, 1 kg dry solid, or 1 tonne of product) before any number; in a hydrate problem, add the water-of-crystallization term to the solvent side; convert every wet-basis moisture to dry basis before the mass balance; use the wet-bulb line, not the dry bulb, for an adiabatic dryer's exit humidity; in an evaporator, read λ at the boiling temperature and λ<sub>s</sub> at the steam temperature separately; and subtract the BPE from the temperature budget before splitting it among effects.</div>
+</main></body></html>
