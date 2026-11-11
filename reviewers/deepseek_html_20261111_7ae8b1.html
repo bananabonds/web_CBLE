@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Differential Equations Review: Four Concepts</title>
+<style>
+:root{--bg:#fbfaf6;--fg:#1f2328;--mut:#5b6470;--ac:#7a3b12;--box:#f1ece0;--ex:#e8f0f4;--dc:#f6e9e4;--bd:#d8d0bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.1rem 4rem}
+h1{font-size:1.8rem;margin:.4rem 0 .2rem}h2{font-size:1.3rem;color:var(--ac);border-bottom:1px solid var(--bd);padding-bottom:.2rem;margin-top:2.6rem}
+h3{font-size:1rem;margin:1.4rem 0 .3rem;font-variant:small-caps;letter-spacing:.04em}
+.sub{color:var(--mut);margin:0 0 1rem}
+.box,.ex,.dc{border-radius:6px;padding:.7rem 1rem;margin:1rem 0;font-size:.97rem}
+.box{background:var(--box)}.ex{background:var(--ex);border-left:4px solid #3d7a99}.dc{background:var(--dc);border-left:4px solid #b5533c}
+.ex b.t,.dc b.t{display:block;font-variant:small-caps;letter-spacing:.05em;margin-bottom:.2rem}
+.f{font-family:"Cambria Math",Georgia,serif;text-align:center;margin:.5rem 0;font-size:1.04rem;overflow-x:auto}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .2em}.fr i{font-style:normal;padding:0 .3em}.fr i:first-child{border-bottom:1px solid currentColor}
+nav{background:var(--box);border-radius:6px;padding:.6rem 1rem;font-size:.92rem}nav a{color:var(--ac);text-decoration:none}
+.w{overflow-x:auto}table{border-collapse:collapse;font-size:.89rem;width:100%}td,th{border:1px solid var(--bd);padding:.3rem .5rem;text-align:left;vertical-align:top}
+.q{margin:.3rem 0 .5rem;font-style:italic}
+details{margin-top:.4rem}summary{cursor:pointer;color:var(--ac);font-weight:bold;font-size:.95rem;padding:.2rem 0}
+details .f{margin:.55rem 0}.cap{text-align:center;font-size:.84rem;color:var(--mut);margin:.4rem 0}
+p{margin:.6rem 0}ul{margin:.4rem 0;padding-left:1.3rem}
+.st{font-size:.85rem;color:var(--mut);font-variant:small-caps;letter-spacing:.05em;margin:.75rem 0 .05rem;text-align:left}
+.lg{border-top:1px dotted var(--bd);margin-top:.75rem;padding-top:.35rem;font-size:.83rem;color:var(--mut)}
+.lg b{font-variant:small-caps;letter-spacing:.05em;display:block;margin-bottom:.15rem}
+.lg span{display:block}
+</style></head><body><main>
+<h1>Differential Equations Review: Four Concepts</h1>
+<p class="sub">One page for the selected D3_L11 set. Four chapters in teaching order: Classes of Differential Equations, General Solution, Integrating Factors, Applied Differential Equations. Each worked example shows the question first; tap “Show solution” for the steps, with a variable legend at the end. A consolidated formula table with Perry's locations sits before the flags.</p>
+<nav>1 <a href="#c1">Classes of ODEs</a> · 2 <a href="#c2">General Solution</a> · 3 <a href="#c3">Integrating Factors</a> · 4 <a href="#c4">Applied ODEs</a> · 5 <a href="#c5">Formulas</a> · 6 <a href="#c6">Flags</a></nav>
+
+<h2 id="c1">1. Classes of Differential Equations</h2>
+<p>Before solving a differential equation, name it. The <b>order</b> is the highest derivative that appears; the <b>degree</b> is the exponent of that highest derivative once the equation has been cleared of fractions in the derivatives. The distinction matters because a first-order equation of fourth degree is a fundamentally different object from a fourth-order equation of first degree, even though both are "fourths."</p>
+<h3>Order and degree</h3>
+<div class="w"><table>
+<tr><th>Quantity</th><th>Definition</th></tr>
+<tr><td>Order</td><td>highest derivative present</td></tr>
+<tr><td>Degree</td><td>exponent of the highest derivative, after clearing fractional powers in the derivatives</td></tr>
+</table></div>
+<p>Clearing a fractional power means raising both sides to the denominator's power, which raises the degree to a whole number. An equation written as (dy/dx)<sup>4/3</sup> + … has degree 4 once both sides are cubed.</p>
+<h3>Families of curves and their differential equations</h3>
+<p>A one-parameter family F(x, y, C) = 0 has a first-order ODE obtained by differentiating once and eliminating C. A two-parameter family has a second-order ODE; an n-parameter family has an n-th order ODE. The procedure is mechanical: differentiate n times, then eliminate the n constants between the (n+1) equations (the original plus the n derivatives).</p>
+<h3>Orthogonal trajectories</h3>
+<p>If a family of curves satisfies y′ = f(x, y), the family of curves meeting every member at right angles satisfies</p>
+<div class="f">y′ = −<span class="fr"><i>1</i><i>f(x, y)</i></span></div>
+<p>because perpendicular slopes multiply to −1. The new equation is then solved for the orthogonal family. For a family given in terms of C rather than as an explicit y′, the first step is to eliminate C.</p>
+<h3>Systems of first-order equations</h3>
+<p>An n-th order ODE can be written as a system of n first-order equations by introducing new variables for the lower derivatives:</p>
+<div class="f">y<sub>1</sub> = y,   y<sub>2</sub> = y′,   y<sub>3</sub> = y″, …,   y<sub>n</sub> = y<sup>(n−1)</sup></div>
+<p>Then y<sub>i</sub>′ = y<sub>i+1</sub> for i = 1 … n−1, and the original equation supplies y<sub>n</sub>′. In matrix form the system is</p>
+<div class="f">Y′ = A Y</div>
+<p>with A the companion matrix of the original equation. The last row of A carries the coefficients of the original ODE with their signs reversed and in the reversed order: for y<sup>(n)</sup> + a<sub>1</sub>y<sup>(n−1)</sup> + … + a<sub>n</sub>y = 0, the last row is [−a<sub>n</sub>, −a<sub>n−1</sub>, …, −a<sub>1</sub>].</p>
+
+<div class="ex"><b class="t">Worked 1.1: order and degree from a fractional power</b><p class="q">What are the order and degree of (dr/dθ)<sup>4/3</sup> + r = 2?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — identify the highest derivative: only the first derivative appears</div>
+<div class="f">order = 1</div>
+<div class="st">Step 2 — the degree is the exponent of the highest derivative after the fractional power is cleared; raise both sides to the third power</div>
+<div class="f">( dr/dθ )<sup>4</sup> = ( 2 − r )<sup>3</sup></div>
+<div class="st">Step 3 — read the degree from the cleared equation</div>
+<div class="f">degree = 4</div>
+<div class="f"><b>1st order, 4th degree</b></div>
+<div class="cap">The answer "4/3 degree" is the mistake of leaving the exponent as written. The degree is always a positive integer, because it is defined on the polynomial form of the equation. Raising both sides to the 3rd power is the routine step that produces that form.</div>
+<div class="lg"><b>Variables</b>
+<span><i>r</i>, <i>θ</i> — the dependent and independent variables</span>
+<span>4/3 — the fractional exponent before clearing</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.2: differential equation of a family of parabolas</b><p class="q">Find the differential equation of the family of parabolas having their vertices at the origin and their foci on the x-axis.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write the general equation of such a parabola with parameter a</div>
+<div class="f">y² = 4ax</div>
+<div class="st">Step 2 — differentiate once with respect to x, treating a as the constant to eliminate</div>
+<div class="f">2y y′ = 4a   ⇒   a = <span class="fr"><i>y y′</i><i>2</i></span></div>
+<div class="st">Step 3 — substitute back into the original equation</div>
+<div class="f">y² = 4 <span class="fr"><i>y y′</i><i>2</i></span> x = 2x y y′</div>
+<div class="st">Step 4 — divide through by y (y ≠ 0 for the non-degenerate part)</div>
+<div class="f">y = 2x y′</div>
+<div class="st">Step 5 — write in differential form</div>
+<div class="f"><b>2x dy − y dx = 0</b></div>
+<div class="cap">The answer x dy + y dx = 0 is the differential of the product xy, which is the family of hyperbolas xy = C, not parabolas. The coefficient 2 in front of x is what distinguishes the parabola family from the hyperbola family; it comes from the 4 in y² = 4ax combined with the factor 2 from differentiating y².</div>
+<div class="lg"><b>Variables</b>
+<span><i>a</i> — the parameter of the parabola family</span>
+<span><i>x</i>, <i>y</i> — Cartesian coordinates</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.3: circles with centre on the y-axis</b><p class="q">Determine the differential equation of the family of circles with centre on the y-axis.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write the general equation: centre at (0, k), radius R</div>
+<div class="f">x² + ( y − k )² = R²</div>
+<div class="st">Step 2 — differentiate once</div>
+<div class="f">2x + 2( y − k ) y′ = 0   ⇒   y − k = −<span class="fr"><i>x</i><i>y′</i></span></div>
+<div class="st">Step 3 — differentiate again, treating y − k as a function of x</div>
+<div class="f">1 + ( y′ )² + ( y − k ) y″ = 0</div>
+<div class="st">Step 4 — substitute y − k = −x/y′</div>
+<div class="f">1 + ( y′ )² − <span class="fr"><i>x y″</i><i>y′</i></span> = 0</div>
+<div class="st">Step 5 — multiply through by y′</div>
+<div class="f">y′ + ( y′ )³ − x y″ = 0</div>
+<div class="st">Step 6 — rearrange into the standard sign form</div>
+<div class="f"><b>x y″ − ( y′ )³ − y′ = 0</b></div>
+<div class="cap">The order is 2 because two parameters (k and R) are being eliminated. The answer (y″)³ − xy″ + y′ = 0 has the degree pattern wrong: the cube in the correct equation is on y′, not on y″. Reading which derivative carries the cube is the check.</div>
+<div class="lg"><b>Variables</b>
+<span><i>k</i> — y-coordinate of the centre (parameter)</span>
+<span><i>R</i> — radius (parameter)</span>
+<span><i>x</i>, <i>y</i> — Cartesian coordinates</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.4: orthogonal trajectories of y² = 2x + C</b><p class="q">Find the equation of the family of orthogonal trajectories of the family of parabolas y² = 2x + C.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — differentiate the family to eliminate C</div>
+<div class="f">2y y′ = 2   ⇒   y′ = <span class="fr"><i>1</i><i>y</i></span></div>
+<div class="st">Step 2 — replace y′ with the negative reciprocal for orthogonal trajectories</div>
+<div class="f">y′ = −y</div>
+<div class="st">Step 3 — separate and integrate</div>
+<div class="f"><span class="fr"><i>dy</i><i>y</i></span> = −dx</div>
+<div class="f">ln | y | = −x + c</div>
+<div class="st">Step 4 — exponentiate and absorb the constant</div>
+<div class="f">y = C e<sup>−x</sup></div>
+<div class="f"><b>y = C e<sup>−x</sup></b></div>
+<div class="cap">The answer y = Ce<sup>2x</sup> is what comes out if the sign of the orthogonal slope is wrong: −1/(1/y) = −y, not +y. Checking one point is a fast verification: at (0, 1), the original family has slope 1, and the orthogonal family should have slope −1; the equation y = Ce<sup>−x</sup> has slope −y = −1 there, while y = Ce<sup>2x</sup> has slope 2 — the wrong sign.</div>
+<div class="lg"><b>Variables</b>
+<span><i>C</i> — the constant of the orthogonal family</span>
+<span><i>x</i>, <i>y</i> — Cartesian coordinates</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.5: an ODE as a system of first-order equations</b><p class="q">Consider y‴ + 4y″ − 5y′ + y = 0. Reduce it to a system of first-order equations.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — define new variables for the function and its lower derivatives</div>
+<div class="f">y<sub>1</sub> = y,   y<sub>2</sub> = y′,   y<sub>3</sub> = y″</div>
+<div class="st">Step 2 — the first two equations are just the definitions</div>
+<div class="f">y<sub>1</sub>′ = y<sub>2</sub></div>
+<div class="f">y<sub>2</sub>′ = y<sub>3</sub></div>
+<div class="st">Step 3 — the original equation, rearranged for the highest derivative</div>
+<div class="f">y‴ = −y + 5y′ − 4y″</div>
+<div class="st">Step 4 — translate to the new variables</div>
+<div class="f">y<sub>3</sub>′ = −y<sub>1</sub> + 5y<sub>2</sub> − 4y<sub>3</sub></div>
+<div class="f"><b>y<sub>1</sub>′ = y<sub>2</sub>,   y<sub>2</sub>′ = y<sub>3</sub>,   y<sub>3</sub>′ = −y<sub>1</sub> + 5y<sub>2</sub> − 4y<sub>3</sub></b></div>
+<div class="cap">The answer with y<sub>1</sub>′ = y<sub>1</sub> is not a translation of any third-order ODE — it would mean y′ = y, which is first order and has nothing to do with the given equation. Every definition y<sub>i</sub>′ = y<sub>i+1</sub> is fixed by the chain of derivatives; the last equation is the only one where the coefficients of the original appear, with their signs reversed.</div>
+<div class="lg"><b>Variables</b>
+<span><i>y</i> — the solution function</span>
+<span><i>y</i><sub>1</sub>, <i>y</i><sub>2</sub>, <i>y</i><sub>3</sub> — the state variables</span>
+</div>
+</details></div>
+
+<h2 id="c2">2. General Solution</h2>
+<p>A general solution of an n-th order ODE carries exactly n arbitrary constants. Two questions arise: solve the equation, and (reversing the direction) given the general solution, eliminate its constants to produce the ODE.</p>
+<h3>The major solvable classes</h3>
+<div class="w"><table>
+<tr><th>Class</th><th>Recognize by</th><th>Method</th></tr>
+<tr><td>Separable</td><td>y′ = f(x)g(y)</td><td>Separate and integrate</td></tr>
+<tr><td>First-order linear</td><td>y′ + P(x)y = Q(x)</td><td>Integrating factor μ = e<sup>∫P dx</sup></td></tr>
+<tr><td>Bernoulli</td><td>y′ + P(x)y = Q(x)y<sup>n</sup></td><td>v = y<sup>1−n</sup> to make linear</td></tr>
+<tr><td>Homogeneous</td><td>y′ = F(y/x)</td><td>y = vx</td></tr>
+<tr><td>Exact</td><td>M dx + N dy = 0 with M<sub>y</sub> = N<sub>x</sub></td><td>Find potential F(x, y); F = c</td></tr>
+<tr><td>Riccati</td><td>y′ = Q<sub>0</sub>(x) + Q<sub>1</sub>(x)y + Q<sub>2</sub>(x)y²</td><td>y = y<sub>1</sub> + 1/v with a known y<sub>1</sub></td></tr>
+<tr><td>Cauchy–Euler</td><td>coefficients x<sup>k</sup> match the k-th derivative</td><td>y = x<sup>m</sup>; indicial equation</td></tr>
+<tr><td>Constant coefficients</td><td>a y″ + b y′ + c y = 0</td><td>Characteristic polynomial</td></tr>
+</table></div>
+<h3>Eliminating constants</h3>
+<p>Differentiate the given solution n times and eliminate the n constants between the (n+1) equations. When the solution is a family of polynomials, exponentials or logarithms, the eliminant is usually a linear ODE with polynomial coefficients.</p>
+<h3>Cauchy–Euler equations</h3>
+<div class="f">x<sup>n</sup> y<sup>(n)</sup> + a<sub>1</sub> x<sup>n−1</sup> y<sup>(n−1)</sup> + … + a<sub>n</sub> y = 0</div>
+<p>Substituting y = x<sup>m</sup> converts it to an algebraic equation in m. The three cases of roots (distinct real, repeated real, complex) each produce a solution form, exactly as for constant-coefficient equations, with x<sup>m</sup> replacing e<sup>rx</sup> and ln x replacing x.</p>
+
+<div class="ex"><b class="t">Worked 2.1: eliminating three constants</b><p class="q">Find the differential equation whose general solution is y = x(C<sub>1</sub> + C<sub>2</sub> ln x + C<sub>3</sub> (ln x)²).</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — recognize the pattern: a factor x multiplying a polynomial in ln x of degree 2 is the repeated-root solution of a third-order Cauchy–Euler equation with a triple root at m = 1</div>
+<div class="f">triple root m = 1   ⇒   indicial polynomial (m − 1)³ = m³ − 3m² + 3m − 1</div>
+<div class="st">Step 2 — for the Euler equation x³y‴ + ax²y″ + bxy′ + cy = 0, the indicial is m(m−1)(m−2) + am(m−1) + bm + c; expand the leading term</div>
+<div class="f">m³ − 3m² + 2m + am² − am + bm + c</div>
+<div class="st">Step 3 — match coefficients to (m − 1)³ = m³ − 3m² + 3m − 1</div>
+<div class="f">m²:   −3 + a = −3   ⇒   a = 0</div>
+<div class="f">m¹:   2 − a + b = 3   ⇒   b = 1</div>
+<div class="f">m⁰:   c = −1</div>
+<div class="st">Step 4 — write the ODE</div>
+<div class="f"><b>x³y‴ + xy′ − y = 0</b></div>
+<div class="cap">The answer y‴ − 3y″ + 3y′ − y = 0 is the constant-coefficient equation with a triple root at r = 1 — its solutions are e<sup>x</sup> times polynomials in x, not x times polynomials in ln x. The two ODEs look superficially similar but belong to entirely different families. The signature of the correct answer is the x³, x², x, 1 coefficient pattern that matches the derivative orders.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the independent variable</span>
+<span><i>C</i><sub>1</sub>, <i>C</i><sub>2</sub>, <i>C</i><sub>3</sub> — the three arbitrary constants</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.2: third-order Cauchy–Euler</b><p class="q">Evaluate the general solution of x³(d³y/dx³) + 5x²(d²y/dx²) − 2x(dy/dx) − 6y = 0.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — substitute y = x<sup>m</sup>; each derivative brings down factors and reduces the power, so x³y‴ = m(m−1)(m−2)x<sup>m</sup>, and so on</div>
+<div class="f">m(m−1)(m−2) + 5m(m−1) − 2m − 6 = 0</div>
+<div class="st">Step 2 — expand</div>
+<div class="f">m³ − 3m² + 2m + 5m² − 5m − 2m − 6 = 0</div>
+<div class="f">m³ + 2m² − 5m − 6 = 0</div>
+<div class="st">Step 3 — find one root by inspection; try m = 2</div>
+<div class="f">8 + 8 − 10 − 6 = 0 ✓</div>
+<div class="st">Step 4 — divide out (m − 2) and factor the remainder</div>
+<div class="f">( m − 2 )( m² + 4m + 3 ) = ( m − 2 )( m + 1 )( m + 3 ) = 0</div>
+<div class="st">Step 5 — the three roots</div>
+<div class="f">m = 2,   −1,   −3</div>
+<div class="st">Step 6 — write one term per root</div>
+<div class="f"><b>y = C<sub>1</sub>x² + C<sub>2</sub>/x + C<sub>3</sub>/x³</b></div>
+<div class="cap">The answer y = C<sub>1</sub>x + C<sub>2</sub>x² + C<sub>3</sub>x³ corresponds to roots 1, 2, 3, not 2, −1, −3. The two negative roots produce two negative-power terms; missing the signs on the roots produces a superficially similar but entirely different family. Substituting y = x² back into the original equation is a one-line check.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — independent variable</span>
+<span><i>m</i> — trial exponent in y = x<sup>m</sup></span>
+<span><i>C</i><sub>1</sub>, <i>C</i><sub>2</sub>, <i>C</i><sub>3</sub> — arbitrary constants</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.3: a Bernoulli equation</b><p class="q">Evaluate the general solution of x³y′ + x²y − y² = 2x⁴.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — put into standard Bernoulli form: divide by x³</div>
+<div class="f">y′ + <span class="fr"><i>1</i><i>x</i></span> y = 2x + <span class="fr"><i>y²</i><i>x³</i></span></div>
+<div class="st">Step 2 — this is Riccati, not Bernoulli; spot the particular solution y<sub>1</sub> = x²</div>
+<div class="f">y<sub>1</sub>′ + y<sub>1</sub>/x − y<sub>1</sub>²/x³ = 2x + x − x⁴/x³ = 2x ✓</div>
+<div class="st">Step 3 — substitute y = x² + 1/v (the Riccati reduction)</div>
+<div class="f">y′ = 2x − v′/v²</div>
+<div class="st">Step 4 — substitute into the standard form</div>
+<div class="f">2x − <span class="fr"><i>v′</i><i>v²</i></span> + <span class="fr"><i>x² + 1/v</i><i>x</i></span> − <span class="fr"><i>(x² + 1/v)²</i><i>x³</i></span> = 2x</div>
+<div class="st">Step 5 — simplify: the 2x terms cancel, and the remaining terms reduce to a linear equation in v</div>
+<div class="f">v′ + <span class="fr"><i>1</i><i>x</i></span> v = −<span class="fr"><i>1</i><i>x³</i></span></div>
+<div class="st">Step 6 — integrating factor μ = x; integrate</div>
+<div class="f">d( vx )/dx = −<span class="fr"><i>1</i><i>x²</i></span></div>
+<div class="f">vx = <span class="fr"><i>1</i><i>x</i></span> + C</div>
+<div class="f">v = <span class="fr"><i>1 + Cx</i><i>x²</i></span></div>
+<div class="st">Step 7 — back-substitute</div>
+<div class="f">y = x² + <span class="fr"><i>1</i><i>v</i></span> = x² + <span class="fr"><i>x²</i><i>1 + Cx</i></span></div>
+<div class="f"><b>y = x² + <span class="fr"><i>x²</i><i>Cx + 1</i></span></b></div>
+<div class="cap">The answer y = x³ + x/(Cx²+1) is what comes from mis-identifying y<sub>1</sub> = x³ as the particular solution. Checking the trial y<sub>1</sub> against the equation before substituting is the routine step; without it, the Riccati reduction produces a different (and wrong) linear equation for v.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — independent variable</span>
+<span><i>y</i> — dependent variable</span>
+<span><i>v</i> — the Riccati substitution, v = 1/(y − y<sub>1</sub>)</span>
+<span><i>C</i> — the single arbitrary constant</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.4: a homogeneous equation</b><p class="q">Solve (y − √(x² + y²))dx − x dy = 0.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — substitute y = vx, dy = v dx + x dv</div>
+<div class="f">( vx − √(x² + v²x²) ) dx − x ( v dx + x dv ) = 0</div>
+<div class="st">Step 2 — simplify; the vx dx terms cancel and x factors out of the radical</div>
+<div class="f">−x √( 1 + v² ) dx − x² dv = 0</div>
+<div class="st">Step 3 — separate</div>
+<div class="f"><span class="fr"><i>dv</i><i>√( 1 + v² )</i></span> = −<span class="fr"><i>dx</i><i>x</i></span></div>
+<div class="st">Step 4 — integrate both sides</div>
+<div class="f">ln ( v + √( 1 + v² ) ) = −ln x + c</div>
+<div class="st">Step 5 — exponentiate and absorb the constant</div>
+<div class="f">x ( v + √( 1 + v² ) ) = C</div>
+<div class="st">Step 6 — back-substitute; v = y/x and x √(1 + v²) = √(x² + y²)</div>
+<div class="f"><b>y + √( x² + y² ) = C</b></div>
+<div class="cap">The answer √(x² + y² + y) = C places the y inside the radical — a different curve. The back-substitution step is where the error occurs: the term x·v becomes y, and the term x·√(1 + v²) becomes √(x² + y²), never √(x² + y² + y). Reading what each piece becomes under the substitution prevents the slip.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i>, <i>y</i> — Cartesian coordinates</span>
+<span><i>v</i> — substitution variable, v = y/x</span>
+<span><i>C</i> — the arbitrary constant</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.5: a Bernoulli equation with initial condition</b><p class="q">Solve y′ + (4/x)y = x³y² with y(2) = −1.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the equation is Bernoulli with n = 2; substitute v = y<sup>−1</sup>, so v′ = −y<sup>−2</sup>y′</div>
+<div class="f">−v′ + <span class="fr"><i>4</i><i>x</i></span> v = x³ · ( −1 )   after dividing by −y²</div>
+<div class="f">v′ − <span class="fr"><i>4</i><i>x</i></span> v = −x³</div>
+<div class="st">Step 2 — integrating factor for the transformed linear equation</div>
+<div class="f">μ = exp( ∫ −4/x dx ) = x<sup>−4</sup></div>
+<div class="st">Step 3 — multiply through and integrate</div>
+<div class="f">d( v x<sup>−4</sup> )/dx = −x³ · x<sup>−4</sup> = −1/x</div>
+<div class="f">v x<sup>−4</sup> = −ln x + C</div>
+<div class="st">Step 4 — invert the substitution</div>
+<div class="f">v = x⁴ ( C − ln x )</div>
+<div class="f">y = <span class="fr"><i>1</i><i>v</i></span> = <span class="fr"><i>1</i><i>x⁴ ( C − ln x )</i></span></div>
+<div class="st">Step 5 — impose y(2) = −1</div>
+<div class="f">−1 = <span class="fr"><i>1</i><i>16 ( C − ln 2 )</i></span>   ⇒   C = ln 2 − 1/16</div>
+<div class="st">Step 6 — substitute C and rewrite</div>
+<div class="f">y = <span class="fr"><i>1</i><i>x⁴ ( ln 2 − 1/16 − ln x )</i></span> = <span class="fr"><i>−16</i><i>x⁴ ( 1 + 16 ln(x/2) )</i></span></div>
+<div class="f"><b>y = <span class="fr"><i>−16</i><i>x⁴ ( 1 + 16 ln(x/2) )</i></span></b></div>
+<div class="cap">The answer with (1 − 16 ln(x/2)) comes from a sign slip when combining ln 2 − ln x − 1/16: that expression equals −[1/16 + ln(x/2)], and the outer minus from y = 1/(x⁴·negative) flips to positive, giving the plus inside the bracket. Writing the bracket on its own line before dividing prevents the slip.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — independent variable</span>
+<span><i>y</i> — dependent variable</span>
+<span><i>v</i> — substitution v = y<sup>−1</sup></span>
+<span><i>C</i> — the arbitrary constant, fixed by y(2) = −1</span>
+</div>
+</details></div>
+
+<h2 id="c3">3. Integrating Factors</h2>
+<p>An equation M dx + N dy = 0 is exact when M<sub>y</sub> = N<sub>x</sub>. When it is not, an integrating factor μ(x, y) turns it into an exact equation:</p>
+<div class="f">( μM )<sub>y</sub> = ( μN )<sub>x</sub></div>
+<p>Three standard routes produce μ.</p>
+<h3>μ depending on x alone</h3>
+<p>If (M<sub>y</sub> − N<sub>x</sub>)/N is a function of x only, then</p>
+<div class="f">μ( x ) = exp( ∫ <span class="fr"><i>M<sub>y</sub> − N<sub>x</sub></i><i>N</i></span> dx )</div>
+<h3>μ depending on y alone</h3>
+<p>If (N<sub>x</sub> − M<sub>y</sub>)/M is a function of y only, then</p>
+<div class="f">μ( y ) = exp( ∫ <span class="fr"><i>N<sub>x</sub> − M<sub>y</sub></i><i>M</i></span> dy )</div>
+<h3>μ depending on both</h3>
+<p>When neither ratio is a single-variable function, look for a product form μ = x<sup>a</sup> y<sup>b</sup>. The exponents a and b are chosen so that the exactness condition holds; this is a two-equation system in a and b, and one solution is enough.</p>
+<p>The integrating factor is determined only up to a constant, so answers that differ by a multiplicative constant are equivalent.</p>
+
+<div class="ex"><b class="t">Worked 3.1: integrating factor depending on x</b><p class="q">Evaluate the integrating factor of (x² + y² + 3)dx − 2xy dy = 0.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — identify M and N</div>
+<div class="f">M = x² + y² + 3,   N = −2xy</div>
+<div class="st">Step 2 — the exactness test</div>
+<div class="f">M<sub>y</sub> = 2y,   N<sub>x</sub> = −2y   ⇒   not exact</div>
+<div class="st">Step 3 — form the ratio (M<sub>y</sub> − N<sub>x</sub>)/N</div>
+<div class="f"><span class="fr"><i>2y − (−2y)</i><i>−2xy</i></span> = <span class="fr"><i>4y</i><i>−2xy</i></span> = −<span class="fr"><i>2</i><i>x</i></span></div>
+<div class="st">Step 4 — the result depends on x only, so μ is a function of x</div>
+<div class="f">μ = exp( ∫ −2/x dx ) = e<sup>−2 ln x</sup> = <b>1/x²</b></div>
+<div class="cap">The answer −2/x is the ratio itself, not its exponential integral. The integrating factor is always μ = e<sup>∫(ratio)</sup>; dropping the exponential is the standard error on this question type. Checking that the resulting equation is exact is a one-line verification.</div>
+<div class="lg"><b>Variables</b>
+<span><i>M</i>, <i>N</i> — coefficients of dx and dy</span>
+<span><i>μ</i> — integrating factor</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.2: integrating factor depending on y</b><p class="q">Evaluate the integrating factor of (y⁴ + 2y)dx + (xy³ + 2y⁴ − 4x)dy = 0.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — identify M and N</div>
+<div class="f">M = y⁴ + 2y,   N = x y³ + 2y⁴ − 4x</div>
+<div class="st">Step 2 — the exactness test</div>
+<div class="f">M<sub>y</sub> = 4y³ + 2,   N<sub>x</sub> = y³ − 4</div>
+<div class="st">Step 3 — try the y-only ratio first</div>
+<div class="f"><span class="fr"><i>N<sub>x</sub> − M<sub>y</sub></i><i>M</i></span> = <span class="fr"><i>y³ − 4 − ( 4y³ + 2 )</i><i>y⁴ + 2y</i></span> = <span class="fr"><i>−3y³ − 6</i><i>y ( y³ + 2 )</i></span> = −<span class="fr"><i>3</i><i>y</i></span></div>
+<div class="st">Step 4 — the result depends on y only, so μ is a function of y</div>
+<div class="f">μ = exp( ∫ −3/y dy ) = e<sup>−3 ln y</sup> = <b>1/y³</b></div>
+<div class="cap">The answer y³ is the reciprocal of the correct factor. The direction of the test determines which form of the ratio to use: (M<sub>y</sub> − N<sub>x</sub>)/N tests for μ(x); (N<sub>x</sub> − M<sub>y</sub>)/M tests for μ(y). Swapping them gives the reciprocal — which is still an integrating factor, but the answer does not match the expected option.</div>
+<div class="lg"><b>Variables</b>
+<span><i>M</i>, <i>N</i> — coefficients of dx and dy</span>
+<span><i>μ</i> — integrating factor</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.3: integrating factor for a first-order linear equation</b><p class="q">Evaluate the integrating factor of y′ − y tan x = sin x.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the equation is already in standard form y′ + P(x)y = Q(x), with</div>
+<div class="f">P = −tan x,   Q = sin x</div>
+<div class="st">Step 2 — apply the linear-equation integrating factor</div>
+<div class="f">μ = exp( ∫ P dx ) = exp( ∫ −tan x dx )</div>
+<div class="st">Step 3 — evaluate the integral; ∫tan x dx = −ln|cos x|, so ∫−tan x dx = ln|cos x|</div>
+<div class="f">μ = e<sup>ln|cos x|</sup> = <b>cos x</b></div>
+<div class="cap">The answer −cos x comes from a sign error in evaluating ∫−tan x dx: the integral of −tan x is +ln|cos x|, not −ln|cos x|. The check is that μ·P should simplify: (cos x)(−tan x) = −sin x, and the left side (μy)′ = μQ = cos x · sin x, which integrates to a solution that can be verified by substitution.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i> — coefficient of y after standard form</span>
+<span><i>Q</i> — right-hand side</span>
+<span><i>μ</i> — integrating factor</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.4: a product integrating factor</b><p class="q">Evaluate the integrating factor of (x²y² + 2)y dx + (2 − x²y²)x dy = 0.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — identify M and N</div>
+<div class="f">M = x²y³ + 2y,   N = 2x − x³y²</div>
+<div class="st">Step 2 — the exactness test</div>
+<div class="f">M<sub>y</sub> = 3x²y² + 2,   N<sub>x</sub> = 2 − 3x²y²</div>
+<div class="st">Step 3 — check both single-variable ratios</div>
+<div class="f"><span class="fr"><i>M<sub>y</sub> − N<sub>x</sub></i><i>N</i></span> = <span class="fr"><i>6x²y²</i><i>x ( 2 − x²y² )</i></span> — not a function of x alone</div>
+<div class="f"><span class="fr"><i>N<sub>x</sub> − M<sub>y</sub></i><i>M</i></span> = <span class="fr"><i>−6x²y²</i><i>y ( x²y² + 2 )</i></span> — not a function of y alone</div>
+<div class="st">Step 4 — try the product form μ = 1/(x³y³); the two-variable structure suggests a power of both</div>
+<div class="f">μM = <span class="fr"><i>x²y³ + 2y</i><i>x³y³</i></span> = <span class="fr"><i>1</i><i>x</i></span> + <span class="fr"><i>2</i><i>x³y²</i></span></div>
+<div class="f">μN = <span class="fr"><i>2x − x³y²</i><i>x³y³</i></span> = <span class="fr"><i>2</i><i>x²y³</i></span> − <span class="fr"><i>1</i><i>y</i></span></div>
+<div class="st">Step 5 — retest exactness</div>
+<div class="f">( μM )<sub>y</sub> = −<span class="fr"><i>4</i><i>x³y³</i></span>,   ( μN )<sub>x</sub> = −<span class="fr"><i>4</i><i>x³y³</i></span>   ⇒   exact ✓</div>
+<div class="f"><b>μ = <span class="fr"><i>1</i><i>x³y³</i></span>   (or 1/(2x³y³), which differs only by a constant)</b></div>
+<div class="cap">The answer 2x³y³ is the reciprocal of the correct factor. The tell is that multiplying through by 2x³y³ makes the equation <i>less</i> exact rather than more; the correct factor is a power that divides both M and N, not one that multiplies them. Any constant multiple of the integrating factor is equally valid, which is why 1/(2x³y³) and 1/(x³y³) both work.</div>
+<div class="lg"><b>Variables</b>
+<span><i>M</i>, <i>N</i> — coefficients of dx and dy</span>
+<span><i>μ</i> — integrating factor</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.5: another product integrating factor</b><p class="q">Evaluate the integrating factor of x²y dx − (x³ + xy²)dy = 0.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — identify M and N</div>
+<div class="f">M = x²y,   N = −( x³ + x y² )</div>
+<div class="st">Step 2 — the exactness test</div>
+<div class="f">M<sub>y</sub> = x²,   N<sub>x</sub> = −( 3x² + y² )</div>
+<div class="st">Step 3 — neither single-variable ratio is a function of one variable; try μ = 1/(xy³)</div>
+<div class="f">μM = <span class="fr"><i>x</i><i>y²</i></span>,   μN = −<span class="fr"><i>x² + y²</i><i>y³</i></span></div>
+<div class="st">Step 4 — retest exactness</div>
+<div class="f">( μM )<sub>y</sub> = −<span class="fr"><i>2x</i><i>y³</i></span>,   ( μN )<sub>x</sub> = −<span class="fr"><i>2x</i><i>y³</i></span>   ⇒   exact ✓</div>
+<div class="f"><b>μ = <span class="fr"><i>1</i><i>x y³</i></span></b></div>
+<div class="cap">The recorded key is −1/(xy³), which works because the sign also makes the equation exact; the sign choice is fixed by which side of the equation is treated as positive. Both 1/(xy³) and −1/(xy³) are integrating factors, up to an overall sign — which does not affect the solution family. Reading the options before committing to a sign is the safe habit.</div>
+<div class="lg"><b>Variables</b>
+<span><i>M</i>, <i>N</i> — coefficients of dx and dy</span>
+<span><i>μ</i> — integrating factor</span>
+</div>
+</details></div>
+
+<h2 id="c4">4. Applied Differential Equations</h2>
+<p>Five standard physical models cover the chapter, and each reduces to a separable or linear equation.</p>
+<h3>Population growth or decay</h3>
+<div class="f">dP/dt = k P   ⇒   P(t) = P<sub>0</sub> e<sup>kt</sup></div>
+<p>Doubling time: t<sub>2</sub> = ln 2 / k. Time to reach any multiple M: t = ln(M)/(k). The ratio t<sub>M</sub>/t<sub>2</sub> = ln M / ln 2 — a handy mental check.</p>
+<h3>Newton's law of cooling</h3>
+<div class="f">dT/dt = −k ( T − T<sub>a</sub> )   ⇒   T(t) = T<sub>a</sub> + ( T<sub>0</sub> − T<sub>a</sub> ) e<sup>−kt</sup></div>
+<p>The decay rate k is fixed by one measurement, then used to predict the time to any other temperature.</p>
+<h3>Falling body with resistance</h3>
+<div class="f">dV/dt + <span class="fr"><i>1</i><i>τ</i></span> V = g   ⇒   V(t) = gτ ( 1 − e<sup>−t/τ</sup> )</div>
+<p>The terminal velocity is gτ, and the time constant τ = 1/k, where k is the resistance coefficient per unit mass.</p>
+<h3>Torricelli's law</h3>
+<div class="f">A(h) <span class="fr"><i>dh</i><i>dt</i></span> = −C<sub>d</sub> a √( 2gh )</div>
+<p>The tank cross-section A(h) depends on the shape (constant for a cylinder, proportional to h for a cone, proportional to 2Rh − h² for a hemisphere). The <b>coefficient of discharge C<sub>d</sub></b> is an experimental correction, typically 0.6 for a sharp-edged orifice, that accounts for the vena contracta and the real (non-ideal) flow. Without C<sub>d</sub>, the calculation gives the ideal drain time; with it, the actual drain time.</p>
+<h3>Mixing (compartmental) problems</h3>
+<p>For a tank with volume V(t) receiving a stream of pollutant concentration C<sub>in</sub> at rate q<sub>in</sub> and draining at q<sub>out</sub>:</p>
+<div class="f"><span class="fr"><i>dP</i><i>dt</i></span> = C<sub>in</sub> q<sub>in</sub> − <span class="fr"><i>q<sub>out</sub></i><i>V(t)</i></span> P</div>
+<p>with P the total pollutant mass (or volume). When V is constant, the equation is linear with constant coefficients; when V is changing, the coefficient q<sub>out</sub>/V(t) varies, and the integrating factor is exp(∫q<sub>out</sub>/V(t) dt).</p>
+
+<div class="ex"><b class="t">Worked 4.1: population growth</b><p class="q">The population of a country doubles in 50 years. How many years will it be five times as much? Assume the rate of increase is proportional to the number of inhabitants.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the model is exponential: P(t) = P<sub>0</sub> e<sup>kt</sup></div>
+<div class="st">Step 2 — find k from the doubling data</div>
+<div class="f">2P<sub>0</sub> = P<sub>0</sub> e<sup>50k</sup>   ⇒   k = <span class="fr"><i>ln 2</i><i>50</i></span></div>
+<div class="st">Step 3 — solve for the time to reach 5P<sub>0</sub></div>
+<div class="f">5P<sub>0</sub> = P<sub>0</sub> e<sup>kt</sup>   ⇒   t = <span class="fr"><i>ln 5</i><i>k</i></span> = <span class="fr"><i>50 ln 5</i><i>ln 2</i></span></div>
+<div class="st">Step 4 — evaluate</div>
+<div class="f">t = <span class="fr"><i>50 × 1.6094</i><i>0.6931</i></span> = <b>116.1 years</b></div>
+<div class="cap">The answer 120 years is a slip in either ln 5 or ln 2. The ratio ln 5 / ln 2 = 2.32 is a useful mental anchor: any 5× growth takes about 2.32 doubling times, and 2.32 × 50 = 116. Checking the ratio before multiplying by the doubling time catches the arithmetic slip.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i><sub>0</sub> — initial population</span>
+<span><i>k</i> — growth rate constant, yr<sup>−1</sup></span>
+<span><i>t</i> — time to reach 5× the initial population, years</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.2: falling body with resistance</b><p class="q">An object falls from rest in a medium offering resistance. Its velocity satisfies dV/dt + V/10 = 32 ft/s². Find the velocity one second after it falls.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — standard first-order linear form, P = 1/10, Q = 32</div>
+<div class="f">dV/dt + <span class="fr"><i>1</i><i>10</i></span> V = 32</div>
+<div class="st">Step 2 — integrating factor</div>
+<div class="f">μ = e<sup>∫ (1/10) dt</sup> = e<sup>t/10</sup></div>
+<div class="st">Step 3 — multiply through and integrate</div>
+<div class="f">d( V e<sup>t/10</sup> )/dt = 32 e<sup>t/10</sup></div>
+<div class="f">V e<sup>t/10</sup> = 320 e<sup>t/10</sup> + C</div>
+<div class="st">Step 4 — solve for V(t)</div>
+<div class="f">V(t) = 320 + C e<sup>−t/10</sup></div>
+<div class="st">Step 5 — apply V(0) = 0</div>
+<div class="f">0 = 320 + C   ⇒   C = −320</div>
+<div class="f">V(t) = 320 ( 1 − e<sup>−t/10</sup> )</div>
+<div class="st">Step 6 — evaluate at t = 1</div>
+<div class="f">V(1) = 320 ( 1 − e<sup>−0.1</sup> ) = 320 ( 1 − 0.9048 ) = 320 × 0.0952</div>
+<div class="f"><b>V(1) ≈ 30.45 ft/s</b></div>
+<div class="cap">The answer 40.54 is what comes out when the integrating factor is neglected and the equation is integrated with P = 0 (i.e., V = 32t, giving 32 at t = 1 — closer but still wrong) or when the sign of the exponent is flipped. The terminal velocity in the correct solution is 320 ft/s (obtained by setting e<sup>−t/10</sup> → 0); at one second the body is only 9.5 % of the way to terminal, which is the physical meaning of 30.45 ft/s.</div>
+<div class="lg"><b>Variables</b>
+<span><i>V</i> — velocity of the falling object, ft/s</span>
+<span><i>t</i> — time after release, s</span>
+<span><i>g</i> = 32 ft/s² — gravitational acceleration (implied by the 32 on the right side)</span>
+<span>τ = 10 s — time constant</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.3: Newton's law of cooling</b><p class="q">Air temperature is 30°; a substance cools from 100° to 70° in 15 min. How long will it take to cool from 100° to 50°?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write Newton's law in the standard integrated form</div>
+<div class="f">T(t) = T<sub>a</sub> + ( T<sub>0</sub> − T<sub>a</sub> ) e<sup>−kt</sup></div>
+<div class="st">Step 2 — find k from the 100° → 70° data over 15 min, with T<sub>a</sub> = 30°</div>
+<div class="f">70 = 30 + ( 100 − 30 ) e<sup>−15k</sup></div>
+<div class="f">40 = 70 e<sup>−15k</sup>   ⇒   e<sup>−15k</sup> = 4/7</div>
+<div class="f">k = <span class="fr"><i>ln(7/4)</i><i>15</i></span> = <span class="fr"><i>0.5596</i><i>15</i></span> = 0.0373 min<sup>−1</sup></div>
+<div class="st">Step 3 — solve for the time to reach 50°, starting from 100°</div>
+<div class="f">50 = 30 + 70 e<sup>−kt</sup>   ⇒   e<sup>−kt</sup> = 20/70 = 2/7</div>
+<div class="f">t = <span class="fr"><i>ln(7/2)</i><i>k</i></span> = <span class="fr"><i>1.2528</i><i>0.0373</i></span> = <b>33.6 min</b></div>
+<div class="cap">The answer 33.59 min is the exact value; the key matches. The frequent error is to use the elapsed time (15 min) as the exponent rather than building the ratio from the temperature difference — the model's time variable is always the time from the starting temperature, not the time between observations.</div>
+<div class="lg"><b>Variables</b>
+<span><i>T</i> — substance temperature, °C</span>
+<span><i>T<sub>a</sub></i> = 30° — ambient temperature</span>
+<span><i>T</i><sub>0</sub> = 100° — initial substance temperature</span>
+<span><i>k</i> — cooling constant, min<sup>−1</sup></span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.4: draining a cylindrical tank</b><p class="q">A cylindrical keg of radius 10 cm and height 25 cm has a drain hole at the bottom of area 2 cm². How long does it take for the keg to drain?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — Torricelli's law with constant cross-section A = πR² = π(10)² = 314.16 cm²</div>
+<div class="f">A <span class="fr"><i>dh</i><i>dt</i></span> = −C<sub>d</sub> a √( 2gh )</div>
+<div class="st">Step 2 — separate and integrate from h = 25 to h = 0</div>
+<div class="f">dt = −<span class="fr"><i>A</i><i>C<sub>d</sub> a √( 2g )</i></span> h<sup>−1/2</sup> dh</div>
+<div class="f">t<sub>ideal</sub> = <span class="fr"><i>A</i><i>a</i></span> √( <span class="fr"><i>2h</i><i>g</i></span> ) = <span class="fr"><i>314.16</i><i>2</i></span> √( <span class="fr"><i>50</i><i>981</i></span> )</div>
+<div class="st">Step 3 — evaluate the ideal drain time</div>
+<div class="f">t<sub>ideal</sub> = 157.08 × √0.05097 = 157.08 × 0.2258 = 35.5 s</div>
+<div class="st">Step 4 — apply the coefficient of discharge C<sub>d</sub> ≈ 0.6 (standard for a sharp-edged orifice)</div>
+<div class="f">t<sub>actual</sub> = <span class="fr"><i>t<sub>ideal</sub></i><i>C<sub>d</sub></i></span> = <span class="fr"><i>35.5</i><i>0.6</i></span> = <b>59.1 s</b></div>
+<div class="cap">The answer 56.1 s comes from using C<sub>d</sub> = 35.5/56.1 = 0.63 instead of 0.6. The coefficient of discharge is a property of the hole (sharp vs rounded, thin vs thick), not of the fluid; for a sharp-edged circular orifice it is about 0.6. The problem as stated does not give C<sub>d</sub> explicitly; the standard value is assumed. See the flags table.</div>
+<div class="lg"><b>Variables</b>
+<span><i>A</i> — tank cross-section, 314.16 cm²</span>
+<span><i>a</i> — hole area, 2 cm²</span>
+<span><i>h</i> — liquid height, 25 cm initially</span>
+<span><i>g</i> = 981 cm/s²</span>
+<span><i>C<sub>d</sub></i> ≈ 0.6 — coefficient of discharge</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.5: drain rate at a specified remaining volume</b><p class="q">Same keg: radius 10 cm, height 25 cm, hole 2 cm². How fast is the height dropping when 4 L of beverage remain?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — find the height corresponding to V = 4 L = 4000 cm³</div>
+<div class="f">h = <span class="fr"><i>V</i><i>A</i></span> = <span class="fr"><i>4000</i><i>314.16</i></span> = 12.73 cm</div>
+<div class="st">Step 2 — Torricelli's law gives dh/dt directly</div>
+<div class="f"><span class="fr"><i>dh</i><i>dt</i></span> = −<span class="fr"><i>C<sub>d</sub> a √( 2gh )</i><i>A</i></span></div>
+<div class="st">Step 3 — substitute</div>
+<div class="f">= −<span class="fr"><i>0.6 × 2 × √( 2 × 981 × 12.73 )</i><i>314.16</i></span></div>
+<div class="f">= −<span class="fr"><i>1.2 × √24 976</i><i>314.16</i></span> = −<span class="fr"><i>1.2 × 158.04</i><i>314.16</i></span></div>
+<div class="st">Step 4 — evaluate</div>
+<div class="f">= −<span class="fr"><i>189.6</i><i>314.16</i></span> = −0.604 cm/s</div>
+<div class="f"><b>|dh/dt| ≈ 0.60 cm/s</b></div>
+<div class="cap">The answer 0.4 cm/s comes from either using the wrong remaining height (for example, 25/4 ≈ 6 cm gives about 0.43 cm/s) or forgetting C<sub>d</sub>. The rate depends on the square root of the current height, so as the tank empties the height drops more slowly; checking the sign of the calculation against the expected monotone decay is a useful habit.</div>
+<div class="lg"><b>Variables</b>
+<span><i>h</i> — current liquid height, 12.73 cm</span>
+<span><i>dh/dt</i> — rate of change of height, cm/s</span>
+<span><i>C<sub>d</sub></i> = 0.6</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.6: hemispherical bowl drain</b><p class="q">A hemispherical bowl of top radius 4 ft is full at t = 0. At 1 pm a circular hole of unknown radius is opened. At 1:30 pm the depth is 2 ft. Using Torricelli's law with g = 32 ft/s², find the hole radius and when the tank will be empty.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the cross-section at depth h (measured from the bottom) is A(h) = π(2Rh − h²), with R = 4</div>
+<div class="f">A(h) = π(8h − h²)</div>
+<div class="st">Step 2 — Torricelli's law gives dt = −A(h)dh/[a√(2gh)]</div>
+<div class="f">t = <span class="fr"><i>π</i><i>a √(2g)</i></span> ∫<sub>h</sub><sup>H</sup> <span class="fr"><i>8h − h²</i><i>√h</i></span> dh = <span class="fr"><i>π</i><i>a √(2g)</i></span> [ <span class="fr"><i>16 h<sup>3/2</sup></i><i>3</i></span> − <span class="fr"><i>2 h<sup>5/2</sup></i><i>5</i></span> ]<sub>h</sub><sup>H</sup></div>
+<div class="st">Step 3 — evaluate F(h) at the two endpoints (H = 4, h = 2)</div>
+<div class="f">F(4) = 16(8)/3 − 2(32)/5 = 42.667 − 12.8 = 29.867</div>
+<div class="f">F(2) = 16(2√2)/3 − 2(4√2)/5 = 15.085 − 2.263 = 12.822</div>
+<div class="f">F(4) − F(2) = 17.045</div>
+<div class="st">Step 4 — the known elapsed time is 30 min = 1800 s</div>
+<div class="f">1800 = <span class="fr"><i>π</i><i>a √64</i></span> × 17.045 = <span class="fr"><i>π</i><i>8a</i></span> × 17.045</div>
+<div class="f">a = <span class="fr"><i>π × 17.045</i><i>8 × 1800</i></span> = <span class="fr"><i>53.55</i><i>14 400</i></span> = 0.00372 ft²</div>
+<div class="st">Step 5 — hole radius from the area</div>
+<div class="f">r = √( a/π ) = √( 0.00372/π ) = √0.001184 = 0.0344 ft = <b>0.41 in</b></div>
+<div class="st">Step 6 — time from h = 2 to h = 0</div>
+<div class="f">t<sub>2→0</sub> = <span class="fr"><i>π</i><i>8 × 0.00372</i></span> × 12.822 = <span class="fr"><i>π</i><i>0.02976</i></span> × 12.822 = 1 353 s</div>
+<div class="st">Step 7 — total time from 1 pm</div>
+<div class="f">t<sub>total</sub> = 1800 + 1353 = <b>≈ 3 153 s ≈ 3 158 s</b></div>
+<div class="cap">The recorded key is 0.53 in for the radius, but 0.53 in would require a = 0.0062 ft², which would make the 4→2 drop take only about 18 min rather than the stated 30. The 0.53 in value corresponds to including a C<sub>d</sub> ≈ 0.6 in the calculation, while the 3 158 s time does not — the two keys are computed with inconsistent assumptions. The clean calculation, with no C<sub>d</sub>, gives r ≈ 0.41 in and t ≈ 3 153 s. The 3 158 s key is essentially correct; the 0.53 in key appears to include an unstated C<sub>d</sub>. See the flags table.</div>
+<div class="lg"><b>Variables</b>
+<span><i>h</i> — depth, measured from the bottom of the bowl, ft</span>
+<span><i>R</i> = 4 ft — bowl radius</span>
+<span><i>a</i> — hole area, ft²</span>
+<span><i>r</i> — hole radius, ft or in</span>
+<span><i>g</i> = 32 ft/s²</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.7: conical funnel drain</b><p class="q">A conical funnel has top radius 4 cm and height 8 cm; the hole at the apex has area 2 mm². How long does it take to drain?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the radius at height h from the apex, by similar triangles</div>
+<div class="f">r(h) = <span class="fr"><i>4h</i><i>8</i></span> = <span class="fr"><i>h</i><i>2</i></span>,   A(h) = π(h/2)² = <span class="fr"><i>π h²</i><i>4</i></span></div>
+<div class="st">Step 2 — Torricelli's law gives dt = −A(h) dh / (C<sub>d</sub> a √(2gh))</div>
+<div class="f">t = <span class="fr"><i>π</i><i>4 C<sub>d</sub> a √(2g)</i></span> ∫<sub>0</sub><sup>8</sup> h<sup>3/2</sup> dh = <span class="fr"><i>π</i><i>4 C<sub>d</sub> a √(2g)</i></span> · <span class="fr"><i>2</i><i>5</i></span> ( 8 )<sup>5/2</sup></div>
+<div class="st">Step 3 — evaluate (8)<sup>5/2</sup> = 181.02; the integral factor is (2/5)(181.02) = 72.41</div>
+<div class="st">Step 4 — convert hole area to cm² and evaluate constants</div>
+<div class="f">a = 2 mm² = 0.02 cm²,   √(2g) = √(2×981) = 44.29 cm<sup>1/2</sup>/s</div>
+<div class="st">Step 5 — the ideal drain time with C<sub>d</sub> = 1</div>
+<div class="f">t<sub>ideal</sub> = <span class="fr"><i>π</i><i>4 × 0.02 × 44.29</i></span> × 72.41 = <span class="fr"><i>π</i><i>3.543</i></span> × 72.41 = 0.8866 × 72.41 = <b>64.2 s</b></div>
+<div class="st">Step 6 — apply the coefficient of discharge C<sub>d</sub> = 0.6</div>
+<div class="f">t<sub>actual</sub> = <span class="fr"><i>64.2</i><i>0.6</i></span> = <b>≈ 107 s</b></div>
+<div class="cap">The key 106.5 s matches this calculation to within rounding; the 104.5 s distractor comes from using C<sub>d</sub> = 0.615 instead of 0.6. The coefficient of discharge is again the piece not stated in the problem; see the flags table. The ideal drain time (64.2 s) is the value you would get if the problem did not intend any C<sub>d</sub> at all.</div>
+<div class="lg"><b>Variables</b>
+<span><i>h</i> — liquid height from the apex, cm</span>
+<span><i>r(h)</i> — radius at height h, cm</span>
+<span><i>a</i> — hole area, 0.02 cm²</span>
+<span><i>g</i> = 981 cm/s²</span>
+<span><i>C<sub>d</sub></i> = 0.6</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.8: mixing with a draining tank</b><p class="q">A tank has 40 L initially: 60 % water, 40 % pollutants. Inflow is 3 L/min at 30 % pollutant; outflow is 4 L/min. Find the pollutant volume after 7 min.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — initial pollutant volume</div>
+<div class="f">P(0) = 0.40 × 40 = 16 L</div>
+<div class="st">Step 2 — net outflow is 1 L/min, so V(t) = 40 − t</div>
+<div class="f">V(t) = 40 − t</div>
+<div class="st">Step 3 — the pollutant balance</div>
+<div class="f"><span class="fr"><i>dP</i><i>dt</i></span> = 0.3 × 3 − 4 · <span class="fr"><i>P</i><i>40 − t</i></span> = 0.9 − <span class="fr"><i>4P</i><i>40 − t</i></span></div>
+<div class="st">Step 4 — rearrange to standard linear form</div>
+<div class="f"><span class="fr"><i>dP</i><i>dt</i></span> + <span class="fr"><i>4</i><i>40 − t</i></span> P = 0.9</div>
+<div class="st">Step 5 — integrating factor</div>
+<div class="f">μ = exp( ∫ <span class="fr"><i>4</i><i>40 − t</i></span> dt ) = exp( −4 ln( 40 − t ) ) = ( 40 − t )<sup>−4</sup></div>
+<div class="st">Step 6 — multiply through and integrate</div>
+<div class="f">d/dt [ P ( 40 − t )<sup>−4</sup> ] = 0.9 ( 40 − t )<sup>−4</sup></div>
+<div class="f">P ( 40 − t )<sup>−4</sup> = 0.3 ( 40 − t )<sup>−3</sup> + C</div>
+<div class="f">P(t) = 0.3 ( 40 − t ) + C ( 40 − t )<sup>4</sup></div>
+<div class="st">Step 7 — impose P(0) = 16</div>
+<div class="f">16 = 0.3 ( 40 ) + C ( 40 )<sup>4</sup> = 12 + C × 2 560 000</div>
+<div class="f">C = 4 / 2 560 000 = 1.5625 × 10<sup>−6</sup></div>
+<div class="st">Step 8 — evaluate at t = 7 (V = 33 L, still positive)</div>
+<div class="f">P(7) = 0.3 ( 33 ) + 1.5625×10<sup>−6</sup> ( 33 )<sup>4</sup></div>
+<div class="f">= 9.9 + 1.5625×10<sup>−6</sup> × 1 185 921 = 9.9 + 1.853</div>
+<div class="f"><b>P(7) ≈ 11.75 L</b></div>
+<div class="cap">The key 11.75 L matches. The essential structural point is that the outflow concentration depends on P(t)/V(t), and V(t) is changing; the integrating factor is therefore variable (a power of 40 − t), not a simple exponential. Treating V as constant would give the wrong answer; the 4/(40 − t) coefficient is the piece that requires the variable integrating factor.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i> — pollutant volume in the tank, L</span>
+<span><i>t</i> — time, min</span>
+<span><i>V</i>(<i>t</i>) = 40 − <i>t</i> — tank volume, L</span>
+<span><i>C</i> — the arbitrary constant</span>
+</div>
+</details></div>
+
+<h2 id="c5">5. Formula summary</h2>
+<p>Perry's column: <i>Perry's Chemical Engineers' Handbook</i>, 9th edition, holds the ordinary differential equation material in <b>Section 2 (Mathematics)</b>. I could not verify the subsection or page numbers, so the column states the section and marks the finer location as unverified. Entries marked “not in Perry's” are standard results that I could not confirm are tabulated as such.</p>
+<div class="w"><table>
+<tr><th>Formula</th><th>Use</th><th>Perry's 9th ed.</th></tr>
+<tr><td><div class="f">first-order linear: y′ + P(x)y = Q(x)</div></td><td>Standard form before integration</td><td>Sec. 2, Mathematics — ODEs; location unverified</td></tr>
+<tr><td><div class="f">μ = e<sup>∫P dx</sup>; (μy)′ = μQ</div></td><td>Integrating factor for first-order linear</td><td>Sec. 2, Mathematics — ODEs; location unverified</td></tr>
+<tr><td><div class="f">Bernoulli: v = y<sup>1−n</sup>, v′ + (1−n)Pv = (1−n)Q</div></td><td>Bernoulli reduction</td><td>Not in Perry's; standard technique</td></tr>
+<tr><td><div class="f">homogeneous: y = vx</div></td><td>Homogeneous reduction</td><td>Not in Perry's; standard technique</td></tr>
+<tr><td><div class="f">exact: M<sub>y</sub> = N<sub>x</sub>, F<sub>x</sub> = M, F<sub>y</sub> = N</div></td><td>Exact equation</td><td>Sec. 2, Mathematics — ODEs; location unverified</td></tr>
+<tr><td><div class="f">μ(x) if (M<sub>y</sub>−N<sub>x</sub>)/N = f(x) only</div></td><td>x-only integrating factor</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">μ(y) if (N<sub>x</sub>−M<sub>y</sub>)/M = g(y) only</div></td><td>y-only integrating factor</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">Riccati: y = y<sub>1</sub> + 1/v</div></td><td>Riccati reduction</td><td>Not in Perry's; standard technique</td></tr>
+<tr><td><div class="f">Euler: x<sup>n</sup>y<sup>(n)</sup> + … ; y = x<sup>m</sup></div></td><td>Cauchy–Euler reduction</td><td>Sec. 2, Mathematics — ODEs; location unverified</td></tr>
+<tr><td><div class="f">constant coeff: a r² + b r + c = 0</div></td><td>Characteristic equation</td><td>Sec. 2, Mathematics — ODEs; location unverified</td></tr>
+<tr><td><div class="f">orthogonal: y′ → −1/y′</div></td><td>Orthogonal trajectories</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">system: y<sub>1</sub> = y, y<sub>2</sub> = y′, …, Y′ = AY</div></td><td>Companion-matrix form</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">exponential growth: P = P<sub>0</sub>e<sup>kt</sup></div></td><td>Population model</td><td>Not in Perry's; standard model</td></tr>
+<tr><td><div class="f">Newton cooling: T = T<sub>a</sub> + (T<sub>0</sub> − T<sub>a</sub>)e<sup>−kt</sup></div></td><td>Cooling model</td><td>Not in Perry's; standard model</td></tr>
+<tr><td><div class="f">falling body: V = gτ(1 − e<sup>−t/τ</sup>)</div></td><td>Velocity with linear resistance</td><td>Not in Perry's; standard model</td></tr>
+<tr><td><div class="f">Torricelli: A(h)dh/dt = −C<sub>d</sub>a√(2gh)</div></td><td>Draining tank</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">mixing: dP/dt = C<sub>in</sub>q<sub>in</sub> − (q<sub>out</sub>/V(t))P</div></td><td>Compartmental balance</td><td>Not in Perry's; standard model</td></tr>
+</table></div>
+
+<h2 id="c6">6. Answer-bank flags</h2>
+<p>Every keyed answer in the four concepts was recomputed. Most stand; the notes below give the verification and identify the one recurring unstated assumption.</p>
+<div class="w"><table>
+<tr><th>Item</th><th>Concern</th></tr>
+<tr><td><b>Applied</b> — keg drain time (key: 59.1 s)</td><td>Verified with C<sub>d</sub> = 0.6: t<sub>ideal</sub> = (A/a)√(2h/g) = 35.5 s, t<sub>actual</sub> = 35.5/0.6 = 59.1 s. The 56.1 s distractor corresponds to C<sub>d</sub> ≈ 0.63. The problem does not state C<sub>d</sub>; the standard sharp-orifice value of 0.6 is implied. See the "coefficient of discharge" flag below.</td></tr>
+<tr><td><b>Applied</b> — keg drain rate (key: 0.6 cm/s)</td><td>Verified: at h = V/A = 4000/π(100) = 12.73 cm, dh/dt = −C<sub>d</sub>(a/A)√(2gh) = −0.6 × (2/314.16) × √(2×981×12.73) = −0.604 cm/s.</td></tr>
+<tr><td><b>Applied</b> — conical funnel (key: 106.5 s)</td><td>Verified with C<sub>d</sub> = 0.6: t<sub>ideal</sub> = 64.2 s, t<sub>actual</sub> = 107 s. The 104.5 s distractor uses C<sub>d</sub> ≈ 0.615. Same unstated C<sub>d</sub> assumption.</td></tr>
+<tr><td><b>Applied</b> — hemispherical bowl radius (key: 0.53 in) and time (key: 3158 s)</td><td><b>Inconsistent with each other if no C<sub>d</sub> is assumed.</b> Without C<sub>d</sub>: a = 0.00372 ft², r = 0.41 in, total time = 3 153 s. The 3 158 s key is correct for the no-C<sub>d</sub> calculation (difference is rounding). The 0.53 in key requires a = 0.0062 ft², which is 1/0.6 of the no-C<sub>d</sub> value — i.e., it includes C<sub>d</sub> ≈ 0.6. But if C<sub>d</sub> = 0.6 were used, the 4→2 ft drop would take only 18 min, not the stated 30. The two keys are computed with different assumptions; treat them as transcription-dependent. The <b>clean calculation</b> is r ≈ 0.41 in and t ≈ 3 153 s.</td></tr>
+<tr><td><b>Applied</b> — population (key: 116 yr)</td><td>Verified: t = 50 ln 5/ln 2 = 116.1 yr. The 120 distractor is a ln-arithmetic slip.</td></tr>
+<tr><td><b>Applied</b> — falling body (key: 30.45 ft/s)</td><td>Verified: V(1) = 320(1 − e<sup>−0.1</sup>) = 30.45 ft/s.</td></tr>
+<tr><td><b>Applied</b> — Newton's cooling (key: 33.59 min)</td><td>Verified: k = ln(7/4)/15 = 0.0373 min⁻¹, t = ln(7/2)/k = 33.6 min.</td></tr>
+<tr><td><b>Applied</b> — mixing (key: 11.75 L)</td><td>Verified: P(7) = 0.3(33) + 1.5625×10⁻⁶(33)⁴ = 9.9 + 1.853 = 11.75 L.</td></tr>
+<tr><td><b>Classes</b> — order/degree (key: 1st order, 4th degree)</td><td>Verified: raising both sides to the third power gives (dr/dθ)⁴ + (r−2)³ = 0, degree 4. The 4/3 distractor leaves the fractional exponent as written.</td></tr>
+<tr><td><b>Classes</b> — orthogonal trajectories (key: y = Ce<sup>−x</sup>)</td><td>Verified: original slope 1/y, orthogonal slope −y, solution y = Ce<sup>−x</sup>. The Ce<sup>2x</sup> distractor flips the sign.</td></tr>
+<tr><td><b>Classes</b> — parabolas vertex at origin, focus on x-axis (key: 2x dy − y dx = 0)</td><td>Verified: y² = 4ax, differentiate and eliminate a, divide by y, multiply by dx. The x dy + y dx = 0 distractor is the hyperbola family xy = C.</td></tr>
+<tr><td><b>Classes</b> — third-order ODE to system (key: y<sub>1</sub>′ = y<sub>2</sub>, y<sub>2</sub>′ = y<sub>3</sub>, y<sub>3</sub>′ = −y<sub>1</sub> + 5y<sub>2</sub> − 4y<sub>3</sub>)</td><td>Verified: y‴ = −y + 5y′ − 4y″. The y<sub>1</sub>′ = y<sub>1</sub> distractor is not a translation of the given ODE.</td></tr>
+<tr><td><b>Classes</b> — matrix form (key: [[0,1,0],[0,0,1],[−1,5,−4]])</td><td>Verified: companion matrix with last row [−1, 5, −4] (signs of y, y′, y″ coefficients reversed in reversed order).</td></tr>
+<tr><td><b>Classes</b> — circles centre on y-axis (key: x y″ − (y′)³ − y′ = 0)</td><td>Verified: after two differentiations and substituting y − k = −x/y′, the equation reduces to x y″ − (y′)³ − y′ = 0.</td></tr>
+<tr><td><b>General</b> — x³y‴ + xy′ − y = 0 (key: D)</td><td>Verified: y = x(C₁ + C₂ ln x + C₃(ln x)²) is the triple-root solution of an Euler equation with m = 1 repeated; indicial (m−1)³ = m³ − 3m² + 3m − 1 gives a = 0, b = 1, c = −1, so x³y‴ + xy′ − y = 0.</td></tr>
+<tr><td><b>General</b> — Cauchy–Euler (key: y = C₁x² + C₂/x + C₃/x³)</td><td>Verified: m³ + 2m² − 5m − 6 = (m−2)(m+1)(m+3) = 0; roots 2, −1, −3.</td></tr>
+<tr><td><b>General</b> — Riccati (key: y = x² + x²/(Cx+1))</td><td>Verified: y<sub>1</sub> = x² checks; the Riccati substitution produces v′ + v/x = −1/x³, giving v = (1+Cx)/x², y = x² + x²/(1+Cx).</td></tr>
+<tr><td><b>General</b> — x²y dx − (x³+xy²) dy = 0 (key: −x²/(2y²) + ln y = c)</td><td>Verified: y = vx substitution (or equivalently x = vy) leads to v dv = dy/y; v²/2 = ln y + C; substituting v = x/y gives x²/(2y²) = ln y + C, so −x²/(2y²) + ln y = c.</td></tr>
+<tr><td><b>General</b> — Bernoulli with initial condition (key: y = −16/(x⁴(1+16 ln(x/2))))</td><td>Verified: v = y⁻¹, IF x⁻⁴, v = x⁴(C − ln x), y(2) = −1 gives C = ln 2 − 1/16; the resulting bracket is 1/16 + ln(x/2), giving the +16 ln(x/2) form after the sign flips.</td></tr>
+<tr><td><b>General</b> — homogeneous (key: √(x²+y²) + y = C)</td><td>Verified: v = y/x, integral of dv/√(1+v²) = ln(v + √(1+v²)), back-substitute to get the key form. The √(x²+y²+y) distractor mis-substitutes the y inside the radical.</td></tr>
+<tr><td><b>General</b> — eliminate y = e<sup>2x</sup>(C₁ cos x + C₂ sin x) (key: y″ − 4y′ + 5y = 0)</td><td>Verified: r = 2 ± i gives (r−2)² + 1 = r² − 4r + 5 = 0.</td></tr>
+<tr><td><b>General</b> — y″ − 4y′ − 12y = sin 2t (key: (1/40)cos 2t − (1/20)sin 2t)</td><td>Verified: A cos + B sin, matching coefficients gives B = −2A and 8A − 16B = 1, so A = 1/40, B = −1/20.</td></tr>
+<tr><td><b>General</b> — x² + y² + 3 dx − 2xy dy = 0 (key: x − y²/x − 3/x = c)</td><td>Verified with μ = 1/x²: μM = 1 + y²/x² + 3/x², integrate to x − y²/x − 3/x + f(y); match to μN to find f′ = 0.</td></tr>
+<tr><td><b>General</b> — (x²y²+2)y dx + (2−x²y²)x dy = 0 (key: (1/2)ln(x/y) − 1/(2x²y²) = c)</td><td>Verified with μ = 1/(2x³y³): integrate to (1/2)ln x − 1/(2x²y²) + f(y); match to μN to find f(y) = −(1/2)ln y; combined solution is (1/2)ln(x/y) − 1/(2x²y²) = c.</td></tr>
+<tr><td><b>IF</b> — (x²+y²+3)dx − 2xy dy (key: 1/x²)</td><td>Verified: (M<sub>y</sub> − N<sub>x</sub>)/N = 4y/(−2xy) = −2/x, μ = e<sup>∫−2/x</sup> = x⁻². The −2/x distractor is the ratio, not the integrated factor.</td></tr>
+<tr><td><b>IF</b> — (y⁴+2y)dx + (xy³+2y⁴−4x)dy (key: 1/y³)</td><td>Verified: (N<sub>x</sub> − M<sub>y</sub>)/M = (−3y³−6)/(y(y³+2)) = −3/y, μ = e<sup>∫−3/y</sup> = y⁻³. The y³ distractor is the reciprocal.</td></tr>
+<tr><td><b>IF</b> — y′ − y tan x = sin x (key: cos x)</td><td>Verified: P = −tan x, μ = e<sup>∫−tan x</sup> = e<sup>ln|cos x|</sup> = cos x. The −cos x distractor flips the sign of the integral.</td></tr>
+<tr><td><b>IF</b> — (x²y²+2)y dx + (2−x²y²)x dy (key: 1/(2x³y³))</td><td>Verified: μ = 1/(x³y³) works; 1/(2x³y³) works too (same up to constant). The 2x³y³ distractor is the reciprocal.</td></tr>
+<tr><td><b>IF</b> — x²y dx − (x³+xy²) dy (key: −1/(xy³))</td><td>Verified: μ = 1/(xy³) works; −1/(xy³) works too (same up to sign). The sign is fixed by which side of the original equation is treated as positive.</td></tr>
+<tr><td><b>Coefficient of discharge</b> — several Torricelli items</td><td><b>Pattern across the applied set:</b> the keg drain time (59.1 s) and conical funnel time (106.5 s) both require C<sub>d</sub> = 0.6 to match the key, but neither problem states C<sub>d</sub> explicitly. The ideal (no-C<sub>d</sub>) times are 35.5 s and 64.2 s respectively. The hemispherical bowl items are inconsistent with each other if a single C<sub>d</sub> is assumed (0.53 in requires C<sub>d</sub> = 0.6, but 3 158 s is the no-C<sub>d</sub> answer). The exam's convention appears to be: assume C<sub>d</sub> = 0.6 for sharp-edged orifices unless stated otherwise, but read each item's options rather than assuming.</td></tr>
+<tr><td>Perry's 9th edition locations</td><td>Only the section-level pointer (Section 2, Mathematics) is asserted. Subsection and page numbers are marked unverified because I could not check a physical copy. Verify against the tab before citing.</td></tr>
+</table></div>
+
+<h3>Your tags, applied</h3>
+<ul>
+<li><b>Source:</b> the ordinary-differential-equations chapter of a standard engineering-mathematics text (Boyce–DiPrima, <i>Elementary Differential Equations</i>; or Kreyszig, <i>Advanced Engineering Mathematics</i>), specifically: order and degree; families of curves and their ODEs; orthogonal trajectories; systems of first-order equations and companion matrices; integrating factors; the classification of first-order equations (separable, linear, Bernoulli, homogeneous, exact, Riccati); Cauchy–Euler equations; and the applied models (population, cooling, falling body with resistance, Torricelli draining, mixing). Edition and section numbers were not checked. For Perry's, open the 9th edition at Section 2 and confirm the ODE subsections yourself.</li>
+<li><b>Drill (3–5 closed-book reps, units written every time):</b> (a) one order-and-degree problem that requires clearing a fractional power; (b) one family of curves to ODE elimination, and the corresponding orthogonal trajectory; (c) one third-order ODE to a system and to matrix form; (d) one Cauchy–Euler with all three root types across three problems; (e) one Bernoulli and one Riccati side-by-side; (f) one x-only and one y-only integrating factor, plus one product integrating factor; (g) one Torricelli problem with C<sub>d</sub> = 0.6 stated explicitly in the setup, so the convention is fixed in your own notes.</li>
+<li><b>Retrieval:</b> I cannot see your cards. Test yourself on: why order and degree must be read separately; why clearing a fractional power changes the degree; why the general solution of an n-th order equation has exactly n constants; how the Riccati substitution y = y<sub>1</sub> + 1/v works and why it requires knowing a particular solution; why (M<sub>y</sub> − N<sub>x</sub>)/N tests for μ(x) while (N<sub>x</sub> − M<sub>y</sub>)/M tests for μ(y); why the Torricelli time depends on the tank cross-section's dependence on h; and why the mixing equation needs a variable integrating factor when the outflow rate differs from the inflow rate.</li></ul>
+
+<div class="box"><b>Pre-submit line:</b> State the order and the degree separately; for a family of curves, differentiate and eliminate before writing anything else; for orthogonal trajectories, negate and reciprocate the slope; for a system reduction, the chain y<sub>i</sub>′ = y<sub>i+1</sub> is fixed, and only the last row changes; for an integrating factor, check the exactness test and the single-variable ratio first, then fall back to a product form; for Torricelli problems, confirm whether the coefficient of discharge is stated or must be assumed (standard 0.6 for a sharp-edged orifice); and for Newton's cooling, measure time from the starting temperature, not between observations.</div>
+</main></body></html>
