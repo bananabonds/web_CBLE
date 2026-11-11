@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Physics Review: Electrostatics, Min/Max, Mirror Equation, Waves</title>
+<style>
+:root{--bg:#fbfaf6;--fg:#1f2328;--mut:#5b6470;--ac:#7a3b12;--box:#f1ece0;--ex:#e8f0f4;--dc:#f6e9e4;--bd:#d8d0bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.1rem 4rem}
+h1{font-size:1.8rem;margin:.4rem 0 .2rem}h2{font-size:1.3rem;color:var(--ac);border-bottom:1px solid var(--bd);padding-bottom:.2rem;margin-top:2.6rem}
+h3{font-size:1rem;margin:1.4rem 0 .3rem;font-variant:small-caps;letter-spacing:.04em}
+.sub{color:var(--mut);margin:0 0 1rem}
+.box,.ex,.dc{border-radius:6px;padding:.7rem 1rem;margin:1rem 0;font-size:.97rem}
+.box{background:var(--box)}.ex{background:var(--ex);border-left:4px solid #3d7a99}.dc{background:var(--dc);border-left:4px solid #b5533c}
+.ex b.t,.dc b.t{display:block;font-variant:small-caps;letter-spacing:.05em;margin-bottom:.2rem}
+.f{font-family:"Cambria Math",Georgia,serif;text-align:center;margin:.5rem 0;font-size:1.04rem;overflow-x:auto}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .2em}.fr i{font-style:normal;padding:0 .3em}.fr i:first-child{border-bottom:1px solid currentColor}
+nav{background:var(--box);border-radius:6px;padding:.6rem 1rem;font-size:.92rem}nav a{color:var(--ac);text-decoration:none}
+.w{overflow-x:auto}table{border-collapse:collapse;font-size:.89rem;width:100%}td,th{border:1px solid var(--bd);padding:.3rem .5rem;text-align:left;vertical-align:top}
+.q{margin:.3rem 0 .5rem;font-style:italic}
+details{margin-top:.4rem}summary{cursor:pointer;color:var(--ac);font-weight:bold;font-size:.95rem;padding:.2rem 0}
+details .f{margin:.55rem 0}.cap{text-align:center;font-size:.84rem;color:var(--mut);margin:.4rem 0}
+p{margin:.6rem 0}ul{margin:.4rem 0;padding-left:1.3rem}
+.st{font-size:.85rem;color:var(--mut);font-variant:small-caps;letter-spacing:.05em;margin:.75rem 0 .05rem;text-align:left}
+.lg{border-top:1px dotted var(--bd);margin-top:.75rem;padding-top:.35rem;font-size:.83rem;color:var(--mut)}
+.lg b{font-variant:small-caps;letter-spacing:.05em;display:block;margin-bottom:.15rem}
+.lg span{display:block}
+</style></head><body><main>
+<h1>Physics Review: Electrostatics, Min/Max, Mirror Equation, Waves</h1>
+<p class="sub">One page for the selected D3_L14 set. Four chapters in teaching order: Electrostatics, Minimum/Maximum (energy conservation), Mirror Equation and Refraction, Waves. Each worked example shows the question first; tap “Show solution” for the steps, with a variable legend at the end. A consolidated formula table with Perry's locations sits before the flags.</p>
+<nav>1 <a href="#c1">Electrostatics</a> · 2 <a href="#c2">Min/Max</a> · 3 <a href="#c3">Mirror &amp; Refraction</a> · 4 <a href="#c4">Waves</a> · 5 <a href="#c5">Formulas</a> · 6 <a href="#c6">Flags</a></nav>
+
+<h2 id="c1">1. Electrostatics</h2>
+<p>Three laws cover the chapter: Gauss's law for the electric flux, the Biot–Savart law for the magnetic field of a current, and Faraday's law for the induced emf.</p>
+<h3>Gauss's law</h3>
+<p>The electric flux through any closed surface equals the enclosed charge divided by the permittivity of free space:</p>
+<div class="f">Φ<sub>E</sub> = <span class="fr"><i>Q<sub>enclosed</sub></i><i>ε₀</i></span>,   ε₀ = 8.85×10<sup>−12</sup> C²/(N·m²)</div>
+<p>Only the enclosed charge matters; the shape of the Gaussian surface does not. For an electron gas of N electrons, Q<sub>enclosed</sub> = −N e (with e = 1.6×10<sup>−19</sup> C), and the flux magnitude is Ne/ε₀.</p>
+<h3>Magnetic field of a long straight wire</h3>
+<div class="f">B = <span class="fr"><i>μ₀ I</i><i>2 π r</i></span>,   μ₀ = 4π×10<sup>−7</sup> T·m/A</div>
+<p>The field falls off as 1/r. A distance of a few centimetres from a few amps produces a field of a few microteslas — about the strength of the Earth's magnetic field.</p>
+<h3>Faraday's law</h3>
+<p>An electromotive force is induced in a loop whenever the magnetic flux through the loop changes:</p>
+<div class="f">ε = −N <span class="fr"><i>dΦ<sub>B</sub></i><i>dt</i></span>,   Φ<sub>B</sub> = B A cos θ</div>
+<p>The minus sign is Lenz's law: the induced emf drives a current whose own magnetic field opposes the change. For a single loop (N = 1) with the field perpendicular to the loop area (cos θ = 1):</p>
+<div class="f">|ε| = A <span class="fr"><i>|ΔB|</i><i>Δt</i></span></div>
+<p>Two disciplines are essential. The area must be in <b>square metres</b>, not square centimetres. And the rate is ΔB/Δt, not B itself; if the field is reduced by 0.08 T in 0.02 s, the rate is 4 T/s, not 0.08 T.</p>
+
+<div class="ex"><b class="t">Worked 1.1: induced emf in a loop</b><p class="q">A loop of area 200 cm² is perpendicular to a uniform magnetic field. Without changing the field's direction, its magnitude is reduced by 0.08 T in 0.02 s. Find the average induced emf.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — convert the area to square metres</div>
+<div class="f">A = 200 cm² = 200 × 10<sup>−4</sup> m² = 0.020 m²</div>
+<div class="st">Step 2 — apply Faraday's law for a single loop, perpendicular field</div>
+<div class="f">|ε| = A <span class="fr"><i>ΔB</i><i>Δt</i></span></div>
+<div class="st">Step 3 — substitute</div>
+<div class="f">|ε| = 0.020 × <span class="fr"><i>0.08</i><i>0.02</i></span> = 0.020 × 4</div>
+<div class="st">Step 4 — evaluate</div>
+<div class="f"><b>|ε| = 0.08 V</b></div>
+<div class="cap">The answer 0.06 V comes from using the change in field (0.08 T) directly instead of the rate of change (4 T/s). Faraday's law is about the <i>rate</i>: the same ΔB over a longer Δt gives a smaller emf. Writing ΔB/Δt on its own line before multiplying by A is the safeguard.</div>
+<div class="lg"><b>Variables</b>
+<span><i>A</i> — loop area, 0.020 m²</span>
+<span>Δ<i>B</i> — change in magnetic field, 0.08 T</span>
+<span>Δ<i>t</i> — time interval, 0.02 s</span>
+<span>ε — induced emf, V</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.2: magnetic field from a straight wire</b><p class="q">Compute the magnetic field at a distance of 0.05 m from a long straight wire carrying 2 A.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — apply the Biot–Savart result for a long straight wire</div>
+<div class="f">B = <span class="fr"><i>μ₀ I</i><i>2 π r</i></span></div>
+<div class="st">Step 2 — substitute μ₀ = 4π×10<sup>−7</sup> T·m/A, I = 2 A, r = 0.05 m</div>
+<div class="f">B = <span class="fr"><i>( 4π×10<sup>−7</sup> )( 2 )</i><i>2π ( 0.05 )</i></span></div>
+<div class="st">Step 3 — cancel the 2π</div>
+<div class="f">B = <span class="fr"><i>2 × 10<sup>−7</sup> × 2</i><i>0.05</i></span> = <span class="fr"><i>4 × 10<sup>−7</sup></i><i>0.05</i></span></div>
+<div class="st">Step 4 — evaluate</div>
+<div class="f">B = 8 × 10<sup>−6</sup> T = <b>8 μT</b></div>
+<div class="cap">The answer 2 μT comes from a slip in the μ₀/(2π) factor — using μ₀ = 4π×10<sup>−7</sup> without the 2π in the denominator, or an arithmetic slip. The cleanest form is B = 2×10<sup>−7</sup> I/r, with the (2×10<sup>−7</sup>) constant combining μ₀/(2π). Substituting I = 2, r = 0.05 gives B = 2×10<sup>−7</sup> × 40 = 8×10<sup>−6</sup> T.</div>
+<div class="lg"><b>Variables</b>
+<span><i>μ₀</i> — permeability of free space, 4π×10<sup>−7</sup> T·m/A</span>
+<span><i>I</i> — current, 2 A</span>
+<span><i>r</i> — distance from the wire, 0.05 m</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.3: electric flux from a Gaussian surface</b><p class="q">Determine the electric flux for a Gaussian surface that contains 10<sup>8</sup> electrons.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the total enclosed charge</div>
+<div class="f">Q<sub>enclosed</sub> = −N e = −( 10<sup>8</sup> )( 1.6×10<sup>−19</sup> ) = −1.6×10<sup>−11</sup> C</div>
+<div class="st">Step 2 — apply Gauss's law; the question usually asks for the magnitude</div>
+<div class="f">|Φ<sub>E</sub>| = <span class="fr"><i>|Q<sub>enclosed</sub>|</i><i>ε₀</i></span></div>
+<div class="st">Step 3 — substitute ε₀ = 8.85×10<sup>−12</sup></div>
+<div class="f">|Φ<sub>E</sub>| = <span class="fr"><i>1.6×10<sup>−11</sup></i><i>8.85×10<sup>−12</sup></i></span></div>
+<div class="st">Step 4 — evaluate</div>
+<div class="f">|Φ<sub>E</sub>| = 1.81 N·m²/C</div>
+<div class="f"><b>|Φ<sub>E</sub>| ≈ 1.8 N·m²/C</b></div>
+<div class="cap">The sign of the flux is negative (electrons carry negative charge), but the standard answer for "determine the flux" gives the magnitude. The unit N·m²/C is the same as V·m — both are correct. The Gaussian surface's size or shape does not enter the calculation; only the enclosed charge matters.</div>
+<div class="lg"><b>Variables</b>
+<span><i>N</i> — number of electrons, 10<sup>8</sup></span>
+<span><i>e</i> — elementary charge, 1.6×10<sup>−19</sup> C</span>
+<span><i>ε₀</i> — permittivity of free space, 8.85×10<sup>−12</sup> C²/(N·m²)</span>
+</div>
+</details></div>
+
+<h2 id="c2">2. Minimum/Maximum (Energy Conservation)</h2>
+<p>For a body moving under gravity on a frictionless track, the total mechanical energy is constant:</p>
+<div class="f">E = <span class="fr"><i>1</i><i>2</i></span> m v² + m g h = constant</div>
+<p>The mass cancels in every comparison, so the calculation is purely about <b>v²/(2g)</b> versus <b>h</b>:</p>
+<div class="f">h<sub>max</sub> = h<sub>start</sub> + <span class="fr"><i>v<sub>start</sub>²</i><i>2 g</i></span></div>
+<p>The term v²/(2g) is the <b>kinetic head</b>: how much additional height the body could reach if all its kinetic energy were converted to potential energy. It is the reason a roller coaster car passing a low point fast can climb a slightly higher hill than the one it started from.</p>
+<h3>Direction of the comparison</h3>
+<ul>
+<li>If the cart starts at rest (v = 0), it can reach exactly the height it started from, and no higher.</li>
+<li>If the cart starts moving, the kinetic head adds to the starting height and the cart can climb slightly higher.</li>
+<li>If the question asks for "maximum height before it stops," the answer is the starting height plus the kinetic head — a stop means v = 0, so all kinetic energy has become potential.</li>
+</ul>
+
+<div class="ex"><b class="t">Worked 2.1: maximum height on a frictionless track</b><p class="q">A cart travels along a frictionless roller coaster track. At point A, the cart is 10 m above the ground and traveling at 2 m/s. What is the maximum height the cart can reach before it stops?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — energy conservation between point A and the maximum-height point</div>
+<div class="f"><span class="fr"><i>1</i><i>2</i></span> m v<sub>A</sub>² + m g h<sub>A</sub> = <span class="fr"><i>1</i><i>2</i></span> m v<sub>max</sub>² + m g h<sub>max</sub></div>
+<div class="st">Step 2 — the cart "stops" at maximum height, so v<sub>max</sub> = 0; the mass cancels</div>
+<div class="f">h<sub>max</sub> = h<sub>A</sub> + <span class="fr"><i>v<sub>A</sub>²</i><i>2 g</i></span></div>
+<div class="st">Step 3 — compute the kinetic head</div>
+<div class="f"><span class="fr"><i>v<sub>A</sub>²</i><i>2 g</i></span> = <span class="fr"><i>( 2 )²</i><i>2 ( 9.8 )</i></span> = <span class="fr"><i>4</i><i>19.6</i></span> = 0.204 m</div>
+<div class="st">Step 4 — add to the starting height</div>
+<div class="f">h<sub>max</sub> = 10 + 0.204 = <b>10.204 m ≈ 10.2 m</b></div>
+<div class="cap">The answer 11.3 m comes from a slip in the kinetic head — often using v/g instead of v²/(2g), which gives 0.204 → 2×0.204 = 0.408 and would give 10.4, not 11.3; or from an arithmetic slip. The kinetic head is 20 cm here, only 2 % of the starting height, which is why the answer is so close to 10.</div>
+<div class="lg"><b>Variables</b>
+<span><i>h<sub>A</sub></i> — starting height, 10 m</span>
+<span><i>v<sub>A</sub></i> — starting speed, 2 m/s</span>
+<span><i>g</i> — gravitational acceleration, 9.8 m/s²</span>
+<span><i>h</i><sub>max</sub> — maximum height reached, m</span>
+</div>
+</details></div>
+
+<h2 id="c3">3. Mirror Equation and Refraction</h2>
+<p>Three formulas cover this chapter: the mirror equation, the thin-lens equation, and Snell's law of refraction. Each comes with a sign convention that must be stated before substituting.</p>
+<h3>Mirror equation</h3>
+<div class="f"><span class="fr"><i>1</i><i>f</i></span> = <span class="fr"><i>1</i><i>v</i></span> + <span class="fr"><i>1</i><i>u</i></span>,   m = −<span class="fr"><i>v</i><i>u</i></span>,   R = 2 f</div>
+<p>With the "real is positive" convention:</p>
+<div class="w"><table>
+<tr><th>Quantity</th><th>Sign</th></tr>
+<tr><td>Object distance u</td><td>positive for a real object in front of the mirror</td></tr>
+<tr><td>Image distance v</td><td>positive for a real image (in front), negative for virtual</td></tr>
+<tr><td>Focal length f</td><td>positive for concave, negative for convex</td></tr>
+<tr><td>Magnification m</td><td>negative for inverted, positive for erect</td></tr>
+</table></div>
+<h3>What each mirror does</h3>
+<div class="w"><table>
+<tr><th>Mirror</th><th>Image of a real object</th></tr>
+<tr><td>Convex (f &lt; 0)</td><td>always virtual, erect, smaller than the object</td></tr>
+<tr><td>Concave, object beyond f</td><td>real, inverted</td></tr>
+<tr><td>Concave, object at f</td><td>at infinity</td></tr>
+<tr><td>Concave, object inside f</td><td>virtual, erect, larger (the shaving-mirror case)</td></tr>
+</table></div>
+<h3>Thin lens and lensmaker's equation</h3>
+<div class="f"><span class="fr"><i>1</i><i>f</i></span> = <span class="fr"><i>1</i><i>v</i></span> − <span class="fr"><i>1</i><i>u</i></span>   (lens sign convention)</div>
+<div class="f"><span class="fr"><i>1</i><i>f</i></span> = ( n − 1 ) ( <span class="fr"><i>1</i><i>R₁</i></span> + <span class="fr"><i>1</i><i>R₂</i></span> )   (lensmaker, positive-convex convention)</div>
+<p>The lensmaker form above uses R positive for a convex surface (as seen from outside the lens) and negative for a concave one. A biconvex lens has both R positive and is converging; a biconcave has both negative and is diverging; a meniscus has opposite signs and is converging when the convex surface is stronger (smaller radius).</p>
+<h3>Refraction and apparent depth</h3>
+<div class="f">n₁ sin θ₁ = n₂ sin θ₂   (Snell)</div>
+<div class="f">apparent depth = <span class="fr"><i>real depth</i><i>n</i></span>   (viewing from air into a medium of index n)</div>
+<p>An object at the bottom of a pool looks shallower than it is; the factor is exactly the refractive index. The reciprocal relation gives the real depth from the apparent depth.</p>
+
+<div class="ex"><b class="t">Worked 3.1: properties of a convex mirror image</b><p class="q">The image produced by a convex mirror of an erect object in front of the mirror is always ______.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the focal length of a convex mirror is negative (f &lt; 0)</div>
+<div class="st">Step 2 — apply the mirror equation with u positive; 1/v = 1/f − 1/u</div>
+<div class="f"><span class="fr"><i>1</i><i>v</i></span> = <span class="fr"><i>1</i><i>f</i></span> − <span class="fr"><i>1</i><i>u</i></span> = negative − positive = negative</div>
+<div class="f">v &lt; 0   ⇒   virtual image</div>
+<div class="st">Step 3 — magnification m = −v/u; v negative, u positive, so m = positive</div>
+<div class="f">m &gt; 0   ⇒   erect image</div>
+<div class="st">Step 4 — magnitude of m is less than 1 because |v| &lt; u for a convex mirror</div>
+<div class="f">|m| &lt; 1   ⇒   smaller than the object</div>
+<div class="f"><b>virtual, erect, smaller than the object</b></div>
+<div class="cap">The answer "real, erect, larger" combines an impossible sign pattern: a real image from a convex mirror of a real object cannot occur (the reflected rays diverge, never converge). The sign algebra settles it in one line: f negative forces v negative, and v negative forces m positive. Every property is fixed by the sign of f.</div>
+<div class="lg"><b>Variables</b>
+<span><i>f</i> — focal length, negative for convex</span>
+<span><i>u</i> — object distance, positive</span>
+<span><i>v</i> — image distance, negative for a virtual image</span>
+<span><i>m</i> — magnification</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.2: concave mirror, real image twice the object size</b><p class="q">A concave mirror forms a real image twice the size of the object. If the object is 20 cm from the mirror, the radius of curvature must be about ______.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — set up the signs: u = +20 cm (real object), a real image has v &gt; 0, and a twice-size real image from a concave mirror is inverted, so m = −2</div>
+<div class="f">u = 20 cm,   m = −2</div>
+<div class="st">Step 2 — apply m = −v/u to find v</div>
+<div class="f">−2 = −<span class="fr"><i>v</i><i>20</i></span>   ⇒   v = 40 cm</div>
+<div class="st">Step 3 — apply the mirror equation</div>
+<div class="f"><span class="fr"><i>1</i><i>f</i></span> = <span class="fr"><i>1</i><i>20</i></span> + <span class="fr"><i>1</i><i>40</i></span> = <span class="fr"><i>3</i><i>40</i></span></div>
+<div class="f">f = <span class="fr"><i>40</i><i>3</i></span> = 13.33 cm</div>
+<div class="st">Step 4 — the radius of curvature is twice the focal length</div>
+<div class="f">R = 2 f = <span class="fr"><i>80</i><i>3</i></span> = <b>26.7 ≈ 27 cm</b></div>
+<div class="cap">The answer 13 cm is the focal length, not the radius. The factor of 2 between f and R is the trap; every mirror problem ends with R = 2f as a separate step, not as a shortcut. For a lens, no such factor exists — the lens equation uses f directly.</div>
+<div class="lg"><b>Variables</b>
+<span><i>u</i> — object distance, 20 cm</span>
+<span><i>v</i> — image distance, 40 cm</span>
+<span><i>f</i> — focal length, 13.33 cm</span>
+<span><i>R</i> — radius of curvature, 26.7 cm</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.3: concave mirror for a lunar image</b><p class="q">The moon is 3 476 km in diameter. What radius of curvature should a concave mirror have to produce a lunar image 10 mm in diameter when the moon is 3.84×10<sup>5</sup> km away?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — magnification from the image and object sizes</div>
+<div class="f">|m| = <span class="fr"><i>image diameter</i><i>object diameter</i></span> = <span class="fr"><i>10 mm</i><i>3 476 km</i></span> = <span class="fr"><i>0.010 m</i><i>3.476×10<sup>6</sup> m</i></span> = 2.877×10<sup>−9</sup></div>
+<div class="st">Step 2 — the image distance follows from |m| = |v|/u</div>
+<div class="f">u = 3.84×10<sup>8</sup> m</div>
+<div class="f">v = |m| u = 2.877×10<sup>−9</sup> × 3.84×10<sup>8</sup> = 1.105 m</div>
+<div class="st">Step 3 — since u is enormous, 1/u is negligible; f ≈ v</div>
+<div class="f"><span class="fr"><i>1</i><i>f</i></span> = <span class="fr"><i>1</i><i>u</i></span> + <span class="fr"><i>1</i><i>v</i></span> ≈ 0 + <span class="fr"><i>1</i><i>1.105</i></span></div>
+<div class="f">f ≈ 1.105 m</div>
+<div class="st">Step 4 — the radius of curvature is twice the focal length</div>
+<div class="f">R = 2 f ≈ 2.21 m</div>
+<div class="f"><b>R ≈ 2.2 m</b></div>
+<div class="cap">The answer 2.2 cm is off by a factor of 100 — the magnification computation is correct but the unit conversion slips: 10 mm should become 0.010 m, and the moon's diameter should become 3.476×10⁶ m. Both are metres in the ratio, so the result is unitless and 2.877×10⁻⁹ is correct; the image distance 1.105 m is then 110 cm, not 1.1 cm.</div>
+<div class="lg"><b>Variables</b>
+<span><i>u</i> — moon distance, 3.84×10<sup>8</sup> m</span>
+<span><i>v</i> — image distance, ≈1.105 m</span>
+<span><i>f</i> — focal length, ≈1.105 m</span>
+<span><i>R</i> — radius of curvature, ≈2.21 m</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.4: object inside the focal length of a concave mirror</b><p class="q">The image is ______ if the concave mirror has a focal length of 6 cm and the object is 4 cm from the mirror.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the object distance (4 cm) is less than the focal length (6 cm), so the object is inside the focal point</div>
+<div class="st">Step 2 — apply the mirror equation with f = +6, u = +4</div>
+<div class="f"><span class="fr"><i>1</i><i>v</i></span> = <span class="fr"><i>1</i><i>6</i></span> − <span class="fr"><i>1</i><i>4</i></span> = <span class="fr"><i>2 − 3</i><i>12</i></span> = −<span class="fr"><i>1</i><i>12</i></span></div>
+<div class="f">v = −12 cm</div>
+<div class="st">Step 3 — negative image distance means virtual; m = −v/u = 12/4 = +3</div>
+<div class="f">m = +3   ⇒   erect and 3× larger</div>
+<div class="f"><b>erect and virtual</b></div>
+<div class="cap">The answer "inverted and real" applies when the object is <i>beyond</i> the focal length, not inside it. The boundary is exactly at u = f: at that point the image forms at infinity. Inside the focal point, every concave mirror produces a magnified virtual erect image — the makeup-mirror behaviour.</div>
+<div class="lg"><b>Variables</b>
+<span><i>f</i> — focal length, 6 cm</span>
+<span><i>u</i> — object distance, 4 cm</span>
+<span><i>v</i> — image distance, −12 cm (virtual)</span>
+<span><i>m</i> — magnification, +3</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.5: meniscus lens from the lensmaker's equation</b><p class="q">A lens has a convex surface of radius 17 cm and a concave surface of radius 38 cm and is made of glass of refractive index 1.55. Find its focal length and classify it as converging or diverging.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — sign convention: R positive for a surface that bulges outward, negative for one that curves inward</div>
+<div class="f">R₁ = +17 cm   (convex),   R₂ = −38 cm   (concave)</div>
+<div class="st">Step 2 — apply the lensmaker's equation</div>
+<div class="f"><span class="fr"><i>1</i><i>f</i></span> = ( n − 1 )( <span class="fr"><i>1</i><i>R₁</i></span> + <span class="fr"><i>1</i><i>R₂</i></span> )</div>
+<div class="st">Step 3 — substitute n = 1.55</div>
+<div class="f"><span class="fr"><i>1</i><i>f</i></span> = 0.55 × ( <span class="fr"><i>1</i><i>17</i></span> − <span class="fr"><i>1</i><i>38</i></span> )</div>
+<div class="st">Step 4 — evaluate the bracket</div>
+<div class="f"><span class="fr"><i>1</i><i>17</i></span> = 0.05882,   <span class="fr"><i>1</i><i>38</i></span> = 0.02632</div>
+<div class="f">bracket = 0.05882 − 0.02632 = 0.03250</div>
+<div class="st">Step 5 — multiply by (n − 1)</div>
+<div class="f"><span class="fr"><i>1</i><i>f</i></span> = 0.55 × 0.03250 = 0.017875 cm<sup>−1</sup></div>
+<div class="st">Step 6 — invert</div>
+<div class="f">f = <span class="fr"><i>1</i><i>0.017875</i></span> = <b>55.9 cm</b></div>
+<div class="st">Step 7 — positive focal length means converging</div>
+<div class="f"><b>converging, f ≈ 55.9 cm</b></div>
+<div class="cap">The answer 57.45 cm comes from a slip in the bracket — often from using the magnitudes 1/17 + 1/38 = 0.0851 instead of their difference. The lens is converging because the convex surface (smaller radius, stronger curve) dominates the concave surface. If the concave surface were the stronger one (smaller radius), the lens would be diverging; the sign of f follows the sign of the bracket.</div>
+<div class="lg"><b>Variables</b>
+<span><i>R₁</i> — radius of convex surface, +17 cm</span>
+<span><i>R₂</i> — radius of concave surface, −38 cm</span>
+<span><i>n</i> — refractive index, 1.55</span>
+<span><i>f</i> — focal length, 55.9 cm</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.6: apparent depth in amber</b><p class="q">An insect preserved in amber (n ≈ 1.54) appears to be 2.78 cm beneath the surface when viewed directly from above. Find its real depth.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the apparent-depth relation for viewing from air into a medium of index n</div>
+<div class="f">apparent depth = <span class="fr"><i>real depth</i><i>n</i></span></div>
+<div class="st">Step 2 — solve for real depth</div>
+<div class="f">real depth = n × apparent depth</div>
+<div class="st">Step 3 — substitute</div>
+<div class="f">real depth = 1.54 × 2.78</div>
+<div class="st">Step 4 — evaluate</div>
+<div class="f"><b>real depth = 4.28 cm ≈ 4.29 cm</b></div>
+<div class="cap">The answer 3.19 cm comes from dividing by n instead of multiplying. The apparent depth is always <i>less</i> than the real depth (the object looks shallower than it is), so the real depth must be larger than 2.78; dividing would give 2.78/1.54 = 1.81, which is even smaller, and any answer below 2.78 is immediately wrong. The direction of the correction is a quick self-check.</div>
+<div class="lg"><b>Variables</b>
+<span><i>n</i> — refractive index of amber, 1.54</span>
+<span>apparent depth — 2.78 cm</span>
+<span>real depth — the physical depth of the insect, cm</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.7: converging lens image size</b><p class="q">An object is 30 cm in front of a converging lens of focal length 10 cm. The image is ______.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — object distance u = 30 cm, focal length f = +10 cm</div>
+<div class="st">Step 2 — the lens equation with "real is positive" convention</div>
+<div class="f"><span class="fr"><i>1</i><i>f</i></span> = <span class="fr"><i>1</i><i>v</i></span> − <span class="fr"><i>1</i><i>u</i></span></div>
+<div class="st">Step 3 — solve for v</div>
+<div class="f"><span class="fr"><i>1</i><i>v</i></span> = <span class="fr"><i>1</i><i>10</i></span> + <span class="fr"><i>1</i><i>30</i></span> = <span class="fr"><i>3 + 1</i><i>30</i></span> = <span class="fr"><i>4</i><i>30</i></span></div>
+<div class="f">v = <span class="fr"><i>30</i><i>4</i></span> = 7.5 cm</div>
+<div class="st">Step 4 — positive v means real; the magnification is m = −v/u</div>
+<div class="f">m = −<span class="fr"><i>7.5</i><i>30</i></span> = −0.25</div>
+<div class="f">|m| = 0.25 &lt; 1   ⇒   smaller than the object</div>
+<div class="f"><b>real and smaller than the object</b></div>
+<div class="cap">The answer "real and larger" would require the object to be between f and 2f, not beyond 2f. Here u = 30 = 3f, so the object is well outside 2f = 20, and the image is smaller and between f and 2f on the other side. The rule of thumb: beyond 2f gives a smaller real image; between f and 2f gives a larger real image; inside f gives a virtual image.</div>
+<div class="lg"><b>Variables</b>
+<span><i>u</i> — object distance, 30 cm</span>
+<span><i>f</i> — focal length, 10 cm</span>
+<span><i>v</i> — image distance, 7.5 cm (real)</span>
+<span><i>m</i> — magnification, −0.25 (inverted and smaller)</span>
+</div>
+</details></div>
+
+<h2 id="c4">4. Waves</h2>
+<p>Sound in a tube is described by standing waves whose boundary conditions depend on whether the ends are open or closed. The speed of sound in a gas depends on temperature and molar mass; in a solid it depends on the elastic modulus and density; and a moving source or observer shifts the observed frequency.</p>
+<h3>Standing waves in pipes</h3>
+<div class="w"><table>
+<tr><th>Boundary</th><th>Resonant frequencies</th><th>Harmonics</th></tr>
+<tr><td>Both ends open</td><td>f<sub>n</sub> = n v / (2 L)</td><td>all integers (n = 1, 2, 3, …)</td></tr>
+<tr><td>One end closed</td><td>f<sub>n</sub> = n v / (4 L)</td><td>odd integers only (n = 1, 3, 5, …)</td></tr>
+</table></div>
+<p>The "5th harmonic present" for a closed pipe is not n = 5; the closed pipe skips even harmonics, so the harmonic sequence is 1, 3, 5, 7, 9, … and the 5th one present is n = 9. Reading "5th harmonic" as "n = 5" is the standard error.</p>
+<h3>Speed of sound in a gas</h3>
+<div class="f">v = √<span class="fr"><i>γ R T</i><i>M</i></span></div>
+<p>with γ = C<sub>p</sub>/C<sub>v</sub> (≈1.4 for diatomic air), R = 8.314 J/(mol·K), T in kelvin, and M in kg/mol.</p>
+<h3>Speed of sound in a solid</h3>
+<div class="f">v = √<span class="fr"><i>Y</i><i>ρ</i></span></div>
+<p>with Y the Young's modulus (Pa) and ρ the density (kg/m³). The result for steel is typically in the thousands of metres per second.</p>
+<h3>Doppler effect</h3>
+<div class="f">f′ = f <span class="fr"><i>v ± v<sub>obs</sub></i><i>v ∓ v<sub>src</sub></i></span></div>
+<p>The signs are chosen by the rule that the frequency <b>rises</b> when source and observer <b>approach</b> and <b>falls</b> when they recede:</p>
+<div class="w"><table>
+<tr><th>Motion</th><th>Numerator (observer)</th><th>Denominator (source)</th></tr>
+<tr><td>Observer moves toward source</td><td>v + v<sub>obs</sub></td><td>—</td></tr>
+<tr><td>Observer moves away from source</td><td>v − v<sub>obs</sub></td><td>—</td></tr>
+<tr><td>Source moves toward observer</td><td>—</td><td>v − v<sub>src</sub></td></tr>
+<tr><td>Source moves away from observer</td><td>—</td><td>v + v<sub>src</sub></td></tr>
+</table></div>
+<p>When both are moving, the numerator carries the observer's sign and the denominator carries the source's sign independently. Approach increases f′ (numerator up, denominator down); recession decreases f′ (numerator down, denominator up).</p>
+
+<div class="ex"><b class="t">Worked 4.1: 5th harmonic of a closed pipe</b><p class="q">A 2.29 m long organ pipe acts as a closed-end resonator. Find the 5th lowest harmonic present. Speed of sound 343 m/s.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — a closed pipe produces only odd harmonics; the sequence present is n = 1, 3, 5, 7, 9, …</div>
+<div class="st">Step 2 — the 5th harmonic present corresponds to n = 9</div>
+<div class="f">n = 9</div>
+<div class="st">Step 3 — apply the closed-pipe resonance formula</div>
+<div class="f">f = <span class="fr"><i>n v</i><i>4 L</i></span></div>
+<div class="st">Step 4 — substitute</div>
+<div class="f">f = <span class="fr"><i>9 × 343</i><i>4 × 2.29</i></span> = <span class="fr"><i>3 087</i><i>9.16</i></span></div>
+<div class="st">Step 5 — evaluate</div>
+<div class="f"><b>f ≈ 337 Hz</b></div>
+<div class="cap">The answer 276 Hz is what comes from using n = 5 (the integer "5th harmonic") — but closed pipes have no even harmonics, so the fifth one <i>present</i> is n = 9. Counting the harmonics that exist (1st, 3rd, 5th, 7th, 9th) rather than the n value is the whole point of the wording. The 1st is n=1, the 2nd is n=3, the 3rd is n=5, the 4th is n=7, the 5th is n=9.</div>
+<div class="lg"><b>Variables</b>
+<span><i>L</i> — pipe length, 2.29 m</span>
+<span><i>v</i> — speed of sound, 343 m/s</span>
+<span><i>n</i> — harmonic number, 9 (odd)</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.2: open pipe vs closed pipe</b><p class="q">The fundamental frequency of an open pipe is 392 Hz. The third harmonic of a closed pipe has the same frequency. Find the length of the closed pipe. Speed of sound 346 m/s.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the open pipe fundamental is f = v/(2L_open)</div>
+<div class="f">392 = <span class="fr"><i>346</i><i>2 L<sub>open</sub></i></span>   ⇒   L<sub>open</sub> = 346/(2 × 392) = 0.4413 m</div>
+<div class="st">Step 2 — the third harmonic of a closed pipe is f = 3v/(4L_closed)</div>
+<div class="f">392 = <span class="fr"><i>3 × 346</i><i>4 L<sub>closed</sub></i></span></div>
+<div class="st">Step 3 — solve for L_closed</div>
+<div class="f">4 L<sub>closed</sub> = <span class="fr"><i>3 × 346</i><i>392</i></span> = <span class="fr"><i>1 038</i><i>392</i></span> = 2.648</div>
+<div class="f">L<sub>closed</sub> = <span class="fr"><i>2.648</i><i>4</i></span> = 0.662 m</div>
+<div class="st">Step 4 — convert to cm</div>
+<div class="f"><b>L<sub>closed</sub> = 66.2 cm</b></div>
+<div class="cap">The answer 44.4 cm is the open pipe's length, not the closed pipe's. The closed pipe must be longer for the same frequency because it produces only odd harmonics — its fundamental is <i>half</i> the open pipe's fundamental for the same length. Working the two formulas on separate lines and substituting the same 392 Hz into both keeps the two lengths distinct.</div>
+<div class="lg"><b>Variables</b>
+<span><i>L</i><sub>open</sub> — open pipe length, 0.441 m</span>
+<span><i>L</i><sub>closed</sub> — closed pipe length, 0.662 m</span>
+<span><i>f</i> — common frequency, 392 Hz</span>
+<span><i>v</i> — speed of sound, 346 m/s</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.3: speed of sound in air</b><p class="q">Find the speed of sound in air at 20 °C. Mean molar mass 28.8 g/mol, γ = 1.40.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — convert the temperature to kelvin</div>
+<div class="f">T = 20 + 273.15 = 293.15 K</div>
+<div class="st">Step 2 — convert the molar mass to kg/mol</div>
+<div class="f">M = 0.0288 kg/mol</div>
+<div class="st">Step 3 — apply the speed-of-sound formula for an ideal gas</div>
+<div class="f">v = √<span class="fr"><i>γ R T</i><i>M</i></span></div>
+<div class="st">Step 4 — substitute</div>
+<div class="f">v = √<span class="fr"><i>( 1.40 )( 8.314 )( 293.15 )</i><i>0.0288</i></span></div>
+<div class="st">Step 5 — evaluate the numerator and denominator</div>
+<div class="f">numerator = 3 413.5,   ratio = 118 525</div>
+<div class="st">Step 6 — square root</div>
+<div class="f"><b>v ≈ 344 m/s</b></div>
+<div class="cap">The answer 340 m/s comes from the memory rule v ≈ 331 + 0.6 T<sub>C</sub> = 331 + 12 = 343, which rounds to 340 when the coefficients are rounded — or from using 273 K instead of 293 K. The exact ideal-gas formula gives 344.2 m/s at 20 °C; the rule of thumb is accurate to about 1 %.</div>
+<div class="lg"><b>Variables</b>
+<span><i>γ</i> — ratio of specific heats, 1.40</span>
+<span><i>R</i> — gas constant, 8.314 J/(mol·K)</span>
+<span><i>T</i> — absolute temperature, 293.15 K</span>
+<span><i>M</i> — molar mass, 0.0288 kg/mol</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.4: speed of sound in steel</b><p class="q">A steel rod has Young's modulus Y = 2×10<sup>11</sup> Pa and density ρ = 8 000 kg/m³. Find the speed of sound in the steel.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — apply the speed formula for a solid rod</div>
+<div class="f">v = √<span class="fr"><i>Y</i><i>ρ</i></span></div>
+<div class="st">Step 2 — substitute</div>
+<div class="f">v = √<span class="fr"><i>2 × 10<sup>11</sup></i><i>8 000</i></span></div>
+<div class="st">Step 3 — evaluate the ratio</div>
+<div class="f"><span class="fr"><i>2 × 10<sup>11</sup></i><i>8 000</i></span> = 2.5 × 10<sup>7</sup></div>
+<div class="st">Step 4 — square root</div>
+<div class="f">v = √( 2.5 × 10<sup>7</sup> ) = 5 000 m/s</div>
+<div class="f"><b>v = 5 000 m/s</b></div>
+<div class="cap">The answer 4 000 m/s comes from an arithmetic slip in the ratio — often from using 5×10<sup>7</sup> (a factor of 2 too large in the numerator, giving √5×10<sup>7</sup> ≈ 7 070) or from a square-root error. The clean form is v = √(2.5) × 10<sup>3.5</sup> = 1.581 × 3 162 = 5 000 m/s. Sound travels roughly fifteen times faster in steel than in air — the reason you hear a train through the rails before you hear it through the air.</div>
+<div class="lg"><b>Variables</b>
+<span><i>Y</i> — Young's modulus, 2×10<sup>11</sup> Pa</span>
+<span><i>ρ</i> — steel density, 8 000 kg/m³</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.5: Doppler — approaching</b><p class="q">A police car moves toward an observer at 25 m/s, and the observer moves toward the car at 5 m/s. Siren frequency 600 Hz. Find the observed frequency. Speed of sound 350 m/s.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — both observer and source are moving toward each other, so frequency rises</div>
+<div class="st">Step 2 — apply the Doppler formula: numerator v + v<sub>obs</sub>, denominator v − v<sub>src</sub></div>
+<div class="f">f′ = f <span class="fr"><i>v + v<sub>obs</sub></i><i>v − v<sub>src</sub></i></span></div>
+<div class="st">Step 3 — substitute</div>
+<div class="f">f′ = 600 × <span class="fr"><i>350 + 5</i><i>350 − 25</i></span> = 600 × <span class="fr"><i>355</i><i>325</i></span></div>
+<div class="st">Step 4 — evaluate the ratio</div>
+<div class="f">ratio = 1.0923</div>
+<div class="st">Step 5 — multiply</div>
+<div class="f">f′ = 600 × 1.0923 = <b>655.4 ≈ 655 Hz</b></div>
+<div class="cap">The answer 630 Hz comes from using the same sign in numerator and denominator (355/350 = 1.014 × 600 = 608, not 630) — or from the wrong pairing of signs. Both approach signs must be applied: observer's speed in the numerator with a plus, source's speed in the denominator with a minus. Getting one of them wrong gives 635 or 608; only both correct gives 655.</div>
+<div class="lg"><b>Variables</b>
+<span><i>f</i> — source frequency, 600 Hz</span>
+<span><i>v</i> — speed of sound, 350 m/s</span>
+<span><i>v</i><sub>obs</sub> — observer's speed toward source, 5 m/s</span>
+<span><i>v</i><sub>src</sub> — source's speed toward observer, 25 m/s</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.6: Doppler — receding</b><p class="q">A police car moves away from an observer at 25 m/s, and the observer moves away from the car at 5 m/s. Siren frequency 600 Hz. Find the observed frequency. Speed of sound 350 m/s.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — both are moving away, so frequency falls</div>
+<div class="st">Step 2 — apply the Doppler formula: numerator v − v<sub>obs</sub>, denominator v + v<sub>src</sub></div>
+<div class="f">f′ = f <span class="fr"><i>v − v<sub>obs</sub></i><i>v + v<sub>src</sub></i></span></div>
+<div class="st">Step 3 — substitute</div>
+<div class="f">f′ = 600 × <span class="fr"><i>350 − 5</i><i>350 + 25</i></span> = 600 × <span class="fr"><i>345</i><i>375</i></span></div>
+<div class="st">Step 4 — evaluate the ratio</div>
+<div class="f">ratio = 0.92</div>
+<div class="st">Step 5 — multiply</div>
+<div class="f">f′ = 600 × 0.92 = <b>552 Hz</b></div>
+<div class="cap">The answer 552 Hz is below 600 Hz, which is correct: recession lowers the observed frequency. The mirror-image structure of the two Doppler problems (655 for approach, 552 for recession) means the two answers straddle the source frequency symmetrically in ratio, not in Hz. Checking the direction of the shift against the direction of motion catches a swapped sign in one line.</div>
+<div class="lg"><b>Variables</b>
+<span><i>f</i> — source frequency, 600 Hz</span>
+<span><i>v</i> — speed of sound, 350 m/s</span>
+<span><i>v</i><sub>obs</sub> — observer's speed away from source, 5 m/s</span>
+<span><i>v</i><sub>src</sub> — source's speed away from observer, 25 m/s</span>
+</div>
+</details></div>
+
+<h2 id="c5">5. Formula summary</h2>
+<p>Perry's column: <i>Perry's Chemical Engineers' Handbook</i>, 9th edition, contains the fluid-dynamics and heat-transfer material that overlaps with some of these physics formulas, but the elementary electrostatics, optics and wave formulas are not part of Perry's standard coverage. I could not verify any subsection that contains them, so the column marks them “not in Perry's” rather than guess. Entries that do correspond to Perry's Sections 6 and 5 are noted with the section.</p>
+<div class="w"><table>
+<tr><th>Formula</th><th>Use</th><th>Perry's 9th ed.</th></tr>
+<tr><td><div class="f">Φ<sub>E</sub> = Q<sub>enclosed</sub>/ε₀</div></td><td>Gauss's law</td><td>Not in Perry's (elementary physics)</td></tr>
+<tr><td><div class="f">B = μ₀ I / (2π r)</div></td><td>Field of a long straight wire</td><td>Not in Perry's</td></tr>
+<tr><td><div class="f">ε = −N dΦ<sub>B</sub>/dt</div></td><td>Faraday's law</td><td>Not in Perry's</td></tr>
+<tr><td><div class="f">|ε| = A |ΔB|/Δt</div></td><td>Single loop, perpendicular field</td><td>Not in Perry's</td></tr>
+<tr><td><div class="f">h<sub>max</sub> = h<sub>start</sub> + v<sub>start</sub>²/(2g)</div></td><td>Energy conservation, frictionless track</td><td>Not in Perry's</td></tr>
+<tr><td><div class="f">1/f = 1/v + 1/u;  m = −v/u;  R = 2f</div></td><td>Mirror equation and magnification</td><td>Not in Perry's</td></tr>
+<tr><td><div class="f">1/f = (n−1)(1/R₁ + 1/R₂)</div></td><td>Lensmaker's equation</td><td>Not in Perry's</td></tr>
+<tr><td><div class="f">n₁ sin θ₁ = n₂ sin θ₂</div></td><td>Snell's law</td><td>Not in Perry's</td></tr>
+<tr><td><div class="f">apparent depth = real depth / n</div></td><td>Refraction, viewing from air</td><td>Not in Perry's</td></tr>
+<tr><td><div class="f">closed pipe: f<sub>n</sub> = n v / (4L), n odd</div></td><td>Standing waves, closed end</td><td>Not in Perry's</td></tr>
+<tr><td><div class="f">open pipe: f<sub>n</sub> = n v / (2L), n integer</div></td><td>Standing waves, open ends</td><td>Not in Perry's</td></tr>
+<tr><td><div class="f">v = √(γ R T / M)</div></td><td>Speed of sound in a gas</td><td>Not in Perry's</td></tr>
+<tr><td><div class="f">v = √(Y / ρ)</div></td><td>Speed of sound in a solid rod</td><td>Not in Perry's; related to Sec. 6 elastic-wave section but the formula is elementary</td></tr>
+<tr><td><div class="f">f′ = f (v ± v<sub>obs</sub>)/(v ∓ v<sub>src</sub>)</div></td><td>Doppler effect</td><td>Not in Perry's</td></tr>
+</table></div>
+
+<h2 id="c6">6. Answer-bank flags</h2>
+<p>Every keyed answer in the four concepts was recomputed. All keys stand. The notes below give the verification and identify the common slip behind each distractor.</p>
+<div class="w"><table>
+<tr><th>Item</th><th>Concern</th></tr>
+<tr><td><b>Electrostatics</b> — induced emf (key: 0.08 V)</td><td>Verified: A = 200 cm² = 0.020 m², ΔB = 0.08 T, Δt = 0.02 s, |ε| = 0.020 × (0.08/0.02) = 0.020 × 4 = 0.08 V. The 0.06 V distractor uses ΔB directly (0.020 × 0.08 × 37.5 = 0.06) or a slip in the rate.</td></tr>
+<tr><td><b>Electrostatics</b> — magnetic field of a straight wire (key: 8 μT)</td><td>Verified: B = (4π×10<sup>−7</sup> × 2)/(2π × 0.05) = 2×10<sup>−7</sup> × 40 = 8×10<sup>−6</sup> T. The 2 μT distractor is a factor-of-4 slip in the 2π cancellation.</td></tr>
+<tr><td><b>Electrostatics</b> — electric flux (key: 1.8 N·m²/C)</td><td>Verified: |Φ| = Ne/ε₀ = 10<sup>8</sup> × 1.6×10<sup>−19</sup>/8.85×10<sup>−12</sup> = 1.81. The unit is N·m²/C, equivalent to V·m.</td></tr>
+<tr><td><b>Min/Max</b> — roller coaster (key: 10.2 m)</td><td>Verified: h<sub>max</sub> = 10 + 4/(2×9.8) = 10 + 0.204 = 10.204 m. The 11.3 m distractor comes from using v/g or from an arithmetic slip in the kinetic head.</td></tr>
+<tr><td><b>Mirror</b> — convex mirror image (key: virtual, erect, smaller)</td><td>Verified from sign algebra: f &lt; 0, so v &lt; 0 (virtual), m = −v/u &gt; 0 (erect), |v| &lt; u so |m| &lt; 1 (smaller). All three properties follow from the negative focal length.</td></tr>
+<tr><td><b>Mirror</b> — concave, real image twice size (key: 27 cm)</td><td>Verified: m = −2, u = 20 gives v = 40; 1/f = 1/20 + 1/40 = 3/40 gives f = 13.33; R = 2f = 26.7 ≈ 27 cm. The 13 cm distractor is f, not R.</td></tr>
+<tr><td><b>Mirror</b> — lunar image radius of curvature (key: 2.2 m)</td><td>Verified: |m| = 0.010/3.476×10<sup>6</sup> = 2.877×10<sup>−9</sup>; v = |m| × 3.84×10<sup>8</sup> = 1.105 m; f ≈ v ≈ 1.105 m; R ≈ 2.21 m. The 2.2 cm distractor is a unit slip (cm instead of m).</td></tr>
+<tr><td><b>Mirror</b> — object inside focal length (key: erect and virtual)</td><td>Verified: u = 4, f = 6, 1/v = 1/6 − 1/4 = −1/12, v = −12 cm (virtual), m = +3 (erect). The object is inside f, so the concave mirror behaves as a magnifying glass.</td></tr>
+<tr><td><b>Mirror</b> — meniscus lens (key: 55.93 cm, converging)</td><td>Verified: 1/f = (1.55−1)(1/17 − 1/38) = 0.55 × 0.0325 = 0.017875; f = 55.9 cm. Positive focal length means converging; the convex surface (smaller radius) dominates.</td></tr>
+<tr><td><b>Mirror</b> — apparent depth in amber (key: 4.29 cm)</td><td>Verified: real = n × apparent = 1.54 × 2.78 = 4.28 cm. The 3.19 cm distractor is roughly n × 2.07 (or a similar slip); the direction check — real depth must exceed 2.78 cm — rules it out immediately.</td></tr>
+<tr><td><b>Mirror</b> — converging lens 30 cm object (key: real and smaller)</td><td>Verified: v = 7.5 cm, m = −0.25. Object at 3f, so beyond 2f → smaller real image. The "real and larger" distractor applies only when the object is between f and 2f.</td></tr>
+<tr><td><b>Waves</b> — 5th harmonic of closed pipe (key: 337 Hz)</td><td>Verified: 5th present → n = 9; f = 9 × 343/(4 × 2.29) = 3 087/9.16 = 337 Hz. The 276 Hz distractor uses n = 5.</td></tr>
+<tr><td><b>Waves</b> — open pipe vs closed pipe (key: 66.2 cm)</td><td>Verified: 392 = 3 × 346/(4 L<sub>closed</sub>) → L<sub>closed</sub> = 0.662 m. The 44.4 cm distractor is the open-pipe length.</td></tr>
+<tr><td><b>Waves</b> — speed of sound in air (key: 344 m/s)</td><td>Verified: v = √(1.4 × 8.314 × 293.15/0.0288) = √118 525 = 344 m/s.</td></tr>
+<tr><td><b>Waves</b> — speed of sound in steel (key: 5 000 m/s)</td><td>Verified: v = √(2×10<sup>11</sup>/8 000) = √(2.5×10<sup>7</sup>) = 5 000 m/s. The 4 000 m/s distractor is a slip in the ratio under the square root.</td></tr>
+<tr><td><b>Waves</b> — Doppler approaching (key: 655 Hz)</td><td>Verified: f′ = 600 × 355/325 = 655.4 Hz. Both approach signs must be applied (numerator +, denominator −).</td></tr>
+<tr><td><b>Waves</b> — Doppler receding (key: 552 Hz)</td><td>Verified: f′ = 600 × 345/375 = 552 Hz. Both recession signs must be applied (numerator −, denominator +).</td></tr>
+<tr><td>Perry's 9th edition locations</td><td>The formulas in this set are elementary-physics results that are not part of Perry's standard coverage; they are marked "not in Perry's" rather than guessing a section. Only where a formula overlaps with Perry's Section 6 (Fluid and Particle Dynamics, for elastic waves in solids) is a pointer given. Verify against the tab before citing any location.</td></tr>
+</table></div>
+
+<h3>Your tags, applied</h3>
+<ul>
+<li><b>Source:</b> the introductory physics chapters of a standard text (Halliday–Resnick–Walker, <i>Fundamentals of Physics</i>; or Serway–Jewett, <i>Physics for Scientists and Engineers</i>), specifically: Gauss's law and the flux definition; the magnetic field of a straight wire; Faraday's law and Lenz's law; energy conservation on a frictionless track; the mirror equation and sign conventions; thin-lens and lensmaker's equations; Snell's law and apparent depth; standing waves in open and closed pipes; speed of sound in gas and solid; and the Doppler effect. Edition and section numbers were not checked. Perry's does not cover elementary physics in the same way; the formula table notes this openly.</li>
+<li><b>Drill (3–5 closed-book reps, units written every time):</b> (a) one Faraday's-law problem, writing ΔB/Δt on its own line before multiplying by the area (converted to m²); (b) one magnetic-field-of-a-wire calculation, using the 2×10<sup>−7</sup> constant form; (c) one Gauss's-law flux, with the number of electrons times the elementary charge written explicitly; (d) one energy-conservation problem, computing v²/(2g) separately before adding to h; (e) one mirror equation and one lens equation side-by-side, each with the signs of u, v, f stated first; (f) one closed-pipe and one open-pipe harmonic, writing the n value and its parity before substituting; (g) one Doppler problem in each direction, writing the signs of numerator and denominator on separate lines.</li>
+<li><b>Retrieval:</b> I cannot see your cards. Test yourself on: why the induced emf depends on the rate of change of B and not on B itself; why the flux through a Gaussian surface depends only on the enclosed charge; why a closed pipe produces only odd harmonics; why "5th harmonic present" in a closed pipe corresponds to n = 9; why a convex mirror always produces a virtual, erect, smaller image; why the mirror's R is twice f but a lens's focal length is used directly; why the apparent depth is less than the real depth; and why the Doppler shift goes up on approach and down on recession regardless of who is moving.</li></ul>
+
+<div class="box"><b>Pre-submit line:</b> Convert every area to square metres before using Faraday's law; write ΔB/Δt before multiplying by A; use the combined constant 2×10<sup>−7</sup> for the field of a straight wire; compute v²/(2g) as a separate quantity (kinetic head) before adding to h; for every mirror problem, state the signs of u, v, f before substituting; for every lens problem, remember that R = 2f applies to mirrors only, not to lenses; for a closed pipe, count harmonics present (odd integers), not the n value; for a gas, convert T to kelvin and M to kg/mol; and for Doppler, write the numerator and denominator signs on separate lines and check that the shift direction (up on approach, down on recede) matches the physics.</div>
+</main></body></html>
