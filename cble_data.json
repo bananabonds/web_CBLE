@@ -174572,7 +174572,7 @@
       "question": "Which manufacturing method is most suitable for producing continuous composite profiles with a uniform cross-section?",
       "category": "Conceptual Misunderstanding",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-11-11T08:28:06",
       "occurrences": [
         {
@@ -174583,10 +174583,11 @@
           "correct_answer": "B. Pultrusion"
         }
       ],
-      "updated_at": "2026-11-11T08:28:06",
+      "updated_at": "2026-11-11T08:45:24",
       "concept_id": "1792310304525634",
       "tag_at": "2026-11-11T08:28:06",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-11T08:45:24"
     },
     {
       "id": "1794385682501194",
@@ -174831,7 +174832,7 @@
       "question": "A material undergoes a hydrostatic pressure increase of 180 MPa, causing its volume to decrease by 0.100%. Determine its bulk modulus.",
       "category": "Formula / Equation Error",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-11-11T08:28:07",
       "occurrences": [
         {
@@ -174842,10 +174843,11 @@
           "correct_answer": "A. 180 GPa"
         }
       ],
-      "updated_at": "2026-11-11T08:28:07",
+      "updated_at": "2026-11-11T08:45:18",
       "concept_id": "1792319010363788",
       "tag_at": "2026-11-11T08:28:07",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-11T08:45:18"
     },
     {
       "id": "1794385684010761",
@@ -182036,5 +182038,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-11T08:45:15"
+  "updated_at": "2026-11-11T08:45:27"
 }
