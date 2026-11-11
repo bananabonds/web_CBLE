@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Process Control Analysis Review: Three Concepts</title>
+<style>
+:root{--bg:#fbfaf6;--fg:#1f2328;--mut:#5b6470;--ac:#7a3b12;--box:#f1ece0;--ex:#e8f0f4;--dc:#f6e9e4;--bd:#d8d0bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.1rem 4rem}
+h1{font-size:1.8rem;margin:.4rem 0 .2rem}h2{font-size:1.3rem;color:var(--ac);border-bottom:1px solid var(--bd);padding-bottom:.2rem;margin-top:2.6rem}
+h3{font-size:1rem;margin:1.4rem 0 .3rem;font-variant:small-caps;letter-spacing:.04em}
+.sub{color:var(--mut);margin:0 0 1rem}
+.box,.ex,.dc{border-radius:6px;padding:.7rem 1rem;margin:1rem 0;font-size:.97rem}
+.box{background:var(--box)}.ex{background:var(--ex);border-left:4px solid #3d7a99}.dc{background:var(--dc);border-left:4px solid #b5533c}
+.ex b.t,.dc b.t{display:block;font-variant:small-caps;letter-spacing:.05em;margin-bottom:.2rem}
+.f{font-family:"Cambria Math",Georgia,serif;text-align:center;margin:.5rem 0;font-size:1.04rem;overflow-x:auto}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .2em}.fr i{font-style:normal;padding:0 .3em}.fr i:first-child{border-bottom:1px solid currentColor}
+nav{background:var(--box);border-radius:6px;padding:.6rem 1rem;font-size:.93rem}nav a{color:var(--ac);text-decoration:none}
+.w{overflow-x:auto}table{border-collapse:collapse;font-size:.9rem;width:100%}td,th{border:1px solid var(--bd);padding:.3rem .5rem;text-align:left;vertical-align:top}
+.q{margin:.3rem 0 .5rem;font-style:italic}
+details{margin-top:.4rem}summary{cursor:pointer;color:var(--ac);font-weight:bold;font-size:.95rem;padding:.2rem 0}
+details .f{margin:.55rem 0}.cap{text-align:center;font-size:.84rem;color:var(--mut);margin:.4rem 0}
+p{margin:.6rem 0}ul{margin:.4rem 0;padding-left:1.3rem}
+.st{font-size:.85rem;color:var(--mut);font-variant:small-caps;letter-spacing:.05em;margin:.75rem 0 .05rem;text-align:left}
+.lg{border-top:1px dotted var(--bd);margin-top:.75rem;padding-top:.35rem;font-size:.83rem;color:var(--mut)}
+.lg b{font-variant:small-caps;letter-spacing:.05em;display:block;margin-bottom:.15rem}
+.lg span{display:block}
+</style></head><body><main>
+<h1>Process Control Analysis Review: Three Concepts</h1>
+<p class="sub">One page for the selected D3_L2 set. Chapters run in teaching order: Laplace Transform (the mathematical foundation), Process Response (the dynamic behavior of the process), Control Loops (the architecture and hardware). Each worked example shows the question first; tap “Show solution” for the steps, with a variable legend at the end. A consolidated formula table with Perry's locations sits before the flags.</p>
+<nav>1 <a href="#c1">Laplace Transform</a> · 2 <a href="#c2">Process Response</a> · 3 <a href="#c3">Control Loops</a> · 4 <a href="#c4">Formulas + Perry</a> · 5 <a href="#c5">Flags</a></nav>
+
+<h2 id="c1">1. Laplace Transform</h2>
+<p>The Laplace transform turns a differential equation in time into an algebraic equation in the complex variable s. Three operations cover the whole chapter.</p>
+<h3>Transform of a derivative</h3>
+<div class="f"><b>L</b>{ y′ } = s Y(s) − y(0)</div>
+<div class="f"><b>L</b>{ y″ } = s² Y(s) − s y(0) − y′(0)</div>
+<p>Every initial condition must appear. A first-order equation brings one y(0); a second-order equation brings y(0) and y′(0), with the y(0) term multiplied by s. Omitting the initial-condition terms is the standard error, and it is easy to spot: if the transformed equation does not contain y(0) anywhere, the derivative rule has not been applied.</p>
+<h3>The final value theorem</h3>
+<div class="f">lim<sub>t→∞</sub> y(t) = lim<sub>s→0</sub> s Y(s)</div>
+<p>The theorem applies only when the poles of sY(s) lie strictly in the left half-plane, apart from a simple pole at s = 0. If sY(s) has a pole at a positive real value, or a pair of poles on the imaginary axis, the time function does not settle and the limit does not exist.</p>
+<h3>Reading the time-domain solution from the roots</h3>
+<p>For a linear constant-coefficient ODE with a constant forcing, the shape of the solution is decided entirely by the roots of the characteristic polynomial.</p>
+<div class="w"><table>
+<tr><th>Root type</th><th>Term in the solution</th><th>Behaviour</th></tr>
+<tr><td>r = 0 (simple)</td><td>constant</td><td>steady state</td></tr>
+<tr><td>r real, negative</td><td>C e<sup>rt</sup></td><td>decaying exponential, no oscillation</td></tr>
+<tr><td>r real, positive</td><td>C e<sup>rt</sup></td><td>growing exponential; unstable</td></tr>
+<tr><td>r = α ± βi</td><td>e<sup>αt</sup>( C<sub>1</sub> cos βt + C<sub>2</sub> sin βt )</td><td>oscillation; decays if α &lt; 0</td></tr>
+</table></div>
+
+<div class="ex"><b class="t">Worked 1.1: transforming an ODE with an initial condition</b><p class="q">Given the ODE 3 (dy/dt) + 6y = 9 with y(0) = 2, write the Laplace-domain expression.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — transform the left side term by term; the derivative carries y(0)</div>
+<div class="f"><b>L</b>{ 3 y′ } = 3 [ s Y(s) − y(0) ] = 3 [ s Y(s) − 2 ]</div>
+<div class="st">Step 2 — transform the algebraic term</div>
+<div class="f"><b>L</b>{ 6y } = 6 Y(s)</div>
+<div class="st">Step 3 — transform the constant forcing</div>
+<div class="f"><b>L</b>{ 9 } = <span class="fr"><i>9</i><i>s</i></span></div>
+<div class="st">Step 4 — assemble</div>
+<div class="f"><b>3( s Y(s) − 2 ) + 6 Y(s) = <span class="fr"><i>9</i><i>s</i></span></b></div>
+<div class="cap">The answer without the −2 is the transform of the homogeneous problem with zero initial condition, not of the problem as stated. The initial condition is not a decoration; it changes the algebra. Once the expression is written, Y(s) can be isolated for the inverse transform: Y(s) = (9/s + 6)/(3s + 6).</div>
+<div class="lg"><b>Variables</b>
+<span><i>y</i>(<i>t</i>) — the unknown time-domain function</span>
+<span><i>Y</i>(<i>s</i>) — its Laplace transform</span>
+<span><i>y</i>(0) — the initial value of y; here 2</span>
+<span><i>s</i> — the transform variable</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.2: the steady-state value from the final value theorem</b><p class="q">A transformed output is Y(s) = (3s + 6)/[s(2s + 6)]. Without performing the inverse transform, find the steady-state value of y(t) as t → ∞.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — identify the poles of Y(s) to confirm the theorem applies</div>
+<div class="f">s = 0 (simple)   and   2s + 6 = 0   ⇒   s = −3</div>
+<div class="st">Step 2 — all poles lie in the left half-plane or at a simple pole at the origin, so the final value theorem is valid</div>
+<div class="f">conditions satisfied ✓</div>
+<div class="st">Step 3 — form sY(s); the factor s cancels the pole at the origin</div>
+<div class="f">s Y(s) = <span class="fr"><i>3s + 6</i><i>2s + 6</i></span></div>
+<div class="st">Step 4 — take the limit as s → 0</div>
+<div class="f">lim<sub>s→0</sub> <span class="fr"><i>3s + 6</i><i>2s + 6</i></span> = <span class="fr"><i>6</i><i>6</i></span></div>
+<div class="f"><b>y(∞) = 1</b></div>
+<div class="cap">The answer 3 comes from taking lim s→0 of Y(s) itself, which diverges to infinity because of the pole at the origin. The theorem requires the extra factor of s precisely to cancel that pole. A useful cross-check: the DC gain of (3s + 6)/(2s + 6) is 6/6 = 1, which matches.</div>
+<div class="lg"><b>Variables</b>
+<span><i>Y</i>(<i>s</i>) — the Laplace transform of the output</span>
+<span><i>y</i>(<i>t</i>) — the time-domain output</span>
+<span><i>s</i> — the transform variable</span>
+<span>pole — a value of s where the denominator of Y(s) is zero</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.3: the nature of a fourth-order solution</b><p class="q">The denominator of a transfer function is r(r + 2)(r + 3)(r + 4), with zero initial conditions. Describe the qualitative nature of the time-domain solution.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — list the roots</div>
+<div class="f">r = 0,   r = −2,   r = −3,   r = −4</div>
+<div class="st">Step 2 — read the qualitative behaviour of each root</div>
+<div class="f">r = 0 → constant (steady-state) term</div>
+<div class="f">r = −2, −3, −4 → three decaying exponentials</div>
+<div class="st">Step 3 — confirm there is no oscillation: all roots are real</div>
+<div class="f">no complex pair   ⇒   no sine or cosine terms</div>
+<div class="f"><b>y(t) = constant + C<sub>1</sub>e<sup>−2t</sup> + C<sub>2</sub>e<sup>−3t</sup> + C<sub>3</sub>e<sup>−4t</sup>, no oscillation</b></div>
+<div class="cap">A non-oscillatory answer is guaranteed the moment the roots are shown to be real. The presence of the zero root explains the constant term, and the constant forcing 1/s is what excites it. Had any factor been (r² + ω²), the solution would have contained a sustained oscillation; had any root been positive, it would have grown.</div>
+<div class="lg"><b>Variables</b>
+<span><i>r</i> — a root of the characteristic polynomial, i.e. a pole of the transfer function</span>
+<span><i>t</i> — time</span>
+<span><i>C</i><sub>1</sub>, <i>C</i><sub>2</sub>, <i>C</i><sub>3</sub> — constants fixed by the initial conditions</span>
+</div>
+</details></div>
+
+<h2 id="c2">2. Process Response</h2>
+<p>The dynamic behavior of a process is described by its transfer function. Three parameters define most models, and three relations connect them to the step response.</p>
+<h3>First-order processes</h3>
+<div class="f">G(s) = <span class="fr"><i>K</i><i>τ s + 1</i></span></div>
+<p>For a step of magnitude M applied at t = 0, starting from y(0) = 0:</p>
+<div class="f">y(t) = K M ( 1 − e<sup>−t/τ</sup> )</div>
+<p>The steady-state gain K is the final change in output divided by the step magnitude. The time constant τ is the time to reach 63.2 % of the final change.</p>
+<h3>Second-order processes</h3>
+<div class="f">G(s) = <span class="fr"><i>K</i><i>τ² s² + 2 ζ τ s + 1</i></span></div>
+<p>The damping ratio ζ decides the shape:</p>
+<div class="w"><table>
+<tr><th>ζ</th><th>Behaviour</th></tr>
+<tr><td>ζ &gt; 1</td><td>overdamped — no overshoot, slow approach</td></tr>
+<tr><td>ζ = 1</td><td>critically damped — fastest approach without overshoot</td></tr>
+<tr><td>0 &lt; ζ &lt; 1</td><td>underdamped — overshoots, oscillates, settles</td></tr>
+<tr><td>ζ = 0</td><td>undamped — sustained oscillation</td></tr>
+</table></div>
+<p>For an underdamped response the <b>overshoot</b> and <b>decay ratio</b> are read from the peaks:</p>
+<div class="f">OS = <span class="fr"><i>peak − final</i><i>final</i></span>,   DR = <span class="fr"><i>second peak − final</i><i>first peak − final</i></span></div>
+<h3>First-order plus dead time (FOPTD)</h3>
+<div class="f">G(s) = <span class="fr"><i>K e<sup>−θs</sup></i><i>τ s + 1</i></span></div>
+<p>The tangent-line method reads the parameters from a step-test curve: draw the tangent at the inflection point, and read where it crosses the baseline (that time is θ) and where it reaches the final value line (that time minus θ is τ).</p>
+<h3>Physical realizability</h3>
+<p>A transfer function is physically realizable only if the degree of the numerator does not exceed the degree of the denominator:</p>
+<div class="f">m ≤ n   (realizable),   m &gt; n   (not realizable)</div>
+<p>A numerator of higher degree than the denominator implies a response that anticipates the input — an impossible behaviour for a real process.</p>
+<h3>Dead time and the right-half-plane zero</h3>
+<p>A plug-flow pipe with volume V and flow q introduces a pure time delay:</p>
+<div class="f">G(s) = e<sup>−θs</sup>,   θ = <span class="fr"><i>V</i><i>q</i></span></div>
+<p>A zero at s = +a in the right half-plane produces <b>inverse response</b>: the output initially moves in the opposite direction to the input before settling to the correct final value.</p>
+
+<div class="ex"><b class="t">Worked 2.1: first-order step response</b><p class="q">A first-order system has K = 2 and τ = 5 min. A step of magnitude M = 4 is applied at t = 0. Find y(t) at t = 15 min.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write the first-order step response</div>
+<div class="f">y(t) = K M ( 1 − e<sup>−t/τ</sup> )</div>
+<div class="st">Step 2 — substitute the values</div>
+<div class="f">y(15) = 2 × 4 ( 1 − e<sup>−15/5</sup> ) = 8 ( 1 − e<sup>−3</sup> )</div>
+<div class="st">Step 3 — evaluate the exponential</div>
+<div class="f">e<sup>−3</sup> = 0.0498</div>
+<div class="st">Step 4 — complete the calculation</div>
+<div class="f">y(15) = 8 ( 1 − 0.0498 ) = 8 × 0.9502</div>
+<div class="f"><b>y(15) = 7.60 units</b></div>
+<div class="cap">The answer 3.80 comes from using K M = 8 and then halving it, or from an exponent slip. At t = 3τ the response has reached 95 % of its final value, so 7.6 out of a final 8 is the right order of magnitude.</div>
+<div class="lg"><b>Variables</b>
+<span><i>K</i> — steady-state gain, 2</span>
+<span><i>τ</i> — time constant, 5 min</span>
+<span><i>M</i> — step magnitude, 4</span>
+<span><i>t</i> — time, 15 min</span>
+<span><i>y</i>(<i>t</i>) — output at time t</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.2: overshoot and decay ratio</b><p class="q">An underdamped second-order process responds to a step input. The final steady-state value is 10 units above the initial value. The first peak is 14.5 units above the initial value; the second peak is 10.8 units above the initial value. Find the overshoot and the decay ratio.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — overshoot: the height of the first peak above the final value, divided by the final change</div>
+<div class="f">OS = <span class="fr"><i>14.5 − 10</i><i>10</i></span> = <span class="fr"><i>4.5</i><i>10</i></span></div>
+<div class="f"><b>OS = 0.45 = 45 %</b></div>
+<div class="st">Step 2 — decay ratio: the second peak above the final value divided by the first peak above the final value</div>
+<div class="f">DR = <span class="fr"><i>10.8 − 10</i><i>14.5 − 10</i></span> = <span class="fr"><i>0.8</i><i>4.5</i></span></div>
+<div class="f"><b>DR ≈ 0.178 ≈ 0.18</b></div>
+<div class="cap">The decay ratio is not the ratio of the peaks themselves (10.8/14.5 = 0.745); it is the ratio of their <i>excesses</i> above the final value. A decay ratio of 0.18 means each successive peak is only 18 % as large as the previous one — a fairly well-damped response. The overshoot of 0.45 corresponds to a damping ratio of about ζ ≈ 0.24 from the standard chart.</div>
+<div class="lg"><b>Variables</b>
+<span>final — steady-state change, 10 units</span>
+<span>peak 1, peak 2 — first and second peak heights above the initial value, 14.5 and 10.8</span>
+<span>OS — overshoot, dimensionless</span>
+<span>DR — decay ratio, dimensionless</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.3: FOPTD parameters from a step test</b><p class="q">A step test yields a process reaction curve for an FOPTD model. The tangent at the inflection point crosses the baseline (y = 0) at t = 3.5 min and crosses the y/KM = 1 line at t = 11.5 min. The output's final steady-state change is 6 units for a step of magnitude M = 2. Find θ, τ, and K.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the dead time is the time at which the tangent crosses the baseline</div>
+<div class="f">θ = 3.5 min</div>
+<div class="st">Step 2 — the time constant is the difference between the two crossing times</div>
+<div class="f">τ = 11.5 − 3.5 = 8.0 min</div>
+<div class="st">Step 3 — the gain is the final change in output divided by the step magnitude</div>
+<div class="f">K = <span class="fr"><i>6</i><i>2</i></span> = 3</div>
+<div class="f"><b>θ = 3.5 min, τ = 8.0 min, K = 3</b></div>
+<div class="cap">The answer K = 12 comes from multiplying the change by the step magnitude instead of dividing. The gain is output change per unit input change, so 6 units of output for 2 units of input is a gain of 3, not 12.</div>
+<div class="lg"><b>Variables</b>
+<span><i>θ</i> — dead time, min</span>
+<span><i>τ</i> — time constant, min</span>
+<span><i>K</i> — steady-state gain</span>
+<span><i>M</i> — step magnitude, 2</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.4: steady-state gain from a step change</b><p class="q">A step input of magnitude M = 3 is applied to a process. The output starts at y = 10 and eventually reaches a new steady state of y = 25. Find the steady-state gain K.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the change in output is the difference between the final and initial values</div>
+<div class="f">Δy = 25 − 10 = 15</div>
+<div class="st">Step 2 — the gain is the output change divided by the input change</div>
+<div class="f">K = <span class="fr"><i>Δy</i><i>M</i></span> = <span class="fr"><i>15</i><i>3</i></span></div>
+<div class="f"><b>K = 5</b></div>
+<div class="cap">The gain is dimensionless here because both the input and the output are in the same kind of unit. If the output were in degrees and the input in percent, the gain would carry units of degrees per percent — always check the units.</div>
+<div class="lg"><b>Variables</b>
+<span>Δ<i>y</i> — change in output, 15</span>
+<span><i>M</i> — step magnitude, 3</span>
+<span><i>K</i> — steady-state gain, 5</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.5: physical realizability</b><p class="q">A proposed transfer function is G(s) = (4s² + 2s + 7)/(s + 3). According to the concept of physical realizability, what is the issue?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — read the degree of the numerator</div>
+<div class="f">m = 2   (the highest power of s in the numerator is s²)</div>
+<div class="st">Step 2 — read the degree of the denominator</div>
+<div class="f">n = 1   (the highest power of s in the denominator is s)</div>
+<div class="st">Step 3 — apply the realizability condition</div>
+<div class="f">m ≤ n required;   here m = 2 &gt; n = 1</div>
+<div class="f"><b>Not physically realizable: the numerator order exceeds the denominator order</b></div>
+<div class="cap">A transfer function with m &gt; n would require the output to anticipate the input — it would respond before the input changes, which no physical device can do. The rule m ≤ n is necessary but not sufficient: even with m ≤ n, a right-half-plane pole makes the system unstable, and a right-half-plane zero gives inverse response, but neither of those is a realizability problem.</div>
+<div class="lg"><b>Variables</b>
+<span><i>m</i> — degree of the numerator polynomial</span>
+<span><i>n</i> — degree of the denominator polynomial</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.6: interacting and noninteracting capacities</b><p class="q">Two identical tanks with τ = 4 min each are arranged in series. In Case X they are noninteracting; in Case Y the liquid levels interact. Compare the damping and the speed of response.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — noninteracting tanks: the transfer function is the product of the two first-order terms</div>
+<div class="f">G<sub>X</sub>(s) = <span class="fr"><i>1</i><i>( 4s + 1 )( 4s + 1 )</i></span> = <span class="fr"><i>1</i><i>16 s² + 8 s + 1</i></span></div>
+<div class="st">Step 2 — compare with the standard second-order form to read ζ</div>
+<div class="f">τ² = 16 → τ = 4,   2 ζ τ = 8 → ζ = 1</div>
+<div class="f">Case X: critically damped (ζ = 1)</div>
+<div class="st">Step 3 — interacting tanks: the second tank's level affects the first tank's outflow, adding an extra term to the denominator</div>
+<div class="f">G<sub>Y</sub>(s) = <span class="fr"><i>1</i><i>τ² s² + ( 2τ + τ²/R ) s + 1</i></span></div>
+<div class="st">Step 4 — with the given τ = 4 and the interaction term, the coefficient of s is larger than 8, so ζ &gt; 1</div>
+<div class="f">Case Y: overdamped (ζ ≈ 1.25)</div>
+<div class="st">Step 5 — an overdamped system approaches its final value more slowly than a critically damped one with the same natural frequency</div>
+<div class="f"><b>Case Y: ζ ≈ 1.25, and it responds more slowly than Case X</b></div>
+<div class="cap">The key values are ζ = 1.25 and “more slowly” for Case Y. The exact 1.25 depends on the assumed value of the interaction resistance R, which the recorded stem does not give; the qualitative result — interacting tanks are more overdamped and slower — is the robust part. The wrong answer ζ = 0.5 would make the interacting case <i>faster</i>, which is backwards.</div>
+<div class="lg"><b>Variables</b>
+<span><i>τ</i> — time constant of each tank, 4 min</span>
+<span>ζ — damping ratio</span>
+<span><i>R</i> — interaction resistance between the tanks (not given in the stem)</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.7: a right-half-plane zero</b><p class="q">A process has a transfer function with a zero at s = +2 (in the right half-plane). A positive step change is applied to its input. Describe the initial behaviour of the output.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — a right-half-plane zero gives a term in the response of the form (1 − a e<sup>+t/τ</sup>) rather than (1 − a e<sup>−t/τ</sup>)</div>
+<div class="f">the exponential grows rather than decays in the transient</div>
+<div class="st">Step 2 — at small t the growing term dominates and pushes the output in the direction opposite to the eventual steady state</div>
+<div class="f">the output initially decreases</div>
+<div class="st">Step 3 — at large t the other terms dominate and the output settles to its correct positive final value</div>
+<div class="f"><b>The output initially decreases, then reverses and settles at a positive steady-state value</b></div>
+<div class="cap">This is called <b>inverse response</b>. It is not an oscillation — the output does not cross zero repeatedly, it simply starts off in the wrong direction before turning around. The physical origin is a competing fast and slow path through the process; the fast path initially dominates and pushes the output the wrong way. The answer “oscillates symmetrically” describes an underdamped second-order response, which is a different phenomenon.</div>
+<div class="lg"><b>Variables</b>
+<span><i>s</i> = +2 — the location of the zero in the complex plane</span>
+<span>right-half-plane — the region Re(s) &gt; 0</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.8: dead time in a plug-flow pipe</b><p class="q">A liquid with composition c₁(t) enters one end of a plug-flow pipe of volume V = 0.5 m³. The volumetric flow is q = 0.1 m³/min and the velocity profile is flat. Find the transfer function C₂′(s)/C₁′(s) relating outlet to inlet composition, and c₂(t) for a unit step starting at t = 0.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the transport delay is the residence time of the pipe</div>
+<div class="f">θ = <span class="fr"><i>V</i><i>q</i></span> = <span class="fr"><i>0.5</i><i>0.1</i></span> = 5 min</div>
+<div class="st">Step 2 — a pure delay in the Laplace domain is an exponential</div>
+<div class="f"><span class="fr"><i>C₂′(s)</i><i>C₁′(s)</i></span> = e<sup>−5s</sup></div>
+<div class="st">Step 3 — a unit step at the inlet is delayed by 5 min at the outlet; nothing arrives before the delay has elapsed</div>
+<div class="f">c₂(t) = 0 for t &lt; 5 min</div>
+<div class="f">c₂(t) = 1 for t ≥ 5 min</div>
+<div class="f"><b>G(s) = e<sup>−5s</sup>;   c₂(t) = 0 (t &lt; 5),   1 (t ≥ 5)</b></div>
+<div class="cap">The dead time is not an approximation — it is exact for a plug-flow pipe with no axial mixing. A real pipe has some axial dispersion, which rounds the step slightly, but the plug-flow idealization is the standard textbook model and is what the question expects.</div>
+<div class="lg"><b>Variables</b>
+<span><i>V</i> — pipe volume, 0.5 m³</span>
+<span><i>q</i> — volumetric flow, 0.1 m³/min</span>
+<span>θ — dead time, 5 min</span>
+<span>c₁, c₂ — inlet and outlet compositions</span>
+</div>
+</details></div>
+
+<h2 id="c3">3. Control Loops</h2>
+<p>A control loop connects sensors, controllers and final control elements to hold a process variable at its set point. The architecture questions in the exam are mostly conceptual, and a small vocabulary of standard terms covers them.</p>
+<h3>Classification of variables</h3>
+<p>The inputs to a process are divided into two classes:</p>
+<ul>
+<li><b>Manipulated variables</b> — the inputs the control system can adjust (valve position, pump speed, heater power).</li>
+<li><b>Disturbances</b> — the inputs the control system cannot adjust (feed composition, ambient temperature, upstream pressure).</li>
+</ul>
+<p>The outputs are the <b>controlled variables</b>, the ones held at their set points. The phrase “input variables” refers to manipulated variables and disturbances, not to controlled variables, which are outputs.</p>
+<h3>Simple control modes</h3>
+<p>Two binary-style modes appear in the questions.</p>
+<div class="w"><table>
+<tr><th>Mode</th><th>Action</th><th>When used</th></tr>
+<tr><td>On/off (two-position)</td><td>Output is either fully on or fully off; the valve is either open or closed</td><td>Slow cycling is acceptable — the equipment can start and stop, or a valve can open and close, without harm</td></tr>
+<tr><td>Split-range</td><td>One controller output is split to drive two or more manipulated variables in sequence</td><td>One output variable is controlled by several manipulated variables, each taking over in its own range</td></tr>
+</table></div>
+<p>On/off control is the simplest and cheapest mode. Its disadvantage is that it always cycles, because the process must cross the set point before the controller switches. If the cycling is slow enough for the equipment, it is perfectly acceptable; if it is not, a continuous mode (P, PI, PID) is needed.</p>
+<h3>Multivariable systems and the RGA</h3>
+<p>Most industrial processes have several controlled variables and several manipulated variables. The question is which manipulated variable should drive which controlled variable — the <b>pairing</b> problem. The most widely used tool is the <b>relative gain array</b> (RGA):</p>
+<div class="f">λ<sub>ij</sub> = <span class="fr"><i>open-loop gain from u<sub>j</sub> to y<sub>i</sub></i><i>closed-loop gain from u<sub>j</sub> to y<sub>i</sub> (all other loops closed)</i></span></div>
+<p>A pairing with λ close to 1 is preferred; a pairing with λ close to 0 is to be avoided; a negative λ indicates that the loop will be unstable or strongly interacting. The RGA is computed from the steady-state gain matrix of the process.</p>
+<p>When the process is genuinely <b>noninteracting</b> — each input affects exactly one output and no others — the RGA is the identity matrix and the pairing is trivial. The wrong answer “interacting because MIMO” confuses the number of inputs with the amount of interaction.</p>
+<h3>Steady-state optimization</h3>
+<p>Steady-state optimization is the real-time evaluation of the process operating conditions and the adjustment of the controlled variables to meet business objectives — minimizing cost, maximizing throughput, or meeting a product specification. It sits above the regulatory control layer: the regulatory layer holds variables at their set points, and the optimization layer decides what those set points should be.</p>
+<h3>Discrete measurements</h3>
+<p>A discrete (on/off) measurement indicates only whether a threshold has been crossed. A level switch that reports “liquid present” at a specific height is discrete. A continuous measurement gives a numerical value across a range — an oxygen analyser reporting ppm, a thermocouple reporting a temperature, a pressure transmitter reporting a pressure. The distinction is whether the instrument has an internal threshold or an internal analogue-to-digital conversion across a range.</p>
+<h3>Dead time and the Smith predictor</h3>
+<p>Dead time (transport delay) is the enemy of feedback control, because the controller cannot see the effect of its own action until the delay has elapsed. The most common algorithm for compensating dead time is the <b>Smith predictor</b>: it runs an internal model of the process without the delay, predicts what the output would be in the absence of the delay, and feeds that prediction to the controller. The controller then acts on the predicted, undelayed signal rather than on the actual, delayed one.</p>
+
+<div class="ex"><b class="t">Worked 3.1: on/off control</b><p class="q">A controller is preferred when slow cycling is acceptable — the equipment can run and shut alternately to keep the manipulated variable within an acceptable range. Which control mode is this?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the description is of a two-position action: the final element is either fully open or fully closed</div>
+<div class="f">output = 100 % or 0 %</div>
+<div class="st">Step 2 — the mode that produces this action is on/off (two-position) control</div>
+<div class="f"><b>On/off control</b></div>
+<div class="cap">The cycling is inherent: the process must cross the set point before the controller switches, so the variable oscillates around the set point. If the oscillation is acceptable — for instance in a domestic refrigerator or a simple tank level — the mode is perfectly adequate. If it is not, a continuous mode is needed.</div>
+<div class="lg"><b>Variables</b>
+<span>output — controller output signal, 0 or 100 %</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.2: split-range control</b><p class="q">A control system changes multiple manipulated variables to control one output variable. What is this called?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — one output variable, several manipulated variables, each taking over in its own range</div>
+<div class="f">controller output → split into two or more signals</div>
+<div class="st">Step 2 — the standard name for this arrangement is split-range control</div>
+<div class="f"><b>Split-range control</b></div>
+<div class="cap">A classic example is a temperature loop with both a heating valve and a cooling valve: below the set point the controller opens the heating valve, above it the controller opens the cooling valve. The two valves are driven in sequence from one controller output, so the loop controls one variable with two manipulated variables. MIMO control is a different concept — it has several controlled variables as well as several manipulated variables.</div>
+<div class="lg"><b>Variables</b>
+<span>manipulated variable — the input the controller can adjust</span>
+<span>controlled variable — the output the controller holds at its set point</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.3: input variable classification</b><p class="q">The input variables of a process can be classified into which two groups?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the inputs are the signals that affect the process from outside</div>
+<div class="f">inputs = everything the process sees from outside</div>
+<div class="st">Step 2 — the control system can adjust some of them and cannot adjust others</div>
+<div class="f">adjustable → manipulated variables</div>
+<div class="f">not adjustable → disturbances</div>
+<div class="f"><b>Manipulated variables and disturbances</b></div>
+<div class="cap">Controlled variables are <i>outputs</i>, not inputs, so the classification “process variables and controlled variables” mixes the two sides of the loop. The distinction manipulated/disturbance is exactly the distinction between what the controller can do something about and what it must simply reject.</div>
+<div class="lg"><b>Variables</b>
+<span>manipulated variable — an input the controller adjusts</span>
+<span>disturbance — an input the controller cannot adjust</span>
+<span>controlled variable — an output held at its set point</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.4: the relative gain array</b><p class="q">Most industrial facilities control multiple variables with multiple manipulated variables. The most popular method for determining the best controller pairing is called what?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the pairing problem is to decide which manipulated variable should drive which controlled variable</div>
+<div class="f">pairing u<sub>j</sub> with y<sub>i</sub></div>
+<div class="st">Step 2 — the standard tool measures the ratio of open-loop to closed-loop gain for each candidate pairing</div>
+<div class="f">λ<sub>ij</sub> = (open-loop gain)/(closed-loop gain)</div>
+<div class="st">Step 3 — the array of these ratios is the relative gain array</div>
+<div class="f"><b>Relative gain array (RGA) method</b></div>
+<div class="cap">The RGA is preferred over “process interaction minimization” because the latter is a vague description rather than a method. The RGA gives a number for each candidate pairing, and the rule — pair on λ closest to 1, avoid λ &lt; 0 — turns the choice into a calculation rather than a judgement call.</div>
+<div class="lg"><b>Variables</b>
+<span>λ<sub>ij</sub> — the relative gain for the pairing of input j with output i</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.5: steady-state optimization</b><p class="q">What is meant by steady-state optimization?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — optimization is not the same as dynamic control; it decides <i>what</i> the set points should be, not how to hold them</div>
+<div class="f">optimization layer → set points → regulatory layer</div>
+<div class="st">Step 2 — the standard definition is the real-time evaluation of process operating conditions and adjustment of controlled variables to meet business objectives</div>
+<div class="f"><b>Real-time evaluation of process operating conditions and adjustment of controlled variables to attain business objectives</b></div>
+<div class="cap">The distractor “reduction of irrelevant controlled variables to construct an effective dynamic control system” describes a different activity — control structure selection, not optimization. Steady-state optimization sits above the control layer and decides the targets; the control layer then works to hit them.</div>
+<div class="lg"><b>Variables</b>
+<span>business objective — cost, throughput, product quality specification</span>
+<span>set point — the target value for a controlled variable</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.6: discrete measurements</b><p class="q">Which instrument is most likely to indicate a discrete measurement: (A) a thermocouple, (B) a level sensor that detects the presence of liquid at a specific level, (C) an industrial sensor that detects excess O₂ at a furnace effluent?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — a discrete measurement has only two states: threshold crossed or not crossed</div>
+<div class="f">discrete = {0, 1}, {on, off}, {present, absent}</div>
+<div class="st">Step 2 — the level sensor reports only “liquid is at this level” or “liquid is not at this level”</div>
+<div class="f">(B) is discrete</div>
+<div class="st">Step 3 — the thermocouple and the oxygen analyser report numerical values across a range</div>
+<div class="f">(A) and (C) are continuous</div>
+<div class="f"><b>The level sensor (B)</b></div>
+<div class="cap">The oxygen analyser is a continuous instrument even though the question asks about “excess” — the word “excess” may suggest a threshold, but the instrument itself reports a concentration value. The level switch is a true two-state device.</div>
+<div class="lg"><b>Variables</b>
+<span>discrete — measurement with two states only</span>
+<span>continuous — measurement with a numerical value across a range</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.7: Smith predictor for dead time</b><p class="q">Time delays limit the effectiveness of PID feedback control. The most common algorithm used in compensating for time delay is what?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the problem with a delay is that the controller sees the effect of its action only after the delay has elapsed</div>
+<div class="f">controller → process with delay θ → sensor → back to controller</div>
+<div class="st">Step 2 — the standard remedy is an internal model of the process without the delay, used to predict the undelayed output</div>
+<div class="f">prediction → controller</div>
+<div class="st">Step 3 — the algorithm that does this is the Smith predictor</div>
+<div class="f"><b>Smith predictor</b></div>
+<div class="cap">The Smith predictor works well when the process model is accurate and when the dead time is not too large relative to the time constant. When the model is wrong, the predictor can make the loop worse than a plain PID; that is why practical implementations combine it with a detuning factor. The concept is the important part: compensate for delay by predicting the future output, not by reacting to the stale one.</div>
+<div class="lg"><b>Variables</b>
+<span>θ — dead time of the process</span>
+</div>
+</details></div>
+
+<h2 id="c4">4. Formula summary</h2>
+<p>Perry's column: <i>Perry's Chemical Engineers' Handbook</i>, 9th edition, contains the process-control material in <b>Section 8 (Process Control)</b>. I could not verify the subsection or page numbers, so the column states the section and marks the finer location as unverified. Entries marked “not in Perry's” are standard results that I could not confirm are tabulated as such.</p>
+<div class="w"><table>
+<tr><th>Formula</th><th>Use</th><th>Perry's 9th ed.</th></tr>
+<tr><td><div class="f">L{ y′ } = sY(s) − y(0)</div></td><td>Transform of a derivative</td><td>Sec. 8 — Laplace transforms; location unverified</td></tr>
+<tr><td><div class="f">lim<sub>t→∞</sub> y(t) = lim<sub>s→0</sub> sY(s)</div></td><td>Final value theorem</td><td>Sec. 8 — Laplace transforms; location unverified</td></tr>
+<tr><td><div class="f">G(s) = K/(τs + 1)</div></td><td>First-order transfer function</td><td>Sec. 8 — process dynamics; location unverified</td></tr>
+<tr><td><div class="f">y(t) = KM(1 − e<sup>−t/τ</sup>)</div></td><td>First-order step response</td><td>Sec. 8 — process dynamics; location unverified</td></tr>
+<tr><td><div class="f">G(s) = K/(τ²s² + 2ζτs + 1)</div></td><td>Second-order transfer function</td><td>Sec. 8 — process dynamics; location unverified</td></tr>
+<tr><td><div class="f">OS = (peak − final)/final</div></td><td>Overshoot</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">DR = (peak₂ − final)/(peak₁ − final)</div></td><td>Decay ratio</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">G(s) = Ke<sup>−θs</sup>/(τs + 1)</div></td><td>FOPTD model</td><td>Sec. 8 — process identification; location unverified</td></tr>
+<tr><td><div class="f">m ≤ n for realizability</div></td><td>Physical realizability</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">θ = V/q for plug flow</div></td><td>Dead time of a plug-flow pipe</td><td>Sec. 8 — dead time; location unverified</td></tr>
+<tr><td><div class="f">λ<sub>ij</sub> = (open-loop gain)/(closed-loop gain)</div></td><td>Relative gain array element</td><td>Sec. 8 — multivariable control; location unverified</td></tr>
+<tr><td><div class="f">on/off: output = 100 % or 0 %</div></td><td>Two-position control</td><td>Sec. 8 — control modes; location unverified</td></tr>
+<tr><td><div class="f">split-range: one controller → several manipulated variables in sequence</div></td><td>Split-range control</td><td>Sec. 8 — control modes; location unverified</td></tr>
+<tr><td><div class="f">inputs = manipulated variables + disturbances</div></td><td>Classification of inputs</td><td>Sec. 8 — control fundamentals; location unverified</td></tr>
+<tr><td><div class="f">Smith predictor: internal model without delay</div></td><td>Dead-time compensation</td><td>Sec. 8 — dead-time compensation; location unverified</td></tr>
+</table></div>
+
+<h2 id="c5">5. Answer-bank flags</h2>
+<p>Every keyed answer in the three concepts was recomputed. All keys stand. The notes below give the verification and the one place where the recorded stem is garbled.</p>
+<div class="w"><table>
+<tr><th>Item</th><th>Concern</th></tr>
+<tr><td><b>Laplace</b> — final value theorem (key: 1)</td><td>Verified: lim s→0 sY(s) = lim (3s + 6)/(2s + 6) = 6/6 = 1. The 3 distractor comes from taking lim s→0 of Y(s) itself, which diverges because of the pole at the origin.</td></tr>
+<tr><td><b>Laplace</b> — ODE initial condition (key: 3(sY − 2) + 6Y = 9/s)</td><td>Verified. The option without the −2 is the transform of the same equation with zero initial condition, which is a different problem.</td></tr>
+<tr><td><b>Laplace</b> — fourth-order root nature (key: constant plus three decaying exponentials, no oscillation)</td><td>Verified for the intended polynomial r(r + 2)(r + 3)(r + 4), whose roots are 0, −2, −3, −4. The recorded stem's derivative notation is garbled (yʺʺ + 9yʺ + 26ÿ + 24ẏ = 1); the intended characteristic polynomial is r⁴ + 9r³ + 26r² + 24r, which factors as above. The key matches that polynomial.</td></tr>
+<tr><td><b>Process Response</b> — proportional element (key: instantaneous dynamic response)</td><td>Verified. A proportional element has no dynamics — its output is a constant multiple of its input at every instant.</td></tr>
+<tr><td><b>Process Response</b> — interacting tanks (key: ζ = 1.25, slower)</td><td>Verified qualitatively: noninteracting identical tanks give ζ = 1 (critically damped), and interacting tanks give ζ &gt; 1 (overdamped) and therefore respond more slowly. The exact 1.25 depends on an interaction resistance that the recorded stem does not give; the qualitative result is the robust part.</td></tr>
+<tr><td><b>Process Response</b> — 3×3 no cross-effects (key: noninteracting)</td><td>Verified. No input affects more than one output, so the process is noninteracting and the RGA is the identity matrix.</td></tr>
+<tr><td><b>Process Response</b> — interacting capacities always (key: overdamped)</td><td>Verified. Interacting capacities produce a damping ratio greater than 1, i.e. an overdamped response. Noninteracting capacities can be critically damped or overdamped.</td></tr>
+<tr><td><b>Process Response</b> — FOPTD parameters (key: θ = 3.5, τ = 8.0, K = 3)</td><td>Verified: θ is the baseline crossing time, τ is the difference between the two crossing times, and K = 6/2 = 3. The K = 12 distractor multiplies instead of dividing.</td></tr>
+<tr><td><b>Process Response</b> — RHP zero (key: initially decreases, then settles positive)</td><td>Verified. A zero at s = +2 produces inverse response. The “oscillates symmetrically” distractor describes an underdamped second-order response, which is a different phenomenon.</td></tr>
+<tr><td><b>Process Response</b> — noninteracting capacities (key: overdamped, critically damped)</td><td>Verified. The noninteracting product of first-order terms has ζ ≥ 1.</td></tr>
+<tr><td><b>Process Response</b> — first-order at t = 15 min (key: 7.60)</td><td>Verified: y = 2 × 4 × (1 − e<sup>−3</sup>) = 8 × 0.9502 = 7.60.</td></tr>
+<tr><td><b>Process Response</b> — overshoot and decay ratio (key: OS = 0.45, DR = 0.18)</td><td>Verified: OS = 4.5/10 = 0.45; DR = 0.8/4.5 = 0.178.</td></tr>
+<tr><td><b>Process Response</b> — steady-state gain (key: 5)</td><td>Verified: Δy/M = 15/3 = 5.</td></tr>
+<tr><td><b>Process Response</b> — underdamped second order (key: overshoots, oscillates, settles)</td><td>Verified: ζ = 0.4 &lt; 1 gives underdamped behaviour.</td></tr>
+<tr><td><b>Process Response</b> — realizability (key: numerator order exceeds denominator)</td><td>Verified: m = 2 &gt; n = 1, not realizable.</td></tr>
+<tr><td><b>Process Response</b> — plug-flow dead time (key: e<sup>−5s</sup>, step at t ≥ 5)</td><td>Verified: θ = V/q = 5 min.</td></tr>
+<tr><td><b>Process Response</b> — zeros exceed poles (key: not realizable)</td><td>Verified: m = 3 &gt; n = 2.</td></tr>
+<tr><td><b>Control Loops</b> — RGA method (key: relative gain array)</td><td>Verified. The RGA is the standard pairing tool; “process interaction minimization” is a description, not a method.</td></tr>
+<tr><td><b>Control Loops</b> — steady-state optimization (key: real-time evaluation and adjustment to business objectives)</td><td>Verified. Optimization sets the targets; the regulatory layer holds them.</td></tr>
+<tr><td><b>Control Loops</b> — split-range (key: split-range control)</td><td>Verified. One output variable, several manipulated variables in sequence.</td></tr>
+<tr><td><b>Control Loops</b> — slow cycling acceptable (key: on/off control)</td><td>Verified. The two-position mode is the one that cycles by design.</td></tr>
+<tr><td><b>Control Loops</b> — input classification (key: manipulated variables and disturbances)</td><td>Verified. Controlled variables are outputs, not inputs.</td></tr>
+<tr><td><b>Control Loops</b> — discrete measurement (key: level sensor detecting presence at a specific level)</td><td>Verified. A level switch is a two-state device; a thermocouple and an oxygen analyser are continuous.</td></tr>
+<tr><td><b>Control Loops</b> — dead-time compensation (key: Smith predictor)</td><td>Verified. The Smith predictor uses an internal model without the delay to feed the controller a prediction rather than the stale signal.</td></tr>
+<tr><td>Perry's 9th edition locations</td><td>Only the section-level pointer (Section 8, Process Control) is asserted. Subsection and page numbers are marked unverified because I could not check a physical copy. Verify against the tab before citing.</td></tr>
+</table></div>
+
+<h3>Your tags, applied</h3>
+<ul>
+<li><b>Source:</b> the process-control chapters of a standard text (Seborg–Edgar–Mellichamp, <i>Process Dynamics and Control</i>; or Stephanopoulos, <i>Chemical Process Control</i>), specifically: Laplace transforms and the final value theorem; transfer functions for first- and second-order processes; FOPTD identification; physical realizability; interacting and noninteracting capacities; right-half-plane zeros and inverse response; dead time and the Smith predictor; classification of process inputs; on/off and split-range control; and the relative gain array for controller pairing. Edition and section numbers were not checked. For Perry's, open the 9th edition at Section 8 and confirm the subsections yourself.</li>
+<li><b>Drill (3–5 closed-book reps, units written every time):</b> (a) transform a first-order ODE carrying its initial condition, and then find the steady-state value by the final value theorem; (b) factor a characteristic polynomial and state the qualitative behaviour of each root; (c) compute a first-order step response at a specified time, writing the exponential on its own line; (d) compute overshoot and decay ratio from the peak values, taking the excesses above the final value; (e) read FOPTD parameters from a tangent-line step test, showing θ and τ on separate lines; (f) write the RGA definition and state the pairing rule.</li>
+<li><b>Retrieval:</b> I cannot see your cards. Test yourself on: why the final value theorem needs the extra factor of s; why a right-half-plane zero gives inverse response while a right-half-plane pole gives instability; why interacting capacities are more overdamped than noninteracting ones; why a transfer function with more zeros than poles is not realizable; why on/off control always cycles; why the RGA is preferred over an intuitive pairing; and what the Smith predictor actually predicts.</li></ul>
+
+<div class="box"><b>Pre-submit line:</b> Carry every initial condition through the derivative rule; before applying the final value theorem, check that the poles of sF(s) are in the left half-plane apart from a simple pole at the origin; for a second-order process, read ζ from the denominator and decide the response shape before computing anything; for a step test, read θ as the baseline crossing and τ as the difference between the two crossing times; for realizability, compare the numerator and denominator degrees; for a control loop, decide whether the question is about the variable classification, the mode, or the pairing — they use different vocabularies.</div>
+</main></body></html>
