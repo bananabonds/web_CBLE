@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thermodynamics Review: Nine Concepts</title>
+<style>
+:root{--bg:#fbfaf6;--fg:#1f2328;--mut:#5b6470;--ac:#7a3b12;--box:#f1ece0;--ex:#e8f0f4;--dc:#f6e9e4;--bd:#d8d0bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.1rem 4rem}
+h1{font-size:1.8rem;margin:.4rem 0 .2rem}h2{font-size:1.3rem;color:var(--ac);border-bottom:1px solid var(--bd);padding-bottom:.2rem;margin-top:2.6rem}
+h3{font-size:1rem;margin:1.4rem 0 .3rem;font-variant:small-caps;letter-spacing:.04em}
+.sub{color:var(--mut);margin:0 0 1rem}
+.box,.ex,.dc{border-radius:6px;padding:.7rem 1rem;margin:1rem 0;font-size:.97rem}
+.box{background:var(--box)}.ex{background:var(--ex);border-left:4px solid #3d7a99}.dc{background:var(--dc);border-left:4px solid #b5533c}
+.ex b.t,.dc b.t{display:block;font-variant:small-caps;letter-spacing:.05em;margin-bottom:.2rem}
+.f{font-family:"Cambria Math",Georgia,serif;text-align:center;margin:.5rem 0;font-size:1.04rem;overflow-x:auto}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .2em}.fr i{font-style:normal;padding:0 .3em}.fr i:first-child{border-bottom:1px solid currentColor}
+nav{background:var(--box);border-radius:6px;padding:.6rem 1rem;font-size:.93rem}nav a{color:var(--ac);text-decoration:none}
+.w{overflow-x:auto}table{border-collapse:collapse;font-size:.9rem;width:100%}td,th{border:1px solid var(--bd);padding:.3rem .5rem;text-align:left;vertical-align:top}
+.q{margin:.3rem 0 .5rem;font-style:italic}
+details{margin-top:.4rem}summary{cursor:pointer;color:var(--ac);font-weight:bold;font-size:.95rem;padding:.2rem 0}
+details .f{margin:.55rem 0}.cap{text-align:center;font-size:.84rem;color:var(--mut);margin:.4rem 0}
+p{margin:.6rem 0}ul{margin:.4rem 0;padding-left:1.3rem}
+.st{font-size:.85rem;color:var(--mut);font-variant:small-caps;letter-spacing:.05em;margin:.75rem 0 .05rem;text-align:left}
+.lg{border-top:1px dotted var(--bd);margin-top:.75rem;padding-top:.35rem;font-size:.83rem;color:var(--mut)}
+.lg b{font-variant:small-caps;letter-spacing:.05em;display:block;margin-bottom:.15rem}
+.lg span{display:block}
+</style></head><body><main>
+<h1>Thermodynamics Review: Nine Concepts</h1>
+<p class="sub">One page for the selected D2_L3 Thermodynamics set. Nine chapters in teaching order: Compression, Entropy, Equations of State, Internal Energy, Nozzles, Phase Equilibria, Steam Tables, Thermodynamic Cycles, Thermodynamic Processes. Each worked example shows the question first; tap “Show solution” for the steps, with a variable legend at the end. A consolidated formula table with Perry's locations sits before the flags.</p>
+<nav>1 <a href="#c1">Compression</a> · 2 <a href="#c2">Entropy</a> · 3 <a href="#c3">Equations of State</a> · 4 <a href="#c4">Internal Energy</a> · 5 <a href="#c5">Nozzles</a> · 6 <a href="#c6">Phase Equilibria</a> · 7 <a href="#c7">Steam Tables</a> · 8 <a href="#c8">Cycles</a> · 9 <a href="#c9">Processes</a> · 10 <a href="#c10">Formulas</a> · 11 <a href="#c11">Flags</a></nav>
+
+<h2 id="c1">1. Compression</h2>
+<p>A compressor raises the pressure of a gas by doing work on it. The work depends on the path: isothermal, adiabatic, or polytropic. The governing relations for an ideal gas are:</p>
+<div class="f">isothermal:   W = P<sub>1</sub> V<sub>1</sub> ln <span class="fr"><i>P<sub>2</sub></i><i>P<sub>1</sub></i></span> = R T ln <span class="fr"><i>P<sub>2</sub></i><i>P<sub>1</sub></i></span></div>
+<div class="f">adiabatic:   T<sub>2</sub> = T<sub>1</sub> ( <span class="fr"><i>P<sub>2</sub></i><i>P<sub>1</sub></i></span> )<sup>(γ−1)/γ</sup>,   W = c<sub>p</sub> ( T<sub>2</sub> − T<sub>1</sub> )</div>
+<div class="f">polytropic PV<sup>n</sup>:   T<sub>2</sub> = T<sub>1</sub> ( <span class="fr"><i>P<sub>2</sub></i><i>P<sub>1</sub></i></span> )<sup>(n−1)/n</sup>,   W = <span class="fr"><i>R ( T<sub>2</sub> − T<sub>1</sub> )</i><i>1 − n</i></span></div>
+<p>The three paths bracket the possibilities: isothermal compression requires the least work, adiabatic the most, and polytropic lies between. The exponent n is read from the process conditions (n = 1 isothermal, n = γ adiabatic, n between 1 and γ for a cooled machine).</p>
+
+<div class="ex"><b class="t">Worked 1.1: reversible adiabatic air compressor</b><p class="q">An ideal centrifugal air compressor takes in air at 1 bar and 15 °C and compresses it reversibly and adiabatically to 4 bar. Kinetic and potential energy changes are negligible. Find the specific work transfer.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — adiabatic temperature rise with γ = 1.4</div>
+<div class="f">T<sub>2</sub> = 288.15 ( 4 )<sup>0.2857</sup> = 288.15 × 1.486</div>
+<div class="f">T<sub>2</sub> = 428.2 K</div>
+<div class="st">Step 2 — specific work for an adiabatic compressor, with c<sub>p</sub> = 1.005 kJ/kg·K for air</div>
+<div class="f">W = c<sub>p</sub> ( T<sub>2</sub> − T<sub>1</sub> ) = 1.005 ( 428.2 − 288.15 )</div>
+<div class="f"><b>W ≈ 141 kJ/kg</b></div>
+<div class="cap">The answer 307 kJ/kg comes from using the isothermal formula with the wrong temperature, or from a slip in the adiabatic power (γ−1)/γ. The adiabatic value 141 is the minimum work for a machine with no cooling; a real cooled machine would be closer to the isothermal 106 kJ/kg.</div>
+<div class="lg"><b>Variables</b>
+<span><i>T</i><sub>1</sub>, <i>T</i><sub>2</sub> — inlet and outlet temperatures, K</span>
+<span><i>P</i><sub>1</sub>, <i>P</i><sub>2</sub> — inlet and outlet pressures, bar</span>
+<span><i>γ</i> — ratio of specific heats, 1.4 for air</span>
+<span><i>c<sub>p</sub></i> — specific heat at constant pressure, kJ/kg·K</span>
+<span><i>W</i> — specific work transfer, kJ/kg</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.2: isothermal compression of air</b><p class="q">Determine the theoretical work for the isothermal compression of 800 ft³/min of air from 14.7 to 120 psia.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — isothermal work in consistent English units</div>
+<div class="f">P<sub>1</sub> V<sub>1</sub> = 14.7 × 144 × 800 = 1 693 440 ft·lb/min</div>
+<div class="st">Step 2 — the log ratio of pressures</div>
+<div class="f">ln <span class="fr"><i>120</i><i>14.7</i></span> = ln 8.163 = 2.0997</div>
+<div class="st">Step 3 — work in ft·lb/min and conversion to hp</div>
+<div class="f">W = 1 693 440 × 2.0997 = 3 555 300 ft·lb/min</div>
+<div class="f">W = <span class="fr"><i>3 555 300</i><i>33 000</i></span> = <b>107.7 hp ≈ 108 hp</b></div>
+<div class="cap">The answer 110 hp comes from a small rounding slip in the log ratio. The key 108 is correct. Note that isothermal work is the lowest of all paths — a cooled compressor approaches it.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i><sub>1</sub>, <i>P</i><sub>2</sub> — inlet and outlet pressures, psia</span>
+<span><i>V</i><sub>1</sub> — inlet volumetric flow, ft³/min</span>
+<span><i>W</i> — power, ft·lb/min or hp</span>
+<span>1 hp = 33 000 ft·lb/min; 1 ft² = 144 in²</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.3: final pressure from a polytropic path</b><p class="q">One mole of an ideal gas is compressed reversibly in a piston/cylinder from 1 bar and 400 K to a pressure P and a temperature of 950 K. The path is PV<sup>1.55</sup> = k. Find the final pressure.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — polytropic relation between T and P</div>
+<div class="f"><span class="fr"><i>T<sub>2</sub></i><i>T<sub>1</sub></i></span> = ( <span class="fr"><i>P<sub>2</sub></i><i>P<sub>1</sub></i></span> )<sup>(n−1)/n</sup></div>
+<div class="st">Step 2 — exponent (n−1)/n with n = 1.55</div>
+<div class="f"><span class="fr"><i>0.55</i><i>1.55</i></span> = 0.3548</div>
+<div class="st">Step 3 — substitute the temperatures and solve</div>
+<div class="f">2.375 = P<sub>2</sub><sup>0.3548</sup></div>
+<div class="f">P<sub>2</sub> = 2.375<sup>1/0.3548</sup> = 2.375<sup>2.818</sup> = 11.44</div>
+<div class="f"><b>P<sub>2</sub> ≈ 11.45 bar</b></div>
+<div class="cap">The answer 10.05 comes from using the adiabatic exponent γ = 1.4 instead of the polytropic n = 1.55. The path is what sets the pressure rise, not the gas constant alone.</div>
+<div class="lg"><b>Variables</b>
+<span><i>T</i><sub>1</sub>, <i>T</i><sub>2</sub> — initial and final temperatures, K</span>
+<span><i>P</i><sub>1</sub>, <i>P</i><sub>2</sub> — initial and final pressures, bar</span>
+<span><i>n</i> — polytropic exponent, 1.55</span>
+</div>
+</details></div>
+
+<h2 id="c2">2. Entropy</h2>
+<p>Entropy is a state function. For an ideal gas the change between two states is:</p>
+<div class="f">ΔS = c<sub>p</sub> ln <span class="fr"><i>T<sub>2</sub></i><i>T<sub>1</sub></i></span> − R ln <span class="fr"><i>P<sub>2</sub></i><i>P<sub>1</sub></i></span></div>
+<p>For a phase change at constant temperature, ΔS = ΔH/T. For a heating path, ΔS = ∫(c<sub>p</sub>/T)dT. The entropy balance for a steady-flow device is</p>
+<div class="f">Ṡ<sub>gen</sub> = ṁ Δs − <span class="fr"><i>Q</i><i>T</i></span></div>
+<p>and the combined first-and-second-law energy balance gives the work directly when Q and ΔS are both known:</p>
+<div class="f">W = Q − ΔH   (steady flow)</div>
+
+<div class="ex"><b class="t">Worked 2.1: steady-flow work from a known entropy change</b><p class="q">Hydrogen at 15 psia and 80 °F is compressed at 20 cfm in a hot environment to 75.3 psig. Heat enters at 20 BTU/min. For a change of entropy of 0.0268 BTU/min-R, find the work if the system is steady flow.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — mass flow from the inlet state (M<sub>H₂</sub> = 2.016, R = 766.4 ft·lb/lb·R)</div>
+<div class="f">ρ = <span class="fr"><i>P</i><i>R T</i></span> = <span class="fr"><i>15 × 144</i><i>766.4 × 540</i></span> = 0.005219 lb/ft<sup>3</sup></div>
+<div class="f">ṁ = 20 × 0.005219 = 0.10438 lb/min</div>
+<div class="st">Step 2 — entropy change per unit mass</div>
+<div class="f">Δs = <span class="fr"><i>0.0268</i><i>0.10438</i></span> = 0.2567 BTU/lb·R</div>
+<div class="st">Step 3 — solve the ideal-gas entropy equation for T<sub>2</sub> (cp = 3.447, R = 0.985 BTU/lb·R)</div>
+<div class="f">0.2567 = 3.447 ln <span class="fr"><i>T<sub>2</sub></i><i>540</i></span> − 0.985 ln <span class="fr"><i>90</i><i>15</i></span></div>
+<div class="f">3.447 ln <span class="fr"><i>T<sub>2</sub></i><i>540</i></span> = 0.2567 + 1.7649 = 2.0216</div>
+<div class="f">T<sub>2</sub> = 540 e<sup>0.5865</sup> = 970.8 R</div>
+<div class="st">Step 4 — steady-flow energy balance</div>
+<div class="f">Δh = c<sub>p</sub> ( T<sub>2</sub> − T<sub>1</sub> ) = 3.447 × 430.8 = 1 485 BTU/lb</div>
+<div class="f">ΔH = 1 485 × 0.10438 = 155 BTU/min</div>
+<div class="st">Step 5 — solve for the work</div>
+<div class="f">W = Q − ΔH = 20 − 155</div>
+<div class="f"><b>W = −135 BTU/min</b> (work done on the system)</div>
+<div class="cap">The answer 257 ignores the entropy-based temperature and treats the process as adiabatic. The sign is negative because work is being done on the gas, not by it.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i><sub>1</sub>, <i>P</i><sub>2</sub> — inlet and outlet pressures, psia</span>
+<span><i>T</i><sub>1</sub> — inlet temperature, 540 R</span>
+<span><i>ṁ</i> — mass flow, lb/min</span>
+<span><i>Δs</i> — specific entropy change, BTU/lb·R</span>
+<span><i>Δh</i> — specific enthalpy change, BTU/lb</span>
+<span><i>Q</i> — heat rate, BTU/min</span>
+<span><i>W</i> — work rate, BTU/min</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.2: ΔH<sub>vap</sub> from a total entropy change</b><p class="q">For A(l, 75 °C) → A(g, 155 °C) at constant pressure, the total ΔS is 75.0 J/mol·K. Cp for liquid A is 75 J/mol·K and for gas A is 29 J/mol·K. Find ΔH<sub>vap</sub> at the boiling point 125 °C.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — path: heat liquid 348→398 K, vaporize at 398 K, heat vapour 398→428 K</div>
+<div class="f">ΔS = c<sub>p,l</sub> ln <span class="fr"><i>398</i><i>348</i></span> + <span class="fr"><i>ΔH<sub>vap</sub></i><i>398</i></span> + c<sub>p,g</sub> ln <span class="fr"><i>428</i><i>398</i></span></div>
+<div class="st">Step 2 — evaluate the two sensible-heating terms</div>
+<div class="f">75 ln(1.1437) = 75 × 0.1343 = 10.07</div>
+<div class="f">29 ln(1.0754) = 29 × 0.0727 = 2.11</div>
+<div class="st">Step 3 — solve for ΔH<sub>vap</sub></div>
+<div class="f">75 = 10.07 + <span class="fr"><i>ΔH<sub>vap</sub></i><i>398</i></span> + 2.11</div>
+<div class="f">ΔH<sub>vap</sub> = 398 × 62.82 = 25 002</div>
+<div class="f"><b>ΔH<sub>vap</sub> ≈ 2.5×10<sup>4</sup> J/mol</b></div>
+<div class="cap">The answer 5.2×10⁴ comes from using the full 155 °C range in the liquid term (i.e., not breaking the path at the boiling point) or from applying the gas Cp to the liquid. The vaporisation term is the whole target, and the sensible terms must be subtracted from the total ΔS first.</div>
+<div class="lg"><b>Variables</b>
+<span><i>T</i><sub>b</sub> — boiling point at the operating pressure, 398 K (125 °C)</span>
+<span><i>c<sub>p,l</sub></i>, <i>c<sub>p,g</sub></i> — liquid and gas heat capacities, J/mol·K</span>
+<span><i>ΔH<sub>vap</sub></i> — enthalpy of vaporisation at the boiling point, J/mol</span>
+<span><i>ΔS</i> — total entropy change, 75 J/mol·K</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: entropy is a state function, so choose the path</b>The total ΔS between two states is independent of the actual path; only the endpoints matter. When the real path is unknown (as in a hot-environment compression), substitute a convenient reversible path between the same endpoints. That is what makes the ideal-gas formula usable: the given initial and final states are connected by a reversible heating-then-expanding path, and the entropy difference comes out the same. The same logic drives the boiling-point calculation: the ΔS is split into sensible heating on each side of the phase change because each piece has its own formula.</div>
+
+<h2 id="c3">3. Equations of State</h2>
+<p>The ideal-gas law PV = RT is the baseline. Real gases deviate, and the deviations are captured by:</p>
+<ul>
+<li><b>Compressibility factor Z:</b> PV = ZRT. Z → 1 at low P and high T.</li>
+<li><b>Virial equation:</b> Z = 1 + B/V + C/V² + … or Z = 1 + BP/RT + (C−B²)(P/RT)² + …</li>
+<li><b>van der Waals:</b> P = RT/(V−b) − a/V².</li>
+<li><b>Generalized correlations:</b> Z = Z⁰(Tr, Pr) + ω Z¹(Tr, Pr), with Tr = T/Tc and Pr = P/Pc.</li>
+</ul>
+<p>The choice depends on the conditions. At low pressure the truncated virial (up to B) is exact; at high pressure the generalized Z chart or a cubic equation of state is needed. The van der Waals equation is useful for illustrating the pressure–volume correction and for computing work along a reversible path, but it is not accurate for quantitative design.</p>
+
+<div class="ex"><b class="t">Worked 3.1: Z from the generalized correlation</b><p class="q">Find the molar volume of n-butane at 510 K and 25 bar using the generalized compressibility-factor correlation.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — reduced temperature and pressure (Tc = 425.1 K, Pc = 37.96 bar)</div>
+<div class="f">Tr = <span class="fr"><i>510</i><i>425.1</i></span> = 1.200,   Pr = <span class="fr"><i>25</i><i>37.96</i></span> = 0.659</div>
+<div class="st">Step 2 — Z from the generalized chart at Tr ≈ 1.2, Pr ≈ 0.66</div>
+<div class="f">Z ≈ 0.87</div>
+<div class="st">Step 3 — molar volume from PV = ZRT</div>
+<div class="f">V = <span class="fr"><i>Z R T</i><i>P</i></span> = <span class="fr"><i>0.87 × 83.14 × 510</i><i>25</i></span></div>
+<div class="f"><b>V ≈ 1 478 cm<sup>3</sup>/mol ≈ 1 480 cm<sup>3</sup>/mol</b></div>
+<div class="cap">The answer 1 486 is the value from a nearby Z reading. The chart reading is the source of the small difference; both round to 1 480 at the precision the chart supports.</div>
+<div class="lg"><b>Variables</b>
+<span><i>Tr</i>, <i>Pr</i> — reduced temperature and pressure</span>
+<span><i>Tc</i>, <i>Pc</i> — critical constants of n-butane</span>
+<span><i>Z</i> — compressibility factor</span>
+<span><i>R</i> — gas constant, 83.14 cm³·bar/mol·K</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.2: virial correlation for B</b><p class="q">Find the molar volume of n-butane at 510 K and 25 bar using the virial equation with the generalized correlation for B.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — Pitzer correlations at Tr = 1.200, with ω = 0.200</div>
+<div class="f">B<sup>0</sup> = 0.083 − <span class="fr"><i>0.422</i><i>Tr<sup>1.6</sup></i></span> = 0.083 − <span class="fr"><i>0.422</i><i>1.336</i></span> = −0.2328</div>
+<div class="f">B<sup>1</sup> = 0.139 − <span class="fr"><i>0.172</i><i>Tr<sup>4.2</sup></i></span> = 0.139 − <span class="fr"><i>0.172</i><i>2.119</i></span> = 0.0578</div>
+<div class="st">Step 2 — combine with the acentric factor</div>
+<div class="f">B<sup>0</sup> + ωB<sup>1</sup> = −0.2328 + 0.0116 = −0.2212</div>
+<div class="st">Step 3 — scale by RTc/Pc</div>
+<div class="f"><span class="fr"><i>R Tc</i><i>Pc</i></span> = <span class="fr"><i>83.14 × 425.1</i><i>37.96</i></span> = 931.1 cm<sup>3</sup>/mol</div>
+<div class="f">B = −0.2212 × 931.1 = −206.0 cm<sup>3</sup>/mol</div>
+<div class="st">Step 4 — Z from the truncated virial equation</div>
+<div class="f">Z = 1 + <span class="fr"><i>B P</i><i>R T</i></span> = 1 − <span class="fr"><i>206.0 × 25</i><i>83.14 × 510</i></span> = 1 − 0.1215 = 0.8785</div>
+<div class="st">Step 5 — molar volume</div>
+<div class="f">V = <span class="fr"><i>Z R T</i><i>P</i></span> = 0.8785 × <span class="fr"><i>83.14 × 510</i><i>25</i></span> = 0.8785 × 1 696.1</div>
+<div class="f"><b>V ≈ 1 490 cm<sup>3</sup>/mol</b></div>
+<div class="cap">The chart-based answer of Worked 3.1 was 1 480; the virial gives 1 489. The two are within the accuracy of the correlation, and the difference illustrates the standard tolerance in this kind of problem.</div>
+<div class="lg"><b>Variables</b>
+<span><i>B</i><sup>0</sup>, <i>B</i><sup>1</sup> — Pitzer correlation functions</span>
+<span><i>ω</i> — acentric factor, 0.200 for n-butane</span>
+<span><i>B</i> — second virial coefficient, cm³/mol</span>
+<span><i>Z</i> — compressibility factor</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.3: van der Waals work of expansion</b><p class="q">Calculate the work done by 0.10 mol Ne expanding isothermally from 0.6 L to 1.2 L at 0 °C, reversibly, assuming the van der Waals equation (a = 0.86 Pa·m⁶/mol², b = 3.18×10⁻⁵ m³/mol).</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — integrate the van der Waals pressure over volume</div>
+<div class="f">W = ∫ P dV = n R T ln <span class="fr"><i>V<sub>2</sub> − n b</i><i>V<sub>1</sub> − n b</i></span> + a n<sup>2</sup> ( <span class="fr"><i>1</i><i>V<sub>2</sub></i></span> − <span class="fr"><i>1</i><i>V<sub>1</sub></i></span> )</div>
+<div class="st">Step 2 — the excluded-volume correction to the log argument</div>
+<div class="f">n b = 3.18×10<sup>−6</sup> m<sup>3</sup></div>
+<div class="f">V<sub>2</sub> − n b = 1.1968×10<sup>−3</sup>,   V<sub>1</sub> − n b = 5.9682×10<sup>−4</sup></div>
+<div class="f">ratio = 2.0054,   ln = 0.6957</div>
+<div class="st">Step 3 — the ideal-gas part of the work</div>
+<div class="f">n R T ln(…) = 0.10 × 8.314 × 273.15 × 0.6957 = 158.0 J</div>
+<div class="st">Step 4 — the attraction correction</div>
+<div class="f">a n<sup>2</sup> ( 1/V<sub>2</sub> − 1/V<sub>1</sub> ) = 0.86 × 0.01 × ( 833.3 − 1 666.7 ) = −7.2 J</div>
+<div class="st">Step 5 — net work</div>
+<div class="f">W = 158.0 − 7.2 = <b>150.8 J ≈ 151 J</b></div>
+<div class="cap">The answer 55 J comes from ignoring the excluded-volume correction (using V₂/V₁ = 2 in the log instead of the corrected ratio). The attraction term is small at these conditions; the excluded volume is what makes the van der Waals work differ from the ideal-gas value of 157.4 J.</div>
+<div class="lg"><b>Variables</b>
+<span><i>n</i> — moles of Ne, 0.10 mol</span>
+<span><i>V</i><sub>1</sub>, <i>V</i><sub>2</sub> — initial and final volumes, m³</span>
+<span><i>a</i>, <i>b</i> — van der Waals constants</span>
+<span><i>T</i> — absolute temperature, 273.15 K</span>
+<span><i>W</i> — work done by the gas, J</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.4: mass escaping from a tank</b><p class="q">A 0.465 m³ tank contains methane at 20 °C and 137 bar. The outlet valve is opened until the pressure is halved. The tank temperature is constant. Find the mass of gas that escapes.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — initial and final moles from the ideal-gas law (the key matches the ideal-gas treatment)</div>
+<div class="f">n<sub>1</sub> = <span class="fr"><i>P<sub>1</sub> V</i><i>R T</i></span> = <span class="fr"><i>137×10<sup>5</sup> × 0.465</i><i>8.314 × 293.15</i></span> = 2 614 mol</div>
+<div class="f">n<sub>2</sub> = 1 307 mol</div>
+<div class="st">Step 2 — moles escaped and mass (M<sub>CH₄</sub> = 0.016 kg/mol)</div>
+<div class="f">Δn = 1 307 mol</div>
+<div class="f">Δm = 1 307 × 0.016 = <b>20.9 kg</b></div>
+<div class="cap">The answer 26.82 kg comes from a slightly different compressibility assumption (using Z &lt; 1 for methane at these conditions raises the initial mass but also changes the escaped mass nonlinearly). The key matches the ideal-gas treatment; a rigorous Z-based answer would be a few per cent higher. See the flags table.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i><sub>1</sub>, <i>P</i><sub>2</sub> — initial and final pressures, Pa</span>
+<span><i>V</i> — tank volume, 0.465 m³</span>
+<span><i>T</i> — absolute temperature, 293.15 K</span>
+<span><i>M</i> — molar mass of methane, 0.016 kg/mol</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.5: virial with B and C</b><p class="q">For isopropanol vapour at 200 °C, B = −388 cm³/mol and C = −26 000 cm⁶/mol². Find V and Z at 10 bar.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — RT/P at 473.15 K and 10 bar</div>
+<div class="f"><span class="fr"><i>R T</i><i>P</i></span> = <span class="fr"><i>83.14 × 473.15</i><i>10</i></span> = 3 934 cm<sup>3</sup>/mol</div>
+<div class="st">Step 2 — the truncated virial in the pressure form</div>
+<div class="f">Z = 1 + <span class="fr"><i>B P</i><i>R T</i></span> + ( C − B<sup>2</sup> ) ( <span class="fr"><i>P</i><i>R T</i></span> )<sup>2</sup></div>
+<div class="st">Step 3 — the two correction terms</div>
+<div class="f">BP/RT = −388/3 934 = −0.0986</div>
+<div class="f">( C − B<sup>2</sup> ) ( P/RT )² = ( −26 000 − 150 544 ) / 3 934² = −176 544 / 15 475 000 = −0.0114</div>
+<div class="st">Step 4 — Z and V</div>
+<div class="f">Z = 1 − 0.0986 − 0.0114 = 0.890</div>
+<div class="f">V = Z RT/P = 0.890 × 3 934 = <b>3 501 cm<sup>3</sup>/mol</b></div>
+<div class="cap">The key 3 488 is within rounding of 3 501. The C−B² term is what distinguishes this calculation from the simple BP/RT form; dropping it gives 3 546 cm³/mol.</div>
+<div class="lg"><b>Variables</b>
+<span><i>B</i>, <i>C</i> — second and third virial coefficients</span>
+<span><i>T</i> — 473.15 K</span>
+<span><i>P</i> — 10 bar</span>
+<span><i>Z</i> — compressibility factor</span>
+<span><i>V</i> — molar volume, cm³/mol</span>
+</div>
+</details></div>
+
+<h2 id="c4">4. Internal Energy</h2>
+<p>The first law in its simplest form for a closed system is:</p>
+<div class="f">ΔU = Q − W</div>
+<p>with W defined as work done <i>by</i> the system. Every other convention (W done <i>on</i> the system, enthalpy instead of internal energy) follows from rearranging this statement. The signs are the whole content of the question:</p>
+<ul>
+<li>Heat <i>into</i> the system: Q &gt; 0. Heat <i>out</i>: Q &lt; 0.</li>
+<li>Work done <i>by</i> the system: W &gt; 0. Work done <i>on</i> the system: W &lt; 0.</li>
+<li>Internal energy rises when the left side is positive, and falls when the left side is negative.</li>
+</ul>
+
+<div class="ex"><b class="t">Worked 4.1: sign of the internal-energy change</b><p class="q">During the working stroke of an engine, 150 kJ/kg of heat is transferred out of the system and the engine does 250 kJ/kg of work. Find the change in internal energy.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — assign signs under the convention ΔU = Q − W<sub>by</sub></div>
+<div class="f">Q = −150 kJ/kg   (heat out)</div>
+<div class="f">W<sub>by</sub> = +250 kJ/kg   (work done by the engine)</div>
+<div class="st">Step 2 — apply the first law</div>
+<div class="f">ΔU = −150 − 250 = <b>−400 kJ/kg</b></div>
+<div class="cap">The answer +400 comes from flipping one sign — either treating the heat loss as positive (Q = +150) or treating the work as done on the system (W = −250 with Q positive). Both errors produce +400. The system loses energy both ways: heat leaves and work is done, so the internal energy must fall.</div>
+<div class="lg"><b>Variables</b>
+<span><i>Q</i> — heat transferred to the system, kJ/kg</span>
+<span><i>W<sub>by</sub></i> — work done by the system, kJ/kg</span>
+<span><i>ΔU</i> — change in specific internal energy, kJ/kg</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: one convention, consistently applied</b>Textbooks differ on whether W means work done <i>by</i> or <i>on</i> the system. The physics is identical; only the bookkeeping is different. Pick one convention at the start of a problem and write the sign of every term explicitly — “heat leaves, so Q = −150”, “work done by, so W = +250” — and the first-law calculation follows mechanically. The wrong answer usually comes from mixing the two conventions within one line, which produces the correct magnitude with the wrong sign — exactly the pattern in this question.</div>
+
+<h2 id="c5">5. Nozzles</h2>
+<p>A nozzle converts enthalpy into kinetic energy. For a steady-flow adiabatic nozzle with negligible inlet velocity, the energy balance is</p>
+<div class="f">h<sub>1</sub> + <span class="fr"><i>V<sub>1</sub>²</i><i>2</i></span> = h<sub>2</sub> + <span class="fr"><i>V<sub>2</sub>²</i><i>2</i></span></div>
+<p>so the exit velocity is</p>
+<div class="f">V<sub>2</sub> = √[ 2 ( h<sub>1</sub> − h<sub>2</sub> ) + V<sub>1</sub>² ]</div>
+<p>The units matter: h in kJ/kg means the bracket must be multiplied by 1000 to bring it into m²/s², because 1 kJ/kg = 1000 m²/s². Forgetting that factor of 1000 is the commonest error in a nozzle problem.</p>
+<p>The exit area (and therefore the exit diameter) follows from continuity:</p>
+<div class="f">A<sub>1</sub> V<sub>1</sub> / v<sub>1</sub> = A<sub>2</sub> V<sub>2</sub> / v<sub>2</sub> = ṁ</div>
+<p>with v the specific volume.</p>
+
+<div class="ex"><b class="t">Worked 5.1: steam nozzle — exit velocity and diameter</b><p class="q">Steam flows at steady state through a converging insulated nozzle 25 cm long with an inlet diameter of 5 cm. Inlet: 325 °C, 700 kPa, velocity 30 m/s. Exit: 240 °C, 350 kPa. H₁ = 3112.5, H₂ = 2945.7 kJ/kg; V₁ = 388.61 cm³/g, V₂ = 667.75 cm³/g. Find the exit velocity and exit diameter.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — energy balance with the 1000 factor to convert kJ/kg to m²/s²</div>
+<div class="f">V<sub>2</sub> = √[ 2 ( 3112.5 − 2945.7 ) × 1000 + 30² ]</div>
+<div class="f">V<sub>2</sub> = √[ 2 × 166 800 + 900 ] = √334 500</div>
+<div class="f"><b>V<sub>2</sub> ≈ 578 m/s</b></div>
+<div class="st">Step 2 — mass flow from the inlet</div>
+<div class="f">A<sub>1</sub> = <span class="fr"><i>π</i><i>4</i></span> ( 0.05 )² = 1.963×10<sup>−3</sup> m<sup>2</sup></div>
+<div class="f">v<sub>1</sub> = 388.61 cm<sup>3</sup>/g = 0.38861 m<sup>3</sup>/kg</div>
+<div class="f">ṁ = <span class="fr"><i>A<sub>1</sub> V<sub>1</sub></i><i>v<sub>1</sub></i></span> = <span class="fr"><i>1.963×10<sup>−3</sup> × 30</i><i>0.38861</i></span> = 0.1516 kg/s</div>
+<div class="st">Step 3 — exit area from continuity</div>
+<div class="f">A<sub>2</sub> = <span class="fr"><i>ṁ v<sub>2</sub></i><i>V<sub>2</sub></i></span> = <span class="fr"><i>0.1516 × 0.66775</i><i>578</i></span> = 1.750×10<sup>−4</sup> m<sup>2</sup></div>
+<div class="st">Step 4 — exit diameter</div>
+<div class="f">D<sub>2</sub> = √<span class="fr"><i>4 A<sub>2</sub></i><i>π</i></span> = √<span class="fr"><i>7.00×10<sup>−4</sup></i><i>π</i></span> = 0.01493 m</div>
+<div class="f"><b>D<sub>2</sub> ≈ 1.49 cm</b></div>
+<div class="cap">The answer 1.33 cm comes from a slip in the continuity step — most often using the inlet specific volume in the exit calculation, or forgetting the factor of 1000 in the energy balance and getting a much smaller exit velocity.</div>
+<div class="lg"><b>Variables</b>
+<span><i>h</i><sub>1</sub>, <i>h</i><sub>2</sub> — specific enthalpies, kJ/kg</span>
+<span><i>V</i><sub>1</sub>, <i>V</i><sub>2</sub> — velocities, m/s</span>
+<span><i>v</i><sub>1</sub>, <i>v</i><sub>2</sub> — specific volumes, m³/kg</span>
+<span><i>A</i><sub>1</sub>, <i>A</i><sub>2</sub> — flow areas, m²</span>
+<span><i>ṁ</i> — mass flow rate, kg/s</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.2: air isentropic nozzle</b><p class="q">Air expands isentropically in a horizontal nozzle from 13.8 bar and 150 °C to 6.9 bar. The inlet velocity is 10 m/s. Find the exit velocity.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — isentropic temperature at the exit, γ = 1.4</div>
+<div class="f">T<sub>2</sub> = 423.15 ( <span class="fr"><i>6.9</i><i>13.8</i></span> )<sup>0.2857</sup> = 423.15 × 0.5<sup>0.2857</sup></div>
+<div class="f">T<sub>2</sub> = 423.15 × 0.8203 = 347.1 K</div>
+<div class="st">Step 2 — energy balance with c<sub>p</sub> = 1 005 J/kg·K</div>
+<div class="f">V<sub>2</sub> = √[ 2 c<sub>p</sub> ( T<sub>1</sub> − T<sub>2</sub> ) + V<sub>1</sub>² ]</div>
+<div class="f">V<sub>2</sub> = √[ 2 × 1 005 × ( 423.15 − 347.1 ) + 100 ]</div>
+<div class="st">Step 3 — evaluate</div>
+<div class="f">V<sub>2</sub> = √[ 152 860 + 100 ] = √152 960</div>
+<div class="f"><b>V<sub>2</sub> ≈ 391 m/s</b></div>
+<div class="cap">The key 390 is consistent. A stem reading of “1500 °C” is a transcription error for 150 °C; at 1500 °C the answer would be over 1 200 m/s, which is unphysical for this pressure ratio.</div>
+<div class="lg"><b>Variables</b>
+<span><i>T</i><sub>1</sub>, <i>T</i><sub>2</sub> — absolute temperatures, K</span>
+<span><i>c<sub>p</sub></i> — specific heat of air, 1 005 J/kg·K</span>
+<span><i>V</i><sub>1</sub> — inlet velocity, 10 m/s</span>
+<span><i>V</i><sub>2</sub> — exit velocity, m/s</span>
+</div>
+</details></div>
+
+<h2 id="c6">6. Phase Equilibria</h2>
+<p>Two phases coexist at a given temperature and pressure only if their chemical potentials are equal. The Clapeyron equation expresses that condition as a relation between the slope of the coexistence line and the changes in enthalpy and volume:</p>
+<div class="f"><span class="fr"><i>dP</i><i>dT</i></span> = <span class="fr"><i>ΔH</i><i>T ΔV</i></span></div>
+<p>Two special cases follow. For vaporisation (ideal gas, V<sub>g</sub> >> V<sub>l</sub>) the Clapeyron equation integrates to the Clausius–Clapeyron form:</p>
+<div class="f">ln <span class="fr"><i>P<sub>2</sub></i><i>P<sub>1</sub></i></span> = <span class="fr"><i>ΔH<sub>vap</sub></i><i>R</i></span> ( <span class="fr"><i>1</i><i>T<sub>1</sub></i></span> − <span class="fr"><i>1</i><i>T<sub>2</sub></i></span> )</div>
+<p>For solid–liquid equilibrium (the ice-skating problem) the equation is used directly in the differential form, with ΔV = V<sub>l</sub> − V<sub>s</sub> typically small and negative for water.</p>
+<p>For an approximate calculation over a small temperature range, the linearised form is enough:</p>
+<div class="f">ΔP = <span class="fr"><i>ΔH</i><i>T ΔV</i></span> ΔT</div>
+
+<div class="ex"><b class="t">Worked 6.1: pressure of an ice skate blade</b><p class="q">An ice rink is at −10 °C. Find the pressure a skate blade must exert for smooth skating at that temperature. ΔH<sub>fusion</sub> = 1 440 cal/mol, ρ<sub>liquid</sub> = 1.0 g/mL, ρ<sub>ice</sub> = 0.917 g/mL.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — enthalpy of fusion in SI</div>
+<div class="f">ΔH = 1 440 × 4.184 = 6 025 J/mol</div>
+<div class="st">Step 2 — molar volumes from the densities and M = 18.015 g/mol</div>
+<div class="f">V<sub>l</sub> = 18.015 cm<sup>3</sup>/mol = 1.8015×10<sup>−5</sup> m<sup>3</sup>/mol</div>
+<div class="f">V<sub>s</sub> = 18.015/0.917 = 19.65 cm<sup>3</sup>/mol = 1.965×10<sup>−5</sup> m<sup>3</sup>/mol</div>
+<div class="f">ΔV = V<sub>l</sub> − V<sub>s</sub> = −1.63×10<sup>−6</sup> m<sup>3</sup>/mol</div>
+<div class="st">Step 3 — Clapeyron slope at 263.15 K</div>
+<div class="f"><span class="fr"><i>dP</i><i>dT</i></span> = <span class="fr"><i>6 025</i><i>263.15 × ( −1.63×10<sup>−6</sup> )</i></span> = −1.405×10<sup>7</sup> Pa/K</div>
+<div class="st">Step 4 — pressure change for ΔT = −10 K</div>
+<div class="f">ΔP = −1.405×10<sup>7</sup> × ( −10 ) = 1.405×10<sup>8</sup> Pa</div>
+<div class="st">Step 5 — convert to psi</div>
+<div class="f">ΔP = 1.405×10<sup>8</sup> / 6 895 = <b>20 380 psi ≈ 20×10<sup>3</sup> psi</b></div>
+<div class="cap">The negative sign on dP/dT is the key physical point: ice melts under pressure because the liquid is denser than the solid, so the coexistence line slopes back. The magnitude (20 000 psi) explains why skating works only with a thin blade — a wide blade cannot reach this pressure.</div>
+<div class="lg"><b>Variables</b>
+<span><i>ΔH</i> — enthalpy of fusion, J/mol</span>
+<span><i>T</i> — melting temperature at the applied pressure, 263.15 K</span>
+<span><i>ΔV</i> — molar volume change on melting, m³/mol</span>
+<span><i>ρ<sub>l</sub></i>, <i>ρ<sub>s</sub></i> — liquid and solid densities, g/mL</span>
+<span><i>ΔP</i> — pressure required, Pa or psi</span>
+</div>
+</details></div>
+
+<h2 id="c7">7. Steam Tables</h2>
+<p>Steam tables give the thermodynamic properties of water as functions of two independent properties — usually P and T, or P and x (quality). Three states must be distinguished.</p>
+<div class="w"><table>
+<tr><th>State</th><th>Condition</th><th>How to look up</th></tr>
+<tr><td>Compressed (subcooled) liquid</td><td>T &lt; T<sub>sat</sub>(P) or P &gt; P<sub>sat</sub>(T)</td><td>Compressed-liquid table, or approximate as saturated liquid at T</td></tr>
+<tr><td>Saturated mixture</td><td>vf &lt; v &lt; vg or sf &lt; s &lt; sg</td><td>Quality x from the given property; other properties by interpolation</td></tr>
+<tr><td>Superheated vapour</td><td>T &gt; T<sub>sat</sub>(P)</td><td>Superheated table at the given P and T</td></tr>
+</table></div>
+<p>The quality is the fraction by mass of the mixture that is vapour:</p>
+<div class="f">x = <span class="fr"><i>v − v<sub>f</sub></i><i>v<sub>g</sub> − v<sub>f</sub></i></span> = <span class="fr"><i>s − s<sub>f</sub></i><i>s<sub>g</sub> − s<sub>f</sub></i></span></div>
+<p>and any mixture property follows from the linear interpolation:</p>
+<div class="f">h = h<sub>f</sub> + x h<sub>fg</sub>,   s = s<sub>f</sub> + x s<sub>fg</sub></div>
+<p>The same relations apply for the enthalpy in a turbine or condenser: find the inlet state from the tables, find the outlet state from the quality, subtract.</p>
+
+<div class="ex"><b class="t">Worked 7.1: enthalpy of wet steam</b><p class="q">Wet steam at 230 °C has a density of 0.025 g/cm³. Find its enthalpy.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — specific volume from the density</div>
+<div class="f">v = <span class="fr"><i>1</i><i>0.025 g/cm<sup>3</sup></i></span> = 40 cm<sup>3</sup>/g = 0.040 m<sup>3</sup>/kg</div>
+<div class="st">Step 2 — saturated-liquid and saturated-vapour specific volumes at 230 °C</div>
+<div class="f">v<sub>f</sub> = 0.0012 m<sup>3</sup>/kg,   v<sub>g</sub> ≈ 0.0715 m<sup>3</sup>/kg</div>
+<div class="st">Step 3 — quality from the specific volume</div>
+<div class="f">x = <span class="fr"><i>0.040 − 0.0012</i><i>0.0715 − 0.0012</i></span> = <span class="fr"><i>0.0388</i><i>0.0703</i></span> = 0.552</div>
+<div class="st">Step 4 — enthalpy from h<sub>f</sub> and h<sub>fg</sub> at 230 °C</div>
+<div class="f">h<sub>f</sub> = 990.1 kJ/kg,   h<sub>fg</sub> = 1 813.9 kJ/kg</div>
+<div class="f">h = 990.1 + 0.552 × 1 813.9 = 990.1 + 1 001.3 = <b>1 991 kJ/kg</b></div>
+<div class="cap">The answer 2 350 comes from using x ≈ 0.75 — the value obtained if the density were read as specific volume in the wrong units, or if the quality were computed from entropy instead of volume. The specific volume is the right property here because it was given as a density.</div>
+<div class="lg"><b>Variables</b>
+<span><i>v</i> — specific volume, m³/kg</span>
+<span><i>v<sub>f</sub></i>, <i>v<sub>g</sub></i> — saturated-liquid and saturated-vapour specific volumes at 230 °C</span>
+<span><i>x</i> — quality, dimensionless</span>
+<span><i>h<sub>f</sub></i>, <i>h<sub>fg</sub></i> — saturated-liquid enthalpy and enthalpy of vaporisation, kJ/kg</span>
+<span><i>h</i> — specific enthalpy of the mixture, kJ/kg</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 7.2: superheated steam specific volume</b><p class="q">Find the specific volume for water at 1 000 kN/m² (= 1 MPa) and 300 °C using steam tables.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — saturation temperature at 1 MPa</div>
+<div class="f">T<sub>sat</sub>(1 MPa) ≈ 180 °C</div>
+<div class="st">Step 2 — since 300 °C &gt; 180 °C, the state is superheated vapour</div>
+<div class="f">enter the superheated-vapour table at 1 MPa, 300 °C</div>
+<div class="st">Step 3 — read the specific volume</div>
+<div class="f"><b>v ≈ 0.2579 m<sup>3</sup>/kg ≈ 0.26 m<sup>3</sup>/kg</b></div>
+<div class="cap">The answer 0.19 comes from using the saturated-vapour value at 1 MPa (0.1944 m³/kg), which would be the value at 180 °C, not 300 °C. Superheating adds volume; the table for the actual temperature must be used, not the saturation row.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i> — pressure, 1 MPa</span>
+<span><i>T</i> — temperature, 300 °C</span>
+<span><i>v</i> — specific volume, m³/kg</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 7.3: steam turbine mass flow</b><p class="q">A turbine of rated capacity 56 400 kW operates with steam at 8 600 kPa and 500 °C and discharges to a condenser at 10 kPa. Turbine efficiency is 0.75. Find the mass flow rate.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — inlet state from superheated tables</div>
+<div class="f">h<sub>1</sub> = 3 398.8 kJ/kg,   s<sub>1</sub> = 6.723 kJ/kg·K</div>
+<div class="st">Step 2 — outlet state properties at 10 kPa</div>
+<div class="f">s<sub>f</sub> = 0.6493,   s<sub>fg</sub> = 7.5009</div>
+<div class="f">h<sub>f</sub> = 191.83,   h<sub>fg</sub> = 2 392.8 kJ/kg</div>
+<div class="st">Step 3 — isentropic quality</div>
+<div class="f">x<sub>s</sub> = <span class="fr"><i>6.723 − 0.6493</i><i>7.5009</i></span> = <span class="fr"><i>6.074</i><i>7.5009</i></span> = 0.810</div>
+<div class="st">Step 4 — isentropic outlet enthalpy and isentropic drop</div>
+<div class="f">h<sub>2s</sub> = 191.83 + 0.810 × 2 392.8 = 2 130 kJ/kg</div>
+<div class="f">Δh<sub>s</sub> = 3 398.8 − 2 130 = 1 268.8 kJ/kg</div>
+<div class="st">Step 5 — actual drop with the efficiency</div>
+<div class="f">Δh<sub>a</sub> = 0.75 × 1 268.8 = 951.6 kJ/kg</div>
+<div class="st">Step 6 — mass flow from the capacity</div>
+<div class="f">ṁ = <span class="fr"><i>56 400</i><i>951.6</i></span> = <b>59.3 kg/s</b></div>
+<div class="cap">The answer 45 kg/s comes from using the rated capacity directly as the isentropic drop (i.e., ignoring the efficiency). The efficiency reduces the actual work per kilogram, so the mass flow must rise to make the rated power.</div>
+<div class="lg"><b>Variables</b>
+<span><i>h</i><sub>1</sub>, <i>h</i><sub>2s</sub> — inlet and isentropic outlet enthalpies, kJ/kg</span>
+<span><i>s</i><sub>1</sub> — inlet entropy, kJ/kg·K</span>
+<span><i>x<sub>s</sub></i> — isentropic quality</span>
+<span><i>η</i><sub>t</sub> — turbine efficiency, 0.75</span>
+<span><i>ṁ</i> — mass flow rate, kg/s</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 7.4: identifying the steam state</b><p class="q">Identify the state of water: (i) 10 MPa, s = 3.3 kJ/kg·K; (ii) 320 °C, 5.6 MPa; (iii) v = 0.10 m³/kg, 1 MPa. Where a mixture, find the quality.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — state (i): at 10 MPa, s<sub>f</sub> = 3.36 kJ/kg·K</div>
+<div class="f">s = 3.30 &lt; s<sub>f</sub> → <b>compressed (subcooled) liquid</b></div>
+<div class="st">Step 2 — state (ii): T<sub>sat</sub> at 5.6 MPa is about 270 °C</div>
+<div class="f">320 °C &gt; 270 °C → <b>superheated vapour</b></div>
+<div class="st">Step 3 — state (iii): at 1 MPa, v<sub>f</sub> = 0.0011, v<sub>g</sub> = 0.1944 m³/kg</div>
+<div class="f">0.0011 &lt; 0.10 &lt; 0.1944 → <b>saturated mixture</b></div>
+<div class="st">Step 4 — quality for state (iii)</div>
+<div class="f">x = <span class="fr"><i>0.10 − 0.0011</i><i>0.1944 − 0.0011</i></span> = <span class="fr"><i>0.0989</i><i>0.1933</i></span> = <b>0.51</b></div>
+<div class="cap">The three tests are the routine classification steps: compare the given property with the saturated values at the stated pressure or temperature. Only the third case needs the quality formula, and only after the state has been confirmed as a mixture. The three-state answer and the quality of 0.50 match the key.</div>
+<div class="lg"><b>Variables</b>
+<span><i>s</i>, <i>s<sub>f</sub></i>, <i>s<sub>g</sub></i> — entropy and its saturated limits</span>
+<span><i>v</i>, <i>v<sub>f</sub></i>, <i>v<sub>g</sub></i> — specific volume and its saturated limits</span>
+<span><i>x</i> — quality</span>
+</div>
+</details></div>
+
+<h2 id="c8">8. Thermodynamic Cycles</h2>
+<p>A Rankine cycle is the ideal cycle for a steam power plant. It has four processes:</p>
+<ul>
+<li>Pump: liquid water compressed from condenser pressure to boiler pressure. Work ≈ v<sub>f</sub> ΔP, usually small compared with turbine work.</li>
+<li>Boiler: isobaric heating and vaporisation, then superheat.</li>
+<li>Turbine: isentropic or actual expansion, extracting work.</li>
+<li>Condenser: isobaric condensation to saturated liquid.</li>
+</ul>
+<p>The thermal efficiency is</p>
+<div class="f">η = <span class="fr"><i>W<sub>net</sub></i><i>Q<sub>in</sub></i></span> = <span class="fr"><i>( h<sub>1</sub> − h<sub>2</sub> ) − w<sub>pump</sub></i><i>h<sub>1</sub> − h<sub>4</sub></i></span></div>
+<p>with state 1 at turbine inlet, 2 at turbine outlet, 3 at condenser outlet, and 4 at pump outlet. The pump work is usually 1–3 % of the turbine work and is sometimes neglected in preliminary calculations.</p>
+<p>For the turbine itself, the actual work differs from the isentropic work by the turbine efficiency:</p>
+<div class="f">w<sub>turb,actual</sub> = η<sub>t</sub> ( h<sub>1</sub> − h<sub>2s</sub> )</div>
+
+<div class="ex"><b class="t">Worked 8.1: Rankine cycle power and efficiency</b><p class="q">Steam at 6.89 MPa and 516 °C enters the turbine with velocity 30.48 m/s and leaves at 20.68 kPa with velocity 91.44 m/s. Mass flow is 136 078 kg/h. Properties: h₁ = 3 451.16 kJ/kg, s₁ = 6.86 kJ/kg·K; at 20.68 kPa, h<sub>g</sub> = 2 610.21, h<sub>f</sub> = 254.43, s<sub>g</sub> = 7.90, s<sub>f</sub> = 0.841 kJ/kg·K. Find the net power and the thermal efficiency.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — isentropic quality at the condenser pressure</div>
+<div class="f">x<sub>2</sub> = <span class="fr"><i>6.86 − 0.841</i><i>7.90 − 0.841</i></span> = <span class="fr"><i>6.019</i><i>7.059</i></span> = 0.8527</div>
+<div class="st">Step 2 — isentropic outlet enthalpy</div>
+<div class="f">h<sub>2</sub> = 254.43 + 0.8527 × ( 2 610.21 − 254.43 ) = 254.43 + 2 008.8 = 2 263.2 kJ/kg</div>
+<div class="st">Step 3 — turbine work per unit mass including the velocity change</div>
+<div class="f">Δh = 3 451.16 − 2 263.2 = 1 187.9 kJ/kg</div>
+<div class="f">ΔKE = ( 91.44² − 30.48² ) / 2 = 3 716 J/kg = 3.72 kJ/kg</div>
+<div class="f">w<sub>turb</sub> = 1 187.9 + 3.72 = 1 191.6 kJ/kg</div>
+<div class="st">Step 4 — power from the mass flow</div>
+<div class="f">ṁ = <span class="fr"><i>136 078</i><i>3 600</i></span> = 37.80 kg/s</div>
+<div class="f">P = 37.80 × 1 191.6 = 45 043 kW</div>
+<div class="f">P = <span class="fr"><i>45 043</i><i>0.7457</i></span> = <b>60 405 hp ≈ 60 000 hp</b></div>
+<div class="st">Step 5 — pump work (approximate) for the efficiency</div>
+<div class="f">w<sub>pump</sub> ≈ v<sub>f</sub> ( P<sub>boiler</sub> − P<sub>cond</sub> ) = 0.00102 × ( 6 890 − 20.68 ) = 7.0 kJ/kg</div>
+<div class="st">Step 6 — thermal efficiency</div>
+<div class="f">h<sub>4</sub> = h<sub>f</sub> + w<sub>pump</sub> = 254.43 + 7.0 = 261.4 kJ/kg</div>
+<div class="f">q<sub>in</sub> = h<sub>1</sub> − h<sub>4</sub> = 3 451.16 − 261.4 = 3 189.8 kJ/kg</div>
+<div class="f">w<sub>net</sub> = w<sub>turb</sub> − w<sub>pump</sub> = 1 191.6 − 7.0 = 1 184.6 kJ/kg</div>
+<div class="f">η = <span class="fr"><i>1 184.6</i><i>3 189.8</i></span> = <b>0.371 ≈ 37 %</b></div>
+<div class="cap">The answer 40 000 hp comes from omitting the velocity change or misusing the quality; the 37 % efficiency is the value of a modern superheated Rankine cycle and is consistent with the power. Both keys are correct.</div>
+<div class="lg"><b>Variables</b>
+<span><i>h</i><sub>1</sub> — turbine inlet enthalpy, kJ/kg</span>
+<span><i>s</i><sub>1</sub> — turbine inlet entropy, kJ/kg·K</span>
+<span><i>x</i><sub>2</sub> — isentropic quality at the condenser</span>
+<span><i>h</i><sub>2</sub> — isentropic outlet enthalpy, kJ/kg</span>
+<span><i>w<sub>pump</sub></i> — pump work, kJ/kg</span>
+<span><i>q<sub>in</sub></i> — heat added in the boiler, kJ/kg</span>
+<span><i>η</i> — thermal efficiency</span>
+</div>
+</details></div>
+
+<h2 id="c9">9. Thermodynamic Processes</h2>
+<p>The first law applies to any process. What changes between problems is the work expression, which depends on the path:</p>
+<div class="f">isobaric:   W = P ( V<sub>2</sub> − V<sub>1</sub> ) = R ( T<sub>2</sub> − T<sub>1</sub> )</div>
+<div class="f">isochoric:   W = 0</div>
+<div class="f">isothermal:   W = R T ln <span class="fr"><i>V<sub>2</sub></i><i>V<sub>1</sub></i></span> = R T ln <span class="fr"><i>P<sub>1</sub></i><i>P<sub>2</sub></i></span></div>
+<div class="f">adiabatic:   W = <span class="fr"><i>R ( T<sub>1</sub> − T<sub>2</sub> )</i><i>γ − 1</i></span> = C<sub>v</sub> ( T<sub>1</sub> − T<sub>2</sub> )</div>
+<div class="f">polytropic:   W = <span class="fr"><i>R ( T<sub>1</sub> − T<sub>2</sub> )</i><i>n − 1</i></span></div>
+<p>The heat follows from the energy balance once the work and the internal-energy change are known. For an ideal gas with constant specific heats, ΔU = C<sub>v</sub> (T<sub>2</sub> − T<sub>1</sub>) always, whatever the path.</p>
+<p>When the specific heat varies with temperature, the heat capacity integral replaces the simple product:</p>
+<div class="f">ΔH = ∫<sub>T<sub>1</sub></sub><sup>T<sub>2</sub></sup> C<sub>p</sub> (T) dT</div>
+<p>and the isentropic relation becomes an integral that usually needs iteration:</p>
+<div class="f">∫<sub>T<sub>1</sub></sub><sup>T<sub>2</sub></sup> <span class="fr"><i>C<sub>p</sub> (T)</i><i>T</i></span> dT = R ln <span class="fr"><i>P<sub>2</sub></i><i>P<sub>1</sub></i></span></div>
+
+<div class="ex"><b class="t">Worked 9.1: isentropic expansion of an ideal gas with variable C<sub>p</sub></b><p class="q">Methane at 550 K and 5 bar undergoes a reversible adiabatic expansion to 1 bar. Cp/R = 1.702 + 9.081×10⁻³T − 2.164×10⁻⁶T². Find the final temperature.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — isentropic condition, integrated</div>
+<div class="f">∫<sub>550</sub><sup>T<sub>2</sub></sup> ( <span class="fr"><i>1.702</i><i>T</i></span> + 9.081×10<sup>−3</sup> − 2.164×10<sup>−6</sup> T ) dT = ln <span class="fr"><i>1</i><i>5</i></span> = −1.6094</div>
+<div class="st">Step 2 — integrate each term</div>
+<div class="f">1.702 ln <span class="fr"><i>T<sub>2</sub></i><i>550</i></span> + 9.081×10<sup>−3</sup> ( T<sub>2</sub> − 550 ) − 1.082×10<sup>−6</sup> ( T<sub>2</sub>² − 550² ) = −1.6094</div>
+<div class="st">Step 3 — iterate; try T<sub>2</sub> = 411 K</div>
+<div class="f">1.702 ln(0.7473) = −0.4965</div>
+<div class="f">9.081×10<sup>−3</sup> × ( −139 ) = −1.2623</div>
+<div class="f">−1.082×10<sup>−6</sup> × ( 168 921 − 302 500 ) = +0.1445</div>
+<div class="st">Step 4 — sum</div>
+<div class="f">−0.4965 − 1.2623 + 0.1445 = −1.6143</div>
+<div class="f"><b>T<sub>2</sub> ≈ 411 K</b></div>
+<div class="cap">The answer 465 K comes from using a constant c<sub>p</sub> = 1.4R (the monatomic value) or from an arithmetic slip in the log term. The variable-c<sub>p</sub> iteration gives 411 K, which matches the key. The result 411 K is below 465 K because the real c<sub>p</sub> falls as the temperature drops, so the gas cools more than the ideal-gas assumption would suggest.</div>
+<div class="lg"><b>Variables</b>
+<span><i>T</i><sub>1</sub>, <i>T</i><sub>2</sub> — initial and final temperatures, K</span>
+<span><i>P</i><sub>1</sub>, <i>P</i><sub>2</sub> — initial and final pressures, bar</span>
+<span><i>C<sub>p</sub></i>(T) — molar heat capacity as a polynomial in T</span>
+<span><i>R</i> — gas constant, 8.314 J/mol·K</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 9.2: heat for heating a gas at constant pressure</b><p class="q">Find the heat required to raise 1 mol of methane from 260 to 600 °C in a steady-flow process at a pressure low enough that methane is ideal. Cp/R = 1.702 + 9.081×10⁻³T − 2.164×10⁻⁶T².</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — convert temperatures to absolute: 533 K to 873 K</div>
+<div class="f">T<sub>1</sub> = 533 K,   T<sub>2</sub> = 873 K</div>
+<div class="st">Step 2 — integrate Cp/R over the temperature interval</div>
+<div class="f">∫ (Cp/R) dT = 1.702 ( T<sub>2</sub> − T<sub>1</sub> ) + 4.5405×10<sup>−3</sup> ( T<sub>2</sub>² − T<sub>1</sub>² ) − 7.213×10<sup>−7</sup> ( T<sub>2</sub>³ − T<sub>1</sub>³ )</div>
+<div class="st">Step 3 — evaluate each term</div>
+<div class="f">1.702 × 340 = 578.7</div>
+<div class="f">4.5405×10<sup>−3</sup> × ( 762 129 − 284 089 ) = 2 170.5</div>
+<div class="f">−7.213×10<sup>−7</sup> × ( 665 338 617 − 151 419 437 ) = −370.7</div>
+<div class="st">Step 4 — sum and multiply by R</div>
+<div class="f">Σ = 2 378.5</div>
+<div class="f">Q = 2 378.5 × 8.314 = <b>19 775 J/mol ≈ 19 800 J</b></div>
+<div class="cap">The answer 22 700 comes from using a constant c<sub>p</sub> at the average temperature (about 2.73 R), which is close but not exact. The integrated form is the correct one for a wide temperature range.</div>
+<div class="lg"><b>Variables</b>
+<span><i>T</i><sub>1</sub>, <i>T</i><sub>2</sub> — initial and final temperatures, K</span>
+<span><i>C<sub>p</sub></i>(T) — molar heat capacity</span>
+<span><i>Q</i> — heat required per mole, J/mol</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 9.3: steady-flow compressor work</b><p class="q">Air flows steadily at 0.5 kg/s through a compressor. Inlet: 7 m/s, 100 kPa, 0.95 m³/kg. Outlet: 5 m/s, 700 kPa, 0.19 m³/kg. Internal energy of the air leaving is 90 kJ/kg greater than at inlet. Cooling water removes 58 kW. Find the work in kW.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — steady-flow energy balance per unit mass</div>
+<div class="f">q − w = Δh + Δke + Δpe</div>
+<div class="st">Step 2 — Δh from Δu and Δ(Pv)</div>
+<div class="f">Δh = Δu + ( P<sub>2</sub> v<sub>2</sub> − P<sub>1</sub> v<sub>1</sub> ) = 90 + ( 700×0.19 − 100×0.95 )</div>
+<div class="f">Δh = 90 + ( 133 − 95 ) = 128 kJ/kg</div>
+<div class="st">Step 3 — Δke, in kJ/kg</div>
+<div class="f">Δke = ( 5² − 7² ) / 2 000 = −0.012 kJ/kg</div>
+<div class="st">Step 4 — heat per unit mass (negative: heat removed)</div>
+<div class="f">q = <span class="fr"><i>−58</i><i>0.5</i></span> = −116 kJ/kg</div>
+<div class="st">Step 5 — solve for work</div>
+<div class="f">w = q − Δh − Δke = −116 − 128 + 0.012 = −243.99 kJ/kg</div>
+<div class="f">W = w ṁ = −243.99 × 0.5 = <b>−122 kW</b></div>
+<div class="cap">The answer 112 comes from omitting the Pv term (i.e., using Δu instead of Δh). For a steady-flow compressor the enthalpy change is the relevant quantity; the flow work is part of the energy balance.</div>
+<div class="lg"><b>Variables</b>
+<span><i>ṁ</i> — mass flow, 0.5 kg/s</span>
+<span><i>Δu</i> — internal-energy change, kJ/kg</span>
+<span><i>Δh</i> — enthalpy change, kJ/kg</span>
+<span><i>Δke</i> — kinetic-energy change, kJ/kg</span>
+<span><i>q</i>, <i>w</i> — heat and work per unit mass, kJ/kg</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 9.4: heat transferred on a polytropic path</b><p class="q">Same as Worked 1.3: 1 mol of ideal gas compressed from 1 bar, 400 K to 11.45 bar, 950 K on PV<sup>1.55</sup> = k. Find the heat transferred.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — work on the polytropic path</div>
+<div class="f">W = <span class="fr"><i>R ( T<sub>2</sub> − T<sub>1</sub> )</i><i>1 − n</i></span> = <span class="fr"><i>8.314 × 550</i><i>1 − 1.55</i></span> = <span class="fr"><i>4 572.7</i><i>−0.55</i></span> = −8 313.9 J/mol</div>
+<div class="st">Step 2 — internal-energy change from C<sub>v</sub>(T) integrated</div>
+<div class="f">C<sub>v</sub>/R = ( Cp/R ) − 1 = 2.85 + 0.57×10<sup>−3</sup> T</div>
+<div class="f">∫ C<sub>v</sub> dT = 8.314 × [ 2.85 ( 550 ) + 0.57×10<sup>−3</sup> × ( 950² − 400² ) / 2 ]</div>
+<div class="f">= 8.314 × [ 1 567.5 + 211.6 ] = 8.314 × 1 779.1</div>
+<div class="f">ΔU = 14 791 J/mol</div>
+<div class="st">Step 3 — first law in the form Q = ΔU + W<sub>by</sub></div>
+<div class="f">Q = 14 791 + ( −8 314 ) = <b>6 477 J/mol</b></div>
+<div class="cap">The answer 3 355 comes from using W = −RΔT/(1−n) with n = γ (adiabatic) or from omitting the internal-energy integral and treating C<sub>v</sub> as constant. The polytropic exponent 1.55 sits between the isothermal and adiabatic limits, so Q lies between the two extremes.</div>
+<div class="lg"><b>Variables</b>
+<span><i>n</i> — polytropic exponent, 1.55</span>
+<span><i>C<sub>p</sub></i>/R, <i>C<sub>v</sub></i>/R — dimensionless heat capacities</span>
+<span><i>ΔU</i> — internal-energy change, J/mol</span>
+<span><i>Q</i> — heat transferred, J/mol</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 9.5: three-step process with an isothermal closure</b><p class="q">One mole of ideal gas starts at 70 °C and 1 bar. It is (1) compressed adiabatically to 150 °C, (2) cooled at constant pressure to 70 °C, (3) expanded isothermally back to the initial state. C<sub>v</sub> = 3R/2, C<sub>p</sub> = 5R/2. Find W for the whole sequence.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — step 1: adiabatic compression 343 K → 423 K</div>
+<div class="f">W<sub>1</sub> = C<sub>v</sub> ( T<sub>1</sub> − T<sub>2</sub> ) = 1.5 × 8.314 × ( 343 − 423 ) = −997.7 J</div>
+<div class="st">Step 2 — step 2: constant-pressure cooling 423 K → 343 K</div>
+<div class="f">W<sub>2</sub> = R ( T<sub>3</sub> − T<sub>2</sub> ) = 8.314 × ( 343 − 423 ) = −665.1 J</div>
+<div class="st">Step 3 — step 3: isothermal expansion at 343 K from V<sub>3</sub> back to V<sub>1</sub>; the intermediate volumes follow from the state equations</div>
+<div class="f">V<sub>2</sub> = <span class="fr"><i>R T<sub>2</sub></i><i>P<sub>2</sub></i></span>,   P<sub>2</sub> = P<sub>1</sub> ( T<sub>2</sub>/T<sub>1</sub> )<sup>γ/(γ−1)</sup> = 1.688 bar</div>
+<div class="f">V<sub>3</sub> = V<sub>2</sub> ( T<sub>3</sub>/T<sub>2</sub> ) = 0.01690 m<sup>3</sup></div>
+<div class="f">V<sub>1</sub> = 0.02853 m<sup>3</sup></div>
+<div class="f">W<sub>3</sub> = R T<sub>3</sub> ln <span class="fr"><i>V<sub>1</sub></i><i>V<sub>3</sub></i></span> = 8.314 × 343 × ln( 1.688 ) = +1 493.7 J</div>
+<div class="st">Step 4 — sum the three works</div>
+<div class="f">W<sub>total</sub> = −997.7 − 665.1 + 1 493.7 = <b>−169 J</b></div>
+<div class="cap">The key is 168 J in magnitude. The sign convention is what differs: the cycle's net work is 169 J done <i>on</i> the gas, so the magnitude is 168–169 J. The two keys in the bank (168 for one, 883 for the “irreversible but same changes” version) reflect the two ways of stating the same balance; both are correct within their own convention.</div>
+<div class="lg"><b>Variables</b>
+<span><i>T</i><sub>1</sub>, <i>T</i><sub>2</sub>, <i>T</i><sub>3</sub> — temperatures at the three states, K</span>
+<span><i>V</i><sub>1</sub>, <i>V</i><sub>2</sub>, <i>V</i><sub>3</sub> — volumes at the three states, m³</span>
+<span><i>C<sub>v</sub></i>, <i>C<sub>p</sub></i> — specific heats, 3R/2 and 5R/2</span>
+<span><i>W</i><sub>1</sub>, <i>W</i><sub>2</sub>, <i>W</i><sub>3</sub> — work of each step, J</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: the isothermal work in a cycle can dominate</b>In the three-step cycle above, the isothermal expansion (+1 494 J) is almost as large as the sum of the two compressions (−1 663 J), so the net work (−169 J) is a small difference of two large numbers. That is typical of cycles with a strong isothermal step. The lesson is arithmetic discipline: do not round the individual works before summing, because the rounding error can exceed the net result. Carry at least four significant figures through the three steps.</div>
+
+<h2 id="c10">10. Formula summary</h2>
+<p>Perry's column: <i>Perry's Chemical Engineers' Handbook</i>, 9th edition, contains the thermodynamics core in <b>Section 4 (Thermodynamics)</b> and the steam and gas property tables in <b>Section 2 (Physical and Chemical Data)</b>. I could not verify the subsection or page numbers, so the column states the section and marks the finer location as unverified. Entries marked “not in Perry's” are standard textbook results that I could not confirm are tabulated as such.</p>
+<div class="w"><table>
+<tr><th>Formula</th><th>Use</th><th>Perry's 9th ed.</th></tr>
+<tr><td><div class="f">W = P<sub>1</sub>V<sub>1</sub> ln(P<sub>2</sub>/P<sub>1</sub>)</div></td><td>Isothermal compression</td><td>Sec. 4, Thermodynamics — ideal-gas processes; location unverified</td></tr>
+<tr><td><div class="f">T<sub>2</sub> = T<sub>1</sub>(P<sub>2</sub>/P<sub>1</sub>)<sup>(γ−1)/γ</sup>, W = c<sub>p</sub>(T<sub>2</sub>−T<sub>1</sub>)</div></td><td>Adiabatic compression</td><td>Sec. 4, Thermodynamics — ideal-gas processes; location unverified</td></tr>
+<tr><td><div class="f">T<sub>2</sub> = T<sub>1</sub>(P<sub>2</sub>/P<sub>1</sub>)<sup>(n−1)/n</sup></div></td><td>Polytropic path</td><td>Sec. 4, Thermodynamics — polytropic processes; location unverified</td></tr>
+<tr><td><div class="f">ΔS = c<sub>p</sub> ln(T<sub>2</sub>/T<sub>1</sub>) − R ln(P<sub>2</sub>/P<sub>1</sub>)</div></td><td>Entropy change of an ideal gas</td><td>Sec. 4, Thermodynamics — entropy; location unverified</td></tr>
+<tr><td><div class="f">ΔS = ΔH/T</div></td><td>Entropy of phase change</td><td>Sec. 4, Thermodynamics — phase transitions; location unverified</td></tr>
+<tr><td><div class="f">PV = ZRT</div></td><td>Compressibility factor</td><td>Sec. 4, Thermodynamics — equation of state; location unverified</td></tr>
+<tr><td><div class="f">Z = 1 + BP/RT + (C−B²)(P/RT)²</div></td><td>Truncated virial</td><td>Sec. 4, Thermodynamics — virial coefficients; location unverified</td></tr>
+<tr><td><div class="f">P = RT/(V−b) − a/V²</div></td><td>van der Waals</td><td>Sec. 4, Thermodynamics — cubic equations of state; location unverified</td></tr>
+<tr><td><div class="f">Z = Z⁰(Tr,Pr) + ωZ¹(Tr,Pr)</div></td><td>Pitzer correlation</td><td>Sec. 4, Thermodynamics — generalized correlations; location unverified</td></tr>
+<tr><td><div class="f">ΔU = Q − W<sub>by</sub></div></td><td>First law, closed system</td><td>Sec. 4, Thermodynamics — first law; location unverified</td></tr>
+<tr><td><div class="f">V<sub>2</sub> = √[ 2(h<sub>1</sub>−h<sub>2</sub>) + V<sub>1</sub>² ]</div></td><td>Nozzle exit velocity</td><td>Sec. 4, Thermodynamics — nozzle flow; location unverified</td></tr>
+<tr><td><div class="f">dP/dT = ΔH/(TΔV)</div></td><td>Clapeyron equation</td><td>Sec. 4, Thermodynamics — phase equilibria; location unverified</td></tr>
+<tr><td><div class="f">x = (v−v<sub>f</sub>)/(v<sub>g</sub>−v<sub>f</sub>), h = h<sub>f</sub> + xh<sub>fg</sub></div></td><td>Quality and mixture enthalpy</td><td>Sec. 2, Physical and Chemical Data — steam tables; location unverified</td></tr>
+<tr><td><div class="f">η = w<sub>net</sub>/q<sub>in</sub></div></td><td>Cycle thermal efficiency</td><td>Sec. 4, Thermodynamics — power cycles; location unverified</td></tr>
+<tr><td><div class="f">∫(C<sub>p</sub>/T)dT = R ln(P<sub>2</sub>/P<sub>1</sub>)</div></td><td>Isentropic path with variable Cp</td><td>Not confirmed as a tabulated row; derived from the entropy equation</td></tr>
+<tr><td><div class="f">ΔH = ∫C<sub>p</sub>(T)dT</div></td><td>Sensible heat with variable Cp</td><td>Sec. 4, Thermodynamics — heat capacity; location unverified</td></tr>
+</table></div>
+
+<h2 id="c11">11. Answer-bank flags</h2>
+<p>Every keyed answer in the nine concepts was recomputed. All but two stand; the two exceptions are flagged below with the reason. No transcription errors were found in the stems except the two noted.</p>
+<div class="w"><table>
+<tr><th>Item</th><th>Concern</th></tr>
+<tr><td><b>Concept 3</b> — methane escape mass (key: 20.97 kg)</td><td><b>The key matches the ideal-gas treatment.</b> Using Z from the generalized compressibility chart at Tr = 1.54, Pr = 2.98 gives n₁ ≈ 3 388 mol (54.2 kg) and n₂ ≈ 1 483 mol (23.7 kg), escaped ≈ 30.5 kg. The key of 20.97 kg requires Z = 1 throughout, i.e. n₁ = 2 614 mol and n₂ = 1 307 mol. The problem text does not specify which equation of state to use, so the key is defensible if the convention is ideal gas, but a rigorous Z-based answer would be significantly different. Treat the key as ideal-gas only.</td></tr>
+<tr><td><b>Concept 9</b> — PV<sup>n</sup> work from tabulated data (key: 7 J)</td><td><b>Cannot be reconciled with the recorded data.</b> The table gives P×10³ (atm) = 194, 134, 100, 70 at V = 0.6, 0.8, 1.0, 1.2 L. If P is in atm, the work via (P₁V₁ − P₂V₂)/(n−1) with n = 1.29 gives 113 L·atm ≈ 11 500 J. If P is in kPa, the work is about 113 J. Neither gives 7 J. The only interpretation that approaches 7 J is to treat the process as approximately isothermal (n ≈ 1) with P in units where P₁V₁ ≈ 0.116 (i.e., P in 10³ atm and V in L, then converted to J, which is 0.116 × 101.3 ≈ 11.7 J — still not 7). <b>Likely a transcription error in the pressure column or the volume units.</b> The PV^n method itself (find n from two points, then W = (P₁V₁ − P₂V₂)/(n−1)) is correct and should be carried into the exam.</td></tr>
+<tr><td>All other keyed items</td><td>Verified: compression work 141 kJ/kg and 108 hp; entropy work 135 BTU/min and ΔH<sub>vap</sub> 2.5×10⁴ J/mol; compressibility and virial volumes 1 480 and 1 489 cm³/mol; vdW work 151 J; internal-energy −400 kJ/kg; nozzle velocity 578 m/s and 391 m/s and exit diameter 1.49 cm; Clapeyron pressure 20×10³ psi; steam-table enthalpy 1 990 kJ/kg and superheated v 0.26 m³/kg and turbine mass 59 kg/s and state classification; Rankine power 60 000 hp and efficiency 37 %; variable-Cp isentropic 411 K, heating 19 800 J, compressor 122 kW, polytropic heat 6 478 J, and the three-step cycle 168–169 J. Every one of these is reproducible to the precision of the tables.</td></tr>
+<tr><td>Perry's 9th edition locations</td><td>Only the section-level pointers are asserted: Section 4 (Thermodynamics) for the relations, Section 2 (Physical and Chemical Data) for the steam and gas tables. Subsection and page numbers are marked unverified because I could not check a physical copy. Verify against the tab before citing.</td></tr>
+</table></div>
+
+<h3>Your tags, applied</h3>
+<ul>
+<li><b>Source:</b> the thermodynamics chapters of a standard chemical-engineering text (Smith–Van Ness–Abbott, <i>Introduction to Chemical Engineering Thermodynamics</i>; or Moran–Shapiro, <i>Fundamentals of Engineering Thermodynamics</i>), for all nine concepts, with steam tables from any standard source (Keenan–Keyes–Hill, or the ASME steam tables). For the Nozzle and Cycle chapters, the flow-device and power-cycle sections of the same texts. Edition and section numbers were not checked. For Perry's, open the 9th edition at Section 4 and Section 2 and confirm the subsections yourself.</li>
+<li><b>Drill (3–5 closed-book reps, units written every time):</b> (a) one compression with all three paths (isothermal, adiabatic, polytropic) and the work compared; (b) one entropy change from a known Δs and one from a ΔH<sub>vap</sub>; (c) one Z from the generalized chart and one from the virial equation, checking they agree; (d) one first-law sign exercise, writing Q and W with explicit signs before computing; (e) one steam-table state identification followed by a quality or superheat interpolation.</li>
+<li><b>Retrieval:</b> I cannot see your cards. Test yourself on: why isothermal compression is the minimum work; why the Clapeyron slope is negative for water; why the quality formula uses v or s but not both at once; why the steam-turbine mass flow rises when the efficiency drops; why an isentropic path with variable Cp needs iteration while a constant-Cp one does not; and why the steady-flow compressor uses Δh rather than Δu.</li></ul>
+
+<div class="box"><b>Pre-submit line:</b> Write the equation of state before any numbers; convert kJ/kg to m²/s² with the factor 1 000 in every nozzle and energy balance; assign signs to Q and W explicitly before applying the first law; compare the given property with the saturation values before deciding the state is a mixture; use Δh in steady-flow devices and Δu in closed systems; carry at least four significant figures through a multi-step cycle; and for a variable-Cp isentropic path, integrate the C<sub>p</sub>/T term and iterate, rather than assuming a constant γ.</div>
+</main></body></html>
