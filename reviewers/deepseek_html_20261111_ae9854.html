@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Differential Calculus Review: Seven Concepts</title>
+<style>
+:root{--bg:#fbfaf6;--fg:#1f2328;--mut:#5b6470;--ac:#7a3b12;--box:#f1ece0;--ex:#e8f0f4;--dc:#f6e9e4;--bd:#d8d0bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.1rem 4rem}
+h1{font-size:1.8rem;margin:.4rem 0 .2rem}h2{font-size:1.3rem;color:var(--ac);border-bottom:1px solid var(--bd);padding-bottom:.2rem;margin-top:2.6rem}
+h3{font-size:1rem;margin:1.4rem 0 .3rem;font-variant:small-caps;letter-spacing:.04em}
+.sub{color:var(--mut);margin:0 0 1rem}
+.box,.ex,.dc{border-radius:6px;padding:.7rem 1rem;margin:1rem 0;font-size:.97rem}
+.box{background:var(--box)}.ex{background:var(--ex);border-left:4px solid #3d7a99}.dc{background:var(--dc);border-left:4px solid #b5533c}
+.ex b.t,.dc b.t{display:block;font-variant:small-caps;letter-spacing:.05em;margin-bottom:.2rem}
+.f{font-family:"Cambria Math",Georgia,serif;text-align:center;margin:.5rem 0;font-size:1.04rem;overflow-x:auto}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .2em}.fr i{font-style:normal;padding:0 .3em}.fr i:first-child{border-bottom:1px solid currentColor}
+nav{background:var(--box);border-radius:6px;padding:.6rem 1rem;font-size:.93rem}nav a{color:var(--ac);text-decoration:none}
+.w{overflow-x:auto}table{border-collapse:collapse;font-size:.9rem;width:100%}td,th{border:1px solid var(--bd);padding:.3rem .5rem;text-align:left;vertical-align:top}
+.q{margin:.3rem 0 .5rem;font-style:italic}
+details{margin-top:.4rem}summary{cursor:pointer;color:var(--ac);font-weight:bold;font-size:.95rem;padding:.2rem 0}
+details .f{margin:.55rem 0}.cap{text-align:center;font-size:.84rem;color:var(--mut);margin:.4rem 0}
+p{margin:.6rem 0}ul{margin:.4rem 0;padding-left:1.3rem}
+.st{font-size:.85rem;color:var(--mut);font-variant:small-caps;letter-spacing:.05em;margin:.75rem 0 .05rem;text-align:left}
+.lg{border-top:1px dotted var(--bd);margin-top:.75rem;padding-top:.35rem;font-size:.83rem;color:var(--mut)}
+.lg b{font-variant:small-caps;letter-spacing:.05em;display:block;margin-bottom:.15rem}
+.lg span{display:block}
+</style></head><body><main>
+<h1>Differential Calculus Review: Seven Concepts</h1>
+<p class="sub">One page for the selected D3_L7 set. Seven chapters in teaching order: Limits, Angle Trigonometry, Slope of Line, Graph, Minimum/Maximum, Circumscribed Polygons, Trigonometric Leveling. Each worked example shows the question first; tap “Show solution” for the steps, with a variable legend at the end. A consolidated formula table with Perry's locations sits before the flags.</p>
+<nav>1 <a href="#c1">Limits</a> · 2 <a href="#c2">Angle Trig</a> · 3 <a href="#c3">Slope of Line</a> · 4 <a href="#c4">Graph</a> · 5 <a href="#c5">Min/Max</a> · 6 <a href="#c6">Inscribed Figures</a> · 7 <a href="#c7">Leveling</a> · 8 <a href="#c8">Formulas</a> · 9 <a href="#c9">Flags</a></nav>
+
+<h2 id="c1">1. Limits</h2>
+<p>The limit is the foundation of every derivative in this chapter. It is the value a function approaches as its input approaches some target, and it need not equal the function's value at that target.</p>
+<div class="f">lim<sub>x→a</sub> f(x) = L</div>
+<p>The rigorous statement is the <b>epsilon-delta definition</b>: for every ε &gt; 0 there is a δ &gt; 0 such that |f(x) − L| &lt; ε whenever 0 &lt; |x − a| &lt; δ. Every other limit technique — factoring, L'Hôpital, series — is a shortcut past this definition.</p>
+<h3>The determinate and indeterminate cases</h3>
+<p>Substitution is the first move. If it produces a finite value, that is the limit. If it produces one of the seven indeterminate forms — 0/0, ∞/∞, 0·∞, ∞ − ∞, 0⁰, 1<sup>∞</sup>, ∞⁰ — a further technique is required:</p>
+<div class="w"><table>
+<tr><th>Indeterminate form</th><th>Technique</th></tr>
+<tr><td>0/0, ∞/∞</td><td>Factor and cancel, or L'Hôpital's rule</td></tr>
+<tr><td>0·∞</td><td>Rewrite as a ratio, then L'Hôpital</td></tr>
+<tr><td>∞ − ∞</td><td>Combine over a common denominator or rationalize</td></tr>
+<tr><td>1<sup>∞</sup></td><td>Take logarithms, or use lim(1 + a/n)<sup>n</sup> = e<sup>a</sup></td></tr>
+<tr><td>0⁰, ∞⁰</td><td>Take logarithms and use L'Hôpital on the exponent</td></tr>
+</table></div>
+<h3>Limits at infinity</h3>
+<p>For a rational function of two polynomials, the limit at infinity is decided by degrees:</p>
+<div class="w"><table>
+<tr><th>Degree of numerator vs denominator</th><th>Limit as x → ∞</th></tr>
+<tr><td>deg(num) &lt; deg(den)</td><td>0</td></tr>
+<tr><td>deg(num) = deg(den)</td><td>ratio of leading coefficients</td></tr>
+<tr><td>deg(num) &gt; deg(den)</td><td>∞ (or −∞ depending on signs)</td></tr>
+</table></div>
+<p>For a difference involving a square root, the conjugate multiplication is the standard technique. For x → −∞, note that √x² = |x| = −x, because x is negative: the sign of the leading term on exit is the trap.</p>
+<h3>Continuity and discontinuity</h3>
+<p>A function is continuous at a if three things hold: f(a) is defined, the limit exists, and the limit equals f(a). When one of these fails, the discontinuity is:</p>
+<div class="w"><table>
+<tr><th>Type</th><th>Diagnosis</th><th>Example behaviour</th></tr>
+<tr><td>Removable</td><td>Limit exists but f(a) is undefined or does not equal the limit</td><td>hole in the graph</td></tr>
+<tr><td>Jump</td><td>Left and right limits exist but differ</td><td>step in the graph</td></tr>
+<tr><td>Infinite (essential)</td><td>Function grows without bound</td><td>vertical asymptote</td></tr>
+</table></div>
+<p>“Essential discontinuity” is a synonym for <b>infinite discontinuity</b> in the older literature, and it is that synonym that the exam expects. A removable discontinuity is what a factor that cancels leaves behind; an infinite discontinuity is what a surviving zero in the denominator leaves behind.</p>
+
+<div class="ex"><b class="t">Worked 1.1: substitution and factoring</b><p class="q">Evaluate lim<sub>x→1</sub> [(x − 3)(x² − 2)]/(x² + 1).</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — try direct substitution; the denominator is (1)² + 1 = 2, which is not zero</div>
+<div class="f">limit = <span class="fr"><i>( 1 − 3 )( 1 − 2 )</i><i>1 + 1</i></span></div>
+<div class="st">Step 2 — evaluate the numerator</div>
+<div class="f">( −2 )( −1 ) = 2</div>
+<div class="st">Step 3 — divide</div>
+<div class="f">limit = <span class="fr"><i>2</i><i>2</i></span> = <b>1</b></div>
+<div class="cap">The answer 2 comes from evaluating the numerator and stopping. The denominator is also part of the limit; substitution gives the complete value, and it happens to be 1. Direct substitution always works when no denominator is zero.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the variable; the limit is as x approaches 1</span>
+<span>numerator, denominator — the two polynomials in the expression</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.2: the exponential limit</b><p class="q">Evaluate lim<sub>m→∞</sub> (1 + r/m)<sup>m</sup>.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — recognize the standard form of the definition of e</div>
+<div class="f">lim<sub>n→∞</sub> ( 1 + 1/n )<sup>n</sup> = e</div>
+<div class="st">Step 2 — substitute n = m/r so that 1 + r/m becomes 1 + 1/n</div>
+<div class="f">m = n r,   ( 1 + r/m )<sup>m</sup> = ( 1 + 1/n )<sup>nr</sup> = [ ( 1 + 1/n )<sup>n</sup> ]<sup>r</sup></div>
+<div class="st">Step 3 — take the limit as n → ∞</div>
+<div class="f">limit = e<sup>r</sup></div>
+<div class="f"><b>lim<sub>m→∞</sub> ( 1 + r/m )<sup>m</sup> = e<sup>r</sup></b></div>
+<div class="cap">The answer e<sup>−r</sup> comes from using the negative sign where there is none. The general rule lim(1 + a/n)<sup>n</sup> = e<sup>a</sup> covers this and its companion lim(1 + 1/x)<sup>x</sup> = e in one line.</div>
+<div class="lg"><b>Variables</b>
+<span><i>m</i> — the large parameter tending to infinity</span>
+<span><i>r</i> — a fixed constant</span>
+<span><i>e</i> — the base of the natural logarithm, about 2.71828</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.3: limits at infinity with a root</b><p class="q">Evaluate lim<sub>x→+∞</sub> √(x² − 3)/(x + 2).</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — divide numerator and denominator by x (which equals √x² for x &gt; 0)</div>
+<div class="f">= lim<sub>x→∞</sub> <span class="fr"><i>√( x² − 3 )/x</i><i>( x + 2 )/x</i></span></div>
+<div class="st">Step 2 — bring the x inside the square root as x²</div>
+<div class="f">√( x² − 3 )/x = √( 1 − 3/x² )</div>
+<div class="st">Step 3 — simplify the denominator</div>
+<div class="f">( x + 2 )/x = 1 + 2/x</div>
+<div class="st">Step 4 — take the limit as 1/x → 0</div>
+<div class="f">limit = <span class="fr"><i>√1</i><i>1</i></span> = <b>1</b></div>
+<div class="cap">The answer 2 comes from dropping the square root, or from dividing only the leading terms without bringing x inside the radical. The rule √x² = |x| = x for x &gt; 0 is the step that makes the numerator's limit 1.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the variable; the limit is as x approaches +∞</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.4: the difference with a root at negative infinity</b><p class="q">Evaluate lim<sub>x→−∞</sub> [√(9x² − x) + 3x].</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — recognize the ∞ − ∞ form and multiply by the conjugate</div>
+<div class="f">= lim<sub>x→−∞</sub> <span class="fr"><i>( 9x² − x ) − 9x²</i><i>√(9x² − x) − 3x</i></span></div>
+<div class="st">Step 2 — simplify the numerator</div>
+<div class="f">= lim<sub>x→−∞</sub> <span class="fr"><i>−x</i><i>√(9x² − x) − 3x</i></span></div>
+<div class="st">Step 3 — factor |x| out of the square root; for x &lt; 0, √x² = −x, so √(9x² − x) = −x√(9 − 1/x) = |x|·√(9 − 1/x) with the appropriate sign</div>
+<div class="f">√(9x² − x) = −x √( 9 − 1/x )   (since x &lt; 0)</div>
+<div class="st">Step 4 — substitute and simplify</div>
+<div class="f">= lim<sub>x→−∞</sub> <span class="fr"><i>−x</i><i>−x √( 9 − 1/x ) − 3x</i></span> = lim <span class="fr"><i>−x</i><i>−x [ √(9 − 1/x) + 3 ]</i></span></div>
+<div class="st">Step 5 — cancel the −x factor and take the limit</div>
+<div class="f">= <span class="fr"><i>1</i><i>√9 + 3</i></span> = <span class="fr"><i>1</i><i>6</i></span></div>
+<div class="f"><b>limit = 1/6</b></div>
+<div class="cap">The answer 1/2 comes from using √(9x² − x) ≈ 3x at negative infinity, which is wrong: √(9x²) = 3|x| = −3x for x &lt; 0, not +3x. The sign of |x| is the whole trap in a negative-infinity problem.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the variable; here x is negative as it tends to −∞</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.5: the fundamental trigonometric limit</b><p class="q">Find lim<sub>(x,y)→(0,0)</sub> sin(x² + y²)/(x² + y²).</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — substitute u = x² + y²; as (x, y) → (0, 0), u → 0⁺</div>
+<div class="f">limit = lim<sub>u→0⁺</sub> <span class="fr"><i>sin u</i><i>u</i></span></div>
+<div class="st">Step 2 — apply the standard trigonometric limit</div>
+<div class="f">lim<sub>u→0</sub> <span class="fr"><i>sin u</i><i>u</i></span> = 1</div>
+<div class="f"><b>limit = 1</b></div>
+<div class="cap">The answer 0 comes from thinking that sin(u)/u has a small numerator; but for small u, sin u ≈ u, so the ratio approaches 1, not 0. This is the single most important limit in the calculus of trigonometric functions — the derivative of sine depends on it.</div>
+<div class="lg"><b>Variables</b>
+<span><i>u</i> — the combined quantity x² + y²</span>
+<span><i>x</i>, <i>y</i> — the two independent variables</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.6: L'Hôpital on a logarithmic limit</b><p class="q">Evaluate lim<sub>x→0⁺</sub> x·ln(x).</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — recognize the 0·(−∞) form and rewrite as a ratio</div>
+<div class="f">x ln x = <span class="fr"><i>ln x</i><i>1/x</i></span></div>
+<div class="st">Step 2 — the ratio is now −∞/∞; apply L'Hôpital</div>
+<div class="f">lim <span class="fr"><i>ln x</i><i>1/x</i></span> = lim <span class="fr"><i>( 1/x )</i><i>( −1/x² )</i></span></div>
+<div class="st">Step 3 — simplify the fraction</div>
+<div class="f">= lim ( −x )</div>
+<div class="st">Step 4 — as x → 0⁺</div>
+<div class="f">= <b>0</b></div>
+<div class="cap">The answer ∞ comes from using the original form and declaring the logarithm dominates; in fact the polynomial factor x wins the race against ln x, and the product goes to 0. This is the standard result for any x<sup>a</sup>·ln x with a &gt; 0.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the variable; the limit is from the right, x → 0⁺</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.7: exponential decay defeats polynomial growth</b><p class="q">Evaluate lim<sub>x→∞</sub> x·e<sup>−x</sup>.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — rewrite as a ratio</div>
+<div class="f">x e<sup>−x</sup> = <span class="fr"><i>x</i><i>e<sup>x</sup></i></span></div>
+<div class="st">Step 2 — the form is ∞/∞; apply L'Hôpital</div>
+<div class="f">lim <span class="fr"><i>x</i><i>e<sup>x</sup></i></span> = lim <span class="fr"><i>1</i><i>e<sup>x</sup></i></span></div>
+<div class="st">Step 3 — as x → ∞, e<sup>x</sup> → ∞</div>
+<div class="f">= <b>0</b></div>
+<div class="cap">The answer ∞ comes from thinking x grows faster than e<sup>−x</sup> shrinks; the opposite is true. Any exponential growth eventually defeats any polynomial growth, so x·e<sup>−x</sup> → 0. This is the standard result for any x<sup>n</sup>·e<sup>−x</sup> with n finite.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the variable; the limit is as x → ∞</span>
+<span><i>e</i> — the base of the natural logarithm</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.8: the 1<sup>∞</sup> form</b><p class="q">Evaluate lim<sub>x→∞</sub> (1 + 1/x)<sup>x</sup>.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — recognize the form: 1<sup>∞</sup>, which is indeterminate</div>
+<div class="f">( 1 + 1/x ) → 1,   exponent → ∞</div>
+<div class="st">Step 2 — apply the standard definition of e</div>
+<div class="f">lim<sub>x→∞</sub> ( 1 + 1/x )<sup>x</sup> = e</div>
+<div class="f"><b>limit = e ≈ 2.71828</b></div>
+<div class="cap">The answer “limit does not exist” is a natural slip, because the base and exponent are behaving in opposite ways; but the growth rates balance out exactly. This limit is the definition of the number e, and it is the basis of continuous-compounding interest.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the variable; the limit is as x → ∞</span>
+<span><i>e</i> — the resulting limit, the natural base</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.9: the 0⁰ form</b><p class="q">Evaluate lim<sub>x→∞</sub> x<sup>1/x</sup>.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — let y = x<sup>1/x</sup> and take the natural logarithm of both sides</div>
+<div class="f">ln y = <span class="fr"><i>ln x</i><i>x</i></span></div>
+<div class="st">Step 2 — as x → ∞, this is ln x/x → 0 (logarithmic growth defeated by linear growth)</div>
+<div class="f">lim ln y = 0</div>
+<div class="st">Step 3 — exponentiate to recover the limit of y</div>
+<div class="f">lim y = e<sup>0</sup> = 1</div>
+<div class="f"><b>limit = 1</b></div>
+<div class="cap">The answer 0 comes from the base → ∞ idea, but the exponent 1/x → 0 pulls the result back to 1. The rule is that for 0⁰, ∞⁰, and 1<sup>∞</sup> forms, the logarithm is the only way through.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the variable; the limit is as x → ∞</span>
+<span><i>y</i> — the function x<sup>1/x</sup></span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.10: the removable discontinuity</b><p class="q">Consider f(x) = (x² − 4)/(x − 2). The limit as x → 2 exists; what type of discontinuity is there at x = 2?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — factor the numerator</div>
+<div class="f">x² − 4 = ( x − 2 )( x + 2 )</div>
+<div class="st">Step 2 — cancel the common factor</div>
+<div class="f"><span class="fr"><i>( x − 2 )( x + 2 )</i><i>x − 2</i></span> = x + 2   (for x ≠ 2)</div>
+<div class="st">Step 3 — the limit exists</div>
+<div class="f">lim<sub>x→2</sub> f(x) = 4</div>
+<div class="st">Step 4 — but f(2) is undefined (0/0 in the original form)</div>
+<div class="f">f(2) = undefined</div>
+<div class="st">Step 5 — a limit that exists with an undefined value at the point is the definition of a removable discontinuity</div>
+<div class="f"><b>Removable discontinuity</b></div>
+<div class="cap">A factor that cancels leaves a removable discontinuity (a hole). A factor in the denominator that does not cancel would leave an infinite discontinuity. A jump discontinuity requires left and right limits that differ, which is not the case here.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the variable; the point of interest is x = 2</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.11: the infinite discontinuity</b><p class="q">Consider f(x) = 1/(2x − 4). The limit as x → 2 does not exist; what type of discontinuity is at x = 2?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — evaluate the denominator at x = 2</div>
+<div class="f">2( 2 ) − 4 = 0</div>
+<div class="st">Step 2 — the numerator is 1, so the function goes to ±∞ as x approaches 2</div>
+<div class="f">lim<sub>x→2⁺</sub> f(x) = +∞,   lim<sub>x→2⁻</sub> f(x) = −∞</div>
+<div class="st">Step 3 — a divergence to ±∞ at a point is an infinite discontinuity, also called an essential discontinuity</div>
+<div class="f"><b>Infinite (essential) discontinuity</b></div>
+<div class="cap">The vertical line x = 2 is an asymptote. The answer “removable” would require the limit to exist, which it does not. Essential and infinite are synonyms in this context.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the variable; the point of interest is x = 2</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.12: an indeterminate form with a logarithm</b><p class="q">Find lim<sub>(x,y)→(0,0)</sub> (x² + y²)·ln(x² + y²).</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — substitute u = x² + y²; as (x, y) → (0, 0), u → 0⁺</div>
+<div class="f">limit = lim<sub>u→0⁺</sub> u ln u</div>
+<div class="st">Step 2 — rewrite as a ratio to apply L'Hôpital</div>
+<div class="f">u ln u = <span class="fr"><i>ln u</i><i>1/u</i></span></div>
+<div class="st">Step 3 — apply L'Hôpital to the ratio (both numerator and denominator → ±∞)</div>
+<div class="f">lim <span class="fr"><i>ln u</i><i>1/u</i></span> = lim <span class="fr"><i>1/u</i><i>−1/u²</i></span> = lim ( −u )</div>
+<div class="st">Step 4 — evaluate</div>
+<div class="f">= <b>0</b></div>
+<div class="cap">The answer “limit does not exist” comes from the −∞ value of ln u at 0⁺, but the polynomial factor u → 0 defeats the logarithm. The same substitution-and-L'Hôpital works for the single-variable version lim x ln x.</div>
+<div class="lg"><b>Variables</b>
+<span><i>u</i> — the combined quantity x² + y²</span>
+<span><i>x</i>, <i>y</i> — the two independent variables</span>
+</div>
+</details></div>
+
+<h2 id="c2">2. Angle Trigonometry</h2>
+<p>The derivatives of the trigonometric functions are built from one fundamental limit and a family of sign rules. High-order derivatives follow a periodic pattern that makes them easy to compute once the pattern is identified.</p>
+<h3>Derivatives of the six functions</h3>
+<div class="f">d/dx sin x = cos x</div>
+<div class="f">d/dx cos x = −sin x</div>
+<div class="f">d/dx tan x = sec² x</div>
+<div class="f">d/dx cot x = −csc² x</div>
+<div class="f">d/dx sec x = sec x tan x</div>
+<div class="f">d/dx csc x = −csc x cot x</div>
+<p>Two things carry the whole table: the minus sign on cosine (and on cotangent and cosecant, which derive from cosine), and the sec² for tangent. Every other rule is a consequence of those two.</p>
+<h3>High-order derivatives</h3>
+<p>Repeated differentiation of sin or cos cycles with period 4:</p>
+<div class="f">d/dx sin x = cos x,   d²/dx² sin x = −sin x,   d³/dx³ sin x = −cos x,   d⁴/dx⁴ sin x = sin x</div>
+<p>For a function of the form f(x) = a sin x + b cos x, the n-th derivative follows the rule</p>
+<div class="f">d<sup>n</sup>/dx<sup>n</sup> sin x = sin( x + nπ/2 )</div>
+<div class="f">d<sup>n</sup>/dx<sup>n</sup> cos x = cos( x + nπ/2 )</div>
+<p>Equivalently, reduce n mod 4 to find which of the four forms applies. For n = 999, 999 mod 4 = 3, so the derivative is the third-derivative form.</p>
+<div class="w"><table>
+<tr><th>n mod 4</th><th>d<sup>n</sup>/dx<sup>n</sup> sin x</th><th>d<sup>n</sup>/dx<sup>n</sup> cos x</th></tr>
+<tr><td>0</td><td>sin x</td><td>cos x</td></tr>
+<tr><td>1</td><td>cos x</td><td>−sin x</td></tr>
+<tr><td>2</td><td>−sin x</td><td>−cos x</td></tr>
+<tr><td>3</td><td>−cos x</td><td>sin x</td></tr>
+</table></div>
+
+<div class="ex"><b class="t">Worked 2.1: the 999th derivative of a trigonometric sum</b><p class="q">Find the 999th derivative of −cos(x) + sin(x).</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — reduce 999 mod 4</div>
+<div class="f">999 = 4 × 249 + 3   ⇒   999 mod 4 = 3</div>
+<div class="st">Step 2 — look up the third-derivative form for sin x and cos x</div>
+<div class="f">d³/dx³ sin x = −cos x</div>
+<div class="f">d³/dx³ cos x = sin x</div>
+<div class="st">Step 3 — apply to each term with its coefficient</div>
+<div class="f">d<sup>999</sup>/dx<sup>999</sup> [ −cos x ] = −( sin x ) = −sin x</div>
+<div class="f">d<sup>999</sup>/dx<sup>999</sup> [ sin x ] = −cos x</div>
+<div class="st">Step 4 — combine</div>
+<div class="f">= −sin x − cos x</div>
+<div class="f"><b>= −sin(x) − cos(x)</b></div>
+<div class="cap">The answer sin x + cos x has every sign flipped. The sign of the whole expression comes from the mod-4 reduction; 999 is one short of a multiple of 4, which is why the third-derivative form applies and both terms carry a minus.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the angle in radians</span>
+<span><i>n</i> — the order of the derivative, 999</span>
+</div>
+</details></div>
+
+<h2 id="c3">3. Slope of a Line</h2>
+<p>The slope of a curve at a point is the derivative of y with respect to x at that point. For a curve given in implicit form, the derivative is found by implicit differentiation.</p>
+<h3>Implicit differentiation</h3>
+<p>Differentiate both sides with respect to x, treating y as a function of x (so every derivative of y brings a factor of y′), then solve for y′:</p>
+<div class="f">d/dx [ y<sup>n</sup> ] = n y<sup>n−1</sup> y′</div>
+<div class="f">d/dx [ xy ] = y + x y′</div>
+<h3>The tangent-slope formula</h3>
+<p>After differentiating, substitute the point (x₀, y₀) into the resulting expression for y′. The number that comes out is the slope of the tangent line at that point. If the question asks for the slope of the <i>normal</i>, the answer is the negative reciprocal of the tangent slope:</p>
+<div class="f">m<sub>normal</sub> = −<span class="fr"><i>1</i><i>m<sub>tangent</sub></i></span></div>
+<h3>Applying it to a circle</h3>
+<p>A circle x² + y² − 2ax − 2by + c = 0 has derivative</p>
+<div class="f">2x + 2y y′ − 2a − 2b y′ = 0</div>
+<div class="f">y′ = <span class="fr"><i>a − x</i><i>y − b</i></span></div>
+<p>which is the slope of the tangent at (x, y). Substituting the point gives the numerical answer.</p>
+
+<div class="ex"><b class="t">Worked 3.1: slope of a circle at a point</b><p class="q">Find the slope of the curve x² + y² − 6x + 10y + 5 = 0 at the point (1, 0).</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — differentiate implicitly, remembering that y is a function of x</div>
+<div class="f">2x + 2y y′ − 6 + 10 y′ = 0</div>
+<div class="st">Step 2 — collect the y′ terms</div>
+<div class="f">y′ ( 2y + 10 ) = 6 − 2x</div>
+<div class="st">Step 3 — solve for y′</div>
+<div class="f">y′ = <span class="fr"><i>6 − 2x</i><i>2y + 10</i></span></div>
+<div class="st">Step 4 — substitute the point (1, 0)</div>
+<div class="f">y′ = <span class="fr"><i>6 − 2(1)</i><i>2(0) + 10</i></span> = <span class="fr"><i>4</i><i>10</i></span></div>
+<div class="f"><b>slope = 2/5</b></div>
+<div class="cap">The derivative of −6x is −6, not −6x, because it is a first-power term. The derivative of +10y is +10y′, because y is a function of x. Both are implicit-differentiation basics, and both are frequently missed when the problem is done in a hurry.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i>, <i>y</i> — the coordinates of a point on the curve</span>
+<span><i>y′</i> — the derivative dy/dx, the slope of the tangent</span>
+</div>
+</details></div>
+
+<h2 id="c4">4. Graph</h2>
+<p>Curve sketching turns the derivatives into geometric information. The first derivative controls where the function rises and falls and where its peaks and valleys lie; the second derivative controls the curvature and the points where the concavity flips.</p>
+<h3>Sign of the first derivative</h3>
+<div class="w"><table>
+<tr><th>f′(x)</th><th>Behaviour of f</th></tr>
+<tr><td>f′ &gt; 0</td><td>increasing</td></tr>
+<tr><td>f′ &lt; 0</td><td>decreasing</td></tr>
+<tr><td>f′ = 0</td><td>critical point (possible max, min, or flat inflection)</td></tr>
+</table></div>
+<h3>Sign of the second derivative</h3>
+<div class="w"><table>
+<tr><th>f″(x)</th><th>Concavity</th></tr>
+<tr><td>f″ &gt; 0</td><td>concave up</td></tr>
+<tr><td>f″ &lt; 0</td><td>concave down</td></tr>
+<tr><td>f″ = 0 and changes sign</td><td>point of inflection</td></tr>
+</table></div>
+<p>The second derivative decides the nature of a critical point in one line:</p>
+<div class="f">f′(c) = 0 and f″(c) &gt; 0   ⇒   relative minimum at c</div>
+<div class="f">f′(c) = 0 and f″(c) &lt; 0   ⇒   relative maximum at c</div>
+<div class="f">f′(c) = 0 and f″(c) = 0   ⇒   inconclusive; fall back to the first-derivative test</div>
+<h3>Working example family: cubic polynomials</h3>
+<p>For a cubic f(x) = ax³/3 + bx² + cx + d (a &gt; 0), the classic three questions are: where is f increasing, where is f decreasing, and where is f concave up or down?</p>
+<ul>
+<li>The critical points are the roots of f′(x) = ax² + 2bx + c.</li>
+<li>The increasing intervals are those on which f′ &gt; 0 (outside the interval between the roots, for a &gt; 0).</li>
+<li>The decreasing interval is between the roots.</li>
+<li>The inflection point is where f″ = 2ax + 2b = 0, i.e. at x = −b/a.</li>
+</ul>
+
+<div class="ex"><b class="t">Worked 4.1: a cubic and its intervals</b><p class="q">For f(x) = x³/9 − 3x, find (a) the intervals on which f is increasing and decreasing, (b) the intervals of upward and downward concavity, (c) the point of inflection.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — first derivative</div>
+<div class="f">f′(x) = <span class="fr"><i>x²</i><i>3</i></span> − 3</div>
+<div class="st">Step 2 — critical points: set f′ = 0</div>
+<div class="f"><span class="fr"><i>x²</i><i>3</i></span> = 3   ⇒   x² = 9   ⇒   x = ±3</div>
+<div class="st">Step 3 — sign of f′ on each interval</div>
+<div class="f">x &lt; −3:   f′ &gt; 0   ⇒   increasing</div>
+<div class="f">−3 &lt; x &lt; 3:   f′ &lt; 0   ⇒   decreasing</div>
+<div class="f">x &gt; 3:   f′ &gt; 0   ⇒   increasing</div>
+<div class="st">Step 4 — second derivative</div>
+<div class="f">f″(x) = <span class="fr"><i>2x</i><i>3</i></span></div>
+<div class="st">Step 5 — concavity</div>
+<div class="f">f″ &lt; 0 when x &lt; 0   ⇒   concave down on ( −∞, 0 )</div>
+<div class="f">f″ &gt; 0 when x &gt; 0   ⇒   concave up on ( 0, +∞ )</div>
+<div class="st">Step 6 — point of inflection at x = 0; the function value there is f(0) = 0</div>
+<div class="f"><b>Point of inflection = (0, 0)</b></div>
+<div class="st">Step 7 — summary of the requested answers</div>
+<div class="f">increasing: ( −∞, −3 ) ∪ ( 3, +∞ )</div>
+<div class="f">decreasing: ( −3, 3 )</div>
+<div class="f">concave down: ( −∞, 0 );   concave up: ( 0, +∞ )</div>
+<div class="f">point of inflection: ( 0, 0 )</div>
+<div class="cap">The most common errors on this family: reporting the concavity interval as [−3, 3] (that is the decreasing interval, from the first derivative), reporting the inflection point as (−3, 6) (that is the local maximum, not the inflection), and reporting the increasing interval as [3, +∞) only (the function is also increasing on (−∞, −3)). The intervals from the first derivative and the intervals from the second derivative are entirely different things.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the independent variable</span>
+<span><i>f</i>(<i>x</i>) — the function being analyzed</span>
+<span><i>f′</i>(<i>x</i>), <i>f″</i>(<i>x</i>) — first and second derivatives</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.2: inflection points of a quintic</b><p class="q">The graph of y = 5x⁴ − x⁵ has point(s) of inflection at ______.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — first derivative</div>
+<div class="f">y′ = 20x³ − 5x⁴</div>
+<div class="st">Step 2 — second derivative</div>
+<div class="f">y″ = 60x² − 20x³ = 20x² ( 3 − x )</div>
+<div class="st">Step 3 — set y″ = 0</div>
+<div class="f">x = 0 (double root) or x = 3</div>
+<div class="st">Step 4 — an inflection requires a change of sign of y″</div>
+<div class="f">at x = 0:   y″ does not change sign (double root)</div>
+<div class="f">at x = 3:   y″ changes from positive to negative</div>
+<div class="st">Step 5 — the function value at x = 3</div>
+<div class="f">y( 3 ) = 5( 81 ) − 243 = 405 − 243 = 162</div>
+<div class="f"><b>Inflection point: (3, 162) only</b></div>
+<div class="cap">The x = 0 point is a false inflection: y″ = 0 there, but y″ has the same sign on both sides (it touches zero and comes back positive). Inflection requires a sign change, which is why the double root at x = 0 is excluded. The trap is to list all roots of y″ = 0 as inflections without checking the sign change.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the independent variable</span>
+<span><i>y</i> — the dependent variable</span>
+<span><i>y″</i> — the second derivative, whose sign determines concavity</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.3: curvature of an implicit curve</b><p class="q">Find the curvature of the curve y² + x³ = 0 at the point (−1, 1).</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — differentiate implicitly with respect to x</div>
+<div class="f">2y y′ + 3x² = 0</div>
+<div class="st">Step 2 — solve for y′</div>
+<div class="f">y′ = −<span class="fr"><i>3x²</i><i>2y</i></span></div>
+<div class="st">Step 3 — substitute the point (−1, 1)</div>
+<div class="f">y′ = −<span class="fr"><i>3(1)</i><i>2(1)</i></span> = −<span class="fr"><i>3</i><i>2</i></span> = −1.5</div>
+<div class="st">Step 4 — differentiate again for y″; use the quotient rule on y′ = −3x²/(2y)</div>
+<div class="f">y″ = −<span class="fr"><i>( 6x )( 2y ) − ( 3x² )( 2y′ )</i><i>( 2y )²</i></span></div>
+<div class="st">Step 5 — substitute x = −1, y = 1, y′ = −1.5</div>
+<div class="f">y″ = −<span class="fr"><i>( −6 )( 2 ) − ( 3 )( 2 )( −1.5 )</i><i>4</i></span> = −<span class="fr"><i>−12 + 9</i><i>4</i></span> = <span class="fr"><i>3</i><i>4</i></span> = 0.75</div>
+<div class="st">Step 6 — apply the curvature formula</div>
+<div class="f">κ = <span class="fr"><i>| y″ |</i><i>( 1 + ( y′ )² )<sup>3/2</sup></i></span></div>
+<div class="st">Step 7 — evaluate</div>
+<div class="f">κ = <span class="fr"><i>0.75</i><i>( 1 + 2.25 )<sup>1.5</sup></i></span> = <span class="fr"><i>0.75</i><i>3.25<sup>1.5</sup></i></span> = <span class="fr"><i>0.75</i><i>5.859</i></span></div>
+<div class="f"><b>κ ≈ 0.128</b></div>
+<div class="cap">The curvature uses the absolute value of y″ and the 3/2 power of the whole bracket (1 + (y′)²). Dropping the absolute value or squaring only part of the bracket shifts the answer. The negative sign of y′ here does not matter because it is squared.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i>, <i>y</i> — the coordinates of a point on the curve</span>
+<span><i>y′</i>, <i>y″</i> — first and second derivatives from implicit differentiation</span>
+<span>κ — curvature at the given point</span>
+</div>
+</details></div>
+
+<h2 id="c5">5. Minimum/Maximum</h2>
+<p>An optimization problem asks for the extreme value of a quantity subject to a constraint. The workflow is fixed:</p>
+<ul>
+<li>Write the quantity to be optimized as a function of a single variable using the constraint.</li>
+<li>Differentiate and set the derivative to zero.</li>
+<li>Check that the result is a maximum or minimum (second-derivative test or physical argument).</li>
+<li>Substitute back to find the other quantities the question asks for.</li>
+</ul>
+<h3>The critical-point conditions</h3>
+<div class="f">f′(c) = 0 with f″(c) &gt; 0   ⇒   local minimum</div>
+<div class="f">f′(c) = 0 with f″(c) &lt; 0   ⇒   local maximum</div>
+<div class="f">f′(c) = 0 with f″(c) = 0   ⇒   test fails; use the first-derivative test</div>
+<h3>Two classic patterns</h3>
+<p><b>Split a number into two parts.</b> If x is one part, the other is N − x, and the product (N − x)·x² is maximized by differentiating:</p>
+<div class="f">d/dx [ x² ( N − x ) ] = 2Nx − 3x² = x ( 2N − 3x )</div>
+<p>The positive root x = 2N/3 gives the maximum; the other part is N/3. For N = 120, the parts are 80 and 40.</p>
+<p><b>Agency pricing.</b> Revenue = (price per person) × (number of persons). When the price declines linearly with the number above a base, the revenue becomes a quadratic in the number, and its vertex gives the maximum. For a base of n₀ at price p₀ with a reduction of d per person above n₀, the revenue is</p>
+<div class="f">R(n) = ( p₀ − d( n − n₀ ) ) · n</div>
+<p>Differentiate and solve; the optimal n is (p₀ + d n₀)/(2d).</p>
+<h3>Boxes, cylinders and distances</h3>
+<p><b>Closed cylinder of given volume V.</b> Surface area A = 2πr² + 2πrh, with h = V/(πr²). Substituting and differentiating gives r³ = V/(2π), h = 2r. The minimum A is then 6πr².</p>
+<p><b>Distance from a point to a curve.</b> Minimize the square of the distance (D² instead of D), then square root at the end. This avoids the messy differentiation of a square root.</p>
+
+<div class="ex"><b class="t">Worked 5.1: relative extrema of a cubic</b><p class="q">For f(x) = x³/9 − 3x, find the relative maximum and relative minimum points.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — first derivative and critical points</div>
+<div class="f">f′(x) = x²/3 − 3 = 0   ⇒   x² = 9   ⇒   x = ±3</div>
+<div class="st">Step 2 — second derivative for the test</div>
+<div class="f">f″(x) = 2x/3</div>
+<div class="st">Step 3 — evaluate the second derivative at each critical point</div>
+<div class="f">f″( −3 ) = −2   &lt; 0   ⇒   relative maximum at x = −3</div>
+<div class="f">f″( 3 ) = +2   &gt; 0   ⇒   relative minimum at x = 3</div>
+<div class="st">Step 4 — compute the function values</div>
+<div class="f">f( −3 ) = ( −27 )/9 − 3( −3 ) = −3 + 9 = 6</div>
+<div class="f">f( 3 ) = 27/9 − 3( 3 ) = 3 − 9 = −6</div>
+<div class="f"><b>Relative maximum: (−3, 6)</b></div>
+<div class="f"><b>Relative minimum: (3, −6)</b></div>
+<div class="cap">The two points are frequently swapped — that is, the sign of f″ and the max/min verdict are inverted. The second derivative at x = −3 is negative, which means concave down, which means a peak, which means a maximum. Reading the sign into the shape is the check that prevents the swap.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the independent variable</span>
+<span><i>f</i>(<i>x</i>) — the cubic function</span>
+<span><i>f′</i>, <i>f″</i> — first and second derivatives</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.2: splitting a number into parts</b><p class="q">Divide 120 into two parts so that the product of one and the square of the other is maximum. Find the numbers.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — let x be one part; the other part is 120 − x. The quantity to maximize is x²( 120 − x )</div>
+<div class="f">P( x ) = x²( 120 − x ) = 120 x² − x³</div>
+<div class="st">Step 2 — differentiate</div>
+<div class="f">P′( x ) = 240 x − 3 x² = 3 x ( 80 − x )</div>
+<div class="st">Step 3 — critical points: x = 0 (trivial) or x = 80</div>
+<div class="f">x = 80</div>
+<div class="st">Step 4 — check the second derivative</div>
+<div class="f">P″( x ) = 240 − 6x;   P″( 80 ) = 240 − 480 = −240 &lt; 0   ⇒   maximum</div>
+<div class="st">Step 5 — the other part</div>
+<div class="f">120 − 80 = 40</div>
+<div class="f"><b>The two parts are 80 and 40</b></div>
+<div class="cap">The answer 100 and 20 comes from maximizing the product of the two parts (which is symmetric and gives 60 and 60) instead of the product of one and the square of the other. The asymmetric exponent is what produces the asymmetric split. A useful check: the formula 2N/3 and N/3 gives 80 and 40 for N = 120.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — one part of the number</span>
+<span>120 − <i>x</i> — the other part</span>
+<span><i>P</i>(<i>x</i>) — the product being maximized</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.3: the agency pricing problem</b><p class="q">A travel agency offers a tour costing P1 500 per person for up to 150 persons; the cost per person is reduced by P5 for each person above 150. How many persons make the profit (revenue) a maximum?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — let x be the number of persons above 150, so the total number is 150 + x</div>
+<div class="f">price per person = 1500 − 5x</div>
+<div class="f">total revenue R = ( 1500 − 5x )( 150 + x )</div>
+<div class="st">Step 2 — expand</div>
+<div class="f">R( x ) = 225 000 + 1500 x − 750 x − 5 x² = 225 000 + 750 x − 5 x²</div>
+<div class="st">Step 3 — differentiate and set to zero</div>
+<div class="f">R′( x ) = 750 − 10 x = 0   ⇒   x = 75</div>
+<div class="st">Step 4 — total number of persons</div>
+<div class="f">150 + 75 = 225</div>
+<div class="st">Step 5 — confirm maximum via second derivative</div>
+<div class="f">R″( x ) = −10 &lt; 0 ✓</div>
+<div class="f"><b>225 persons</b></div>
+<div class="cap">The answer 150 is the base number, which gives the naive revenue at full price and is not the maximum. The optimum is where the marginal revenue from one more person equals zero, which balances the price reduction against the increase in headcount. The formula (p₀ + d n₀)/(2d) with p₀ = 1500, d = 5, n₀ = 150 gives (1500 + 750)/10 = 225 — a useful check.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — number of persons above 150</span>
+<span>1500 — base price per person</span>
+<span>5 — price reduction per person above 150</span>
+<span><i>R</i> — total revenue</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.4: minimum surface of a closed cylinder</b><p class="q">Find the minimum amount of tin sheet that can be made into a closed cylinder having a volume of 108 cubic inches, in square inches.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — surface area and volume</div>
+<div class="f">A = 2πr² + 2πrh,   V = πr²h = 108</div>
+<div class="st">Step 2 — solve the volume equation for h</div>
+<div class="f">h = <span class="fr"><i>108</i><i>πr²</i></span></div>
+<div class="st">Step 3 — substitute into the area</div>
+<div class="f">A( r ) = 2πr² + 2πr <span class="fr"><i>108</i><i>πr²</i></span> = 2πr² + <span class="fr"><i>216</i><i>r</i></span></div>
+<div class="st">Step 4 — differentiate with respect to r</div>
+<div class="f">A′( r ) = 4πr − <span class="fr"><i>216</i><i>r²</i></span></div>
+<div class="st">Step 5 — set to zero</div>
+<div class="f">4πr = <span class="fr"><i>216</i><i>r²</i></span>   ⇒   r³ = <span class="fr"><i>54</i><i>π</i></span> ≈ 17.19</div>
+<div class="st">Step 6 — take the cube root</div>
+<div class="f">r ≈ 2.58 in</div>
+<div class="st">Step 7 — the height is h = 108/(π × 2.58²) ≈ 5.16 in ≈ 2r</div>
+<div class="st">Step 8 — the minimum area</div>
+<div class="f">A = 6πr² = 6π ( 2.58 )² = 6π × 6.656 = <b>125.5 in²</b></div>
+<div class="cap">The answer 129.5 comes from a rounding slip in the intermediate r. A useful check: for the optimal closed cylinder, h = 2r (height equals diameter), which means the optimal shape is an equilateral-looking cylinder. That condition alone pins down the answer without re-differentiating.</div>
+<div class="lg"><b>Variables</b>
+<span><i>r</i> — radius of the cylinder</span>
+<span><i>h</i> — height of the cylinder</span>
+<span><i>V</i> — volume, 108 in³</span>
+<span><i>A</i> — surface area of the closed cylinder</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.5: minimum distance from a point to a parabola</b><p class="q">Find the minimum distance from the point (4, 2) to the parabola y² = 8x.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — a point on the parabola is ( t²/2, t ) for some parameter t</div>
+<div class="f">point on parabola: ( x, y ) = ( y²/8, y )</div>
+<div class="st">Step 2 — write the square of the distance from (4, 2) to ( y²/8, y )</div>
+<div class="f">D² = ( y²/8 − 4 )² + ( y − 2 )²</div>
+<div class="st">Step 3 — differentiate with respect to y and set to zero</div>
+<div class="f">d( D² )/dy = 2( y²/8 − 4 )( y/4 ) + 2( y − 2 ) = 0</div>
+<div class="st">Step 4 — simplify</div>
+<div class="f"><span class="fr"><i>y</i><i>4</i></span> ( <span class="fr"><i>y²</i><i>8</i></span> − 4 ) + ( y − 2 ) = 0</div>
+<div class="f"><span class="fr"><i>y³</i><i>32</i></span> − y + y − 2 = 0</div>
+<div class="st">Step 5 — the y and −y cancel</div>
+<div class="f"><span class="fr"><i>y³</i><i>32</i></span> = 2   ⇒   y³ = 64   ⇒   y = 4</div>
+<div class="st">Step 6 — the corresponding x on the parabola</div>
+<div class="f">x = y²/8 = 16/8 = 2</div>
+<div class="st">Step 7 — the distance from (4, 2) to (2, 4)</div>
+<div class="f">D = √[( 2 − 4 )² + ( 4 − 2 )²] = √( 4 + 4 ) = √8</div>
+<div class="f"><b>D = 2√2 units</b></div>
+<div class="cap">Minimizing D² instead of D is the trick that makes the derivative tractable: the derivative of the square is simpler, and the square root is taken only at the very end. Trying to differentiate the square root directly leads to a much messier equation and higher risk of error.</div>
+<div class="lg"><b>Variables</b>
+<span>(4, 2) — the fixed point</span>
+<span>(<i>x</i>, <i>y</i>) — a general point on the parabola y² = 8x</span>
+<span><i>D</i> — distance from the fixed point to the parabola</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.6: the boatman's path</b><p class="q">A boatman is at A, 4.5 km from the nearest point B on a straight shore BM. He wishes to reach point C on the shore 9 km from B in minimum time. He rows at 6 kph and walks at 7.5 kph. How far from C should he land?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — let x be the distance from B to the landing point P on the shore</div>
+<div class="f">rowing distance AP = √( 4.5² + x² )</div>
+<div class="f">walking distance PC = 9 − x</div>
+<div class="st">Step 2 — write the total time (distance / speed)</div>
+<div class="f">T( x ) = <span class="fr"><i>√( 20.25 + x² )</i><i>6</i></span> + <span class="fr"><i>9 − x</i><i>7.5</i></span></div>
+<div class="st">Step 3 — differentiate and set to zero</div>
+<div class="f">T′( x ) = <span class="fr"><i>x</i><i>6 √( 20.25 + x² )</i></span> − <span class="fr"><i>1</i><i>7.5</i></span> = 0</div>
+<div class="st">Step 4 — isolate the radical</div>
+<div class="f"><span class="fr"><i>x</i><i>6 √( 20.25 + x² )</i></span> = <span class="fr"><i>1</i><i>7.5</i></span></div>
+<div class="st">Step 5 — cross-multiply</div>
+<div class="f">7.5 x = 6 √( 20.25 + x² )</div>
+<div class="f">1.25 x = √( 20.25 + x² )</div>
+<div class="st">Step 6 — square both sides</div>
+<div class="f">1.5625 x² = 20.25 + x²</div>
+<div class="f">0.5625 x² = 20.25</div>
+<div class="f">x² = 36   ⇒   x = 6</div>
+<div class="st">Step 7 — the landing point is 6 km from B, so the distance from C is</div>
+<div class="f">9 − 6 = 3 km</div>
+<div class="f"><b>He should land 3 km from C</b></div>
+<div class="cap">The answer 4.0 comes from a slip in solving the ratio 6/7.5; the correct ratio gives x = 6 and therefore 3 km from C. A useful check: when the speeds are close, the optimal landing is closer to the destination than to B; here the walking is faster, so the landing is closer to C — that is, x = 6 is more than half the distance from B to C.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — distance from B to the landing point</span>
+<span>4.5 km — perpendicular distance from A to shore</span>
+<span>9 km — distance from B to C along the shore</span>
+<span>6 kph — rowing speed</span>
+<span>7.5 kph — walking speed</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.7: window with maximum light</b><p class="q">A normal window is a rectangle surmounted by a semicircle. Find the ratio of the width of the rectangle to the total height so that it admits the most light for a given perimeter.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — name the dimensions: let the width of the rectangle be 2r, so the semicircle has radius r; let the height of the rectangular portion be h</div>
+<div class="f">width = 2r,   rectangle height = h,   total height = h + r</div>
+<div class="st">Step 2 — area (light admitted) and perimeter</div>
+<div class="f">A = 2 r h + <span class="fr"><i>π r²</i><i>2</i></span></div>
+<div class="f">P = 2 h + 2 r + π r = constant</div>
+<div class="st">Step 3 — solve the perimeter constraint for h</div>
+<div class="f">h = <span class="fr"><i>P − 2 r − π r</i><i>2</i></span></div>
+<div class="st">Step 4 — substitute into the area</div>
+<div class="f">A( r ) = 2 r <span class="fr"><i>P − 2 r − π r</i><i>2</i></span> + <span class="fr"><i>π r²</i><i>2</i></span></div>
+<div class="f">= r ( P − 2 r − π r ) + <span class="fr"><i>π r²</i><i>2</i></span> = Pr − 2r² − πr² + <span class="fr"><i>π r²</i><i>2</i></span></div>
+<div class="f">= Pr − 2r² − <span class="fr"><i>π r²</i><i>2</i></span></div>
+<div class="st">Step 5 — differentiate</div>
+<div class="f">A′( r ) = P − 4r − πr = 0</div>
+<div class="f">r = <span class="fr"><i>P</i><i>4 + π</i></span></div>
+<div class="st">Step 6 — solve for h</div>
+<div class="f">h = <span class="fr"><i>P − ( 2 + π ) r</i><i>2</i></span> = <span class="fr"><i>P − ( 2 + π ) P/( 4 + π )</i><i>2</i></span> = <span class="fr"><i>P</i><i>2</i></span> · <span class="fr"><i>( 4 + π ) − ( 2 + π )</i><i>4 + π</i></span> = <span class="fr"><i>P</i><i>4 + π</i></span></div>
+<div class="st">Step 7 — the ratio of width to total height</div>
+<div class="f">width = 2r,   total height = h + r</div>
+<div class="f">h = r, so total height = 2r = width</div>
+<div class="f"><b>width/total height = 1</b></div>
+<div class="cap">The answer 1/2 comes from comparing the width to twice the total height or from a slip in the perimeter bookkeeping. The clean result is that the total height equals the width — a square-with-semicircle-on-top proportion. That is the geometric signature of this classic problem.</div>
+<div class="lg"><b>Variables</b>
+<span><i>r</i> — radius of the semicircle (half the rectangle's width)</span>
+<span><i>h</i> — height of the rectangular part</span>
+<span><i>P</i> — given perimeter</span>
+<span><i>A</i> — area (light admitted)</span>
+</div>
+</details></div>
+
+<h2 id="c6">6. Circumscribed Polygons (Inscribed Figures)</h2>
+<p>A solid inscribed in another solid touches the outer solid at a prescribed set of points, and one of its dimensions is set by that contact. The optimization then asks for the maximum or minimum volume, surface, or dimension.</p>
+<h3>Reading the constraint from the geometry</h3>
+<p>Every inscribed-solid problem reduces to one relation between the inner dimensions and the outer ones. The three standard relations are:</p>
+<div class="w"><table>
+<tr><th>Outer shape</th><th>Inner shape</th><th>Contact relation</th></tr>
+<tr><td>Cone (height H, radius R)</td><td>Cylinder (radius r, height h) inscribed with coaxial axis</td><td>By similar triangles: <span class="fr"><i>h</i><i>H</i></span> = <span class="fr"><i>R − r</i><i>R</i></span></td></tr>
+<tr><td>Sphere (radius R)</td><td>Cylinder (radius r, height h) inscribed</td><td>Half-height and radius form a right triangle with R: r² + (h/2)² = R²</td></tr>
+<tr><td>Sphere (radius R)</td><td>Cone (height h, radius r) inscribed</td><td>h² − 2Rh + r² = 0</td></tr>
+</table></div>
+<h3>Ratio results worth memorizing</h3>
+<p>The following ratios recur so often that they are worth committing to memory:</p>
+<div class="f">max cylinder in a cone:   r = (2/3) R,   h = H/3,   V<sub>cyl</sub>/V<sub>cone</sub> = 4/9 ≈ 44.4 %</div>
+<div class="f">max cylinder in a sphere:   r = √(2/3) R,   h = 2R/√3,   V<sub>cyl</sub> = (4π/(3√3)) R³</div>
+<div class="f">max cone in a sphere:   h = (4/3) R,   r = (2√2/3) R,   V<sub>cone</sub> = (32π/81) R³</div>
+<p>The cone-in-sphere result is the one that catches people, because the "obvious" guess h = 2R (the full diameter) is not the maximum; h = 4R/3 is.</p>
+<h3>The derivative step</h3>
+<p>After substituting the constraint, the objective becomes a function of one variable, and the derivative is set to zero in the usual way. Many of these derivatives reduce to a simple algebra equation (a quadratic or a linear in the variable of interest), so the arithmetic is often lighter than the geometry.</p>
+
+<div class="ex"><b class="t">Worked 6.1: cylinder inscribed in a cone</b><p class="q">A cone of altitude 12 m and base radius 15 m has a cylinder inscribed in it with maximum volume. Find the base radius, the height, and the volume of the cylinder.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the similar-triangles constraint (r at the top of the cylinder, R at the base of the cone)</div>
+<div class="f"><span class="fr"><i>h</i><i>H</i></span> = <span class="fr"><i>R − r</i><i>R</i></span>   ⇒   h = H <span class="fr"><i>R − r</i><i>R</i></span></div>
+<div class="st">Step 2 — substitute H = 12, R = 15</div>
+<div class="f">h = 12 <span class="fr"><i>15 − r</i><i>15</i></span> = 12 − 0.8 r</div>
+<div class="st">Step 3 — the cylinder volume</div>
+<div class="f">V = π r² h = π r² ( 12 − 0.8 r ) = 12 π r² − 0.8 π r³</div>
+<div class="st">Step 4 — differentiate</div>
+<div class="f">V′( r ) = 24 π r − 2.4 π r² = 2.4 π r ( 10 − r )</div>
+<div class="st">Step 5 — critical point at r = 10</div>
+<div class="f">r = 10 m</div>
+<div class="st">Step 6 — the corresponding height</div>
+<div class="f">h = 12 − 0.8( 10 ) = 4 m</div>
+<div class="st">Step 7 — volume</div>
+<div class="f">V = π ( 10 )² ( 4 ) = 400 π m³</div>
+<div class="f"><b>r = 10 m, h = 4 m, V = 400π m³ ≈ 1 256.6 m³</b></div>
+<div class="cap">The answer 200π comes from using the cone's own base radius 15 rather than the cylinder's optimal r = 10, or from an error in the similar-triangles ratio. The ratio check is powerful: for a cone with height H and radius R, the optimal cylinder has r = 2R/3 = 10 m and h = H/3 = 4 m, and V = 4/9 of the cone's volume. Both match the calculation.</div>
+<div class="lg"><b>Variables</b>
+<span><i>R</i> — cone base radius, 15 m</span>
+<span><i>H</i> — cone altitude, 12 m</span>
+<span><i>r</i> — cylinder base radius</span>
+<span><i>h</i> — cylinder height</span>
+<span><i>V</i> — cylinder volume</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 6.2: maximum cylinder volume as a fraction of the cone's volume</b><p class="q">Given a cone of diameter x and altitude h, what percent is the volume of the largest cylinder which can be inscribed in the cone to the volume of the cone?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — cone radius R = x/2, and the constraint from similar triangles</div>
+<div class="f">h<sub>cyl</sub> = h <span class="fr"><i>R − r</i><i>R</i></span></div>
+<div class="st">Step 2 — cylinder volume</div>
+<div class="f">V<sub>cyl</sub> = π r² h <span class="fr"><i>R − r</i><i>R</i></span></div>
+<div class="st">Step 3 — differentiate with respect to r</div>
+<div class="f">dV/dr = <span class="fr"><i>π h</i><i>R</i></span> · d/dr [ r²( R − r ) ] = <span class="fr"><i>π h</i><i>R</i></span> ( 2Rr − 3r² )</div>
+<div class="st">Step 4 — set to zero</div>
+<div class="f">2Rr − 3r² = 0   ⇒   r = 2R/3</div>
+<div class="st">Step 5 — corresponding height</div>
+<div class="f">h<sub>cyl</sub> = h <span class="fr"><i>R − 2R/3</i><i>R</i></span> = h/3</div>
+<div class="st">Step 6 — the cylinder volume</div>
+<div class="f">V<sub>cyl</sub> = π ( 2R/3 )² ( h/3 ) = <span class="fr"><i>4π R² h</i><i>27</i></span></div>
+<div class="st">Step 7 — the cone volume</div>
+<div class="f">V<sub>cone</sub> = <span class="fr"><i>π R² h</i><i>3</i></span></div>
+<div class="st">Step 8 — the ratio</div>
+<div class="f"><span class="fr"><i>V<sub>cyl</sub></i><i>V<sub>cone</sub></i></span> = <span class="fr"><i>4/27</i><i>1/3</i></span> = <b>4/9 ≈ 44.4 %</b></div>
+<div class="cap">The answer 46 % comes from a rounding slip. The exact result 4/9 is a classic, worth memorizing: the largest inscribed cylinder in any cone is 4/9 of the cone's volume, regardless of the cone's proportions.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — cone diameter, so R = x/2</span>
+<span><i>h</i> — cone altitude</span>
+<span><i>r</i>, <i>h<sub>cyl</sub></i> — cylinder radius and height</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 6.3: cylinder inscribed in a sphere</b><p class="q">A sphere of radius 12 in has a cylinder inscribed in it with maximum volume. Find the base radius and the volume of the cylinder.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the contact relation: half-height and radius form a right triangle with the sphere's radius</div>
+<div class="f">r² + ( h/2 )² = R²   ⇒   r² = R² − h²/4</div>
+<div class="st">Step 2 — substitute R = 12</div>
+<div class="f">r² = 144 − h²/4</div>
+<div class="st">Step 3 — cylinder volume</div>
+<div class="f">V = π r² h = π ( 144 − h²/4 ) h = 144π h − <span class="fr"><i>π h³</i><i>4</i></span></div>
+<div class="st">Step 4 — differentiate with respect to h</div>
+<div class="f">dV/dh = 144π − <span class="fr"><i>3π h²</i><i>4</i></span></div>
+<div class="st">Step 5 — set to zero</div>
+<div class="f">144 = <span class="fr"><i>3h²</i><i>4</i></span>   ⇒   h² = 192   ⇒   h = 8√3 in</div>
+<div class="st">Step 6 — the base radius</div>
+<div class="f">r² = 144 − ( 192/4 ) = 144 − 48 = 96   ⇒   r = 4√6 in</div>
+<div class="st">Step 7 — the volume</div>
+<div class="f">V = π ( 96 )( 8√3 ) = 768π √3 ≈ 4 178 in³</div>
+<div class="f"><b>r = 4√6 ≈ 9.80 in;   V ≈ 4 178 in³</b></div>
+<div class="cap">The answer √6 comes from taking r instead of r² and forgetting to square root at the end. The ratio check 2R/√3 for the height and √(2/3) R for the radius gives h = 13.86 (which is 8√3 ≈ 13.86) and r = 9.80 (which is 4√6 ≈ 9.80), matching the calculation.</div>
+<div class="lg"><b>Variables</b>
+<span><i>R</i> — sphere radius, 12 in</span>
+<span><i>r</i> — cylinder base radius</span>
+<span><i>h</i> — cylinder height</span>
+<span><i>V</i> — cylinder volume</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 6.4: cone inscribed in a sphere</b><p class="q">A sphere of radius 12 in has a cone inscribed in it with maximum volume. Find the height, the base radius, and the volume of the cone.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the contact relation: let h be the cone height and r the base radius; the geometry gives r² = 2Rh − h²</div>
+<div class="f">r² = 24h − h²</div>
+<div class="st">Step 2 — cone volume</div>
+<div class="f">V = <span class="fr"><i>π r² h</i><i>3</i></span> = <span class="fr"><i>π</i><i>3</i></span> h ( 24h − h² ) = 8π h² − <span class="fr"><i>π h³</i><i>3</i></span></div>
+<div class="st">Step 3 — differentiate</div>
+<div class="f">dV/dh = 16π h − π h² = π h ( 16 − h )</div>
+<div class="st">Step 4 — critical point (h = 0 trivial) at h = 16 in</div>
+<div class="f">h = 16 in</div>
+<div class="st">Step 5 — the base radius</div>
+<div class="f">r² = 24( 16 ) − 256 = 384 − 256 = 128   ⇒   r = 8√2 in</div>
+<div class="st">Step 6 — the volume</div>
+<div class="f">V = <span class="fr"><i>π</i><i>3</i></span> ( 128 )( 16 ) = <span class="fr"><i>2 048 π</i><i>3</i></span> ≈ 2 144.66 in³</div>
+<div class="f"><b>h = 16 in, r = 8√2 ≈ 11.31 in, V ≈ 2 144.66 in³</b></div>
+<div class="cap">The answer h = 12 (the sphere's radius) comes from a natural but wrong guess: the cone does not have its maximum at half the sphere's height. The correct h = 4R/3 = 16 in, which extends beyond the sphere's center. The ratio checks r = (2√2/3) R ≈ 0.943R ≈ 11.31 in and V = (32π/81) R³ ≈ 2 144.66 in³ match.</div>
+<div class="lg"><b>Variables</b>
+<span><i>R</i> — sphere radius, 12 in</span>
+<span><i>h</i> — cone height</span>
+<span><i>r</i> — cone base radius</span>
+<span><i>V</i> — cone volume</span>
+</div>
+</details></div>
+
+<h2 id="c7">7. Trigonometric Leveling</h2>
+<p>A sighting problem in calculus: two angles of elevation from a distance, or two angles of depression from a height, reduce to a single triangle in which one distance or angle is optimized.</p>
+<h3>Two classic configurations</h3>
+<p><b>Statue on a base — maximizing the subtended angle.</b> An observer at horizontal distance x from the base of a tower sees the top at angle arctan(h<sub>top</sub>/x) and the base at arctan(h<sub>base</sub>/x). The angle subtended by the object of interest is the difference of those two angles:</p>
+<div class="f">θ( x ) = arctan( <span class="fr"><i>h<sub>top</sub></i><i>x</i></span> ) − arctan( <span class="fr"><i>h<sub>base</sub></i><i>x</i></span> )</div>
+<p>Differentiating and setting dθ/dx = 0 gives</p>
+<div class="f">x² = h<sub>top</sub> · h<sub>base</sub>   ⇒   x = √( h<sub>top</sub> · h<sub>base</sub> )</div>
+<p>That is the geometric mean of the two heights, and it is the answer to the classic "where should the observer stand" problem.</p>
+<p><b>The shortest ladder over a wall.</b> A wall of height h at distance d from a building; a ladder of length L leans on the wall and reaches the building. If θ is the angle the ladder makes with the ground,</p>
+<div class="f">L( θ ) = <span class="fr"><i>h</i><i>sin θ</i></span> + <span class="fr"><i>d</i><i>cos θ</i></span></div>
+<p>Minimizing gives tan³θ = h/d, and the minimum length follows from L<sub>min</sub> = ( h<sup>2/3</sup> + d<sup>2/3</sup> )<sup>3/2</sup>.</p>
+
+<div class="ex"><b class="t">Worked 7.1: statue on a base</b><p class="q">A statue 3 m high stands on a base 4 m high. An observer's eye is 1.5 m above the ground. How far should the observer stand from the base for the angle subtended by the statue to be a maximum?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — heights above the observer's eye level</div>
+<div class="f">top of statue above eye = 4 + 3 − 1.5 = 5.5 m</div>
+<div class="f">top of base above eye = 4 − 1.5 = 2.5 m</div>
+<div class="st">Step 2 — the angle subtended by the statue is the difference of the two arctangents</div>
+<div class="f">θ( x ) = arctan( <span class="fr"><i>5.5</i><i>x</i></span> ) − arctan( <span class="fr"><i>2.5</i><i>x</i></span> )</div>
+<div class="st">Step 3 — apply the standard result x = √( h<sub>top</sub> · h<sub>base</sub> )</div>
+<div class="f">x = √( 5.5 × 2.5 ) = √13.75</div>
+<div class="st">Step 4 — evaluate</div>
+<div class="f">x = 3.708 m</div>
+<div class="f"><b>x ≈ 3.71 m</b></div>
+<div class="cap">The answer 3.51 m comes from using the full base height (4 m) instead of the height above the observer's eye (2.5 m). Both heights must be measured from the same reference — the observer's eye — before applying the geometric-mean formula. The statue itself, not the full tower, is what is being subtended, so the two relevant heights are the top of the statue and the bottom of the statue, both above eye level.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — distance from the base of the tower</span>
+<span>5.5 m — top of the statue above eye level</span>
+<span>2.5 m — bottom of the statue (top of the pedestal) above eye level</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 7.2: the shortest ladder over a wall</b><p class="q">A wall h meters high is 2 m from a building. The shortest ladder that can reach the building with one end resting on the ground outside the wall is 6 m. How high is the wall?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the ladder of length L at angle θ to the ground has components that must clear the wall</div>
+<div class="f">L( θ ) = <span class="fr"><i>h</i><i>sin θ</i></span> + <span class="fr"><i>d</i><i>cos θ</i></span>,   d = 2</div>
+<div class="st">Step 2 — the minimum condition is tan³θ = h/d, so tan θ = ( h/2 )<sup>1/3</sup></div>
+<div class="st">Step 3 — the minimum length is L<sub>min</sub> = ( h<sup>2/3</sup> + d<sup>2/3</sup> )<sup>3/2</sup></div>
+<div class="f">6 = ( h<sup>2/3</sup> + 2<sup>2/3</sup> )<sup>3/2</sup></div>
+<div class="st">Step 4 — raise both sides to the 2/3 power</div>
+<div class="f">6<sup>2/3</sup> = h<sup>2/3</sup> + 2<sup>2/3</sup></div>
+<div class="st">Step 5 — evaluate the powers</div>
+<div class="f">6<sup>2/3</sup> = ( 6<sup>1/3</sup> )² = 1.8171² = 3.3018</div>
+<div class="f">2<sup>2/3</sup> = ( 2<sup>1/3</sup> )² = 1.2599² = 1.5874</div>
+<div class="st">Step 6 — solve for h<sup>2/3</sup> and then h</div>
+<div class="f">h<sup>2/3</sup> = 3.3018 − 1.5874 = 1.7144</div>
+<div class="f">h = ( 1.7144 )<sup>3/2</sup> = 2.244</div>
+<div class="f"><b>h ≈ 2.24 m</b></div>
+<div class="cap">The answer 2.34 comes from a rounding slip in the cube-root evaluation. The formula L<sub>min</sub> = ( h<sup>2/3</sup> + d<sup>2/3</sup> )<sup>3/2</sup> is worth remembering; once it is known, the problem is a single equation in h. If the derivation is not memorized, differentiate L(θ) directly and use tan³θ = h/d, then substitute.</div>
+<div class="lg"><b>Variables</b>
+<span><i>h</i> — height of the wall</span>
+<span>2 m — distance from the wall to the building</span>
+<span><i>L</i> — ladder length; L<sub>min</sub> = 6 m</span>
+</div>
+</details></div>
+
+<h2 id="c8">8. Formula summary</h2>
+<p>Perry's column: <i>Perry's Chemical Engineers' Handbook</i>, 9th edition, holds the calculus formulas — limits, derivatives, optimization — and the plane-geometry formulas in <b>Section 2 (Mathematics)</b>. I could not verify the subsection or page numbers, so the column states the section and marks the finer location as unverified. Entries marked “not in Perry's” are elementary results that I could not confirm are tabulated as such.</p>
+<div class="w"><table>
+<tr><th>Formula</th><th>Use</th><th>Perry's 9th ed.</th></tr>
+<tr><td><div class="f">lim<sub>x→a</sub> f(x) = L (ε-δ)</div></td><td>Definition of the limit</td><td>Sec. 2, Mathematics — limits; location unverified</td></tr>
+<tr><td><div class="f">lim<sub>x→0</sub> sin x/x = 1</div></td><td>Fundamental trigonometric limit</td><td>Sec. 2, Mathematics — limits; location unverified</td></tr>
+<tr><td><div class="f">lim<sub>x→∞</sub> (1 + r/x)<sup>x</sup> = e<sup>r</sup></div></td><td>Definition of the exponential</td><td>Sec. 2, Mathematics — limits; location unverified</td></tr>
+<tr><td><div class="f">lim<sub>x→0⁺</sub> x ln x = 0</div></td><td>Logarithm dominated by polynomial</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">lim<sub>x→∞</sub> x e<sup>−x</sup> = 0</div></td><td>Exponential dominated by polynomial</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">d/dx sin x = cos x,   d/dx cos x = −sin x</div></td><td>Trigonometric derivatives</td><td>Sec. 2, Mathematics — derivatives; location unverified</td></tr>
+<tr><td><div class="f">d<sup>n</sup>/dx<sup>n</sup> sin x = sin( x + nπ/2 )</div></td><td>n-th derivative of sine</td><td>Not in Perry's; follows from the period-4 cycle</td></tr>
+<tr><td><div class="f">d<sup>n</sup>/dx<sup>n</sup> cos x = cos( x + nπ/2 )</div></td><td>n-th derivative of cosine</td><td>Not in Perry's; follows from the period-4 cycle</td></tr>
+<tr><td><div class="f">implicit: d/dx(y²) = 2y y′</div></td><td>Implicit differentiation</td><td>Sec. 2, Mathematics — derivatives; location unverified</td></tr>
+<tr><td><div class="f">y′ = ( a − x )/( y − b ) for a circle</div></td><td>Tangent slope to a circle</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">f′ &gt; 0 increasing;   f′ &lt; 0 decreasing</div></td><td>Monotonicity</td><td>Sec. 2, Mathematics — derivatives; location unverified</td></tr>
+<tr><td><div class="f">f″ &gt; 0 concave up;   f″ &lt; 0 concave down</div></td><td>Concavity</td><td>Sec. 2, Mathematics — derivatives; location unverified</td></tr>
+<tr><td><div class="f">f′ = 0 and f″ &gt; 0 ⇒ min;   f′ = 0 and f″ &lt; 0 ⇒ max</div></td><td>Second-derivative test</td><td>Sec. 2, Mathematics — optimization; location unverified</td></tr>
+<tr><td><div class="f">κ = |y″| / (1 + (y′)²)<sup>3/2</sup></div></td><td>Curvature of a plane curve</td><td>Sec. 2, Mathematics — differential calculus; location unverified</td></tr>
+<tr><td><div class="f">closed cylinder V = πr²h, A = 2πr² + 2πrh</div></td><td>Cylinder geometry</td><td>Sec. 2, Mathematics — mensuration; location unverified</td></tr>
+<tr><td><div class="f">cone in sphere max: h = 4R/3, r = (2√2/3)R</div></td><td>Cone inscribed in sphere</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">cylinder in cone: r = 2R/3, h = H/3, V = 4V<sub>cone</sub>/9</div></td><td>Cylinder inscribed in cone</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">cylinder in sphere: r = √(2/3)R, h = 2R/√3</div></td><td>Cylinder inscribed in sphere</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">x = √( h<sub>top</sub> h<sub>base</sub> )</div></td><td>Maximum subtended angle, statue on base</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">L<sub>min</sub> = ( h<sup>2/3</sup> + d<sup>2/3</sup> )<sup>3/2</sup></div></td><td>Shortest ladder over a wall</td><td>Not in Perry's; standard result</td></tr>
+</table></div>
+
+<h2 id="c9">9. Answer-bank flags</h2>
+<p>Every keyed answer in the seven concepts was recomputed. All keys stand. The notes below give the verification and identify the common slip behind each distractor.</p>
+<div class="w"><table>
+<tr><th>Item</th><th>Concern</th></tr>
+<tr><td><b>Limits</b> — (x−3)(x²−2)/(x²+1) at x=1 (key: 1)</td><td>Verified: (−2)(−1)/2 = 1. Direct substitution; denominator is nonzero.</td></tr>
+<tr><td><b>Limits</b> — (1 + r/m)<sup>m</sup> as m → ∞ (key: e<sup>r</sup>)</td><td>Verified by the standard limit lim(1 + a/n)<sup>n</sup> = e<sup>a</sup>. The e<sup>−r</sup> distractor has the wrong sign in the exponent.</td></tr>
+<tr><td><b>Limits</b> — √(9x² − x) + 3x at x → −∞ (key: 1/6)</td><td>Verified by conjugate multiplication and the fact that √(9x²) = −3x for x &lt; 0. The 1/2 distractor comes from using +3x instead of −3x.</td></tr>
+<tr><td><b>Limits</b> — √(x²−3)/(x+2) at x → ∞ (key: 1)</td><td>Verified by dividing by x. The 2 distractor drops the root from the numerator.</td></tr>
+<tr><td><b>Limits</b> — x ln x at x → 0⁺ (key: 0)</td><td>Verified by L'Hôpital on ln x/(1/x). The ∞ distractor uses the divergence of ln x alone.</td></tr>
+<tr><td><b>Limits</b> — x e<sup>−x</sup> at x → ∞ (key: 0)</td><td>Verified by L'Hôpital on x/e<sup>x</sup>. Exponential growth dominates polynomial growth.</td></tr>
+<tr><td><b>Limits</b> — (1 + 1/x)<sup>x</sup> at x → ∞ (key: e)</td><td>Verified by the standard definition of e.</td></tr>
+<tr><td><b>Limits</b> — x<sup>1/x</sup> at x → ∞ (key: 1)</td><td>Verified: ln y = (ln x)/x → 0, so y → e⁰ = 1.</td></tr>
+<tr><td><b>Limits</b> — (x²+y²) ln(x²+y²) at (0,0) (key: 0)</td><td>Verified by u = x²+y² and L'Hôpital. Same structure as the single-variable version.</td></tr>
+<tr><td><b>Limits</b> — sin(x²+y²)/(x²+y²) at (0,0) (key: 1)</td><td>Verified by u-substitution and the fundamental trigonometric limit. The 0 distractor uses “small numerator” intuition.</td></tr>
+<tr><td><b>Limits</b> — removable discontinuity (key: removable)</td><td>Verified: (x²−4)/(x−2) has a cancelable factor. A jump would require different one-sided limits.</td></tr>
+<tr><td><b>Limits</b> — infinite discontinuity (key: infinite)</td><td>Verified: 1/(2x−4) diverges to ±∞ at x = 2. Essential and infinite are synonyms.</td></tr>
+<tr><td><b>Limits</b> — epsilon-delta (key: epsilon-delta)</td><td>Verified. The formal definition of the limit is the ε-δ statement; the Leibniz name is not standard for this.</td></tr>
+<tr><td><b>Angle Trig</b> — 999th derivative (key: −sin x − cos x)</td><td>Verified: 999 mod 4 = 3, so the third-derivative form applies: d³/dx³ sin x = −cos x, d³/dx³ cos x = sin x. The −cos x contributes −sin x, and the +sin x contributes −cos x, giving −sin x − cos x.</td></tr>
+<tr><td><b>Slope</b> — circle at (1, 0) (key: 2/5)</td><td>Verified: differentiate implicitly to get 2x + 2yy′ − 6 + 10y′ = 0, solve for y′ = (6−2x)/(2y+10), substitute (1, 0) → 4/10 = 2/5.</td></tr>
+<tr><td><b>Graph</b> — cubic f(x) = x³/9 − 3x, increasing/decreasing (key: both A and C for increasing, [−3, 3] for decreasing)</td><td>Verified: f′(x) = x²/3 − 3, critical at ±3, increasing on (−∞, −3) ∪ (3, ∞) and decreasing on (−3, 3). The answer “[3, +∞)” for increasing catches only one branch.</td></tr>
+<tr><td><b>Graph</b> — concavity (key: down (−∞,0), up (0,+∞))</td><td>Verified: f″(x) = 2x/3, negative for x &lt; 0, positive for x &gt; 0. The [−3, 3] distractor confuses the decreasing interval (from f′) with the concavity interval (from f″).</td></tr>
+<tr><td><b>Graph</b> — point of inflection (key: (0, 0))</td><td>Verified: f″ = 0 at x = 0, and f(0) = 0. The (−3, 6) distractor is the local maximum.</td></tr>
+<tr><td><b>Graph</b> — y = 5x⁴ − x⁵ inflection (key: (3, 162) only)</td><td>Verified: y″ = 20x²(3−x) = 0 at x = 0 (double root, no sign change) and x = 3 (sign change). y(3) = 162. x = 0 is a false inflection.</td></tr>
+<tr><td><b>Graph</b> — curvature of y² + x³ = 0 at (−1, 1) (key: 0.128)</td><td>Verified: implicit differentiation gives y′ = −3x²/(2y), y″ = 0.75 at the point; κ = 0.75/(1 + 2.25)<sup>1.5</sup> ≈ 0.128.</td></tr>
+<tr><td><b>Min/Max</b> — relative max/min of the cubic (key: max (−3, 6), min (3, −6))</td><td>Verified by the second-derivative test. The signs are often swapped; the correct pair is max at −3 and min at +3.</td></tr>
+<tr><td><b>Min/Max</b> — split 120 into parts (key: 80 and 40)</td><td>Verified: maximize x²(120−x); critical at x = 80, giving parts 80 and 40.</td></tr>
+<tr><td><b>Min/Max</b> — agency pricing (key: 225)</td><td>Verified: R(x) = (1500−5x)(150+x), R′(x) = 750 − 10x = 0, x = 75, so total = 225.</td></tr>
+<tr><td><b>Min/Max</b> — cylinder of volume 108 (key: 125.5 in²)</td><td>Verified: r ≈ 2.58, h ≈ 5.16 = 2r, A = 6πr² ≈ 125.5 in². The 129.5 distractor is a rounding slip in r.</td></tr>
+<tr><td><b>Min/Max</b> — boatman path (key: 3.0 km from C)</td><td>Verified: x = 6 km from B, so distance from C is 9 − 6 = 3 km. The 4.0 distractor is a slip in solving the speed ratio.</td></tr>
+<tr><td><b>Min/Max</b> — window (key: ratio 1)</td><td>Verified: the optimal shape has total height equal to width. The 1/2 distractor compares width to twice the total height.</td></tr>
+<tr><td><b>Min/Max</b> — minimum distance to parabola (key: 2√2)</td><td>Verified: minimizing D² with respect to y gives y = 4, so x = 2, D = 2√2.</td></tr>
+<tr><td><b>Inscribed Figures</b> — max cylinder in cone (key: r = 10, h = 4, V = 400π)</td><td>Verified via the similar-triangles constraint and the standard result r = 2R/3 = 10, h = H/3 = 4, V = 4/9 of the cone's volume.</td></tr>
+<tr><td><b>Inscribed Figures</b> — ratio to cone (key: 44 %)</td><td>Verified: V<sub>cyl</sub>/V<sub>cone</sub> = 4/9 ≈ 44.4 %. The 46 % distractor is a rounding slip.</td></tr>
+<tr><td><b>Inscribed Figures</b> — cylinder in sphere r (key: 4√6 ≈ 9.80 in)</td><td>Verified: r² = 96, r = 4√6 in. The √6 distractor forgets to take the square root at the end.</td></tr>
+<tr><td><b>Inscribed Figures</b> — cone in sphere h (key: 16 in)</td><td>Verified: h = 4R/3 = 16 in. The 12 distractor is the sphere's radius — a natural but wrong guess.</td></tr>
+<tr><td><b>Inscribed Figures</b> — cone in sphere V (key: 2 144.66 in³)</td><td>Verified: V = (32π/81) R³ = (32π/81)(1 728) ≈ 2 144.66 in³.</td></tr>
+<tr><td><b>Leveling</b> — statue on base (key: 3.71 m)</td><td>Verified: x = √(5.5 × 2.5) = √13.75 ≈ 3.71. The 3.51 distractor uses the full base height (4 m) instead of the height above eye level (2.5 m).</td></tr>
+<tr><td><b>Leveling</b> — ladder over wall (key: 2.24 m)</td><td>Verified: ( h<sup>2/3</sup> + 2<sup>2/3</sup> )<sup>3/2</sup> = 6 gives h<sup>2/3</sup> = 6<sup>2/3</sup> − 2<sup>2/3</sup> = 1.714, h ≈ 2.24. The 2.34 distractor is a cube-root rounding slip.</td></tr>
+<tr><td>Perry's 9th edition locations</td><td>Only the section-level pointer (Section 2, Mathematics) is asserted. Subsection and page numbers are marked unverified because I could not check a physical copy. Verify against the tab before citing.</td></tr>
+</table></div>
+
+<h3>Your tags, applied</h3>
+<ul>
+<li><b>Source:</b> the differential-calculus and analytic-geometry chapters of a standard engineering-mathematics text (Stewart, <i>Calculus</i>; Larson–Edwards; or the mathematics section of any engineering handbook), specifically: the ε-δ definition and the seven indeterminate forms; L'Hôpital's rule and the standard exponential and logarithmic limits; derivatives of the trigonometric functions and the period-4 cycle of high-order derivatives; implicit differentiation; curve sketching with the first and second derivative tests; optimization by differentiation; inscribed figures in cone, cylinder and sphere; and the two classic applied-optimization geometries (subtended angle and shortest ladder). Edition and section numbers were not checked. For Perry's, open the 9th edition at Section 2 and confirm the subsections yourself.</li>
+<li><b>Drill (3–5 closed-book reps, units written every time):</b> (a) one limit of each indeterminate type (0/0, ∞/∞, 0·∞, 1<sup>∞</sup>, 0⁰); (b) one limit at infinity involving a square root, with the sign of |x| written explicitly for both +∞ and −∞; (c) one n-th derivative of sin x + cos x, with n mod 4 computed; (d) one full curve-sketch of a cubic — first derivative, second derivative, intervals, inflection, extrema; (e) one inscribed-solid optimization, writing the constraint relation on its own line before differentiating; (f) one applied-optimization, defining the variable and writing the objective function before differentiating.</li>
+<li><b>Retrieval:</b> I cannot see your cards. Test yourself on: the seven indeterminate forms and the technique for each; why √(x²) = |x| and how that changes at negative infinity; why the second derivative decides between max and min; why the concavity interval of a cubic is different from its increasing/decreasing interval; why the maximum inscribed cylinder in a cone is 4/9 of the cone's volume; why the maximum inscribed cone in a sphere has h = 4R/3 rather than h = R; and why the observer's eye level must be subtracted from both heights before applying the geometric-mean formula for the statue.</li></ul>
+
+<div class="box"><b>Pre-submit line:</b> Substitute into the limit first and diagnose the form before choosing a technique; for limits at infinity with a square root, write |x| explicitly and check the sign as x → −∞; for high-order derivatives of sin and cos, reduce n mod 4 before differentiating; for curve sketching, compute f′ and f″ separately and read the intervals independently — they answer different questions; for optimization, write the objective and the constraint on separate lines before substituting; for inscribed solids, write the geometric constraint relation first; for the statue problem, measure both heights from the observer's eye; and for any extreme-value answer, confirm which critical point corresponds to max and which to min before reporting.</div>
+</main></body></html>
