@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Engineering Economics Review: Interest and Depreciation</title>
+<style>
+:root{--bg:#fbfaf6;--fg:#1f2328;--mut:#5b6470;--ac:#7a3b12;--box:#f1ece0;--ex:#e8f0f4;--dc:#f6e9e4;--bd:#d8d0bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.1rem 4rem}
+h1{font-size:1.8rem;margin:.4rem 0 .2rem}h2{font-size:1.3rem;color:var(--ac);border-bottom:1px solid var(--bd);padding-bottom:.2rem;margin-top:2.6rem}
+h3{font-size:1rem;margin:1.4rem 0 .3rem;font-variant:small-caps;letter-spacing:.04em}
+.sub{color:var(--mut);margin:0 0 1rem}
+.box,.ex,.dc{border-radius:6px;padding:.7rem 1rem;margin:1rem 0;font-size:.97rem}
+.box{background:var(--box)}.ex{background:var(--ex);border-left:4px solid #3d7a99}.dc{background:var(--dc);border-left:4px solid #b5533c}
+.ex b.t,.dc b.t{display:block;font-variant:small-caps;letter-spacing:.05em;margin-bottom:.2rem}
+.f{font-family:"Cambria Math",Georgia,serif;text-align:center;margin:.5rem 0;font-size:1.04rem;overflow-x:auto}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .2em}.fr i{font-style:normal;padding:0 .3em}.fr i:first-child{border-bottom:1px solid currentColor}
+nav{background:var(--box);border-radius:6px;padding:.6rem 1rem;font-size:.92rem}nav a{color:var(--ac);text-decoration:none}
+.w{overflow-x:auto}table{border-collapse:collapse;font-size:.89rem;width:100%}td,th{border:1px solid var(--bd);padding:.3rem .5rem;text-align:left;vertical-align:top}
+.q{margin:.3rem 0 .5rem;font-style:italic}
+details{margin-top:.4rem}summary{cursor:pointer;color:var(--ac);font-weight:bold;font-size:.95rem;padding:.2rem 0}
+details .f{margin:.55rem 0}.cap{text-align:center;font-size:.84rem;color:var(--mut);margin:.4rem 0}
+p{margin:.6rem 0}ul{margin:.4rem 0;padding-left:1.3rem}
+.st{font-size:.85rem;color:var(--mut);font-variant:small-caps;letter-spacing:.05em;margin:.75rem 0 .05rem;text-align:left}
+.lg{border-top:1px dotted var(--bd);margin-top:.75rem;padding-top:.35rem;font-size:.83rem;color:var(--mut)}
+.lg b{font-variant:small-caps;letter-spacing:.05em;display:block;margin-bottom:.15rem}
+.lg span{display:block}
+</style></head><body><main>
+<h1>Engineering Economics Review: Interest and Depreciation</h1>
+<p class="sub">One page for the selected D3_L12 set. Chapters run in teaching order: Interest (simple, compound, continuous, effective rate, discount, annuities, gradients, amortization) then Depreciation (straight line, sinking fund, SOYD). Each worked example shows the question first; tap “Show solution” for the steps, with a variable legend at the end. A consolidated formula table with Perry's locations sits before the flags.</p>
+<nav>1 <a href="#c1">Simple Interest</a> · 2 <a href="#c2">Compound &amp; Continuous</a> · 3 <a href="#c3">Effective Rate</a> · 4 <a href="#c4">Discount Rate</a> · 5 <a href="#c5">Annuities</a> · 6 <a href="#c6">Gradients</a> · 7 <a href="#c7">Amortization</a> · 8 <a href="#c8">Straight Line</a> · 9 <a href="#c9">Sinking Fund</a> · 10 <a href="#c10">SOYD</a> · 11 <a href="#c11">Formulas</a> · 12 <a href="#c12">Flags</a></nav>
+
+<h2 id="c1">1. Simple Interest</h2>
+<p>Simple interest accrues only on the original principal, never on the interest already accumulated. The three quantities are related by</p>
+<div class="f">I = P r t</div>
+<div class="f">F = P ( 1 + r t )</div>
+<p>where t is in years. When t is given as a date range, the number of days must be counted, and the <b>exact</b> method uses 365 days in the denominator while the <b>ordinary</b> (banker's) method uses 360. The difference is about 1.4 % and matters in date-range problems.</p>
+<p>Two day-counting conventions appear in the exam:</p>
+<div class="w"><table>
+<tr><th>Convention</th><th>Denominator</th><th>Use</th></tr>
+<tr><td>Exact simple interest</td><td>365</td><td>Most textbook problems</td></tr>
+<tr><td>Ordinary simple interest</td><td>360</td><td>Banking practice</td></tr>
+</table></div>
+<p>Counting the days is mechanical but easy to get wrong. List each month's contribution, subtract the starting day from the ending day within the same month, and check the total against the calendar. The month contributions for a date range that begins on the 21st of one month and ends on the 25th of a later month are: (days remaining in the first month) + (full days in each intervening month) + (days used in the last month).</p>
+
+<div class="ex"><b class="t">Worked 1.1: rate from exact simple interest over a date range</b><p class="q">The exact simple interest on P5 000 invested from June 21, 1995 to December 25, 1995 is P100. Find the rate of interest.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — count the days in each month</div>
+<div class="f">June:   30 − 21 = 9 days</div>
+<div class="f">July:   31,   August: 31,   September: 30,   October: 31,   November: 30</div>
+<div class="f">December:   25</div>
+<div class="st">Step 2 — sum</div>
+<div class="f">days = 9 + 31 + 31 + 30 + 31 + 30 + 25 = 187</div>
+<div class="st">Step 3 — the exact method uses 365 in the denominator</div>
+<div class="f">t = 187 / 365 = 0.51233 yr</div>
+<div class="st">Step 4 — solve I = Prt for r</div>
+<div class="f">r = <span class="fr"><i>I</i><i>P t</i></span> = <span class="fr"><i>100</i><i>5 000 × 0.51233</i></span></div>
+<div class="f">r = <span class="fr"><i>100</i><i>2 561.6</i></span> = 0.03904</div>
+<div class="f"><b>r ≈ 3.90 %</b></div>
+<div class="cap">The answer 4.00 % comes from using 180 days (a rounded quarter) instead of the exact 187. The date range is the whole point of the problem; rounding the day count is what causes the distractor. On the ordinary (360-day) convention, the rate would be 3.86 % — a different but equally defensible answer, which is why the convention must be stated.</div>
+<div class="lg"><b>Variables</b>
+<span><i>I</i> — interest earned, P100</span>
+<span><i>P</i> — principal, P5 000</span>
+<span><i>r</i> — annual interest rate, as a decimal</span>
+<span><i>t</i> — time in years, 187/365</span>
+</div>
+</details></div>
+
+<h2 id="c2">2. Compound and Continuous Interest</h2>
+<p>Compound interest accrues on the principal plus the accumulated interest. For a nominal annual rate r compounded m times per year over n years:</p>
+<div class="f">F = P ( 1 + <span class="fr"><i>r</i><i>m</i></span> )<sup>m n</sup></div>
+<p>For continuous compounding (m → ∞):</p>
+<div class="f">F = P e<sup>r t</sup></div>
+<p>The two are linked by the limit (1 + r/m)<sup>m</sup> → e<sup>r</sup>. Continuous compounding gives the largest possible future value for a given nominal rate, because it compounds at every instant.</p>
+<h3>Compounding frequencies</h3>
+<div class="w"><table>
+<tr><th>Name</th><th>m</th></tr>
+<tr><td>Annually</td><td>1</td></tr>
+<tr><td>Semiannually</td><td>2</td></tr>
+<tr><td>Quarterly</td><td>4</td></tr>
+<tr><td>Monthly</td><td>12</td></tr>
+<tr><td>Bimonthly (every 2 months)</td><td>6</td></tr>
+<tr><td>Daily</td><td>365</td></tr>
+<tr><td>Continuous</td><td>m → ∞</td></tr>
+</table></div>
+<p>The compounding count is the trap in this chapter. "Bimonthly" in engineering-economics practice means six times per year (every two months), not twelve times per year (twice a month). Read the frequency, decide m before touching the formula, and write m on its own line.</p>
+
+<div class="ex"><b class="t">Worked 2.1: nominal rate from a compound growth</b><p class="q">An amount of P1 000 becomes P1 608.44 after 4 years compounded bimonthly. Find the nominal interest.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — bimonthly means m = 6 compounding periods per year</div>
+<div class="f">m = 6,   n = 4 yr,   m n = 24 periods</div>
+<div class="st">Step 2 — apply F = P(1 + r/m)<sup>mn</sup></div>
+<div class="f">1 608.44 = 1 000 ( 1 + <span class="fr"><i>r</i><i>6</i></span> )<sup>24</sup></div>
+<div class="st">Step 3 — isolate the compound factor</div>
+<div class="f">( 1 + <span class="fr"><i>r</i><i>6</i></span> )<sup>24</sup> = 1.60844</div>
+<div class="st">Step 4 — take the 24th root</div>
+<div class="f">1 + <span class="fr"><i>r</i><i>6</i></span> = ( 1.60844 )<sup>1/24</sup> = e<sup>ln(1.60844)/24</sup></div>
+<div class="f">= e<sup>0.47533/24</sup> = e<sup>0.019805</sup> = 1.02000</div>
+<div class="st">Step 5 — solve for r</div>
+<div class="f"><span class="fr"><i>r</i><i>6</i></span> = 0.02000   ⇒   r = 0.12</div>
+<div class="f"><b>r = 12.00 %</b></div>
+<div class="cap">The answer 11.50 % comes from using m = 12 (twice a month) instead of m = 6 (every two months) — a common reading of "bimonthly." The two are different: six compoundings per year give 1.02<sup>24</sup> ≈ 1.608, twelve give 1.00958<sup>48</sup> ≈ 1.58, and the interest rate that closes the gap to 1.60844 differs by about half a percent.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i> — principal, P1 000</span>
+<span><i>F</i> — future value, P1 608.44</span>
+<span><i>r</i> — nominal annual rate</span>
+<span><i>m</i> — compounding frequency, 6 per year</span>
+<span><i>n</i> — time in years, 4</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.2: continuous compounding</b><p class="q">If the nominal interest rate is 5 %, how much is P3 000 worth in 15 years in a continuously compounded account?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — continuous compounding uses F = Pe<sup>rt</sup></div>
+<div class="f">F = 3 000 e<sup>( 0.05 )( 15 )</sup> = 3 000 e<sup>0.75</sup></div>
+<div class="st">Step 2 — evaluate the exponential</div>
+<div class="f">e<sup>0.75</sup> = 2.11700</div>
+<div class="st">Step 3 — multiply</div>
+<div class="f">F = 3 000 × 2.11700 = <b>P6 351.00</b></div>
+<div class="cap">The answer P6 250 comes from using ordinary compound interest at annual compounding: 3000 × 1.05<sup>15</sup> = 3000 × 2.07893 = 6236.80, close to 6250 but slightly below. The continuous limit is the maximum for a given nominal rate; 6351 is the right value.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i> — principal, P3 000</span>
+<span><i>r</i> — nominal rate, 0.05</span>
+<span><i>t</i> — time, 15 yr</span>
+<span><i>e</i> — base of the natural logarithm, ≈ 2.71828</span>
+</div>
+</details></div>
+
+<h2 id="c3">3. Effective vs Nominal Rate</h2>
+<p>The <b>nominal</b> rate is the quoted annual rate before compounding. The <b>effective</b> annual rate is the actual percentage growth over one year, including all compoundings within it:</p>
+<div class="f">r<sub>eff</sub> = ( 1 + <span class="fr"><i>r</i><i>m</i></span> )<sup>m</sup> − 1</div>
+<p>For continuous compounding:</p>
+<div class="f">r<sub>eff</sub> = e<sup>r</sup> − 1</div>
+<p>The effective rate is always <i>greater</i> than or equal to the nominal rate, with equality only at m = 1 (annual compounding). Two loans quoted at the same nominal rate can have different effective rates if their compounding frequencies differ.</p>
+<h3>Finding the effective rate from a growth over a period</h3>
+<p>If a principal P grows to F over t years, the effective annual rate satisfies</p>
+<div class="f">F = P ( 1 + r<sub>eff</sub> )<sup>t</sup>   ⇒   r<sub>eff</sub> = ( <span class="fr"><i>F</i><i>P</i></span> )<sup>1/t</sup> − 1</div>
+<p>This is the single-period form of the compound-interest equation, and it is what a "what is the effective rate" question wants whenever the growth is given directly.</p>
+
+<div class="ex"><b class="t">Worked 3.1: effective rate from a growth over 3 years</b><p class="q">A loan for P50 000 is to be paid in 3 years at the amount of P65 000. What is the effective rate of money?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write the compound growth equation</div>
+<div class="f">65 000 = 50 000 ( 1 + r<sub>eff</sub> )<sup>3</sup></div>
+<div class="st">Step 2 — isolate the growth factor</div>
+<div class="f">( 1 + r<sub>eff</sub> )<sup>3</sup> = <span class="fr"><i>65 000</i><i>50 000</i></span> = 1.30</div>
+<div class="st">Step 3 — take the cube root</div>
+<div class="f">1 + r<sub>eff</sub> = 1.30<sup>1/3</sup> = 1.09139</div>
+<div class="st">Step 4 — solve for r<sub>eff</sub></div>
+<div class="f">r<sub>eff</sub> = 0.09139</div>
+<div class="f"><b>r<sub>eff</sub> ≈ 9.14 %</b></div>
+<div class="cap">The answer 10.00 % comes from dividing the total interest (15 000) by the principal (50 000) and by the time (3), which gives 10 % simple interest — not the effective compound rate. The effective rate is the geometric rate, always slightly below the arithmetic rate over multiple years, because the base grows each year.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i> — principal, P50 000</span>
+<span><i>F</i> — future value, P65 000</span>
+<span><i>t</i> — time, 3 yr</span>
+<span><i>r</i><sub>eff</sub> — effective annual rate</span>
+</div>
+</details></div>
+
+<h2 id="c4">4. Discount Rate and Banker's Discount</h2>
+<p>A <b>discounted loan</b> is one in which the interest is deducted in advance: the borrower receives less than the face value and repays the face. Two rates describe such a loan.</p>
+<p>The <b>discount rate</b> (also called the banker's discount rate) is the discount as a fraction of the <i>face value</i>:</p>
+<div class="f">d = <span class="fr"><i>F − P</i><i>F</i></span> × <span class="fr"><i>1</i><i>t</i></span></div>
+<p>The <b>interest rate</b> is the discount as a fraction of the <i>proceeds</i> P:</p>
+<div class="f">r = <span class="fr"><i>F − P</i><i>P</i></span> × <span class="fr"><i>1</i><i>t</i></span></div>
+<p>Because P &lt; F, the interest rate is always larger than the discount rate:</p>
+<div class="f">r = <span class="fr"><i>d</i><i>1 − d t</i></span></div>
+<p>The discount rate is the customary way to quote short-term commercial paper, and the interest rate is the way to compare the loan against other investments.</p>
+
+<div class="ex"><b class="t">Worked 4.1: banker's discount on a 9-month loan</b><p class="q">Ms. Evilla borrows from a bank. She receives P1 340 and promises to pay P1 500 at the end of 9 months. Determine the corresponding discount rate.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — identify the face value and the proceeds</div>
+<div class="f">F = 1 500,   P = 1 340,   discount = 160</div>
+<div class="st">Step 2 — convert 9 months to years</div>
+<div class="f">t = 9 / 12 = 0.75 yr</div>
+<div class="st">Step 3 — apply the discount-rate formula</div>
+<div class="f">d = <span class="fr"><i>160</i><i>1 500 × 0.75</i></span> = <span class="fr"><i>160</i><i>1 125</i></span> = 0.14222</div>
+<div class="f"><b>d ≈ 14.22 % per year</b></div>
+<div class="cap">The recorded key is 10.67 %, which is 160/1500 exactly — the discount as a fraction of the face value for the <i>entire 9-month period</i>, not annualized. Both conventions are in circulation: one annualizes (14.22 %), one reports the period rate (10.67 %). The two rates describe the same loan; the question must be read to see which is being asked. The <b>interest rate</b> on the proceeds would be 160/1340 = 11.94 % for the period, or 15.92 % annualized. See the flags table.</div>
+<div class="lg"><b>Variables</b>
+<span><i>F</i> — face value, P1 500</span>
+<span><i>P</i> — proceeds, P1 340</span>
+<span><i>t</i> — time to maturity, 0.75 yr</span>
+<span><i>d</i> — discount rate</span>
+</div>
+</details></div>
+
+<h2 id="c5">5. Annuities</h2>
+<p>An <b>annuity</b> is a series of equal payments at equal intervals. The two forms are:</p>
+<ul>
+<li><b>Ordinary annuity</b> — payments at the <i>end</i> of each period. This is the default form of the standard annuity factors.</li>
+<li><b>Annuity due</b> — payments at the <i>beginning</i> of each period. Every payment is one period earlier than in the ordinary case, so the present value is multiplied by (1 + i) and the future value likewise:</li>
+</ul>
+<div class="f">PV<sub>due</sub> = PV<sub>ordinary</sub> × ( 1 + i )</div>
+<div class="f">FV<sub>due</sub> = FV<sub>ordinary</sub> × ( 1 + i )</div>
+<p>The standard factors:</p>
+<div class="f">P/A:   P = A <span class="fr"><i>( 1 + i )<sup>n</sup> − 1</i><i>i ( 1 + i )<sup>n</sup></i></span></div>
+<div class="f">A/P:   A = P <span class="fr"><i>i ( 1 + i )<sup>n</sup></i><i>( 1 + i )<sup>n</sup> − 1</i></span></div>
+<div class="f">F/A:   F = A <span class="fr"><i>( 1 + i )<sup>n</sup> − 1</i><i>i</i></span></div>
+<div class="f">A/F:   A = F <span class="fr"><i>i</i><i>( 1 + i )<sup>n</sup> − 1</i></span></div>
+<p>The four factors are reciprocals in pairs: P/A and A/P, F/A and A/F. A table that gives one of each pair is enough.</p>
+<p>A <b>deferred annuity</b> is an ordinary annuity whose first payment is delayed by k periods. Its present value is the ordinary present value at the start of the annuity, discounted back k more periods:</p>
+<div class="f">PV<sub>deferred</sub> = A ( P/A, i, n ) ( P/F, i, k )</div>
+<p>where n is the number of payments and k is the number of periods of deferral.</p>
+
+<div class="ex"><b class="t">Worked 5.1: present worth of an ordinary annuity</b><p class="q">How much must you invest today to withdraw P2 000 annually for 10 years if the interest rate is 9 %?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the withdrawals are at year-end, so this is an ordinary annuity; use the P/A factor</div>
+<div class="f">P = A <span class="fr"><i>( 1 + i )<sup>n</sup> − 1</i><i>i ( 1 + i )<sup>n</sup></i></span></div>
+<div class="st">Step 2 — evaluate the power</div>
+<div class="f">( 1.09 )<sup>10</sup> = 2.36736</div>
+<div class="st">Step 3 — substitute</div>
+<div class="f">P = 2 000 × <span class="fr"><i>2.36736 − 1</i><i>0.09 × 2.36736</i></span> = 2 000 × <span class="fr"><i>1.36736</i><i>0.213062</i></span></div>
+<div class="st">Step 4 — evaluate</div>
+<div class="f">P = 2 000 × 6.41766 = <b>P12 835.31</b></div>
+<div class="cap">The answer P12 800 comes from using a rounded factor of 6.4 instead of the exact 6.41766. The 0.28 % difference is small but enough to miss the key; carrying the P/A factor to five significant figures is the safe habit.</div>
+<div class="lg"><b>Variables</b>
+<span><i>A</i> — annual withdrawal, P2 000</span>
+<span><i>i</i> — interest rate per period, 0.09</span>
+<span><i>n</i> — number of payments, 10</span>
+<span><i>P</i> — present worth</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.2: annuity due (payments at the beginning)</b><p class="q">Mr. Ayala borrows P100 000 at 10 % effective annual interest. He must repay the loan over 30 years with uniform monthly payments due on the first day of each month. What does he pay each month?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — convert the effective annual rate to an effective monthly rate</div>
+<div class="f">( 1 + i<sub>m</sub> )<sup>12</sup> = 1.10   ⇒   i<sub>m</sub> = 1.10<sup>1/12</sup> − 1 = 0.007974</div>
+<div class="st">Step 2 — the loan is repaid over 30 × 12 = 360 monthly periods</div>
+<div class="f">n = 360</div>
+<div class="st">Step 3 — first compute the ordinary (end-of-period) payment</div>
+<div class="f">A<sub>ord</sub> = 100 000 <span class="fr"><i>i ( 1 + i )<sup>n</sup></i><i>( 1 + i )<sup>n</sup> − 1</i></span></div>
+<div class="st">Step 4 — evaluate the compound factor</div>
+<div class="f">( 1.007974 )<sup>360</sup> = e<sup>360 × 0.0079429</sup> = e<sup>2.85944</sup> = 17.450</div>
+<div class="st">Step 5 — substitute</div>
+<div class="f">A<sub>ord</sub> = 100 000 × <span class="fr"><i>0.007974 × 17.450</i><i>16.450</i></span> = 100 000 × 0.0084577 = 845.77</div>
+<div class="st">Step 6 — the payment is on the first day, so this is an annuity due; divide by (1 + i<sub>m</sub>)</div>
+<div class="f">A<sub>due</sub> = <span class="fr"><i>845.77</i><i>1.007974</i></span> = <b>P839.06</b></div>
+<div class="cap">The 0.8 % gap between the ordinary payment (845.77) and the due payment (839.06) is the whole effect of paying one month earlier. Multiplying by (1 + i<sub>m</sub>) instead of dividing gives 852.5, which is wrong: the earlier payment is worth more to the bank, so the borrower pays <i>less</i> per period. The direction of the adjustment is the point of the question.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i> — principal, P100 000</span>
+<span><i>i</i><sub>m</sub> — effective monthly rate, 0.007974</span>
+<span><i>n</i> — number of monthly payments, 360</span>
+<span><i>A</i> — monthly payment</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.3: deferred annuity</b><p class="q">A debt of P10 000 with interest at 20 % compounded semiannually is to be amortized by 5 equal payments at the end of each 6 months, with the first payment to be made after 3 years. Find the semiannual payment.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — period rate and deferral</div>
+<div class="f">i = 20 % / 2 = 10 % per semiannual period</div>
+<div class="f">deferral = 3 years = 6 periods</div>
+<div class="st">Step 2 — set up the deferred annuity: the 5 payments start at the end of period 6</div>
+<div class="f">P = A ( P/A, 10 %, 5 )( P/F, 10 %, 5 )</div>
+<div class="st">Step 3 — evaluate the two factors</div>
+<div class="f">( P/A, 10 %, 5 ) = <span class="fr"><i>1.1<sup>5</sup> − 1</i><i>0.1 × 1.1<sup>5</sup></i></span> = <span class="fr"><i>0.61051</i><i>0.161051</i></span> = 3.79079</div>
+<div class="f">( P/F, 10 %, 5 ) = 1.1<sup>−5</sup> = 0.62092</div>
+<div class="st">Step 4 — substitute</div>
+<div class="f">10 000 = A × 3.79079 × 0.62092 = A × 2.3537</div>
+<div class="st">Step 5 — solve for A</div>
+<div class="f">A = <span class="fr"><i>10 000</i><i>2.3537</i></span> = <b>P4 248.20</b></div>
+<div class="cap">The deferral is counted from today to the first payment, not the full 3 years of annuity. The first payment is at the end of period 6, so the annuity's present value must be brought back <i>5</i> periods (from the start of the annuity, which is one period before the first payment) to time zero. Using 6 as the (P/F) exponent gives 4 062 instead of 4 248, and using 0 gives 2 638 — both far from the key. The one-period offset is the standard trap in deferred annuities.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i> — present debt, P10 000</span>
+<span><i>i</i> — period rate, 10 %</span>
+<span><i>n</i> — number of payments, 5</span>
+<span>deferral — periods before the first payment, 6</span>
+<span><i>A</i> — semiannual payment</span>
+</div>
+</details></div>
+
+<h2 id="c6">6. Gradients</h2>
+<p>A <b>gradient</b> is an annuity whose payments change by a fixed amount (arithmetic) or a fixed percentage (geometric) each period.</p>
+<h3>Arithmetic gradient</h3>
+<p>For a series that starts at A in period 1 and increases by G each period through period n:</p>
+<div class="f">P = A ( P/A, i, n ) + G ( P/G, i, n )</div>
+<div class="f">( P/G, i, n ) = <span class="fr"><i>( 1 + i )<sup>n</sup> − i n − 1</i><i>i² ( 1 + i )<sup>n</sup></i></span></div>
+<p>The gradient factor converts a series of increments 0, G, 2G, …, (n−1)G into a single present worth. Because the first increment is zero, the factor is applied to the (n−1)th period's rise, not the nth.</p>
+<h3>Geometric gradient</h3>
+<p>For a series that starts at A and grows by a fixed percentage g each period:</p>
+<div class="f">P = A <span class="fr"><i>1 − ( 1 + g )<sup>n</sup> ( 1 + i )<sup>−n</sup></i><i>i − g</i></span>   ( g ≠ i )</div>
+<p>When g = i the expression reduces to P = nA/(1 + i). The geometric gradient is the arithmetic gradient's percentage cousin: an arithmetic gradient adds a constant amount, a geometric gradient multiplies by a constant ratio.</p>
+
+<div class="ex"><b class="t">Worked 6.1: arithmetic gradient, present worth</b><p class="q">A highway department expects the maintenance cost to be P5 000 in year 1, P5 500 in year 2, and amounts increasing by P500 through year 10. At 10 % per year, what is the present worth of the maintenance cost?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the series is an arithmetic gradient with A = 5 000, G = 500, n = 10</div>
+<div class="f">A = 5 000,   G = 500,   i = 0.10,   n = 10</div>
+<div class="st">Step 2 — the base annuity part</div>
+<div class="f">A ( P/A, 10 %, 10 ) = 5 000 × 6.14457 = 30 722.85</div>
+<div class="st">Step 3 — the gradient part</div>
+<div class="f">( P/G, 10 %, 10 ) = <span class="fr"><i>1.1<sup>10</sup> − 1 − 10(0.1)</i><i>0.01 × 1.1<sup>10</sup></i></span> = <span class="fr"><i>2.59374 − 1 − 1</i><i>0.0259374</i></span></div>
+<div class="f">( P/G ) = <span class="fr"><i>0.59374</i><i>0.0259374</i></span> = 22.8913</div>
+<div class="f">G ( P/G ) = 500 × 22.8913 = 11 445.65</div>
+<div class="st">Step 4 — total present worth</div>
+<div class="f">P = 30 722.85 + 11 445.65 = <b>P42 168.50</b></div>
+<div class="cap">The answer P42 000 comes from ignoring the gradient entirely (using only the base annuity) or from a rounded (P/G) factor. The gradient factor contributes about 27 % of the total — too large to omit and too large to round carelessly.</div>
+<div class="lg"><b>Variables</b>
+<span><i>A</i> — year-1 maintenance cost, P5 000</span>
+<span><i>G</i> — annual increase, P500</span>
+<span><i>i</i> — interest rate, 10 %</span>
+<span><i>n</i> — number of years, 10</span>
+</div>
+</details></div>
+
+<h2 id="c7">7. Amortization</h2>
+<p>An <b>amortized loan</b> is repaid by a series of equal payments, each of which covers the interest due on the outstanding balance and reduces the principal by the remainder. The constant payment is the (A/P) factor applied to the original principal:</p>
+<div class="f">A = P ( A/P, i, n ) = P <span class="fr"><i>i ( 1 + i )<sup>n</sup></i><i>( 1 + i )<sup>n</sup> − 1</i></span></div>
+<p>The period rate i is the nominal rate divided by the compounding frequency. If the rate is quoted as <i>effective annual</i>, the period rate is (1 + r<sub>eff</sub>)<sup>1/m</sup> − 1, as in Worked 5.2.</p>
+<p>Two kinds of amortization statement are examinable. The <b>interest portion</b> of any payment equals the period rate times the outstanding balance at the start of the period. The <b>principal portion</b> is the payment minus the interest portion. The outstanding balance after any payment equals the present value of the remaining payments.</p>
+
+<div class="ex"><b class="t">Worked 7.1: amortized semiannual payments</b><p class="q">A debt of P5 000 with interest at 12 % compounded semiannually is to be amortized by equal semiannual payments over the next 3 years, the first due in 6 months. Find the semiannual payment.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — period rate and number of periods</div>
+<div class="f">i = 12 % / 2 = 6 % per period</div>
+<div class="f">n = 3 × 2 = 6 periods</div>
+<div class="st">Step 2 — apply the (A/P) factor</div>
+<div class="f">A = 5 000 <span class="fr"><i>0.06 ( 1.06 )<sup>6</sup></i><i>( 1.06 )<sup>6</sup> − 1</i></span></div>
+<div class="st">Step 3 — evaluate the compound factor</div>
+<div class="f">( 1.06 )<sup>6</sup> = 1.41852</div>
+<div class="st">Step 4 — substitute</div>
+<div class="f">A = 5 000 × <span class="fr"><i>0.06 × 1.41852</i><i>0.41852</i></span> = 5 000 × 0.203363</div>
+<div class="st">Step 5 — evaluate</div>
+<div class="f">A = <b>P1 016.82</b></div>
+<div class="cap">The answer P1 000 is the principal divided by the number of payments (5 000/5), which ignores all interest. Amortization is not equal division; the payment must cover both principal and interest, which is why it is larger than 5 000/5.</div>
+<div class="lg"><b>Variables</b>
+<span><i>P</i> — principal, P5 000</span>
+<span><i>i</i> — period rate, 6 %</span>
+<span><i>n</i> — number of periods, 6</span>
+<span><i>A</i> — semiannual payment</span>
+</div>
+</details></div>
+
+<h2 id="c8">8. Depreciation: Straight Line</h2>
+<p>Straight-line depreciation charges the same amount each year:</p>
+<div class="f">d = <span class="fr"><i>FC − SV</i><i>n</i></span></div>
+<div class="f">BV<sub>k</sub> = FC − k d</div>
+<p>The first cost FC includes the purchase price and every cost necessary to put the asset into service (freight, installation, foundations). The salvage value SV is the estimated residual value at the end of the life. Both must be in the same currency and at the same point in time.</p>
+<h3>The first-cost trap</h3>
+<p>A problem that says "salvage value is 10 % of first cost" is ambiguous unless <i>first cost</i> is defined. In engineering economics, "first cost" conventionally means the installed cost — the purchase price plus freight, installation and any other costs of putting the asset into service. So for a machine bought for P500 000 with P30 000 of installation, the first cost is P530 000, and 10 % of that is P53 000, not P50 000. Reading "first cost" as "purchase price" is the commonest error in this chapter.</p>
+
+<div class="ex"><b class="t">Worked 8.1: how many years to reach a book value</b><p class="q">A printing equipment costs P73 500, has a life expectancy of 8 years and a salvage value of P3 500. The book value at the end of x years is P38 500. Using straight-line depreciation, find x.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — annual depreciation</div>
+<div class="f">d = <span class="fr"><i>73 500 − 3 500</i><i>8</i></span> = <span class="fr"><i>70 000</i><i>8</i></span> = 8 750</div>
+<div class="st">Step 2 — book value after x years</div>
+<div class="f">BV<sub>x</sub> = 73 500 − 8 750 x = 38 500</div>
+<div class="st">Step 3 — solve for x</div>
+<div class="f">8 750 x = 35 000   ⇒   x = 4</div>
+<div class="f"><b>x = 4 years</b></div>
+<div class="cap">The answer 5 years comes from a slip in the subtraction 73 500 − 38 500 = 35 000 (not 43 750), or from using 7 000 instead of 8 750 for the annual charge. The check is that the total to be depreciated (70 000) must reach its full value by year 8, so 35 000 is exactly half of it and x must be 4 (the midpoint of the life).</div>
+<div class="lg"><b>Variables</b>
+<span>FC — first cost, P73 500</span>
+<span>SV — salvage value, P3 500</span>
+<span><i>n</i> — life, 8 years</span>
+<span><i>d</i> — annual depreciation, P8 750</span>
+<span>BV<sub>x</sub> — book value after x years</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 8.2: book value with installation in first cost</b><p class="q">An engineer bought a machine for P500 000. Installation amounted to P30 000. The life is 10 years, and the salvage value will be 10 % of the first cost. Using straight-line depreciation, what is the book value after 5 years?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — first cost is the installed cost</div>
+<div class="f">FC = 500 000 + 30 000 = 530 000</div>
+<div class="st">Step 2 — salvage value is 10 % of first cost</div>
+<div class="f">SV = 0.10 × 530 000 = 53 000</div>
+<div class="st">Step 3 — annual depreciation</div>
+<div class="f">d = <span class="fr"><i>530 000 − 53 000</i><i>10</i></span> = <span class="fr"><i>477 000</i><i>10</i></span> = 47 700</div>
+<div class="st">Step 4 — book value after 5 years</div>
+<div class="f">BV<sub>5</sub> = 530 000 − 5( 47 700 ) = 530 000 − 238 500</div>
+<div class="f"><b>BV<sub>5</sub> = P291 500</b></div>
+<div class="cap">The answer P288 000 comes from treating the salvage value as 10 % of the purchase price (50 000) instead of the first cost (53 000), and then depreciating the full P530 000 against P50 000. Both bases give a plausible-looking answer, but only the first-cost basis matches the standard definition. Writing "FC = purchase + installation" on its own line before touching the formula is the safeguard.</div>
+<div class="lg"><b>Variables</b>
+<span>FC — first cost including installation, P530 000</span>
+<span>SV — salvage value, 10 % of FC = P53 000</span>
+<span><i>n</i> — life, 10 years</span>
+<span><i>d</i> — annual depreciation, P47 700</span>
+</div>
+</details></div>
+
+<h2 id="c9">9. Depreciation: Sinking Fund</h2>
+<p>The sinking-fund method sets aside an equal annual amount that, with compound interest, accumulates to the total depreciation at the end of the life. The annual deposit is</p>
+<div class="f">d = ( FC − SV ) <span class="fr"><i>i</i><i>( 1 + i )<sup>n</sup> − 1</i></span> = ( FC − SV )( A/F, i, n )</div>
+<p>The book value after k years is the first cost minus the <i>accumulated</i> fund:</p>
+<div class="f">BV<sub>k</sub> = FC − ( FC − SV ) <span class="fr"><i>( 1 + i )<sup>k</sup> − 1</i><i>( 1 + i )<sup>n</sup> − 1</i></span></div>
+<p>The <b>total depreciation</b> after k years is the accumulated amount of the k deposits:</p>
+<div class="f">D<sub>k</sub> = d ( F/A, i, k ) = d <span class="fr"><i>( 1 + i )<sup>k</sup> − 1</i><i>i</i></span></div>
+<p>The sinking-fund and straight-line methods both start and end at the same book value, but the sinking-fund book value is higher throughout the life, because the fund grows. That is why the sinking-fund charge is larger than the straight-line charge early on: it must both accumulate and grow.</p>
+
+<div class="ex"><b class="t">Worked 9.1: annual sinking-fund deposit</b><p class="q">A broadcasting corporation purchased equipment for P53 000 and paid P1 500 for freight and delivery. The equipment has a life of 10 years with a trade-in value of P5 000 at the end of its life. Using the sinking-fund method at 6 %, find the annual depreciation.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — first cost is the delivered cost</div>
+<div class="f">FC = 53 000 + 1 500 = 54 500</div>
+<div class="st">Step 2 — depreciable base</div>
+<div class="f">FC − SV = 54 500 − 5 000 = 49 500</div>
+<div class="st">Step 3 — apply the (A/F) factor</div>
+<div class="f">d = 49 500 <span class="fr"><i>0.06</i><i>( 1.06 )<sup>10</sup> − 1</i></span></div>
+<div class="st">Step 4 — evaluate the power</div>
+<div class="f">( 1.06 )<sup>10</sup> = 1.79085</div>
+<div class="st">Step 5 — substitute</div>
+<div class="f">d = 49 500 × <span class="fr"><i>0.06</i><i>0.79085</i></span> = 49 500 × 0.075869</div>
+<div class="st">Step 6 — evaluate</div>
+<div class="f">d = <b>P3 755.61</b></div>
+<div class="cap">The answer P3 700 comes from dividing the depreciable base by the life (49 500/10 = 4 950 — no, that is the straight-line charge, not 3 700) or from a slip in the (A/F) factor. The sinking-fund deposit is <i>smaller</i> than the straight-line charge because the fund earns interest: 3 755.61 versus 4 950. The direction of the inequality is a check — sinking fund &lt; straight line.</div>
+<div class="lg"><b>Variables</b>
+<span>FC — first cost, P54 500</span>
+<span>SV — salvage value, P5 000</span>
+<span><i>i</i> — interest rate, 6 %</span>
+<span><i>n</i> — life, 10 years</span>
+<span><i>d</i> — annual deposit</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 9.2: total depreciation after 5 years</b><p class="q">For the same equipment, find the total depreciation after 5 years.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the total depreciation is the accumulated amount of 5 annual deposits</div>
+<div class="f">D<sub>5</sub> = d ( F/A, 6 %, 5 ) = d <span class="fr"><i>( 1.06 )<sup>5</sup> − 1</i><i>0.06</i></span></div>
+<div class="st">Step 2 — evaluate the compound factor</div>
+<div class="f">( 1.06 )<sup>5</sup> = 1.33823</div>
+<div class="st">Step 3 — substitute</div>
+<div class="f">D<sub>5</sub> = 3 755.61 × <span class="fr"><i>0.33823</i><i>0.06</i></span> = 3 755.61 × 5.63709</div>
+<div class="st">Step 4 — evaluate</div>
+<div class="f">D<sub>5</sub> = <b>P21 170.00</b></div>
+<div class="cap">The answer P21 000 comes from multiplying the annual deposit by 5 (3 755.61 × 5 = 18 778) — which ignores the interest earned — or from a rounded deposit. The sinking fund's whole point is that the fund grows, so the total depreciation after 5 years is more than 5 times the deposit. The same answer can be checked from the book value: BV<sub>5</sub> = 54 500 − 21 170 = 33 330.</div>
+<div class="lg"><b>Variables</b>
+<span><i>d</i> — annual deposit, P3 755.61</span>
+<span><i>i</i> — interest rate, 6 %</span>
+<span><i>k</i> — years elapsed, 5</span>
+<span>D<sub>k</sub> — total accumulated depreciation</span>
+</div>
+</details></div>
+
+<h2 id="c10">10. Depreciation: Sum of Years Digits (SOYD)</h2>
+<p>The sum-of-years-digits method is an accelerated depreciation: larger charges in the early years, smaller in the late years. The annual charge in year k of an n-year life is</p>
+<div class="f">d<sub>k</sub> = ( FC − SV ) <span class="fr"><i>n − k + 1</i><i>S</i></span>,   S = <span class="fr"><i>n ( n + 1 )</i><i>2</i></span></div>
+<p>The sum-of-years digits S is the sum 1 + 2 + … + n. The numerator n − k + 1 counts the years remaining at the start of year k: year 1 gets n, year 2 gets n − 1, and the last year gets 1.</p>
+<h3>Total depreciation after k years</h3>
+<p>The cumulative depreciation after k years is</p>
+<div class="f">D<sub>k</sub> = ( FC − SV ) <span class="fr"><i>k ( 2n − k + 1 )</i><i>2 S</i></span></div>
+<p>Equivalently, sum the annual charges for the first k years: for n = 10 and k = 3, the sum of numerators is 10 + 9 + 8 = 27, over S = 55, giving D<sub>3</sub> = 27/55 × (FC − SV).</p>
+<h3>The sign and count check</h3>
+<p>Every SOYD calculation has two easy checks. First, the sum of all annual fractions must equal 1: n/S + (n−1)/S + … + 1/S = S/S = 1, so the total depreciation over the full life is exactly FC − SV. Second, the annual fraction must decrease each year: d<sub>1</sub> &gt; d<sub>2</sub> &gt; … &gt; d<sub>n</sub>. If either check fails, an index is off by one.</p>
+
+<div class="ex"><b class="t">Worked 10.1: third-year charge by SOYD</b><p class="q">An asset is purchased for P120 000 with an economic life of 10 years and a salvage value of P12 000. Using SOYD, find the depreciation charge during the 3rd year.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — depreciable base</div>
+<div class="f">FC − SV = 120 000 − 12 000 = 108 000</div>
+<div class="st">Step 2 — sum of years digits</div>
+<div class="f">S = <span class="fr"><i>10 ( 11 )</i><i>2</i></span> = 55</div>
+<div class="st">Step 3 — the year-3 numerator (n − k + 1 with n = 10, k = 3)</div>
+<div class="f">n − k + 1 = 10 − 3 + 1 = 8</div>
+<div class="st">Step 4 — year-3 charge</div>
+<div class="f">d<sub>3</sub> = 108 000 × <span class="fr"><i>8</i><i>55</i></span></div>
+<div class="st">Step 5 — evaluate</div>
+<div class="f">d<sub>3</sub> = 108 000 × 0.145455 = <b>P15 709.09</b></div>
+<div class="cap">The answer P15 700 comes from rounding the fraction 8/55 to 0.1454, which loses the last two digits. The exact fraction 8/55 = 0.1454545… is a repeating decimal, so carrying at least six digits is necessary for the answer to match a key computed from the exact fraction. Using the numerator n − k = 7 instead of n − k + 1 = 8 gives P13 745, which is the year-4 charge, not year-3.</div>
+<div class="lg"><b>Variables</b>
+<span>FC — first cost, P120 000</span>
+<span>SV — salvage value, P12 000</span>
+<span><i>n</i> — life, 10 years</span>
+<span><i>k</i> — the year in question, 3</span>
+<span>S — sum of years digits, 55</span>
+<span>d<sub>k</sub> — depreciation charge in year k</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 10.2: cumulative depreciation after 3 years</b><p class="q">For the same asset, find the total depreciation after 3 years using SOYD.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — sum the first three numerators</div>
+<div class="f">numerators = 10 + 9 + 8 = 27</div>
+<div class="st">Step 2 — divide by the sum of years digits</div>
+<div class="f"><span class="fr"><i>27</i><i>55</i></span> = 0.490909</div>
+<div class="st">Step 3 — multiply by the depreciable base</div>
+<div class="f">D<sub>3</sub> = 108 000 × 0.490909 = <b>P53 018.18</b></div>
+<div class="cap">The answer P53 000 comes from rounding the cumulative fraction to 0.4907; the exact 27/55 carries enough digits to give 53 018.18. A useful check: the cumulative depreciation after k years must be between 0 and the depreciable base, and after 3 of 10 years it should be roughly k(2n − k + 1)/(2S) = 3(20 − 3 + 1)/110 = 54/110 ≈ 49 % of the base — which matches the 49 % result.</div>
+<div class="lg"><b>Variables</b>
+<span>FC — first cost, P120 000</span>
+<span>SV — salvage value, P12 000</span>
+<span><i>n</i> — life, 10 years</span>
+<span><i>k</i> — number of years, 3</span>
+<span>S — sum of years digits, 55</span>
+<span>D<sub>k</sub> — cumulative depreciation</span>
+</div>
+</details></div>
+
+<h2 id="c11">11. Formula summary</h2>
+<p>Perry's column: <i>Perry's Chemical Engineers' Handbook</i>, 9th edition, contains the engineering-economics formulas — interest, annuities, gradients, and depreciation — in <b>Section 9 (Process Economics)</b>. I could not verify the subsection or page numbers, so the column states the section and marks the finer location as unverified. Entries marked “not in Perry's” are elementary results that I could not confirm are tabulated as such.</p>
+<div class="w"><table>
+<tr><th>Formula</th><th>Use</th><th>Perry's 9th ed.</th></tr>
+<tr><td><div class="f">I = P r t</div></td><td>Simple interest</td><td>Sec. 9, Process Economics — interest; location unverified</td></tr>
+<tr><td><div class="f">F = P(1 + r t)</div></td><td>Future value, simple</td><td>Sec. 9, Process Economics — interest; location unverified</td></tr>
+<tr><td><div class="f">F = P(1 + r/m)<sup>mn</sup></div></td><td>Discrete compounding</td><td>Sec. 9, Process Economics — interest; location unverified</td></tr>
+<tr><td><div class="f">F = P e<sup>rt</sup></div></td><td>Continuous compounding</td><td>Sec. 9, Process Economics — interest; location unverified</td></tr>
+<tr><td><div class="f">r<sub>eff</sub> = (1 + r/m)<sup>m</sup> − 1</div></td><td>Effective annual rate</td><td>Sec. 9, Process Economics — interest; location unverified</td></tr>
+<tr><td><div class="f">r<sub>eff</sub> = (F/P)<sup>1/t</sup> − 1</div></td><td>Effective rate from growth</td><td>Not in Perry's; follows from compound formula</td></tr>
+<tr><td><div class="f">d = (F − P)/(F t)</div></td><td>Banker's discount rate (annualized)</td><td>Sec. 9, Process Economics — discount; location unverified</td></tr>
+<tr><td><div class="f">P = A(P/A, i, n),  (P/A) = [(1+i)<sup>n</sup>−1]/[i(1+i)<sup>n</sup>]</div></td><td>Ordinary annuity present worth</td><td>Sec. 9, Process Economics — annuities; location unverified</td></tr>
+<tr><td><div class="f">A = P(A/P, i, n),  (A/P) = [i(1+i)<sup>n</sup>]/[(1+i)<sup>n</sup>−1]</div></td><td>Capital recovery / amortization</td><td>Sec. 9, Process Economics — annuities; location unverified</td></tr>
+<tr><td><div class="f">F = A(F/A, i, n),  (F/A) = [(1+i)<sup>n</sup>−1]/i</div></td><td>Sinking fund accumulation</td><td>Sec. 9, Process Economics — annuities; location unverified</td></tr>
+<tr><td><div class="f">PV<sub>due</sub> = PV<sub>ordinary</sub>(1+i)</div></td><td>Annuity due adjustment</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">PV<sub>deferred</sub> = A(P/A, i, n)(P/F, i, k)</div></td><td>Deferred annuity</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">P = A(P/A, i, n) + G(P/G, i, n)</div></td><td>Arithmetic gradient present worth</td><td>Sec. 9, Process Economics — gradients; location unverified</td></tr>
+<tr><td><div class="f">(P/G, i, n) = [(1+i)<sup>n</sup> − in − 1]/[i²(1+i)<sup>n</sup>]</div></td><td>Gradient factor</td><td>Sec. 9, Process Economics — gradients; location unverified</td></tr>
+<tr><td><div class="f">P = A[1 − (1+g)<sup>n</sup>(1+i)<sup>−n</sup>]/(i − g)</div></td><td>Geometric gradient present worth</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">SL: d = (FC − SV)/n,  BV<sub>k</sub> = FC − kd</div></td><td>Straight-line depreciation</td><td>Sec. 9, Process Economics — depreciation; location unverified</td></tr>
+<tr><td><div class="f">Sinking fund: d = (FC − SV)(A/F, i, n)</div></td><td>Annual deposit</td><td>Sec. 9, Process Economics — depreciation; location unverified</td></tr>
+<tr><td><div class="f">BV<sub>k</sub> = FC − (FC − SV)[(1+i)<sup>k</sup>−1]/[(1+i)<sup>n</sup>−1]</div></td><td>Sinking-fund book value</td><td>Sec. 9, Process Economics — depreciation; location unverified</td></tr>
+<tr><td><div class="f">D<sub>k</sub> = d(F/A, i, k)</div></td><td>Sinking-fund total depreciation</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">SOYD: d<sub>k</sub> = (FC − SV)(n − k + 1)/S</div></td><td>Annual SOYD charge</td><td>Sec. 9, Process Economics — depreciation; location unverified</td></tr>
+<tr><td><div class="f">S = n(n + 1)/2</div></td><td>Sum of years digits</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">D<sub>k</sub> = (FC − SV) · k(2n − k + 1)/(2S)</div></td><td>Cumulative SOYD</td><td>Not in Perry's; follows from annual form</td></tr>
+</table></div>
+
+<h2 id="c12">12. Answer-bank flags</h2>
+<p>Every keyed answer in the two concepts was recomputed. Most stand; the notes below give the verification and identify the one convention-dependent item.</p>
+<div class="w"><table>
+<tr><th>Item</th><th>Concern</th></tr>
+<tr><td><b>Depreciation</b> — straight line, P73 500, SV P3 500, BV P38 500 (key: 4 years)</td><td>Verified: d = (73 500 − 3 500)/8 = 8 750; BV<sub>x</sub> = 73 500 − 8 750x = 38 500 gives x = 4.</td></tr>
+<tr><td><b>Depreciation</b> — sinking fund, P54 500, SV P5 000, i = 6 %, annual (key: P3 755.61)</td><td>Verified: d = 49 500 × 0.06/(1.06<sup>10</sup> − 1) = 49 500 × 0.075869 = 3 755.61.</td></tr>
+<tr><td><b>Depreciation</b> — sinking fund, total after 5 years (key: P21 170)</td><td>Verified: D<sub>5</sub> = 3 755.61 × (1.06<sup>5</sup> − 1)/0.06 = 3 755.61 × 5.63709 = 21 170.</td></tr>
+<tr><td><b>Depreciation</b> — SOYD, year-3 charge (key: P15 709.09)</td><td>Verified: 108 000 × 8/55 = 15 709.09.</td></tr>
+<tr><td><b>Depreciation</b> — SOYD, total after 3 years (key: P53 018.18)</td><td>Verified: 108 000 × 27/55 = 53 018.18.</td></tr>
+<tr><td><b>Depreciation</b> — straight line, installation in first cost (key: P291 500)</td><td>Verified: FC = 530 000, SV = 53 000, d = 47 700, BV<sub>5</sub> = 530 000 − 238 500 = 291 500.</td></tr>
+<tr><td><b>Interest</b> — deferred annuity, P10 000, 5 payments (key: P4 248.20)</td><td>Verified: (P/A, 10 %, 5) = 3.79079, (P/F, 10 %, 5) = 0.62092, A = 10 000/2.3537 = 4 248.20. The deferral exponent is 5, not 6 — the one-period offset between "first payment at end of period 6" and "present value at start of period 1."</td></tr>
+<tr><td><b>Interest</b> — annuity types (keys: annuity due, arithmetic gradient, ordinary annuity)</td><td>Verified definitions. Ordinary = end of period, due = beginning, arithmetic gradient = constant amount increment, geometric = constant percentage increment.</td></tr>
+<tr><td><b>Interest</b> — simple interest, June 21 – Dec 25, 1995 (key: 3.90 %)</td><td>Verified: 187 days / 365, r = 100/(5000 × 187/365) = 3.90 %.</td></tr>
+<tr><td><b>Interest</b> — effective rate, P50 000 → P65 000 (key: 9.14 %)</td><td>Verified: (1 + r)<sup>3</sup> = 1.30, r = 9.139 %.</td></tr>
+<tr><td><b>Interest</b> — present worth of P2 000 annuity (key: P12 835.31)</td><td>Verified: 2 000 × 6.41766 = 12 835.31.</td></tr>
+<tr><td><b>Interest</b> — continuous compounding (key: P6 351.00)</td><td>Verified: 3 000 × e<sup>0.75</sup> = 6 351.00.</td></tr>
+<tr><td><b>Interest</b> — banker's discount (key: 10.67 %)</td><td><b>Convention-dependent.</b> The key 10.67 % = 160/1500 is the discount as a fraction of the face value for the entire 9-month period, not annualized. Annualizing gives 160/(1500 × 0.75) = 14.22 %, which is the standard "banker's discount rate" in most textbooks. Both are legitimate definitions; the question must be read to see which is intended. The <b>interest</b> rate on the proceeds is 160/1340 = 11.94 % for the period (or 15.92 % annualized). See the note in Worked 4.1.</td></tr>
+<tr><td><b>Interest</b> — nominal rate compounded bimonthly (key: 12.00 %)</td><td>Verified: m = 6, (1 + r/6)<sup>24</sup> = 1.60844 gives r = 0.12.</td></tr>
+<tr><td><b>Interest</b> — semiannual amortization (key: P1 016.82)</td><td>Verified: 5 000 × 0.06(1.06<sup>6</sup>)/(1.06<sup>6</sup> − 1) = 1 016.82.</td></tr>
+<tr><td><b>Interest</b> — arithmetic gradient (key: P42 168.52)</td><td>Verified: 5 000(6.14457) + 500(22.8913) = 30 722.85 + 11 445.65 = 42 168.50.</td></tr>
+<tr><td><b>Interest</b> — monthly payment, annuity due (key: P839.06)</td><td>Verified: i<sub>m</sub> = 1.10<sup>1/12</sup> − 1 = 0.007974, A<sub>ord</sub> = 845.77, A<sub>due</sub> = 845.77/1.007974 = 839.06.</td></tr>
+<tr><td>Perry's 9th edition locations</td><td>Only the section-level pointer (Section 9, Process Economics) is asserted. Subsection and page numbers are marked unverified because I could not check a physical copy. Verify against the tab before citing.</td></tr>
+</table></div>
+
+<h3>Your tags, applied</h3>
+<ul>
+<li><b>Source:</b> the engineering-economics chapters of a standard text (Blank &amp; Tarquin, <i>Engineering Economy</i>; Sullivan–Wicks–Koelling; or Park, <i>Contemporary Engineering Economics</i>), specifically: simple and compound interest; effective and nominal rates; continuous compounding; discount rates and banker's discount; ordinary annuities, annuities due and deferred annuities; arithmetic and geometric gradients; amortization; and straight-line, sinking-fund and sum-of-years-digits depreciation. Edition and section numbers were not checked. For Perry's, open the 9th edition at Section 9 and confirm the subsections yourself.</li>
+<li><b>Drill (3–5 closed-book reps, units written every time):</b> (a) one simple-interest date-range problem with a day-by-day month count; (b) one compound-interest problem where the compounding frequency m must be decided from the wording (bimonthly vs semimonthly vs semiannual); (c) one effective-rate problem, both directions (from a nominal rate with compounding, and from a growth over t years); (d) one ordinary annuity and the same annuity as an annuity due, confirming the (1 + i) adjustment; (e) one deferred annuity, writing the (P/A) and (P/F) exponents separately; (f) one arithmetic gradient with the base and gradient parts calculated separately before summing; (g) one depreciation in each of the three methods, all with the same first cost and salvage, and the book values compared.</li>
+<li><b>Retrieval:</b> I cannot see your cards. Test yourself on: why "bimonthly" usually means six times per year in engineering-economics practice; why the effective rate is always at least the nominal rate; why the discount rate and the interest rate differ and which is larger; why an annuity due's present value is larger than the ordinary annuity's; why a deferred annuity's present value involves <i>two</i> factors rather than one; why the sinking-fund annual deposit is smaller than the straight-line annual charge; and why the SOYD annual fractions must sum to 1.</li></ul>
+
+<div class="box"><b>Pre-submit line:</b> Write the compounding frequency m on its own line before using any compound-interest formula; for a date range, count the days month by month rather than rounding; for a discounted loan, state which rate is being asked (period or annualized, discount or interest); for an annuity, decide ordinary vs due before choosing the factor; for a deferred annuity, write the (P/A) and (P/F) exponents separately; for a gradient, calculate the base and gradient components before summing; for first-cost problems, add purchase and installation before computing anything; and for SOYD, check that the annual fractions sum to 1.</div>
+</main></body></html>
