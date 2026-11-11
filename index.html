@@ -585,6 +585,11 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <div id="homeOverviewGrid"></div>
       </div>
 
+      <div class="card" id="homeReviewersCard" style="display:none;">
+        <h3>My Reviewers <span class="count" id="homeReviewerCount"></span></h3>
+        <div id="homeReviewerLinks"></div>
+      </div>
+
       <div class="card" id="homePlannerCard">
         <h3>Adaptive Planner</h3>
         <p class="hint">Epsilon-greedy over subjects: ranks by (target &minus; pessimistic first-seen accuracy), with old results decayed. Correct guesses count half. The same ranking drives Study Priority, so the two tabs always agree. &ldquo;Unseen&rdquo; and bank progress are counted from the questions you actually answered in tests (not from saved samples), and an open mistake is anything you got wrong last time or haven't resolved in the Mistake Log. Follows the exam selected in Your Progress.</p>
@@ -1179,6 +1184,20 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <div class="row wrap" style="margin-top:6px;gap:6px;"><button class="btn primary" id="csCopy">&#128203; Copy prompt for this concept</button></div>
         <details style="margin-top:8px;"><summary style="font-size:.82rem;cursor:pointer;color:var(--navy);">Preview the prompt</summary><textarea id="csPreview" rows="12" readonly style="margin-top:6px;font-size:.75rem;"></textarea></details>
         <div id="promptEditor-concept" style="margin-top:10px;"></div>
+      </div>
+      <div class="card" id="rfCard">
+        <h3>My Reviewer Files <span class="count" id="rfCount"></span></h3>
+        <p class="hint" style="margin-bottom:8px;">Upload your reviewers (.html files). They are kept in this browser, listed here and on the Home tab, and open in a new tab with one tap. Reviewers that are one self-contained file (styles and scripts inside it) work best.</p>
+        <input type="file" id="rfInput" accept=".html,.htm,text/html" multiple style="display:none;">
+        <button class="btn primary block" id="rfPick">&#11014; Upload reviewer files</button>
+        <div id="rfList" style="margin-top:10px;"></div>
+        <details style="margin-top:8px;">
+          <summary style="font-size:.82rem;cursor:pointer;color:var(--navy);font-weight:700;">Put them online (GitHub Pages)</summary>
+          <p class="hint" style="margin:6px 0;">This gives every reviewer a real link that works on any device, plus one index page that links to all of them. It needs GitHub connected in Settings and <b>GitHub Pages turned on</b> for that repo (repo Settings &rarr; Pages &rarr; deploy from your branch). Anything published is visible to anyone with the link, and to everyone if the repo is public. Without this, the files still open from this browser, just not on other devices.</p>
+          <div class="row" style="gap:8px;align-items:center;"><label class="field-label" style="flex:none;margin:0;">Folder in the repo</label><input type="text" id="rfFolder" placeholder="reviewers"></div>
+          <div class="row wrap" style="margin-top:8px;gap:6px;"><button class="btn primary" id="rfPublish">&#9729; Publish all to GitHub</button><button class="btn" id="rfCopyHub">Copy index page link</button></div>
+          <div class="hint" id="rfPublishInfo" style="margin-top:6px;"></div>
+        </details>
       </div>
       <div class="card" id="rpCard">
         <h3>Full Reviewer Prompt <span class="count">(by concept or filter)</span></h3>
@@ -9694,6 +9713,146 @@ function renderStudioConcept(c, pfx) {
   });
   return row;
 }
+/* ---------------------------------------------------------------------
+   My Reviewer Files: upload your own .html reviewers, keep them in this browser (IndexedDB, no 5 MB cap),
+   list them in the Reviewer tab and on Home, open each in its own tab, and optionally publish them to
+   GitHub Pages so they have real links that work on any device.
+   --------------------------------------------------------------------- */
+const RF_KEY = "cble.reviewerFiles", RF_PREFS = "cble.reviewerFilesPrefs";
+let rfFiles = []; const rfUrls = new Map();
+function rfPrefs() { return Object.assign({ folder: "reviewers" }, loadJson(RF_PREFS, {})); }
+async function rfSave() { try { await idbSet(RF_KEY, rfFiles); return true; } catch (e) { toast("Couldn't keep the reviewer files in this browser: " + ((e && e.message) || e), 5000); return false; } }
+async function rfInit() { try { const v = await idbGet(RF_KEY); rfFiles = Array.isArray(v) ? v : []; } catch (e) { rfFiles = []; } rfRender(); }
+function rfTitleOf(html, filename) {
+  const m = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i); let t = m ? m[1].replace(/\s+/g, " ").trim() : "";
+  if (t) { const ta = document.createElement("textarea"); ta.innerHTML = t; t = ta.value.trim(); }
+  return t || filename.replace(/\.[^.]+$/, "");
+}
+function rfSlug(name, id) {
+  const base = slugifyFilename(name.replace(/\.(html?)$/i, "")) || "reviewer"; let slug = base + ".html", n = 2;
+  while (rfFiles.some(f => f.slug === slug && f.id !== id)) slug = `${base}-${n++}.html`;
+  return slug;
+}
+async function rfAddFiles(list) {
+  let added = 0, updated = 0, skipped = 0;
+  for (const file of Array.from(list)) {
+    if (!/\.html?$/i.test(file.name)) { skipped++; continue; }
+    const html = await file.text(), same = rfFiles.find(f => f.name === file.name);
+    if (same) { same.html = html; same.size = file.size; same.title = same.titleEdited ? same.title : rfTitleOf(html, file.name); same.updated = nowIso(); updated++; continue; }
+    const id = uid() + "r" + rfFiles.length; rfFiles.push({ id, name: file.name, slug: rfSlug(file.name, id), title: rfTitleOf(html, file.name), html, size: file.size, added: nowIso(), updated: nowIso() });
+    added++;
+  }
+  if (added || updated) await rfSave();
+  rfRender();
+  toast([added ? `${added} added` : "", updated ? `${updated} updated (same file name)` : "", skipped ? `${skipped} skipped (not .html)` : ""].filter(Boolean).join(", ") || "Nothing to add.", 3500);
+}
+function rfOpen(id) {
+  const f = rfFiles.find(x => x.id === id); if (!f) return;
+  const key = id + "|" + f.updated; let url = rfUrls.get(key);
+  if (!url) { url = URL.createObjectURL(new Blob([f.html], { type: "text/html" })); rfUrls.set(key, url); }
+  if (!window.open(url, "_blank")) toast("Your browser blocked the new tab. Allow pop-ups for this page and try again.", 4500);
+}
+function rfDownload(id) {
+  const f = rfFiles.find(x => x.id === id); if (!f) return;
+  const url = URL.createObjectURL(new Blob([f.html], { type: "text/html" })), a = document.createElement("a");
+  a.href = url; a.download = f.name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 15000);
+}
+function rfPagesBase(folder) {
+  const c = getGithubConfig(); if (!c || !c.owner || !c.repo) return "";
+  const host = `https://${c.owner}.github.io`, repoPart = c.repo.toLowerCase() === `${c.owner}.github.io`.toLowerCase() ? "" : `/${c.repo}`;
+  return `${host}${repoPart}/${folder.split("/").map(encodeURIComponent).join("/")}/`;
+}
+function rfCleanFolder() { return (($("rfFolder").value || "").trim() || "reviewers").replace(/^\/+|\/+$/g, "").replace(/[^A-Za-z0-9_\-\/]/g, "-"); }
+function rfHubHtml(files) {
+  const rows = files.slice().sort((a, b) => a.title.localeCompare(b.title, undefined, { numeric: true })).map(f => `    <li><a href="${esc(encodeURIComponent(f.slug))}">${esc(f.title)}</a></li>`).join("\n");
+  return `<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Reviewers</title>
+<style>
+:root{color-scheme:light dark;--bg:#f6f7fb;--card:#fff;--text:#1d2433;--link:#1f4fbf;--line:#dfe3ee}
+@media (prefers-color-scheme:dark){:root{--bg:#10141d;--card:#1a2030;--text:#e8ecf5;--link:#8db3ff;--line:#2a3247}}
+body{margin:0;padding:20px;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:680px;margin:0 auto}
+h1{font-size:1.4rem;margin:0 0 4px}.sub{opacity:.7;margin:0 0 16px;font-size:.9rem}
+ul{list-style:none;margin:0;padding:0}
+li{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:8px 0}
+li a{display:block;padding:14px 16px;color:var(--link);text-decoration:none;font-weight:600}
+</style></head><body><main>
+<h1>My Reviewers</h1><p class="sub">${files.length} reviewer${files.length === 1 ? "" : "s"} &middot; updated ${new Date().toISOString().slice(0, 10)}</p>
+<ul>
+${rows}
+</ul></main></body></html>
+`;
+}
+async function rfPublishAll() {
+  if (!rfFiles.length) { toast("Upload at least one reviewer first."); return; }
+  if (!githubConfigured()) { toast("Connect GitHub in Settings first."); return; }
+  const folder = rfCleanFolder(), base = rfPagesBase(folder), btn = $("rfPublish");
+  prefSaveRf({ folder }); $("rfFolder").value = folder; btn.disabled = true;
+  try {
+    let n = 0;
+    for (const f of rfFiles) {
+      toast(`Publishing ${++n} of ${rfFiles.length + 1}\u2026`, 1500);
+      const path = `${folder}/${f.slug}`, ex = await githubGetFileAtPath(path);
+      await githubPutFileAtPath(path, f.html, ex.sha, `Reviewer: ${f.title}`);
+      f.published = { path, url: base + encodeURIComponent(f.slug), at: nowIso() };
+    }
+    toast(`Publishing ${rfFiles.length + 1} of ${rfFiles.length + 1}\u2026`, 1500);
+    const hub = `${folder}/index.html`, hx = await githubGetFileAtPath(hub);
+    await githubPutFileAtPath(hub, rfHubHtml(rfFiles), hx.sha, "Reviewer index page");
+    await rfSave(); rfRender();
+    toast(`Published ${rfFiles.length} reviewer${rfFiles.length === 1 ? "" : "s"}. GitHub Pages can take a minute or two to update the first time.`, 6000);
+  } catch (e) {
+    await rfSave(); rfRender();
+    const m = String((e && e.message) || e);
+    toast(/ 40[13]/.test(m) ? "GitHub refused the upload. Your token needs write access to the repo's contents." : /404/.test(m) ? "GitHub couldn't find that repo or branch. Check the GitHub settings." : "Publish failed: " + m.slice(0, 160), 7000);
+  } finally { btn.disabled = false; }
+}
+function prefSaveRf(o) { saveJson(RF_PREFS, Object.assign(rfPrefs(), o)); }
+function rfRender() {
+  const files = rfFiles.slice().sort((a, b) => a.title.localeCompare(b.title, undefined, { numeric: true }));
+  const n = files.length, cnt = n ? `(${n})` : "";
+  $("rfCount").textContent = cnt; $("homeReviewerCount").textContent = cnt;
+  $("rfFolder").value = $("rfFolder").value || rfPrefs().folder;
+  const list = $("rfList"); list.innerHTML = "";
+  if (!n) list.appendChild(el("div", "empty-state", "No reviewer files yet. Upload your .html reviewers to keep them here."));
+  for (const f of files) {
+    const row = el("div", "list-item"), kb = f.size >= 1048576 ? (f.size / 1048576).toFixed(1) + " MB" : Math.max(1, Math.round(f.size / 1024)) + " KB";
+    row.innerHTML = `<div class="top-row"><span class="name">${esc(f.title)}</span><span class="meta">${kb}</span></div>
+      <div class="hint" style="margin:2px 0 6px;">${esc(f.name)} &middot; added ${esc((f.added || "").slice(0, 10))}${f.published ? " &middot; online" : ""}</div>
+      <div class="row wrap" style="gap:6px;">
+        <button class="btn primary" data-rf-open="${esc(f.id)}">Open</button>
+        ${f.published ? `<a class="btn" href="${esc(f.published.url)}" target="_blank" rel="noopener">Online link</a><button class="btn" data-rf-copy="${esc(f.id)}">Copy link</button>` : ""}
+        <button class="btn" data-rf-rename="${esc(f.id)}">Rename</button>
+        <button class="btn" data-rf-dl="${esc(f.id)}">Download</button>
+        <button class="btn danger" data-rf-del="${esc(f.id)}">Remove</button>
+      </div>`;
+    list.appendChild(row);
+  }
+  const pub = rfFiles.filter(f => f.published).length;
+  $("rfPublishInfo").innerHTML = pub ? `${pub} of ${n} published. Index page: <a href="${esc(rfPagesBase(rfPrefs().folder))}" target="_blank" rel="noopener">${esc(rfPagesBase(rfPrefs().folder))}</a>` : "Nothing published yet.";
+  const home = $("homeReviewerLinks"); $("homeReviewersCard").style.display = n ? "" : "none";
+  home.innerHTML = files.map(f => `<div class="row" style="gap:6px;margin:4px 0;align-items:center;"><button class="btn link" data-rf-open="${esc(f.id)}" style="flex:1;text-align:left;">&#128214; ${esc(f.title)}</button>${f.published ? `<a class="btn link" href="${esc(f.published.url)}" target="_blank" rel="noopener" style="flex:none;">online &#8599;</a>` : ""}</div>`).join("");
+}
+document.addEventListener("click", async (e) => {
+  const t = e.target.closest("[data-rf-open],[data-rf-rename],[data-rf-dl],[data-rf-del],[data-rf-copy]"); if (!t) return;
+  const id = t.dataset.rfOpen || t.dataset.rfRename || t.dataset.rfDl || t.dataset.rfDel || t.dataset.rfCopy, f = rfFiles.find(x => x.id === id); if (!f) return;
+  if (t.dataset.rfOpen) rfOpen(id);
+  else if (t.dataset.rfDl) rfDownload(id);
+  else if (t.dataset.rfCopy) toast(await copyTextRobust(f.published.url) ? "Link copied." : "Couldn't access the clipboard.");
+  else if (t.dataset.rfRename) { const v = prompt("Name for this reviewer", f.title); if (v !== null && v.trim()) { f.title = v.trim(); f.titleEdited = true; await rfSave(); rfRender(); } }
+  else if (t.dataset.rfDel) {
+    if (!confirm(`Remove "${f.title}" from this app?${f.published ? " The copy already published on GitHub stays there until you delete it in the repo." : ""}`)) return;
+    rfFiles = rfFiles.filter(x => x.id !== id); await rfSave(); rfRender();
+  }
+});
+$("rfPick").addEventListener("click", () => $("rfInput").click());
+$("rfInput").addEventListener("change", async (e) => { const l = Array.from(e.target.files || []); e.target.value = ""; if (l.length) await rfAddFiles(l); });
+$("rfPublish").addEventListener("click", rfPublishAll);
+$("rfCopyHub").addEventListener("click", async () => { const b = rfPagesBase(rfCleanFolder()); if (!b) { toast("Connect GitHub in Settings first."); return; } toast(await copyTextRobust(b) ? "Index page link copied." : "Couldn't access the clipboard."); });
+$("rfFolder").addEventListener("change", () => { prefSaveRf({ folder: rfCleanFolder() }); $("rfFolder").value = rfCleanFolder(); rfRender(); });
+rfInit();
+
 /* ---- Full reviewer prompt picker (by concept, grouped by subject prefix) ---- */
 function renderFullPicker() {
   const box = $("rpList"); if (!box) return;
