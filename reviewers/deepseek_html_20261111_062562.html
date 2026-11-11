@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Algebra Review: Three Concepts</title>
+<style>
+:root{--bg:#fbfaf6;--fg:#1f2328;--mut:#5b6470;--ac:#7a3b12;--box:#f1ece0;--ex:#e8f0f4;--dc:#f6e9e4;--bd:#d8d0bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.1rem 4rem}
+h1{font-size:1.8rem;margin:.4rem 0 .2rem}h2{font-size:1.3rem;color:var(--ac);border-bottom:1px solid var(--bd);padding-bottom:.2rem;margin-top:2.6rem}
+h3{font-size:1rem;margin:1.4rem 0 .3rem;font-variant:small-caps;letter-spacing:.04em}
+.sub{color:var(--mut);margin:0 0 1rem}
+.box,.ex,.dc{border-radius:6px;padding:.7rem 1rem;margin:1rem 0;font-size:.97rem}
+.box{background:var(--box)}.ex{background:var(--ex);border-left:4px solid #3d7a99}.dc{background:var(--dc);border-left:4px solid #b5533c}
+.ex b.t,.dc b.t{display:block;font-variant:small-caps;letter-spacing:.05em;margin-bottom:.2rem}
+.f{font-family:"Cambria Math",Georgia,serif;text-align:center;margin:.5rem 0;font-size:1.04rem;overflow-x:auto}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .2em}.fr i{font-style:normal;padding:0 .3em}.fr i:first-child{border-bottom:1px solid currentColor}
+nav{background:var(--box);border-radius:6px;padding:.6rem 1rem;font-size:.93rem}nav a{color:var(--ac);text-decoration:none}
+.w{overflow-x:auto}table{border-collapse:collapse;font-size:.9rem;width:100%}td,th{border:1px solid var(--bd);padding:.3rem .5rem;text-align:left;vertical-align:top}
+.q{margin:.3rem 0 .5rem;font-style:italic}
+details{margin-top:.4rem}summary{cursor:pointer;color:var(--ac);font-weight:bold;font-size:.95rem;padding:.2rem 0}
+details .f{margin:.55rem 0}.cap{text-align:center;font-size:.84rem;color:var(--mut);margin:.4rem 0}
+p{margin:.6rem 0}ul{margin:.4rem 0;padding-left:1.3rem}
+.st{font-size:.85rem;color:var(--mut);font-variant:small-caps;letter-spacing:.05em;margin:.75rem 0 .05rem;text-align:left}
+.lg{border-top:1px dotted var(--bd);margin-top:.75rem;padding-top:.35rem;font-size:.83rem;color:var(--mut)}
+.lg b{font-variant:small-caps;letter-spacing:.05em;display:block;margin-bottom:.15rem}
+.lg span{display:block}
+</style></head><body><main>
+<h1>Algebra Review: Three Concepts</h1>
+<p class="sub">One page for the selected D3_L3 set. Three chapters in teaching order: Combination/Permutation, Polynomials, Series. Each worked example shows the question first; tap “Show solution” for the steps, with a variable legend at the end. A consolidated formula table with Perry's locations sits before the flags.</p>
+<nav>1 <a href="#c1">Combination/Permutation</a> · 2 <a href="#c2">Polynomials</a> · 3 <a href="#c3">Series</a> · 4 <a href="#c4">Formulas + Perry</a> · 5 <a href="#c5">Flags</a></nav>
+
+<h2 id="c1">1. Combination and Permutation</h2>
+<p>Two questions decide every counting problem: <b>does order matter?</b> and <b>is repetition allowed?</b> The answers fix which formula applies.</p>
+<div class="w"><table>
+<tr><th>Order matters?</th><th>Repetition?</th><th>Count</th></tr>
+<tr><td>Yes</td><td>No</td><td><sub>n</sub>P<sub>r</sub> = n! / (n − r)!</td></tr>
+<tr><td>Yes</td><td>Yes</td><td>n<sup>r</sup></td></tr>
+<tr><td>No</td><td>No</td><td><sub>n</sub>C<sub>r</sub> = n! / [ r! (n − r)! ]</td></tr>
+<tr><td>No</td><td>Yes</td><td><sub>n+r−1</sub>C<sub>r</sub></td></tr>
+</table></div>
+<p>The <b>fundamental counting principle</b> underlies all four: if a task can be done in m ways and a second in n ways, the two together can be done in m × n ways. Multiplying the choices at each stage gives the answer without any formula, and it is the check that catches a wrong formula.</p>
+<p>Two special cases are worth naming. A <b>circular permutation</b> of n distinct objects has (n − 1)! arrangements, because rotations of the circle are not distinguished. And when a word contains <b>repeated letters</b>, the number of distinct arrangements is n! divided by the factorial of each repeat count:</p>
+<div class="f">arrangements = <span class="fr"><i>n!</i><i>n<sub>1</sub>! n<sub>2</sub>! …</i></span></div>
+<p>The complement is often faster than the direct count. “At least one” is 1 minus “none”; “at least two” is the sum of the exact cases, or 1 minus the cases with zero and one.</p>
+
+<div class="ex"><b class="t">Worked 1.1: arrangements when order matters</b><p class="q">How many different four-letter arrangements can be formed from the seven distinct letters A, B, C, D, E, F, G, without repetition?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — decide the two questions: order matters (AB and BA are different), repetition is not allowed</div>
+<div class="f">use <sub>n</sub>P<sub>r</sub> with n = 7, r = 4</div>
+<div class="st">Step 2 — apply the permutation formula</div>
+<div class="f"><sub>7</sub>P<sub>4</sub> = <span class="fr"><i>7!</i><i>( 7 − 4 )!</i></span> = <span class="fr"><i>7!</i><i>3!</i></span></div>
+<div class="st">Step 3 — cancel the common factor 3!</div>
+<div class="f">= 7 × 6 × 5 × 4</div>
+<div class="st">Step 4 — multiply</div>
+<div class="f"><b><sub>7</sub>P<sub>4</sub> = 840</b></div>
+<div class="cap">The same answer comes from the counting principle: 7 choices for the first letter, 6 for the second, 5 for the third, 4 for the fourth, and the product is 840. Doing both is a useful check on which formula applies.</div>
+<div class="lg"><b>Variables</b>
+<span><i>n</i> — size of the pool to choose from, 7</span>
+<span><i>r</i> — number of objects chosen, 4</span>
+<span><sub>n</sub>P<sub>r</sub> — number of ordered arrangements</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.2: selections when order does not matter</b><p class="q">A committee of 4 is to be chosen from 9 people. How many different committees are possible?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — order does not matter: choosing Alice then Bob gives the same committee as Bob then Alice</div>
+<div class="f">use <sub>n</sub>C<sub>r</sub> with n = 9, r = 4</div>
+<div class="st">Step 2 — apply the combination formula</div>
+<div class="f"><sub>9</sub>C<sub>4</sub> = <span class="fr"><i>9!</i><i>4! ( 9 − 4 )!</i></span> = <span class="fr"><i>9!</i><i>4! 5!</i></span></div>
+<div class="st">Step 3 — cancel 5! and expand</div>
+<div class="f">= <span class="fr"><i>9 × 8 × 7 × 6</i><i>4 × 3 × 2 × 1</i></span> = <span class="fr"><i>3 024</i><i>24</i></span></div>
+<div class="st">Step 4 — divide</div>
+<div class="f"><b><sub>9</sub>C<sub>4</sub> = 126</b></div>
+<div class="cap">The permutation count <sub>9</sub>P<sub>4</sub> = 3 024 counts each committee 4! = 24 times, once for each order of the four members. Dividing by 24 gives 126 — that is the whole difference between P and C.</div>
+<div class="lg"><b>Variables</b>
+<span><i>n</i> — pool size, 9</span>
+<span><i>r</i> — committee size, 4</span>
+<span><sub>n</sub>C<sub>r</sub> — number of unordered selections</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.3: arrangements of a word with repeated letters</b><p class="q">How many distinct arrangements are there of the letters of the word BALLOON?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — count the letters and the repeats</div>
+<div class="f">n = 7 letters: B, A, L, L, O, O, N</div>
+<div class="f">L appears 2 times, O appears 2 times</div>
+<div class="st">Step 2 — apply the repeated-letter formula</div>
+<div class="f">arrangements = <span class="fr"><i>7!</i><i>2! · 2!</i></span></div>
+<div class="st">Step 3 — evaluate the factorials</div>
+<div class="f">= <span class="fr"><i>5 040</i><i>4</i></span></div>
+<div class="st">Step 4 — divide</div>
+<div class="f"><b>= 1 260</b></div>
+<div class="cap">The uncorrected count 7! = 5 040 treats the two L's as distinguishable and the two O's as distinguishable, so it counts each distinct word 2! × 2! = 4 times. Dividing by that 4 is the correction.</div>
+<div class="lg"><b>Variables</b>
+<span><i>n</i> — total letters, 7</span>
+<span><i>n</i><sub>1</sub>, <i>n</i><sub>2</sub> — repeat counts, 2 and 2</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: the commonest error is the wrong formula, not the arithmetic</b>Nearly every wrong answer in a counting problem comes from applying a permutation when a combination applies, or the reverse. The test is a single question: if you swap two of the chosen items, do you get a different outcome? If yes, order matters and the answer is a permutation. If no, it is a combination. For a committee, swapping members gives the same committee — combination. For a queue, swapping positions gives a different queue — permutation. For a set of digits forming a number, swapping digits gives a different number — permutation. Answer that question before touching a formula.</div>
+
+<h2 id="c2">2. Polynomials</h2>
+<p>A polynomial in x is a sum of powers with constant coefficients. Three tools carry almost every question in the chapter.</p>
+<h3>The quadratic and its discriminant</h3>
+<div class="f">ax² + bx + c = 0,   x = <span class="fr"><i>−b ± √( b² − 4ac )</i><i>2a</i></span></div>
+<p>The quantity under the radical is the <b>discriminant</b>, and its sign alone tells the nature of the roots:</p>
+<div class="w"><table>
+<tr><th>Discriminant D = b² − 4ac</th><th>Nature of roots</th></tr>
+<tr><td>D &gt; 0</td><td>two distinct real roots</td></tr>
+<tr><td>D = 0</td><td>one repeated real root (equal roots)</td></tr>
+<tr><td>D &lt; 0</td><td>two complex conjugate roots, no real root</td></tr>
+</table></div>
+<p>Before computing the discriminant, put the equation in <b>standard form</b> ax² + bx + c = 0. Every sign error in this chapter starts with a term left on the wrong side.</p>
+<h3>Vieta's formulas</h3>
+<p>For ax² + bx + c = 0 with roots r and s:</p>
+<div class="f">r + s = −<span class="fr"><i>b</i><i>a</i></span>,   rs = <span class="fr"><i>c</i><i>a</i></span></div>
+<p>For the cubic x³ + px² + qx + r = 0 with roots r, s, t:</p>
+<div class="f">r + s + t = −p,   rs + rt + st = q,   rst = −r</div>
+<p>Vieta converts a symmetric expression in the roots into the coefficients, without ever solving for the roots. The most useful example is the sum of reciprocals:</p>
+<div class="f"><span class="fr"><i>1</i><i>r</i></span> + <span class="fr"><i>1</i><i>s</i></span> = <span class="fr"><i>r + s</i><i>rs</i></span></div>
+<h3>Forming a new equation from old roots</h3>
+<p>If the roots of a new equation are a function of the old roots — reciprocals, negatives, squares — the new equation is found by the corresponding substitution. The three that recur:</p>
+<div class="f">reciprocal roots:   replace x by 1/x</div>
+<div class="f">negated roots:   replace x by −x</div>
+<div class="f">scaled roots:   replace x by x/k</div>
+<p>A subtlety worth knowing: replacing x by 1/x gives a rational expression, which must be multiplied through by x² to restore a polynomial. That multiplication is where sign errors appear.</p>
+<h3>Functions</h3>
+<p>An equation represents y as a function of x only if each x gives at most one y. The graphical test is the <b>vertical line test</b>: a curve is a function if no vertical line meets it twice. An equation containing y² is an immediate suspect, because y² = (something) has two branches, y = ±√(something).</p>
+<h3>Adjacent skills: exponents and logarithms</h3>
+<p>Equations with unknown exponents are solved by writing every base as a power of one common base, then equating exponents:</p>
+<div class="f">a<sup>m</sup> = a<sup>n</sup>   ⇒   m = n</div>
+<p>And the logarithm of the reciprocal base is the reciprocal of the logarithm:</p>
+<div class="f">log<sub>a</sub> b = <span class="fr"><i>1</i><i>log<sub>b</sub> a</i></span></div>
+
+<div class="ex"><b class="t">Worked 2.1: the discriminant and the nature of the roots</b><p class="q">What is the discriminant of 4x² = 8x − 5?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — put the equation in standard form by moving every term to one side</div>
+<div class="f">4x² − 8x + 5 = 0</div>
+<div class="st">Step 2 — read off the coefficients: a = 4, b = −8, c = 5</div>
+<div class="f">a = 4,   b = −8,   c = 5</div>
+<div class="st">Step 3 — apply the discriminant formula</div>
+<div class="f">D = b² − 4ac = ( −8 )² − 4( 4 )( 5 )</div>
+<div class="st">Step 4 — evaluate</div>
+<div class="f">D = 64 − 80 = <b>−16</b></div>
+<div class="cap">The answer 8 comes from forgetting the 4ac term and using b² − 4 = 60… or, more commonly, from a sign slip that turns −4ac into +4ac. The negative discriminant means the two roots are complex conjugates — the parabola never crosses the x-axis.</div>
+<div class="lg"><b>Variables</b>
+<span><i>a</i>, <i>b</i>, <i>c</i> — coefficients of the standard form, 4, −8, 5</span>
+<span><i>D</i> — discriminant, b² − 4ac</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.2: the equation whose roots are reciprocals</b><p class="q">Find the equation whose roots are the reciprocals of the roots of 2x² − 3x − 5 = 0.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — substitute x = 1/y into the original equation</div>
+<div class="f">2( <span class="fr"><i>1</i><i>y</i></span> )² − 3( <span class="fr"><i>1</i><i>y</i></span> ) − 5 = 0</div>
+<div class="st">Step 2 — write it out</div>
+<div class="f"><span class="fr"><i>2</i><i>y²</i></span> − <span class="fr"><i>3</i><i>y</i></span> − 5 = 0</div>
+<div class="st">Step 3 — multiply through by y² to restore a polynomial</div>
+<div class="f">2 − 3y − 5y² = 0</div>
+<div class="st">Step 4 — rearrange into standard order with a positive leading coefficient</div>
+<div class="f">5y² + 3y − 2 = 0</div>
+<div class="st">Step 5 — rename the variable back to x</div>
+<div class="f"><b>5x² + 3x − 2 = 0</b></div>
+<div class="cap">The answer 2x² + 3x − 5 = 0 keeps the original leading coefficient and only flips the middle sign — it is the equation with <i>negated</i> middle coefficient, not reciprocal roots. The correct transformation reverses the coefficients: 2, −3, −5 becomes 5, 3, −2 (the old coefficients in reverse order, with an overall sign flip). That reversal is the fast check.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — variable of the original equation</span>
+<span><i>y</i> — variable of the new equation</span>
+<span>2, −3, −5 — coefficients of the original quadratic</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.3: the condition for equal roots</b><p class="q">Given 3x² + Bx + 12 = 0, what is the value of B so that the roots are equal?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — equal roots require a zero discriminant</div>
+<div class="f">D = B² − 4( 3 )( 12 ) = 0</div>
+<div class="st">Step 2 — simplify</div>
+<div class="f">B² − 144 = 0</div>
+<div class="st">Step 3 — solve</div>
+<div class="f">B² = 144   ⇒   B = ±12</div>
+<div class="st">Step 4 — the equation alone admits both signs; the sign is fixed by an additional condition in the stem (for instance, a stated sign of the repeated root, or a physical requirement such as B &lt; 0)</div>
+<div class="f"><b>B = −12</b>   (under the usual convention that B is negative)</div>
+<div class="cap"><b>Both +12 and −12 give a repeated root</b> — the algebra fixes only the magnitude. The keyed −12 requires a sign convention not stated in the recorded stem. If the question is re-asked without that convention, either sign is defensible; state the ambiguity and pick the one the options force.</div>
+<div class="lg"><b>Variables</b>
+<span><i>B</i> — unknown middle coefficient</span>
+<span><i>D</i> — discriminant, must be zero for equal roots</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.4: a symmetric expression in the roots of a cubic</b><p class="q">The roots of x³ − 7x² + 13x − 7 = 0 are r, s and t. Find 1/r + 1/s + 1/t.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — combine the three reciprocals over a common denominator</div>
+<div class="f"><span class="fr"><i>1</i><i>r</i></span> + <span class="fr"><i>1</i><i>s</i></span> + <span class="fr"><i>1</i><i>t</i></span> = <span class="fr"><i>rs + rt + st</i><i>rst</i></span></div>
+<div class="st">Step 2 — read the symmetric sums from the coefficients of x³ + px² + qx + r = 0</div>
+<div class="f">p = −7,   q = 13,   r = −7</div>
+<div class="f">rs + rt + st = q = 13,   rst = −r = 7</div>
+<div class="st">Step 3 — substitute</div>
+<div class="f"><span class="fr"><i>1</i><i>r</i></span> + <span class="fr"><i>1</i><i>s</i></span> + <span class="fr"><i>1</i><i>t</i></span> = <span class="fr"><i>13</i><i>7</i></span></div>
+<div class="f"><b>= 13/7</b></div>
+<div class="cap">Note the sign on the constant: for the cubic written as x³ + px² + qx + r = 0, the product of the roots is <b>−r</b>, not +r. Here r = −7, so rst = +7. Using rst = −7 would give −13/7, which is the standard sign slip.</div>
+<div class="lg"><b>Variables</b>
+<span><i>r</i>, <i>s</i>, <i>t</i> — the three roots</span>
+<span><i>p</i>, <i>q</i>, <i>r</i> — coefficients of the cubic in standard form</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.5: evaluating a polynomial</b><p class="q">Given f(x) = 3x² − 4x + 25, find f(−3).</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — substitute x = −3, keeping the parentheses around the −3</div>
+<div class="f">f( −3 ) = 3( −3 )² − 4( −3 ) + 25</div>
+<div class="st">Step 2 — evaluate the square first; ( −3 )² = +9</div>
+<div class="f">= 3( 9 ) − 4( −3 ) + 25</div>
+<div class="st">Step 3 — carry out the multiplications, watching the double negative</div>
+<div class="f">= 27 + 12 + 25</div>
+<div class="st">Step 4 — add</div>
+<div class="f"><b>f( −3 ) = 64</b></div>
+<div class="cap">The answer 32 comes from squaring before applying the sign, i.e. writing −3² = −9 instead of (−3)² = +9, or from dropping the double negative in −4(−3). Both errors are cured by writing every substituted value inside parentheses and simplifying one operation at a time.</div>
+<div class="lg"><b>Variables</b>
+<span><i>f</i>(<i>x</i>) — the polynomial function</span>
+<span><i>x</i> — the input value, −3</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.6: a logarithmic reciprocal</b><p class="q">If log<sub>a</sub> 10 = 0.25, what is log<sub>10</sub> a?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — apply the reciprocal-base identity</div>
+<div class="f">log<sub>10</sub> a = <span class="fr"><i>1</i><i>log<sub>a</sub> 10</i></span></div>
+<div class="st">Step 2 — substitute the given value</div>
+<div class="f">= <span class="fr"><i>1</i><i>0.25</i></span></div>
+<div class="st">Step 3 — evaluate</div>
+<div class="f"><b>= 4</b></div>
+<div class="cap">The result also follows from the definition: log<sub>a</sub>10 = 0.25 means a<sup>0.25</sup> = 10, so a = 10⁴ and log<sub>10</sub>a = 4. Both routes are worth knowing — the identity is faster, the definition is a check.</div>
+<div class="lg"><b>Variables</b>
+<span><i>a</i> — base of the first logarithm</span>
+<span>10 — argument of the first logarithm</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.7: a system of exponential equations</b><p class="q">Solve for x: 27<sup>x</sup> = 9<sup>y</sup> and 81<sup>y</sup> · 3<sup>−x</sup> = 243.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — write every base as a power of 3</div>
+<div class="f">27 = 3³,   9 = 3²,   81 = 3⁴,   243 = 3⁵</div>
+<div class="st">Step 2 — rewrite the first equation</div>
+<div class="f">3<sup>3x</sup> = 3<sup>2y</sup>   ⇒   3x = 2y</div>
+<div class="st">Step 3 — rewrite the second equation</div>
+<div class="f">3<sup>4y</sup> · 3<sup>−x</sup> = 3<sup>5</sup>   ⇒   4y − x = 5</div>
+<div class="st">Step 4 — solve the linear system: from the first, y = 3x/2</div>
+<div class="f">4( <span class="fr"><i>3x</i><i>2</i></span> ) − x = 5   ⇒   6x − x = 5   ⇒   5x = 5</div>
+<div class="st">Step 5 — solve</div>
+<div class="f"><b>x = 1</b>   (and y = 1.5)</div>
+<div class="cap">The answer 1.5 comes from solving only the first equation (which gives y = 1.5x) and reporting y as if it were x. The second equation is what fixes x. Whenever a system has two equations, both must be used.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i>, <i>y</i> — the two unknowns</span>
+<span>3 — the common base</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.8: which equation does not define y as a function of x</b><p class="q">Which of the following does not represent y as a function of x? (A) x³ + y² = 1 (B) y = x² (C) y = √x (D) all of the above.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — apply the vertical-line test: a relation is a function if every vertical line meets the graph at most once</div>
+<div class="f">at most one y for each x</div>
+<div class="st">Step 2 — solve (A) for y</div>
+<div class="f">y² = 1 − x³   ⇒   y = ± √( 1 − x³ )</div>
+<div class="st">Step 3 — two branches for the same x: not a function</div>
+<div class="f">(A) fails the test</div>
+<div class="st">Step 4 — check the others</div>
+<div class="f">(B) y = x² gives one y per x ✓</div>
+<div class="f">(C) y = √x gives one y per x (the principal root) ✓</div>
+<div class="f"><b>Answer: (A)</b></div>
+<div class="cap">Any equation in which y appears only to an even power is an immediate suspect, because an even power has two branches. The answer “all of the above” is the trap: (B) and (C) are perfectly good functions.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — independent variable</span>
+<span><i>y</i> — dependent variable</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.9: an exponent equation with a unit base</b><p class="q">Find all real x such that [ (1/5)(x² − 10x + 26) ]<sup>x² − 6x + 5</sup> = 1.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — a positive base raised to a power equals 1 in exactly two ways: the exponent is zero (and the base is not zero), or the base itself is 1</div>
+<div class="f">case 1: exponent = 0;   case 2: base = 1</div>
+<div class="st">Step 2 — case 1: solve the exponent equation</div>
+<div class="f">x² − 6x + 5 = 0   ⇒   ( x − 1 )( x − 5 ) = 0</div>
+<div class="f">x = 1,   5</div>
+<div class="st">Step 3 — case 2: solve the base equation</div>
+<div class="f"><span class="fr"><i>1</i><i>5</i></span> ( x² − 10x + 26 ) = 1</div>
+<div class="f">x² − 10x + 26 = 5   ⇒   x² − 10x + 21 = 0</div>
+<div class="f">( x − 3 )( x − 7 ) = 0   ⇒   x = 3,   7</div>
+<div class="st">Step 4 — check that the base is never zero or negative at any of these values: x² − 10x + 26 = (x − 5)² + 1 ≥ 1, so the base is at least 1/5 &gt; 0 everywhere</div>
+<div class="f">all four values are admissible</div>
+<div class="f"><b>x = 1, 3, 5, 7</b></div>
+<div class="cap">The answer 2, 4, 6, 8 comes from solving a different pair of quadratics — usually the exponent set to 1 and the base set to 0, neither of which gives the value 1. The two legitimate cases are exponent zero and base one; there is no third.</div>
+<div class="lg"><b>Variables</b>
+<span><i>x</i> — the unknown</span>
+<span>base — (1/5)(x² − 10x + 26)</span>
+<span>exponent — x² − 6x + 5</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: radicals with fractional exponents</b>The radical-and-exponent item in this set is worth separating out because the recorded expression does not simplify to the keyed answer under the natural reading. Writing ∛(ab) as (ab)<sup>1/3</sup> and √(ab) as (ab)<sup>1/2</sup>, the expression √( ab / ∛(ab) ) evaluates to (ab)<sup>1/2 − 1/3</sup> = (ab)<sup>1/6</sup>, the sixth root — not ∛(ab). To reach ∛(ab) the grouping would have to differ, for example √(ab) divided by the sixth root of ab, or a denominator written as (ab)<sup>1/6</sup>. The rule itself is unambiguous and worth memorising: a radical over a radical subtracts exponents, a radical times a radical adds them, and a power of a power multiplies them. Apply the rule to the expression as printed and compare with the options — if none matches, the stem's grouping has been lost in transcription and the printed key is not a safe target. See the flags table.</div>
+
+<h2 id="c3">3. Series</h2>
+<p>Two sequences cover the whole chapter: the arithmetic progression, where consecutive terms differ by a constant, and the geometric progression, where consecutive terms differ by a constant ratio.</p>
+<h3>Arithmetic progression</h3>
+<div class="f">a<sub>n</sub> = a<sub>1</sub> + ( n − 1 ) d</div>
+<div class="f">S<sub>n</sub> = <span class="fr"><i>n</i><i>2</i></span> [ 2a<sub>1</sub> + ( n − 1 ) d ] = <span class="fr"><i>n</i><i>2</i></span> ( a<sub>1</sub> + a<sub>n</sub> )</div>
+<p>The second form of the sum is the one to use when the first and last terms are known; the first is used when d is known. When the number of terms is <b>odd</b>, the sum is simply the number of terms times the <b>middle term</b> — a shortcut that saves a full calculation.</p>
+<h3>Geometric progression</h3>
+<div class="f">a<sub>n</sub> = a<sub>1</sub> r<sup>n−1</sup></div>
+<div class="f">S<sub>n</sub> = a<sub>1</sub> <span class="fr"><i>r<sup>n</sup> − 1</i><i>r − 1</i></span>   ( r ≠ 1 )</div>
+<div class="f">S<sub>∞</sub> = <span class="fr"><i>a<sub>1</sub></i><i>1 − r</i></span>   ( | r | &lt; 1 )</div>
+<p>The common ratio is found from the ratio of two known terms, and the exponent difference tells you how many multiplications of r are involved:</p>
+<div class="f"><span class="fr"><i>a<sub>m</sub></i><i>a<sub>n</sub></i></span> = r<sup>m−n</sup></div>
+<p>A <b>geometric mean</b> inserted between two numbers preserves the common ratio. For k geometric means between a and b, the total number of terms is k + 2, and the ratio is the (k+1)-th root of b/a.</p>
+<h3>Arithmetic sequences hiding in word problems</h3>
+<p>A list of numbers that are “divisible by d between L and U” is an arithmetic progression. The first term is the smallest multiple of d at or above L, the last is the largest multiple at or below U, and the count follows from the difference of their multipliers:</p>
+<div class="f">count = <span class="fr"><i>last multiple</i><i>d</i></span> − <span class="fr"><i>first multiple</i><i>d</i></span> + 1</div>
+<p>Recognising that structure turns a word problem into two lines of arithmetic.</p>
+
+<div class="ex"><b class="t">Worked 3.1: an arithmetic term</b><p class="q">Find the 30th term of the arithmetic progression 4, 7, 10, …</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — identify the first term and the common difference</div>
+<div class="f">a<sub>1</sub> = 4,   d = 7 − 4 = 3</div>
+<div class="st">Step 2 — apply the nth-term formula with n = 30</div>
+<div class="f">a<sub>30</sub> = 4 + ( 30 − 1 )( 3 )</div>
+<div class="st">Step 3 — evaluate</div>
+<div class="f">a<sub>30</sub> = 4 + 87 = <b>91</b></div>
+<div class="cap">The answer 75 comes from using n = 30 in the wrong place — that is, adding 29 terms of 2.5 or using (n − 1) = 25. The (n − 1) factor is the whole content of the formula: the 30th term is the first term plus 29 steps, not 30.</div>
+<div class="lg"><b>Variables</b>
+<span><i>a</i><sub>1</sub> — first term, 4</span>
+<span><i>d</i> — common difference, 3</span>
+<span><i>n</i> — term number, 30</span>
+<span><i>a<sub>n</sub></i> — the nth term</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.2: an arithmetic sum by the middle-term shortcut</b><p class="q">An arithmetic progression starts with 3, has 9 terms, and the middle term is 19. Find the sum of the first 9 terms.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — with 9 terms, the middle term is the 5th, and the sum of an odd-length arithmetic progression is the number of terms times the middle term</div>
+<div class="f">S<sub>9</sub> = 9 × a<sub>5</sub></div>
+<div class="st">Step 2 — substitute the middle term</div>
+<div class="f">S<sub>9</sub> = 9 × 19</div>
+<div class="st">Step 3 — evaluate</div>
+<div class="f"><b>S<sub>9</sub> = 171</b></div>
+<div class="st">Step 4 — confirm by finding d and using the full sum formula</div>
+<div class="f">a<sub>5</sub> = 3 + 4d = 19   ⇒   d = 4</div>
+<div class="f">S<sub>9</sub> = <span class="fr"><i>9</i><i>2</i></span> [ 2( 3 ) + 8( 4 ) ] = <span class="fr"><i>9</i><i>2</i></span> ( 38 ) = 171 ✓</div>
+<div class="cap">The answer 110 comes from summing only the first few terms or from a slip in d. The middle-term shortcut is worth remembering: for any odd number of terms, the sum is n × (the middle term), because the terms pair up symmetrically around the middle.</div>
+<div class="lg"><b>Variables</b>
+<span><i>a</i><sub>1</sub> — first term, 3</span>
+<span><i>a</i><sub>5</sub> — middle term, 19</span>
+<span><i>n</i> — number of terms, 9</span>
+<span><i>S<sub>n</sub></i> — sum of the first n terms</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.3: a geometric term from two known terms</b><p class="q">The fourth term of a geometric progression is 189 and the sixth term is 1 701. Find the eighth term.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — divide the two known terms to eliminate the first term</div>
+<div class="f"><span class="fr"><i>a<sub>6</sub></i><i>a<sub>4</sub></i></span> = r<sup>6−4</sup> = r²</div>
+<div class="f">r² = <span class="fr"><i>1 701</i><i>189</i></span> = 9</div>
+<div class="st">Step 2 — take the root; for a progression of positive terms, r = 3</div>
+<div class="f">r = 3</div>
+<div class="st">Step 3 — find the first term from the fourth</div>
+<div class="f">a<sub>4</sub> = a<sub>1</sub> r³   ⇒   189 = a<sub>1</sub> ( 27 )   ⇒   a<sub>1</sub> = 7</div>
+<div class="st">Step 4 — the eighth term</div>
+<div class="f">a<sub>8</sub> = a<sub>1</sub> r⁷ = 7 × 3<sup>7</sup> = 7 × 2 187</div>
+<div class="f"><b>a<sub>8</sub> = 15 309</b></div>
+<div class="cap">The answer 45 927 is 3 × 15 309 — it is the <i>ninth</i> term, one step too far. Counting which term you have reached is the trap: a<sub>4</sub> to a<sub>6</sub> is two steps (r²), and a<sub>6</sub> to a<sub>8</sub> is another two steps (another r²). Multiplying by r³ instead of r² overshoots.</div>
+<div class="lg"><b>Variables</b>
+<span><i>a</i><sub>4</sub>, <i>a</i><sub>6</sub>, <i>a</i><sub>8</sub> — the 4th, 6th and 8th terms</span>
+<span><i>r</i> — common ratio, 3</span>
+<span><i>a</i><sub>1</sub> — first term, 7</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.4: a geometric sum</b><p class="q">Find the sum of the first 10 terms of the geometric progression 2, 4, 8, 16, …</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — identify the first term and the common ratio</div>
+<div class="f">a<sub>1</sub> = 2,   r = <span class="fr"><i>4</i><i>2</i></span> = 2</div>
+<div class="st">Step 2 — apply the finite geometric sum with n = 10</div>
+<div class="f">S<sub>10</sub> = 2 <span class="fr"><i>2<sup>10</sup> − 1</i><i>2 − 1</i></span></div>
+<div class="st">Step 3 — evaluate 2¹⁰ = 1 024</div>
+<div class="f">S<sub>10</sub> = 2 ( 1 023 )</div>
+<div class="st">Step 4 — multiply</div>
+<div class="f"><b>S<sub>10</sub> = 2 046</b></div>
+<div class="cap">The answer 1 203 is the sum of the first 9 terms (2 × 1 023/2 … in effect one term short). The formula carries r<sup>n</sup>, not r<sup>n−1</sup>; using the wrong exponent shifts the whole sum by one term.</div>
+<div class="lg"><b>Variables</b>
+<span><i>a</i><sub>1</sub> — first term, 2</span>
+<span><i>r</i> — common ratio, 2</span>
+<span><i>n</i> — number of terms, 10</span>
+<span><i>S<sub>n</sub></i> — sum of the first n terms</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.5: inserting geometric means</b><p class="q">There are 4 geometric means between 3 and 729. Find the fourth term of the progression.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — count the terms: 4 means between two endpoints make 6 terms in total, so 729 is the 6th term</div>
+<div class="f">a<sub>1</sub> = 3,   a<sub>6</sub> = 729</div>
+<div class="st">Step 2 — use the nth-term relation to find r</div>
+<div class="f">a<sub>6</sub> = a<sub>1</sub> r<sup>5</sup>   ⇒   729 = 3 r<sup>5</sup>   ⇒   r<sup>5</sup> = 243</div>
+<div class="st">Step 3 — take the fifth root</div>
+<div class="f">r = 3</div>
+<div class="st">Step 4 — the fourth term</div>
+<div class="f">a<sub>4</sub> = a<sub>1</sub> r³ = 3 × 27</div>
+<div class="f"><b>a<sub>4</sub> = 81</b></div>
+<div class="cap">With k means inserted between two numbers, the total number of terms is k + 2 and the exponent on r is k + 1 = 5 here. Using k = 4 as the exponent would give r = 243<sup>1/4</sup>, which is not an integer and would not produce a clean progression — a useful check that the exponent count is right.</div>
+<div class="lg"><b>Variables</b>
+<span><i>a</i><sub>1</sub> — first term, 3</span>
+<span><i>a</i><sub>6</sub> — last term, 729</span>
+<span><i>r</i> — common ratio, 3</span>
+<span>4 — number of geometric means inserted</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 3.6: a sum disguised as a divisibility problem</b><p class="q">Find the sum of all integers between 300 and 800 that are exactly divisible by 14.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the smallest multiple of 14 above 300: 14 × 21 = 294 (too small), 14 × 22 = 308</div>
+<div class="f">first term a<sub>1</sub> = 308</div>
+<div class="st">Step 2 — the largest multiple of 14 below 800: 14 × 57 = 798, and 14 × 58 = 812 (too large)</div>
+<div class="f">last term a<sub>n</sub> = 798</div>
+<div class="st">Step 3 — count the terms from the multipliers</div>
+<div class="f">n = 57 − 22 + 1 = 36</div>
+<div class="st">Step 4 — apply the arithmetic sum with first and last terms known</div>
+<div class="f">S = <span class="fr"><i>n</i><i>2</i></span> ( a<sub>1</sub> + a<sub>n</sub> ) = <span class="fr"><i>36</i><i>2</i></span> ( 308 + 798 )</div>
+<div class="st">Step 5 — evaluate</div>
+<div class="f">S = 18 × 1 106</div>
+<div class="f"><b>S = 19 908</b></div>
+<div class="cap">The answer 21 200 comes from an off-by-one in the count — using 37 terms instead of 36, or starting at 294. Counting the terms as (last − first)/d + 1 without converting to multipliers is where the slip happens; counting via the multipliers 22 to 57 is harder to get wrong.</div>
+<div class="lg"><b>Variables</b>
+<span><i>a</i><sub>1</sub> — first multiple of 14 above 300, 308</span>
+<span><i>a<sub>n</sub></i> — last multiple of 14 below 800, 798</span>
+<span><i>d</i> — common difference, 14</span>
+<span><i>n</i> — number of terms, 36</span>
+<span><i>S</i> — required sum</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: counting terms is where AP sums fail</b>The sum formula is easy; the count is where marks are lost. Two rules cover every case. First, the first term is the smallest value that satisfies the condition <i>and</i> lies inside the range — a multiple just below the lower bound is not a term. Second, the number of terms is (last − first)/d + 1, and that final +1 is not optional: it counts both endpoints. Converting to multipliers — “14 × 22 through 14 × 57” — makes the +1 arithmetic on small integers and removes the risk of a slip in the thousands.</div>
+
+<h2 id="c4">4. Formula summary</h2>
+<p>Perry's column: <i>Perry's Chemical Engineers' Handbook</i>, 9th edition, gathers the algebraic formulas — permutations, combinations, quadratic roots, and the arithmetic and geometric series formulas — in <b>Section 2 (Mathematics)</b>. I could not verify the subsection or page numbers, so the column states the section and marks the finer location as unverified. Entries marked “not in Perry's” are elementary algebra results that I could not confirm are tabulated as such.</p>
+<div class="w"><table>
+<tr><th>Formula</th><th>Use</th><th>Perry's 9th ed.</th></tr>
+<tr><td><div class="f">fundamental principle: m × n ways</div></td><td>Sequential choices</td><td>Sec. 2, Mathematics — combinatorics; location unverified</td></tr>
+<tr><td><div class="f"><sub>n</sub>P<sub>r</sub> = n! / (n − r)!</div></td><td>Ordered arrangements without repetition</td><td>Sec. 2, Mathematics — combinatorics; location unverified</td></tr>
+<tr><td><div class="f"><sub>n</sub>C<sub>r</sub> = n! / [ r!(n − r)! ]</div></td><td>Unordered selections</td><td>Sec. 2, Mathematics — combinatorics; location unverified</td></tr>
+<tr><td><div class="f">arrangements = n! / (n<sub>1</sub>! n<sub>2</sub>! …)</div></td><td>Words or objects with repeats</td><td>Sec. 2, Mathematics — combinatorics; location unverified</td></tr>
+<tr><td><div class="f">circular arrangements = (n − 1)!</div></td><td>Arrangements around a circle</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">x = [ −b ± √(b² − 4ac) ] / 2a</div></td><td>Quadratic formula</td><td>Sec. 2, Mathematics — algebra; location unverified</td></tr>
+<tr><td><div class="f">D = b² − 4ac</div></td><td>Discriminant and nature of roots</td><td>Sec. 2, Mathematics — algebra; location unverified</td></tr>
+<tr><td><div class="f">r + s = −b/a,   rs = c/a</div></td><td>Vieta, quadratic</td><td>Sec. 2, Mathematics — algebra; location unverified</td></tr>
+<tr><td><div class="f">r+s+t = −p,  rs+rt+st = q,  rst = −r</div></td><td>Vieta, cubic x³ + px² + qx + r = 0</td><td>Sec. 2, Mathematics — algebra; location unverified</td></tr>
+<tr><td><div class="f">reciprocal roots: substitute x → 1/x and multiply through</div></td><td>Forming a new equation from old roots</td><td>Not in Perry's; standard technique</td></tr>
+<tr><td><div class="f">a<sup>m</sup> = a<sup>n</sup> ⇒ m = n</div></td><td>Equating exponents on a common base</td><td>Sec. 2, Mathematics — exponents; location unverified</td></tr>
+<tr><td><div class="f">log<sub>a</sub>b = 1 / log<sub>b</sub>a</div></td><td>Reciprocal-base identity</td><td>Sec. 2, Mathematics — logarithms; location unverified</td></tr>
+<tr><td><div class="f">a<sub>n</sub> = a<sub>1</sub> + (n − 1)d</div></td><td>Arithmetic nth term</td><td>Sec. 2, Mathematics — series; location unverified</td></tr>
+<tr><td><div class="f">S<sub>n</sub> = (n/2)[ 2a<sub>1</sub> + (n − 1)d ] = (n/2)(a<sub>1</sub> + a<sub>n</sub>)</div></td><td>Arithmetic sum</td><td>Sec. 2, Mathematics — series; location unverified</td></tr>
+<tr><td><div class="f">odd n:  S<sub>n</sub> = n × (middle term)</div></td><td>Arithmetic sum shortcut</td><td>Not in Perry's; standard result</td></tr>
+<tr><td><div class="f">a<sub>n</sub> = a<sub>1</sub> r<sup>n−1</sup></div></td><td>Geometric nth term</td><td>Sec. 2, Mathematics — series; location unverified</td></tr>
+<tr><td><div class="f">S<sub>n</sub> = a<sub>1</sub>(r<sup>n</sup> − 1)/(r − 1)</div></td><td>Geometric sum, r ≠ 1</td><td>Sec. 2, Mathematics — series; location unverified</td></tr>
+<tr><td><div class="f">S<sub>∞</sub> = a<sub>1</sub>/(1 − r),  |r| &lt; 1</div></td><td>Infinite geometric sum</td><td>Sec. 2, Mathematics — series; location unverified</td></tr>
+<tr><td><div class="f">a<sub>m</sub>/a<sub>n</sub> = r<sup>m−n</sup></div></td><td>Common ratio from two terms</td><td>Not in Perry's; follows from the nth-term form</td></tr>
+</table></div>
+
+<h2 id="c5">5. Answer-bank flags</h2>
+<p>Every keyed answer in the three concepts was recomputed. Most stand; two are ambiguous or not reconcilable with the recorded stem and are flagged below.</p>
+<div class="w"><table>
+<tr><th>Item</th><th>Concern</th></tr>
+<tr><td><b>Combination/Permutation</b> — sum of multiples of 14 (key: 19 908)</td><td>Verified: first term 308, last 798, count 36, sum = 18 × 1 106 = 19 908. The 21 200 distractor is an off-by-one in the term count. Note that this item is an arithmetic-series problem, not a counting problem — it has been placed in the Series chapter where it belongs conceptually.</td></tr>
+<tr><td><b>Polynomials</b> — reciprocal roots (key: 5x² + 3x − 2 = 0)</td><td>Verified: substituting x → 1/y and multiplying by y² gives 2 − 3y − 5y² = 0, i.e. 5y² + 3y − 2 = 0. The distractor 2x² + 3x − 5 = 0 has only the middle sign flipped. Quick check: reciprocal roots reverse the coefficient order and flip the overall sign.</td></tr>
+<tr><td><b>Polynomials</b> — discriminant of 4x² = 8x − 5 (key: −16)</td><td>Verified: standard form 4x² − 8x + 5 = 0, D = 64 − 80 = −16. The 8 distractor comes from a sign slip that turns −4ac into +4ac.</td></tr>
+<tr><td><b>Polynomials</b> — simplification of √(ab/∛(ab)) (key: ∛(ab))</td><td><b>Not reconcilable with the expression as recorded.</b> Writing ∛(ab) = (ab)<sup>1/3</sup>, the expression evaluates to (ab)<sup>1/2 − 1/3</sup> = (ab)<sup>1/6</sup>, the sixth root, which is not ∛(ab). The key requires a different grouping (for example √(ab) divided by (ab)<sup>1/6</sup>). Treat the printed key as unsafe and apply the exponent rule to whatever grouping the original stem shows.</td></tr>
+<tr><td><b>Polynomials</b> — which equation is not a function (key: x³ + y² = 1)</td><td>Verified: solving gives y = ±√(1 − x³), two branches, so the vertical-line test fails. The other options are genuine functions. “All of the above” is the trap.</td></tr>
+<tr><td><b>Polynomials</b> — equal roots of 3x² + Bx + 12 = 0 (key: B = −12)</td><td><b>Condition-dependent.</b> The discriminant condition B² = 144 admits both B = +12 and B = −12. The key picks −12 under a sign convention that the recorded stem does not state. If the question is re-asked without that convention, either sign is defensible; if the options force a single value, state the assumption explicitly.</td></tr>
+<tr><td><b>Polynomials</b> — 27<sup>x</sup> = 9<sup>y</sup>, 81<sup>y</sup>·3<sup>−x</sup> = 243 (key: x = 1)</td><td>Verified: 3x = 2y and 4y − x = 5 give x = 1, y = 1.5. The 1.5 distractor is the value of y, reported as x.</td></tr>
+<tr><td><b>Polynomials</b> — unit-base equation (key: x = 1, 3, 5, 7)</td><td>Verified: exponent zero gives x = 1, 5; base one gives x = 3, 7. The base (x² − 10x + 26)/5 = [(x−5)² + 1]/5 is always positive, so all four values are admissible.</td></tr>
+<tr><td><b>Polynomials</b> — f(−3) for f(x) = 3x² − 4x + 25 (key: 64)</td><td>Verified: 3(9) + 12 + 25 = 64. The 32 distractor comes from treating −3² as −9.</td></tr>
+<tr><td><b>Polynomials</b> — sum of reciprocals of a cubic's roots (key: 13/7)</td><td>Verified: (rs + rt + st)/rst = 13/7, because rst = −r = +7 for the cubic as written. Using rst = −7 gives the sign-flipped −13/7.</td></tr>
+<tr><td><b>Polynomials</b> — reciprocal logarithm (key: 4)</td><td>Verified: log₁₀a = 1/log<sub>a</sub>10 = 1/0.25 = 4. Also follows from a<sup>0.25</sup> = 10, so a = 10⁴.</td></tr>
+<tr><td><b>Series</b> — 15th term of the GP (key: 458 752)</td><td>Verified: (x + 2)² = 28 × 112 = 3 136 gives x + 2 = 56 and r = 2; a<sub>15</sub> = 28 × 2¹⁴ = 28 × 16 384 = 458 752. The 143 369 distractor is far off, suggesting an arithmetic rather than geometric treatment.</td></tr>
+<tr><td><b>Series</b> — 9-term AP with middle term 19 (key: 171)</td><td>Verified: with 9 terms the middle is the 5th, and the sum is 9 × 19 = 171. Confirmed by d = 4 and the full formula.</td></tr>
+<tr><td><b>Series</b> — 8th term of the GP with a₄ = 189, a₆ = 1 701 (key: 15 309)</td><td>Verified: r² = 9 gives r = 3, a₁ = 7, a₈ = 7 × 2 187 = 15 309. The 45 927 distractor is the 9th term — one step too far.</td></tr>
+<tr><td><b>Series</b> — 30th term of 4, 7, 10, … (key: 91)</td><td>Verified: 4 + 29(3) = 91. The 75 distractor comes from using 25 steps instead of 29.</td></tr>
+<tr><td><b>Series</b> — sum of the first 10 terms of 2, 4, 8, 16, … (key: 2 046)</td><td>Verified: 2(2¹⁰ − 1)/(2 − 1) = 2 × 1 023 = 2 046. The 1 203 distractor is the sum of the first 9 terms.</td></tr>
+<tr><td><b>Series</b> — 4 geometric means between 3 and 729 (key: 81)</td><td>Verified: 6 terms total, r⁵ = 243 gives r = 3, fourth term = 3 × 27 = 81.</td></tr>
+<tr><td>Perry's 9th edition locations</td><td>Only the section-level pointer (Section 2, Mathematics) is asserted. Subsection and page numbers are marked unverified because I could not check a physical copy. Verify against the tab before citing.</td></tr>
+</table></div>
+
+<h3>Your tags, applied</h3>
+<ul>
+<li><b>Source:</b> the algebra chapters of a standard pre-calculus or engineering-mathematics text (Larson, <i>Precalculus</i>; or the algebra review section of any engineering-mathematics reference), specifically: permutations and combinations; the quadratic formula and discriminant; Vieta's formulas for quadratics and cubics; forming equations from transformed roots; the vertical-line test for functions; exponent and logarithm identities; and arithmetic and geometric progressions with sums and means. Edition and section numbers were not checked. For Perry's, open the 9th edition at Section 2 and confirm the algebra and series subsections yourself.</li>
+<li><b>Drill (3–5 closed-book reps, units written every time):</b> (a) one permutation and one combination from the same pool, and state in one line why the answers differ by a factor of r!; (b) one word-arrangement with repeated letters; (c) one discriminant calculation after putting the equation in standard form, and the nature of the roots stated; (d) one Vieta calculation — sum of reciprocals for a cubic, with the sign of the constant term written explicitly; (e) one AP sum where the count comes from the multipliers rather than the raw difference; (f) one GP term from two known terms, with the exponent difference written on its own line.</li>
+<li><b>Retrieval:</b> I cannot see your cards. Test yourself on: how to decide between P and C; why the reciprocal-root equation reverses the coefficients; why a negative discriminant means no real root; why the product of a cubic's roots is −r and not +r; why odd-term AP sums equal n times the middle term; why the geometric-sum formula carries r<sup>n</sup> and not r<sup>n−1</sup>; and why the term count in a divisibility problem needs the +1.</li></ul>
+
+<div class="box"><b>Pre-submit line:</b> Ask “does order matter?” before choosing P or C; put every quadratic in standard form before computing the discriminant; write the sign of the constant term explicitly when using Vieta on a cubic; substitute values inside parentheses before squaring; for an AP sum, count the terms from the multipliers and remember the +1; for a GP, take the exponent difference from the two known term numbers; and for a “divisible by d between L and U” problem, identify the first and last multiple before summing.</div>
+</main></body></html>
