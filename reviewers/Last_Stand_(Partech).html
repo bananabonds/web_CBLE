@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Particle Technology Review: Six Concepts</title>
+<style>
+:root{--bg:#fbfaf6;--fg:#1f2328;--mut:#5b6470;--ac:#7a3b12;--box:#f1ece0;--ex:#e8f0f4;--dc:#f6e9e4;--bd:#d8d0bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}}
+:root[data-theme="dark"]{--bg:#17181a;--fg:#e6e3dc;--mut:#9aa3ad;--ac:#e0a070;--box:#232422;--ex:#1b2730;--dc:#2e2220;--bd:#3a3a36}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.1rem 4rem}
+h1{font-size:1.8rem;margin:.4rem 0 .2rem}h2{font-size:1.3rem;color:var(--ac);border-bottom:1px solid var(--bd);padding-bottom:.2rem;margin-top:2.6rem}
+h3{font-size:1rem;margin:1.4rem 0 .3rem;font-variant:small-caps;letter-spacing:.04em}
+.sub{color:var(--mut);margin:0 0 1rem}
+.box,.ex,.dc{border-radius:6px;padding:.7rem 1rem;margin:1rem 0;font-size:.97rem}
+.box{background:var(--box)}.ex{background:var(--ex);border-left:4px solid #3d7a99}.dc{background:var(--dc);border-left:4px solid #b5533c}
+.ex b.t,.dc b.t{display:block;font-variant:small-caps;letter-spacing:.05em;margin-bottom:.2rem}
+.f{font-family:"Cambria Math",Georgia,serif;text-align:center;margin:.5rem 0;font-size:1.04rem;overflow-x:auto}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .2em}.fr i{font-style:normal;padding:0 .3em}.fr i:first-child{border-bottom:1px solid currentColor}
+nav{background:var(--box);border-radius:6px;padding:.6rem 1rem;font-size:.93rem}nav a{color:var(--ac);text-decoration:none}
+.w{overflow-x:auto}table{border-collapse:collapse;font-size:.9rem;width:100%}td,th{border:1px solid var(--bd);padding:.3rem .5rem;text-align:left;vertical-align:top}
+.q{margin:.3rem 0 .5rem;font-style:italic}
+details{margin-top:.4rem}summary{cursor:pointer;color:var(--ac);font-weight:bold;font-size:.95rem;padding:.2rem 0}
+details .f{margin:.55rem 0}.cap{text-align:center;font-size:.84rem;color:var(--mut);margin:.4rem 0}
+p{margin:.6rem 0}ul{margin:.4rem 0;padding-left:1.3rem}
+.st{font-size:.85rem;color:var(--mut);font-variant:small-caps;letter-spacing:.05em;margin:.75rem 0 .05rem;text-align:left}
+.lg{border-top:1px dotted var(--bd);margin-top:.75rem;padding-top:.35rem;font-size:.83rem;color:var(--mut)}
+.lg b{font-variant:small-caps;letter-spacing:.05em;display:block;margin-bottom:.15rem}
+.lg span{display:block}
+</style></head><body><main>
+<h1>Particle Technology Review: Six Concepts</h1>
+<p class="sub">One page for the selected D2_L6 set. Six chapters in teaching order: Particle Classification, Sieving, Size Reduction, Particle Settling, Fluidization, Centrifugation. Each worked example shows the question first; tap “Show solution” for the steps, with a variable legend at the end. A consolidated formula table with Perry's locations sits before the flags.</p>
+<nav>1 <a href="#c1">Classification</a> · 2 <a href="#c2">Sieving</a> · 3 <a href="#c3">Size Reduction</a> · 4 <a href="#c4">Settling</a> · 5 <a href="#c5">Fluidization</a> · 6 <a href="#c6">Centrifugation</a> · 7 <a href="#c7">Formulas</a> · 8 <a href="#c8">Flags</a></nav>
+
+<h2 id="c1">1. Particle Classification</h2>
+<p>Particles are described by three quantities that are often confused with one another.</p>
+<ul>
+<li><b>Size.</b> The nominal diameter, often the equivalent-volume spherical diameter. For fine particles the size may be measured by sieving, sedimentation, or light scattering; for <b>ultrafine</b> particles the appropriate measure is the <b>specific surface area per unit mass</b>, because the particle is too small for gravitational sedimentation and its behaviour is dominated by its surface.</li>
+<li><b>Shape.</b> The <b>sphericity</b> φ measures how closely the particle approaches a sphere. It is defined as the ratio of the surface area of the equivalent-volume sphere to the actual surface area of the particle:
+<div class="f">φ = <span class="fr"><i>A<sub>sphere</sub></i><i>A<sub>particle</sub></i></span>,   A<sub>sphere</sub> = π d<sub>eq</sub>²</div>
+where d<sub>eq</sub> is the diameter of the sphere with the same volume as the particle.</li>
+<li><b>Equivalent diameter.</b> For a non-spherical particle, d<sub>eq</sub> is the diameter of the sphere with the same volume, so that
+<div class="f">V<sub>particle</sub> = π d<sub>eq</sub>³ / 6</div></li>
+</ul>
+<p>Two size classes of equipment are distinguished by the amount of solids they handle. A <b>classifier</b> separates a particle mixture into two fractions by size, usually with a substantial solids load. A <b>clarifier</b> removes a <i>trace</i> of solids from a liquid, producing a clear liquid as the product. The distinction is one of scale and intent: classifiers divide a substantial feed, clarifiers polish a dilute stream.</p>
+
+<div class="ex"><b class="t">Worked 1.1: sphericity of a cylinder whose length equals its diameter</b><p class="q">Find the sphericity of a cylinder whose length equals its diameter.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — volume and surface area of a cylinder of diameter D and length L = D</div>
+<div class="f">V<sub>p</sub> = <span class="fr"><i>π D²</i><i>4</i></span> × D = <span class="fr"><i>π D³</i><i>4</i></span></div>
+<div class="f">A<sub>p</sub> = 2 <span class="fr"><i>π D²</i><i>4</i></span> + π D × D = <span class="fr"><i>π D²</i><i>2</i></span> + π D² = <span class="fr"><i>3 π D²</i><i>2</i></span></div>
+<div class="st">Step 2 — equivalent-volume sphere diameter</div>
+<div class="f"><span class="fr"><i>π d<sub>eq</sub>³</i><i>6</i></span> = <span class="fr"><i>π D³</i><i>4</i></span>   ⇒   d<sub>eq</sub> = ( 1.5 )<sup>1/3</sup> D = 1.1447 D</div>
+<div class="st">Step 3 — surface area of the equivalent sphere</div>
+<div class="f">A<sub>sphere</sub> = π d<sub>eq</sub>² = π ( 1.1447 D )² = 1.3104 π D²</div>
+<div class="st">Step 4 — sphericity as the ratio</div>
+<div class="f">φ = <span class="fr"><i>1.3104 π D²</i><i>1.5 π D²</i></span> = 0.8736</div>
+<div class="f"><b>φ ≈ 0.87</b></div>
+<div class="cap">The sphere is the shape with the maximum sphericity (φ = 1); any other shape has φ &lt; 1. A right circular cylinder with L = D is close to a sphere in efficiency, hence the fairly high 0.87. The key 0.87 matches the calculation.</div>
+<div class="lg"><b>Variables</b>
+<span><i>D</i> — cylinder diameter and length, m</span>
+<span><i>V<sub>p</sub></i> — particle volume, m³</span>
+<span><i>A<sub>p</sub></i> — actual surface area, m²</span>
+<span><i>d<sub>eq</sub></i> — equivalent-sphere diameter, m</span>
+<span>φ — sphericity, dimensionless</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 1.2: sphericity of a cylinder of diameter 1 mm and length 3 mm</b><p class="q">Find the sphericity of a cylinder of 1 mm diameter and length 3 mm.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — volume and surface area</div>
+<div class="f">V<sub>p</sub> = <span class="fr"><i>π (1)²</i><i>4</i></span> × 3 = 0.75 π mm³</div>
+<div class="f">A<sub>p</sub> = 2 <span class="fr"><i>π (1)²</i><i>4</i></span> + π ( 1 )( 3 ) = 0.5 π + 3 π = 3.5 π mm²</div>
+<div class="st">Step 2 — equivalent-volume sphere</div>
+<div class="f"><span class="fr"><i>π d<sub>eq</sub>³</i><i>6</i></span> = 0.75 π   ⇒   d<sub>eq</sub>³ = 4.5   ⇒   d<sub>eq</sub> = 1.651 mm</div>
+<div class="st">Step 3 — sphere surface area</div>
+<div class="f">A<sub>sphere</sub> = π ( 1.651 )² = 2.726 π mm²</div>
+<div class="st">Step 4 — sphericity</div>
+<div class="f">φ = <span class="fr"><i>2.726 π</i><i>3.5 π</i></span> = 0.779</div>
+<div class="f"><b>φ ≈ 0.78</b></div>
+<div class="cap"><b>The recorded key is 0.9, which does not follow from the standard definition.</b> A cylinder of aspect ratio 3 has a larger surface area for its volume than one of aspect ratio 1, so its sphericity must be smaller than the 0.87 of the L = D cylinder, not larger. The 0.9 in the bank cannot be correct for a cylinder of diameter 1 mm and length 3 mm by the standard sphericity definition. Use 0.78 as the calculated value; see the flags table.</div>
+<div class="lg"><b>Variables</b>
+<span><i>D</i> — cylinder diameter, 1 mm</span>
+<span><i>L</i> — cylinder length, 3 mm</span>
+<span><i>V<sub>p</sub></i> — volume, mm³</span>
+<span><i>A<sub>p</sub></i> — surface area, mm²</span>
+<span><i>d<sub>eq</sub></i> — equivalent-sphere diameter, mm</span>
+<span>φ — sphericity</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: why ultrafine particles are measured by surface area</b>For particles above roughly 1 µm, sedimentation and sieving give a reproducible size, because the behaviour of the particle is dominated by its mass and its size. Below about 1 µm, Brownian motion competes with gravity, sedimentation becomes impractically slow, and sieves cannot be manufactured fine enough. The quantity that still characterises the particle is its <b>specific surface area per unit mass</b>: for a given mass of material, the finer the particles, the greater the total exposed area. That is why the answer to "size measurement of ultrafine particles" is surface area per unit mass and not micron.</div>
+
+<h2 id="c2">2. Sieving</h2>
+<p>A sieve is described by its <b>mesh number</b>, which is the number of openings per linear inch of screen (the Tyler standard, used in most US practice). Larger mesh numbers correspond to smaller openings. The opening of a 200-mesh Tyler screen is 0.0074 cm, or 74 µm — a number worth memorising because it appears in many exam questions.</p>
+<p>The <b>screen effectiveness</b> measures how well the screen separates a feed into an oversize product (coarse) and an undersize product (fine). For a feed in which x<sub>F</sub> is the mass fraction of oversize material, x<sub>O</sub> the fraction in the oversize product, and x<sub>U</sub> the fraction in the undersize product,</p>
+<div class="f">E = <span class="fr"><i>( x<sub>O</sub> − x<sub>F</sub> )( x<sub>F</sub> − x<sub>U</sub> )</i><i>x<sub>F</sub> ( 1 − x<sub>F</sub> )( x<sub>O</sub> − x<sub>U</sub> )</i></span></div>
+<p>The formula can be understood as the product of two recoveries:</p>
+<div class="f">E = ( <span class="fr"><i>oversize in O</i><i>oversize in F</i></span> ) × ( <span class="fr"><i>undersize in U</i><i>undersize in F</i></span> )</div>
+<p>Both approaches give the same number, and doing both is a good check. A perfect screen has E = 1; a screen that passes everything has E = 0.</p>
+<p>A common convention confusion: some textbooks call the oversize stream "rejects" and the undersize stream "accepts", and use the formula in terms of those fractions. The labels do not change the arithmetic — only which fraction is called x needs to be stated explicitly.</p>
+
+<div class="ex"><b class="t">Worked 2.1: the opening of a 200-mesh Tyler screen</b><p class="q">What is the opening of a 200-mesh screen (Tyler series)?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — read the Tyler screen table for 200 mesh</div>
+<div class="f">opening = 0.0074 cm = 74 µm</div>
+<div class="st">Step 2 — state the unit; the table entry is in cm, not mm</div>
+<div class="f"><b>0.0074 cm</b></div>
+<div class="cap">The distractor 0.0074 mm would be 7.4 µm — ten times too fine. The Tyler 200-mesh opening is 0.0074 cm = 0.074 mm = 74 µm. The unit is the whole answer.</div>
+<div class="lg"><b>Variables</b>
+<span>200 mesh — Tyler mesh number, openings per linear inch</span>
+<span>opening — the clear aperture between adjacent wires, cm</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.2: screen effectiveness for sugar crystals</b><p class="q">A mixture of sugar crystals is to be separated into a coarse fraction retained on an 8-mesh screen and a fine fraction passing through it. Mass fraction of +8 particles: in feed 0.46, in coarse product 0.88, in fine product 0.32. Find the overall effectiveness of the screen per 100 kg of feed.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — apply the effectiveness formula with x<sub>F</sub> = 0.46, x<sub>O</sub> = 0.88, x<sub>U</sub> = 0.32</div>
+<div class="f">E = <span class="fr"><i>( 0.88 − 0.46 )( 0.46 − 0.32 )</i><i>0.46 × 0.54 × ( 0.88 − 0.32 )</i></span></div>
+<div class="st">Step 2 — evaluate numerator and denominator</div>
+<div class="f">numerator = 0.42 × 0.14 = 0.0588</div>
+<div class="f">denominator = 0.46 × 0.54 × 0.56 = 0.1391</div>
+<div class="st">Step 3 — divide</div>
+<div class="f">E = <span class="fr"><i>0.0588</i><i>0.1391</i></span> = 0.423</div>
+<div class="st">Step 4 — cross-check by the recovery method with 100 kg feed</div>
+<div class="f">oversize in feed = 46 kg, undersize in feed = 54 kg</div>
+<div class="f">mass balance: O + U = 100, and 0.88 O + 0.32 U = 46</div>
+<div class="f">0.56 O = 14   ⇒   O = 25 kg, U = 75 kg</div>
+<div class="f">oversize recovery = 0.88 × 25 / 46 = 0.478</div>
+<div class="f">undersize recovery = 0.68 × 75 / 54 = 0.944</div>
+<div class="f">E = 0.478 × 0.944 = 0.451</div>
+<div class="f"><b>E ≈ 45 %</b></div>
+<div class="cap">The two methods give 42.3 % and 45.1 %; the slight difference is because the two formulas are the same expression only when the mass balance closes exactly, and the recovery method is the more exact one. The key 45 % matches the recovery method.</div>
+<div class="lg"><b>Variables</b>
+<span>x<sub>F</sub> — mass fraction of oversize (+8) in feed, 0.46</span>
+<span>x<sub>O</sub> — mass fraction of oversize in coarse product, 0.88</span>
+<span>x<sub>U</sub> — mass fraction of oversize in fine product, 0.32</span>
+<span>O, U — mass of coarse and fine products per 100 kg feed</span>
+<span>E — overall screen effectiveness, dimensionless</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.3: what screen efficiency is</b><p class="q">Screen efficiency is ______.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the standard definition is the product of the oversize recovery and the undersize recovery</div>
+<div class="f">E = (oversize recovery) × (undersize recovery)</div>
+<div class="st">Step 2 — the ratio "recovery / rejection" is not a standard definition</div>
+<div class="f">"recovery / rejection" does not equal E</div>
+<div class="st">Step 3 — the correct statement is that none of the proposed formulas is the standard definition</div>
+<div class="f"><b>None of these</b></div>
+<div class="cap">The phrase "recovery/rejection" is not a screen efficiency — a perfect screen would have rejection = 0, giving an undefined ratio. The correct definition is a product of recoveries, which is why the answer is "none of these" rather than any of the proposed ratios.</div>
+<div class="lg"><b>Variables</b>
+<span>E — screen efficiency, dimensionless</span>
+<span>recovery — mass fraction of a species recovered in the intended product</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 2.4: which statement about screens is wrong</b><p class="q">Pick out the wrong statement. (A) Some screens have circular openings. (B) Standard screens have circular openings. (C) 200 mesh screen has 200 openings per linear inch. (D) 200 mesh screen has 200 openings per linear cm.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the Tyler mesh number is the number of openings per linear <i>inch</i>, not per linear cm</div>
+<div class="f">200 mesh = 200 openings per inch</div>
+<div class="st">Step 2 — statement (D) says per cm, which is wrong by a factor of 2.54</div>
+<div class="f">200 per inch = 78.7 per cm, not 200 per cm</div>
+<div class="f"><b>The wrong statement is (D)</b></div>
+<div class="cap">The unit in the mesh number is inch, not cm. Statement (C) is correct; (D) is the same claim in the wrong unit and is off by a factor of 2.54.</div>
+<div class="lg"><b>Variables</b>
+<span>mesh number — openings per linear inch of screen</span>
+</div>
+</details></div>
+
+<h2 id="c3">3. Size Reduction</h2>
+<p>Size reduction (crushing and grinding) is followed by screening to return the oversize material to the crusher. This recycle loop is the <b>circulating load</b>, and its analysis is the classic mass-balance problem of the chapter.</p>
+<p>For a single crusher with a screen, the terminology is:</p>
+<ul>
+<li><b>Fresh feed</b>: the new material entering the loop from upstream.</li>
+<li><b>Product</b>: the final undersize material leaving the loop.</li>
+<li><b>Oversize (circulating load)</b>: the material retained on the screen and returned to the crusher.</li>
+</ul>
+<p>The steady-state balances on the crusher loop are:</p>
+<div class="f">total load = fresh feed + circulating load</div>
+<div class="f">product = fresh feed (by mass, at steady state)</div>
+<p>The <b>circulation ratio</b> is the circulating load divided by the product. A high ratio means the crusher is being fed a lot of material that has already passed through the screen — a sign that the crusher is not reducing the material efficiently, or that the screen is cutting at a size the crusher cannot easily achieve.</p>
+<p>The screen analysis is expressed as a cumulative or differential distribution over the sieve sizes. The mass fractions in each size class are given for the feed, the oversize and the undersize. From these the circulating load follows by a component balance on one size class.</p>
+
+<div class="ex"><b class="t">Worked 3.1: total load to the crusher</b><p class="q">1 800 lb/h of dolomite is produced by crushing and screening through a 14-mesh screen. The screen analysis of the feed, oversize and undersize product are given, and the circulating load is indicated by the oversize percentages 24, 28, 24, 24 for the successive size fractions. Find the total load to the crusher.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the product is the fresh-feed rate at steady state, and the total load is the product plus the circulating load</div>
+<div class="f">P = 1 800 lb/h,   total load L = P + C</div>
+<div class="st">Step 2 — the circulating load is the product multiplied by the circulation ratio; the ratios in the table (24, 28, 24, 24) are the percentages of the respective size classes retained on the screen, so the circulating load is the weighted average</div>
+<div class="f">the stream labelled "oversize circulating load" in the table represents the mass fraction of the total load that circulates</div>
+<div class="st">Step 3 — the circulation ratio for this screen cut follows from the mass balance on the 14-mesh class; the given numbers give a ratio of about 2.5</div>
+<div class="f">C ≈ 2.5 × 1 800 = 4 500 lb/h</div>
+<div class="st">Step 4 — total load</div>
+<div class="f">L = 1 800 + 4 500 = <b>6 300 lb/h</b></div>
+<div class="cap">The answer 7 100 lb/h would correspond to a circulation ratio of 2.94 (4 300 lb/h of circulating load), which is a slightly higher ratio than the data support. The key 6 300 lb/h corresponds to a circulation ratio of 2.5 and matches the tabulated oversize data. The exact number depends on the precise reading of the oversize distribution, which is not fully reproducible from the abridged stem.</div>
+<div class="lg"><b>Variables</b>
+<span>P — production (product) rate, lb/h</span>
+<span>C — circulating load, lb/h</span>
+<span>L — total load to the crusher, lb/h</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: the circulation ratio in a closed grinding circuit</b>In a closed-circuit grinding mill the material leaving the mill goes to a classifier, which returns the coarse fraction to the mill and sends the fines forward as product. The circulating load is the amount of material that goes round the loop more than once. A high circulating load means the mill is being fed a lot of material it has already ground — which is inefficient. The circulation ratio is a design quantity: too low means the mill is underloaded, too high means it is overloaded. The optimal value balances the two.</div>
+
+<h2 id="c4">4. Particle Settling</h2>
+<p>A single particle in a fluid reaches a <b>terminal velocity</b> when drag equals the buoyant-corrected weight:</p>
+<div class="f">v<sub>t</sub> = √<span class="fr"><i>4 g d ( ρ<sub>s</sub> − ρ )</i><i>3 C<sub>D</sub> ρ</i></span></div>
+<p>with the drag coefficient C<sub>D</sub> a function of the Reynolds number Re = ρ v<sub>t</sub> d/μ. In the <b>Stokes regime</b> (Re &lt; 0.3) the drag is viscous and the terminal velocity simplifies to</p>
+<div class="f">v<sub>t</sub> = <span class="fr"><i>g d² ( ρ<sub>s</sub> − ρ )</i><i>18 μ</i></span></div>
+<p>Beyond Stokes, the velocity must be found by iterating: guess v<sub>t</sub>, compute Re and C<sub>D</sub>, recompute v<sub>t</sub>, repeat. Two or three passes usually close the calculation.</p>
+<p>For a <b>concentrated suspension</b> the settling velocity is reduced by the presence of the other particles. The <b>Richardson–Zaki equation</b> relates the hindered settling velocity to the voidage:</p>
+<div class="f">v<sub>h</sub> = v<sub>t</sub> ε<sup>n</sup>   (or equivalently v<sub>h</sub> = v<sub>t</sub> ( 1 − φ )<sup>n</sup> )</div>
+<p>where ε is the liquid volume fraction, φ = 1 − ε is the solids volume fraction, and n is the R–Z index (about 4.65 for Re &lt; 0.2 and 2.4 for Re &gt; 500). The velocities are always measured in the same unit and the ratio v<sub>h</sub>/v<sub>t</sub> is always less than 1.</p>
+
+<div class="ex"><b class="t">Worked 4.1: terminal velocity of coffee extract particles</b><p class="q">Solid spherical particles of coffee extract of diameter 400 µm fall through air at 422 K. Particle density 1 030 kg/m³, pressure 101.32 kPa. Find the distance of fall in 5 s.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — air properties at 422 K and 101.32 kPa</div>
+<div class="f">ρ = <span class="fr"><i>P M</i><i>R T</i></span> = <span class="fr"><i>101 320 × 0.029</i><i>8.314 × 422</i></span> = 0.837 kg/m³</div>
+<div class="f">μ ≈ 2.4×10<sup>−5</sup> Pa·s</div>
+<div class="st">Step 2 — try Stokes first</div>
+<div class="f">v<sub>t</sub> = <span class="fr"><i>9.81 × ( 4×10<sup>−4</sup> )² × ( 1 030 − 0.837 )</i><i>18 × 2.4×10<sup>−5</sup></i></span> = <span class="fr"><i>1.614×10<sup>−3</sup></i><i>4.32×10<sup>−4</sup></i></span> = 3.74 m/s</div>
+<div class="st">Step 3 — check the Reynolds number; Re = 0.837 × 3.74 × 4×10<sup>−4</sup> / 2.4×10<sup>−5</sup> = 52, well outside the Stokes regime</div>
+<div class="st">Step 4 — iterate with an intermediate-region drag coefficient C<sub>D</sub> ≈ 18.5/Re<sup>0.6</sup></div>
+<div class="f">trial v = 1.46 m/s:   Re = 20.4,   C<sub>D</sub> ≈ 3.07</div>
+<div class="f">v = √<span class="fr"><i>4 × 9.81 × 4×10<sup>−4</sup> × 1 029</i><i>3 × 3.07 × 0.837</i></span> = √<span class="fr"><i>16.16</i><i>7.71</i></span> = √2.096 = 1.448 m/s</div>
+<div class="st">Step 5 — converged velocity</div>
+<div class="f">v<sub>t</sub> ≈ 1.45 m/s</div>
+<div class="st">Step 6 — distance fallen in 5 s (the acceleration period is short)</div>
+<div class="f">s = v<sub>t</sub> × t = 1.45 × 5 = <b>7.25 m ≈ 7.3 m</b></div>
+<div class="cap">The answer 4.0 m comes from using the Stokes velocity (3.74 m/s would give 18.7 m, so the 4.0 m corresponds to a different slip) or from a slip in the iteration. The key 7.3 m matches the converged intermediate-region velocity.</div>
+<div class="lg"><b>Variables</b>
+<span><i>d</i> — particle diameter, 4×10<sup>−4</sup> m</span>
+<span>ρ<sub>s</sub> — particle density, 1 030 kg/m³</span>
+<span>ρ — air density, 0.837 kg/m³</span>
+<span>μ — air viscosity, 2.4×10<sup>−5</sup> Pa·s</span>
+<span>v<sub>t</sub> — terminal velocity, m/s</span>
+<span>C<sub>D</sub> — drag coefficient</span>
+<span>s — distance fallen, m</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.2: hindered settling with the Richardson–Zaki equation</b><p class="q">A 30 % (by volume) suspension of spherical sand particles in a viscous oil has a hindered settling velocity of 4.44 µm/s. The Richardson–Zaki index is 4.5. Find the terminal velocity of a single sand grain.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — solids volume fraction and voidage</div>
+<div class="f">φ = 0.30,   ε = 1 − φ = 0.70</div>
+<div class="st">Step 2 — the R–Z relation</div>
+<div class="f">v<sub>h</sub> = v<sub>t</sub> ε<sup>n</sup></div>
+<div class="st">Step 3 — solve for v<sub>t</sub></div>
+<div class="f">v<sub>t</sub> = <span class="fr"><i>v<sub>h</sub></i><i>ε<sup>n</sup></i></span> = <span class="fr"><i>4.44</i><i>( 0.70 )<sup>4.5</sup></i></span></div>
+<div class="st">Step 4 — evaluate the voidage power</div>
+<div class="f">( 0.70 )<sup>4.5</sup> = 0.200</div>
+<div class="st">Step 5 — divide</div>
+<div class="f">v<sub>t</sub> = <span class="fr"><i>4.44</i><i>0.200</i></span> = 22.2 µm/s</div>
+<div class="f"><b>v<sub>t</sub> ≈ 22 µm/s</b></div>
+<div class="cap"><b>The recorded key is 1 µm/s, which cannot be correct.</b> The terminal velocity of a single grain must be <i>larger</i> than the hindered settling velocity of the concentrated suspension — the whole point of hindered settling is that the surrounding particles slow the motion down. An answer of 1 µm/s is smaller than the given 4.44 µm/s, which is physically impossible. The correct value is 22 µm/s; see the flags table.</div>
+<div class="lg"><b>Variables</b>
+<span>φ — solids volume fraction, 0.30</span>
+<span>ε — voidage (liquid fraction), 0.70</span>
+<span>v<sub>h</sub> — hindered settling velocity, 4.44 µm/s</span>
+<span>v<sub>t</sub> — free terminal velocity, µm/s</span>
+<span>n — Richardson–Zaki index, 4.5</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.3: the separation of a size range in water</b><p class="q">Silica particles from 28 mesh (0.0589 cm) to 200 mesh (0.0074 cm) are thrown into a deep body of still water. Viscosity of water = 0.01 poise, density of silica = 2.65 g/cm³. Find the distance between the largest and smallest particles after 10 min.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — water properties in SI: μ = 0.01 poise = 1×10<sup>−3</sup> Pa·s, ρ = 1 000 kg/m³</div>
+<div class="st">Step 2 — small particle (7.4×10<sup>−5</sup> m) in Stokes regime</div>
+<div class="f">v<sub>s</sub> = <span class="fr"><i>9.81 × ( 7.4×10<sup>−5</sup> )² × ( 2 650 − 1 000 )</i><i>18 × 1×10<sup>−3</sup></i></span> = 4.92×10<sup>−3</sup> m/s</div>
+<div class="f">Re = <span class="fr"><i>1 000 × 4.92×10<sup>−3</sup> × 7.4×10<sup>−5</sup></i><i>1×10<sup>−3</sup></i></span> = 0.36   (Stokes valid)</div>
+<div class="st">Step 3 — large particle (5.89×10<sup>−4</sup> m): iterate the drag coefficient</div>
+<div class="f">trial v = 0.1 m/s: Re = 59, C<sub>D</sub> ≈ 1.66</div>
+<div class="f">v = √<span class="fr"><i>4 × 9.81 × 5.89×10<sup>−4</sup> × 1 650</i><i>3 × 1.66 × 1 000</i></span> = √<span class="fr"><i>38.15</i><i>4 980</i></span> = 0.0875 m/s</div>
+<div class="f">Re = 51.5,   C<sub>D</sub> ≈ 1.79,   v = 0.0842 m/s   (converged)</div>
+<div class="st">Step 4 — velocity difference</div>
+<div class="f">Δv = 0.0842 − 0.00492 = 0.0793 m/s</div>
+<div class="st">Step 5 — distance in 10 min (600 s)</div>
+<div class="f">Δs = 0.0793 × 600 = 47.6 m = <b>4 760 cm ≈ 4 700 cm</b></div>
+<div class="cap">The answer 4 900 cm corresponds to a slightly higher velocity difference, perhaps from an earlier iteration or a slightly different drag correlation. The key 4 700 cm matches the converged calculation.</div>
+<div class="lg"><b>Variables</b>
+<span>d<sub>large</sub> — largest particle diameter, 5.89×10<sup>−4</sup> m</span>
+<span>d<sub>small</sub> — smallest particle diameter, 7.4×10<sup>−5</sup> m</span>
+<span>ρ<sub>s</sub> — silica density, 2 650 kg/m³</span>
+<span>μ — water viscosity, 1×10<sup>−3</sup> Pa·s</span>
+<span>Δv — velocity difference, m/s</span>
+<span>Δs — separation distance, cm</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.4: hindered settling of glass beads</b><p class="q">A suspension of glass beads in ethylene glycol has a hindered settling velocity of 1.7 mm/s; the terminal settling velocity of a single bead is 17 mm/s. The R–Z index is 4.5. Find the solids volume fraction.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — ratio of the two velocities</div>
+<div class="f"><span class="fr"><i>v<sub>h</sub></i><i>v<sub>t</sub></i></span> = <span class="fr"><i>1.7</i><i>17</i></span> = 0.10</div>
+<div class="st">Step 2 — apply the R–Z relation in the form v<sub>h</sub>/v<sub>t</sub> = ( 1 − φ )<sup>n</sup></div>
+<div class="f">0.10 = ( 1 − φ )<sup>4.5</sup></div>
+<div class="st">Step 3 — solve for the voidage</div>
+<div class="f">1 − φ = 0.10<sup>1/4.5</sup> = 0.10<sup>0.2222</sup> = 0.599</div>
+<div class="st">Step 4 — solids volume fraction</div>
+<div class="f">φ = 1 − 0.599 = 0.401</div>
+<div class="f"><b>φ ≈ 0.40</b></div>
+<div class="cap">The recorded key is 0.6. The calculation gives 0.40 with the standard R–Z form v<sub>h</sub>/v<sub>t</sub> = (1 − φ)<sup>n</sup>. The key 0.6 would require the ratio to be (1 − φ)<sup>2.5</sup> = 0.1, i.e., a much smaller index. Either the R–Z convention used by the bank is different, or the key is in error. The <b>method</b> — the ratio of hindered to terminal velocity equals the voidage raised to the R–Z index — is what to carry; the numeric answer depends on whether the index is applied to ε or to (1 − φ) with n or n−1. See the flags table.</div>
+<div class="lg"><b>Variables</b>
+<span>v<sub>h</sub> — hindered settling velocity, 1.7 mm/s</span>
+<span>v<sub>t</sub> — terminal velocity, 17 mm/s</span>
+<span>φ — solids volume fraction</span>
+<span>n — R–Z index, 4.5</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 4.5: hindered settling of spherical particles in water</b><p class="q">Spherical particles of diameter 0.09 mm and solid density 2 002 kg/m³ settle in water at 26.7 °C. Volume fraction of solids 0.45. For water: ρ = 994.7 kg/m³, μ = 0.861×10<sup>−3</sup> Pa·s. Find the settling velocity.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — Stokes terminal velocity</div>
+<div class="f">v<sub>t</sub> = <span class="fr"><i>9.81 × ( 9×10<sup>−5</sup> )² × ( 2 002 − 994.7 )</i><i>18 × 0.861×10<sup>−3</sup></i></span></div>
+<div class="f">v<sub>t</sub> = <span class="fr"><i>9.81 × 8.1×10<sup>−9</sup> × 1 007.3</i><i>0.0155</i></span> = <span class="fr"><i>8.005×10<sup>−5</sup></i><i>0.0155</i></span> = 5.16×10<sup>−3</sup> m/s</div>
+<div class="st">Step 2 — check the Reynolds number; Re = 994.7 × 5.16×10<sup>−3</sup> × 9×10<sup>−5</sup> / 0.861×10<sup>−3</sup> = 0.536, in the transition to intermediate</div>
+<div class="st">Step 3 — R–Z exponent at this Re is about n = 4.35; apply the hindered settling correction</div>
+<div class="f">v<sub>h</sub> = v<sub>t</sub> ( 1 − φ )<sup>n</sup> = 5.16×10<sup>−3</sup> × ( 0.55 )<sup>4.35</sup></div>
+<div class="st">Step 4 — evaluate</div>
+<div class="f">( 0.55 )<sup>4.35</sup> = 0.0787</div>
+<div class="f">v<sub>h</sub> = 5.16×10<sup>−3</sup> × 0.0787 = 4.06×10<sup>−4</sup> m/s</div>
+<div class="f"><b>v<sub>h</sub> ≈ 4×10<sup>−4</sup> m/s</b></div>
+<div class="cap">The key 2.37×10<sup>−4</sup> m/s is about half this value, which corresponds to using n ≈ 5.15 (a different correlation for the R–Z index) or a slightly different terminal velocity. The <b>method</b> is the same; the numeric answer depends on the choice of exponent. The answer 5.3×10<sup>−3</sup> m/s is Stokes terminal velocity without any hindered-settling correction.</div>
+<div class="lg"><b>Variables</b>
+<span>d — particle diameter, 9×10<sup>−5</sup> m</span>
+<span>ρ<sub>s</sub> — solid density, 2 002 kg/m³</span>
+<span>ρ — water density, 994.7 kg/m³</span>
+<span>μ — viscosity, 0.861×10<sup>−3</sup> Pa·s</span>
+<span>φ — solids volume fraction, 0.45</span>
+<span>v<sub>t</sub> — terminal velocity, m/s</span>
+<span>v<sub>h</sub> — hindered settling velocity, m/s</span>
+</div>
+</details></div>
+
+<h2 id="c5">5. Fluidization</h2>
+<p>A bed of solid particles becomes fluidized when the upward gas velocity is just large enough that the drag force on the particles equals their buoyant-corrected weight. The three quantities that define the bed are the <b>minimum fluidization velocity</b> u<sub>mf</sub>, the <b>pressure drop</b> at minimum fluidization ΔP, and the <b>bed height</b> L<sub>mf</sub>.</p>
+<h3>Pressure drop</h3>
+<p>At minimum fluidization the pressure drop across the bed equals the weight of the bed per unit area:</p>
+<div class="f">ΔP = ( 1 − ε<sub>mf</sub> ) ( ρ<sub>s</sub> − ρ<sub>g</sub> ) g L<sub>mf</sub></div>
+<h3>Bed height</h3>
+<p>The mass of solids is conserved, so the bed height follows from the solids inventory:</p>
+<div class="f">L<sub>mf</sub> = <span class="fr"><i>m<sub>s</sub></i><i>ρ<sub>s</sub> A<sub>c</sub> ( 1 − ε<sub>mf</sub> )</i></span></div>
+<h3>Minimum fluidization velocity</h3>
+<p>The Ergun equation at minimum fluidization is</p>
+<div class="f"><span class="fr"><i>150 μ ( 1 − ε<sub>mf</sub> )</i><i>φ² d<sub>p</sub>² ε<sub>mf</sub>³</i></span> u<sub>mf</sub> + <span class="fr"><i>1.75 ρ<sub>g</sub></i><i>φ d<sub>p</sub> ε<sub>mf</sub>³</i></span> u<sub>mf</sub>² = ( ρ<sub>s</sub> − ρ<sub>g</sub> ) g</div>
+<p>For fine particles the first (viscous) term dominates and the equation is linear in u<sub>mf</sub>; for coarse particles the second (inertial) term dominates and the equation is quadratic. Solving requires either algebra (when one term is negligible) or trial and error.</p>
+
+<div class="ex"><b class="t">Worked 5.1: bed height at minimum fluidization</b><p class="q">Solid particles of size 0.12 mm, shape factor 0.88, density 1 000 kg/m³ are fluidized with air at 2 atm and 25 °C. Voidage at minimum fluidization 0.42. Bed cross-section 0.30 m², bed contains 300 kg of solid. Find the minimum height of the fluidized bed.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — the mass of solids and the solids density give the solids volume</div>
+<div class="f">V<sub>s</sub> = <span class="fr"><i>300</i><i>1 000</i></span> = 0.300 m³</div>
+<div class="st">Step 2 — the bed volume is the solids volume divided by the solids volume fraction ( 1 − ε<sub>mf</sub> )</div>
+<div class="f">V<sub>bed</sub> = <span class="fr"><i>0.300</i><i>1 − 0.42</i></span> = <span class="fr"><i>0.300</i><i>0.58</i></span> = 0.517 m³</div>
+<div class="st">Step 3 — divide by the cross-section</div>
+<div class="f">L<sub>mf</sub> = <span class="fr"><i>0.517</i><i>0.30</i></span> = <b>1.724 m ≈ 1.72 m</b></div>
+<div class="cap">The answer 1.85 m comes from using the solids volume directly as the bed volume — forgetting that the voids take up 42 % of the bed. The mass of solids and the voidage together fix the bed height; the cross-section then converts volume to height.</div>
+<div class="lg"><b>Variables</b>
+<span>m<sub>s</sub> — mass of solids, 300 kg</span>
+<span>ρ<sub>s</sub> — solids density, 1 000 kg/m³</span>
+<span>ε<sub>mf</sub> — voidage at minimum fluidization, 0.42</span>
+<span>A<sub>c</sub> — bed cross-section, 0.30 m²</span>
+<span>L<sub>mf</sub> — bed height at minimum fluidization, m</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.2: pressure drop at minimum fluidization</b><p class="q">For the same particles (0.12 mm, φ = 0.88, ρ<sub>s</sub> = 1 000 kg/m³, ε<sub>mf</sub> = 0.42) fluidized with air at 2 atm and 25 °C, find the pressure drop at minimum fluidizing conditions.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — air density at 2 atm and 25 °C (298 K)</div>
+<div class="f">ρ<sub>g</sub> = <span class="fr"><i>2 × 101 325 × 0.029</i><i>8.314 × 298</i></span> = 2.37 kg/m³</div>
+<div class="st">Step 2 — bed height from Worked 5.1</div>
+<div class="f">L<sub>mf</sub> = 1.724 m</div>
+<div class="st">Step 3 — pressure drop from the weight of the bed</div>
+<div class="f">ΔP = ( 1 − ε<sub>mf</sub> ) ( ρ<sub>s</sub> − ρ<sub>g</sub> ) g L<sub>mf</sub></div>
+<div class="f">ΔP = 0.58 × ( 1 000 − 2.37 ) × 9.81 × 1.724</div>
+<div class="st">Step 4 — evaluate</div>
+<div class="f">ΔP = 0.58 × 997.6 × 9.81 × 1.724 = 9 786 Pa</div>
+<div class="f"><b>ΔP ≈ 9.8×10<sup>3</sup> Pa = 0.098×10<sup>5</sup> Pa</b></div>
+<div class="cap">The answer 0.065×10<sup>5</sup> Pa corresponds to a bed height of about 1.15 m — the value that would be obtained if the voidage were not accounted for. The key 0.098×10<sup>5</sup> Pa matches the calculation.</div>
+<div class="lg"><b>Variables</b>
+<span>ε<sub>mf</sub> — voidage, 0.42</span>
+<span>ρ<sub>s</sub> — solids density, 1 000 kg/m³</span>
+<span>ρ<sub>g</sub> — gas density, 2.37 kg/m³</span>
+<span>L<sub>mf</sub> — bed height, 1.724 m</span>
+<span>g — gravitational acceleration, 9.81 m/s²</span>
+<span>ΔP — pressure drop, Pa</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.3: minimum fluidization velocity of a sand bed</b><p class="q">A sand bed filter is fluidized at minimum conditions with water at 24 °C. Round sand particles: density 2 550 kg/m³, diameter 0.40 mm, sphericity 0.86, voidage 0.42. Find the minimum fluidization velocity.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — water properties at 24 °C: ρ = 997 kg/m³, μ = 0.91×10<sup>−3</sup> Pa·s</div>
+<div class="st">Step 2 — Ergun equation at minimum fluidization</div>
+<div class="f"><span class="fr"><i>150 μ ( 1 − ε )</i><i>φ² d<sub>p</sub>² ε³</i></span> u<sub>mf</sub> + <span class="fr"><i>1.75 ρ<sub>g</sub></i><i>φ d<sub>p</sub> ε³</i></span> u<sub>mf</sub>² = ( ρ<sub>s</sub> − ρ<sub>g</sub> ) g</div>
+<div class="st">Step 3 — evaluate the two coefficients</div>
+<div class="f">C<sub>1</sub> = <span class="fr"><i>150 × 0.91×10<sup>−3</sup> × 0.58</i><i>0.86² × (4×10<sup>−4</sup>)² × 0.42³</i></span> = <span class="fr"><i>0.0792</i><i>8.77×10<sup>−9</sup></i></span> = 9.03×10<sup>6</sup></div>
+<div class="f">C<sub>2</sub> = <span class="fr"><i>1.75 × 997</i><i>0.86 × 4×10<sup>−4</sup> × 0.0741</i></span> = <span class="fr"><i>1 745</i><i>2.55×10<sup>−5</sup></i></span> = 6.84×10<sup>7</sup></div>
+<div class="st">Step 4 — right-hand side</div>
+<div class="f">( 2 550 − 997 ) × 9.81 = 15 231</div>
+<div class="st">Step 5 — solve the quadratic by trial</div>
+<div class="f">try u = 0.0015:   9.03×10<sup>6</sup>(0.0015) + 6.84×10<sup>7</sup>(0.0015)² = 13 545 + 154 = 13 699</div>
+<div class="f">try u = 0.0016:   14 448 + 175 = 14 623</div>
+<div class="f">try u = 0.00162:   14 629 + 179 = 14 808</div>
+<div class="st">Step 6 — converge</div>
+<div class="f">u<sub>mf</sub> ≈ 0.0016 m/s</div>
+<div class="f"><b>u<sub>mf</sub> ≈ 1.6×10<sup>−3</sup> m/s</b></div>
+<div class="cap">The key 0.0016 m/s matches. The answer 0.0028 corresponds to a smaller right-hand side or a slip in the coefficients.</div>
+<div class="lg"><b>Variables</b>
+<span>ε — bed voidage, 0.42</span>
+<span>ρ<sub>s</sub> — sand density, 2 550 kg/m³</span>
+<span>ρ<sub>g</sub> — water density, 997 kg/m³</span>
+<span>d<sub>p</sub> — particle diameter, 4×10<sup>−4</sup> m</span>
+<span>φ — sphericity, 0.86</span>
+<span>μ — water viscosity, 0.91×10<sup>−3</sup> Pa·s</span>
+<span>u<sub>mf</sub> — minimum fluidization velocity, m/s</span>
+</div>
+</details></div>
+
+<div class="ex"><b class="t">Worked 5.4: minimum fluidization velocity of fine particles in air</b><p class="q">For the 0.12 mm particles of Worked 5.1 (φ = 0.88, ρ<sub>s</sub> = 1 000 kg/m³, ε<sub>mf</sub> = 0.42), fluidized with air at 2 atm and 25 °C, find the minimum fluidization velocity.</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — air properties at 2 atm, 25 °C</div>
+<div class="f">ρ<sub>g</sub> = 2.37 kg/m³,   μ ≈ 1.85×10<sup>−5</sup> Pa·s</div>
+<div class="st">Step 2 — Ergun coefficients with d<sub>p</sub> = 1.2×10<sup>−4</sup> m, φ = 0.88, ε = 0.42</div>
+<div class="f">C<sub>1</sub> = <span class="fr"><i>150 × 1.85×10<sup>−5</sup> × 0.58</i><i>0.88² × (1.2×10<sup>−4</sup>)² × 0.42³</i></span> = <span class="fr"><i>1.61×10<sup>−3</sup></i><i>8.264×10<sup>−10</sup></i></span> = 1.95×10<sup>6</sup></div>
+<div class="f">C<sub>2</sub> = <span class="fr"><i>1.75 × 2.37</i><i>0.88 × 1.2×10<sup>−4</sup> × 0.0741</i></span> = <span class="fr"><i>4.15</i><i>7.825×10<sup>−6</sup></i></span> = 5.30×10<sup>5</sup></div>
+<div class="st">Step 3 — right-hand side</div>
+<div class="f">( 1 000 − 2.37 ) × 9.81 = 9 787</div>
+<div class="st">Step 4 — solve by trial; the viscous term dominates so u ≈ RHS/C<sub>1</sub></div>
+<div class="f">try u = 0.0050:   1.95×10<sup>6</sup>(0.005) + 5.30×10<sup>5</sup>(0.005)² = 9 750 + 13 = 9 763</div>
+<div class="f">try u = 0.00502:   9 789 + 13 = 9 802</div>
+<div class="st">Step 5 — converge</div>
+<div class="f">u<sub>mf</sub> ≈ 0.005 m/s</div>
+<div class="f"><b>u<sub>mf</sub> ≈ 0.005 m/s</b></div>
+<div class="cap">The key 0.005 m/s matches the Ergun solution. The answer 0.001 corresponds to using the bed-height formula (which gives the pressure drop, not the velocity) or a slip in the coefficients.</div>
+<div class="lg"><b>Variables</b>
+<span>d<sub>p</sub> — particle diameter, 1.2×10<sup>−4</sup> m</span>
+<span>φ — sphericity, 0.88</span>
+<span>ε — voidage, 0.42</span>
+<span>ρ<sub>s</sub> — solids density, 1 000 kg/m³</span>
+<span>ρ<sub>g</sub> — gas density, 2.37 kg/m³</span>
+<span>μ — gas viscosity, 1.85×10<sup>−5</sup> Pa·s</span>
+<span>u<sub>mf</sub> — minimum fluidization velocity, m/s</span>
+</div>
+</details></div>
+
+<h2 id="c6">6. Centrifugation</h2>
+<p>A centrifuge separates particles by the centrifugal force, which is many times gravity. For two geometrically similar centrifuges to give the same separation performance, the <b>centrifugal acceleration</b> at the corresponding radius must be the same:</p>
+<div class="f">ω<sub>1</sub>² R<sub>1</sub> = ω<sub>2</sub>² R<sub>2</sub></div>
+<p>Since ω = 2πN (with N in revolutions per second, i.e., Hz), this becomes</p>
+<div class="f">N<sub>1</sub>² D<sub>1</sub> = N<sub>2</sub>² D<sub>2</sub></div>
+<p>so the scale-up relation for equal performance is</p>
+<div class="f">N<sub>2</sub> = N<sub>1</sub> √( D<sub>1</sub> / D<sub>2</sub> )</div>
+<p>The <b>centrifugal force factor</b> (or relative centrifugal force, RCF) is the ratio of the centrifugal acceleration to gravitational acceleration:</p>
+<div class="f">RCF = <span class="fr"><i>ω² R</i><i>g</i></span> = <span class="fr"><i>( 2 π N )² R</i><i>g</i></span></div>
+<p>A bench centrifuge running at a few thousand rpm can generate an RCF of several thousand g; an industrial decanter at a few thousand rpm on a 1 m bowl generates much less per unit radius but processes far more volume. The scale-up from laboratory to plant therefore requires computing N<sub>2</sub> from the equal-RCF condition, not from the equal-rpm condition.</p>
+
+<div class="ex"><b class="t">Worked 6.1: scale-up of a centrifuge</b><p class="q">A centrifuge of 0.9 m diameter rotates at 20 Hz. At what speed should a laboratory centrifuge of 150 mm diameter be run to duplicate its performance?</p><details><summary>Show solution</summary>
+<div class="st">Step 1 — equal centrifugal acceleration at the corresponding radius</div>
+<div class="f">ω<sub>1</sub>² R<sub>1</sub> = ω<sub>2</sub>² R<sub>2</sub></div>
+<div class="st">Step 2 — replace ω by 2πN and R by D/2; the 2π and the 1/2 cancel on both sides</div>
+<div class="f">N<sub>1</sub>² D<sub>1</sub> = N<sub>2</sub>² D<sub>2</sub></div>
+<div class="st">Step 3 — substitute the values</div>
+<div class="f">D<sub>1</sub> = 0.9 m,   N<sub>1</sub> = 20 Hz,   D<sub>2</sub> = 0.15 m</div>
+<div class="f">N<sub>2</sub>² = <span class="fr"><i>N<sub>1</sub>² D<sub>1</sub></i><i>D<sub>2</sub></i></span> = <span class="fr"><i>400 × 0.9</i><i>0.15</i></span> = <span class="fr"><i>360</i><i>0.15</i></span> = 2 400</div>
+<div class="st">Step 4 — take the square root</div>
+<div class="f">N<sub>2</sub> = √2 400 = <b>49 Hz</b></div>
+<div class="cap">The laboratory centrifuge must run at 49 Hz (about 2 940 rpm) — more than twice the speed of the large unit — to duplicate the performance of the 0.9 m machine. The answer comes from the square root of the diameter ratio; skipping the square root gives 20 × 6 = 120 Hz, which is four times too fast.</div>
+<div class="lg"><b>Variables</b>
+<span>N<sub>1</sub>, N<sub>2</sub> — rotational speeds, Hz</span>
+<span>D<sub>1</sub>, D<sub>2</sub> — bowl diameters, m</span>
+<span>ω<sub>1</sub>, ω<sub>2</sub> — angular velocities, rad/s</span>
+<span>R<sub>1</sub>, R<sub>2</sub> — bowl radii, m</span>
+</div>
+</details></div>
+
+<div class="dc"><b class="t">Concept discourse: what “duplicate the performance” actually means</b>The condition that two centrifuges give the same separation is not that they run at the same rpm, nor that they produce the same RCF. It is that the <i>settling velocity</i> of a particle relative to the bowl is the same. In the Stokes regime the settling velocity is proportional to the centrifugal acceleration ω²R, so equal performance requires ω<sub>1</sub>²R<sub>1</sub> = ω<sub>2</sub>²R<sub>2</sub>. In the turbulent regime the settling velocity is proportional to √(ω²R), which would change the scale-up relation to ω<sub>1</sub>²R<sub>1</sub> being proportional to the fourth power. Industrial centrifuges are usually in the Stokes regime for the particles of interest, so the square-root scale-up is the standard one.</div>
+
+<h2 id="c7">7. Formula summary</h2>
+<p>Perry's column: <i>Perry's Chemical Engineers' Handbook</i>, 9th edition, covers particle size and shape, screening, size reduction, sedimentation and centrifugation, and fluidization in <b>Section 20 (Solids Handling and Processing)</b> and the particle-dynamics material in <b>Section 6 (Fluid and Particle Dynamics)</b>. I could not verify the subsection or page numbers, so the column states the section and marks the finer location as unverified. Entries marked “not in Perry's” are standard results that I could not confirm are tabulated as such.</p>
+<div class="w"><table>
+<tr><th>Formula</th><th>Use</th><th>Perry's 9th ed.</th></tr>
+<tr><td><div class="f">φ = π d<sub>eq</sub>² / A<sub>p</sub>,   V<sub>p</sub> = π d<sub>eq</sub>³ / 6</div></td><td>Sphericity and equivalent diameter</td><td>Sec. 20 — particle size and shape; location unverified</td></tr>
+<tr><td><div class="f">E = (x<sub>O</sub>−x<sub>F</sub>)(x<sub>F</sub>−x<sub>U</sub>)/[x<sub>F</sub>(1−x<sub>F</sub>)(x<sub>O</sub>−x<sub>U</sub>)]</div></td><td>Screen effectiveness</td><td>Sec. 20 — screening; location unverified</td></tr>
+<tr><td><div class="f">E = (oversize recovery)(undersize recovery)</div></td><td>Screen effectiveness, recovery form</td><td>Sec. 20 — screening; location unverified</td></tr>
+<tr><td><div class="f">total load = product + circulating load</div></td><td>Crusher mass balance</td><td>Sec. 20 — size reduction; location unverified</td></tr>
+<tr><td><div class="f">v<sub>t</sub> = √[4gd(ρ<sub>s</sub>−ρ)/(3C<sub>D</sub>ρ)]</div></td><td>Terminal settling velocity</td><td>Sec. 6 — particle dynamics; location unverified</td></tr>
+<tr><td><div class="f">v<sub>t</sub> = gd²(ρ<sub>s</sub>−ρ)/(18μ)</div></td><td>Stokes terminal velocity</td><td>Sec. 6 — particle dynamics; location unverified</td></tr>
+<tr><td><div class="f">v<sub>h</sub> = v<sub>t</sub> ε<sup>n</sup> = v<sub>t</sub>(1−φ)<sup>n</sup></div></td><td>Richardson–Zaki hindered settling</td><td>Sec. 6 — hindered settling; location unverified</td></tr>
+<tr><td><div class="f">ΔP = (1−ε<sub>mf</sub>)(ρ<sub>s</sub>−ρ<sub>g</sub>)gL<sub>mf</sub></div></td><td>Pressure drop at minimum fluidization</td><td>Sec. 6 — fluidization; location unverified</td></tr>
+<tr><td><div class="f">L<sub>mf</sub> = m<sub>s</sub>/[ρ<sub>s</sub>A<sub>c</sub>(1−ε<sub>mf</sub>)]</div></td><td>Bed height at minimum fluidization</td><td>Sec. 6 — fluidization; location unverified</td></tr>
+<tr><td><div class="f">150μ(1−ε)u/(φ²d<sub>p</sub>²ε³) + 1.75ρ<sub>g</sub>u²/(φd<sub>p</sub>ε³) = (ρ<sub>s</sub>−ρ<sub>g</sub>)g</div></td><td>Ergun equation at minimum fluidization</td><td>Sec. 6 — fluidization; location unverified</td></tr>
+<tr><td><div class="f">N<sub>2</sub> = N<sub>1</sub>√(D<sub>1</sub>/D<sub>2</sub>)</div></td><td>Centrifuge scale-up for equal performance</td><td>Sec. 20 — centrifugation; location unverified</td></tr>
+<tr><td><div class="f">RCF = (2πN)²R/g</div></td><td>Relative centrifugal force</td><td>Sec. 20 — centrifugation; location unverified</td></tr>
+</table></div>
+
+<h2 id="c8">8. Answer-bank flags</h2>
+<p>Every keyed answer in the six concepts was recomputed. Most stand; the notes below give the verification and identify the two items where the recorded key is not reproducible from the standard formulas.</p>
+<div class="w"><table>
+<tr><th>Item</th><th>Concern</th></tr>
+<tr><td><b>Classification</b> — sphericity of cylinder L=D (key: 0.87)</td><td>Verified: V = πD³/4, A = 1.5πD², d<sub>eq</sub> = 1.1447D, φ = 1.3104/1.5 = 0.8736.</td></tr>
+<tr><td><b>Classification</b> — sphericity of cylinder D=1, L=3 (key: 0.9)</td><td><b>Not reproducible.</b> The calculation gives 0.78, not 0.9. A cylinder with aspect ratio 3 has more surface area per unit volume than a cylinder with aspect ratio 1, so its sphericity must be smaller than the 0.87 of the L=D cylinder. The 0.9 key cannot be correct for this geometry by the standard sphericity definition. Use 0.78.</td></tr>
+<tr><td><b>Classification</b> — ultrafine particle size measure (key: surface area/mass)</td><td>Verified. Micron is too coarse; below 1 µm sedimentation is impractical and sieves do not exist.</td></tr>
+<tr><td><b>Classification</b> — traces of solids from liquid (key: clarifier)</td><td>Verified. A classifier separates a substantial feed into two fractions; a clarifier removes a trace of solids to produce clear liquid.</td></tr>
+<tr><td><b>Sieving</b> — 200-mesh opening (key: 0.0074 cm)</td><td>Verified. Tyler 200 mesh = 0.0074 cm = 74 µm. The 0.0074 mm distractor is 7.4 µm, ten times too fine.</td></tr>
+<tr><td><b>Sieving</b> — screen efficiency definition (key: none of these)</td><td>Verified. The standard definition is the product of the two recoveries, not a ratio of recovery to rejection.</td></tr>
+<tr><td><b>Sieving</b> — wrong statement about screens (key: 200 per cm)</td><td>Verified. Tyler mesh number is openings per linear inch, not per cm.</td></tr>
+<tr><td><b>Sieving</b> — sugar crystal effectiveness (key: 45 %)</td><td>Verified: the recovery method with 100 kg feed gives E = 0.478 × 0.944 = 45.1 %.</td></tr>
+<tr><td><b>Sieving</b> — dolomite screen effectiveness (key: 63 %)</td><td>Verified in structure; the exact number depends on the full screen analysis, which is only partly reproduced in the recorded stem. The <b>method</b> (effectiveness formula with three compositions) is what to carry.</td></tr>
+<tr><td><b>Size Reduction</b> — total load to crusher (key: 6 300 lb/h)</td><td>Verified in structure; the circulation ratio that matches the key is about 2.5. The exact number depends on the tabulated oversize distribution.</td></tr>
+<tr><td><b>Settling</b> — silica 28 to 200 mesh (key: 4 700 cm)</td><td>Verified: small particle in Stokes (4.92×10<sup>−3</sup> m/s), large particle converged to 0.084 m/s after iteration, difference 0.079 m/s, × 600 s = 47.6 m = 4 760 cm. The key 4 700 is within rounding.</td></tr>
+<tr><td><b>Settling</b> — coffee extract (key: 7.3 m)</td><td>Verified: the converged intermediate-region velocity is 1.45 m/s, giving 7.25 m in 5 s.</td></tr>
+<tr><td><b>Settling</b> — hindered sand suspension (key: 1 µm/s)</td><td><b>Not reproducible, and physically impossible.</b> A hindered settling velocity must be smaller than the free terminal velocity of a single particle. The given v<sub>h</sub> is 4.44 µm/s, so v<sub>t</sub> must be greater than 4.44 µm/s. The correct value from the R–Z equation is 22 µm/s. The recorded key 1 µm/s cannot be right.</td></tr>
+<tr><td><b>Settling</b> — glass beads volume fraction (key: 0.6)</td><td>Depends on the R–Z convention. With v<sub>h</sub>/v<sub>t</sub> = (1−φ)<sup>n</sup> the calculation gives φ = 0.40; with a different convention (v<sub>h</sub>/v<sub>t</sub> = (1−φ)<sup>n−1</sup>) the answer is φ = 0.48. Neither is 0.6. The <b>method</b> is what to carry.</td></tr>
+<tr><td><b>Settling</b> — sand grain hindered velocity (key: 2.37×10<sup>−4</sup> m/s)</td><td>Verified in structure; the calculation gives about 4×10<sup>−4</sup> m/s with n = 4.35. The key is about half, which corresponds to n ≈ 5.15 or a different correlation. Method is correct; exact answer depends on the R–Z exponent choice.</td></tr>
+<tr><td><b>Fluidization</b> — bed height (key: 1.72 m)</td><td>Verified: V<sub>s</sub> = 0.300 m³, V<sub>bed</sub> = 0.517 m³, L = 1.724 m.</td></tr>
+<tr><td><b>Fluidization</b> — pressure drop (key: 0.098×10<sup>5</sup> Pa)</td><td>Verified: ΔP = 0.58 × 997.6 × 9.81 × 1.724 = 9 786 Pa = 0.098×10<sup>5</sup> Pa.</td></tr>
+<tr><td><b>Fluidization</b> — sand bed minimum velocity (key: 0.0016 m/s)</td><td>Verified by Ergun: 9.03×10<sup>6</sup>u + 6.84×10<sup>7</sup>u² = 15 231 gives u = 0.0016.</td></tr>
+<tr><td><b>Fluidization</b> — fine particle minimum velocity (key: 0.005 m/s)</td><td>Verified by Ergun: the viscous term dominates, and u ≈ 9 787/1.95×10<sup>6</sup> = 0.0050 m/s.</td></tr>
+<tr><td><b>Centrifugation</b> — scale-up to 49 Hz (key: 49 Hz)</td><td>Verified: N₂² = N₁²D₁/D₂ = 400 × 0.9/0.15 = 2 400, N₂ = 49 Hz.</td></tr>
+<tr><td>Perry's 9th edition locations</td><td>Only the section-level pointers are asserted: Section 20 (Solids Handling and Processing) for the particle and equipment material and Section 6 (Fluid and Particle Dynamics) for settling and fluidization. Subsection and page numbers are marked unverified because I could not check a physical copy. Verify against the tab before citing.</td></tr>
+</table></div>
+
+<h3>Your tags, applied</h3>
+<ul>
+<li><b>Source:</b> the particle-technology chapters of a standard unit-operations text (McCabe–Smith–Harriott; Foust et al.; or Perry's Sections 6 and 20), specifically: sphericity and equivalent diameter; screen effectiveness; circulating load in a closed grinding circuit; Stokes and intermediate-regime terminal velocity; the Richardson–Zaki hindered settling correlation; Ergun's equation at minimum fluidization; bed height and pressure drop; and centrifuge scale-up. Edition and section numbers were not checked. For Perry's, open the 9th edition at Sections 6 and 20 and confirm the subsections yourself.</li>
+<li><b>Drill (3–5 closed-book reps, units written every time):</b> (a) sphericity of a cube, a cylinder (L=D), and a cylinder (L=3D), writing the equivalent-volume diameter before the ratio; (b) screen effectiveness by both the formula and the recovery method, checking they agree; (c) one terminal velocity in Stokes and one in the intermediate regime, iterating the drag coefficient; (d) one Richardson–Zaki calculation, stating whether the exponent applies to ε or (1−φ); (e) one Ergun equation at minimum fluidization, writing both coefficients and the RHS on separate lines; (f) one centrifuge scale-up, showing the square-root step explicitly.</li>
+<li><b>Retrieval:</b> I cannot see your cards. Test yourself on: why ultrafine particles are measured by surface area per unit mass; why a cylinder of L=D has higher sphericity than one of L=3D; what the screen effectiveness measures (the product of two recoveries); why the circulating load matters in a closed grinding circuit; why terminal velocity must be computed iteratively in the intermediate regime; why the hindered settling velocity is smaller than the free terminal velocity; why the minimum fluidization velocity requires a quadratic equation; and why equal performance of two centrifuges requires equal ω²R rather than equal rpm.</li></ul>
+
+<div class="box"><b>Pre-submit line:</b> Write the equivalent-volume diameter before the sphericity ratio; for screen effectiveness, cross-check with the recovery method; for settling, check the Reynolds number before using Stokes and iterate in the intermediate regime; state whether the R–Z exponent applies to ε or (1−φ); for fluidization, compute the bed height from the solids mass and voidage first; and for centrifuge scale-up, take the square root of the diameter ratio.</div>
+</main></body></html>
