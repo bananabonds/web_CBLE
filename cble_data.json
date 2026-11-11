@@ -150659,7 +150659,7 @@
       "question": "Find the specific volume for H₂0 at 1000 kN/m² and 300°Cby using steam tables.",
       "category": "Formula / Equation Error",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-22T20:41:48",
       "occurrences": [
         {
@@ -150670,10 +150670,11 @@
           "correct_answer": "A. 0.26 m³/kg"
         }
       ],
-      "updated_at": "2026-10-22T20:41:48",
+      "updated_at": "2026-11-11T15:07:28",
       "concept_id": "1792307225926418",
       "tag_at": "2026-10-22T20:41:48",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-11T15:07:28"
     },
     {
       "id": "1792701431827140",
@@ -182048,5 +182049,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-11T14:52:54"
+  "updated_at": "2026-11-11T15:07:37"
 }
