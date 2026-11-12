@@ -179433,6 +179433,13 @@
       "name": "Textbook Type Adjusted",
       "text": "You are helping me build a high-fidelity review for the concepts from my board exam preparation. Stay strictly inside these concepts; do not review the whole subject.\n\n{questions}\n\nTASK\nCreate a html textbook style rhetoric reviewer that categorizes the question contexts based on the order they would have been thought in a classroom or the order they would appear in a standard textbook. \n\nDo not reference the questions and only use them to construct the concepts that they are trying to teach.\n\nIn the case of mathematical concepts create sample problems that start from the fundamental principles of the topic and then progress until it is in the level of the questions included. I want these to be seamlessly integrated during the textbook style narration.\n\nI want it to be concise, simple, and capture the nuances while progressing with flow. In the case of concept outliers, you may cite the question and explain the answer but put this under the concept discourse. Meanwhile for question bank answer flags, and other concerns, I want this to be the last section so it will not affect the organization.\n\nIf applicable also create a formula summary compilation a the bottom section of the before the flags, do not format it as one line, use textbook display notation. If the formula can be seen in the 9th edition of the Perry's Chemical Engineering handbook flag it and try to find its location then indicate it in another column in the formula table. If the formula is not present in the handbook, indicate as that its not in the handbook.\n\nFormat the sample problems as question with hidden solution. I want the equations to be in new lines and centered and is in textbook formatting. Do not turn the solutions into paragraphs. Include title descriptions of each solution step and put a legend below the solution on what the variables used represent in plain words or sentences. Format the variables as one-line per variable.\n\nRULES\n- Use only standard, verifiable facts for this subject. If something is uncertain, say so.\n- If a bank correct answer above looks wrong, ambiguous or condition-dependent, tell me instead of rationalizing it.\n\n",
       "updated_at": "2026-11-10T19:06:54"
+    },
+    {
+      "id": "1794499302611581",
+      "kind": "bank",
+      "name": "CEP MOCK",
+      "text": "You are an expert licensure-exam item reviewer. Below is a question bank (\"Chemical Engineering Principles\", {count} questions) that I use to prepare for Chemical Engineering Licensure Exam. Judge how deep it is and how well it matches the real exam.\n\nGive me:\n1. DEPTH: classify every question by cognitive level (recall, comprehension, application, analysis) and show the distribution as a table with counts and percentages. Say plainly whether the bank is too shallow for this exam.\n2. EXAM ALIGNMENT: map the questions to the topics and competencies the exam really covers (use the official syllabus or table of specifications if you know it; if you are not sure, say so). Show which areas are over-represented, under-represented or missing.\n3. QUALITY: flag questions that are ambiguous, have more than one defensible answer, have a doubtful or wrong answer key, use weak distractors, or test trivia the exam is unlikely to ask. Cite each by its Ref # and give the corrected answer or a rewrite.\n4. GAPS: list the concepts and question types I should add to reach exam-level depth, with 5 exam-style questions (with answers and a one-line rationale) for the biggest gaps.\n5. VERDICT: rate depth and alignment each out of 10, then give a short prioritized fix list.\n\nRULES\n- Use only standard, verifiable facts. If you are unsure, say so instead of guessing.\n- Do not assume the answer key is correct; check it.\n- Refer to questions by their Ref #.\n\n{questions}",
+      "updated_at": "2026-11-12T16:01:42"
     }
   ],
   "flash_decks": [],
@@ -186253,5 +186260,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-12T15:57:51"
+  "updated_at": "2026-11-12T16:01:54"
 }
