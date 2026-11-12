@@ -139208,7 +139208,7 @@
       "question": "The image produced by a convex mirror of an erect object in front of the mirror is always:",
       "category": "Conceptual Misunderstanding",
       "note": "For a convex mirror, f is positive and u (object distance is negative), this means v is positive (virtual), since m = - v / -u then m is positive (erect). since the inverse of v > inverse of u, v < u (appear small)",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-10-18T11:20:56",
       "occurrences": [
         {
@@ -139220,9 +139220,10 @@
         }
       ],
       "concept_id": "1792308789326135",
-      "updated_at": "2026-10-18T11:20:56",
+      "updated_at": "2026-11-12T12:11:57",
       "tag_at": "",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-12T12:11:57"
     },
     {
       "id": "1790064224172801",
@@ -184060,5 +184061,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-12T12:11:42"
+  "updated_at": "2026-11-12T12:12:19"
 }
