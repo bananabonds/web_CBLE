@@ -1267,6 +1267,25 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <div class="hint" id="qbPullInfo" style="margin-top:6px;"></div>
       </div>
 
+      <div class="card" id="qbAiCard">
+        <h3>AI Analysis Prompt</h3>
+        <p class="hint" style="margin-bottom:8px;">Copy a bank together with a prompt that asks an AI how deep the questions are and how well they match the real exam. Your questions are added automatically; only the commands are editable and saved.</p>
+        <label class="field-label">Bank to analyze</label>
+        <select id="qaBank"></select>
+        <label class="field-label" style="margin-top:8px;">Exam to compare against</label>
+        <input type="text" id="qaExam" placeholder="e.g. Philippine Pharmacist Licensure Exam">
+        <div class="row wrap" style="gap:8px;margin-top:8px;">
+          <select id="qaPerPart" style="flex:1;min-width:140px;"><option value="0">All in one prompt</option><option value="25">25 questions per part</option><option value="50">50 questions per part</option><option value="100">100 questions per part</option><option value="150">150 questions per part</option></select>
+          <select id="qaPartSel" style="flex:1;min-width:120px;"></select>
+        </div>
+        <label class="row" style="gap:6px;margin-top:8px;font-size:.85rem;"><input type="checkbox" id="qaKey"><span>Include the answer key (so the AI can check it)</span></label>
+        <label class="row" style="gap:6px;margin-top:6px;font-size:.85rem;"><input type="checkbox" id="qaRetired"><span>Include retired questions</span></label>
+        <div class="hint" id="qaInfo" style="margin-top:8px;"></div>
+        <textarea id="qaPreview" rows="8" readonly spellcheck="false" style="margin-top:6px;"></textarea>
+        <button class="btn primary block" id="qaCopy" style="margin-top:8px;">&#128203; Copy prompt</button>
+        <div id="promptEditor-bank" style="margin-top:10px;"></div>
+      </div>
+
       <div class="card" id="qbPasteCard">
         <h3>Add questions by pasting <span class="qb-badge" id="qbPasteDest"></span></h3>
         <p class="hint" style="margin-bottom:8px;">Paste, check the preview, then press the button. <b>Nothing is saved until you press it, and then it is saved immediately</b> (no extra Save step).</p>
@@ -7398,11 +7417,11 @@ function qbActionLabel(n, verb) {
 /* ---------- master render ---------- */
 function renderQB() {
   if (!qb || !$("qbDestCard")) return;
-  qbRenderDest(); qbRenderPicker(); qbRenderPasteHeader(); qbRenderPreview(); qbRenderEditor(); qbRenderProblems(); qbFindRender();
+  qbRenderDest(); qbRenderPicker(); qbRenderPasteHeader(); qbRenderPreview(); qbRenderEditor(); qbRenderProblems(); qbFindRender(); qaUpdate();
 }
 function qbRefreshPickers() {   // called whenever lists change elsewhere; never touches the working copy
   if (!qb || !$("qbDestCard")) return;
-  qbRenderDest(); qbRenderPicker(); qbRenderProblems(); qbFindRender();
+  qbRenderDest(); qbRenderPicker(); qbRenderProblems(); qbFindRender(); qaUpdate();
 }
 function refreshEditorBankChoicesQuiet() { qbRefreshPickers(); }
 function refreshEditorBankChoices() { renderQB(); }
@@ -9171,7 +9190,26 @@ const PROMPT_DEFAULTS = {
     "Be concise and specific, with no filler. State any assumption you make.",
   ].join("\n"),
 };
+PROMPT_DEFAULTS.bank = [
+  "You are an expert licensure-exam item reviewer. Below is a question bank (\"{bank}\", {count} questions) that I use to prepare for {exam}. Judge how deep it is and how well it matches the real exam.",
+  "",
+  "Give me:",
+  "1. DEPTH: classify every question by cognitive level (recall, comprehension, application, analysis) and show the distribution as a table with counts and percentages. Say plainly whether the bank is too shallow for this exam.",
+  "2. EXAM ALIGNMENT: map the questions to the topics and competencies the exam really covers (use the official syllabus or table of specifications if you know it; if you are not sure, say so). Show which areas are over-represented, under-represented or missing.",
+  "3. QUALITY: flag questions that are ambiguous, have more than one defensible answer, have a doubtful or wrong answer key, use weak distractors, or test trivia the exam is unlikely to ask. Cite each by its Ref # and give the corrected answer or a rewrite.",
+  "4. GAPS: list the concepts and question types I should add to reach exam-level depth, with 5 exam-style questions (with answers and a one-line rationale) for the biggest gaps.",
+  "5. VERDICT: rate depth and alignment each out of 10, then give a short prioritized fix list.",
+  "",
+  "RULES",
+  "- Use only standard, verifiable facts. If you are unsure, say so instead of guessing.",
+  "- Do not assume the answer key is correct; check it.",
+  "- Refer to questions by their Ref #.",
+  "",
+  "{questions}",
+].join("\n");
 const PROMPT_KINDS = {
+  bank: { label: "Question bank analysis prompt", bigKey: "questions", bigNote: "where the bank's questions are inserted",
+    tokens: [["{questions}", "where the bank's questions (and answer key, if ticked) are inserted"], ["{bank}", "the bank's name"], ["{count}", "how many questions are in this prompt"], ["{exam}", "the exam you typed above"]] },
   reviewer: { label: "Full reviewer prompt (by concept)", bigKey: "questions", bigNote: "where the chosen concepts, with their questions and your notes, are inserted",
     tokens: [["{questions}", "where the chosen concepts, with their questions, your answers and your notes, are inserted"], ["{structure}", "one line naming the parts of each concept section; it adapts to your tags"]] },
   concept: { label: "Concept prompt", bigKey: "concept", bigNote: "where this concept's questions and existing cards are inserted",
@@ -9189,7 +9227,7 @@ function setPromptWork(kind, text) { const w = loadJson(KEYS.promptWork, {}) || 
 // What the prompt is built from: what is in the editor (even if unsaved), else the active set, else the default.
 function getPromptTemplate(kind) { const w = getPromptWork(kind); return w !== null ? w : promptBaseText(kind); }
 function expandPromptTemplate(kind, vars, bigText) {
-  let t = getPromptTemplate(kind).replace(/\{(structure|schedule_window|tasks)\}/g, (m, k) => (k in vars ? vars[k] : m));
+  let t = getPromptTemplate(kind).replace(/\{(structure|schedule_window|tasks|bank|count|exam)\}/g, (m, k) => (k in vars ? vars[k] : m));
   const marker = "{" + PROMPT_KINDS[kind].bigKey + "}", i = t.indexOf(marker);
   if (i >= 0) return t.slice(0, i) + bigText + t.slice(i + marker.length);
   return t.replace(/\s+$/, "") + "\n\n" + bigText;   // no placeholder: the data goes at the end
@@ -9204,7 +9242,7 @@ const peUi = {};
 function mountPromptEditor(kind, host) {
   const K = PROMPT_KINDS[kind];
   host.innerHTML = `<details class="pe"><summary>\u270E Customize the ${esc(K.label)}</summary>
-    <div class="pe-fixed">Only the <b>commands</b> are editable and saved. ${kind === "reviewer" ? "Your questions" : "Your data"} are added automatically at <b>${esc(K.tokens[0][0])}</b> when you copy, and are never stored in a prompt set.</div>
+    <div class="pe-fixed">Only the <b>commands</b> are editable and saved. ${kind === "reviewer" || kind === "bank" ? "Your questions" : "Your data"} are added automatically at <b>${esc(K.tokens[0][0])}</b> when you copy, and are never stored in a prompt set.</div>
     <label class="field-label">Prompt set</label>
     <select class="pe-set"></select>
     <label class="field-label" style="margin-top:8px;">Commands <span class="pe-state hint"></span></label>
@@ -9286,10 +9324,86 @@ function refreshPromptEditor(kind) {
   ui.save.title = active === "default" ? "The built-in default can't be overwritten; use Save as new." : "";
 }
 function promptEditorChanged(kind) {
+  if (kind === "bank") { if (typeof qaUpdate === "function") qaUpdate(); return; }
   if (kind === "analysis") { if (window._aRanked) renderAnalysisText(window._aRanked, window._aProg || {}); else refreshAnalysis(); }
   else if (typeof rvPromptChanged === "function") rvPromptChanged(kind);
 }
 function refreshAllPromptEditors() { Object.keys(peUi).forEach(refreshPromptEditor); }
+
+/* ---------------------------------------------------------------------
+   Question Bank > AI Analysis Prompt: copies one bank, with editable commands, so an AI can judge its depth
+   and how well it matches the real exam. Only function declarations / var here, because renderQB can call
+   qaUpdate before this point of the script has run.
+   --------------------------------------------------------------------- */
+var qaPart = 1, qaReady = false;   // qaReady: renderQB() runs once at startup, before the prompt code below has been defined
+function qaPrefs() { return Object.assign({ bank: "", exam: "", perPart: 0, key: true, retired: false }, loadSizePrefs().qa || {}); }
+function setQaPref(k, v) { const p = loadSizePrefs(); p.qa = Object.assign(qaPrefs(), { [k]: v }); saveJson(KEYS.sizePrefs, p); }
+function qaKeys() {
+  const out = [];
+  Object.keys(loadRepoBanksRaw()).sort((a, b) => a.localeCompare(b)).forEach(n => out.push([REPO_PREFIX + n, n, "repository"]));
+  Object.keys(loadLocalBanksRaw()).sort((a, b) => a.localeCompare(b)).forEach(n => out.push([LOCAL_PREFIX + n, n, "local"]));
+  Object.keys(getRemoteTopics()).sort((a, b) => a.localeCompare(b)).forEach(n => out.push([n, n, "built-in"]));
+  return out;
+}
+function qaGetBank(key) {
+  if (key.startsWith(LOCAL_PREFIX)) return loadLocalBanksRaw()[key.slice(LOCAL_PREFIX.length)] || null;
+  const rp = (REPO_PREFIX && key.startsWith(REPO_PREFIX)) ? key.slice(REPO_PREFIX.length) : key, raw = loadRepoBanksRaw();
+  if (Object.prototype.hasOwnProperty.call(raw, rp)) return raw[rp];
+  return getAllLists()[key] || null;
+}
+function qaBankDisplayName(key) { return key.startsWith(LOCAL_PREFIX) ? key.slice(LOCAL_PREFIX.length) : (REPO_PREFIX && key.startsWith(REPO_PREFIX)) ? key.slice(REPO_PREFIX.length) : key; }
+function buildBankPrompt() {
+  const P = qaPrefs(), arr = P.bank ? qaGetBank(P.bank) : null; if (!arr || !arr.length) return null;
+  const idx = []; arr.forEach((q, i) => { if (q && (P.retired || !q.retired)) idx.push(i); });
+  if (!idx.length) return null;
+  const per = Number(P.perPart) || 0, parts = per ? Math.max(1, Math.ceil(idx.length / per)) : 1, part = Math.min(Math.max(Number(qaPart) || 1, 1), parts);
+  const slice = per ? idx.slice((part - 1) * per, part * per) : idx, letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const body = slice.map(i => {
+    const q = arr[i], L = [`[Ref #${i + 1}] ${cleanOcrText(q.text)}`];
+    (q.options || []).forEach((o, k) => L.push(`  ${letters[k] || k + 1}. ${cleanOcrText(o)}`));
+    if (P.key) L.push(`  Answer: ${letters[q.correct] || "?"}`);
+    return L.join("\n");
+  }).join("\n\n");
+  const name = qaBankDisplayName(P.bank).replace(/[{}]/g, ""), exam = (P.exam || "").replace(/[{}]/g, "").trim() || "my board exam";
+  const header = `=== QUESTION BANK: ${name} \u00b7 ${per ? `part ${part} of ${parts}, ` : ""}${slice.length} question${slice.length === 1 ? "" : "s"} ===`;
+  const text = expandPromptTemplate("bank", { bank: name, count: String(slice.length), exam }, header + "\n\n" + body);
+  return { text, n: slice.length, total: idx.length, parts, part, hiddenRetired: P.retired ? 0 : arr.filter(q => q && q.retired).length };
+}
+function qaUpdate() {
+  const sel = $("qaBank"); if (!sel || !qaReady) return;
+  const P = qaPrefs(), keys = qaKeys();
+  let cur = keys.some(k => k[0] === P.bank) ? P.bank : "";
+  if (!cur && qb && qb.name && !qb.isNew) { const k = (qb.dest === "local" ? LOCAL_PREFIX : REPO_PREFIX) + qb.name; if (keys.some(x => x[0] === k)) cur = k; }
+  if (!cur && keys.length) cur = keys[0][0];
+  sel.innerHTML = "";
+  if (!keys.length) { const o = document.createElement("option"); o.value = ""; o.textContent = "No banks yet"; sel.appendChild(o); }
+  keys.forEach(([k, n, kind]) => { const o = document.createElement("option"); o.value = k; o.textContent = `${n} (${(qaGetBank(k) || []).length}) \u00b7 ${kind}`; sel.appendChild(o); });
+  sel.value = cur;
+  if (cur !== P.bank) setQaPref("bank", cur);
+  const P2 = qaPrefs();
+  if (document.activeElement !== $("qaExam")) $("qaExam").value = P2.exam;
+  $("qaPerPart").value = String(P2.perPart); $("qaKey").checked = !!P2.key; $("qaRetired").checked = !!P2.retired;
+  const r = buildBankPrompt(), ps = $("qaPartSel");
+  ps.innerHTML = "";
+  if (r && r.parts > 1) { for (let i = 1; i <= r.parts; i++) { const o = document.createElement("option"); o.value = String(i); o.textContent = `Part ${i} of ${r.parts}`; ps.appendChild(o); } ps.value = String(r.part); ps.style.display = ""; }
+  else ps.style.display = "none";
+  $("qaPreview").value = r ? r.text : "";
+  $("qaInfo").textContent = !r ? (cur ? "This bank has no questions to send." : "Add a bank first.")
+    : `${r.n} question${r.n === 1 ? "" : "s"}` + (r.parts > 1 ? ` (part ${r.part} of ${r.parts}, ${r.total} in the bank)` : "") + (r.hiddenRetired ? ` \u00b7 ${r.hiddenRetired} retired left out` : "") + ` \u00b7 ${r.text.length.toLocaleString()} characters` + (r.text.length > 40000 ? " \u2014 very long; use parts so the AI reads it all" : "");
+}
+$("qaBank").addEventListener("change", () => { setQaPref("bank", $("qaBank").value); qaPart = 1; qaUpdate(); });
+$("qaExam").addEventListener("input", () => { setQaPref("exam", $("qaExam").value); qaUpdate(); });
+$("qaPerPart").addEventListener("change", () => { setQaPref("perPart", Number($("qaPerPart").value) || 0); qaPart = 1; qaUpdate(); });
+$("qaPartSel").addEventListener("change", () => { qaPart = Number($("qaPartSel").value) || 1; qaUpdate(); });
+$("qaKey").addEventListener("change", () => { setQaPref("key", $("qaKey").checked); qaUpdate(); });
+$("qaRetired").addEventListener("change", () => { setQaPref("retired", $("qaRetired").checked); qaPart = 1; qaUpdate(); });
+$("qaCopy").addEventListener("click", async () => {
+  const r = buildBankPrompt(); if (!r) { toast("Pick a bank that has questions first."); return; }
+  toast(await copyTextRobust(r.text) ? `Copied ${r.n} question${r.n === 1 ? "" : "s"}${r.parts > 1 ? ` (part ${r.part} of ${r.parts})` : ""}.` : "Couldn't access the clipboard.", 3600);
+});
+mountPromptEditor("bank", $("promptEditor-bank"));
+qaReady = true;
+qaUpdate();
 
 /* =====================================================================
    Tab: Reviewer
