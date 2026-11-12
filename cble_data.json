@@ -69645,6 +69645,624 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1794470162835576",
+      "name": "D1_RT1",
+      "created_at": "2026-11-12T07:56:02",
+      "composition": {
+        "D1_L2_Environmental_EngSci": 8,
+        "D1_L7_Biochemistry": 7,
+        "D1_L6_Physical_Chemistry": 7,
+        "D1_L4_Organic_Chemistry": 7,
+        "D1_L3_Analytical_Chemistry": 7,
+        "D1_L5_Material_Science_Engineering": 7,
+        "D1_L1_Chem_for_Engineers": 7
+      },
+      "questions": [
+        {
+          "text": "For numbers 24 to 25: The town of Aveta discharges 17,360 m3/day of treated wastewater into the Tefnet Creek. The treated wastewater has a BOD5 of 12 mg/L and a BOD decay constant, k, of 0.12 dayu22121 at 20u00b0C. Tefnet Creek has a flow rate of 0.43 m3/s and an ultimate BOD, Lo, of 5.0 mg/L. The DO of the river is 6.5 mg/L and the DO of the wastewater is 1.0 mg/L. Calculate the initial deficit of the Tefnet Creek after mixing with the wastewater from the town of Aveta. The stream temperature is 10u00b0C, and the wastewater temperature is 10u00b0C. The saturated dissolved oxygen at 10u00b0C is 11.33 mg/L.",
+          "options": [
+            "A. 7.2 mg/L",
+            "B. 8.0 mg/L",
+            "C. 6.6 mg/L",
+            "D. 4.5 mg/L"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 24
+        },
+        {
+          "text": "Which of the following is an aerobic product of pyruvate catabolic metabolism?",
+          "options": [
+            "A. lactate",
+            "B. ethanol",
+            "C. acetyl CoA",
+            "D. glucose"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 51
+        },
+        {
+          "text": "The main advantage of trickling filter over activated sludge is:",
+          "options": [
+            "A. lower power requirement",
+            "B. higher BOD removal efficiency",
+            "C. smaller footprint",
+            "D. better pathogen removal"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 71
+        },
+        {
+          "text": "The amount of heat absorbed when CO2 gas reacts with a solid CaO to form solid CaCO3 is measured in a bomb calorimeter. The data obtained give a direct measure of:",
+          "options": [
+            "A. u0394U",
+            "B. Vu0394P",
+            "C. u0394H",
+            "D. CP"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 14
+        },
+        {
+          "text": "Which of the following reagents would be best for reducing an ester to an aldehyde?",
+          "options": [
+            "A. LiAlH₄ in ether",
+            "B. B₂H₆ in ether",
+            "C. NaBH₄ in aqueous ethanol",
+            "D. diisobutylaluminum hydride (DIBAH) in toluene at -78 °C"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 99
+        },
+        {
+          "text": "When 2,4-dimethyl-3-pentanone is reacted with NaBH₄ in acidic solution, the product is:",
+          "options": [
+            "A. 2,4-dimethylpentane",
+            "B. 2-methylpropanone",
+            "C. 2-methylpropanoic acid",
+            "D. 2,4-dimethyl-3-pentanol"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 83
+        },
+        {
+          "text": "Which of the following is the staggered conformation for rotation about the C1–C2 bond in the following structure? Structure: 2-methylbutane, CH₃–CH(CH₃)–CH₂–CH₃, with the carbons numbered C1 (the CH₃ at the left end), C2 (the CH bearing the CH₃ branch), C3 (CH₂), C4 (CH₃). Newman projections shown (substituents as labeled in the figure): I = staggered; CH₃, H, CH₂CH₃ across the top and H, H, H across the bottom (front carbon: three H; rear carbon: CH₃, CH₂CH₃, H). II = groups labeled CH₃, CH₃, CH₂CH₃, CH₃, H, H. III = CH₃, H, CH₃ on one side and H, H, H on the other. IV = C₂H₅ with H, H, H, H (no CH₃ labeled). V = eclipsed; two H atoms drawn overlapping at the top, with CH₃ and C₂H₅ at the lower left and lower right.",
+          "options": [
+            "A. I",
+            "B. II",
+            "C. III",
+            "D. IV",
+            "E. V"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 29
+        },
+        {
+          "text": "State Le Chatelier's Principle.",
+          "options": [
+            "A. Le Chatelier's principle states that when a stress is placed on a system in equilibrium, the system tends to change in a way that relieves the stress.",
+            "B. Examples of the application of Le Chatelier's principle are blowing your breath through a straw and dissolving an alka seltzer tablet in a glass of water.",
+            "C. Le Chatelier's principle explains both the formation and decomposition of acids, where anything that might act to increase the concentration of an acid would produce an increase in the other components so as to keep the numerical value of the equilibrium constant unchanged.",
+            "D. All of these"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 26
+        },
+        {
+          "text": "Give the IUPAC name for the following structure. Skeletal (line-angle) drawing of an alkane: a straight seven-carbon chain, with an isopropyl-type fork (two CH₃ groups on one carbon) at one end and a two-carbon (ethyl) branch on the carbon next to that fork carbon; i.e. (CH₃)₂CH–CH(CH₂CH₃)–CH₂CH₂CH₂CH₃.",
+          "options": [
+            "A. 2-methyl-3-ethylheptane",
+            "B. 3-ethyl-2-methylheptane",
+            "C. 5-isopropyloctane",
+            "D. 4-isopropyloctane"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 15
+        },
+        {
+          "text": "The Monod model predicts that the specific growth rate:",
+          "options": [
+            "A. will increase with the concentration of the growth-limiting substrate until it reaches a maximum value",
+            "B. will decrease with the concentration of the growth-limiting substrate",
+            "C. will increase without bound with the concentration of the growth-limiting substrate",
+            "D. does not depend on the growth-limiting substrate"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 107
+        },
+        {
+          "text": "Muscle cells, when an individual is exercising heavily and the muscle becomes oxygen deprived, convert pyruvate to lactate. What happens to the lactate in skeletal muscle cells?",
+          "options": [
+            "A. It is converted to NAD+.",
+            "B. It produces CO2 and water.",
+            "C. It is taken to the liver and converted back to pyruvate.",
+            "D. It reduces FADH2 to FAD+."
+          ],
+          "correct": 2,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 59
+        },
+        {
+          "text": "A 0.1 M solution of a base has pH = 9.28. Find K_b.",
+          "options": [
+            "A. 5.2x10⁻⁸",
+            "B. 3.6x10⁻⁹",
+            "C. 4.4x10⁻⁶",
+            "D. 1.7x10⁻⁵"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L3_Analytical_Chemistry",
+          "_source_index": 15
+        },
+        {
+          "text": "Pultrusion is primarily used to produce:",
+          "options": [
+            "A. Flat composite sheets",
+            "B. Complex 3D components",
+            "C. Continuous constant cross-section profiles",
+            "D. Laminated panels with variable thickness"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 59
+        },
+        {
+          "text": "The normal boiling point of Br2 is 58.8 u02daC, and its vapor pressure at 25 u02daC is 0.287 bar. Estimate the average u0394HVAP in kJ/mol of Br2 in this temperature range.",
+          "options": [
+            "A. 29",
+            "B. 31",
+            "C. 35",
+            "D. 38"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 42
+        },
+        {
+          "text": "The energy for vacancy formation in copper is 0.9 eV/atom. The atomic weight and density at 1000 °C are 63.5 g/mol and 8.4 g/cm³, respectively. Determine the equilibrium number of vacancies per cubic meter for Cu at the given temperature.",
+          "options": [
+            "A. 3.5x10²⁶ atoms/m³",
+            "B. 4.9x10²³ atoms/m³",
+            "C. 2.2x10²⁵ atoms/m³",
+            "D. 1.6x10²⁴ atoms/m³"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 33
+        },
+        {
+          "text": "A worker reports skin irritation after using various chemicals ~which SDS section would you use to confirm which chemical is Ihe cause of the workers symptoms?",
+          "options": [
+            "A. Section 2",
+            "B. Section 9",
+            "C. Section 10",
+            "D. Section 15"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 39
+        },
+        {
+          "text": "(Situation: A 3.6 kg iron block at 807 u02daC is inserted into 1 L of water at 30 u02daC, isolated from the environment. The water first heats to its boiling point, then evaporates, until the iron and water reach a common final temperature of 100 u02daC. Specific heat of solid iron = 0.45 J/g-K; heat of vaporization of water = 2259.23 J/g.) How much sensible heat was used by the water to get to its boiling point, in J?",
+          "options": [
+            "A. 200,000",
+            "B. 300,000",
+            "C. 400,000",
+            "D. 500,000"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 19
+        },
+        {
+          "text": "Which protocol was established to reduce greenhouse gas emissions?",
+          "options": [
+            "A. Montreal Protocol",
+            "B. Kyoto Protocol",
+            "C. Basel Convention",
+            "D. Stockholm Convention"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 104
+        },
+        {
+          "text": "For numbers 35 to 39: The analysis of a sample of water with pH 7.5 has produced the following concentrations (mg/L). Cations: Cau00b2u207a 80, Mgu00b2u207a 30, Nau207a 72, Ku207a 6. Anions: HCO3u207b 165, Clu207b 100, SO4u00b2u207b 201, find the total dissolved solids (TDS) in mg/L.",
+          "options": [
+            "A. 650",
+            "B. 860",
+            "C. 770",
+            "D. 590"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 38
+        },
+        {
+          "text": "Imagine a spill occurs in a confined space  which sections of the SDS would be most helpful in developing an appropriate response plan?",
+          "options": [
+            "A. Section 5",
+            "B. Section 6",
+            "C. Section 8",
+            "D. Section 10"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 35
+        },
+        {
+          "text": "Which of the following statements about filament winding is true?",
+          "options": [
+            "A. It is suitable for producing flat plates and panels",
+            "B. It uses pre-impregnated fibers only",
+            "C. It is commonly used for cylindrical structures",
+            "D. It produces non-uniform fiber orientation"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 58
+        },
+        {
+          "text": "What happens  to the entropy of the surroundings when an endothermic reaction occurs at constant pressure?",
+          "options": [
+            "A. It increases",
+            "B. It decreases",
+            "C. It remains unchanged",
+            "D. It depends on the initial entropy"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 16
+        },
+        {
+          "text": "Pick out the wrong statement.",
+          "options": [
+            "A. The concentric atmosphere layer just above troposphere is called stratosphere, which is rich in ozone.",
+            "B. Mesosphere is characterized by very low atmosphere pressure and low temperature.",
+            "C. Troposphere is a dusty zone containing water vapor and clouds.",
+            "D. The radio waves used in long-distance radio communication are reflected to earth by stratosphere."
+          ],
+          "correct": 3,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 57
+        },
+        {
+          "text": "The following is required to synthesize Grignard reagent except:",
+          "options": [
+            "A. alkyl halide",
+            "B. magnesium metal",
+            "C. ether",
+            "D. mild acid"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 84
+        },
+        {
+          "text": "Which of the following is NOT a characteristic of a globular protein?",
+          "options": [
+            "A. Polypeptide chain in extended, long sheets",
+            "B. Polypeptide chains are folded in a spherical shape.",
+            "C. Contains several types of secondary structure",
+            "D. Typical for regulatory proteins."
+          ],
+          "correct": 0,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 20
+        },
+        {
+          "text": "Which GHS hazard category is considered the most dangerous for acute toxicity?",
+          "options": [
+            "A. Category 1",
+            "B. Category 3",
+            "C. Category 5",
+            "D. Category 6"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 74
+        },
+        {
+          "text": "Calculate the Atomic Packing Factor (APF) of body-centered cubic structure.",
+          "options": [
+            "A. 0.50",
+            "B. 0.72",
+            "C. 0.44",
+            "D. 0.68"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 21
+        },
+        {
+          "text": "If the incident light is 100 units and the transmitted light is 30 units, what is the absorbance?",
+          "options": [
+            "A. 0.52",
+            "B. 1.15",
+            "C. 1.52",
+            "D. 0.15"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L3_Analytical_Chemistry",
+          "_source_index": 49
+        },
+        {
+          "text": "Recognition/binding site of RNA polymerase is called",
+          "options": [
+            "A. receptor",
+            "B. promoter",
+            "C. facilitator",
+            "D. terminator"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 36
+        },
+        {
+          "text": "The reagent needed to convert 2-butyne to cis-2-butene is:",
+          "options": [
+            "A. H₂/Pt",
+            "B. H₂/Lindlar's catalyst",
+            "C. Li/NH₃",
+            "D. Na/NH₃"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 82
+        },
+        {
+          "text": "Which of the following acids would be most suitable for preparing a buffer of pH 3.1?",
+          "options": [
+            "A. Hydrogen peroxide, pKa = 11.65",
+            "B. Propanoic acid, pKa = 4.874",
+            "C. Cyanoacetic acid, pKa = 2.472",
+            "D. Sulfanilic acid, pKa = 3.232"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L3_Analytical_Chemistry",
+          "_source_index": 19
+        },
+        {
+          "text": "COD is preferred over BOD when:",
+          "options": [
+            "A. High accuracy is needed",
+            "B. Time constraints exist",
+            "C. Organic matter is highly biodegradable",
+            "D. Wastewater is free of chemicals"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 79
+        },
+        {
+          "text": "What is the density of 53.4% NaOH (40) if 16.7 mL of the solution diluted to 2 L gave 0.169 M NaOH?",
+          "options": [
+            "A. 1.52 g/mL",
+            "B. 1.32 g/mL",
+            "C. 0.97 g/mL",
+            "D. 1.21 g/mL"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L3_Analytical_Chemistry",
+          "_source_index": 5
+        },
+        {
+          "text": "It is the international salute that is currently the primary basis of the Philippines in its latest environmental dispute with Canada.",
+          "options": [
+            "A. Kyoto Protocol",
+            "B. Basel Convention",
+            "C. Copenhagen Talks",
+            "D. Montreal Protocol"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 51
+        },
+        {
+          "text": "What is the primary reaction mechanism behind the formation of tropospheric ozone?",
+          "options": [
+            "A. CO2 reacting with water vapor",
+            "B. VOCs and NOx reacting under sunlight",
+            "C. SO2 and NO2 condensation",
+            "D. Methane combustion"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L2_Environmental_EngSci",
+          "_source_index": 100
+        },
+        {
+          "text": "What is the change in internal energy of a closed system after completing a cyclic process?",
+          "options": [
+            "A. Equal to the heat added to the system",
+            "B. Equal to the work done by the system",
+            "C. Zero",
+            "D. Depends on the efficiency of the cycle"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 70
+        },
+        {
+          "text": "Which process is used to improve the mechanical properties of metals through controlled heating and slow cooling, typically to reduce hardness and increase ductility?",
+          "options": [
+            "A. quenching",
+            "B. forging",
+            "C. annealing",
+            "D. tempering"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 55
+        },
+        {
+          "text": "A copper nail; an iron nail, and a silver nail of same mass and initially at the same room temperature are all into a vessel containing boiling water: Which one would you expect to reach 100 C first?",
+          "options": [
+            "A. Copper nail",
+            "B. Iron nail",
+            "C. Silver nail",
+            "D. All will reach 100 C at the same time"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 13
+        },
+        {
+          "text": "Find the pH at the following points in the titration of 25 mL of 0.3 M HF with 0.3 M NaOH. The K_a value is 6.6x10⁻⁴. What is the pH after adding 25 mL of 0.3 M NaOH?",
+          "options": [
+            "A. 7.18",
+            "B. 9.18",
+            "C. 8.18",
+            "D. 10.18"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L3_Analytical_Chemistry",
+          "_source_index": 33
+        },
+        {
+          "text": "The coexistence curve, where the plot of pressure versus temperature along which two phases coexist, was shown by Clausius-Clapeyron. What did Clausius postulate?",
+          "options": [
+            "A. The Clapeyron equation was simplified by assuming that the vapor obeys the ideal gas law and by neglecting the molar volume of the liquid VL in comparison with the molar volume of the gas VG",
+            "B. The Clausius-Clapeyron equation does not apply to this situation",
+            "C. The Clausius-Clapeyron theory is applicable only for vaporization and sublimation conditions",
+            "D. Both scientists apply their postulates to linear and curvilinear representation"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 40
+        },
+        {
+          "text": "Which   of the following  conditions increases the   risk   of  static discharge igniting flammable vapors?",
+          "options": [
+            "A. Low humidity",
+            "B. High humidity",
+            "C. High atmospheric pressure",
+            "D. Large container size"
+          ],
+          "correct": 0,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 56
+        },
+        {
+          "text": "C6H12O6 + 6O2 u2192 6H2O + 6CO2 + 38 ATP. The process shown is...",
+          "options": [
+            "A. reduction and is endergonic",
+            "B. reduction and is exergonic",
+            "C. oxidation and is endergonic",
+            "D. oxidation and is exergonic"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 46
+        },
+        {
+          "text": "A student is heating an unknown compound, and a green flame appears What element is likely present?",
+          "options": [
+            "A. Sodium",
+            "B. Copper",
+            "C. Potassium",
+            "D. Sulfur"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L1_Chem_for_Engineers",
+          "_source_index": 54
+        },
+        {
+          "text": "The Clapeyron Equation gives the slope:",
+          "options": [
+            "A. dV/dT",
+            "B. dT/dP",
+            "C. dT/dV",
+            "D. dP/dT"
+          ],
+          "correct": 3,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 37
+        },
+        {
+          "text": "Where are the proteins of the electron transport chain located?",
+          "options": [
+            "A. cytosol",
+            "B. mitochondrial outer membrane",
+            "C. mitochondrial inner membrane",
+            "D. mitochondrial matrix"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L7_Biochemistry",
+          "_source_index": 56
+        },
+        {
+          "text": "Determine the double bond stereochemistry (E or Z) for the following molecules. Molecule A: a trisubstituted alkene drawn with a vertical C=C bond, with two alkyl chains on the upper alkene carbon and a single ethyl group on the lower alkene carbon. Molecule B: a disubstituted alkene in a zigzag chain, with the C=C near the left end and its two chain substituents drawn on the same side (cis-type arrangement).",
+          "options": [
+            "A. A: E; B: E",
+            "B. A: Z; B: Z",
+            "C. A: E; B: Z",
+            "D. A: Z; B: E"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L4_Organic_Chemistry",
+          "_source_index": 46
+        },
+        {
+          "text": "You are given 90 mL of 0.6 M of the weak base NH₃ (K_b = 1.8×10⁻⁵), and 1 M of the strong acid titrant HCl. What is the pH after 50 mL of acid is added?",
+          "options": [
+            "A. 6.16",
+            "B. 7.16",
+            "C. 8.16",
+            "D. 9.16"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L3_Analytical_Chemistry",
+          "_source_index": 35
+        },
+        {
+          "text": "When a can of soda is opened and CO₂ is released to the atmosphere, what is the resultant pH of the soda?",
+          "options": [
+            "A. Decreases",
+            "B. Increases",
+            "C. The same",
+            "D. All of these"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L3_Analytical_Chemistry",
+          "_source_index": 13
+        },
+        {
+          "text": "Which of the following statements is/are true?\n1) The criterion of equilibrium at constant temperature and pressure is dG = 0.\n2) For a reversible process, dS = dQ / T.",
+          "options": [
+            "A. 1 only",
+            "B. Both 1 and 2",
+            "C. 2 only",
+            "D. None of the above"
+          ],
+          "correct": 1,
+          "_source_list": "D1_L6_Physical_Chemistry",
+          "_source_index": 9
+        },
+        {
+          "text": "What kind of cubic is diamond?",
+          "options": [
+            "A. SC",
+            "B. HCP",
+            "C. FCC",
+            "D. BCC"
+          ],
+          "correct": 2,
+          "_source_list": "D1_L5_Material_Science_Engineering",
+          "_source_index": 19
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -182657,5 +183275,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-12T07:53:22"
+  "updated_at": "2026-11-12T07:56:17"
 }
