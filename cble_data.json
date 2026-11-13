@@ -143587,7 +143587,7 @@
       "question": "How much water must be added to 50 mL of a 0.4 N solution of Cr₂(SO₄)₃•18H₂O in order to make it 0.05 M? The solution is to be used in the precipitation of chromium as the hydroxide.",
       "category": "Formula / Equation Error",
       "note": "The n for chromium sulfate is 6 not 5, count the valence not the number of dissociating ions. It gives 6- for total sulfate and 6+ for total Cr3+, then use dilution equation.",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-11-13T12:44:14",
       "occurrences": [
         {
@@ -143606,9 +143606,10 @@
         }
       ],
       "concept_id": "1792308372806246",
-      "updated_at": "2026-11-13T12:44:14",
+      "updated_at": "2026-11-13T12:46:20",
       "tag_at": "2026-11-13T12:44:14",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-13T12:46:20"
     },
     {
       "id": "1790229174505572",
@@ -162258,7 +162259,7 @@
       "question": "What is the Clapeyron Equation?",
       "category": "Conceptual Misunderstanding",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-11-13T12:44:10",
       "occurrences": [
         {
@@ -162276,10 +162277,11 @@
           "correct_answer": "C. It postulates that if the temperature and pressure are both changed in such a way as to keep the chemical potentials of two phases equal to each other, the rates of change are given by a certain differential equation."
         }
       ],
-      "updated_at": "2026-11-13T12:44:10",
+      "updated_at": "2026-11-13T12:46:44",
       "concept_id": "1792309635750905",
       "tag_at": "2026-11-13T12:44:10",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-13T12:46:44"
     },
     {
       "id": "1793035897479261",
@@ -181525,7 +181527,7 @@
       "question": "Which structure type is generally stronger in a fiber-reinforced composite?",
       "category": "Conceptual Misunderstanding",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-11-13T12:44:04",
       "occurrences": [
         {
@@ -181536,10 +181538,11 @@
           "correct_answer": "C. anisotropic"
         }
       ],
-      "updated_at": "2026-11-13T12:44:04",
+      "updated_at": "2026-11-13T12:46:52",
       "concept_id": "1792310304525634",
       "tag_at": "2026-11-13T12:44:04",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-13T12:46:52"
     },
     {
       "id": "1794573824848293",
@@ -181617,7 +181620,7 @@
       "question": "Noncompetitive inhibitor of an enzyme catalyzed reaction",
       "category": "Misread the Question",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-11-13T12:44:12",
       "occurrences": [
         {
@@ -181628,10 +181631,11 @@
           "correct_answer": "C. both A and B"
         }
       ],
-      "updated_at": "2026-11-13T12:44:12",
+      "updated_at": "2026-11-13T12:46:13",
       "concept_id": "1792310028942877",
       "tag_at": "2026-11-13T12:44:12",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-13T12:46:13"
     },
     {
       "id": "1794573834375646",
@@ -181686,7 +181690,7 @@
       "question": "If BOD is greater than COD, it indicates:",
       "category": "Careless / Computational",
       "note": "",
-      "resolved": false,
+      "resolved": true,
       "date_logged": "2026-11-13T12:44:19",
       "occurrences": [
         {
@@ -181697,10 +181701,11 @@
           "correct_answer": "C. Error in measurement"
         }
       ],
-      "updated_at": "2026-11-13T12:44:19",
+      "updated_at": "2026-11-13T12:46:29",
       "concept_id": "1792308304806475",
       "tag_at": "2026-11-13T12:44:19",
-      "note_at": ""
+      "note_at": "",
+      "resolved_at": "2026-11-13T12:46:29"
     }
   ],
   "guess_notes": [
@@ -188860,5 +188865,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-13T12:45:53"
+  "updated_at": "2026-11-13T12:47:02"
 }
