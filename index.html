@@ -1857,7 +1857,8 @@ function collectTagItems(scopeSet) {   // built once per version of the stored l
       out.push({ store, e, kind, cat, tax: taxInfo(cat), conceptId: e.concept_id || "", resolved: !!e.resolved, subject: e.source_list || "Unknown" });
     };
     for (const e of loadMistakeLog()) add("mistake", e, "wrong");
-    for (const e of loadShaky()) add("shaky", e, e.kind || "guess");
+    const seen = new Set(out.map(x => mistakeKey(x.e.source_list, x.e.reference_no)));   // one item per question: a mistake entry wins over a right-guess/flag tag
+    for (const e of loadShaky()) { if (seen.has(mistakeKey(e.source_list, e.reference_no))) continue; add("shaky", e, e.kind || "guess"); }
     _tagMemo = { mt, st, items: out };
   }
   return scopeSet ? _tagMemo.items.filter(i => scopeSet.has(i.e.source_list)) : _tagMemo.items.slice();
@@ -8442,6 +8443,13 @@ function renderPracticeUI() {
     return;
   }
   const r = practiceRow(i), t = Exam.tags[i] || (Exam.tags[i] = { cat: "", cid: "" });
+  // A question that already has a complete tag (from any earlier test) is not tagged again: show the tag and how often it was missed.
+  const tagged = r.type && r.reference_no !== "";
+  const tg = tagged ? getTagFor(r.source_list, r.reference_no) : null;
+  const meLog = tagged ? findMistakeEntry(loadMistakeLog(), r.source_list, r.reference_no) : null, occ = meLog ? (meLog.occurrences || []).length : 0;
+  const already = !!(tg && tagComplete(tg.entry, conceptIdSet()) && !t.retag);
+  if (tg && !already && !t.retag && !t.seeded) { t.seeded = true; if (!t.cat && !t.cid) { t.cat = normCategory(tg.entry.category); t.cid = tg.entry.concept_id || ""; } }   // half-finished tag: only the missing part is asked
+  const missLine = occ ? `<div class="hint" style="margin-top:6px;">\u{1F501} You've missed this ${occ} time${occ === 1 ? "" : "s"} before${r.type === "wrong" ? ` (${occ + 1} with this one)` : ""}.</div>` : "";
   const ctx = qsCtx(r.source_list, r.reference_no, r.question, r.your_answer, r.correct_answer);
   const engines = Object.keys(QS_ENGINES).map(k => `<option value="${k}"${k === qsEngine() ? " selected" : ""}>${esc(QS_ENGINES[k].label)}</option>`).join("");
   const typeLbl = { wrong: "Wrong answer", guess: "Right guess", flag: "Flagged \u00b7 right" }[r.type] || "";
@@ -8455,6 +8463,11 @@ function renderPracticeUI() {
     h += `<p class="hint" style="margin-top:8px;">Confident and correct, so nothing to tag. Flag it if you want to tag it anyway.</p>`;
   } else if (r.reference_no === "") {
     h += `<p class="hint" style="margin-top:8px;">This question has no bank reference, so it can't be tagged.</p>`;
+  } else if (already) {
+    const te = tg.entry, tx2 = taxInfo(te.category), cn = te.concept_id && findConcept(te.concept_id);
+    h += `<div style="margin-top:8px;"><span class="status-pill" style="background:${r.type === "wrong" ? "var(--red)" : r.type === "guess" ? "var(--violet)" : "var(--amber)"};color:#fff;">${typeLbl}</span> <span class="status-pill status-green">\u2713 Already tagged</span></div>
+      <div class="hint" style="margin-top:6px;">${tx2 ? `${esc(NEED_INFO[tx2.need].icon)} <b>${esc(tx2.action)}</b>` : "Bank problem (Other)"}${cn ? ` &middot; ${esc(cn.name)}` : ""}. Nothing to tag again.</div>${missLine}
+      <button class="btn link" id="pmRetag" style="margin-top:4px;">Change the tag</button>`;
   } else {
     h += `<div style="margin-top:8px;"><span class="status-pill" style="background:${r.type === "wrong" ? "var(--red)" : r.type === "guess" ? "var(--violet)" : "var(--amber)"};color:#fff;">${typeLbl}</span> <span class="hint">needs a tag</span></div>
       <label class="field-label">1 \u00b7 What do you need to do about it?</label>
@@ -8463,10 +8476,15 @@ function renderPracticeUI() {
       <select id="pmConcept"></select>
       <div id="pmSuggest" class="row wrap" style="gap:6px;margin-top:6px;"></div>
       <div class="row" style="gap:6px;margin-top:6px;"><input type="text" id="pmConceptNew" placeholder="Add a new concept, e.g. n-factor of KMnO4"><button class="btn primary" id="pmConceptAdd" style="flex:none;">Add</button></div>
-      <div class="hint" id="pmStatus" style="margin-top:8px;"></div>`;
+      <div class="hint" id="pmStatus" style="margin-top:8px;"></div>${missLine}`;
   }
   panel.innerHTML = h;
   if (!r.type || r.reference_no === "") { wirePracticeCopy(i); return; }
+  if (already) {
+    const rb = $("pmRetag");
+    if (rb) rb.addEventListener("click", () => { t.retag = true; t.cat = normCategory(tg.entry.category); t.cid = tg.entry.concept_id || ""; persistExamProgress(); renderPracticeUI(); });
+    wirePracticeCopy(i); return;
+  }
 
   const catSel = $("pmCategory"), conSel = $("pmConcept");
   catSel.innerHTML = tagCategoryOptions(t.cat); catSel.value = t.cat || "";
