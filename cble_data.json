@@ -74026,6 +74026,15 @@
       "pct": 83,
       "date": "2026-11-13T12:43:35",
       "time_used_seconds": 11177.6
+    },
+    {
+      "id": "179467112619474",
+      "source": "ARC_CEP_MOCK",
+      "score": 46,
+      "total": 75,
+      "pct": 61.3,
+      "date": "2026-11-14T15:45:26",
+      "time_used_seconds": 1642.4
     }
   ],
   "exam_details": [
@@ -142440,6 +142449,838 @@
           "correct_answer": "D. 4,4-dimethyl-2-cyclohexenol"
         }
       ]
+    },
+    {
+      "exam_id": "179467112619474",
+      "source": "ARC_CEP_MOCK",
+      "date": "2026-11-14T15:45:26",
+      "items": [
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 40,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A sparingly soluble gas (solute) is in equilibrium with a solvent at 10 bar. The mole fraction of the solute in the solvent of the gas phase is 0.01. At the operating temperature and pressure, the fugacity coefficient of the solute in the gas phase and Henry's law constant are 0.92 and 1000 bar, respectively. Assume the liquid phase obeys Henry's law. The mole percent of solute in the liquid phase is:",
+          "your_answer": "C. 0.0001",
+          "correct_answer": "D. 0.0092"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 75,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An aqueous suspension at 60°C is fed to the first effect of a double-effect forward-feed evaporator with a mass flow rate of 1.25 kg/s. The sum of the rates of water evaporated from the first and second effects is 1.0 kg/s. Temperatures of the exit streams from the first and second effects are 100°C and 60°C, respectively. Consider the specific heat of the aqueous suspension and the latent heat of phase change for water to be 4 kJ/(kg·K) and 2200 kJ/kg, respectively, over this temperature range. The steam economy is:",
+          "your_answer": "C. 2.2",
+          "correct_answer": "A. 1.8"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 1,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The roof of a building has an emissivity of 0.9 and an absorptivity of 0.8 for solar radiation. The sun heats down at midday with an intensity of 300 BTU/hr-ft². If the temperature of the air and the surrounding is 80°F, if the wind velocity is negligible, and if no heat penetrates the roof, what is the equilibrium temperature of the roof?",
+          "your_answer": "A. 210°F",
+          "correct_answer": "D. 240°F"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 29,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Psychrometry deals with the properties of gas-vapor mixtures. Humidity can be determined by the measurement of the __________ of a fiber.",
+          "your_answer": "A. Electrical resistance",
+          "correct_answer": "A. Electrical resistance"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 50,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "One mole of an ideal gas is compressed isothermally but irreversibly at 130°C from 2.5 bar to 6.5 bar in a piston/cylinder device. The work required is 30% greater than the work of reversible, isothermal compression. The heat transferred from the gas during compression flows to a heat reservoir at 25°C. Calculate the total entropy change.",
+          "your_answer": "B. 1.12 J/(mol·K)",
+          "correct_answer": "A. 6.02 J/(mol·K)"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 25,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The interfacial area per unit volume of dispersion, in a gas-liquid contactor, for fractional holdup of gas = 0.1 and gas bubble diameter = 0.5 mm is given by (in m²/m³):",
+          "your_answer": "A. 500",
+          "correct_answer": "C. 1200"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 48,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following efficiencies can be greater than 100%?",
+          "your_answer": "C. Murphree plate efficiency",
+          "correct_answer": "C. Murphree plate efficiency"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 69,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following pipe fittings generally produces the highest pressure drop when flow passes through its branch?",
+          "your_answer": "A. Tee fitting",
+          "correct_answer": "A. Tee fitting"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 67,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is not used as a filter aid?",
+          "your_answer": "D. Rice husk",
+          "correct_answer": "D. Rice husk"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 23,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is a characteristic of an ideal plug flow reactor?",
+          "your_answer": "B. Flat velocity profile",
+          "correct_answer": "B. Flat velocity profile"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 60,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Leidenfrost phenomenon is true for:",
+          "your_answer": "D. Film boiling evaporation of liquid droplets falling on a very hot surface",
+          "correct_answer": "D. Film boiling evaporation of liquid droplets falling on a very hot surface"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 17,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "1 mol of methane undergoes complete combustion in a stoichiometric amount of air. The reaction proceeds: CH₄ + 2O₂ → CO₂ + 2H₂O. Both the reactants and products are in gas phase. ΔH°₂₉₈ K = −730 kJ/mol of methane. If the average specific heat of all the gases/vapor is 40 J/(mol·K), the maximum temperature rise of the exhaust gases in °C would be approximately equal to:",
+          "your_answer": "A. 1525",
+          "correct_answer": "C. 1735"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 39,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "A steam turbine operates with superheated steam flowing at 1 kg/s. This steam is supplied at 41 bar and 500°C and discharges at 1.01325 bar and 100°C. Data: At 41 bar, 500°C: H = 3443.9 kJ/kg, S = 7.0785 kJ/(kg·K). At 41 bar, 100°C: Hₛ = 2799.9 kJ/kg, Sₛ = 6.0583 kJ/(kg·K). At 1.01325 bar, 100°C: Hₛᵥ = 2676 kJ/kg, Hₛₗ = 419.1 kJ/kg, Sₛᵥ = 7.3554 kJ/(kg·K), Sₛₗ = 1.3069 kJ/(kg·K). The maximum power output (in kW) will be:",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "A. 871.3"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 3,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In case of calcination of limestone, CaCO₃ → CaO + CO₂, the addition of more CaO will result in __________ in the concentration of CO₂.",
+          "your_answer": "A. No change",
+          "correct_answer": "A. No change"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following products does not typically require nitric acid in its manufacturing process?",
+          "your_answer": "A. Detergents",
+          "correct_answer": "A. Detergents"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 55,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "For all positive reaction orders for a particular duty:",
+          "your_answer": "A. Mixed reactor is always larger than the plug-flow reactor.",
+          "correct_answer": "A. Mixed reactor is always larger than the plug-flow reactor."
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 44,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "An equimolar binary mixture is to be separated in a simple tray-distillation column. The feed rate is 50 kmol/min. The mole fractions of the more volatile component in the top and bottom products are 0.90 and 0.01, respectively. The feed as well as the reflux stream are saturated liquids. On application of the McCabe-Thiele method, the operating line for the stripping section is obtained as: y = 1.5x − 0.005, where y and x are the mole fractions of the more volatile component in the vapor and liquid phases, respectively. Calculate the reflux ratio.",
+          "your_answer": "B. 0.63",
+          "correct_answer": "B. 0.63"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 73,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In the adsorption separation of light hydrocarbons using activated carbon, which gas is the most suitable for use as an elutriating agent?",
+          "your_answer": "A. Propane",
+          "correct_answer": "A. Propane"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Acetone is being absorbed by water in a packed tower having a cross-sectional area of 0.186 m² at 293 K and 101.32 kPa. At these conditions, the equilibrium relation is given by y = 1.186x. The inlet air contains 2.6 mol% acetone and outlet 0.5 mol%. The gas flow is 13.65 kmol air/h. The pure water flow is 45.36 kmol/h. Film coefficients for the given flows in the tower are kᵧa = 3.8 × 10⁻² kmol/(s·m³) and kₓa = 6.2 × 10⁻² kmol/(s·m³). Calculate the height of transfer unit.",
+          "your_answer": "B. 0.93 m",
+          "correct_answer": "B. 0.93 m"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 42,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "During a reactor performance test, engineers study the following gas-phase reaction in a plug flow reactor: A + 3B → 2C. The reactor operates at constant temperature and pressure and achieves 20% conversion of A. The feed contains reactants A and B together with an inert gas. During the trial, engineers notice that the concentration of A remains unchanged throughout the reactor. Assuming ideal gas behavior, which inlet molar ratio (A: B: Inert) is consistent with this observation?",
+          "your_answer": "C. 3:2:1",
+          "correct_answer": "C. 3:2:1"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 57,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "In an air-standard Diesel cycle, compression starts at 100 kPa and 300 K. The compression ratio is 16:1. The maximum cycle temperature is 2031 K. Determine the thermal efficiency.",
+          "your_answer": "B. 64.15%",
+          "correct_answer": "A. 60.27%"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 70,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In constant-pressure filtration:",
+          "your_answer": "D. Rate of filtration decreases with time",
+          "correct_answer": "D. Rate of filtration decreases with time"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 26,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "A closed rigid container has a volume of 1 m³ and holds air at 345 kPa and 20°C until the temperature is 327°C. Determine the change in internal energy using an average value of the specific heat. Cᵥ at 20°C = 764 J/(kg·K) and Cᵥ at 327°C = 718 J/(kg·K).",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "D. 930 kJ"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 46,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Elastic failure of a material occurs when the tensile stress equals yield strength, yield point, or the elastic limit. Also, elastic failure occurs according to maximum strain theory when the maximum tensile strain equals (where σ = yield strength and E = modulus of elasticity):",
+          "your_answer": "B. σ/E",
+          "correct_answer": "B. σ/E"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 49,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "__________ heat exchanger is also known as a \"hairpin-type\" exchanger.",
+          "your_answer": "A. Double pipe",
+          "correct_answer": "A. Double pipe"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 63,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A Carnot heat engine cycle is working with an ideal gas. The work performed by the gas during the adiabatic expansion and compression steps, W₁ and W₂ respectively, are related as:",
+          "your_answer": "D. W₁ = −W₂",
+          "correct_answer": "D. W₁ = −W₂"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 21,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A double-suction centrifugal pump delivers 70 ft³/s of water at a head of 12 m and runs at 1250 rpm. What is the specific speed of the pump?",
+          "your_answer": "A. 9968 rpm",
+          "correct_answer": "A. 9968 rpm"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 47,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A cylindrical pressure vessel of volume 6π m³ must be designed to withstand a maximum internal pressure of 10 atm. The allowable design stress of the material is 125 N/mm² and corrosion allowance is 2 mm. The thickness of the vessel for a length/diameter ratio of 3 will be close to:",
+          "your_answer": "D. 10 mm",
+          "correct_answer": "D. 10 mm"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 18,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Pure water is to be obtained from a feed containing 5 wt% salt using a desalination unit. If the overall recovery of pure water is 0.75 kg/kg feed, then the recycle ratio, R/F, is:",
+          "your_answer": "C. 0.75",
+          "correct_answer": "B. 0.50"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 38,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A cooling tower cools water from 95°F to 80°F using atmospheric air with a wet-bulb temperature of 70°F. What are the range and approach of the cooling tower, respectively?",
+          "your_answer": "A. 10°F and 15°F",
+          "correct_answer": "B. 15°F and 10°F"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 36,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "Ten thousand kilograms per hour of an equimolar mixture of benzene and toluene is subjected to fractionation (distillation) so as to produce a distillate having the composition of 95% benzene and the bottom product with a composition of 96% toluene. The column is provided with a condenser in which the vapor product leaving the top is totally condensed. It was found that the vapor flow rate was 8000 kg/h. A part of the condensate is recycled to the column as reflux and the other part is removed as the distillate product. The vapor, reflux, and distillate have the same composition. All compositions are on mole basis. Determine the reflux ratio of the column if it is defined as the quantity of condensate recycled to the quantity withdrawn as distillate product.",
+          "your_answer": "B. 0.50",
+          "correct_answer": "D. 0.71"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 72,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "At 100°C, water and methylcyclohexane both have vapor pressures of 1 atm. Also, at 100°C, the latent heats of vaporization of these compounds are 40.63 kJ/mol for water and 31.55 kJ/mol for methylcyclohexane. The vapor pressure of water at 150°C is 4.69 atm. At 150°C, the vapor pressure of methylcyclohexane would be expected to be:",
+          "your_answer": "C. Significantly more than 4.69 atm",
+          "correct_answer": "A. Significantly less than 4.69 atm"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 20,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The clearance of a diesel cycle is 10%. If the initial temperature is 27°C, determine the final temperature.",
+          "your_answer": "A. 620°C",
+          "correct_answer": "B. 510°C"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 59,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "If the baffle spacing in a shell-and-tube heat exchanger increases, then the Reynolds number of the shell-side fluid:",
+          "your_answer": "D. Decreases",
+          "correct_answer": "D. Decreases"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 15,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Dehydrogenation of ethane, C₂H₆(g) → C₂H₄(g) + H₂(g), is carried out in a Continuous Stirred Tank Reactor (CSTR). The feed is pure ethane. If the reactor exit stream contains unconverted ethane along with products, then the number of degrees of freedom of the CSTR is:",
+          "your_answer": "D. 2",
+          "correct_answer": "D. 2"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 56,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "For high-pressure process equipment/vessels, the connected nozzle should be:",
+          "your_answer": "A. Welded",
+          "correct_answer": "A. Welded"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 64,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "100 mol of a binary mixture F containing 60 mol% A (more volatile) and 40 mol% B is treated in a batch distillation still. After 1 h, 70 mol of the distillate are collected, leaving the residue W. Relative volatility is 2. Calculate the average mole fraction of A in the distillate.",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "B. 0.69"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which allotrope of sulfur is insoluble in carbon disulfide?",
+          "your_answer": "B. Plastic sulfur",
+          "correct_answer": "B. Plastic sulfur"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 52,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "The furnace at the Bataan Refinery is using a fuel gas which contains methane, ethane, and 20% nitrogen. The Orsat analysis of the combustion products showed 7.8% CO₂, 7.4% O₂, and 84.8% N₂. The gas is burned with excess air. The % methane in the fuel gas is:",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 57.24"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 8,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "Rate constant of a first-order reaction, which is half completed in 23 minutes, will be:",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 0.03 min⁻¹"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 68,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is a batch sedimentation equipment?",
+          "your_answer": "C. Filter thickener",
+          "correct_answer": "C. Filter thickener"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 45,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Filtration rate does not depend upon the:",
+          "your_answer": "D. None of these",
+          "correct_answer": "D. None of these"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 61,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The second-order system with the transfer function 4/(s² + 2s + 4) has a damping ratio of:",
+          "your_answer": "A. 2.0",
+          "correct_answer": "B. 0.5"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 37,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "The distance between the center of a rivet hole to the nearest edge of the plate is called:",
+          "your_answer": "C. Margin",
+          "correct_answer": "C. Margin"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 62,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "A reversible heat engine operating between reservoirs at 900 K and 300 K drives a reversible refrigerator operating between reservoirs at 300 K and 250 K. The heat engine receives 1800 kJ of heat from the 900 K reservoir. The net output from the combined engine-refrigerator is 360 kJ. Find the net heat rejected to the reservoir at 300 K.",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "A. 5600 kJ"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 22,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The change in entropy of the system undergoing a cyclic irreversible process is:",
+          "your_answer": "C. Equal to zero",
+          "correct_answer": "C. Equal to zero"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 24,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the unit of the rate constant in a chemical reaction in which 10% of the reactant decomposes in one hour, 20% in two hours, 30% in three hours, and so on?",
+          "your_answer": "C. Moles/(liter·second)",
+          "correct_answer": "C. Moles/(liter·second)"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 16,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A dehumidifier is used to completely remove water vapor from air. Which one of the following statements is true?",
+          "your_answer": "C. Both water and air are the tie component.",
+          "correct_answer": "C. Both water and air are the tie component."
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following aromatic hydrocarbons is a major commercially recovered constituent of coal tar?",
+          "your_answer": "C. Naphthalene",
+          "correct_answer": "C. Naphthalene"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 4,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "A mixture of methyl alcohol and nitrogen at a total pressure of 189 kPa contains 25 vol% methyl alcohol. If the vapor pressure of methyl alcohol can be expressed by a two-constant equation: log₁₀P = 7.846 − 1978.4/T, where P is in kPa and T is in K, the dew point of the mixture (°C) is very nearly:",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 47"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 6,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is not strictly required for crystallization to occur?",
+          "your_answer": "B. Low temperature",
+          "correct_answer": "B. Low temperature"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 30,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Vegetable oils are hydrogenated in a __________ reactor.",
+          "your_answer": "A. Slurry",
+          "correct_answer": "A. Slurry"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 28,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Consider a vapor-liquid mixture of components A and B that obeys Raoult's law. The vapor pressure of A is half that of B. The vapor phase concentrations of A and B are 3 mol/m³ and 6 mol/m³, respectively. At equilibrium, the ratio of the liquid phase concentration of A to that of B is:",
+          "your_answer": "D. 1.5",
+          "correct_answer": "A. 1.0"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 66,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Welded joint efficiency in the design of chemical process equipment is taken as:",
+          "your_answer": "B. 0.85",
+          "correct_answer": "B. 0.85"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 54,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "On a hot summer day, the temperature is 35°C, barometric pressure is 103 kPa, and the relative humidity is 90%. An air conditioner draws in outside air, cools it to 20°C, and delivers it at a rate of 12,500 L/hr. Calculate the rate of moisture condensation.",
+          "your_answer": "A. 0.15 kg/h",
+          "correct_answer": "B. 0.27 kg/h"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 74,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A valve goes from fully closed to fully open when the temperature reading changes from 300 K to 315 K. In the process being controlled by the valve, the temperature can be as low as 290 K and as high as 330 K. Determine the proportional gain.",
+          "your_answer": "B. 2.67",
+          "correct_answer": "B. 2.67"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 41,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "For laminar flow of a shear-thinning liquid in a pipe, if the volumetric flow rate is doubled, the pressure gradient will increase by a factor of:",
+          "your_answer": "A. 2",
+          "correct_answer": "C. Less than 2"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 9,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "What is the dispersion number for a CSTR?",
+          "your_answer": "D. ∞",
+          "correct_answer": "D. ∞"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 58,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A heat exchanger is to be designed for the following specifications: Hot gas temperature = 1145°C, Cold gas temperature = 45°C, Unit surface conductance on the hot side = 230 W/(m²·K), Unit surface conductance on the cold side = 290 W/(m²·K), Thermal conductivity of the metal wall = 115 W/(m·K). Find the maximum thickness of the metal wall between the hot gas and the cold gas, so that the maximum temperature of the wall does not exceed 545°C.",
+          "your_answer": "C. 20 mm",
+          "correct_answer": "C. 20 mm"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 7,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The feed to a binary distillation column is 25 mol% vapor and the balance liquid. The slope of the q-line with respect to the positive direction of the x-axis on the x-y diagram is closest to:",
+          "your_answer": "B. −3.0",
+          "correct_answer": "B. −3.0"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 65,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "It is desired to obtain some idea of the feasibility of separating a mixture of o- and p-dichlorobenzene by continuous fractionation at atmospheric pressure. The mixture to be separated contains 13.5 weight percent p-dichlorobenzene, and it is desired to obtain a top product containing 75 weight percent of the para compound and a bottom product containing 1 weight percent of the para compound. The column will be equipped with a total condenser. Determine the number of theoretical plates required at total reflux.",
+          "your_answer": "B. 37",
+          "correct_answer": "B. 37"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 53,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "In a co-current heat exchanger, an oil stream is cooled from 450 K to 410 K by water with inlet and outlet temperatures of 300 K and 350 K, respectively. The exchanger consists of a number of tubes of 1 m length each. It is now desired to cool the oil to 390 K (instead of 410 K) while maintaining the flow rate of oil, flow rate of water, inlet temperatures of oil and water, and the number of tubes at the same values as before. Calculate the length of each tube required for this purpose. Assume that the physical properties remain unchanged.",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 2.5 m"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 27,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "A reciprocating internal combustion engine has a clearance volume of 0.0001 m³ and a volume ratio of 10. The pressure and temperature of the combustion gases when the piston is at top dead center are 4000 kN/m² and 1800°C, respectively. Assuming that the expansion process follows PV¹·³ = constant, calculate the work transfer in this process.",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "B. 67 J"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 2,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "At equal mass velocities, the values of film coefficients for gases as compared to that for liquids are generally:",
+          "your_answer": "C. Lower",
+          "correct_answer": "C. Lower"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 33,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A liquid mixture of 45% benzene and 55% toluene is to be distilled in a fractionating tower. A distillate containing 95% benzene is to be obtained. Liquid with 60% benzene leaves a certain tray in the enriching section where vapor with 67% benzene enters. Determine the reflux ratio.",
+          "your_answer": "B. 3.0",
+          "correct_answer": "C. 4.0"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 43,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The inlet pressure in a constant-rate filtration:",
+          "your_answer": "A. Increases continuously",
+          "correct_answer": "A. Increases continuously"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 31,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A composite wall of an oven consists of three materials A, B, and C. Under steady-state operating conditions, the outer surface temperature Tₛₒ is 20°C. The inner surface temperature Tₛᵢ is 600°C and the oven temperature T∞ is 800°C. For the following data: thermal conductivities, kₐ = 20 W/(m·K), k꜀ = 50 W/(m·K); thicknesses tₐ = 0.3 m, tᵦ = 0.15 m, and t꜀ = 0.15 m; inner wall heat transfer coefficient, h = 25 W/(m²·K). What is the thermal conductivity kᵦ in W/(m·K) of material B?",
+          "your_answer": "C. 1.53",
+          "correct_answer": "C. 1.53"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 11,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Q + W = 0 defines:",
+          "your_answer": "B. First Law of Thermodynamics for cyclic processes",
+          "correct_answer": "B. First Law of Thermodynamics for cyclic processes"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 34,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "In a batch drying experiment, a solid with a critical moisture content of 0.2 kg H₂O/kg dry solid is dried from an initial moisture content of 0.35 kg H₂O/kg dry solid to a final moisture content of 0.1 kg H₂O/kg dry solid in 5 h. In the constant-rate regime, the rate of drying is 2 kg H₂O/(m²·h). The entire falling-rate regime is assumed to be uniformly linear. The equilibrium moisture content is assumed to be zero. The mass of the dry solid per unit area is ___ kg/m².",
+          "your_answer": "C. 21",
+          "correct_answer": "A. 35"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 32,
+          "is_correct": false,
+          "is_answered": false,
+          "is_flagged": false,
+          "confidence": null,
+          "question": "Drying of a sample from 20% moisture to 15% moisture takes 2 hours. If the critical moisture content is 16%, and the equilibrium moisture content is 4%, how long will it take to dry the sample to a free moisture content of 5%?",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "A. 5.8 hrs"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 19,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "In boiler design, it is desired to have a flue gas exit temperature above the dew point. Estimate the dew point temperature of the flue gas produced by combustion having the gravimetric analysis of: N₂ = 71.84%, CO₂ = 20.35%, O₂ = 3.61%, and H₂O = 4.20%.",
+          "your_answer": "B. 45°C",
+          "correct_answer": "C. 39°C"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 71,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "For flow through a smooth pipe, the Fanning friction factor (f) is given by f = mRe⁻⁰·² in the turbulent flow regime. Water flowing through a section of this pipe with a velocity of 1 m/s results in a frictional pressure drop of 10 kPa. What will be the pressure drop across this section (in kPa), when the velocity is 2 m/s?",
+          "your_answer": "B. 34.8",
+          "correct_answer": "B. 34.8"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 35,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A heat source of 800 K loses 2000 kJ of heat to a sink at 500 K. Compute the entropy generated during this process.",
+          "your_answer": "B. 1.5 kJ/K",
+          "correct_answer": "B. 1.5 kJ/K"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 51,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following terms describes the frictional resistance caused by viscous shear stresses in an unseparated boundary layer along a solid surface?",
+          "your_answer": "A. Skin friction",
+          "correct_answer": "A. Skin friction"
+        },
+        {
+          "source_list": "ARC_CEP_MOCK_BOARDS",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which substance is the principal organic component of oil shale?",
+          "your_answer": "B. Kerogen",
+          "correct_answer": "B. Kerogen"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -181450,9 +182291,16 @@
           "date": "2026-11-12T15:25:22",
           "your_answer": "A. 2.0",
           "correct_answer": "C. 4.0"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:30",
+          "your_answer": "B. 3.0",
+          "correct_answer": "C. 4.0"
         }
       ],
-      "updated_at": "2026-11-12T15:25:30",
+      "updated_at": "2026-11-14T15:45:30",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:25:30",
       "note_at": ""
@@ -181473,9 +182321,16 @@
           "date": "2026-11-12T15:25:23",
           "your_answer": "B. 767.9",
           "correct_answer": "A. 871.3"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:27",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "A. 871.3"
         }
       ],
-      "updated_at": "2026-11-12T15:25:30",
+      "updated_at": "2026-11-14T15:45:27",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:25:30",
       "note_at": ""
@@ -181496,9 +182351,16 @@
           "date": "2026-11-12T15:25:23",
           "your_answer": "D. 23°C",
           "correct_answer": "C. 39°C"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:31",
+          "your_answer": "B. 45°C",
+          "correct_answer": "C. 39°C"
         }
       ],
-      "updated_at": "2026-11-12T15:25:30",
+      "updated_at": "2026-11-14T15:45:31",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:25:30",
       "note_at": ""
@@ -181565,9 +182427,16 @@
           "date": "2026-11-12T15:25:23",
           "your_answer": "A. 10°F and 15°F",
           "correct_answer": "B. 15°F and 10°F"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:28",
+          "your_answer": "A. 10°F and 15°F",
+          "correct_answer": "B. 15°F and 10°F"
         }
       ],
-      "updated_at": "2026-11-12T15:25:30",
+      "updated_at": "2026-11-14T15:45:28",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:25:30",
       "note_at": ""
@@ -181588,9 +182457,16 @@
           "date": "2026-11-12T15:25:23",
           "your_answer": "B. 50.20",
           "correct_answer": "C. 57.24"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:29",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 57.24"
         }
       ],
-      "updated_at": "2026-11-12T15:25:31",
+      "updated_at": "2026-11-14T15:45:29",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:25:31",
       "note_at": ""
@@ -181634,9 +182510,16 @@
           "date": "2026-11-12T15:25:24",
           "your_answer": "A. 2",
           "correct_answer": "C. Less than 2"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:30",
+          "your_answer": "A. 2",
+          "correct_answer": "C. Less than 2"
         }
       ],
-      "updated_at": "2026-11-12T15:26:46",
+      "updated_at": "2026-11-14T15:45:30",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:26:46",
       "note_at": ""
@@ -181715,10 +182598,10 @@
       "source_list": "ARC_CEP_MOCK_BOARDS",
       "reference_no": 25,
       "question": "The interfacial area per unit volume of dispersion, in a gas-liquid contactor, for fractional holdup of gas = 0.1 and gas bubble diameter = 0.5 mm is given by (in m²/m³):",
-      "category": "Unfamiliar Topic",
+      "category": "Forgot a Concept",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-11-12T15:25:32",
+      "date_logged": "2026-11-14T15:45:32",
       "occurrences": [
         {
           "exam_id": "179449712249766",
@@ -181726,11 +182609,18 @@
           "date": "2026-11-12T15:25:24",
           "your_answer": "A. 500",
           "correct_answer": "C. 1200"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:27",
+          "your_answer": "A. 500",
+          "correct_answer": "C. 1200"
         }
       ],
-      "updated_at": "2026-11-12T15:25:32",
+      "updated_at": "2026-11-14T15:45:32",
       "concept_id": "1794417882478383",
-      "tag_at": "2026-11-12T15:25:32",
+      "tag_at": "2026-11-14T15:45:32",
       "note_at": ""
     },
     {
@@ -181738,10 +182628,10 @@
       "source_list": "ARC_CEP_MOCK_BOARDS",
       "reference_no": 17,
       "question": "1 mol of methane undergoes complete combustion in a stoichiometric amount of air. The reaction proceeds: CH₄ + 2O₂ → CO₂ + 2H₂O. Both the reactants and products are in gas phase. ΔH°₂₉₈ K = −730 kJ/mol of methane. If the average specific heat of all the gases/vapor is 40 J/(mol·K), the maximum temperature rise of the exhaust gases in °C would be approximately equal to:",
-      "category": "Unfamiliar Topic",
+      "category": "Forgot a Concept",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-11-12T15:25:32",
+      "date_logged": "2026-11-14T15:45:32",
       "occurrences": [
         {
           "exam_id": "179449712249766",
@@ -181749,11 +182639,18 @@
           "date": "2026-11-12T15:25:25",
           "your_answer": "A. 1525",
           "correct_answer": "C. 1735"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:27",
+          "your_answer": "A. 1525",
+          "correct_answer": "C. 1735"
         }
       ],
-      "updated_at": "2026-11-12T15:25:32",
+      "updated_at": "2026-11-14T15:45:32",
       "concept_id": "1794417882478383",
-      "tag_at": "2026-11-12T15:25:32",
+      "tag_at": "2026-11-14T15:45:32",
       "note_at": ""
     },
     {
@@ -181772,9 +182669,16 @@
           "date": "2026-11-12T15:25:25",
           "your_answer": "B. Nearly equal to 4.69 atm",
           "correct_answer": "A. Significantly less than 4.69 atm"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:28",
+          "your_answer": "C. Significantly more than 4.69 atm",
+          "correct_answer": "A. Significantly less than 4.69 atm"
         }
       ],
-      "updated_at": "2026-11-12T15:25:32",
+      "updated_at": "2026-11-14T15:45:28",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:25:32",
       "note_at": ""
@@ -181810,7 +182714,7 @@
       "category": "Unfamiliar Topic",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-11-12T15:25:32",
+      "date_logged": "2026-11-14T15:45:31",
       "occurrences": [
         {
           "exam_id": "179449712249766",
@@ -181818,11 +182722,18 @@
           "date": "2026-11-12T15:25:25",
           "your_answer": "A. 210°F",
           "correct_answer": "D. 240°F"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:26",
+          "your_answer": "A. 210°F",
+          "correct_answer": "D. 240°F"
         }
       ],
-      "updated_at": "2026-11-12T15:25:32",
-      "concept_id": "1794417882478383",
-      "tag_at": "2026-11-12T15:25:32",
+      "updated_at": "2026-11-14T15:45:31",
+      "concept_id": "1792319818450685",
+      "tag_at": "2026-11-14T15:45:31",
       "note_at": ""
     },
     {
@@ -181841,9 +182752,16 @@
           "date": "2026-11-12T15:25:25",
           "your_answer": "B. 620 kJ",
           "correct_answer": "D. 930 kJ"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:27",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "D. 930 kJ"
         }
       ],
-      "updated_at": "2026-11-12T15:25:32",
+      "updated_at": "2026-11-14T15:45:27",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:25:32",
       "note_at": ""
@@ -181981,9 +182899,16 @@
           "date": "2026-11-12T15:25:26",
           "your_answer": "A. 0.25",
           "correct_answer": "B. 0.50"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:28",
+          "your_answer": "C. 0.75",
+          "correct_answer": "B. 0.50"
         }
       ],
-      "updated_at": "2026-11-12T15:25:33",
+      "updated_at": "2026-11-14T15:45:28",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:25:33",
       "note_at": ""
@@ -182050,9 +182975,16 @@
           "date": "2026-11-12T15:25:27",
           "your_answer": "D. 67.04%",
           "correct_answer": "A. 60.27%"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:27",
+          "your_answer": "B. 64.15%",
+          "correct_answer": "A. 60.27%"
         }
       ],
-      "updated_at": "2026-11-12T15:25:34",
+      "updated_at": "2026-11-14T15:45:27",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:25:34",
       "note_at": ""
@@ -182073,9 +183005,16 @@
           "date": "2026-11-12T15:25:27",
           "your_answer": "B. 0.5",
           "correct_answer": "A. 1.0"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:29",
+          "your_answer": "D. 1.5",
+          "correct_answer": "A. 1.0"
         }
       ],
-      "updated_at": "2026-11-12T15:25:34",
+      "updated_at": "2026-11-14T15:45:29",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:25:34",
       "note_at": ""
@@ -182096,9 +183035,16 @@
           "date": "2026-11-12T15:25:27",
           "your_answer": "C. 540°C",
           "correct_answer": "B. 510°C"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:28",
+          "your_answer": "A. 620°C",
+          "correct_answer": "B. 510°C"
         }
       ],
-      "updated_at": "2026-11-12T15:25:34",
+      "updated_at": "2026-11-14T15:45:28",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:25:34",
       "note_at": ""
@@ -182165,9 +183111,16 @@
           "date": "2026-11-12T15:25:28",
           "your_answer": "D. 1200 kJ",
           "correct_answer": "A. 5600 kJ"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:29",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "A. 5600 kJ"
         }
       ],
-      "updated_at": "2026-11-12T15:25:35",
+      "updated_at": "2026-11-14T15:45:29",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:25:35",
       "note_at": ""
@@ -182257,9 +183210,16 @@
           "date": "2026-11-12T15:25:28",
           "your_answer": "B. 0.50",
           "correct_answer": "D. 0.71"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:28",
+          "your_answer": "B. 0.50",
+          "correct_answer": "D. 0.71"
         }
       ],
-      "updated_at": "2026-11-12T15:25:36",
+      "updated_at": "2026-11-14T15:45:28",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:25:36",
       "note_at": ""
@@ -182349,9 +183309,16 @@
           "date": "2026-11-12T15:25:29",
           "your_answer": "B. 1.8 m",
           "correct_answer": "C. 2.5 m"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:30",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 2.5 m"
         }
       ],
-      "updated_at": "2026-11-12T15:25:36",
+      "updated_at": "2026-11-14T15:45:30",
       "concept_id": "1794417882478383",
       "tag_at": "2026-11-12T15:25:36",
       "note_at": ""
@@ -182361,10 +183328,10 @@
       "source_list": "ARC_CEP_MOCK_BOARDS",
       "reference_no": 75,
       "question": "An aqueous suspension at 60°C is fed to the first effect of a double-effect forward-feed evaporator with a mass flow rate of 1.25 kg/s. The sum of the rates of water evaporated from the first and second effects is 1.0 kg/s. Temperatures of the exit streams from the first and second effects are 100°C and 60°C, respectively. Consider the specific heat of the aqueous suspension and the latent heat of phase change for water to be 4 kJ/(kg·K) and 2200 kJ/kg, respectively, over this temperature range. The steam economy is:",
-      "category": "Unfamiliar Topic",
+      "category": "Forgot a Concept",
       "note": "",
       "resolved": false,
-      "date_logged": "2026-11-12T15:25:36",
+      "date_logged": "2026-11-14T15:45:31",
       "occurrences": [
         {
           "exam_id": "179449712249766",
@@ -182372,11 +183339,18 @@
           "date": "2026-11-12T15:25:29",
           "your_answer": "C. 2.2",
           "correct_answer": "A. 1.8"
+        },
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:26",
+          "your_answer": "C. 2.2",
+          "correct_answer": "A. 1.8"
         }
       ],
-      "updated_at": "2026-11-12T15:25:36",
+      "updated_at": "2026-11-14T15:45:31",
       "concept_id": "1794417882478383",
-      "tag_at": "2026-11-12T15:25:36",
+      "tag_at": "2026-11-14T15:45:31",
       "note_at": ""
     },
     {
@@ -182640,6 +183614,215 @@
       "tag_at": "2026-11-13T12:44:19",
       "note_at": "",
       "resolved_at": "2026-11-13T12:46:29"
+    },
+    {
+      "id": "1794671126530276",
+      "source_list": "ARC_CEP_MOCK_BOARDS",
+      "reference_no": 40,
+      "question": "A sparingly soluble gas (solute) is in equilibrium with a solvent at 10 bar. The mole fraction of the solute in the solvent of the gas phase is 0.01. At the operating temperature and pressure, the fugacity coefficient of the solute in the gas phase and Henry's law constant are 0.92 and 1000 bar, respectively. Assume the liquid phase obeys Henry's law. The mole percent of solute in the liquid phase is:",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-14T15:45:31",
+      "occurrences": [
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:26",
+          "your_answer": "C. 0.0001",
+          "correct_answer": "D. 0.0092"
+        }
+      ],
+      "updated_at": "2026-11-14T15:45:31",
+      "concept_id": "1794417882478383",
+      "tag_at": "2026-11-14T15:45:31"
+    },
+    {
+      "id": "1794671127046701",
+      "source_list": "ARC_CEP_MOCK_BOARDS",
+      "reference_no": 50,
+      "question": "One mole of an ideal gas is compressed isothermally but irreversibly at 130°C from 2.5 bar to 6.5 bar in a piston/cylinder device. The work required is 30% greater than the work of reversible, isothermal compression. The heat transferred from the gas during compression flows to a heat reservoir at 25°C. Calculate the total entropy change.",
+      "category": "Forgot a Concept",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-14T15:45:31",
+      "occurrences": [
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:27",
+          "your_answer": "B. 1.12 J/(mol·K)",
+          "correct_answer": "A. 6.02 J/(mol·K)"
+        }
+      ],
+      "concept_id": "1792305866742164",
+      "updated_at": "2026-11-14T15:45:31",
+      "tag_at": "2026-11-14T15:45:31"
+    },
+    {
+      "id": "1794671128925911",
+      "source_list": "ARC_CEP_MOCK_BOARDS",
+      "reference_no": 64,
+      "question": "100 mol of a binary mixture F containing 60 mol% A (more volatile) and 40 mol% B is treated in a batch distillation still. After 1 h, 70 mol of the distillate are collected, leaving the residue W. Relative volatility is 2. Calculate the average mole fraction of A in the distillate.",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-14T15:45:28",
+      "occurrences": [
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:28",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "B. 0.69"
+        }
+      ],
+      "updated_at": "2026-11-14T15:45:28"
+    },
+    {
+      "id": "1794671129265910",
+      "source_list": "ARC_CEP_MOCK_BOARDS",
+      "reference_no": 8,
+      "question": "Rate constant of a first-order reaction, which is half completed in 23 minutes, will be:",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-14T15:45:29",
+      "occurrences": [
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:29",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 0.03 min⁻¹"
+        }
+      ],
+      "updated_at": "2026-11-14T15:45:29"
+    },
+    {
+      "id": "1794671129444349",
+      "source_list": "ARC_CEP_MOCK_BOARDS",
+      "reference_no": 61,
+      "question": "The second-order system with the transfer function 4/(s² + 2s + 4) has a damping ratio of:",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-14T15:45:29",
+      "occurrences": [
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:29",
+          "your_answer": "A. 2.0",
+          "correct_answer": "B. 0.5"
+        }
+      ],
+      "updated_at": "2026-11-14T15:45:29"
+    },
+    {
+      "id": "1794671129795474",
+      "source_list": "ARC_CEP_MOCK_BOARDS",
+      "reference_no": 4,
+      "question": "A mixture of methyl alcohol and nitrogen at a total pressure of 189 kPa contains 25 vol% methyl alcohol. If the vapor pressure of methyl alcohol can be expressed by a two-constant equation: log₁₀P = 7.846 − 1978.4/T, where P is in kPa and T is in K, the dew point of the mixture (°C) is very nearly:",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-14T15:45:29",
+      "occurrences": [
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:29",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "C. 47"
+        }
+      ],
+      "updated_at": "2026-11-14T15:45:29"
+    },
+    {
+      "id": "1794671130130601",
+      "source_list": "ARC_CEP_MOCK_BOARDS",
+      "reference_no": 54,
+      "question": "On a hot summer day, the temperature is 35°C, barometric pressure is 103 kPa, and the relative humidity is 90%. An air conditioner draws in outside air, cools it to 20°C, and delivers it at a rate of 12,500 L/hr. Calculate the rate of moisture condensation.",
+      "category": "Forgot a Concept",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-14T15:45:32",
+      "occurrences": [
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:30",
+          "your_answer": "A. 0.15 kg/h",
+          "correct_answer": "B. 0.27 kg/h"
+        }
+      ],
+      "updated_at": "2026-11-14T15:45:32",
+      "concept_id": "1792306108462690",
+      "tag_at": "2026-11-14T15:45:32"
+    },
+    {
+      "id": "1794671130642685",
+      "source_list": "ARC_CEP_MOCK_BOARDS",
+      "reference_no": 27,
+      "question": "A reciprocating internal combustion engine has a clearance volume of 0.0001 m³ and a volume ratio of 10. The pressure and temperature of the combustion gases when the piston is at top dead center are 4000 kN/m² and 1800°C, respectively. Assuming that the expansion process follows PV¹·³ = constant, calculate the work transfer in this process.",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-14T15:45:30",
+      "occurrences": [
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:30",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "B. 67 J"
+        }
+      ],
+      "concept_id": "1794417882478383",
+      "updated_at": "2026-11-14T15:45:30"
+    },
+    {
+      "id": "1794671131011222",
+      "source_list": "ARC_CEP_MOCK_BOARDS",
+      "reference_no": 34,
+      "question": "In a batch drying experiment, a solid with a critical moisture content of 0.2 kg H₂O/kg dry solid is dried from an initial moisture content of 0.35 kg H₂O/kg dry solid to a final moisture content of 0.1 kg H₂O/kg dry solid in 5 h. In the constant-rate regime, the rate of drying is 2 kg H₂O/(m²·h). The entire falling-rate regime is assumed to be uniformly linear. The equilibrium moisture content is assumed to be zero. The mass of the dry solid per unit area is ___ kg/m².",
+      "category": "Careless / Computational",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-14T15:45:32",
+      "occurrences": [
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:31",
+          "your_answer": "C. 21",
+          "correct_answer": "A. 35"
+        }
+      ],
+      "updated_at": "2026-11-14T15:45:32",
+      "concept_id": "1792306350878981",
+      "tag_at": "2026-11-14T15:45:32"
+    },
+    {
+      "id": "1794671131173261",
+      "source_list": "ARC_CEP_MOCK_BOARDS",
+      "reference_no": 32,
+      "question": "Drying of a sample from 20% moisture to 15% moisture takes 2 hours. If the critical moisture content is 16%, and the equilibrium moisture content is 4%, how long will it take to dry the sample to a free moisture content of 5%?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-14T15:45:31",
+      "occurrences": [
+        {
+          "exam_id": "179467112619474",
+          "exam_source": "ARC_CEP_MOCK",
+          "date": "2026-11-14T15:45:31",
+          "your_answer": "No Answer Provided (Skipped)",
+          "correct_answer": "A. 5.8 hrs"
+        }
+      ],
+      "updated_at": "2026-11-14T15:45:31"
     }
   ],
   "guess_notes": [
@@ -189705,21 +190888,6 @@
       "resolved_at": "2026-11-12T12:17:04"
     },
     {
-      "id": "1794497133699177",
-      "source_list": "ARC_CEP_MOCK_BOARDS",
-      "reference_no": 27,
-      "resolved": false,
-      "created_at": "2026-11-12T15:25:33",
-      "question": "A reciprocating internal combustion engine has a clearance volume of 0.0001 m³ and a volume ratio of 10. The pressure and temperature of the combustion gases when the piston is at top dead center are 4000 kN/m² and 1800°C, respectively. Assuming that the expansion process follows PV¹·³ = constant, calculate the work transfer in this process.",
-      "correct_answer": "B. 67 J",
-      "kind": "guess",
-      "exam_id": "179449712249766",
-      "exam_source": "ARC_CEP_MOCK",
-      "category": "Formula / Equation Error",
-      "concept_id": "1794417882478383",
-      "updated_at": "2026-11-12T15:25:33"
-    },
-    {
       "id": "1794497135832691",
       "source_list": "ARC_CEP_MOCK_BOARDS",
       "reference_no": 10,
@@ -189728,26 +190896,11 @@
       "question": "Acetone is being absorbed by water in a packed tower having a cross-sectional area of 0.186 m² at 293 K and 101.32 kPa. At these conditions, the equilibrium relation is given by y = 1.186x. The inlet air contains 2.6 mol% acetone and outlet 0.5 mol%. The gas flow is 13.65 kmol air/h. The pure water flow is 45.36 kmol/h. Film coefficients for the given flows in the tower are kᵧa = 3.8 × 10⁻² kmol/(s·m³) and kₓa = 6.2 × 10⁻² kmol/(s·m³). Calculate the height of transfer unit.",
       "correct_answer": "B. 0.93 m",
       "kind": "guess",
-      "exam_id": "179449712249766",
+      "exam_id": "179467112619474",
       "exam_source": "ARC_CEP_MOCK",
       "category": "Formula / Equation Error",
-      "concept_id": "1794417882478383",
-      "updated_at": "2026-11-12T15:25:35"
-    },
-    {
-      "id": "1794497136724372",
-      "source_list": "ARC_CEP_MOCK_BOARDS",
-      "reference_no": 50,
-      "resolved": false,
-      "created_at": "2026-11-12T15:25:36",
-      "question": "One mole of an ideal gas is compressed isothermally but irreversibly at 130°C from 2.5 bar to 6.5 bar in a piston/cylinder device. The work required is 30% greater than the work of reversible, isothermal compression. The heat transferred from the gas during compression flows to a heat reservoir at 25°C. Calculate the total entropy change.",
-      "correct_answer": "A. 6.02 J/(mol·K)",
-      "kind": "guess",
-      "exam_id": "179449712249766",
-      "exam_source": "ARC_CEP_MOCK",
-      "category": "Formula / Equation Error",
-      "concept_id": "1794417882478383",
-      "updated_at": "2026-11-12T15:25:36"
+      "concept_id": "1792701557213788",
+      "updated_at": "2026-11-14T15:45:32"
     }
   ],
   "checklist": [],
@@ -189802,11 +190955,13 @@
       "1792308099464590",
       "1792310917832516",
       "1792740968034899",
-      "1792307890833560"
+      "1792307890833560",
+      "1794497136724372",
+      "1794497133699177"
     ],
     "checklist": [
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-14T15:45:16"
+  "updated_at": "2026-11-14T15:45:39"
 }
