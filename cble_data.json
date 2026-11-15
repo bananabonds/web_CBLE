@@ -190800,7 +190800,7 @@
       "id": "1792311042799693",
       "source_list": "D3_L2_Process_Control_Analysis",
       "reference_no": 43,
-      "resolved": false,
+      "resolved": true,
       "created_at": "2026-10-18T08:10:42",
       "question": "A second-order process has τ = 3 min and ζ = 0.4. A step input of magnitude M is applied. Which of the following best describes the step response behavior?",
       "correct_answer": "C. The output overshoots the final steady-state value, oscillates, and eventually settles because ζ < 1",
@@ -190809,7 +190809,8 @@
       "exam_source": "D3_S2",
       "category": "Unfamiliar Topic",
       "concept_id": "1792309142350928",
-      "updated_at": "2026-10-18T08:10:42"
+      "updated_at": "2026-11-15T21:32:45",
+      "resolved_at": "2026-11-15T21:32:45"
     },
     {
       "id": "1792311058383854",
@@ -194476,5 +194477,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-15T21:23:03"
+  "updated_at": "2026-11-15T21:32:55"
 }
