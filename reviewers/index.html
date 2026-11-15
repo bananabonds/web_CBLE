@@ -2,31 +2,106 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My Reviewers</title>
 <style>
-:root{color-scheme:light dark;--bg:#f6f7fb;--card:#fff;--text:#1d2433;--link:#1f4fbf;--line:#dfe3ee}
-@media (prefers-color-scheme:dark){:root{--bg:#10141d;--card:#1a2030;--text:#e8ecf5;--link:#8db3ff;--line:#2a3247}}
-body{margin:0;padding:20px;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-main{max-width:680px;margin:0 auto}
-h1{font-size:1.4rem;margin:0 0 4px}.sub{opacity:.7;margin:0 0 16px;font-size:.9rem}
-ul{list-style:none;margin:0;padding:0}
-li{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:8px 0}
-li a{display:block;padding:14px 16px;color:var(--link);text-decoration:none;font-weight:600}
-</style></head><body><main>
-<h1>My Reviewers</h1><p class="sub">16 reviewers &middot; updated 2026-11-15</p>
-<ul>
-    <li><a href="deepseek_html_20261111_062562.html">Algebra Review: Three Concepts</a></li>
-    <li><a href="deepseek_html_20261111_81360b.html">Analytic Geometry Review: Six Concepts</a></li>
-    <li><a href="Last_Stand_(Kinetics).html">Chemical Reaction Engineering Review: Seven Concepts</a></li>
-    <li><a href="deepseek_html_20261111_ae9854.html">Differential Calculus Review: Seven Concepts</a></li>
-    <li><a href="deepseek_html_20261111_7ae8b1.html">Differential Equations Review: Four Concepts</a></li>
-    <li><a href="deepseek_html_20261111_941f75.html">Engineering Data Analysis Review: Five Concepts</a></li>
-    <li><a href="deepseek_html_20261111_b8fc4a.html">Engineering Economics Review: Interest and Depreciation</a></li>
-    <li><a href="Last_Stand_(HEMATRA).html">Heat &amp; Mass Transfer Review: Five Concepts</a></li>
-    <li><a href="deepseek_html_20261111_ec1d88.html">Integral Calculus Review: Eight Concepts</a></li>
-    <li><a href="Last_Stand_(Momentra).html">Momentum Transfer Review: Five Concepts</a></li>
-    <li><a href="Last_Stand_(Partech).html">Particle Technology Review: Six Concepts</a></li>
-    <li><a href="deepseek_html_20261111_987b74.html">Physics Review: Electrostatics, Min/Max, Mirror Equation, Waves</a></li>
-    <li><a href="deepseek_html_20261111_806463.html">Process Control Analysis Review: Three Concepts</a></li>
-    <li><a href="Last_Stand_(Thermo)_(2).html">Thermodynamics Review: Nine Concepts</a></li>
-    <li><a href="Last_Stand_(Transport_Phen).html">Transport Phenomena Review: Seven Concepts</a></li>
-    <li><a href="deepseek_html_20261111_4991d2.html">Trigonometry Review: Four Concepts</a></li>
-</ul></main></body></html>
+:root{color-scheme:light dark;--bg:#f4f6fb;--card:#fff;--text:#1b2233;--mute:#6a7388;--line:#dde2ee;--accent:#2f5bd8;--accent-ink:#fff;--pin:#e7a400;--shadow:0 1px 2px rgba(20,30,60,.06),0 4px 14px rgba(20,30,60,.05)}
+@media (prefers-color-scheme:dark){:root{--bg:#0f131c;--card:#192030;--text:#e8ecf6;--mute:#93a0ba;--line:#2a3350;--accent:#7fa2ff;--accent-ink:#0f131c;--shadow:none}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:40px}
+header{max-width:980px;margin:0 auto;padding:26px 16px 8px}
+h1{margin:0;font-size:1.6rem;letter-spacing:-.01em}
+#sub{margin:4px 0 0;color:var(--mute);font-size:.92rem}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar-in{max-width:980px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+input[type=search],select,button{font:inherit;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+input[type=search]{flex:1 1 220px;min-width:0}
+button{cursor:pointer}
+button:hover,select:hover{border-color:var(--accent)}
+.chk{display:flex;align-items:center;gap:6px;font-size:.88rem;color:var(--mute)}
+main{max-width:980px;margin:0 auto;padding:14px 16px}
+#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 14px 10px;box-shadow:var(--shadow);transition:transform .12s,border-color .12s;display:flex;flex-direction:column;gap:6px}
+.card:hover{transform:translateY(-2px);border-color:var(--accent)}
+.card.pinned{border-left:4px solid var(--pin)}
+.card.is-hidden{opacity:.55;border-style:dashed}
+.title{color:var(--text);font-weight:700;text-decoration:none;font-size:1.02rem;overflow-wrap:anywhere}
+.title::after{content:"";position:absolute;inset:0;border-radius:14px}
+.meta{color:var(--mute);font-size:.8rem}
+.acts{position:relative;z-index:1;display:flex;gap:6px;margin-top:4px}
+.acts button{padding:5px 10px;font-size:.8rem;border-radius:8px}
+.acts .on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+#empty{text-align:center;color:var(--mute);padding:40px 10px}
+</style></head><body>
+<header><h1>My Reviewers</h1><p id="sub"></p></header>
+<div class="bar"><div class="bar-in">
+  <input type="search" id="q" placeholder="Search reviewers (press / )" autocomplete="off">
+  <select id="sort" aria-label="Sort reviewers">
+    <option value="az">Name A–Z</option><option value="za">Name Z–A</option><option value="newest">Newest added</option><option value="oldest">Oldest added</option><option value="recent">Recently opened</option><option value="most">Most opened</option>
+  </select>
+  <button id="hiddenBtn" type="button"></button>
+  <label class="chk"><input type="checkbox" id="newTab"> Open in new tab</label>
+</div></div>
+<main><div id="grid"></div><p id="empty" hidden></p></main>
+<script>
+var DATA = [{"t":"Momentum Transfer Review: Five Concepts","f":"Last_Stand_(Momentra).html","a":"2026-11-11T16:10:54","s":67500,"h":false,"p":false},{"t":"Particle Technology Review: Six Concepts","f":"Last_Stand_(Partech).html","a":"2026-11-11T16:10:54","s":57974,"h":false,"p":false},{"t":"Transport Phenomena Review: Seven Concepts","f":"Last_Stand_(Transport_Phen).html","a":"2026-11-11T16:10:54","s":75086,"h":false,"p":false},{"t":"Chemical Reaction Engineering Review: Seven Concepts","f":"Last_Stand_(Kinetics).html","a":"2026-11-11T16:10:54","s":72232,"h":false,"p":false},{"t":"Heat & Mass Transfer Review: Five Concepts","f":"Last_Stand_(HEMATRA).html","a":"2026-11-11T16:10:54","s":79968,"h":false,"p":false},{"t":"Thermodynamics Review: Nine Concepts","f":"Last_Stand_(Thermo)_(2).html","a":"2026-11-11T16:10:54","s":68458,"h":false,"p":false},{"t":"Physics Review: Electrostatics, Min/Max, Mirror Equation, Waves","f":"deepseek_html_20261111_987b74.html","a":"2026-11-11T16:11:09","s":50559,"h":false,"p":false},{"t":"Engineering Data Analysis Review: Five Concepts","f":"deepseek_html_20261111_941f75.html","a":"2026-11-11T16:11:09","s":54213,"h":false,"p":false},{"t":"Engineering Economics Review: Interest and Depreciation","f":"deepseek_html_20261111_b8fc4a.html","a":"2026-11-11T16:11:09","s":53032,"h":false,"p":false},{"t":"Differential Equations Review: Four Concepts","f":"deepseek_html_20261111_7ae8b1.html","a":"2026-11-11T16:11:09","s":68772,"h":false,"p":false},{"t":"Integral Calculus Review: Eight Concepts","f":"deepseek_html_20261111_ec1d88.html","a":"2026-11-11T16:11:09","s":90731,"h":false,"p":false},{"t":"Analytic Geometry Review: Six Concepts","f":"deepseek_html_20261111_81360b.html","a":"2026-11-11T16:11:09","s":60431,"h":false,"p":false},{"t":"Differential Calculus Review: Seven Concepts","f":"deepseek_html_20261111_ae9854.html","a":"2026-11-11T16:11:09","s":79882,"h":false,"p":false},{"t":"Trigonometry Review: Four Concepts","f":"deepseek_html_20261111_4991d2.html","a":"2026-11-11T16:11:09","s":53705,"h":false,"p":false},{"t":"Process Control Analysis Review: Three Concepts","f":"deepseek_html_20261111_806463.html","a":"2026-11-11T16:11:09","s":49965,"h":false,"p":false},{"t":"Algebra Review: Three Concepts","f":"deepseek_html_20261111_062562.html","a":"2026-11-11T16:11:09","s":48247,"h":false,"p":false}];
+(function () {
+  var KEY = "rvhub:" + location.pathname;
+  var S = { hidden: {}, pins: {}, opens: {}, sort: "az", showHidden: false, newTab: false };
+  try { var raw = JSON.parse(localStorage.getItem(KEY) || "{}"); for (var k in raw) { S[k] = raw[k]; } } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+  function $(id) { return document.getElementById(id); }
+  function isHidden(f) { return S.hidden[f.f] === undefined ? !!f.h : !!S.hidden[f.f]; }
+  function isPinned(f) { return S.pins[f.f] === undefined ? !!f.p : !!S.pins[f.f]; }
+  function op(f) { return S.opens[f.f] || { n: 0, t: 0 }; }
+  function byTitle(a, b) { return a.t.localeCompare(b.t, undefined, { numeric: true }); }
+  var sorters = {
+    az: byTitle,
+    za: function (a, b) { return byTitle(b, a); },
+    newest: function (a, b) { return (b.a || "").localeCompare(a.a || ""); },
+    oldest: function (a, b) { return (a.a || "").localeCompare(b.a || ""); },
+    recent: function (a, b) { return op(b).t - op(a).t; },
+    most: function (a, b) { return op(b).n - op(a).n; }
+  };
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) { e.className = cls; } if (text !== undefined) { e.textContent = text; } return e; }
+  function size(b) { return b >= 1048576 ? (b / 1048576).toFixed(1) + " MB" : Math.max(1, Math.round(b / 1024)) + " KB"; }
+  function when(iso) { var d = new Date(iso); return isNaN(d) ? "" : d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }); }
+  function render() {
+    var q = $("q").value.trim().toLowerCase();
+    var nHidden = DATA.filter(isHidden).length;
+    var list = DATA.filter(function (f) { return (!q || f.t.toLowerCase().indexOf(q) !== -1) && (S.showHidden || !isHidden(f)); });
+    var cmp = sorters[S.sort] || sorters.az;
+    list.sort(function (a, b) { return ((isPinned(a) ? 0 : 1) - (isPinned(b) ? 0 : 1)) || cmp(a, b) || byTitle(a, b); });
+    $("sub").textContent = (DATA.length - nHidden) + " reviewer" + (DATA.length - nHidden === 1 ? "" : "s") + (nHidden ? " · " + nHidden + " hidden" : "");
+    $("hiddenBtn").style.display = nHidden ? "" : "none";
+    $("hiddenBtn").textContent = (S.showHidden ? "Hide" : "Show") + " hidden (" + nHidden + ")";
+    var grid = $("grid"); grid.innerHTML = "";
+    list.forEach(function (f) {
+      var pin = isPinned(f), hid = isHidden(f), o = op(f);
+      var card = el("div", "card" + (pin ? " pinned" : "") + (hid ? " is-hidden" : ""));
+      var a = el("a", "title", f.t); a.href = f.f;
+      if (S.newTab) { a.target = "_blank"; a.rel = "noopener"; }
+      a.addEventListener("click", function () { var x = op(f); S.opens[f.f] = { n: x.n + 1, t: Date.now() }; save(); });
+      card.appendChild(a);
+      var bits = [f.a ? "Added " + when(f.a) : "", f.s ? size(f.s) : "", o.n ? "Opened " + o.n + "×" : "Not opened yet"].filter(Boolean);
+      card.appendChild(el("div", "meta", bits.join(" · ")));
+      var acts = el("div", "acts");
+      var bp = el("button", pin ? "on" : "", pin ? "★ Pinned" : "☆ Pin"); bp.type = "button";
+      bp.addEventListener("click", function () { S.pins[f.f] = !pin; save(); render(); });
+      var bh = el("button", "", hid ? "Unhide" : "Hide"); bh.type = "button";
+      bh.addEventListener("click", function () { S.hidden[f.f] = !hid; save(); render(); });
+      acts.appendChild(bp); acts.appendChild(bh); card.appendChild(acts);
+      grid.appendChild(card);
+    });
+    var em = $("empty");
+    em.hidden = list.length > 0;
+    em.textContent = DATA.length === 0 ? "No reviewers yet." : q ? "No reviewer matches that search." : "Everything is hidden. Use “Show hidden” above.";
+  }
+  $("sort").value = sorters[S.sort] ? S.sort : "az";
+  $("newTab").checked = !!S.newTab;
+  $("q").addEventListener("input", render);
+  $("sort").addEventListener("change", function () { S.sort = $("sort").value; save(); render(); });
+  $("newTab").addEventListener("change", function () { S.newTab = $("newTab").checked; save(); render(); });
+  $("hiddenBtn").addEventListener("click", function () { S.showHidden = !S.showHidden; save(); render(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "/" && document.activeElement !== $("q")) { e.preventDefault(); $("q").focus(); } });
+  render();
+})();
+</script>
+</body></html>
