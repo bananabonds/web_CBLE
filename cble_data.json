@@ -193364,7 +193364,7 @@
       "id": "1793421212394662",
       "source_list": "D3_L2_Process_Control_Analysis",
       "reference_no": 18,
-      "resolved": false,
+      "resolved": true,
       "created_at": "2026-10-31T04:33:32",
       "question": "A transfer function G(s) has a numerator polynomial of degree m = 3 and a denominator polynomial of degree n = 2. Which of the following best describes this system?",
       "correct_answer": "B. It is not physically realizable because the number of zeros exceeds the number of poles",
@@ -193373,7 +193373,8 @@
       "exam_source": "D3_S15",
       "category": "Unfamiliar Topic",
       "concept_id": "1792309142350928",
-      "updated_at": "2026-10-31T04:33:32"
+      "updated_at": "2026-11-15T17:31:21",
+      "resolved_at": "2026-11-15T17:31:21"
     },
     {
       "id": "1793423924211520",
@@ -194474,5 +194475,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-15T17:30:24"
+  "updated_at": "2026-11-15T17:31:30"
 }
