@@ -1189,13 +1189,15 @@ details.rv-fold > .rv-body{padding-bottom:12px;}
         <h3>My Reviewer Files <span class="count" id="rfCount"></span></h3>
         <p class="hint" style="margin-bottom:8px;">Upload your reviewers (.html files). They are kept in this browser, listed here and on the Home tab, and open in a new tab with one tap. Reviewers that are one self-contained file (styles and scripts inside it) work best.</p>
         <input type="file" id="rfInput" accept=".html,.htm,text/html" multiple style="display:none;">
-        <button class="btn primary block" id="rfPick">&#11014; Upload reviewer files</button>
-        <div id="rfList" style="margin-top:10px;"></div>
+        <div class="row" style="gap:6px;"><button class="btn primary" id="rfPick" style="flex:2;">&#11014; Upload reviewer files</button><button class="btn" id="rfPreviewHub" style="flex:1;">&#127760; Preview website</button></div>
+        <div class="row wrap" style="gap:6px;margin-top:10px;"><input type="search" id="rfSearch" placeholder="Search reviewers&hellip;" style="flex:2;min-width:140px;"><select id="rfSort" style="flex:1;min-width:140px;"><option value="az">Name A&ndash;Z</option><option value="za">Name Z&ndash;A</option><option value="newest">Newest added</option><option value="oldest">Oldest added</option><option value="recent">Recently opened</option><option value="most">Most opened</option><option value="largest">Largest</option></select></div>
+        <label class="row" style="gap:6px;margin-top:6px;font-size:.82rem;"><input type="checkbox" id="rfShowHidden"><span>Show hidden reviewers <span class="hint" id="rfHiddenCount"></span></span></label>
+        <div id="rfList" style="margin-top:8px;"></div>
         <details style="margin-top:8px;">
           <summary style="font-size:.82rem;cursor:pointer;color:var(--navy);font-weight:700;">Put them online (GitHub Pages)</summary>
-          <p class="hint" style="margin:6px 0;">This gives every reviewer a real link that works on any device, plus one index page that links to all of them. It needs GitHub connected in Settings and <b>GitHub Pages turned on</b> for that repo (repo Settings &rarr; Pages &rarr; deploy from your branch). Anything published is visible to anyone with the link, and to everyone if the repo is public. Without this, the files still open from this browser, just not on other devices.</p>
+          <p class="hint" style="margin:6px 0;">This gives every reviewer a real link that works on any device, plus an interactive index page (search, sort, pin and hide) that links to all of them. Pins and hidden reviewers you set here become the page's starting view; visitors can change them on their own device. After changing pins, hidden items or titles, press <b>Update index page only</b>. It needs GitHub connected in Settings and <b>GitHub Pages turned on</b> for that repo (repo Settings &rarr; Pages &rarr; deploy from your branch). Anything published is visible to anyone with the link, and to everyone if the repo is public. Without this, the files still open from this browser, just not on other devices.</p>
           <div class="row" style="gap:8px;align-items:center;"><label class="field-label" style="flex:none;margin:0;">Folder in the repo</label><input type="text" id="rfFolder" placeholder="reviewers"></div>
-          <div class="row wrap" style="margin-top:8px;gap:6px;"><button class="btn primary" id="rfPublish">&#9729; Publish all to GitHub</button><button class="btn" id="rfCopyHub">Copy index page link</button></div>
+          <div class="row wrap" style="margin-top:8px;gap:6px;"><button class="btn primary" id="rfPublish">&#9729; Publish all to GitHub</button><button class="btn" id="rfPublishHub">Update index page only</button><button class="btn" id="rfCopyHub">Copy index page link</button></div>
           <div class="hint" id="rfPublishInfo" style="margin-top:6px;"></div>
         </details>
       </div>
@@ -9852,7 +9854,16 @@ function renderStudioConcept(c, pfx) {
    --------------------------------------------------------------------- */
 const RF_KEY = "cble.reviewerFiles", RF_PREFS = "cble.reviewerFilesPrefs";
 let rfFiles = []; const rfUrls = new Map();
-function rfPrefs() { return Object.assign({ folder: "reviewers" }, loadJson(RF_PREFS, {})); }
+const RF_META = "cble.reviewerFilesMeta";   // per-file pin / hidden / open stats; kept apart from the file bodies so toggling is instant
+function rfMetaAll() { return loadJson(RF_META, {}); }
+function rfSetMeta(id, patch) { const m = rfMetaAll(); m[id] = Object.assign(m[id] || {}, patch); saveJson(RF_META, m); }
+function rfPrefs() { return Object.assign({ folder: "reviewers", sort: "az", showHidden: false }, loadJson(RF_PREFS, {})); }
+function rfSorted(files, mode) {
+  const M = rfMetaAll(), mm = f => M[f.id] || {}, title = (a, b) => a.title.localeCompare(b.title, undefined, { numeric: true });
+  const by = ({ az: title, za: (a, b) => title(b, a), newest: (a, b) => (b.added || "").localeCompare(a.added || ""), oldest: (a, b) => (a.added || "").localeCompare(b.added || ""),
+    recent: (a, b) => (mm(b).last || 0) - (mm(a).last || 0), most: (a, b) => (mm(b).opens || 0) - (mm(a).opens || 0), largest: (a, b) => (b.size || 0) - (a.size || 0) })[mode] || title;
+  return files.slice().sort((a, b) => ((mm(a).pinned ? 0 : 1) - (mm(b).pinned ? 0 : 1)) || by(a, b) || title(a, b));
+}
 async function rfSave() { try { await idbSet(RF_KEY, rfFiles); return true; } catch (e) { toast("Couldn't keep the reviewer files in this browser: " + ((e && e.message) || e), 5000); return false; } }
 async function rfInit() { try { const v = await idbGet(RF_KEY); rfFiles = Array.isArray(v) ? v : []; } catch (e) { rfFiles = []; } rfRender(); }
 function rfTitleOf(html, filename) {
@@ -9878,11 +9889,15 @@ async function rfAddFiles(list) {
   rfRender();
   toast([added ? `${added} added` : "", updated ? `${updated} updated (same file name)` : "", skipped ? `${skipped} skipped (not .html)` : ""].filter(Boolean).join(", ") || "Nothing to add.", 3500);
 }
+function rfBlobUrl(f) {
+  const key = f.id + "|" + f.updated; let url = rfUrls.get(key);
+  if (!url) { url = URL.createObjectURL(new Blob([f.html], { type: "text/html" })); rfUrls.set(key, url); }
+  return url;
+}
 function rfOpen(id) {
   const f = rfFiles.find(x => x.id === id); if (!f) return;
-  const key = id + "|" + f.updated; let url = rfUrls.get(key);
-  if (!url) { url = URL.createObjectURL(new Blob([f.html], { type: "text/html" })); rfUrls.set(key, url); }
-  if (!window.open(url, "_blank")) toast("Your browser blocked the new tab. Allow pop-ups for this page and try again.", 4500);
+  const m = rfMetaAll()[id] || {}; rfSetMeta(id, { opens: (m.opens || 0) + 1, last: Date.now() });
+  if (!window.open(rfBlobUrl(f), "_blank")) toast("Your browser blocked the new tab. Allow pop-ups for this page and try again.", 4500);
 }
 function rfDownload(id) {
   const f = rfFiles.find(x => x.id === id); if (!f) return;
@@ -9895,66 +9910,173 @@ function rfPagesBase(folder) {
   return `${host}${repoPart}/${folder.split("/").map(encodeURIComponent).join("/")}/`;
 }
 function rfCleanFolder() { return (($("rfFolder").value || "").trim() || "reviewers").replace(/^\/+|\/+$/g, "").replace(/[^A-Za-z0-9_\-\/]/g, "-"); }
-function rfHubHtml(files) {
-  const rows = files.slice().sort((a, b) => a.title.localeCompare(b.title, undefined, { numeric: true })).map(f => `    <li><a href="${esc(encodeURIComponent(f.slug))}">${esc(f.title)}</a></li>`).join("\n");
+// The published index page: one self-contained, interactive website. Visitors can search, sort, pin and hide reviewers;
+// their choices are kept on their own device. Pins / hidden set in the app are only the starting view.
+// (The page's own script avoids backticks and dollar-brace so it can live inside this template.)
+function rfHubHtml(files, hrefFor) {
+  const M = rfMetaAll(), href = hrefFor || (f => encodeURIComponent(f.slug));
+  const data = files.map(f => ({ t: f.title, f: href(f), a: f.added || "", s: f.size || 0, h: !!(M[f.id] || {}).hidden, p: !!(M[f.id] || {}).pinned }));
+  const json = JSON.stringify(data).replace(/</g, "\\u003c");
   return `<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My Reviewers</title>
 <style>
-:root{color-scheme:light dark;--bg:#f6f7fb;--card:#fff;--text:#1d2433;--link:#1f4fbf;--line:#dfe3ee}
-@media (prefers-color-scheme:dark){:root{--bg:#10141d;--card:#1a2030;--text:#e8ecf5;--link:#8db3ff;--line:#2a3247}}
-body{margin:0;padding:20px;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-main{max-width:680px;margin:0 auto}
-h1{font-size:1.4rem;margin:0 0 4px}.sub{opacity:.7;margin:0 0 16px;font-size:.9rem}
-ul{list-style:none;margin:0;padding:0}
-li{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:8px 0}
-li a{display:block;padding:14px 16px;color:var(--link);text-decoration:none;font-weight:600}
-</style></head><body><main>
-<h1>My Reviewers</h1><p class="sub">${files.length} reviewer${files.length === 1 ? "" : "s"} &middot; updated ${new Date().toISOString().slice(0, 10)}</p>
-<ul>
-${rows}
-</ul></main></body></html>
+:root{color-scheme:light dark;--bg:#f4f6fb;--card:#fff;--text:#1b2233;--mute:#6a7388;--line:#dde2ee;--accent:#2f5bd8;--accent-ink:#fff;--pin:#e7a400;--shadow:0 1px 2px rgba(20,30,60,.06),0 4px 14px rgba(20,30,60,.05)}
+@media (prefers-color-scheme:dark){:root{--bg:#0f131c;--card:#192030;--text:#e8ecf6;--mute:#93a0ba;--line:#2a3350;--accent:#7fa2ff;--accent-ink:#0f131c;--shadow:none}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:40px}
+header{max-width:980px;margin:0 auto;padding:26px 16px 8px}
+h1{margin:0;font-size:1.6rem;letter-spacing:-.01em}
+#sub{margin:4px 0 0;color:var(--mute);font-size:.92rem}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar-in{max-width:980px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+input[type=search],select,button{font:inherit;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+input[type=search]{flex:1 1 220px;min-width:0}
+button{cursor:pointer}
+button:hover,select:hover{border-color:var(--accent)}
+.chk{display:flex;align-items:center;gap:6px;font-size:.88rem;color:var(--mute)}
+main{max-width:980px;margin:0 auto;padding:14px 16px}
+#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 14px 10px;box-shadow:var(--shadow);transition:transform .12s,border-color .12s;display:flex;flex-direction:column;gap:6px}
+.card:hover{transform:translateY(-2px);border-color:var(--accent)}
+.card.pinned{border-left:4px solid var(--pin)}
+.card.is-hidden{opacity:.55;border-style:dashed}
+.title{color:var(--text);font-weight:700;text-decoration:none;font-size:1.02rem;overflow-wrap:anywhere}
+.title::after{content:"";position:absolute;inset:0;border-radius:14px}
+.meta{color:var(--mute);font-size:.8rem}
+.acts{position:relative;z-index:1;display:flex;gap:6px;margin-top:4px}
+.acts button{padding:5px 10px;font-size:.8rem;border-radius:8px}
+.acts .on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+#empty{text-align:center;color:var(--mute);padding:40px 10px}
+</style></head><body>
+<header><h1>My Reviewers</h1><p id="sub"></p></header>
+<div class="bar"><div class="bar-in">
+  <input type="search" id="q" placeholder="Search reviewers (press / )" autocomplete="off">
+  <select id="sort" aria-label="Sort reviewers">
+    <option value="az">Name A\u2013Z</option><option value="za">Name Z\u2013A</option><option value="newest">Newest added</option><option value="oldest">Oldest added</option><option value="recent">Recently opened</option><option value="most">Most opened</option>
+  </select>
+  <button id="hiddenBtn" type="button"></button>
+  <label class="chk"><input type="checkbox" id="newTab"> Open in new tab</label>
+</div></div>
+<main><div id="grid"></div><p id="empty" hidden></p></main>
+<script>
+var DATA = ${json};
+(function () {
+  var KEY = "rvhub:" + location.pathname;
+  var S = { hidden: {}, pins: {}, opens: {}, sort: "az", showHidden: false, newTab: false };
+  try { var raw = JSON.parse(localStorage.getItem(KEY) || "{}"); for (var k in raw) { S[k] = raw[k]; } } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+  function $(id) { return document.getElementById(id); }
+  function isHidden(f) { return S.hidden[f.f] === undefined ? !!f.h : !!S.hidden[f.f]; }
+  function isPinned(f) { return S.pins[f.f] === undefined ? !!f.p : !!S.pins[f.f]; }
+  function op(f) { return S.opens[f.f] || { n: 0, t: 0 }; }
+  function byTitle(a, b) { return a.t.localeCompare(b.t, undefined, { numeric: true }); }
+  var sorters = {
+    az: byTitle,
+    za: function (a, b) { return byTitle(b, a); },
+    newest: function (a, b) { return (b.a || "").localeCompare(a.a || ""); },
+    oldest: function (a, b) { return (a.a || "").localeCompare(b.a || ""); },
+    recent: function (a, b) { return op(b).t - op(a).t; },
+    most: function (a, b) { return op(b).n - op(a).n; }
+  };
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) { e.className = cls; } if (text !== undefined) { e.textContent = text; } return e; }
+  function size(b) { return b >= 1048576 ? (b / 1048576).toFixed(1) + " MB" : Math.max(1, Math.round(b / 1024)) + " KB"; }
+  function when(iso) { var d = new Date(iso); return isNaN(d) ? "" : d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }); }
+  function render() {
+    var q = $("q").value.trim().toLowerCase();
+    var nHidden = DATA.filter(isHidden).length;
+    var list = DATA.filter(function (f) { return (!q || f.t.toLowerCase().indexOf(q) !== -1) && (S.showHidden || !isHidden(f)); });
+    var cmp = sorters[S.sort] || sorters.az;
+    list.sort(function (a, b) { return ((isPinned(a) ? 0 : 1) - (isPinned(b) ? 0 : 1)) || cmp(a, b) || byTitle(a, b); });
+    $("sub").textContent = (DATA.length - nHidden) + " reviewer" + (DATA.length - nHidden === 1 ? "" : "s") + (nHidden ? " \u00b7 " + nHidden + " hidden" : "");
+    $("hiddenBtn").style.display = nHidden ? "" : "none";
+    $("hiddenBtn").textContent = (S.showHidden ? "Hide" : "Show") + " hidden (" + nHidden + ")";
+    var grid = $("grid"); grid.innerHTML = "";
+    list.forEach(function (f) {
+      var pin = isPinned(f), hid = isHidden(f), o = op(f);
+      var card = el("div", "card" + (pin ? " pinned" : "") + (hid ? " is-hidden" : ""));
+      var a = el("a", "title", f.t); a.href = f.f;
+      if (S.newTab) { a.target = "_blank"; a.rel = "noopener"; }
+      a.addEventListener("click", function () { var x = op(f); S.opens[f.f] = { n: x.n + 1, t: Date.now() }; save(); });
+      card.appendChild(a);
+      var bits = [f.a ? "Added " + when(f.a) : "", f.s ? size(f.s) : "", o.n ? "Opened " + o.n + "\u00d7" : "Not opened yet"].filter(Boolean);
+      card.appendChild(el("div", "meta", bits.join(" \u00b7 ")));
+      var acts = el("div", "acts");
+      var bp = el("button", pin ? "on" : "", pin ? "\u2605 Pinned" : "\u2606 Pin"); bp.type = "button";
+      bp.addEventListener("click", function () { S.pins[f.f] = !pin; save(); render(); });
+      var bh = el("button", "", hid ? "Unhide" : "Hide"); bh.type = "button";
+      bh.addEventListener("click", function () { S.hidden[f.f] = !hid; save(); render(); });
+      acts.appendChild(bp); acts.appendChild(bh); card.appendChild(acts);
+      grid.appendChild(card);
+    });
+    var em = $("empty");
+    em.hidden = list.length > 0;
+    em.textContent = DATA.length === 0 ? "No reviewers yet." : q ? "No reviewer matches that search." : "Everything is hidden. Use \u201cShow hidden\u201d above.";
+  }
+  $("sort").value = sorters[S.sort] ? S.sort : "az";
+  $("newTab").checked = !!S.newTab;
+  $("q").addEventListener("input", render);
+  $("sort").addEventListener("change", function () { S.sort = $("sort").value; save(); render(); });
+  $("newTab").addEventListener("change", function () { S.newTab = $("newTab").checked; save(); render(); });
+  $("hiddenBtn").addEventListener("click", function () { S.showHidden = !S.showHidden; save(); render(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "/" && document.activeElement !== $("q")) { e.preventDefault(); $("q").focus(); } });
+  render();
+})();
+<\/script>
+</body></html>
 `;
 }
-async function rfPublishAll() {
+async function rfPublishAll(hubOnly) {
+  hubOnly = hubOnly === true;
   if (!rfFiles.length) { toast("Upload at least one reviewer first."); return; }
   if (!githubConfigured()) { toast("Connect GitHub in Settings first."); return; }
-  const folder = rfCleanFolder(), base = rfPagesBase(folder), btn = $("rfPublish");
-  prefSaveRf({ folder }); $("rfFolder").value = folder; btn.disabled = true;
+  const folder = rfCleanFolder(), base = rfPagesBase(folder), btns = [$("rfPublish"), $("rfPublishHub")];
+  prefSaveRf({ folder }); $("rfFolder").value = folder; btns.forEach(b => { b.disabled = true; });
   try {
-    let n = 0;
-    for (const f of rfFiles) {
-      toast(`Publishing ${++n} of ${rfFiles.length + 1}\u2026`, 1500);
-      const path = `${folder}/${f.slug}`, ex = await githubGetFileAtPath(path);
-      await githubPutFileAtPath(path, f.html, ex.sha, `Reviewer: ${f.title}`);
-      f.published = { path, url: base + encodeURIComponent(f.slug), at: nowIso() };
+    if (hubOnly && !rfFiles.some(f => f.published)) { toast("Publish your reviewers first. After that you can update the index page on its own."); return; }
+    if (!hubOnly) {
+      let n = 0;
+      for (const f of rfFiles) {
+        toast(`Publishing ${++n} of ${rfFiles.length + 1}\u2026`, 1500);
+        const path = `${folder}/${f.slug}`, ex = await githubGetFileAtPath(path);
+        await githubPutFileAtPath(path, f.html, ex.sha, `Reviewer: ${f.title}`);
+        f.published = { path, url: base + encodeURIComponent(f.slug), at: nowIso() };
+      }
     }
-    toast(`Publishing ${rfFiles.length + 1} of ${rfFiles.length + 1}\u2026`, 1500);
     const hub = `${folder}/index.html`, hx = await githubGetFileAtPath(hub);
-    await githubPutFileAtPath(hub, rfHubHtml(rfFiles), hx.sha, "Reviewer index page");
+    await githubPutFileAtPath(hub, rfHubHtml(rfFiles.filter(f => f.published)), hx.sha, "Reviewer index page");
     await rfSave(); rfRender();
-    toast(`Published ${rfFiles.length} reviewer${rfFiles.length === 1 ? "" : "s"}. GitHub Pages can take a minute or two to update the first time.`, 6000);
+    toast(hubOnly ? "Index page updated." : `Published ${rfFiles.length} reviewer${rfFiles.length === 1 ? "" : "s"}. GitHub Pages can take a minute or two to update the first time.`, 6000);
   } catch (e) {
     await rfSave(); rfRender();
     const m = String((e && e.message) || e);
     toast(/ 40[13]/.test(m) ? "GitHub refused the upload. Your token needs write access to the repo's contents." : /404/.test(m) ? "GitHub couldn't find that repo or branch. Check the GitHub settings." : "Publish failed: " + m.slice(0, 160), 7000);
-  } finally { btn.disabled = false; }
+  } finally { btns.forEach(b => { b.disabled = false; }); }
 }
 function prefSaveRf(o) { saveJson(RF_PREFS, Object.assign(rfPrefs(), o)); }
 function rfRender() {
-  const files = rfFiles.slice().sort((a, b) => a.title.localeCompare(b.title, undefined, { numeric: true }));
-  const n = files.length, cnt = n ? `(${n})` : "";
-  $("rfCount").textContent = cnt; $("homeReviewerCount").textContent = cnt;
-  $("rfFolder").value = $("rfFolder").value || rfPrefs().folder;
+  const P = rfPrefs(), M = rfMetaAll(), q = ($("rfSearch").value || "").trim().toLowerCase();
+  const nHidden = rfFiles.filter(f => (M[f.id] || {}).hidden).length;
+  let files = rfSorted(rfFiles, P.sort);
+  const visibleAll = files.filter(f => !(M[f.id] || {}).hidden), n = rfFiles.length;
+  files = files.filter(f => (!q || f.title.toLowerCase().includes(q) || f.name.toLowerCase().includes(q)) && (P.showHidden || !(M[f.id] || {}).hidden));
+  $("rfCount").textContent = n ? `(${n})` : ""; $("homeReviewerCount").textContent = visibleAll.length ? `(${visibleAll.length})` : "";
+  $("rfFolder").value = $("rfFolder").value || P.folder;
+  $("rfSort").value = P.sort; $("rfShowHidden").checked = !!P.showHidden;
+  $("rfHiddenCount").textContent = nHidden ? `(${nHidden} hidden)` : "";
   const list = $("rfList"); list.innerHTML = "";
   if (!n) list.appendChild(el("div", "empty-state", "No reviewer files yet. Upload your .html reviewers to keep them here."));
+  else if (!files.length) list.appendChild(el("div", "empty-state", q ? "No reviewer matches that search." : "Everything is hidden. Tick \"Show hidden reviewers\" to see them."));
   for (const f of files) {
-    const row = el("div", "list-item"), kb = f.size >= 1048576 ? (f.size / 1048576).toFixed(1) + " MB" : Math.max(1, Math.round(f.size / 1024)) + " KB";
-    row.innerHTML = `<div class="top-row"><span class="name">${esc(f.title)}</span><span class="meta">${kb}</span></div>
-      <div class="hint" style="margin:2px 0 6px;">${esc(f.name)} &middot; added ${esc((f.added || "").slice(0, 10))}${f.published ? " &middot; online" : ""}</div>
+    const mm = M[f.id] || {}, row = el("div", "list-item" + (mm.hidden ? " is-hidden" : "")), kb = f.size >= 1048576 ? (f.size / 1048576).toFixed(1) + " MB" : Math.max(1, Math.round(f.size / 1024)) + " KB";
+    if (mm.hidden) row.style.opacity = ".6";
+    row.innerHTML = `<div class="top-row"><span class="name">${mm.pinned ? "&#9733; " : ""}${esc(f.title)}</span><span class="meta">${kb}</span></div>
+      <div class="hint" style="margin:2px 0 6px;">${esc(f.name)} &middot; added ${esc((f.added || "").slice(0, 10))}${mm.opens ? ` &middot; opened ${mm.opens}&times;` : ""}${f.published ? " &middot; online" : ""}${mm.hidden ? " &middot; hidden" : ""}</div>
       <div class="row wrap" style="gap:6px;">
         <button class="btn primary" data-rf-open="${esc(f.id)}">Open</button>
         ${f.published ? `<a class="btn" href="${esc(f.published.url)}" target="_blank" rel="noopener">Online link</a><button class="btn" data-rf-copy="${esc(f.id)}">Copy link</button>` : ""}
+        <button class="btn" data-rf-pin="${esc(f.id)}">${mm.pinned ? "Unpin" : "Pin"}</button>
+        <button class="btn" data-rf-hide="${esc(f.id)}">${mm.hidden ? "Unhide" : "Hide"}</button>
         <button class="btn" data-rf-rename="${esc(f.id)}">Rename</button>
         <button class="btn" data-rf-dl="${esc(f.id)}">Download</button>
         <button class="btn danger" data-rf-del="${esc(f.id)}">Remove</button>
@@ -9962,25 +10084,36 @@ function rfRender() {
     list.appendChild(row);
   }
   const pub = rfFiles.filter(f => f.published).length;
-  $("rfPublishInfo").innerHTML = pub ? `${pub} of ${n} published. Index page: <a href="${esc(rfPagesBase(rfPrefs().folder))}" target="_blank" rel="noopener">${esc(rfPagesBase(rfPrefs().folder))}</a>` : "Nothing published yet.";
-  const home = $("homeReviewerLinks"); $("homeReviewersCard").style.display = n ? "" : "none";
-  home.innerHTML = files.map(f => `<div class="row" style="gap:6px;margin:4px 0;align-items:center;"><button class="btn link" data-rf-open="${esc(f.id)}" style="flex:1;text-align:left;">&#128214; ${esc(f.title)}</button>${f.published ? `<a class="btn link" href="${esc(f.published.url)}" target="_blank" rel="noopener" style="flex:none;">online &#8599;</a>` : ""}</div>`).join("");
+  $("rfPublishInfo").innerHTML = pub ? `${pub} of ${n} published. Index page: <a href="${esc(rfPagesBase(P.folder))}" target="_blank" rel="noopener">${esc(rfPagesBase(P.folder))}</a>` : "Nothing published yet.";
+  const home = $("homeReviewerLinks"); $("homeReviewersCard").style.display = visibleAll.length ? "" : "none";
+  home.innerHTML = rfSorted(visibleAll, P.sort).map(f => `<div class="row" style="gap:6px;margin:4px 0;align-items:center;"><button class="btn link" data-rf-open="${esc(f.id)}" style="flex:1;text-align:left;">${(M[f.id] || {}).pinned ? "&#9733;" : "&#128214;"} ${esc(f.title)}</button>${f.published ? `<a class="btn link" href="${esc(f.published.url)}" target="_blank" rel="noopener" style="flex:none;">online &#8599;</a>` : ""}</div>`).join("");
 }
 document.addEventListener("click", async (e) => {
-  const t = e.target.closest("[data-rf-open],[data-rf-rename],[data-rf-dl],[data-rf-del],[data-rf-copy]"); if (!t) return;
-  const id = t.dataset.rfOpen || t.dataset.rfRename || t.dataset.rfDl || t.dataset.rfDel || t.dataset.rfCopy, f = rfFiles.find(x => x.id === id); if (!f) return;
-  if (t.dataset.rfOpen) rfOpen(id);
-  else if (t.dataset.rfDl) rfDownload(id);
-  else if (t.dataset.rfCopy) toast(await copyTextRobust(f.published.url) ? "Link copied." : "Couldn't access the clipboard.");
-  else if (t.dataset.rfRename) { const v = prompt("Name for this reviewer", f.title); if (v !== null && v.trim()) { f.title = v.trim(); f.titleEdited = true; await rfSave(); rfRender(); } }
-  else if (t.dataset.rfDel) {
+  const t = e.target.closest("[data-rf-open],[data-rf-rename],[data-rf-dl],[data-rf-del],[data-rf-copy],[data-rf-pin],[data-rf-hide]"); if (!t) return;
+  const d = t.dataset, id = d.rfOpen || d.rfRename || d.rfDl || d.rfDel || d.rfCopy || d.rfPin || d.rfHide, f = rfFiles.find(x => x.id === id); if (!f) return;
+  if (d.rfOpen) { rfOpen(id); rfRender(); }
+  else if (d.rfDl) rfDownload(id);
+  else if (d.rfPin) { rfSetMeta(id, { pinned: !(rfMetaAll()[id] || {}).pinned }); rfRender(); }
+  else if (d.rfHide) { rfSetMeta(id, { hidden: !(rfMetaAll()[id] || {}).hidden }); rfRender(); }
+  else if (d.rfCopy) toast(await copyTextRobust(f.published.url) ? "Link copied." : "Couldn't access the clipboard.");
+  else if (d.rfRename) { const v = prompt("Name for this reviewer", f.title); if (v !== null && v.trim()) { f.title = v.trim(); f.titleEdited = true; await rfSave(); rfRender(); } }
+  else if (d.rfDel) {
     if (!confirm(`Remove "${f.title}" from this app?${f.published ? " The copy already published on GitHub stays there until you delete it in the repo." : ""}`)) return;
-    rfFiles = rfFiles.filter(x => x.id !== id); await rfSave(); rfRender();
+    rfFiles = rfFiles.filter(x => x.id !== id); const m = rfMetaAll(); delete m[id]; saveJson(RF_META, m); await rfSave(); rfRender();
   }
 });
 $("rfPick").addEventListener("click", () => $("rfInput").click());
 $("rfInput").addEventListener("change", async (e) => { const l = Array.from(e.target.files || []); e.target.value = ""; if (l.length) await rfAddFiles(l); });
-$("rfPublish").addEventListener("click", rfPublishAll);
+$("rfPublish").addEventListener("click", () => rfPublishAll(false));
+$("rfPublishHub").addEventListener("click", () => rfPublishAll(true));
+$("rfSearch").addEventListener("input", rfRender);
+$("rfSort").addEventListener("change", () => { prefSaveRf({ sort: $("rfSort").value }); rfRender(); });
+$("rfShowHidden").addEventListener("change", () => { prefSaveRf({ showHidden: $("rfShowHidden").checked }); rfRender(); });
+$("rfPreviewHub").addEventListener("click", () => {
+  if (!rfFiles.length) { toast("Upload at least one reviewer first."); return; }
+  const url = URL.createObjectURL(new Blob([rfHubHtml(rfFiles, rfBlobUrl)], { type: "text/html" }));
+  if (!window.open(url, "_blank")) toast("Your browser blocked the new tab. Allow pop-ups for this page and try again.", 4500);
+});
 $("rfCopyHub").addEventListener("click", async () => { const b = rfPagesBase(rfCleanFolder()); if (!b) { toast("Connect GitHub in Settings first."); return; } toast(await copyTextRobust(b) ? "Index page link copied." : "Couldn't access the clipboard."); });
 $("rfFolder").addEventListener("change", () => { prefSaveRf({ folder: rfCleanFolder() }); $("rfFolder").value = rfCleanFolder(); rfRender(); });
 rfInit();
