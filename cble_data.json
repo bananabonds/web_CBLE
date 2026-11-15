@@ -75246,6 +75246,15 @@
       "pct": 61.3,
       "date": "2026-11-14T15:45:26",
       "time_used_seconds": 1642.4
+    },
+    {
+      "id": "1794762712987588",
+      "source": "ARC_GEP_MOCK",
+      "score": 52,
+      "total": 100,
+      "pct": 52,
+      "date": "2026-11-15T17:11:52",
+      "time_used_seconds": 4835.4
     }
   ],
   "exam_details": [
@@ -144492,6 +144501,1113 @@
           "correct_answer": "B. Kerogen"
         }
       ]
+    },
+    {
+      "exam_id": "1794762712987588",
+      "source": "ARC_GEP_MOCK",
+      "date": "2026-11-15T17:11:52",
+      "items": [
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 28,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A rectangular plate has a width of 4 m and a height of 2 m. Determine its second moment of area about the horizontal centroidal axis.",
+          "your_answer": "A. 1.33 m⁴",
+          "correct_answer": "B. 2.67 m⁴"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 13,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "The sample size used to estimate a population mean is increased from 100 to 400. Assuming unchanged variability and confidence level, what happens to the confidence interval's margin of error?",
+          "your_answer": "B. It decreases by 50%",
+          "correct_answer": "B. It decreases by 50%"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 66,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Which control method is specifically designed to improve the control of processes with significant known dead time by incorporating a process model?",
+          "your_answer": "D. Derivative filtering",
+          "correct_answer": "B. Smith predictor"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 38,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A facility incurs a perpetual annual maintenance expense of ₱15,000. If the interest rate is 5% per year, determine the capitalized cost of maintenance.",
+          "your_answer": "C. ₱300,000",
+          "correct_answer": "C. ₱300,000"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 84,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "In safety studies, Preliminary Hazard Analysis (PHA) is primarily used to:",
+          "your_answer": "A. Identify significant hazards early in design",
+          "correct_answer": "A. Identify significant hazards early in design"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 61,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A member of the Professional Regulatory Board of Chemical Engineering resigns before completing the term. Under RA 9297, the vacancy must be filled for:",
+          "your_answer": "A. A new full three-year term",
+          "correct_answer": "B. The remainder of the unexpired term"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 70,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A linear time-invariant system has an impulse response h(t) = te⁻ᵗ, for t ≥ 0. Determine the unit-step response under zero initial conditions.",
+          "your_answer": "A. 1 − e⁻ᵗ",
+          "correct_answer": "B. 1 − (1 + t)e⁻ᵗ"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 86,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Under the PRC 2016 CPD credit-unit matrix, how many credit units per lecture hour are listed for a resource speaker under self-directed learning (subject to CPD Council evaluation)?",
+          "your_answer": "C. 3 CU/hour",
+          "correct_answer": "C. 3 CU/hour"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 37,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Compared with the simple payback period, the discounted payback period for a project with a conventional initial investment, positive future inflows, and a positive discount rate is generally:",
+          "your_answer": "A. Shorter or equal",
+          "correct_answer": "B. Longer or equal"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 85,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "For two groups with equal sample sizes of 8, an ANOVA gives MSE = 16. If the appropriate critical t-value is 2.0, determine Fisher's least significant difference (LSD).",
+          "your_answer": "C. 4.0",
+          "correct_answer": "C. 4.0"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 36,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "A project requires an initial investment of ₱500,000 and generates a uniform net annual cash inflow of ₱100,000. Determine its simple payback period.",
+          "your_answer": "C. 5 years",
+          "correct_answer": "C. 5 years"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 35,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "A body is slightly displaced from equilibrium and remains at its new position without returning or moving farther away. What type of equilibrium is exhibited?",
+          "your_answer": "A. Stable equilibrium",
+          "correct_answer": "B. Neutral equilibrium"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 32,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A homogeneous metal rod is completely restrained against axial expansion. If its temperature increases within the elastic range, what stress develops?",
+          "your_answer": "B. Tensile thermal stress",
+          "correct_answer": "A. Compressive thermal stress"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 22,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "A well-mixed tank initially contains 5 kg of dissolved salt in 100 L of solution. A salt solution containing 0.20 kg/L enters at 2 L/min, and the mixture leaves at the same rate. Determine the initial salt accumulation rate.",
+          "your_answer": "A. 0.20 kg/min",
+          "correct_answer": "C. 0.30 kg/min"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 48,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which process safety technique systematically assesses the probability of human errors during operation and maintenance?",
+          "your_answer": "A. Human Reliability Analysis",
+          "correct_answer": "A. Human Reliability Analysis"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 52,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "A worker suffers an occupational injury on Monday and is medically unable to work on Tuesday, Wednesday, and Thursday. Under OSHA recordkeeping rules, how many calendar days away from work are recorded?",
+          "your_answer": "B. 3 days",
+          "correct_answer": "B. 3 days"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 21,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "A hot object initially at 100°C is cooled in a room at 20°C. It follows Newton's law of cooling with cooling constant 0.10 min⁻¹. Determine its temperature after 10 minutes.",
+          "your_answer": "B. 44.3°C",
+          "correct_answer": "C. 49.4°C"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 58,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "During COD determination, the blank consumes 20.0 mL of 0.100 N FAS, while a 25.0-mL wastewater sample consumes 12.0 mL. Determine the COD.",
+          "your_answer": "A. 128 mg/L",
+          "correct_answer": "C. 256 mg/L"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 98,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "The first president of the Philippine Institute of Chemical Engineers (PIChE) was",
+          "your_answer": "C. Felix V. Espino",
+          "correct_answer": "A. Jose C. Espinosa"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 100,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which planning tool is most appropriate for a project manager who needs to identify the \"Critical Path\" or the longest sequence of tasks that determines the shortest possible project duration?",
+          "your_answer": "C. PERT/CPM",
+          "correct_answer": "C. PERT/CPM"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 95,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Fermentation of molasses to produce ethyl alcohol is done at ___°C.",
+          "your_answer": "A. 20–30",
+          "correct_answer": "A. 20–30"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 7,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "An engineer performs a full factorial experiment involving three factors, each at two levels. If every experimental combination is performed twice, how many trials are required?",
+          "your_answer": "C. 18",
+          "correct_answer": "B. 16"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 51,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "A company records 5 cases involving days away from work during a year with 500,000 total employee work-hours. Determine the OSHA days-away case rate per 100 full-time-equivalent workers.",
+          "your_answer": "A. 1.0",
+          "correct_answer": "B. 2.0"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 42,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "For a conventional investment project with an initial outflow followed by positive cash inflows, which change generally decreases its net present value?",
+          "your_answer": "C. Increasing discount rate",
+          "correct_answer": "C. Increasing discount rate"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 17,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A triangle has vertices at (1, 1), (5, 1), and (1, 4). Determine its area.",
+          "your_answer": "A. 4 square units",
+          "correct_answer": "B. 6 square units"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 15,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "For a right-tailed t-test with 12 degrees of freedom and a significance level of 2.5%, determine the critical t-value.",
+          "your_answer": "A. 1.782",
+          "correct_answer": "B. 2.179"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 4,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "A quality control engineer randomly selects 3 components from 8 distinct components. If the selection order does not matter, how many possible samples can be formed?",
+          "your_answer": "A. 24",
+          "correct_answer": "C. 56"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 96,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "An applicant for the board exam was born and raised in the Philippines but has a dual citizenship (Filipino and American). Can this person take the Chemical Engineering board exam?",
+          "your_answer": "B. Yes, provided they are a citizen of the Philippines as required by Section 16 of RA 9297",
+          "correct_answer": "B. Yes, provided they are a citizen of the Philippines as required by Section 16 of RA 9297"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 47,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Before welding near equipment containing flammable materials, which document should ordinarily be issued under a hot-work control system?",
+          "your_answer": "B. Hot work permit",
+          "correct_answer": "B. Hot work permit"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 26,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A particle moves along a circular path at constant speed. In which direction does its centripetal acceleration act?",
+          "your_answer": "A. Tangent to the path",
+          "correct_answer": "C. Toward the center"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 34,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A vehicle travels at 12 m/s around a circular curve having a radius of 3 m. Determine its centripetal acceleration.",
+          "your_answer": "A. 24 m/s²",
+          "correct_answer": "C. 48 m/s²"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 62,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A registered chemical engineer is a member of the integrated and accredited professional organization and wishes to join an international chemical engineering association. Under RA 9297, this is:",
+          "your_answer": "B. Allowed because membership in other associations is not barred",
+          "correct_answer": "B. Allowed because membership in other associations is not barred"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 75,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "In the context of \"Maslow's Hierarchy of Needs,\" an entry-level engineer who is primarily concerned with earning enough money to pay for rent and food is focused on which level?",
+          "your_answer": "D. Physiological Needs",
+          "correct_answer": "D. Physiological Needs"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 78,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Find the inverse Laplace transform of 1/(s + 2)².",
+          "your_answer": "A. e⁻²ᵗ",
+          "correct_answer": "C. te⁻²ᵗ"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 57,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An activated sludge sample has a 30-minute settled sludge volume of 240 mL/L and an MLSS concentration of 3,000 mg/L. Determine the Sludge Volume Index.",
+          "your_answer": "B. 80 mL/g",
+          "correct_answer": "B. 80 mL/g"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 97,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "What refers to the techniques that encompass risk assignment and the inclusive evaluation of risk, costs and benefits of alternative projects or policies?",
+          "your_answer": "C. Risk-benefit analysis",
+          "correct_answer": "C. Risk-benefit analysis"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 76,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "For x > 0, determine an integrating factor for the differential equation xy′ + 4y = x².",
+          "your_answer": "C. x⁴",
+          "correct_answer": "C. x⁴"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 82,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A front-wheel contact point is 1.0 m left and 0.5 m below the vehicle center of gravity. The contact force has 7,000 N upward and 3,000 N to the right. Determine the magnitude of its equivalent moment about the center of gravity.",
+          "your_answer": "A. 4.5 kN·m",
+          "correct_answer": "B. 5.5 kN·m"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 73,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Why is feedwater hardness kept extremely low in steam boilers, particularly when the water is heated and concentrated?",
+          "your_answer": "B. To prevent scale deposits",
+          "correct_answer": "B. To prevent scale deposits"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 49,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A combustion wave propagates supersonically through a reactive mixture and is coupled with a shock wave. This phenomenon is called:",
+          "your_answer": "A. Detonation",
+          "correct_answer": "A. Detonation"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 23,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Given x² + xy + y² = 7, determine dy/dx at (1, 2).",
+          "your_answer": "B. −3/4",
+          "correct_answer": "A. −4/5"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 2,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A batch contains 10 smartphones, of which 4 are defective. Two phones are randomly selected without replacement. What is the probability that exactly one is defective?",
+          "your_answer": "B. 0.4800",
+          "correct_answer": "C. 0.5333"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 74,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Let f(x) = 4/(x + 3) and g(x) = x² − 3. Which expression represents f(g(x)), for x ≠ 0?",
+          "your_answer": "C. 4/x²",
+          "correct_answer": "C. 4/x²"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 94,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A registered chemical engineer signed and sealed a plant design prepared entirely by an unlicensed individual without personally reviewing the computations and specifications. Which ethical principle was violated?",
+          "your_answer": "B. Professional competence",
+          "correct_answer": "B. Professional competence"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 81,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "The Seveso industrial accident of 1976 in Italy is most closely associated with the release of:",
+          "your_answer": "B. Dioxin",
+          "correct_answer": "B. Dioxin"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 43,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A company wishes to accumulate ₱10,000 after two years through equal end-of-year deposits earning 10% annually. Determine the required annual deposit.",
+          "your_answer": "A. ₱4,545",
+          "correct_answer": "B. ₱4,762"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 92,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "The movement from one position to another which has less pay or responsibility attached to it. It is used as a form of punishment or as a temporary measure to keep an employee until he is offered a higher position.",
+          "your_answer": "C. Demotion",
+          "correct_answer": "C. Demotion"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 87,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "How many diagonals does a regular dodecagon have?",
+          "your_answer": "B. 48",
+          "correct_answer": "C. 54"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 67,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A mathematical process model incorporates random disturbances described by probability distributions. Which model classification is most appropriate?",
+          "your_answer": "A. Deterministic model",
+          "correct_answer": "C. Stochastic model"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 25,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which of the following is a Bernoulli differential equation?",
+          "your_answer": "B. y′ + y = xy²",
+          "correct_answer": "B. y′ + y = xy²"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 55,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "In Layer of Protection Analysis (LOPA), an Independent Protection Layer (IPL) must be:",
+          "your_answer": "A. Independent of the initiating event and other credited layers",
+          "correct_answer": "A. Independent of the initiating event and other credited layers"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 79,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A professional receives formal recognition for distinguished technical achievements in engineering research. Which document most directly serves as evidence of this recognition?",
+          "your_answer": "A. Certificate of Recognition",
+          "correct_answer": "A. Certificate of Recognition"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 14,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "The prediction errors of a model are 1, −1, and 2. Determine the root mean square error.",
+          "your_answer": "B. 1.414",
+          "correct_answer": "B. 1.414"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 90,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following is not included in the practice of chemical engineering?",
+          "your_answer": "C. chemical analysis",
+          "correct_answer": "C. chemical analysis"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 5,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A set of observations consists of 2, 4, and 6. Determine the root mean square of the observations.",
+          "your_answer": "C. 4.32",
+          "correct_answer": "C. 4.32"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 99,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Five 1.5 V cells are connected in series. If the internal resistance of each cell is 0.25 ohm, what external resistance will produce a current of 2 A through the cells?",
+          "your_answer": "B. 2.5 ohms",
+          "correct_answer": "B. 2.5 ohms"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 30,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An elevator travels 300 m, starting and ending at rest. It accelerates at 2 m/s² until reaching 20 m/s, maintains that speed, and decelerates at 4 m/s². Determine the total travel time.",
+          "your_answer": "C. 25.0 s",
+          "correct_answer": "B. 22.5 s"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 24,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Determine the horizontal asymptote of f(x) = 2x/(x³ + 1).",
+          "your_answer": "B. y = 1",
+          "correct_answer": "A. y = 0"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 40,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A geometric-gradient series provides ₱1,000 at the end of year 1, with payments increasing by 5% annually for three years. Determine its present worth at 10% annual interest.",
+          "your_answer": "A. ₱2,505",
+          "correct_answer": "B. ₱2,605"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 10,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which of the following software applications is commonly used to perform regression analysis through its built-in statistical tools?",
+          "your_answer": "B. Microsoft Excel",
+          "correct_answer": "B. Microsoft Excel"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 56,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Chloramines are frequently used in drinking water distribution systems because they:",
+          "your_answer": "A. Provide a relatively persistent disinfectant residual",
+          "correct_answer": "A. Provide a relatively persistent disinfectant residual"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 31,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "An undamped mass-spring system is initially displaced 4 inches downward from equilibrium. If upward displacement is defined as positive, what is its initial condition?",
+          "your_answer": "B. x(0) = −4 in",
+          "correct_answer": "B. x(0) = −4 in"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 9,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A sample of 36 temperature measurements has a mean of 32°C. The population standard deviation is known to be 6°C. Determine the 95% confidence interval for the population mean.",
+          "your_answer": "C. (30.36, 33.64)°C",
+          "correct_answer": "B. (30.04, 33.96)°C"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 83,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Under the UN dangerous-goods classification system, which class covers radioactive material?",
+          "your_answer": "B. Class 5",
+          "correct_answer": "D. Class 7"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 91,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "An operator was told to control the temperature of the reactor at 60°C. The operator set the set-point of the temperature at 60°C. The scale indicated 0 to 100% of a temperature range of 0 to 200°C. This caused a runaway reaction by over pressuring the vessel, which resulted injury to the operator. The actual set-point temperature was",
+          "your_answer": "A. 200°C",
+          "correct_answer": "C. 120°C"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 65,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which controller action responds to the rate of change of error and is particularly sensitive to measurement noise?",
+          "your_answer": "C. Proportional action",
+          "correct_answer": "B. Derivative action"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 6,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A two-tailed t-test is conducted at a 5% significance level with 9 degrees of freedom. What is the positive critical t-value?",
+          "your_answer": "A. 1.833",
+          "correct_answer": "B. 2.262"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 39,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Equipment requires replacement every five years at a cost of ₱10,000. If replacements begin at the end of year 5 and continue indefinitely, determine the present worth at 10% annual interest.",
+          "your_answer": "A. ₱14,380",
+          "correct_answer": "C. ₱16,380"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 33,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A steel rod is 2 m long and has a coefficient of linear thermal expansion of 12 × 10⁻⁶ °C⁻¹. Determine its increase in length for a temperature rise of 50°C.",
+          "your_answer": "B. 1.2 mm",
+          "correct_answer": "B. 1.2 mm"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 12,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "A one-way ANOVA produces a calculated F-value of 4.15, while the critical F-value is 3.24. What is the appropriate decision?",
+          "your_answer": "A. Reject the null hypothesis",
+          "correct_answer": "A. Reject the null hypothesis"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 71,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Let u(t) be the unit-step function and f(t) = 0.5u(t) − 0.5u(t − 1) + (t − 3)u(t − 2). What are f(0.5) and f(3), respectively?",
+          "your_answer": "B. 0 and 0.5",
+          "correct_answer": "A. 0.5 and 0"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 45,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A contractor will incur a ₱15,000 penalty for delayed completion. Hiring additional workers costs ₱8,000 and will prevent the delay without affecting quality or violating other constraints. What is the least-cost decision?",
+          "your_answer": "A. Hire the additional workers",
+          "correct_answer": "A. Hire the additional workers"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 60,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which parameter is most directly used to determine the required surface area of an ideal sedimentation basin for discrete particle settling?",
+          "your_answer": "B. Hydraulic retention time alone",
+          "correct_answer": "A. Hydraulic surface overflow rate"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 19,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A mechanical system has characteristic roots r = −1 ± 2i. What type of damping does the system exhibit?",
+          "your_answer": "B. Critical damping",
+          "correct_answer": "C. Underdamping"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 29,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A stationary siren emits sound at 500 Hz. An observer approaches the siren at 20 m/s. If the speed of sound is 340 m/s, determine the observed frequency.",
+          "your_answer": "B. 500.0 Hz",
+          "correct_answer": "C. 529.4 Hz"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 11,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "A regression model produces an R² value of 0.92. Which interpretation is correct?",
+          "your_answer": "B. The predictor has 92% accuracy",
+          "correct_answer": "C. The model explains 92% of response variation"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 64,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which controller produces an output proportional to the instantaneous control error?",
+          "your_answer": "C. Proportional controller",
+          "correct_answer": "C. Proportional controller"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 18,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Determine the Laplace transform of e⁻³ᵗ",
+          "your_answer": "B. 1/(s + 3)",
+          "correct_answer": "B. 1/(s + 3)"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 88,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "An engineer must accumulate ₱121,000 after two years by making equal deposits at the end of each year into an account earning 10% annually. Determine the required annual sinking-fund deposit.",
+          "your_answer": "C. ₱57,619",
+          "correct_answer": "C. ₱57,619"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 1,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Two events A and B have probabilities P(A) = 0.40, P(B) = 0.50, and P(A ∩ B) = 0.20. Determine P(A ∪ B).",
+          "your_answer": "C. 0.80",
+          "correct_answer": "B. 0.70"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 41,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "A company claims ₱20,000 depreciation under the applicable MACRS schedule. If its marginal income tax rate is 25%, determine the depreciation tax shield.",
+          "your_answer": "B. ₱5,000",
+          "correct_answer": "B. ₱5,000"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 50,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "Which term describes combustion in which the flame front propagates at a subsonic speed relative to the unburned mixture?",
+          "your_answer": "B. Deflagration",
+          "correct_answer": "B. Deflagration"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 89,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "After increasing reactor operating temperature limits, the company updated the control software but forgot to revise operator procedures and training materials. Which Process Safety Management element was most directly deficient?",
+          "your_answer": "B. Operating Procedures",
+          "correct_answer": "C. Management of Change"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 77,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Determine the complementary solution of y″ − 5y′ + 6y = 0.",
+          "your_answer": "B. C₁e²ˣ + C₂e³ˣ",
+          "correct_answer": "B. C₁e²ˣ + C₂e³ˣ"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 80,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "A study investigates how one treatment factor affects two jointly measured outcomes, product strength and product flexibility. Which analysis explicitly treats the outcomes jointly?",
+          "your_answer": "D. One-sample proportion test",
+          "correct_answer": "C. Multivariate analysis of variance"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 68,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which control strategy measures a disturbance and adjusts the manipulated variable before the disturbance produces a significant deviation in the controlled variable?",
+          "your_answer": "B. Feedforward control",
+          "correct_answer": "B. Feedforward control"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 93,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Sure I'm Right",
+          "question": "During a board examination, an examinee was caught using unauthorized notes hidden inside a calculator case. What is the most likely consequence?",
+          "your_answer": "C. Administrative and possible criminal liability under examination laws",
+          "correct_answer": "C. Administrative and possible criminal liability under examination laws"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 72,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which management level is primarily responsible for translating corporate strategic plans into departmental tactical plans?",
+          "your_answer": "B. Middle-level management",
+          "correct_answer": "B. Middle-level management"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 54,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "A failure mode has Severity = 8, Occurrence = 4, and Detection = 5. Determine its Risk Priority Number.",
+          "your_answer": "C. 160",
+          "correct_answer": "C. 160"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 63,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which compound can be used as an anhydrous laboratory desiccant?",
+          "your_answer": "D. Calcium silicate",
+          "correct_answer": "B. Calcium sulfate"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 8,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "A Monte Carlo simulation is performed 1,000 times. The system operates successfully in 20 trials. What is the estimated probability of successful operation?",
+          "your_answer": "B. 0.020",
+          "correct_answer": "B. 0.020"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 53,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "What does FMEA stand for?",
+          "your_answer": "B. Failure Mode and Effects Analysis",
+          "correct_answer": "B. Failure Mode and Effects Analysis"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 44,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "If the nominal interest rate is 10% and the annual inflation rate is 4%, determine the real annual interest rate using the exact relationship.",
+          "your_answer": "B. 5.77%",
+          "correct_answer": "B. 5.77%"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 46,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Confident",
+          "question": "Which of the following would generally NOT be classified as a Process Safety Management element under OSHA 29 CFR 1910.119?",
+          "your_answer": "C. Market demand forecasting",
+          "correct_answer": "C. Market demand forecasting"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 69,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A temperature control system uses an outer temperature controller to establish the setpoint of an inner cooling-water flow controller. Which control configuration is described?",
+          "your_answer": "B. Ratio control",
+          "correct_answer": "A. Cascade control"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 20,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "The functions y₁ = eˣ and y₂ = e⁻ˣ are solutions of y″ − y = 0. Which is also a solution?",
+          "your_answer": "B. eˣe⁻ˣ + x",
+          "correct_answer": "C. 3eˣ − 2e⁻ˣ"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 27,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "A 2-kg mass is attached to a spring having a stiffness of 50 N/m. Determine the natural angular frequency of the undamped system.",
+          "your_answer": "B. 6 rad/s",
+          "correct_answer": "D. 5 rad/s"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 3,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "A statistical test gives a p-value of 0.08 at a 5% significance level. What conclusion should be made?",
+          "your_answer": "B. Confirm the null hypothesis",
+          "correct_answer": "C. Fail to reject the null hypothesis"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 59,
+          "is_correct": true,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Slightly Confident",
+          "question": "Under DENR Administrative Order 2021-19, what is the General Effluent Standard for ammonia as NH₃-N discharged into a Class C freshwater body?",
+          "your_answer": "C. 4 mg/L",
+          "correct_answer": "C. 4 mg/L"
+        },
+        {
+          "source_list": "ARC_GEP_MOCK_BOARDS",
+          "reference_no": 16,
+          "is_correct": false,
+          "is_answered": true,
+          "is_flagged": false,
+          "confidence": "Guess",
+          "question": "Evaluate lim(x→0) [sin(5x)/x], where angles are expressed in radians.",
+          "your_answer": "B. 3",
+          "correct_answer": "C. 5"
+        }
+      ]
     }
   ],
   "mistake_log": [
@@ -185055,6 +186171,1048 @@
       "concept_id": "",
       "tag_at": "",
       "note_at": ""
+    },
+    {
+      "id": "1794762713354865",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 28,
+      "question": "A rectangular plate has a width of 4 m and a height of 2 m. Determine its second moment of area about the horizontal centroidal axis.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:00",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:53",
+          "your_answer": "A. 1.33 m⁴",
+          "correct_answer": "B. 2.67 m⁴"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:00",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:00"
+    },
+    {
+      "id": "1794762713550765",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 66,
+      "question": "Which control method is specifically designed to improve the control of processes with significant known dead time by incorporating a process model?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:00",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:53",
+          "your_answer": "D. Derivative filtering",
+          "correct_answer": "B. Smith predictor"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:00",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:00"
+    },
+    {
+      "id": "1794762713749624",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 61,
+      "question": "A member of the Professional Regulatory Board of Chemical Engineering resigns before completing the term. Under RA 9297, the vacancy must be filled for:",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:00",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:53",
+          "your_answer": "A. A new full three-year term",
+          "correct_answer": "B. The remainder of the unexpired term"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:00",
+      "concept_id": "1792309349198633",
+      "tag_at": "2026-11-15T17:12:00"
+    },
+    {
+      "id": "1794762713880997",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 70,
+      "question": "A linear time-invariant system has an impulse response h(t) = te⁻ᵗ, for t ≥ 0. Determine the unit-step response under zero initial conditions.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:00",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:53",
+          "your_answer": "A. 1 − e⁻ᵗ",
+          "correct_answer": "B. 1 − (1 + t)e⁻ᵗ"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:00",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:00"
+    },
+    {
+      "id": "1794762714015108",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 37,
+      "question": "Compared with the simple payback period, the discounted payback period for a project with a conventional initial investment, positive future inflows, and a positive discount rate is generally:",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:00",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:54",
+          "your_answer": "A. Shorter or equal",
+          "correct_answer": "B. Longer or equal"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:00",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:00"
+    },
+    {
+      "id": "1794762714147566",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 35,
+      "question": "A body is slightly displaced from equilibrium and remains at its new position without returning or moving farther away. What type of equilibrium is exhibited?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:00",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:54",
+          "your_answer": "A. Stable equilibrium",
+          "correct_answer": "B. Neutral equilibrium"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:00",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:00"
+    },
+    {
+      "id": "1794762714271577",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 32,
+      "question": "A homogeneous metal rod is completely restrained against axial expansion. If its temperature increases within the elastic range, what stress develops?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:01",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:54",
+          "your_answer": "B. Tensile thermal stress",
+          "correct_answer": "A. Compressive thermal stress"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:01",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:01"
+    },
+    {
+      "id": "1794762714408911",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 22,
+      "question": "A well-mixed tank initially contains 5 kg of dissolved salt in 100 L of solution. A salt solution containing 0.20 kg/L enters at 2 L/min, and the mixture leaves at the same rate. Determine the initial salt accumulation rate.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:01",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:54",
+          "your_answer": "A. 0.20 kg/min",
+          "correct_answer": "C. 0.30 kg/min"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:01",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:01"
+    },
+    {
+      "id": "1794762714549969",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 21,
+      "question": "A hot object initially at 100°C is cooled in a room at 20°C. It follows Newton's law of cooling with cooling constant 0.10 min⁻¹. Determine its temperature after 10 minutes.",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:01",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:54",
+          "your_answer": "B. 44.3°C",
+          "correct_answer": "C. 49.4°C"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:01",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:01"
+    },
+    {
+      "id": "1794762714691607",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 58,
+      "question": "During COD determination, the blank consumes 20.0 mL of 0.100 N FAS, while a 25.0-mL wastewater sample consumes 12.0 mL. Determine the COD.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:01",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:54",
+          "your_answer": "A. 128 mg/L",
+          "correct_answer": "C. 256 mg/L"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:01",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:01"
+    },
+    {
+      "id": "1794762714824416",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 98,
+      "question": "The first president of the Philippine Institute of Chemical Engineers (PIChE) was",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:11:54",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:54",
+          "your_answer": "C. Felix V. Espino",
+          "correct_answer": "A. Jose C. Espinosa"
+        }
+      ],
+      "updated_at": "2026-11-15T17:11:54"
+    },
+    {
+      "id": "1794762714958426",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 7,
+      "question": "An engineer performs a full factorial experiment involving three factors, each at two levels. If every experimental combination is performed twice, how many trials are required?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:01",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:54",
+          "your_answer": "C. 18",
+          "correct_answer": "B. 16"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:01",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:01"
+    },
+    {
+      "id": "1794762715094164",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 51,
+      "question": "A company records 5 cases involving days away from work during a year with 500,000 total employee work-hours. Determine the OSHA days-away case rate per 100 full-time-equivalent workers.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:01",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:55",
+          "your_answer": "A. 1.0",
+          "correct_answer": "B. 2.0"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:01",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:01"
+    },
+    {
+      "id": "1794762715234243",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 17,
+      "question": "A triangle has vertices at (1, 1), (5, 1), and (1, 4). Determine its area.",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:01",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:55",
+          "your_answer": "A. 4 square units",
+          "correct_answer": "B. 6 square units"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:01",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:01"
+    },
+    {
+      "id": "1794762715369274",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 15,
+      "question": "For a right-tailed t-test with 12 degrees of freedom and a significance level of 2.5%, determine the critical t-value.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:02",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:55",
+          "your_answer": "A. 1.782",
+          "correct_answer": "B. 2.179"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:02",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:02"
+    },
+    {
+      "id": "1794762715507729",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 4,
+      "question": "A quality control engineer randomly selects 3 components from 8 distinct components. If the selection order does not matter, how many possible samples can be formed?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:11:55",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:55",
+          "your_answer": "A. 24",
+          "correct_answer": "C. 56"
+        }
+      ],
+      "updated_at": "2026-11-15T17:11:55"
+    },
+    {
+      "id": "1794762715648504",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 26,
+      "question": "A particle moves along a circular path at constant speed. In which direction does its centripetal acceleration act?",
+      "category": "Misread the Question",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:02",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:55",
+          "your_answer": "A. Tangent to the path",
+          "correct_answer": "C. Toward the center"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:02",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:02"
+    },
+    {
+      "id": "1794762715779173",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 34,
+      "question": "A vehicle travels at 12 m/s around a circular curve having a radius of 3 m. Determine its centripetal acceleration.",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:02",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:55",
+          "your_answer": "A. 24 m/s²",
+          "correct_answer": "C. 48 m/s²"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:02",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:02"
+    },
+    {
+      "id": "1794762715917675",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 78,
+      "question": "Find the inverse Laplace transform of 1/(s + 2)².",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:11:55",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:55",
+          "your_answer": "A. e⁻²ᵗ",
+          "correct_answer": "C. te⁻²ᵗ"
+        }
+      ],
+      "updated_at": "2026-11-15T17:11:55"
+    },
+    {
+      "id": "1794762716050874",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 82,
+      "question": "A front-wheel contact point is 1.0 m left and 0.5 m below the vehicle center of gravity. The contact force has 7,000 N upward and 3,000 N to the right. Determine the magnitude of its equivalent moment about the center of gravity.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:02",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:56",
+          "your_answer": "A. 4.5 kN·m",
+          "correct_answer": "B. 5.5 kN·m"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:02",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:02"
+    },
+    {
+      "id": "17947627161863",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 23,
+      "question": "Given x² + xy + y² = 7, determine dy/dx at (1, 2).",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:11:56",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:56",
+          "your_answer": "B. −3/4",
+          "correct_answer": "A. −4/5"
+        }
+      ],
+      "updated_at": "2026-11-15T17:11:56"
+    },
+    {
+      "id": "1794762716326354",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 2,
+      "question": "A batch contains 10 smartphones, of which 4 are defective. Two phones are randomly selected without replacement. What is the probability that exactly one is defective?",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:02",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:56",
+          "your_answer": "B. 0.4800",
+          "correct_answer": "C. 0.5333"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:02",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:02"
+    },
+    {
+      "id": "1794762716468118",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 43,
+      "question": "A company wishes to accumulate ₱10,000 after two years through equal end-of-year deposits earning 10% annually. Determine the required annual deposit.",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:02",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:56",
+          "your_answer": "A. ₱4,545",
+          "correct_answer": "B. ₱4,762"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:02",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:02"
+    },
+    {
+      "id": "1794762716609608",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 87,
+      "question": "How many diagonals does a regular dodecagon have?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:02",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:56",
+          "your_answer": "B. 48",
+          "correct_answer": "C. 54"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:02",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:02"
+    },
+    {
+      "id": "1794762716751730",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 67,
+      "question": "A mathematical process model incorporates random disturbances described by probability distributions. Which model classification is most appropriate?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:11:56",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:56",
+          "your_answer": "A. Deterministic model",
+          "correct_answer": "C. Stochastic model"
+        }
+      ],
+      "updated_at": "2026-11-15T17:11:56"
+    },
+    {
+      "id": "1794762716878163",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 30,
+      "question": "An elevator travels 300 m, starting and ending at rest. It accelerates at 2 m/s² until reaching 20 m/s, maintains that speed, and decelerates at 4 m/s². Determine the total travel time.",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:03",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:56",
+          "your_answer": "C. 25.0 s",
+          "correct_answer": "B. 22.5 s"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:03",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:03"
+    },
+    {
+      "id": "1794762717017185",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 24,
+      "question": "Determine the horizontal asymptote of f(x) = 2x/(x³ + 1).",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:11:57",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:57",
+          "your_answer": "B. y = 1",
+          "correct_answer": "A. y = 0"
+        }
+      ],
+      "updated_at": "2026-11-15T17:11:57"
+    },
+    {
+      "id": "1794762717144580",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 40,
+      "question": "A geometric-gradient series provides ₱1,000 at the end of year 1, with payments increasing by 5% annually for three years. Determine its present worth at 10% annual interest.",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:03",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:57",
+          "your_answer": "A. ₱2,505",
+          "correct_answer": "B. ₱2,605"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:03",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:03"
+    },
+    {
+      "id": "1794762717282122",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 9,
+      "question": "A sample of 36 temperature measurements has a mean of 32°C. The population standard deviation is known to be 6°C. Determine the 95% confidence interval for the population mean.",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:03",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:57",
+          "your_answer": "C. (30.36, 33.64)°C",
+          "correct_answer": "B. (30.04, 33.96)°C"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:03",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:03"
+    },
+    {
+      "id": "1794762717422128",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 83,
+      "question": "Under the UN dangerous-goods classification system, which class covers radioactive material?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:03",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:57",
+          "your_answer": "B. Class 5",
+          "correct_answer": "D. Class 7"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:03",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:03"
+    },
+    {
+      "id": "1794762717561605",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 91,
+      "question": "An operator was told to control the temperature of the reactor at 60°C. The operator set the set-point of the temperature at 60°C. The scale indicated 0 to 100% of a temperature range of 0 to 200°C. This caused a runaway reaction by over pressuring the vessel, which resulted injury to the operator. The actual set-point temperature was",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:03",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:57",
+          "your_answer": "A. 200°C",
+          "correct_answer": "C. 120°C"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:03",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:03"
+    },
+    {
+      "id": "1794762717703395",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 65,
+      "question": "Which controller action responds to the rate of change of error and is particularly sensitive to measurement noise?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:03",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:57",
+          "your_answer": "C. Proportional action",
+          "correct_answer": "B. Derivative action"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:03",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:03"
+    },
+    {
+      "id": "1794762717854391",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 6,
+      "question": "A two-tailed t-test is conducted at a 5% significance level with 9 degrees of freedom. What is the positive critical t-value?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:03",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:57",
+          "your_answer": "A. 1.833",
+          "correct_answer": "B. 2.262"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:03",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:03"
+    },
+    {
+      "id": "1794762718056820",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 39,
+      "question": "Equipment requires replacement every five years at a cost of ₱10,000. If replacements begin at the end of year 5 and continue indefinitely, determine the present worth at 10% annual interest.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:04",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:58",
+          "your_answer": "A. ₱14,380",
+          "correct_answer": "C. ₱16,380"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:04",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:04"
+    },
+    {
+      "id": "1794762718212160",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 71,
+      "question": "Let u(t) be the unit-step function and f(t) = 0.5u(t) − 0.5u(t − 1) + (t − 3)u(t − 2). What are f(0.5) and f(3), respectively?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:04",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:58",
+          "your_answer": "B. 0 and 0.5",
+          "correct_answer": "A. 0.5 and 0"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:04",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:04"
+    },
+    {
+      "id": "1794762718362416",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 60,
+      "question": "Which parameter is most directly used to determine the required surface area of an ideal sedimentation basin for discrete particle settling?",
+      "category": "",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:11:58",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:58",
+          "your_answer": "B. Hydraulic retention time alone",
+          "correct_answer": "A. Hydraulic surface overflow rate"
+        }
+      ],
+      "updated_at": "2026-11-15T17:11:58"
+    },
+    {
+      "id": "1794762718503111",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 19,
+      "question": "A mechanical system has characteristic roots r = −1 ± 2i. What type of damping does the system exhibit?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:04",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:58",
+          "your_answer": "B. Critical damping",
+          "correct_answer": "C. Underdamping"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:04",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:04"
+    },
+    {
+      "id": "1794762718648645",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 29,
+      "question": "A stationary siren emits sound at 500 Hz. An observer approaches the siren at 20 m/s. If the speed of sound is 340 m/s, determine the observed frequency.",
+      "category": "Formula / Equation Error",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:04",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:58",
+          "your_answer": "B. 500.0 Hz",
+          "correct_answer": "C. 529.4 Hz"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:04",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:04"
+    },
+    {
+      "id": "1794762718789338",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 11,
+      "question": "A regression model produces an R² value of 0.92. Which interpretation is correct?",
+      "category": "Conceptual Misunderstanding",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:04",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:58",
+          "your_answer": "B. The predictor has 92% accuracy",
+          "correct_answer": "C. The model explains 92% of response variation"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:04",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:04"
+    },
+    {
+      "id": "1794762718931742",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 1,
+      "question": "Two events A and B have probabilities P(A) = 0.40, P(B) = 0.50, and P(A ∩ B) = 0.20. Determine P(A ∪ B).",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:04",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:58",
+          "your_answer": "C. 0.80",
+          "correct_answer": "B. 0.70"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:04",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:04"
+    },
+    {
+      "id": "1794762719073947",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 89,
+      "question": "After increasing reactor operating temperature limits, the company updated the control software but forgot to revise operator procedures and training materials. Which Process Safety Management element was most directly deficient?",
+      "category": "Conceptual Misunderstanding",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:04",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:59",
+          "your_answer": "B. Operating Procedures",
+          "correct_answer": "C. Management of Change"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:04",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:04"
+    },
+    {
+      "id": "1794762719211663",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 80,
+      "question": "A study investigates how one treatment factor affects two jointly measured outcomes, product strength and product flexibility. Which analysis explicitly treats the outcomes jointly?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:05",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:59",
+          "your_answer": "D. One-sample proportion test",
+          "correct_answer": "C. Multivariate analysis of variance"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:05",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:05"
+    },
+    {
+      "id": "1794762719357652",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 63,
+      "question": "Which compound can be used as an anhydrous laboratory desiccant?",
+      "category": "Conceptual Misunderstanding",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:05",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:59",
+          "your_answer": "D. Calcium silicate",
+          "correct_answer": "B. Calcium sulfate"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:05",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:05"
+    },
+    {
+      "id": "1794762719495575",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 69,
+      "question": "A temperature control system uses an outer temperature controller to establish the setpoint of an inner cooling-water flow controller. Which control configuration is described?",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:05",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:59",
+          "your_answer": "B. Ratio control",
+          "correct_answer": "A. Cascade control"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:05",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:05"
+    },
+    {
+      "id": "1794762719646381",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 20,
+      "question": "The functions y₁ = eˣ and y₂ = e⁻ˣ are solutions of y″ − y = 0. Which is also a solution?",
+      "category": "Conceptual Misunderstanding",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:05",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:59",
+          "your_answer": "B. eˣe⁻ˣ + x",
+          "correct_answer": "C. 3eˣ − 2e⁻ˣ"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:05",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:05"
+    },
+    {
+      "id": "1794762719795649",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 27,
+      "question": "A 2-kg mass is attached to a spring having a stiffness of 50 N/m. Determine the natural angular frequency of the undamped system.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:05",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:59",
+          "your_answer": "B. 6 rad/s",
+          "correct_answer": "D. 5 rad/s"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:05",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:05"
+    },
+    {
+      "id": "1794762719928578",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 3,
+      "question": "A statistical test gives a p-value of 0.08 at a 5% significance level. What conclusion should be made?",
+      "category": "Conceptual Misunderstanding",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:05",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:11:59",
+          "your_answer": "B. Confirm the null hypothesis",
+          "correct_answer": "C. Fail to reject the null hypothesis"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:05",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:05"
+    },
+    {
+      "id": "1794762720067919",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 16,
+      "question": "Evaluate lim(x→0) [sin(5x)/x], where angles are expressed in radians.",
+      "category": "Unfamiliar Topic",
+      "note": "",
+      "resolved": false,
+      "date_logged": "2026-11-15T17:12:05",
+      "occurrences": [
+        {
+          "exam_id": "1794762712987588",
+          "exam_source": "ARC_GEP_MOCK",
+          "date": "2026-11-15T17:12:00",
+          "your_answer": "B. 3",
+          "correct_answer": "C. 5"
+        }
+      ],
+      "updated_at": "2026-11-15T17:12:05",
+      "concept_id": "1794743060342556",
+      "tag_at": "2026-11-15T17:12:05"
     }
   ],
   "guess_notes": [
@@ -192141,6 +194299,51 @@
       "category": "Formula / Equation Error",
       "concept_id": "1792701557213788",
       "updated_at": "2026-11-14T15:45:32"
+    },
+    {
+      "id": "1794762720932510",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 85,
+      "resolved": false,
+      "created_at": "2026-11-15T17:12:00",
+      "question": "For two groups with equal sample sizes of 8, an ANOVA gives MSE = 16. If the appropriate critical t-value is 2.0, determine Fisher's least significant difference (LSD).",
+      "correct_answer": "C. 4.0",
+      "kind": "guess",
+      "exam_id": "1794762712987588",
+      "exam_source": "ARC_GEP_MOCK",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1794743060342556",
+      "updated_at": "2026-11-15T17:12:00"
+    },
+    {
+      "id": "1794762722512968",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 57,
+      "resolved": false,
+      "created_at": "2026-11-15T17:12:02",
+      "question": "An activated sludge sample has a 30-minute settled sludge volume of 240 mL/L and an MLSS concentration of 3,000 mg/L. Determine the Sludge Volume Index.",
+      "correct_answer": "B. 80 mL/g",
+      "kind": "guess",
+      "exam_id": "1794762712987588",
+      "exam_source": "ARC_GEP_MOCK",
+      "category": "Unfamiliar Topic",
+      "concept_id": "1794743060342556",
+      "updated_at": "2026-11-15T17:12:02"
+    },
+    {
+      "id": "1794762723128698",
+      "source_list": "ARC_GEP_MOCK_BOARDS",
+      "reference_no": 14,
+      "resolved": false,
+      "created_at": "2026-11-15T17:12:03",
+      "question": "The prediction errors of a model are 1, −1, and 2. Determine the root mean square error.",
+      "correct_answer": "B. 1.414",
+      "kind": "guess",
+      "exam_id": "1794762712987588",
+      "exam_source": "ARC_GEP_MOCK",
+      "category": "Formula / Equation Error",
+      "concept_id": "1794743060342556",
+      "updated_at": "2026-11-15T17:12:03"
     }
   ],
   "checklist": [],
@@ -192205,5 +194408,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-15T17:11:21"
+  "updated_at": "2026-11-15T17:12:10"
 }
