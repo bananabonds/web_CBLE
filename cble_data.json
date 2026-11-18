@@ -76782,6 +76782,257 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1795013730000496",
+      "name": "PT_Physics_Engineering_Mechanics_Quiz",
+      "created_at": "2026-11-18T14:55:30",
+      "composition": {
+        "PT_Physics_Engineering_Mechanics_Quiz": 20
+      },
+      "questions": [
+        {
+          "text": "A simply supported beam measuring 7.5 m carries three kinds of load: a point load of 12 kN located 1.5 m from the left end, immediately followed by a uniformly distributed load of 6 kN/m spanning 3 m starting from the point load, which is in turn followed by a uniformly varying (triangular) load measuring 3 m, increasing from 0 to 15 kN/m (the zero end is next to the uniform load, the 15 kN/m end is at the right support). What is the reaction at the left support?",
+          "options": [
+            "A. 23.4 kN",
+            "B. 24.3 kN",
+            "C. 32.4 kN",
+            "D. 43.2 kN"
+          ],
+          "correct": 0,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 11
+        },
+        {
+          "text": "The dimensions of the inverted T-section are 8 in by 1 in in the vertical part (web, 8 in tall and 1 in thick, standing on top of the flange) and 6 in by 1 in in the horizontal part (flange, 6 in wide and 1 in thick, at the bottom). How far is the centroid of the area above the base?",
+          "options": [
+            "A. 6.14 in",
+            "B. 3.07 in",
+            "C. 5.61 in",
+            "D. 4.84 in"
+          ],
+          "correct": 1,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 12
+        },
+        {
+          "text": "Two forces P and Q pass through a point A which is 4 m to the right of and 3 m above a moment center O. Force P is 890 N directed up to the right at 30° with the horizontal and force Q is 445 N directed up to the left at 60° with the horizontal. Determine the moment of the resultant of the two forces with respect to O.",
+          "options": [
+            "A. 1899.34 N-m counterclockwise",
+            "B. 1676.74 N-m clockwise",
+            "C. 1899.34 N-m clockwise",
+            "D. 1676.74 N-m counterclockwise"
+          ],
+          "correct": 3,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 8
+        },
+        {
+          "text": "What is the magnitude of the resultant force of the three forces: 86.6 N @ 30°, 70.7 N @ 135° and 68.3 N @ -90°?",
+          "options": [
+            "A. 64.64 N",
+            "B. 53.53 N",
+            "C. 46.46 N",
+            "D. 35.35 N"
+          ],
+          "correct": 3,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 1
+        },
+        {
+          "text": "A block A of weight 5 kN is to be raised by means of a 20° wedge B by the application of a horizontal force P on the wedge. Block A rests on the inclined face of the wedge and is constrained to move vertically only (it is guided by a smooth vertical wall), while the wedge slides on a horizontal floor. Find the magnitude of the force P when the coefficient of friction at the contact surfaces (wedge-block and wedge-floor) is 0.25.",
+          "options": [
+            "A. 8.65 kN",
+            "B. 3.38 kN",
+            "C. 4.62 kN",
+            "D. 7.38 kN"
+          ],
+          "correct": 2,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 7
+        },
+        {
+          "text": "A truss is described as follows: bar (B-D) is parallel to bar (A-C-E) and is connected to it by sloping/diagonal bars (A-B, B-C, C-D, D-E) each measuring 10 meters with an angle of 60°, forming a series of equilateral triangles (A, C, E on the bottom chord at 0, 10 and 20 m; B and D on the top chord above the midpoints of AC and CE). The truss is simply supported at A and E, and the given downward forces acting at B, C, and D are 2000 N, 5000 N and 6000 N respectively. Find: force in bar CD.",
+          "options": [
+            "A. 1346 N",
+            "B. 1327 N",
+            "C. 1237 N",
+            "D. 1732 N"
+          ],
+          "correct": 3,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 13
+        },
+        {
+          "text": "A 300-lb box is held at rest on a smooth plane by a force P inclined at an angle 45° with the 30° inclined plane (P acts up the slope, 45° above the surface of the incline). What is the normal pressure N exerted by the plane?",
+          "options": [
+            "A. 110 lbs",
+            "B. 430 lbs",
+            "C. 390 lbs",
+            "D. 350 lbs"
+          ],
+          "correct": 0,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 5
+        },
+        {
+          "text": "A 300-lb box is held at rest on a smooth plane by a force P inclined at an angle 45° with the 30° inclined plane (P acts up the slope, 45° above the surface of the incline). Determine the value of P.",
+          "options": [
+            "A. 424 lbs",
+            "B. 322 lbs",
+            "C. 212 lbs",
+            "D. 432 lbs"
+          ],
+          "correct": 2,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 4
+        },
+        {
+          "text": "Determine the values of α and θ so that the following concurrent forces will be in equilibrium: 40 kN located at the positive x-axis, 20 kN located at the second quadrant at an angle α from the x-axis, and 30 kN found at the third quadrant at θ degrees from the x-axis.",
+          "options": [
+            "A. α = 30.00°, θ = 45.00°",
+            "B. α = 46.57°, θ = 28.96°",
+            "C. α = 45.67°, θ = 34.57°",
+            "D. α = 28.96°, θ = 46.57°"
+          ],
+          "correct": 1,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 3
+        },
+        {
+          "text": "A string vibrates in five segments to a frequency of 460 Hz. What is its fundamental frequency?",
+          "options": [
+            "A. 136 Hz",
+            "B. 46 Hz",
+            "C. 184 Hz",
+            "D. 92 Hz"
+          ],
+          "correct": 3,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 17
+        },
+        {
+          "text": "A small spherical insulator of mass 8.00 × 10^-2 kg and charge +0.600 μC is hung by a thin wire with negligible mass. A charge of -0.900 μC is held 0.150 m away from the sphere and directly to the right of it so the wire makes an angle θ to the vertical. What is the tension in the wire?",
+          "options": [
+            "A. 0.221 N",
+            "B. 0.813 N",
+            "C. 0.318 N",
+            "D. 0.122 N"
+          ],
+          "correct": 1,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 16
+        },
+        {
+          "text": "A train has a length of 92 m and starts from rest with a constant acceleration at time t = 0 s. At this instant, a car just reaches the end (rear) of the train. The car is now moving with a constant velocity. At a time t = 14 s, the car just reaches the front of the train. Ultimately, however, the train pulls ahead of the car and at time t = 28 s, the car is at the rear of the train. What is the car's velocity?",
+          "options": [
+            "A. 10.34 m/s",
+            "B. 5.04 m/s",
+            "C. 6.58 m/s",
+            "D. 13.14 m/s"
+          ],
+          "correct": 3,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 19
+        },
+        {
+          "text": "A small spherical insulator of mass 8.00 × 10^-2 kg and charge +0.600 μC is hung by a thin wire with negligible mass. A charge of -0.900 μC is held 0.150 m away from the sphere and directly to the right of it so the wire makes an angle θ to the vertical. What is the value of θ in degrees?",
+          "options": [
+            "A. 21.21",
+            "B. 7.85",
+            "C. 15.40",
+            "D. 28.11"
+          ],
+          "correct": 2,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 15
+        },
+        {
+          "text": "Three ropes are tied to a small metal ring. At the end of each rope three students are pulling, each trying to move the ring in their decision. Student A is pulling with 30 lbf at 37° with the horizontal at the right side, while student B has 50 lbf at 45° with the horizontal on the left side. Student C is also on the left side at -60° with the horizontal and has a force of 80 lb. Find the net force on the ring due to the three applied forces.",
+          "options": [
+            "A. 54 lbf",
+            "B. 39 lbf",
+            "C. 64 lbf",
+            "D. 60 lbf"
+          ],
+          "correct": 0,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 0
+        },
+        {
+          "text": "A 60 kN block rests on a horizontal surface and is connected by a rope over a pulley to a 40 kN block which rests on a 45° inclined surface. The 40 kN block is then connected by a rope over another pulley to a hanging block W (W hangs and pulls the 40 kN block up the incline, which in turn drags the 60 kN block to the right). What weight W is necessary to start the system of blocks moving to the right? The coefficient of friction is 0.10 on both surfaces and the pulleys are assumed to be frictionless.",
+          "options": [
+            "A. 37.11 kN",
+            "B. 29.12 kN",
+            "C. 15.22 kN",
+            "D. 73.11 kN"
+          ],
+          "correct": 0,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 6
+        },
+        {
+          "text": "Given the set of concurrent forces passing through the origin: 300 N through (3, -4, 6), 400 N through (-2, 4, -5), and 200 N through (-4, 5, -3), determine the magnitude of the resultant force.",
+          "options": [
+            "A. 295 N",
+            "B. 301 N",
+            "C. 299 N",
+            "D. 297 N"
+          ],
+          "correct": 3,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 2
+        },
+        {
+          "text": "A horizontal bar PQRS is 12 m long, where PQ = QR = RS = 4 m. Forces of 1000 N, 1500 N, 1000 N and 500 N act at P, Q, R, and S respectively with downward direction. The lines of action of these forces make angles of 90°, 60°, 45° and 30° respectively with the bar. Find the position of the resultant force from point P.",
+          "options": [
+            "A. 4.75 m",
+            "B. 4.25 m",
+            "C. 3.35 m",
+            "D. 5.00 m"
+          ],
+          "correct": 1,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 10
+        },
+        {
+          "text": "A truss is described as follows: bar (B-D) is parallel to bar (A-C-E) and is connected to it by sloping/diagonal bars (A-B, B-C, C-D, D-E) each measuring 10 meters with an angle of 60°, forming a series of equilateral triangles (A, C, E on the bottom chord at 0, 10 and 20 m; B and D on the top chord above the midpoints of AC and CE). The truss is simply supported at A and E, and the given downward forces acting at B, C, and D are 2000 N, 5000 N and 6000 N respectively. Find: force in bar CE.",
+          "options": [
+            "A. 5003 N",
+            "B. 4550 N",
+            "C. 3400 N",
+            "D. 4330 N"
+          ],
+          "correct": 3,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 14
+        },
+        {
+          "text": "A horizontal bar PQRS is 12 m long, where PQ = QR = RS = 4 m. Forces of 1000 N, 1500 N, 1000 N and 500 N act at P, Q, R, and S respectively with downward direction. The lines of action of these forces make angles of 90°, 60°, 45° and 30° respectively with the bar. Calculate the magnitude and direction of the resultant force.",
+          "options": [
+            "A. 3256 N & 69°",
+            "B. 3765 N & 60°",
+            "C. 3675 N & 60°",
+            "D. 3556 N & 53°"
+          ],
+          "correct": 1,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 9
+        },
+        {
+          "text": "Where an object should be placed, with reference to a concave spherical mirror of radius 180 cm, to form a real image having half its linear dimensions?",
+          "options": [
+            "A. 2.7 m from the mirror",
+            "B. 4.5 m from the focus",
+            "C. At the focus",
+            "D. 1.6 m from the mirror"
+          ],
+          "correct": 0,
+          "_source_list": "PT_Physics_Engineering_Mechanics_Quiz",
+          "_source_index": 18
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -197355,5 +197606,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-18T14:55:07"
+  "updated_at": "2026-11-18T14:55:51"
 }
