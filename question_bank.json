@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-18T14:53:47",
+  "updated_at": "2026-11-18T14:57:33",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -63848,6 +63848,308 @@
           "D. 13.14 m/s"
         ],
         "correct": 3
+      }
+    ],
+    "Differential_Equations_Engineering_Economics_Data_Analysis_Quiz": [
+      {
+        "text": "Solve for the general solution of the differential equation y' - y = 2.",
+        "options": [
+          "A. y = ce^x + 3",
+          "B. y = ce^x - 2",
+          "C. y = ce^-x - 2",
+          "D. y = ce^-x + 2"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Solve (x^2 + y^2)dx - xy dy = 0.",
+        "options": [
+          "A. x^2/y^2 = ln x + c",
+          "B. y^2 = x^2 ln x + c",
+          "C. y^2 = x^2(ln x^2 + c)",
+          "D. y^2 = 2x ln x + cx"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Solve (2xy - 9x^2)dx + (2y + x^2 + 1)dy = 0.",
+        "options": [
+          "A. x^2 y - 3x^3 + y^2 + y = c",
+          "B. x^2 y + 3x^3 + y^2 + y = c",
+          "C. x^2 y - 3x^3 + y^2 - y = c",
+          "D. x^2 y - 9x^3 + y^2 + y = c"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Find the order, degree and type of the differential equation: d^2y/dx^2 = (1 + dy/dx)^(2/3).",
+        "options": [
+          "A. Order: 1, Degree: 3/2, Type: Ordinary",
+          "B. Order: 1, Degree: 2, Type: Partial",
+          "C. Order: 2, Degree: 3, Type: Ordinary",
+          "D. Order: 2, Degree: 2, Type: Partial"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Solve: dy/dx + y = xy^2.",
+        "options": [
+          "A. y = 1/(ce^-x + x - 1)",
+          "B. y = 1/(ce^x + x + 1)",
+          "C. y = 1/(ce^x - x + 1)",
+          "D. y = 1/(ce^x + x - 1)"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A thermometer reading 70°F is taken out where the temperature is 20°F. The thermometer reading is 30°F four minutes later. Find the time (in minutes) taken for the reading to drop from 70°F to within half degree of the air temperature.",
+        "options": [
+          "A. 10.88 min",
+          "B. 11.55 min",
+          "C. 13.67 min",
+          "D. 12.78 min"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Solve: x dy = y(1 + ln(y/x)) dx, given that y(1) = e.",
+        "options": [
+          "A. y = e^x",
+          "B. y = xe",
+          "C. y = x",
+          "D. y = xe^x"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "The OPM band Silent Sanctuary performed at a certain municipality, and surprisingly, a lot of ex-couples came back together. The rate of change of the percentage of ex-couples coming back (P) with respect to time (t) (in minutes) is proportional to P(1 - P). Initially, there are 1% (of the audience that are ex-couples who have come back). After 20 minutes, it increased to 5%. After what time will the percentage of ex-couples who attended the band's performance and came back with each other reach 75%?",
+        "options": [
+          "A. 238 min",
+          "B. 69 min",
+          "C. 420 min",
+          "D. 140 min"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Solve for the inverse Laplace transform of F(s) = (s + 1) / ((s - 3)^2 (s^2 + 9)).",
+        "options": [
+          "A. (2/9)te^(3t) - (1/54)e^(3t) + (1/54)cos(3t) - (1/18)sin(3t)",
+          "B. (2/9)te^(3t) + (1/54)e^(3t) - (1/54)cos(3t) - (1/18)sin(3t)",
+          "C. (2/9)te^(3t) - (1/54)e^(3t) - (1/54)cos(3t) + (1/18)sin(3t)",
+          "D. (1/9)te^(3t) - (1/54)e^(3t) + (1/54)cos(3t) - (1/18)sin(3t)"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "In a tank are 100 liters of brine containing 30 kg of dissolved salt. Pure water is allowed to run into the tank at the rate of 3 liters per minute. Brine runs out of the tank at the rate of 3 liters per minute. The instantaneous concentration in the tank is kept uniform by stirring. How much salt is in the tank at the end of one hour?",
+        "options": [
+          "A. 10.45 kg",
+          "B. 18.54 kg",
+          "C. 20.82 kg",
+          "D. 4.96 kg"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "The number of cars passing a point on a road may be modelled by Poisson distribution. On an average, 4 cars enter the Cadwan Diversion Road in Tacloban City every 5 minutes. Find the probability that in a 5-minute period two cars go past.",
+        "options": [
+          "A. 0.896",
+          "B. 0.238",
+          "C. 0.146",
+          "D. 0.203"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "John borrowed ₱500,000 from Mark today and should be paid after fifteen years with an amount of ₱910,150.814 compounded monthly. John cannot pay that very high amount in one lump sum, so he offered Mark to pay a yearly amount starting next year for fifteen years to compensate the money he owes. What amount should John pay yearly to Mark?",
+        "options": [
+          "A. ₱58,568",
+          "B. ₱40,657",
+          "C. ₱45,206",
+          "D. ₱55,251"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "An asset is purchased for ₱500,000.00. The salvage value in 25 years is ₱100,000.00. What is the depreciation in the first three years using the straight line method?",
+        "options": [
+          "A. ₱24,000.00",
+          "B. ₱32,000.00",
+          "C. ₱48,000.00",
+          "D. ₱14,000.00"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A box containing 10 identical compartments has 6 red balls and 4 blue balls. If each compartment can hold only one ball, then the number of different arrangements is:",
+        "options": [
+          "A. 1625",
+          "B. 1260",
+          "C. 210",
+          "D. 1062"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A child receives ₱100,000 as a gift which is deposited in a 6% bank account compounded semi-annually. If ₱5,000 is withdrawn at the end of each half year, how long will the money last?",
+        "options": [
+          "A. 15.5 years",
+          "B. 21 years",
+          "C. 25 years",
+          "D. 18.5 years"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Mr. Richardson borrowed ₱15,000 two years ago. The repayment terms of the loan are 10% interest for 10 years and uniform payments. He just made his second payment. How much principal, most nearly, does he still owe?",
+        "options": [
+          "A. ₱10,100",
+          "B. ₱13,000",
+          "C. ₱11,700",
+          "D. ₱12,000"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A stationery store has decided to accept a large shipment of ball-point pens if an inspection of 20 randomly selected pens yields no more than two defective pens. Find the probability that this shipment is accepted if 8% of the shipment is defective.",
+        "options": [
+          "A. 67.49%",
+          "B. 7.65%",
+          "C. 92.46%",
+          "D. 78.79%"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "A company can manufacture a product using hand tools. Tools will cost $1,000, and the manufacturing cost per unit will be $1.20. As an alternative, an automated system will cost $15,000 with a manufacturing cost per unit of $0.50. With an anticipated annual volume of 3,000 units and neglecting interest, the payback period (yr) is most nearly:",
+        "options": [
+          "A. 2.9",
+          "B. 6.7",
+          "C. 15.0",
+          "D. never"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Consider a project that involves an investment of $100,000 now and $110,000 at the end of year 1. Revenues of $150,000 will be generated at the end of years 1 and 2. What is most nearly the net present value of this project if the effective annual interest rate is 10%?",
+        "options": [
+          "A. $38,000",
+          "B. $60,330",
+          "C. $19,500",
+          "D. $69,500"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "[ILLEGIBLE IN IMAGE] The following sequence of numbers is arranged in increasing order: 1, x, x, y, ..., 16, 19. Given that the mean and median are equal, and are also equal to the mode, find the value of y.",
+        "options": [
+          "A. 4",
+          "B. 7",
+          "C. 6",
+          "D. 5"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Evaluate L{ (t^3 - sin(3t)cos(3t)) / e^(2t) }.",
+        "options": [
+          "A. 6/(s-2)^4 - 6/((s+2)^2+36)",
+          "B. 6/(s+2)^4 - 3/((s+2)^2+36)",
+          "C. 3(s+2)/(s+4)^4 - 6/((s+2)^2+36)",
+          "D. 6/(s+4)^4 - 6/((s+2)^2+36)"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A bank is advertising 6% accounts that yield 6.14% annually. How often is the interest compounded?",
+        "options": [
+          "A. daily",
+          "B. bimonthly",
+          "C. monthly",
+          "D. quarterly"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "A researcher wants to test whether a new medication lowers blood pressure more effectively than the standard medication. The null hypothesis states that there is no difference in effectiveness between the two medications. The researcher performs a hypothesis test and obtains a p-value of 0.03. If the significance level is α = 0.05, what should the researcher conclude?",
+        "options": [
+          "A. Accept the null hypothesis; the new medication is less effective",
+          "B. Fail to reject the null hypothesis; the test results are inconclusive",
+          "C. Fail to reject the null hypothesis; there is no evidence the new medication is more effective",
+          "D. Reject the null hypothesis; the new medication is more effective"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "A large tank is filled with 500 gallons of pure water. Brine containing 2 pounds of salt per gallon is pumped into the tank at a rate of 5 gal/min. The well-mixed solution is pumped out at the same rate. What is the concentration of salt in the tank after a long time?",
+        "options": [
+          "A. 5 lb/gal",
+          "B. 1 lb/gal",
+          "C. 3 lb/gal",
+          "D. 2 lb/gal"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "By the conditions of a will, the sum of ₱2.5M is left to a girl to be held in a trust fund by her guardian until it amounts to ₱4.0M. When will the girl receive the money if the fund is invested at 8% compounded quarterly?",
+        "options": [
+          "A. 7.42 years",
+          "B. 5.9 years",
+          "C. 7.25 years",
+          "D. 7 years"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "In how many ways can the letters of the word MATHEMATICS be arranged if the consonants are to come together?",
+        "options": [
+          "A. 907,200",
+          "B. 75,600",
+          "C. 3,628,800",
+          "D. 8,640"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A man wants to invest a sum of ₱40,000 in two investments. The first investment earns a rate of interest 4 times that of the second investment (the amounts and the resulting growth are illegible in the image). What is the rate of interest of each investment per year?",
+        "options": [
+          "A. 8% and 1%",
+          "B. 7% and 4%",
+          "C. 8% and 2%",
+          "D. 6% and 4%"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "In the 1500-m race in the Olympics, fourteen top-tier athletes compete. How many ways can the gold, silver, and bronze medals be awarded?",
+        "options": [
+          "A. 2184",
+          "B. 3003",
+          "C. 4420",
+          "D. 1680"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "One drawer in a dresser contains 8 blue socks and 6 white socks. A second drawer contains 4 blue socks and 4 white socks. One sock is chosen from each drawer. What is the probability that they match?",
+        "options": [
+          "A. 48%",
+          "B. 70%",
+          "C. 50%",
+          "D. 92%"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Evaluate L{y''}.",
+        "options": [
+          "A. s^2 Y(s) - s y(0) - y'(0)",
+          "B. s^2 Y(s) + s y(0) + y'(0)",
+          "C. s Y(s) - y(0) - y'(0)",
+          "D. s^2 Y(s) - y(0) - s y'(0)"
+        ],
+        "correct": 0
       }
     ]
   },
