@@ -77404,6 +77404,377 @@
         }
       ],
       "exam_id": "1790584132394843"
+    },
+    {
+      "id": "1795014873262807",
+      "name": "PT_Differential_Integral_Calculus_DE",
+      "created_at": "2026-11-18T15:14:33",
+      "composition": {
+        "CT_Differential_Integral_Calculus_DE": 30
+      },
+      "questions": [
+        {
+          "text": "By inversion of order, what are the new limits of integration for the equation: ∫ from 0 to 1 ∫ from √(4x) to 2 of dy dx / (y² + 4)^(3/2)?",
+          "options": [
+            "A. x₁ = y²/4; x₂ = 1; y₁ = 0; y₂ = 2",
+            "B. x₁ = 0; x₂ = y²/4; y₁ = 0; y₂ = 2",
+            "C. x₁ = 0; x₂ = y²/2; y₁ = 0; y₂ = 2",
+            "D. x₁ = 0; x₂ = 1; y₁ = √(4x); y₂ = 2"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 14
+        },
+        {
+          "text": "Evaluate: ∫ from 0 to π/2 ∫ from 0 to cos x of (1 + sin x) dy dx",
+          "options": [
+            "A. 1/2",
+            "B. 3/2",
+            "C. −1/2",
+            "D. −3/2"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 10
+        },
+        {
+          "text": "The curve y = ax³ + bx² + cx + d has a critical point at (−1, 3) and has a point of inflection at (0, 1). Find the equation of the curve that will make the conditions true.",
+          "options": [
+            "A. y = −x³ + 4x² + 3x − 2",
+            "B. y = −x³ + 3x² + 2x",
+            "C. y = x³ − 3x + 1",
+            "D. y = x² + x − 7"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 25
+        },
+        {
+          "text": "Evaluate: ∫ from 1 to 2 ∫ from 0 to ln z ∫ from 0 to 1 of e^y / √(1 − x²) dx dy dz",
+          "options": [
+            "A. π/2",
+            "B. −π/4",
+            "C. π/4",
+            "D. π/4e^(ln 4)"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 11
+        },
+        {
+          "text": "What is the numerical coefficient of the \"x\" term in the equation of the curve for which d³y/dx³ = 1/x³? The curve has (1, 2) as a point of inflection with an inflectional tangent 2x − y = 0.",
+          "options": [
+            "A. −1",
+            "B. 0",
+            "C. 1",
+            "D. 2"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 7
+        },
+        {
+          "text": "Find: ∫ from 0 to 1 ∫ from 3y to 3 of e^(x²) dx dy",
+          "options": [
+            "A. 1920",
+            "B. 1480",
+            "C. 1670",
+            "D. 1350"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 13
+        },
+        {
+          "text": "Find the limit of the function: lim (x→1⁺) of (x² + 1)/(x² − 1)",
+          "options": [
+            "A. ∞",
+            "B. −∞",
+            "C. 0",
+            "D. ±∞"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 15
+        },
+        {
+          "text": "Evaluate the integral below: ∫ (3 sin x / cos²x · e^(sec x + 17)) dx",
+          "options": [
+            "A. 3e^(sec x − 17) + C",
+            "B. −3e^(sec x − 17) + C",
+            "C. 3e^(sec x + 17) + C",
+            "D. −3e^(sec x + 17) + C"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 0
+        },
+        {
+          "text": "Which of the following statements is true about critical points?",
+          "options": [
+            "A. It is a point in the curve where the slope is undefined.",
+            "B. All of the choices",
+            "C. It is a point in the curve where the slope is zero.",
+            "D. It is a point in the curve where the slope changes from positive to negative, or vice versa."
+          ],
+          "correct": 1,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 24
+        },
+        {
+          "text": "Evaluate the limit: lim (x→−∞) of x³ / e^(1−x)",
+          "options": [
+            "A. −6",
+            "B. 0",
+            "C. −∞",
+            "D. 6/e"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 26
+        },
+        {
+          "text": "Evaluate: ∫ from 0 to π/2 of sin⁴x cos⁶x dx",
+          "options": [
+            "A. (1/64)(sin 2x + cos 2x)",
+            "B. 3π/512",
+            "C. sin⁵x cos⁶x",
+            "D. 3/256"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 8
+        },
+        {
+          "text": "If z = x·arctan(zy), find ∂x/∂z at x = 0, y = 1, z = 1.",
+          "options": [
+            "A. π/4",
+            "B. −π/4",
+            "C. undefined",
+            "D. π/6"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 29
+        },
+        {
+          "text": "A conical tank, 12 ft high and 8 ft wide across the top, is filled with water up to a level of 9 ft from the bottom. Find the work done in pumping all the water to a level 8 ft from the surface of the tank. Use ω = ρg.",
+          "options": [
+            "A. 715.5ωπ",
+            "B. 189ωπ",
+            "C. 357.75ωπ",
+            "D. 704ωπ"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 9
+        },
+        {
+          "text": "What is the value of k so that the function f(x) is continuous at x = 2? f(x) = (x − 2k)/(x + 3) for x < 2, and f(x) = 2/x for x ≥ 2.",
+          "options": [
+            "A. 1/2",
+            "B. −3/2",
+            "C. 1",
+            "D. −3"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 16
+        },
+        {
+          "text": "If the area of the parabola x² − 2y + 2 = 0 and its latus rectum is rotated about the x-axis, determine its volume.",
+          "options": [
+            "A. 2π",
+            "B. 26π/15",
+            "C. 43π/9",
+            "D. 16π/3"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 4
+        },
+        {
+          "text": "Evaluate using trigonometric substitution: ∫ dx / √(4 − (x − 2)²)",
+          "options": [
+            "A. −ln|(x − 2 + √(4x − x²)) / 2| + C",
+            "B. ln|(x − 2 + √(4x − x²)) / 2| + C",
+            "C. sin⁻¹((x − 2)/2) + C",
+            "D. (x − 2)/2 + C"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 2
+        },
+        {
+          "text": "Evaluate the following definite integral: 4π ∫ from −a to a of (b − x)√(a² − x²) dx",
+          "options": [
+            "A. 8πb",
+            "B. 2π²a²b",
+            "C. 0",
+            "D. πab²"
+          ],
+          "correct": 1,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 1
+        },
+        {
+          "text": "The best stripping to solve the area of the plane region bounded by y = sin x, y = cos x, x = −π/2, x = π/4 is:",
+          "options": [
+            "None of the choices",
+            "Horizontal Stripping",
+            "Diagonal Stripping",
+            "Vertical Stripping"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 3
+        },
+        {
+          "text": "Evaluate: ∫ from 0 to 3π/2 of |sin x| dx",
+          "options": [
+            "A. 0",
+            "B. 1",
+            "C. 2",
+            "D. 3"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 6
+        },
+        {
+          "text": "Find y': sin(xy) = y − x",
+          "options": [
+            "A. y' = x cos(xy + 1) / [y cos(xy) − 1]",
+            "B. y' = [y cos(xy) + 1] / [x cos(xy) − 1]",
+            "C. y' = −[y cos(xy) + 1] / [x cos(xy) − 1]",
+            "D. y' = −x cos(xy + 1) / [y cos(xy) − 1]"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 21
+        },
+        {
+          "text": "A bush fire is burning a circular area whose radius is increasing at a rate of 3 ft/min. How fast is the area of fire increasing in ft²/min when its radius is 25 ft?",
+          "options": [
+            "A. 225π",
+            "B. 75π",
+            "C. 150π",
+            "D. 625π"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 27
+        },
+        {
+          "text": "The radius of a circular disk is measured as 24 cm with a maximum error of 0.2 cm. By the application of differentials, estimate the maximum error in the calculated area of the disk.",
+          "options": [
+            "A. 9.6 cm²",
+            "B. 4.8π cm²",
+            "C. 9.6π cm²",
+            "D. 4.8 cm²"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 18
+        },
+        {
+          "text": "Find the volume of the solid generated when the region enclosed by y = sin(x²), y = 0, x = 0, and x = √π is revolved about the y-axis.",
+          "options": [
+            "A. 3π/2",
+            "B. π/4",
+            "C. π",
+            "D. 2π"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 5
+        },
+        {
+          "text": "Evaluate: lim (x→∞) of (1 + x·eˣ)^(1/x)",
+          "options": [
+            "A. e",
+            "B. 1/e",
+            "C. ∞",
+            "D. 1"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 19
+        },
+        {
+          "text": "What is f‴(x) of f(x) = log₃(1 − 2x)²?",
+          "options": [
+            "A. −8/ln(3) (1 − 2x)²",
+            "B. −8/[ln(3)(1 − 2x)²]",
+            "C. −32/[ln(3)(1 − 2x)³]",
+            "D. −32/ln(3)[(1 − 2x)³]"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 22
+        },
+        {
+          "text": "A square is increasing in area at a rate of 20 mm² each second. Calculate the rate of change of each side when it is 1,000 mm long.",
+          "options": [
+            "A. 0.01 mm/s",
+            "B. 50 mm/s",
+            "C. 100 mm/s",
+            "D. 0.02 mm/s"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 23
+        },
+        {
+          "text": "Evaluate: ∫ from 0 to π/2 ∫ from √z to √(π/2) ∫ from 0 to y² of y cos z cos x dx dy dz",
+          "options": [
+            "A. π/8",
+            "B. π/2",
+            "C. −π/8",
+            "D. −π/4"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 12
+        },
+        {
+          "text": "Determine the derivative of the following function and simplify: f(x) = sin^(cos(2x))(5x), i.e. f(x) = [sin(5x)]^(cos 2x)",
+          "options": [
+            "A. 5x sin^(cos(2x))(5x)(5 sin(2x) cot(5x) + 2 cos(2x) ln sin(5x))",
+            "B. 5x sin^(cos(2x))(5x)(5 cos(2x) cot(5x) − 2 sin(2x) ln sin(5x))",
+            "C. 5x sin^(cos(2x))(5x)(5 cos(2x) cot(5x) + 2 sin(2x) ln sin(5x))",
+            "D. sin^(cos(2x))(5x)(5 cos(2x) cot(5x) − 2 sin(2x) ln sin(5x))"
+          ],
+          "correct": 3,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 17
+        },
+        {
+          "text": "For the curve y = x⁴, the point (0, 0) is a:",
+          "options": [
+            "A. Critical point",
+            "B. Both point of inflection and critical point",
+            "C. Point of inflection",
+            "D. None of the choices"
+          ],
+          "correct": 0,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 28
+        },
+        {
+          "text": "Find the limit of the function: lim (x→+∞) of √(2x⁸ − 2x³ + 9x) / (6x⁴ + 5x³ − 3x − 2)",
+          "options": [
+            "A. √2",
+            "B. 1",
+            "C. √2/6",
+            "D. 1/3"
+          ],
+          "correct": 2,
+          "_source_list": "CT_Differential_Integral_Calculus_DE",
+          "_source_index": 20
+        }
+      ],
+      "exam_id": "1790584132394843"
     }
   ],
   "test_history": [
@@ -197979,5 +198350,5 @@
       "1792314640748134"
     ]
   },
-  "updated_at": "2026-11-18T15:14:13"
+  "updated_at": "2026-11-18T15:14:56"
 }
