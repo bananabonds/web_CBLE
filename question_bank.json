@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-18T12:55:10",
+  "updated_at": "2026-11-18T12:57:07",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -62286,6 +62286,208 @@
           "D. Double pipe type with fin on steam side"
         ],
         "correct": 2
+      }
+    ],
+    "PT_Heat_and_Mass_Transfer": [
+      {
+        "text": "A wet material containing 70% moisture on a wet basis is to be dried at the rate of 0.15 kg/s in a counter-current dryer to give a product containing 5% moisture, both on a wet basis. The drying medium is air heated to 373 K and containing water vapor with a partial pressure of 1.0 kPa. The air leaves the dryer at 313 K and 70% saturated. Calculate how much air will be required to remove the moisture. The vapor pressure of water at 313 K may be taken as 7.4 kPa.",
+        "options": [
+          "A. 3.78 kg/s",
+          "B. 2.23 kg/s",
+          "C. 5.22 kg/s",
+          "D. 1.06 kg/s"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "A gas at 200°F and 30 in Hg abs. has a molal humidity of 0.10. Calculate the percentage humidity.",
+        "options": [
+          "A. 1.8%",
+          "B. 0.9%",
+          "C. 2.8%",
+          "D. 4.9%"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A gas at 200°F and 30 in Hg abs. has a molal humidity of 0.10. Calculate the percentage relative humidity.",
+        "options": [
+          "A. 17%",
+          "B. 12%",
+          "C. 10%",
+          "D. 19%"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A gas at 200°F and 30 in Hg abs. has a molal humidity of 0.10. Calculate the dew point.",
+        "options": [
+          "A. 129°F",
+          "B. 133°F",
+          "C. 108°F",
+          "D. 112°F"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Toluene is evaporated into dry air. The resulting mixture at 40°C and a pressure of 101.3 kPa has a percentage saturation of 50%. It is desired to condense 80% of the toluene in the mixture by a process of cooling and compressing. If the temperature is reduced to 5°C, determine the pressure to which gas must be compressed.",
+        "options": [
+          "A. 1300 mmHg",
+          "B. 1500 mmHg",
+          "C. 1100 mmHg",
+          "D. 1600 mmHg"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "A silica gel drier removes 1000 kg of water per hour. Air is supplied at a temperature of 55°C and a dew point of 26.5°C. The air leaves the drier at a temperature of 32°C and a dew point of 7.2°C. The pressure in the system is constant at 100.0 kPa. Calculate the volume of the wet air, at the initial conditions, which is supplied per hour. Data: x_H2O,1 = 0.035 and x_H2O,2 = 0.0102 (mole fractions of water in the entering and leaving air, respectively).",
+        "options": [
+          "A. 3.03×10^4 m³/hr",
+          "B. 6.05×10^4 m³/hr",
+          "C. 3.97×10^4 m³/hr",
+          "D. 5.11×10^4 m³/hr"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Around airports, jet aircrafts can become major contributors to pollution. As aircraft activity increases and public concern brings other sources under control, the relative contribution of aircraft to pollution could go up. Recently, federal-, state-, and local government pressure has speeded the introduction of new combustors in aircraft. In a test for an aircraft fuel with the average composition C1.20H4.40, the fuel is completely burned with the exact stoichiometric amount of air required. The air is supplied at 24°C and 100 kPa, with a humidity of 80 percent. For the entering air, compute the dew point.",
+        "options": [
+          "A. 17°C",
+          "B. 19°C",
+          "C. 23°C",
+          "D. 21°C"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Around airports, jet aircrafts can become major contributors to pollution. As aircraft activity increases and public concern brings other sources under control, the relative contribution of aircraft to pollution could go up. Recently, federal-, state-, and local government pressure has speeded the introduction of new combustors in aircraft. In a test for an aircraft fuel with the average composition C1.20H4.40, the fuel is completely burned with the exact stoichiometric amount of air required. The air is supplied at 24°C and 100 kPa, with a humidity of 80 percent. For the entering air, compute the molal humidity.",
+        "options": [
+          "A. 0.029",
+          "B. 0.011",
+          "C. 0.024",
+          "D. 0.015"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Around airports, jet aircrafts can become major contributors to pollution. As aircraft activity increases and public concern brings other sources under control, the relative contribution of aircraft to pollution could go up. Recently, federal-, state-, and local government pressure has speeded the introduction of new combustors in aircraft. In a test for an aircraft fuel with the average composition C1.20H4.40, the fuel is completely burned with the exact stoichiometric amount of air required. The air is supplied at 24°C and 100 kPa, with a humidity of 80 percent. For the entering air, compute the relative humidity.",
+        "options": [
+          "A. 0.71",
+          "B. 0.87",
+          "C. 0.81",
+          "D. 0.77"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "Air at 300 K and 100 kPa has a dew point of 289 K. What is the percent relative humidity?",
+        "options": [
+          "A. 51%",
+          "B. 62%",
+          "C. 79%",
+          "D. 44%"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Air at 300 K and 100 kPa has a dew point of 289 K. To what pressure must this air be compressed to cause condensation to start, if the temperature remains at 300 K?",
+        "options": [
+          "A. 219 kPa",
+          "B. 200 kPa",
+          "C. 288 kPa",
+          "D. 179 kPa"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Air at 300 K and 100 kPa has a dew point of 289 K. To what temperature must this air be cooled to remove 25 percent of the moisture, if the pressure stays constant at 100 kPa?",
+        "options": [
+          "A. 16°C",
+          "B. 12°C",
+          "C. 10°C",
+          "D. 14°C"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Air at 300 K and 100 kPa has a dew point of 289 K. What would be the percent relative humidity of this air after heating to 340 K, at constant pressure?",
+        "options": [
+          "A. 3%",
+          "B. 9%",
+          "C. 5%",
+          "D. 7%"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Air at 300 K and 100 kPa has a dew point of 289 K. Did the molal saturation change during the heating of this air to 340 K, at constant pressure?",
+        "options": [
+          "A. Either yes or no",
+          "B. Yes",
+          "C. The question is invalid",
+          "D. No"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Consider the drying operation shown in the figure below for a solid loading, dry basis, of 50 kg/m² with a constant drying rate of 5 kg/m²-h. The falling rate of drying time is linear with moisture content. The drying time in hours required to reduce an initial moisture content of 25% to a final moisture content of 2% is: Figure description: a drying rate curve (drying rate in kg/m²-h versus moisture content X in kg water/kg dry solid, with moisture contents taken on a dry basis). The curve has a constant-rate period at 5 kg/m²-h from the initial moisture content down to the critical moisture content Xc = 0.1, followed by a falling-rate period that decreases linearly to zero rate at the equilibrium moisture content Xe = 0.005.",
+        "options": [
+          "A. 2.75",
+          "B. 1.55",
+          "C. 4.55",
+          "D. 3.25"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Ten short tons/h of crushed coal with 15.1% moisture, wet basis, will be dried to 5% moisture, wet basis, in a counter-current continuous rotary dryer using hot air entering the dryer at 180°F and 10% relative humidity and leaving at 40% RH. Assume adiabatic operation. Calculate the humidity of the leaving air.",
+        "options": [
+          "A. 0.045",
+          "B. 0.023",
+          "C. 0.012",
+          "D. 0.067"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Ten short tons/h of crushed coal with 15.1% moisture, wet basis, will be dried to 5% moisture, wet basis, in a counter-current continuous rotary dryer using hot air entering the dryer at 180°F and 10% relative humidity and leaving at 40% RH. Assume adiabatic operation. Determine the wet-bulb temperature of the leaving air.",
+        "options": [
+          "A. 132°F",
+          "B. 150°F",
+          "C. 128°F",
+          "D. 106°F"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "Ten short tons/h of crushed coal with 15.1% moisture, wet basis, will be dried to 5% moisture, wet basis, in a counter-current continuous rotary dryer using hot air entering the dryer at 180°F and 10% relative humidity and leaving at 40% RH. Assume adiabatic operation. How much hot air, in ft³/min, will be needed for the operation?",
+        "options": [
+          "A. 32,000 cfm",
+          "B. 55,000 cfm",
+          "C. 40,000 cfm",
+          "D. 29,000 cfm"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "A feed of 4535 kg/h of a 2.0 wt% salt solution at 311 K continuously enters a single-effect evaporator and is being concentrated to 3.0%. The evaporation is at atmospheric pressure, and the area of the evaporator is 69.7 m². Saturated steam at 383.2 K is supplied for heating. Since the solution is dilute, it can be assumed to have the same boiling point as water. The heat capacity of the feed can be taken as Cp = 4.10 kJ/kg-K. Calculate the overall heat-transfer coefficient U in W/m²-K.",
+        "options": [
+          "A. 1762",
+          "B. 1941",
+          "C. 1790",
+          "D. 1813"
+        ],
+        "correct": 3
+      },
+      {
+        "text": "A double-effect evaporator is heated with steam at 250°F. The second effect is under vacuum at a temperature of 120°F. If BPR1 = 10°F, BPR2 = 28°F, U1 = 300, and U2 = 250, estimate the boiling point of the solution in the first effect.",
+        "options": [
+          "A. 202°F",
+          "B. 200°F",
+          "C. 210°F",
+          "D. 208°F"
+        ],
+        "correct": 3
       }
     ]
   },
