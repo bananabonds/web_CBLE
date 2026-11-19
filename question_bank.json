@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-18T15:12:57",
+  "updated_at": "2026-11-19T09:19:19",
   "banks": {
     "TOS1A_Section1": [
       {
@@ -64452,6 +64452,158 @@
           "D. π/6"
         ],
         "correct": 0
+      }
+    ],
+    "Algebra_Trigonometry_Geometry_Quiz": [
+      {
+        "text": "Solve for x and y: 2^(x+3y) = 1024 and 2^(3x+y) = 64.",
+        "options": [
+          "A. x = 2; y = 8",
+          "B. x = 1; y = 3",
+          "C. x = 3; y = -3",
+          "D. x = 0; y = 6"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Find the value of a + b + c, given the infinite continued fraction 3 + 1/(7 + 1/(3 + 1/(7 + ...))) = (a + b√a)/c, where the pattern 3, 7, 3, 7, ... repeats forever.",
+        "options": [
+          "A. 30",
+          "B. 40",
+          "C. 50",
+          "D. 20"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "The sum of two numbers is equal to 8 times their product. Find the sum of their reciprocals.",
+        "options": [
+          "A. 1",
+          "B. 4",
+          "C. 8",
+          "D. 3"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "If sin x + cos x = √3 - 1, what is sin 2x?",
+        "options": [
+          "A. -0.46",
+          "B. 0.23",
+          "C. -0.23",
+          "D. 0.46"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "If 0 < b < a; a² + b² = 6ab. Then, (a - b)/(a + b) = ?",
+        "options": [
+          "A. 0.48",
+          "B. 0.71",
+          "C. 0.50",
+          "D. 0.65"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "The roots of the equation 8x³ - 6x² + cx + 1 = 0 form a geometric progression. Find the value of c.",
+        "options": [
+          "A. -1",
+          "B. 3",
+          "C. -3",
+          "D. 1"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The vertex of a parabola is at (-3, 2). If the parabola passes through the point (-4, 4), what is the value of its y-intercept?",
+        "options": [
+          "A. 10",
+          "B. 25",
+          "C. 20",
+          "D. 15"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The arch of the bridge is in the shape of a semi-ellipse having a horizontal span of 40 m and a height 16 m at the center. How high is the arch 9 m to the right or to the left from the center?",
+        "options": [
+          "A. 14.3 m",
+          "B. 12.6 m",
+          "C. 15.8 m",
+          "D. 13.5 m"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "The perimeter of a sector is 9 units and its radius is 3 units. What is the area of the sector?",
+        "options": [
+          "A. 1.8",
+          "B. 2.0",
+          "C. 4.5",
+          "D. 3.3"
+        ],
+        "correct": 2
+      },
+      {
+        "text": "The exterior angles of a pentagon are (m+5)°, (2m+3)°, (3m+2)°, (4m+1)° and (5m+4)°, respectively. Find the smallest exterior angle.",
+        "options": [
+          "A. 28 degrees",
+          "B. 17 degrees",
+          "C. 49 degrees",
+          "D. 35 degrees"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Parabolas may be seen in various real-life applications. One such application is in car headlights. The light source must be placed at the focus of the parabola in order to maximize brightness. If the headlight of a car is 6\" wide and 5\" deep, how far from the vertex must the light be placed?",
+        "options": [
+          "A. 20/9 in",
+          "B. 1/3 in",
+          "C. 3 in",
+          "D. 30/9 in"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Point A lies on the x-axis. If the midpoint between (-9, 32) and point A lies on the y-axis, what are the coordinates of point A and the midpoint, point M?",
+        "options": [
+          "A. A(9,0); M(0,16)",
+          "B. A(-9,0); M(0,-16)",
+          "C. Impossible to determine",
+          "D. A(16,0); M(9,0)"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Spiderman is climbing up a burning building. He starts out at the second floor and climbs 24 meters. He then grabs a civilian and jumps down at an angle of depression of 76° and lands at a point 15 meters from the base of the building. Assuming his quick leap from the building is a straight line, determine the height of the second floor of the building.",
+        "options": [
+          "A. 36 m",
+          "B. 15 m",
+          "C. 29 m",
+          "D. 40 m"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Find the eccentricity of the following conic section: 16x² + 9y² - 64x - 54y + 1 = 0.",
+        "options": [
+          "A. (√7)/4 units",
+          "B. 3/4 units",
+          "C. 4√7 units",
+          "D. 5/4 units"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Mayon Volcano has a base circumference of 130 km and a height of 2462 meters. Determine its average angle of inclination in degrees.",
+        "options": [
+          "A. 5.9",
+          "B. 8.3",
+          "C. 6.8",
+          "D. 7.2"
+        ],
+        "correct": 2
       }
     ]
   },
